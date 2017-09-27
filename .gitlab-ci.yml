@@ -28,7 +28,25 @@ build:static_files:
       - public/
     expire_in: 1 day
 
-deploy:docker_cloud:beta:
+deploy:docker_cloud:preview:
+  stage: deploy
+  image: docker:latest
+  script:
+    - docker build --tag smrtv/docker-image:ch-smartive-preview .
+    - docker login -u $DOCKER_ID_USER -p $DOCKER_ID_PASSWORD
+    - docker push smrtv/docker-image:ch-smartive-preview
+  only:
+    - branches
+  except:
+    - develop
+    - master
+  dependencies:
+    - build:static_files
+  environment:
+    name: preview
+    url: https://preview.smartive.ch
+
+deploy:docker_cloud:stage:
   stage: deploy
   image: docker:latest
   script:
@@ -39,6 +57,9 @@ deploy:docker_cloud:beta:
     - develop
   dependencies:
     - build:static_files
+  environment:
+    name: stage
+    url: https://stage.smartive.ch
 
 deploy:docker_cloud:prod:
   stage: deploy
@@ -51,3 +72,6 @@ deploy:docker_cloud:prod:
     - master
   dependencies:
     - build:static_files
+  environment:
+    name: prod
+    url: https://smartive.ch
