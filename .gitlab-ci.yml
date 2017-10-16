@@ -16,6 +16,11 @@ lint:
   script:
     - yarn install
     - yarn lint
+
+test:
+  stage: test
+  script:
+    - yarn install
     - yarn test
 
 build:static_files:
