@@ -17,10 +17,7 @@ export const Member = ({ name, job, image, education, children, links = [] }) =>
       <p>
         {links.length > 0
           ? links.map((link) => {
-            let linkItemProp = 'sameAs';
-            if (link.url.startsWith('mailto:')) {
-              linkItemProp = 'email';
-            }
+            const linkItemProp = link.url.startsWith('mailto:') ? 'email' : 'sameAs';
             return (<a key={link.url} href={link.url} itemProp={linkItemProp}>
               {link.text}
             </a>);
