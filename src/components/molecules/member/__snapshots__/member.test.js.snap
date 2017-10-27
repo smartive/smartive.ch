@@ -3,6 +3,9 @@
 exports[`Member renders with links 1`] = `
 <div
   className="member col-xs-12 col-md-6 col-lg-4"
+  itemProp="employee"
+  itemScope={true}
+  itemType="http://schema.org/Person"
 >
   <img
     alt="Example"
@@ -13,11 +16,17 @@ exports[`Member renders with links 1`] = `
     className="member__text"
   >
     <h2>
-      <small>
+      <small
+        itemProp="jobTitle"
+      >
         Bazzer
       </small>
        
-      Foo Bar
+      <span
+        itemProp="name"
+      >
+        Foo Bar
+      </span>
     </h2>
     <h3>
       Funny dude
@@ -28,12 +37,14 @@ exports[`Member renders with links 1`] = `
     <p>
       <a
         href="/foo"
+        itemProp="sameAs"
       >
         Foo
       </a>
       , 
       <a
         href="/bar"
+        itemProp="sameAs"
       >
         Bar
       </a>
@@ -45,6 +56,9 @@ exports[`Member renders with links 1`] = `
 exports[`Member renders without links 1`] = `
 <div
   className="member col-xs-12 col-md-6 col-lg-4"
+  itemProp="employee"
+  itemScope={true}
+  itemType="http://schema.org/Person"
 >
   <img
     alt="Example"
@@ -55,11 +69,17 @@ exports[`Member renders without links 1`] = `
     className="member__text"
   >
     <h2>
-      <small>
+      <small
+        itemProp="jobTitle"
+      >
         Bazzer
       </small>
        
-      Foo Bar
+      <span
+        itemProp="name"
+      >
+        Foo Bar
+      </span>
     </h2>
     <h3>
       Funny dude
