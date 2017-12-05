@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import './member.scss';
 
 export const Member = ({ name, job, image, education, children, links = [] }) =>
-  (<div className="member col-xs-12 col-md-6 col-lg-4">
+  (<div className="member col-xs-12 col-md-6 col-lg-4" itemScope itemProp="employee" itemType="http://schema.org/Person">
     <img className="member__portrait" src={image.src} alt={image.alt} />
     <div className="member__text">
       <h2>
-        <small>{job}</small> {name}
+        <small itemProp="jobTitle">{job}</small> <span itemProp="name">{name}</span>
       </h2>
       <h3>
         {education}
@@ -16,11 +16,12 @@ export const Member = ({ name, job, image, education, children, links = [] }) =>
       {children}
       <p>
         {links.length > 0
-          ? links.map(link =>
-            (<a key={link.url} href={link.url}>
+          ? links.map((link) => {
+            const linkItemProp = link.url.startsWith('mailto:') ? 'email' : 'sameAs';
+            return (<a key={link.url} href={link.url} itemProp={linkItemProp}>
               {link.text}
-            </a>),
-          )
+            </a>);
+          })
             .reduce((pre, cur) => [pre, ', ', cur])
           : null}
       </p>
