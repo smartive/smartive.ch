@@ -192,5 +192,23 @@
         "url": "https://github.com/mircostraessle"
       }
     ]
+  },
+  {
+    "img": "./portrait-marc.jpg",
+    "job": "Project Manager",
+    "name": "Marc Kraft",
+    "education": "Certified ScrumMaster®",
+    "description":
+      "Passionierter Slackliner aus dem Aargau, stolzer Vater eines tollen Sohnes, Multimedia- und Tech-Enthusiast, Film- und Serien-Freak, audiophiler Musikliebhaber und Perkussionist mit eigener Trommelsammlung",
+    "links": [
+      {
+        "text": "marc@smartive.ch",
+        "url": "mailto:marc@smartive.ch"
+      },
+      {
+        "text": "Twitter",
+        "url": "https://twitter.com/kraftmarc"
+      }
+    ]
   }
 ]
