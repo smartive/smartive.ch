@@ -101,7 +101,7 @@ http {
 
   server {
     server_name www.smartive.ch;
-    return 301 $scheme://smartive.ch$request_uri;
+    return 301 \$scheme://smartive.ch\$request_uri;
   }
 }
 
