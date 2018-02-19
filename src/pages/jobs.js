@@ -11,14 +11,18 @@ const Jobs = () =>
         <div className="content">
           <Logo isNegativ />
 
-          <h2>Finde den Job, den du liebst!</h2>
+          <h2 itemProp="description">Finde den Job, den du liebst!</h2>
 
-          <h1 itemProp="title">Software Engineer</h1>
+          <h1><span itemProp="title">Software Engineer</span> (<span itemProp="employmentType">80-100%</span>)</h1>
+          <meta itemProp="datePosted" content="2018-02-01" />
           <p className="location">
             Location:{' '}
             <span itemProp="jobLocation" itemScope itemType="http://schema.org/Place">
               <span itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
-                <span itemProp="addressLocality">Zürich, Schweiz</span>
+                <span itemProp="addressLocality">Zürich</span>, <span itemProp="addressCountry">Schweiz</span>
+                <meta itemProp="addressRegion" content="ZH" />
+                <meta itemProp="postalCode" content="8005" />
+                <meta itemProp="streetAddress" content="Schiffbaustrasse 7" />
               </span>
             </span>
           </p>
