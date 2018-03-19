@@ -163,5 +163,17 @@
     ],
     "imageSrc": "./case-study-migros-msc.png",
     "imageAlt": "Abbildung eines Laptops mit dem Schriftzug Migros"
+  },
+  {
+    "siteTitle": "BARBot",
+    "title": "Im <em>Dialog</em> mit dem Bundesarchiv",
+    "contentBlocks": [
+      {
+        "id": "1",
+        "value": "Für das Schweizerische Bundesarchiv haben wir in Zusammenarbeit mit Microsoft einen Chatbot entwickelt, welcher Webseitenbesucher bei der Recherche im Bundesarchiv unterstützen soll. Der Bot kann nach Personen und Themen in den Dokumenten des Schweizerischen Bundesarchivs suchen."
+      }
+    ],
+    "imageSrc": "./case-study-barbot.png",
+    "imageAlt": "Schweizerisches Bundesarchiv als Schriftzug auf rotem Hintergrund"
   }
 ]
