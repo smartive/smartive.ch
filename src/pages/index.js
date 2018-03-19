@@ -85,7 +85,7 @@ const pageQuery = graphql`
         }
       }
     }
-    allImageSharp(filter: { fluid: { originalName: { regex: "/case-study-migros-msc.png/" } } }) {
+    allImageSharp(filter: { fluid: { originalName: { regex: "/case-study-barbot.png/" } } }) {
       edges {
         node {
           id
@@ -132,19 +132,19 @@ const Index = () => (
           </TeaserList>
 
           <CaseTeaser
-            modifiers={['right-highlighted', 'image-padded']}
-            url="/cases/migros-shared-components"
-            title="Components Library für die Migros-Welt"
-            subline="Case"
+            url="/cases/bar-bot"
+            title="Das Schweizerische Bundesarchiv als Chatbot"
+            subline="Chatbot Case"
             image={{
-              fluid: caseImage,
-              alt: 'Components Library für die Migros-Welt',
+              src: caseImage,
+              alt: 'Schweizerisches Budnesarchiv',
             }}
             allProjects
           >
             <p>
-              Um eine einheitliche Benutzeroberfläche über die diversen Migros Plattformen sicherstellen zu können, wurden in
-              Zusammenarbeit mit weiteren Migros Partneragenturen die Shared Components ins Leben gerufen.
+              Für das Schweizerische Bundesarchiv haben wir in Zusammenarbeit mit Microsoft einen Chatbot entwickelt,
+              welcher Webseitenbesucher bei der Recherche im Bundesarchiv unterstützen soll.
+
             </p>
           </CaseTeaser>
 
