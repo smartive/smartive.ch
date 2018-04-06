@@ -23,8 +23,6 @@ to do so.
 yarn
 ```
 
-;)
-
 ## Development
 
 ```
