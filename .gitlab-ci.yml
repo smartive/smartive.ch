@@ -1,9 +1,10 @@
-image: node:8
+image: node:9
 
 stages:
   - test
-  # - build
-  # - deploy
+  - build
+  - deploy docker
+  - deploy app
 
 lint:
   stage: test
@@ -16,3 +17,36 @@ test:
   script:
     - yarn install
     - yarn test
+
+build static files:
+  stage: build
+  script:
+    - yarn install
+    - yarn build
+  artifacts:
+    paths:
+      - public/
+    expire_in: 1 day
+
+deploy docker production:
+  stage: deploy docker
+  image: docker:latest
+  services:
+    - docker:dind
+  dependencies:
+    - build static files
+  variables:
+    DOCKER_DRIVER: overlay
+    DOCKER_HOST: tcp://localhost:2375
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.smartive.ch
+    - docker build -t registry.smartive.ch/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:latest .
+    - docker push registry.smartive.ch/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:latest
+
+deploy app production:
+  stage: deploy app
+  image: registry.smartive.ch/smartive/kubernetes-deploy:latest
+  variables:
+    NAMESPACE: default
+  script:
+    - k8s-deploy
