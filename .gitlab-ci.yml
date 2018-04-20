@@ -1,15 +1,10 @@
-image: node:8
-
-variables:
-  DOCKER_DRIVER: overlay
-
-services:
-- docker:dind
+image: node:9
 
 stages:
   - test
   - build
-  - deploy
+  - deploy docker
+  - deploy app
 
 lint:
   stage: test
@@ -23,7 +18,7 @@ test:
     - yarn install
     - yarn test
 
-build:static_files:
+build static files:
   stage: build
   script:
     - yarn install
@@ -33,50 +28,33 @@ build:static_files:
       - public/
     expire_in: 1 day
 
-deploy:docker_cloud:preview:
-  stage: deploy
+deploy docker production:
+  stage: deploy docker
   image: docker:latest
-  script:
-    - docker build --tag smrtv/docker-image:ch-smartive-preview .
-    - docker login -u $DOCKER_ID_USER -p $DOCKER_ID_PASSWORD
-    - docker push smrtv/docker-image:ch-smartive-preview
-  only:
-    - branches
-  except:
-    - develop
-    - master
+  services:
+    - docker:dind
   dependencies:
-    - build:static_files
-  environment:
-    name: preview
-    url: https://preview.smartive.ch
-
-deploy:docker_cloud:stage:
-  stage: deploy
-  image: docker:latest
+    - build static files
+  variables:
+    DOCKER_DRIVER: overlay
+    DOCKER_HOST: tcp://localhost:2375
   script:
-    - docker build --tag smrtv/docker-image:ch-smartive-stage .
-    - docker login -u $DOCKER_ID_USER -p $DOCKER_ID_PASSWORD
-    - docker push smrtv/docker-image:ch-smartive-stage
-  only:
-    - develop
-  dependencies:
-    - build:static_files
-  environment:
-    name: stage
-    url: https://stage.smartive.ch
-
-deploy:docker_cloud:prod:
-  stage: deploy
-  image: docker:latest
-  script:
-    - docker build --tag smrtv/docker-image:ch-smartive-prod .
-    - docker login -u $DOCKER_ID_USER -p $DOCKER_ID_PASSWORD
-    - docker push smrtv/docker-image:ch-smartive-prod
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.smartive.ch
+    - docker build -t registry.smartive.ch/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:latest .
+    - docker push registry.smartive.ch/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:latest
   only:
     - master
-  dependencies:
-    - build:static_files
+
+deploy app production:
+  stage: deploy app
+  image: registry.smartive.ch/smartive/kubernetes-deploy:latest
+  variables:
+    NAMESPACE: default
+    IMAGE_TAG: latest
+  script:
+    - k8s-deploy
   environment:
-    name: prod
+    name: production
     url: https://smartive.ch
+  only:
+    - master

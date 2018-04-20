@@ -23,8 +23,6 @@ to do so.
 yarn
 ```
 
-;)
-
 ## Development
 
 ```
@@ -34,4 +32,4 @@ yarn develop
 This runs gatsby in dev mode on `localhost:8000` with HMR, etc.
 
 ## Deployment
-A CI pipeline has been setup on GitLab. `develop` is automatically deployed to beta.smartive.ch and `master` to smartive.ch.
+A CI pipeline has been setup on GitLab. `develop` is automatically deployed to stage.smartive.ch and `master` to smartive.ch.
