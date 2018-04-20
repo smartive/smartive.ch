@@ -76,6 +76,7 @@ stop preview:
     IMAGE_TAG: $CI_COMMIT_REF_SLUG
   script:
     - k8s-prepare
+    - rm ./deployment/prod-ingress.yml
     - kubectl delete -f ./deployment
   when: manual
   environment:
