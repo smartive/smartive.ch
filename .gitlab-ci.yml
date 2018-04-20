@@ -74,7 +74,6 @@ stop preview:
   variables:
     NAMESPACE: preview
     IMAGE_TAG: $CI_COMMIT_REF_SLUG
-    GIT_STRATEGY: none
   script:
     - k8s-prepare
     - kubectl delete -f ./deployment
