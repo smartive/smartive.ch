@@ -6,6 +6,10 @@ stages:
   - deploy docker
   - deploy app
 
+cache:
+  paths:
+    - node_modules
+
 lint:
   stage: test
   script:
@@ -58,11 +62,25 @@ deploy app preview:
     - rm ./deployment/prod-ingress.yml
     - k8s-apply
   environment:
-    name: preview/CI_COMMIT_REF_SLUG
+    name: preview/$CI_COMMIT_REF_SLUG
     url: https://$CI_COMMIT_REF_SLUG.smartive.ch
+    on_stop: stop preview
   except:
     - master
 
+stop preview:
+  stage: deploy app
+  image: registry.smartive.ch/smartive/kubernetes-deploy:latest
+  variables:
+    NAMESPACE: preview
+    IMAGE_TAG: $CI_COMMIT_REF_SLUG
+  script:
+    - k8s-prepare
+    - kubectl delete -f ./deployment
+  when: manual
+  environment:
+    name: preview/$CI_COMMIT_REF_SLUG
+    action: stop
 
 ## Production
 
