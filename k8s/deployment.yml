@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ${CI_PROJECT_PATH_SLUG}
+  namespace: ${NAMESPACE}
+  labels:
+    app: ${CI_PROJECT_PATH_SLUG}
+    namespace: ${NAMESPACE}
+spec:
+  replicas: 1
+  revisionHistoryLimit: 1
+  template:
+    metadata:
+      labels:
+        app: ${CI_PROJECT_PATH_SLUG}
+        name: ${CI_PROJECT_PATH_SLUG}
+        namespace: ${NAMESPACE}
+    spec:
+      containers:
+      - name: app
+        image: registry.smartive.ch/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}:latest
+        imagePullPolicy: Always
+
+        ports:
+        - name: http
+          containerPort: 80
+
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
