@@ -59,7 +59,7 @@ deploy app preview:
     IMAGE_TAG: $CI_COMMIT_REF_SLUG
   script:
     - k8s-prepare
-    - rm ./deployment/prod-ingress.yml
+    - rm ./deployment/-prod-ingress.yml
     - k8s-apply
   environment:
     name: preview/$CI_COMMIT_REF_SLUG
@@ -110,7 +110,7 @@ deploy app production:
     IMAGE_TAG: $CI_PIPELINE_ID
   script:
     - k8s-prepare
-    - rm ./deployment/preview-ingress.yml
+    - rm ./deployment/-preview-ingress.yml
     - k8s-apply
   environment:
     name: production
