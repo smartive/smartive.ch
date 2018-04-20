@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: registry.smartive.ch/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}:latest
+        image: registry.smartive.ch/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}:${IMAGE_TAG}
         imagePullPolicy: Always
 
         ports:

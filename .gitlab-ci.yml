@@ -42,11 +42,19 @@ deploy docker production:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.smartive.ch
     - docker build -t registry.smartive.ch/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:latest .
     - docker push registry.smartive.ch/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:latest
+  only:
+    - master
 
 deploy app production:
   stage: deploy app
   image: registry.smartive.ch/smartive/kubernetes-deploy:latest
   variables:
     NAMESPACE: default
+    IMAGE_TAG: latest
   script:
     - k8s-deploy
+  environment:
+    name: production
+    url: https://smartive.ch
+  only:
+    - master
