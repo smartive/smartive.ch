@@ -8,11 +8,7 @@ stages:
 
 cache:
   paths:
-    - .yarn-cache
     - node_modules
-
-before_script:
-  - yarn config set cache-folder "$(pwd)/.yarn-cache"
 
 lint:
   stage: test
