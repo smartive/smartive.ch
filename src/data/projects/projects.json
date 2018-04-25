@@ -19,7 +19,7 @@
     "title": "Stellenbörse",
     "category": "API und Webapplikation",
     "description":
-      "<p>Für die Migros als diversifizierte Arbeitgeberin ist die Rekrutiertung von gut ausgebildetem Fachpersonal eminent wichtig, auch innerhalb des Onlineauftritts. In der Stellenbörse, die wir für sie entwickelt haben, sind offene Jobs in ansprechendem Design aufgelistet; zudem ermöglicht Elasticsearch intelligentes Suchen.</p><p><a href=\"https://jobs.migros.ch/\">jobs.migros.ch</a></p>",
+      "<p>Für die Migros als diversifizierte Arbeitgeberin ist die Rekrutiertung von gut ausgebildetem Fachpersonal eminent wichtig, auch innerhalb des Onlineauftritts. In der Stellenbörse, die wir für sie entwickelt haben, sind offene Jobs in ansprechendem Design aufgelistet; zudem ermöglicht Elasticsearch intelligentes Suchen.</p>",
     "image": "./migros-jobs.jpg"
   },
   {
@@ -33,7 +33,7 @@
     "title": "MATOOL.com",
     "category": "API und Webapplikation",
     "description":
-      "<p>MATOOL.com ist eine innovative Plattform für das Suchen und Anbieten von Maschinenkapazitäten. Grundlegende Maschinendaten werden von der Applikation automatisch importiert, aufbereitet und den Usern mittels Google Maps einfach und verständlich präsentiert. Mittels Geo- und Facettensuche sind für den Benutzer interessante Maschinen einfach zu finden. Die Applikation wurden von Beginn an für hohe Skalierbarkeit ausgelegt und kann in einer AWS Cloud betrieben werden.</p><p><a href=\"https://matool.com/\">matool.com</a></p>",
+      "<p>MATOOL.com ist eine innovative Plattform für das Suchen und Anbieten von Maschinenkapazitäten. Grundlegende Maschinendaten werden von der Applikation automatisch importiert, aufbereitet und den Usern mittels Google Maps einfach und verständlich präsentiert. Mittels Geo- und Facettensuche sind für den Benutzer interessante Maschinen einfach zu finden. Die Applikation wurden von Beginn an für hohe Skalierbarkeit ausgelegt und kann in einer AWS Cloud betrieben werden.</p>",
     "image": "./matool.jpg"
   },
   {
