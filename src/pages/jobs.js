@@ -31,7 +31,7 @@ const Jobs = () =>
           <span itemProp="hiringOrganization" itemScope itemType="http://schema.org/Organization">
             <span itemProp="name">smartive</span>
           </span>{' '}
-          &mdash; eine dynamische, innovative Schweizer Webentwicklungsagentur und wir suchen und wir suchen eine oder einen{' '}
+          &mdash; eine dynamische, innovative Schweizer Webentwicklungsagentur und wir suchen eine oder einen{' '}
           <strong>Software Engineer</strong> mit starkem Interesse für Web-Technologien.
         </p>
       </article>
