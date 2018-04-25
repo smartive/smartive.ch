@@ -28,32 +28,7 @@ class Index extends React.Component {
     }
   }
 
-  renderJobs() {
-    return (
-      <div>
-        <Helmet>
-          <html lang="de" />
-          <meta charSet="utf-8" />
-          <meta httpEquiv="X-UA-Compatible" content="IE-edge,chrome=1" />
-          <meta name="viewport" content="width=device-width,initial-scale=1" />
-          <link rel="icon" type="image/png" href="/favicon.png" />
-
-          <meta
-            name="description"
-            content="Wir sind smartive — eine dynamische, innovative Schweizer Webentwicklungsagentur. Die Realisierung zeitgemässer Weblösungen gehört genauso zu unserer Passion, wie die konstruktive Zusammenarbeit mit unseren Kundinnen und Kunden."
-          />
-          <title>smartive AG - Zukunftsweisende Webapplikationen für anspruchsvolle Unternehmen</title>
-        </Helmet>
-        {this.props.children()}
-        <Footer />
-      </div>
-    );
-  }
-
   render() {
-    if (this.props.location.pathname === '/jobs') {
-      return this.renderJobs();
-    }
     return (
       <div>
         <Helmet>
@@ -83,9 +58,6 @@ class Index extends React.Component {
 }
 Index.propTypes = {
   children: PropTypes.func.isRequired,
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
 };
 
 export default Index;
