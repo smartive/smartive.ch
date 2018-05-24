@@ -98,6 +98,11 @@ http {
 
     try_files \$uri \$uri/index.html =404;
   }
+
+  server {
+    server_name www.smartive.ch;
+    return 301 \$scheme://smartive.ch\$request_uri;
+  }
 }
 
 EOF

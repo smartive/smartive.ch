@@ -7,7 +7,6 @@ metadata:
     kubernetes.io/ingress.class: nginx
     certmanager.k8s.io/cluster-issuer: letsencrypt-prod-issuer
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
 spec:
   tls:
   - secretName: ${CI_PROJECT_PATH_SLUG}
@@ -16,6 +15,12 @@ spec:
     - www.smartive.ch
   rules:
   - host: smartive.ch
+    http:
+      paths:
+      - backend:
+          serviceName: ${CI_PROJECT_PATH_SLUG}
+          servicePort: 80
+  - host: www.smartive.ch
     http:
       paths:
       - backend:
