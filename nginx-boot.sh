@@ -70,6 +70,7 @@ http {
     add_header X-XSS-Protection "1; mode=block";
     add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://ssl.google-analytics.com https://maps.google.com https://maps.google.ch https://maps.googleapis.com; img-src 'self' data: https://ssl.google-analytics.com https://maps.gstatic.com https://maps.google.com https://maps.googleapis.com https://*.medium.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src 'none'; object-src 'none'";
     add_header X-Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com https://ssl.google-analytics.com https://maps.google.com https://maps.google.ch https://maps.googleapis.com; img-src 'self' data: https://ssl.google-analytics.com https://maps.gstatic.com https://maps.google.com https://maps.googleapis.com https://*.medium.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src 'none'; object-src 'none'";
+    add_header Referrer-Policy no-referrer-when-downgrade;
 
     location /team {
         return 301 /agentur;
