@@ -25,6 +25,10 @@ spec:
         - name: http
           containerPort: 80
 
+        env:
+        - name: COMMIT_HASH
+          value: ${CI_COMMIT_SHA}
+
         livenessProbe:
           httpGet:
             path: /
