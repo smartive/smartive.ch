@@ -11,7 +11,7 @@ exports[`Case Block renders correctly with a graphic image 1`] = `
       className="row"
     >
       <div
-        className="col-xs-12 col-lg-4"
+        className="col-xs-12 col-lg-6"
       >
         <div
           className="case-block__content"
@@ -28,7 +28,7 @@ exports[`Case Block renders correctly with a graphic image 1`] = `
         </div>
       </div>
       <div
-        className="col-xs-12 col-lg-8 case-block__col-img"
+        className="col-xs-12 col-lg-6 case-block__col-img"
       >
         <img
           alt="Example"
@@ -51,7 +51,7 @@ exports[`Case Block renders correctly without a graphic image 1`] = `
       className="row"
     >
       <div
-        className="col-xs-12 col-lg-4"
+        className="col-xs-12 col-lg-6"
       >
         <div
           className="case-block__content"
@@ -68,7 +68,7 @@ exports[`Case Block renders correctly without a graphic image 1`] = `
         </div>
       </div>
       <div
-        className="col-xs-12 col-lg-8 case-block__col-img"
+        className="col-xs-12 col-lg-6 case-block__col-img"
       />
     </div>
   </div>

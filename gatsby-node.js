@@ -1,3 +1,9 @@
+/**
+ * This function rewrites the path of all nodes to remove all trailing slashes.
+ * @param {page} page                   Gatsby Page
+ * @param {object} boundActionCreators  Gatsby Action Creators
+ * @returns {Promise}
+ */
 exports.onCreatePage = ({ page, boundActionCreators }) => {
   const { createPage, deletePage } = boundActionCreators;
   const newPage = Object.assign({}, page);

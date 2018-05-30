@@ -1,9 +1,6 @@
 @import "../../../scss/colors";
 @import "../../../scss/responsive";
 
-.container:nth-of-type(even) .case-block .case-block__col-img {
-  order: -1;
-}
 .case-block {
   padding: 1.5rem 1rem;
 

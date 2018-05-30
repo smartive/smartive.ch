@@ -66,6 +66,7 @@ const CosmoCrmCase = ({ data }) => {
           <img src={techImg} alt="Performance Vergleich zwischen alt und neu" className="case-img" />{' '}
         </picture>
       }
+      isReverse
     >
       <p>
         Durch eine stabile Architektur ist die Skalier-, und Verfügbarkeit der Applikation gewährleistet und einfach erweiterbar. Zusätzliche
