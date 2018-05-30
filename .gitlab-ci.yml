@@ -53,7 +53,7 @@ deploy docker preview:
 
 deploy app preview:
   stage: deploy app
-  image: registry.smartive.ch/smartive/kubernetes-deploy:CI_COMMIT_REF_SLUG
+  image: registry.smartive.ch/smartive/kubernetes-deploy:latest
   variables:
     NAMESPACE: preview
     IMAGE_TAG: $CI_COMMIT_REF_SLUG
@@ -70,7 +70,7 @@ deploy app preview:
 
 stop preview:
   stage: deploy app
-  image: registry.smartive.ch/smartive/kubernetes-deploy:CI_COMMIT_REF_SLUG
+  image: registry.smartive.ch/smartive/kubernetes-deploy:latest
   variables:
     NAMESPACE: preview
     IMAGE_TAG: $CI_COMMIT_REF_SLUG
