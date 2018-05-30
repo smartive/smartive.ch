@@ -71,6 +71,7 @@ const MigrosFilialfinderCase = ({ data }) => {
           <img src={chartImg} alt="Performance Vergleich zwischen alt und neu" className="case-img" />{' '}
         </picture>
       }
+      isReverse
     >
       <p>
         Durch diese Kombination erreichten wir eine um bis zu 26x schnellere Auslieferung der Daten und eine Verbesserung der Volltextsuche zusammen
