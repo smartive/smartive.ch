@@ -63,7 +63,7 @@ deploy app preview:
     - k8s-apply
   environment:
     name: preview/$CI_COMMIT_REF_SLUG
-    url: https://$CI_COMMIT_REF_SLUG.smartive.ch
+    url: https://$CI_ENVIRONMENT_SLUG.smartive.ch
     on_stop: stop preview
   except:
     - master
