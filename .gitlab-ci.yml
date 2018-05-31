@@ -63,7 +63,7 @@ deploy app preview:
     - k8s-apply
   environment:
     name: preview/$CI_COMMIT_REF_SLUG
-    url: https://$CI_COMMIT_REF_SLUG.smartive.ch
+    url: https://$CI_ENVIRONMENT_SLUG.smartive.ch
     on_stop: stop preview
   except:
     - master
@@ -97,8 +97,8 @@ deploy docker production:
     DOCKER_HOST: tcp://localhost:2375
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.smartive.ch
-    - docker build -t registry.smartive.ch/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_PIPELINE_ID .
-    - docker push registry.smartive.ch/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_PIPELINE_ID
+    - docker build -t registry.smartive.ch/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:latest .
+    - docker push registry.smartive.ch/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:latest
   only:
     - master
 
@@ -107,7 +107,7 @@ deploy app production:
   image: registry.smartive.ch/smartive/kubernetes-deploy:latest
   variables:
     NAMESPACE: default
-    IMAGE_TAG: $CI_PIPELINE_ID
+    IMAGE_TAG: latest
   script:
     - k8s-prepare
     - rm ./deployment/preview-ingress.yml

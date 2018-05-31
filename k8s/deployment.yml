@@ -1,10 +1,10 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: ${CI_PROJECT_PATH_SLUG}
+  name: ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG}
   namespace: ${NAMESPACE}
   labels:
-    app: ${CI_PROJECT_PATH_SLUG}
+    app: ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG}
     namespace: ${NAMESPACE}
 spec:
   replicas: 1
@@ -12,8 +12,8 @@ spec:
   template:
     metadata:
       labels:
-        app: ${CI_PROJECT_PATH_SLUG}
-        name: ${CI_PROJECT_PATH_SLUG}
+        app: ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG}
+        name: ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG}
         namespace: ${NAMESPACE}
     spec:
       containers:
