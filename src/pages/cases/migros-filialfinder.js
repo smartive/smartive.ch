@@ -108,12 +108,13 @@ const MigrosFilialfinderCase = ({ data }) => {
     <Quote text={quote} author={author} company={company} url={url} img={image.childImageSharp.resize.src} />
 
     <MediumTeaser posts={data.allMediumPost} />
-      <TextBlock>
-        <p>
-          Auf unserem Blog erläutert Nicola Marcacci Rossi in zwei Artikeln unsere
-          Erfahrungen und Learnings im Umbau einer komplexen Webapplikation.
-        </p>
-      </TextBlock>
+
+    <TextBlock>
+      <p>
+        Auf unserem Blog erläutert Nicola Marcacci Rossi in zwei Artikeln unsere
+        Erfahrungen und Learnings im Umbau einer komplexen Webapplikation.
+      </p>
+    </TextBlock>
 
   </div>);
 };
