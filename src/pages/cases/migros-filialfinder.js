@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { CaseBlock, Facts, Stage } from '../../components/molecules';
+import { TextBlock } from '../../components/atoms';
+import { CaseBlock, Facts, Quote, Stage } from '../../components/molecules';
+import { MediumTeaser } from '../../components/organisms/medium-teaser';
 
 import aggregationImg from './migros-filialfinder-images/data-aggregation.png';
 import frontendImg from './migros-filialfinder-images/filialfinder-frontend.png';
@@ -9,6 +11,7 @@ import chartImg from './migros-filialfinder-images/chart.png';
 
 const MigrosFilialfinderCase = ({ data }) => {
   const stageData = data.allStagesJson.edges[0].node;
+  const { quote, author, company, url, image } = data.allQuotesJson.edges[0].node;
 
   return (<div>
     <Stage
@@ -101,6 +104,17 @@ const MigrosFilialfinderCase = ({ data }) => {
         Interpretation durch Suchmaschinen.
       </p>
     </CaseBlock>
+
+    <Quote text={quote} author={author} company={company} url={url} img={image.childImageSharp.resize.src} />
+
+    <MediumTeaser posts={data.allMediumPost} />
+      <TextBlock>
+        <p>
+          Auf unserem Blog erläutert Nicola Marcacci Rossi in zwei Artikeln unsere
+          Erfahrungen und Learnings im Umbau einer komplexen Webapplikation.
+        </p>
+      </TextBlock>
+
   </div>);
 };
 
@@ -132,6 +146,41 @@ export const migrosCaseQuery = graphql`
             }
           }
           imageAlt
+        }
+      }
+    }
+    allMediumPost(filter: { id: { regex: "/(5d34a41f108a|ee9125238619)/" } }) {
+      edges {
+        node {
+          id
+          title
+          uniqueSlug
+          author {
+            name
+          }
+          virtuals {
+            subtitle
+            previewImage {
+              imageId
+            }
+          }
+        }
+      }
+    }
+    allQuotesJson(filter: { id: { eq: "corinne-petit-m-filialfinder" } }) {
+      edges {
+        node {
+          quote
+          author
+          company
+          url
+          image {
+            childImageSharp {
+              resize(width: 160) {
+                src
+              }
+            }
+          }
         }
       }
     }
