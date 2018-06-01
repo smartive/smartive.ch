@@ -6,7 +6,7 @@
   font-size: 1.25rem;
   font-weight: 300;
   background: $white;
-  padding: 2.5rem 0;
+  padding: 2.5rem 0 5rem 0;
 
   .footer__row--logo {
     display: none;
@@ -16,8 +16,11 @@
     }
   }
 
-  .footer__row--contact {
-    margin-bottom: 2.5rem;
+  .footer_row--logo-sms {
+    text-align: center;
+    @media #{$large-up} {
+      text-align: left;
+    }
   }
 
   .link {
