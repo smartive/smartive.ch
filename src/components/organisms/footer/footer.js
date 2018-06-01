@@ -7,6 +7,7 @@ import './footer.scss';
 import githubImgSrc from './github.svg';
 import twitterImgSrc from './twitter.svg';
 import facebookImgSrc from './facebook.svg';
+import smsImgSrc from './sms.png';
 
 const items = [
   { href: 'https://github.com/smartive', src: githubImgSrc, alt: 'smartive auf GitHub' },
@@ -56,6 +57,13 @@ export const Footer = () =>
               )}
             </ul>
           </nav>
+        </div>
+      </div>
+      <div className="footer_row--logo-sms row">
+        <div className="col-xs-12">
+          <a className="logo">
+            <img src={smsImgSrc} alt="swiss made software" />
+          </a>
         </div>
       </div>
     </div>
