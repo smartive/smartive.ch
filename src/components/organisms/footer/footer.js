@@ -61,7 +61,7 @@ export const Footer = () =>
       </div>
       <div className="footer_row--logo-sms row">
         <div className="col-xs-12">
-          <a className="logo">
+          <a className="logo" href="https://www.swissmadesoftware.org/">
             <img src={smsImgSrc} alt="swiss made software" />
           </a>
         </div>
