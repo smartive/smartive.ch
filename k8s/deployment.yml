@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG}
@@ -9,6 +9,11 @@ metadata:
 spec:
   replicas: 1
   revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG}
+      name: ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG}
+      namespace: ${NAMESPACE}
   template:
     metadata:
       labels:
@@ -24,6 +29,7 @@ spec:
         ports:
         - name: http
           containerPort: 80
+          protocol: TCP
 
         env:
         - name: COMMIT_HASH
