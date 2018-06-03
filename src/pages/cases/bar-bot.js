@@ -68,6 +68,7 @@ const BarBotCase = ({
             <img className="case-img" src={nlpImg} alt="Funktionalitäten der CRM Applikation" />
           </picture>
         }
+        isReverse
       >
         <p>
           Der Bot wird unterstützt durch LUIS - dem Language Understanding Intelligent Service von
