@@ -7,7 +7,7 @@ import './footer.scss';
 import githubImgSrc from './github.svg';
 import twitterImgSrc from './twitter.svg';
 import facebookImgSrc from './facebook.svg';
-import smsImgSrc from './sms.png';
+import smsImgSrc from './sms.svg';
 
 const items = [
   { href: 'https://github.com/smartive', src: githubImgSrc, alt: 'smartive auf GitHub' },
@@ -45,12 +45,12 @@ export const Footer = () =>
             <a href="mailto:hello@smartive.ch" className="link">hello@smartive.ch</a>
           </p>
         </div>
-        <div className="footer__navigation col-xs-12 col-md-6">
+        <div className="footer__navigation col-xs-12 col-md-3">
           <nav className="social">
             <ul className="row">
               {items.map(item =>
                 (<li key={item.href} className="col-xs">
-                  <a href={item.href}>
+                  <a className="footer__logo" href={item.href}>
                     <img src={item.src} alt={item.alt} />
                   </a>
                 </li>),
@@ -58,10 +58,8 @@ export const Footer = () =>
             </ul>
           </nav>
         </div>
-      </div>
-      <div className="footer_row--logo-sms row">
-        <div className="col-xs-12">
-          <a className="logo" href="https://www.swissmadesoftware.org/companies/smartive-ag/home.html">
+        <div className="footer__sms col-xs-4 col-md-offset-1 col-md-2">
+          <a className="footer__sms-logo" href="https://www.swissmadesoftware.org/companies/smartive-ag/home.html">
             <img src={smsImgSrc} alt="swiss made software" />
           </a>
         </div>
