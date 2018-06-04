@@ -16,10 +16,11 @@
     }
   }
 
-  .footer_row--logo-sms {
+  .footer__sms {
     text-align: center;
+    padding: 1rem 0;
     @media #{$large-up} {
-      text-align: left;
+      text-align: right;
     }
   }
 
@@ -42,15 +43,23 @@
 
     li {
       a {
-        line-height: 1;
         text-align: center;
-        display: block;
-        height: 100%;
-
-        img {
-          height: 2rem;
-        }
       }
     }
+  }
+
+  .footer__logo, .footer__sms-logo {
+    display: block;
+    line-height: 1;
+    height: 100%;
+    img {
+      height: 2rem;
+      width: auto;
+      max-width: 100%;
+    }
+  }
+
+  .footer__sms-logo img {
+    height: 1rem;
   }
 }
