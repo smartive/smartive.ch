@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { TextBlock } from '../../components/atoms';
 import { CaseBlock, Facts, Quote, Stage } from '../../components/molecules';
-import { MediumTeaser } from '../../components/organisms/medium-teaser';
+import { CaseBlogTeaserList } from '../../components/organisms/case-blog-teaser-list';
 
 import aggregationImg from './migros-filialfinder-images/data-aggregation.png';
 import frontendImg from './migros-filialfinder-images/filialfinder-frontend.png';
@@ -107,14 +106,7 @@ const MigrosFilialfinderCase = ({ data }) => {
 
     <Quote text={quote} author={author} company={company} url={url} img={image.childImageSharp.resize.src} />
 
-    <MediumTeaser posts={data.allMediumPost} />
-
-    <TextBlock>
-      <p>
-        Auf unserem Blog erläutert Nicola Marcacci Rossi in zwei Artikeln unsere
-        Erfahrungen und Learnings im Umbau einer komplexen Webapplikation.
-      </p>
-    </TextBlock>
+    <CaseBlogTeaserList posts={data.allMediumPost} />
 
   </div>);
 };

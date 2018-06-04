@@ -1,0 +1,29 @@
+@import "../../../scss/colors";
+@import "../../../scss/responsive";
+
+.case-blog-teaser-list {
+  padding: 1.5rem 0;
+
+  @media #{$medium-up} {
+    padding: 2.5rem 0;
+  }
+
+  @media #{$large-up} {
+    padding: 5rem 0;
+  }
+
+  &__title {
+    margin: 2rem 0;
+    padding: 0 2rem;
+
+    h3 {
+      color: $smartive-blue;
+      font-size: 1.75rem;
+      line-height: 1.25;
+
+      @media #{$large-up} {
+        font-size: 2.25rem;
+      }
+    }
+  }
+}
