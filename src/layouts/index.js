@@ -36,7 +36,7 @@ class Index extends React.Component {
           <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE-edge,chrome=1" />
           <meta name="viewport" content="width=device-width,initial-scale=1" />
-          <meta name="theme-color" content="#1e324b">
+          <meta name="theme-color" content="#1e324b" />
           <link rel="icon" type="image/png" href="/favicon.png" />
 
           <meta
