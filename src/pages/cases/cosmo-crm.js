@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { CaseBlock, Facts, Stage } from '../../components/molecules';
+import { CaseBlock, Facts, Quote, Stage } from '../../components/molecules';
 
 import featureImg from './cosmo-crm-images/feature-stack-cosmo.png';
 import techImg from './cosmo-crm-images/cosmo-tech-stack.png';
 
 const CosmoCrmCase = ({ data }) => {
   const stageData = data.allStagesJson.edges[0].node;
+  const { quote, author, company, url, image } = data.allQuotesJson.edges[0].node;
 
   return (<div>
     <Stage
@@ -73,6 +74,8 @@ const CosmoCrmCase = ({ data }) => {
         Drittsysteme können problemlos in die Anwendung eingebunden werden.
       </p>
     </CaseBlock>
+
+    <Quote text={quote} author={author} company={company} url={url} img={image.childImageSharp.resize.src} />
   </div>);
 };
 
@@ -104,6 +107,23 @@ query CosmoCrmQuery {
           }
         }
         imageAlt
+      }
+    }
+  }
+  allQuotesJson(filter: { id: { eq: "stefan-bischofberger" } }) {
+    edges {
+      node {
+        quote
+        author
+        company
+        url
+        image {
+          childImageSharp {
+            resize(width: 200) {
+              src
+            }
+          }
+        }
       }
     }
   }

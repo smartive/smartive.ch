@@ -160,7 +160,7 @@ export const migrosCaseQuery = graphql`
         }
       }
     }
-    allQuotesJson(filter: { id: { eq: "corinne-petit-m-filialfinder" } }) {
+    allQuotesJson(filter: { id: { eq: "corinne-petit" } }) {
       edges {
         node {
           quote
