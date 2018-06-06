@@ -1,10 +1,18 @@
 [
   {
-    "id": "corinne-petit-m-filialfinder",
+    "id": "corinne-petit",
     "quote": "smartive zeichnet sich durch Professionalität, Dynamik und Kundennähe aus.",
     "author": "Corinne Petit",
     "company": "Migros-Genossenschafts-Bund (MGB)",
     "url": "https://www.migros.ch",
     "image": "./corinne-petit.jpg"
+  },
+  {
+    "id": "stefan-bischofberger",
+    "quote": "smartive war für uns der kompetente und zuverlässliche Partner, der unserem Projekt zum Erfolg verhalf.",
+    "author": "Stefan Bischofberger",
+    "company": "Cosmopolitan Vermögensverwaltungs AG",
+    "url": "https://www.cosmopolitan.ch/de/",
+    "image": "./stefan-bischofberger.jpg"
   }
 ]
