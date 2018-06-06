@@ -5,11 +5,18 @@ import { getSiteHeader } from '../layouts';
 import { Member, Stage } from '../components/molecules';
 import { MediumTeaser } from '../components/organisms';
 
+const replaceCount = (text, count) => {
+  const words = ['0', 'eins', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun', 'zehn', 'elf', 'zwölf'];
+
+  return text.replace('${count}', words[count] ? words[count] : count); // eslint-disable-line no-template-curly-in-string
+};
+
 const Agency = ({ data }) => {
   const stageData = data.allStagesJson.edges[0].node;
+  const members = data.allMembersJson.edges;
 
   return (<div>
-    {getSiteHeader(stageData.siteTitle, stageData.siteDescription)}
+    {getSiteHeader(stageData.siteTitle, replaceCount(stageData.siteDescription, members.length))}
 
     <Stage
       modifiers={['gradient', 'right-highlighted']}
@@ -22,13 +29,13 @@ const Agency = ({ data }) => {
       }
     >
       {stageData.contentBlocks.map(block =>
-        <p key={block.id}>{block.value}</p>,
+        <p key={block.id}>{replaceCount(block.value, members.length)}</p>,
       )}
     </Stage>
 
     <div className="container">
       <div className="row">
-        {data.allMembersJson.edges.map(({ node }) =>
+        {members.map(({ node }) =>
           (<Member
             key={node.name}
             name={node.name}
