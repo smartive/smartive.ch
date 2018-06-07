@@ -205,5 +205,25 @@
         "url": "https://github.com/thommymo"
       }
     ]
+  },
+  {
+    "img": "./portrait-joshua.jpg",
+    "job": "Software Engineer",
+    "name": "Joshua Wirth",
+    "education": "Application Engineer EFZ",
+    "description": "Musiker und leidenschaftlicher, audiophiler Tontechniker aus St.Gallen. Analysiert und diskutiert gerne über jede Art von Musik und fürchtet sich vor einer Welt ohne Internet",
+    "links": [{
+        "text": "joshua@smartive.ch",
+        "url": "mailto:joshua@smartive.ch"
+      },
+      {
+        "text": "GitHub",
+        "url": "https://github.com/virth"
+      },
+      {
+        "text": "Twitter",
+        "url": "https://twitter.com/virth91"
+      }
+    ]
   }
 ]
