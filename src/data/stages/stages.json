@@ -1,24 +1,38 @@
 [
   {
     "siteTitle": "Index",
-    "title": "Zukunfts­weisende <em>Web­applikationen</em> für anspruchs­volle Unternehmen.",
+    "title": "Smarte <em>Web­applikationen</em> für komplexe Fälle",
     "contentBlocks": [
       {
         "id": "1",
-        "value": "Wir sind smartive — eine dynamische, innovative Schweizer Webentwicklungsagentur. Die Realisierung zeitgemässer Weblösungen gehört genauso zu unserer Passion, wie die konstruktive Zusammenarbeit mit unseren Kundinnen und Kunden. Gerne begleiten wir Sie von der ersten Idee über die Konzeption bis hin zur Umsetzung."
+        "value": "Wir sind smartive, 12 Entwickler mit der Passion für die Entwicklung von Webapplikationnen und APIs."
       }
     ],
     "imageSrc": "./home.jpg",
-    "imageAlt": "Zwei smartive Mitarbeiter bei einer Besprechung"
+    "imageAlt": "Zwei smartive Mitarbeiter bei einer Besprechung",
+    "link": "/leistungen",
+    "linkText": "Unser Leistungsangebot"
   },
   {
     "siteTitle": "Agentur",
-    "siteDescription": "Wir sind ein junges, dynamisches Team, bestehend aus ${count} Leuten. Unser breit gestreutes Wissen in sämtlichen Webbereichen unterstützt Sie dabei, sich und Ihr Unternehmen weiterzuentwickeln.",
-    "title": "Creating a <em>smarter</em> web, together.",
+    "siteDescription": "Wir sind ${count} Entwickler. Als Digitale Natives teilen wir die Passion für die Entwicklung von Webapplikationen - sowohl am Arbeitsplatz als auch in unserer Freizeit.",
+    "title": "Creating a <em>Smarter</em> Web, Together.",
     "contentBlocks": [
       {
         "id": "1",
-        "value": "Wir sind ein junges, dynamisches Team, bestehend aus ${count} Leuten. Unser breit gestreutes Wissen in sämtlichen Webbereichen unterstützt Sie dabei, sich und Ihr Unternehmen weiterzuentwickeln."
+        "value": "Wir sind <strong>${count} Entwickler</strong>, alle im Zeitalter der Digitalisierung gross geworden. Als Digitale Natives teilen wir die Passion für die Entwicklung von Webapplikationen - sowohl am Arbeitsplatz als auch in unserer Freizeit."
+      },
+      {
+        "id": "2",
+        "value": "Wir kommen ohne herkömmliche Hierarchien aus. Entscheide werden demokratisch gefällt. Wer länger als 2 Jahre dabei ist wird Aktionär. <br/><strong>Alle sind beteiligt:</strong> Ein Drittel des Gewinns geht an die Mitarbeiter."
+      },
+      {
+        "id": "3",
+        "value": "Wir bleiben am Ball: An unseren Hackdays <strong>erproben wir Neues</strong>. Dieses Jahr zu den Themen GraphQL, PWA, .Net Core."
+      },
+      {
+        "id": "4",
+        "value": "Jeder erhält pro Jahr 10 Tage und CHF 2 500, <strong>um sich weiterzubilden</strong>. Frei nach Wahl."
       }
     ],
     "imageSrc": "../team/thilo-peter-meeting.jpg",
@@ -26,20 +40,20 @@
   },
   {
     "siteTitle": "Leistungen",
-    "siteDescription": "Wir lieben es, unsere Erfahrungen und unser Wissen mit Ihnen zu teilen und schrecken nicht vor anspruchsvollen Aufgaben innerhalb der Umsetzung ehrgeiziger Projekte zurück.",
-    "title": "<em>Digital</em> by default.",
+    "siteDescription": "In enger Zusammenarbeit mit unseren Kundinnen und Kunden entwickeln wir Webapplikationen und API's.",
+    "title": "<em>Digital</em> by Default.",
     "contentBlocks": [
       {
         "id": "1",
-        "value": "Wir schätzen uns glücklich, im Zeitalter des Internets aufgewachsen zu sein und so dessen Entwicklung selbst mitverfolgt und im kleinen Rahmen mitgestaltet zu haben. Wir glauben an das Potenzial, welches das Web für unsere Kundinnnen und Kunden mit sich bringt."
+        "value": "In enger Zusammenarbeit mit unseren Kundinnen und Kunden entwickeln wir Webapplikationen und API's. Immer <strong>mit Blick auf das Ganze</strong> und <strong>viel Liebe zum Detail.</strong>"
       },
       {
         "id": "2",
-        "value": "Als Digital Natives teilen wir uns alle bei smartive unsere Passion für die Entwicklung von Webapplikationen unter Einsatz angesagter Technologien — sowohl am Arbeitsplatz, als auch in unserer Freizeit."
+        "value": "Wir nutzen <strong>zukunftsweisende Technologien</strong> wie Node.js, React, Angular, D3.js, GraphQL, Symfony, .NET Core, Docker, Kubernetes und Elasticsearch."
       },
       {
         "id": "3",
-        "value": "Wir lieben es, unsere Erfahrungen und unser Wissen mit Ihnen zu teilen und schrecken nicht vor anspruchsvollen Aufgaben innerhalb der Umsetzung ehrgeiziger Projekte zurück."
+        "value": "<strong>Qualität ist uns wichtig.</strong> Deshalb setzen wir konsequent auf Code Reviews, Unit- und Functional Testings sowie Continuous Integration."
       }
     ],
     "imageSrc": "./services.jpg",
@@ -47,12 +61,20 @@
   },
   {
     "siteTitle": "Projekte",
-    "siteDescription": "Wir lieben es, unsere Erfahrungen und unser Wissen mit Ihnen zu teilen und schrecken nicht vor anspruchsvollen Aufgaben innerhalb der Umsetzung ehrgeiziger Projekte zurück.",
-    "title": "Let's <em>do</em> it!",
+    "siteDescription": "Jedes Projekt wird im Team entwickelt. So wird das Know-how aller genutzt. Wir arbeiten immer agil. So entsteht für unsere Kundinnen und Kunden der maximale Mehrwert.",
+    "title": "Let's <em>Do</em> It!",
     "contentBlocks": [
       {
         "id": "1",
-        "value": "In enger Zusammenarbeit mit unseren Kundinnen und Kunden entwickeln wir lösungsorientierte Systeme mit viel Liebe zum Detail. Wir setzen dabei auf innovative Technologien wie Node.js, Angular, React, D3.js, Symfony, .NET Core, Docker und Elasticsearch, wobei wir auf Qualität viel Wert legen. Diese stellen wir mittels gegenseitiger Code Reviews sowie Unit- und Functional Testings, zusammen mit Continuous Integration, sicher."
+        "value": "Jedes Projekt wird im Team entwickelt. So wird das <strong>Know-how aller genutzt</strong>. Wir arbeiten immer agil. So entsteht für unsere Kundinnen und Kunden der <strong>maximale Mehrwert</strong>."
+      },
+      {
+        "id": "2",
+        "value": "Der Lead im Projektteam wird von einem Entwickler mit langjähriger Projektleitungserfahrung übernommen. Wir garantieren Ihnen damit einen <strong>kompetenten Ansprechpartner</strong> über alle Projektphasen hinweg - auch bei komplexen Fragestellungen."
+      },
+      {
+        "id": "3",
+        "value": "Das Resultat: Smarte Applikation."
       }
     ],
     "imageSrc": "./work.png",

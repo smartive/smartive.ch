@@ -29,7 +29,7 @@ const Agency = ({ data }) => {
       }
     >
       {stageData.contentBlocks.map(block =>
-        <p key={block.id}>{replaceCount(block.value, members.length)}</p>,
+        <p key={block.id} dangerouslySetInnerHTML={{ __html: replaceCount(block.value, members.length) }} />,
       )}
     </Stage>
 
@@ -49,7 +49,7 @@ const Agency = ({ data }) => {
           >
             <p dangerouslySetInnerHTML={{ __html: node.description }} />
           </Member>),
-          )}
+        )}
       </div>
     </div>
 

@@ -1,26 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import { Button } from '../components/atoms';
 import { CaseTeaser, Stage, Teaser } from '../components/molecules';
 import { MediumTeaser, TeaserList } from '../components/organisms';
 
 const teasers = [
   {
-    title: 'Die akkurate Daten­aufbereitung.',
-    subline: 'API-Entwicklung',
+    title: 'Zukunftsweisende Technologien',
+    subline: 'Langjährige Erfahrung',
     description:
-      'Machen Sie das Beste aus Ihren Daten. Wir aggregieren und vereinheitlichen Ihre Systeme und machen sie so zu einer standardisierten Schnittstelle für die Verwendung im Web.',
+      'Wir verfügen über viel Erfahrung, inbesondere in Node.js, React, Angular, D3.js, GraphQL, Symfony, .NET Core, Docker, Kubernetes und Elasticsearch.',
+    link: 'https://blog.smartive.ch',
+    linkText: 'Blog',
   },
   {
-    title: 'Eine grossartige Präsen­tation.',
-    subline: 'Webapplikationen',
+    title: 'Ein kompetenter Ansprechpartner',
+    subline: 'Ein Projekt, ein Team',
     description:
-      'Da wir mit massgeschneiderten Applikationen, CRMs und interaktiven Visualisierungen arbeiten, können wir Ihnen genau die Lösung anbieten, die vollkommen an Ihre Bedürfnisse angepasst ist.',
+      'An einem Projekt arbeiten immer mehrere Entwickler. Ein Entwickler mit langjähriger Projektleitungserfahrung übernimmt den Lead und garantiert die direkte Kommunikation mit viel technischem Know-How.',
+    link: '/projekte',
+    linkText: 'Projekte',
   },
   {
-    title: 'Mit kompetenter Unter­stützung.',
-    subline: 'Konzeption und Beratung',
+    title: 'Alle sind beteiligt',
+    subline: 'Am Erfolg jedes Projektes interessiert',
     description:
-      'Profitieren Sie von unseren fundierten Ausbildungen und von unserer langjährigen Erfahrung. Wir unterstützen Sie in der Konzeption und der Umsetzung und begleiten Ihr Projekt von Ihrer ersten Idee bis zur fertigen Umsetzung im Web.',
+      'Wir kennen keine klassischen Hierarchien. Alle sind am Erfolg jedes einzelnen Projektes beteiligt. Auch langfristig: Zwei Drittel der Belegschaft sind Aktionäre.',
+    link: '/agentur',
+    linkText: 'Agentur',
   },
 ];
 
@@ -42,6 +50,8 @@ const Index = ({ data }) => {
       {stageData.contentBlocks.map(block =>
         <p key={block.id}>{block.value}</p>,
       )}
+      {console.log(stageData)}
+      <Button url={stageData.link} text={stageData.linkText} isPrimary />
     </Stage>
 
     <TeaserList>
@@ -50,6 +60,7 @@ const Index = ({ data }) => {
           <p>
             {teaser.description}
           </p>
+          <Button url={teaser.link} text={teaser.linkText} />
         </Teaser>),
       )}
     </TeaserList>
@@ -119,6 +130,8 @@ export const pageQuery = graphql`
             }
           }
           imageAlt
+          link
+          linkText
         }
       }
     }
