@@ -82,7 +82,7 @@ export default Index;
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMediumPost(limit: 2, sort: { fields: [createdAt], order: DESC }) {
+    allMediumPost(limit: 2, sort: { fields: [firstPublishedAt], order: DESC }) {
       edges {
         node {
           id
