@@ -7,7 +7,7 @@ metadata:
     app: ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG}
     namespace: ${NAMESPACE}
 spec:
-  replicas: 2
+  replicas: ${NUMBER_OF_REPLICAS}
   revisionHistoryLimit: 1
   selector:
     matchLabels:
