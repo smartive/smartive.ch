@@ -65,7 +65,7 @@ export default Agency;
 
 export const pageQuery = graphql`
   query AgencyQuery {
-    allMediumPost(limit: 2, sort: { fields: [createdAt], order: DESC }) {
+    allMediumPost(limit: 2, sort: { fields: [firstPublishedAt], order: DESC }) {
       edges {
         node {
           id
