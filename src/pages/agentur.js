@@ -6,8 +6,6 @@ import { Member, Stage } from '../components/molecules';
 import { MediumTeaser } from '../components/organisms';
 import { replaceCount } from '../utils/count';
 
-
-
 const Agency = ({ data }) => {
   const stageData = data.allStagesJson.edges[0].node;
   const members = data.allMembersJson.edges;
