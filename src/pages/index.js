@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Button } from '../components/atoms';
 import { CaseTeaser, Stage, Teaser } from '../components/molecules';
 import { MediumTeaser, TeaserList } from '../components/organisms';
+import { replaceCount } from '../utils/count';
 
 const teasers = [
   {
@@ -36,8 +37,6 @@ const Index = ({ data }) => {
   const stageData = data.allStagesJson.edges[0].node;
   const caseImage = data.allImageSharp.edges[0].node.resize.src;
   const members = data.allMembersJson.edges;
-  console.log('members', members);
-
 
   return (<div>
     <Stage
@@ -51,7 +50,7 @@ const Index = ({ data }) => {
       }
     >
       {stageData.contentBlocks.map(block =>
-        <p key={block.id}>{block.value}</p>,
+        <p key={block.id} dangerouslySetInnerHTML={{ __html: replaceCount(block.value, members.length) }} />,
       )}
       <Button url={stageData.link} text={stageData.linkText} isPrimary />
     </Stage>
@@ -134,6 +133,13 @@ export const pageQuery = graphql`
           imageAlt
           link
           linkText
+        }
+      }
+    }
+    allMembersJson {
+      edges {
+        node {
+          name
         }
       }
     }
