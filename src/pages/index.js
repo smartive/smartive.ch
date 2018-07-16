@@ -10,7 +10,7 @@ const teasers = [
     title: 'Zukunftsweisende Technologien',
     subline: 'Langjährige Erfahrung',
     description:
-      'Wir verfügen über viel Erfahrung, inbesondere in Node.js, React, Angular, D3.js, GraphQL, Symfony, .NET Core, Docker, Kubernetes und Elasticsearch.',
+      'Wir verfügen über viel Erfahrung, inbesondere mit Node.js, React, Angular, D3.js, GraphQL, Symfony, .NET Core, Docker, Kubernetes und Elasticsearch.',
     link: 'https://blog.smartive.ch',
     linkText: 'Blog',
   },
@@ -18,7 +18,7 @@ const teasers = [
     title: 'Ein kompetenter Ansprechpartner',
     subline: 'Ein Projekt, ein Team',
     description:
-      'An einem Projekt arbeiten immer mehrere Entwickler. Ein Entwickler mit langjähriger Projektleitungserfahrung übernimmt den Lead und garantiert die direkte Kommunikation mit viel technischem Know-How.',
+      'Ein Entwickler mit langjähriger Projektleitungserfahrung übernimmt im Projekt den Lead und garantiert die direkte Kommunikation mit viel technischem Know-How.',
     link: '/projekte',
     linkText: 'Projekte',
   },
@@ -35,6 +35,9 @@ const teasers = [
 const Index = ({ data }) => {
   const stageData = data.allStagesJson.edges[0].node;
   const caseImage = data.allImageSharp.edges[0].node.resize.src;
+  const members = data.allMembersJson.edges;
+  console.log('members', members);
+
 
   return (<div>
     <Stage
@@ -50,7 +53,6 @@ const Index = ({ data }) => {
       {stageData.contentBlocks.map(block =>
         <p key={block.id}>{block.value}</p>,
       )}
-      {console.log(stageData)}
       <Button url={stageData.link} text={stageData.linkText} isPrimary />
     </Stage>
 

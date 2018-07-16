@@ -5,7 +5,7 @@
     "contentBlocks": [
       {
         "id": "1",
-        "value": "Wir sind smartive, 12 Entwickler mit der Passion für die Entwicklung von Webapplikationnen und APIs."
+        "value": "Wir sind smartive — ${count} Entwickler mit der Passion für die Entwicklung von Webapplikationen und APIs."
       }
     ],
     "imageSrc": "./home.jpg",
@@ -24,15 +24,15 @@
       },
       {
         "id": "2",
-        "value": "Wir kommen ohne herkömmliche Hierarchien aus. Entscheide werden demokratisch gefällt. Wer länger als 2 Jahre dabei ist wird Aktionär. <br/><strong>Alle sind beteiligt:</strong> Ein Drittel des Gewinns geht an die Mitarbeiter."
+        "value": "Wir kommen ohne herkömmliche Hierarchien aus. Entscheide werden demokratisch gefällt. Wer länger als ein Jahr dabei ist, hat die Möglichkeit Aktionär zu werden.<br/><strong>Alle sind beteiligt:</strong> Ein Drittel des Gewinns geht an die Mitarbeiter."
       },
       {
         "id": "3",
-        "value": "Wir bleiben am Ball: An unseren Hackdays <strong>erproben wir Neues</strong>. Dieses Jahr zu den Themen GraphQL, PWA, .Net Core."
+        "value": "Wir bleiben am Ball: An unseren Hackdays <strong>erproben wir Neues</strong>. Dieses Jahr zu den Themen GraphQL, PWA, .NET Core."
       },
       {
         "id": "4",
-        "value": "Jeder erhält pro Jahr 10 Tage und CHF 2 500, <strong>um sich weiterzubilden</strong>. Frei nach Wahl."
+        "value": "Jeder erhält pro Jahr 10 Tage und CHF 2'500, <strong>um sich weiterzubilden</strong>. Frei nach Wahl."
       }
     ],
     "imageSrc": "../team/thilo-peter-meeting.jpg",
@@ -40,12 +40,12 @@
   },
   {
     "siteTitle": "Leistungen",
-    "siteDescription": "In enger Zusammenarbeit mit unseren Kundinnen und Kunden entwickeln wir Webapplikationen und API's.",
+    "siteDescription": "In enger Zusammenarbeit mit unseren Kundinnen und Kunden entwickeln wir Webapplikationen und APIs.",
     "title": "<em>Digital</em> by Default.",
     "contentBlocks": [
       {
         "id": "1",
-        "value": "In enger Zusammenarbeit mit unseren Kundinnen und Kunden entwickeln wir Webapplikationen und API's. Immer <strong>mit Blick auf das Ganze</strong> und <strong>viel Liebe zum Detail.</strong>"
+        "value": "In enger Zusammenarbeit mit unseren Kundinnen und Kunden entwickeln wir Webapplikationen und APIs. Immer <strong>mit Blick auf das Ganze</strong> und <strong>viel Liebe zum Detail.</strong>"
       },
       {
         "id": "2",
@@ -61,12 +61,12 @@
   },
   {
     "siteTitle": "Projekte",
-    "siteDescription": "Jedes Projekt wird im Team entwickelt. So wird das Know-how aller genutzt. Wir arbeiten immer agil. So entsteht für unsere Kundinnen und Kunden der maximale Mehrwert.",
+    "siteDescription": "Jedes Projekt wird im Team entwickelt. So wird das Know-how aller Beteiligten genutzt. Wir arbeiten immer agil. So entsteht für unsere Kundinnen und Kunden der maximale Mehrwert.",
     "title": "Let's <em>Do</em> It!",
     "contentBlocks": [
       {
         "id": "1",
-        "value": "Jedes Projekt wird im Team entwickelt. So wird das <strong>Know-how aller genutzt</strong>. Wir arbeiten immer agil. So entsteht für unsere Kundinnen und Kunden der <strong>maximale Mehrwert</strong>."
+        "value": "Jedes Projekt wird im Team entwickelt. So wird das <strong>Know-how aller Beteiligten genutzt</strong>. Wir arbeiten immer agil. So entsteht für unsere Kundinnen und Kunden der <strong>maximale Mehrwert</strong>."
       },
       {
         "id": "2",
