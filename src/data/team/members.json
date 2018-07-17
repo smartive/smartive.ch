@@ -209,5 +209,21 @@
         "url": "https://twitter.com/virth91"
       }
     ]
+  },
+  {
+    "img": "./portrait-kim.jpg",
+    "job": "Intern",
+    "name": "Kim Beyeler",
+    "education": "Master of Arts UZH",
+    "description": "Sprachnerd und Rheinliebhaber aus Schaffhausen. Mag Skandinavien, Grammatiken und bahnt sich einen Weg in den Code-Garten.",
+    "links": [{
+        "text": "kim@smartive.ch",
+        "url": "mailto:kim@smartive.ch"
+      },
+      {
+        "text": "GitHub",
+        "url": "https://github.com/kimbylr"
+      }
+    ]
   }
 ]
