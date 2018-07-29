@@ -3,8 +3,6 @@ kind: Service
 metadata:
   name: ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG}
   namespace: ${NAMESPACE}
-  annotations:
-    prometheus.io/probe: "true"
   labels:
     app: ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG}
     namespace: ${NAMESPACE}
