@@ -42,7 +42,7 @@ deploy docker preview:
   dependencies:
     - build static files
   variables:
-    DOCKER_DRIVER: overlay
+    DOCKER_DRIVER: overlay2
     DOCKER_HOST: tcp://localhost:2375
   script:
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.smartive.ch
@@ -95,26 +95,25 @@ deploy docker production:
   dependencies:
     - build static files
   variables:
-    DOCKER_DRIVER: overlay
+    DOCKER_DRIVER: overlay2
     DOCKER_HOST: tcp://localhost:2375
   script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.smartive.ch
-    - docker build -t registry.smartive.ch/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:latest .
-    - docker push registry.smartive.ch/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:latest
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY_IMAGE:latest
   only:
     - master
 
 deploy app production:
   stage: deploy app
-  image: registry.smartive.ch/smartive/kubernetes-deploy:latest
+  image: $CI_REGISTRY/smartive/kubernetes-deploy:latest
   variables:
-    NAMESPACE: default
+    NAMESPACE: smartive-production
     IMAGE_TAG: latest
     NUMBER_OF_REPLICAS: 2
   script:
-    - k8s-prepare
-    - rm ./deployment/preview-ingress.yml
-    - k8s-apply
+    - rm ./k8s/preview*
+    - k8s-deploy
   environment:
     name: production
     url: https://smartive.ch

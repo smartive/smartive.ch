@@ -23,13 +23,12 @@ spec:
     spec:
       containers:
       - name: app
-        image: registry.smartive.ch/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}:${IMAGE_TAG}
+        image: ${CI_REGISTRY_IMAGE}:${IMAGE_TAG}
         imagePullPolicy: Always
 
         ports:
         - name: http
           containerPort: 80
-          protocol: TCP
 
         env:
         - name: COMMIT_HASH
