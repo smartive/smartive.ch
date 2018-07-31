@@ -45,23 +45,22 @@ deploy docker preview:
     DOCKER_DRIVER: overlay2
     DOCKER_HOST: tcp://localhost:2375
   script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.smartive.ch
-    - docker build -t registry.smartive.ch/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG .
-    - docker push registry.smartive.ch/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG
+    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG .
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
   except:
     - master
 
 deploy app preview:
   stage: deploy app
-  image: registry.smartive.ch/smartive/kubernetes-deploy:latest
+  image: $CI_REGISTRY/smartive/kubernetes-deploy:latest
   variables:
-    NAMESPACE: preview
+    NAMESPACE: smartive-staging
     IMAGE_TAG: $CI_COMMIT_REF_SLUG
     NUMBER_OF_REPLICAS: 1
   script:
-    - k8s-prepare
-    - rm ./deployment/prod-ingress.yml
-    - k8s-apply
+    - rm ./k8s/prod*
+    - k8s-deploy
   environment:
     name: preview/$CI_COMMIT_REF_SLUG
     url: https://$CI_ENVIRONMENT_SLUG.smartive.ch
@@ -71,15 +70,15 @@ deploy app preview:
 
 stop preview:
   stage: deploy app
-  image: registry.smartive.ch/smartive/kubernetes-deploy:latest
+  image: $CI_REGISTRY/smartive/kubernetes-deploy:latest
   variables:
-    NAMESPACE: preview
+    NAMESPACE: smartive-staging
     IMAGE_TAG: $CI_COMMIT_REF_SLUG
     NUMBER_OF_REPLICAS: 1
   script:
-    - k8s-prepare
-    - rm ./deployment/prod-ingress.yml
-    - kubectl delete -f ./deployment
+    - rm ./deployment/prod*
+    - k8s-delete
+    - kubectl delete secret ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG} -n $NAMESPACE
   when: manual
   environment:
     name: preview/$CI_COMMIT_REF_SLUG
