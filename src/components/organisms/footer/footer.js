@@ -40,7 +40,7 @@ export const Footer = () =>
         </div>
         <div className="contact col-xs-12 col-md-3">
           <p>
-            <a href="tel:+41 44 533 59 53" className="link">+41 44 533 59 53</a>
+            <a href="tel:0041445525599" className="link">+41 44 552 55 99</a>
             <br />
             <a href="mailto:hello@smartive.ch" className="link">hello@smartive.ch</a>
           </p>
