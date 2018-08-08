@@ -8,6 +8,11 @@ metadata:
     namespace: ${NAMESPACE}
 spec:
   replicas: ${NUMBER_OF_REPLICAS}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
   revisionHistoryLimit: 1
   selector:
     matchLabels:
