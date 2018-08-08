@@ -107,7 +107,7 @@ http {
   }
 
   server {
-    server_name www.smartive.ch;
+    server_name www.smartive.ch smartive.cloud www.smartive.cloud;
     return 301 \$scheme://smartive.ch\$request_uri;
   }
 }

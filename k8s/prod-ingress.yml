@@ -13,6 +13,8 @@ spec:
     hosts:
     - smartive.ch
     - www.smartive.ch
+    - smartive.cloud
+    - www.smartive.cloud
   rules:
   - host: smartive.ch
     http:
@@ -21,6 +23,18 @@ spec:
           serviceName: ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG}
           servicePort: 80
   - host: www.smartive.ch
+    http:
+      paths:
+      - backend:
+          serviceName: ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG}
+          servicePort: 80
+  - host: smartive.cloud
+    http:
+      paths:
+      - backend:
+          serviceName: ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG}
+          servicePort: 80
+  - host: www.smartive.cloud
     http:
       paths:
       - backend:
