@@ -13,7 +13,7 @@ const teasers = [
     description:
       'Wir verfügen über viel Erfahrung, inbesondere mit Node.js, React, Angular, D3.js, GraphQL, Symfony, .NET Core, Docker, Kubernetes und Elasticsearch.',
     link: 'https://blog.smartive.ch',
-    linkText: 'Blog',
+    linkText: 'Unser Blog',
   },
   {
     title: 'Ein kompetenter Ansprechpartner',
@@ -21,7 +21,7 @@ const teasers = [
     description:
       'Ein Entwickler mit langjähriger Projektleitungserfahrung übernimmt im Projekt den Lead und garantiert die direkte Kommunikation mit viel technischem Know-How.',
     link: '/projekte',
-    linkText: 'Projekte',
+    linkText: 'Unsere Projekte',
   },
   {
     title: 'Alle sind beteiligt',
@@ -29,7 +29,7 @@ const teasers = [
     description:
       'Wir kennen keine klassischen Hierarchien. Alle sind am Erfolg jedes einzelnen Projektes beteiligt. Auch langfristig: Zwei Drittel der Belegschaft sind Aktionäre.',
     link: '/agentur',
-    linkText: 'Agentur',
+    linkText: 'Über uns',
   },
 ];
 
@@ -61,7 +61,7 @@ const Index = ({ data }) => {
           <p>
             {teaser.description}
           </p>
-          <Button url={teaser.link} text={teaser.linkText} />
+          <Button url={teaser.link} text={teaser.linkText} isWhite hasBorder />
         </Teaser>),
       )}
     </TeaserList>
