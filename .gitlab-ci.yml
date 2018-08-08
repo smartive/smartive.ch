@@ -54,6 +54,7 @@ deploy docker preview:
 deploy app preview:
   stage: deploy app
   image: $CI_REGISTRY/smartive/kubernetes-deploy:latest
+  dependencies: []
   variables:
     NAMESPACE: smartive-staging
     IMAGE_TAG: $CI_COMMIT_REF_SLUG
@@ -71,12 +72,13 @@ deploy app preview:
 stop preview:
   stage: deploy app
   image: $CI_REGISTRY/smartive/kubernetes-deploy:latest
+  dependencies: []
   variables:
     NAMESPACE: smartive-staging
     IMAGE_TAG: $CI_COMMIT_REF_SLUG
     NUMBER_OF_REPLICAS: 1
   script:
-    - rm ./deployment/prod*
+    - rm ./k8s/prod*
     - k8s-delete
     - kubectl delete secret ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG} -n $NAMESPACE
   when: manual
@@ -106,6 +108,7 @@ deploy docker production:
 deploy app production:
   stage: deploy app
   image: $CI_REGISTRY/smartive/kubernetes-deploy:latest
+  dependencies: []
   variables:
     NAMESPACE: smartive-production
     IMAGE_TAG: latest
