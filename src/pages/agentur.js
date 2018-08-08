@@ -4,12 +4,7 @@ import PropTypes from 'prop-types';
 import { getSiteHeader } from '../layouts';
 import { Member, Stage } from '../components/molecules';
 import { MediumTeaser } from '../components/organisms';
-
-const replaceCount = (text, count) => {
-  const words = ['0', 'eins', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun', 'zehn', 'elf', 'zwölf'];
-
-  return text.replace('${count}', words[count] ? words[count] : count); // eslint-disable-line no-template-curly-in-string
-};
+import { replaceCount } from '../utils/count';
 
 const Agency = ({ data }) => {
   const stageData = data.allStagesJson.edges[0].node;
@@ -29,7 +24,7 @@ const Agency = ({ data }) => {
       }
     >
       {stageData.contentBlocks.map(block =>
-        <p key={block.id}>{replaceCount(block.value, members.length)}</p>,
+        <p key={block.id} dangerouslySetInnerHTML={{ __html: replaceCount(block.value, members.length) }} />,
       )}
     </Stage>
 
@@ -49,7 +44,7 @@ const Agency = ({ data }) => {
           >
             <p dangerouslySetInnerHTML={{ __html: node.description }} />
           </Member>),
-          )}
+        )}
       </div>
     </div>
 
