@@ -16,6 +16,14 @@
     "caseUrl": "/cases/cosmo-crm"
   },
   {
+    "title": "Components Library",
+    "category": "Frontend Komponenten",
+    "description":
+      "<p>Für die Migros erarbeiteten wir das Konzept und leiteten die Migration und Umsetzung zur Modularisierung ihrer Frontendkomponenten. Die Komponenten werden in einer gemeinsamen Registry abgelegt und können so einfach wiederverwendet werden und bieten dennoch ein einheitliches Benutzererlebnis.</p>",
+    "image": "./migros-shared-components.jpg",
+    "caseUrl": "/cases/migros-shared-components"
+  },
+  {
     "title": "Stellenbörse",
     "category": "API und Webapplikation",
     "description":
@@ -89,7 +97,7 @@
     "title": "Saisontabelle",
     "category": "Webapplikation",
     "description":
-      "<p>Für Generation M haben wir eine interaktive Saisontabelle als responsive Applikation, basierend auf AngularJS, erstellt. Für das Design der Applikation zeigt sich <a href=\"http://www.denkwerk.com/\">denkwerk</a> verantwortlich.</p><p><a href=\"http://www.migros.ch/generation-m/de/essen-und-kochen/gesunde-ernaehrung/saisontabelle.html\">generation-m.migros.ch</a></p>",
+      "<p>Für Generation M haben wir eine interaktive Saisontabelle als responsive Applikation, basierend auf AngularJS, erstellt. Für das Design der Applikation zeigt sich <a href=\"http://www.denkwerk.com/\">denkwerk</a> verantwortlich.</p><p><a href=\"https://generation-m.migros.ch/de/nachhaltig-leben/tipps-tools/saisonkalender.html\">generation-m.migros.ch</a></p>",
     "image": "./saisontabelle.jpg"
   },
   {

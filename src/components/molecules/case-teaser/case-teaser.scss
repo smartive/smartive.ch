@@ -91,3 +91,50 @@
     }
   }
 }
+
+.case-teaser--image-padded {
+  .row > .case-teaser__col--img {
+    padding: 2.5rem;
+
+    @media #{$large-up} {
+      padding-top: 0;
+    }
+
+    @media #{$xlarge-up} {
+      padding: 0;
+    }
+  }
+
+  .img-container {
+    padding: 0;
+
+    @media #{$xlarge-up} {
+      padding-left: 2.5rem;
+    }
+  }
+}
+
+.case-teaser--right-highlighted > .case-teaser {
+  .case-teaser__col--body {
+    @media #{$xlarge-up} {
+      order: -1;
+    }
+  }
+
+  .img-container {
+    line-height: 0;
+
+    .case-image {
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, .1);
+    }
+
+    @media #{$xlarge-up} {
+      margin-right: -1.5rem;
+
+      .case-image {
+        box-shadow: 0 2rem 4rem 0 rgba(0, 0, 0, .1);
+      }
+    }
+  }
+}
+

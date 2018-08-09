@@ -147,5 +147,21 @@
     ],
     "imageSrc": "./case-study-cosmo.png",
     "imageAlt": "Cosmopolitan Logo auf einem Laptop"
+  },
+  {
+    "siteTitle": "Shared Components",
+    "title": "<em>Components Library</em> für die Migros-Welt",
+    "contentBlocks": [
+      {
+        "id": "1",
+        "value": "Um eine einheitliche Benutzeroberfläche über die diversen Migros Plattformen sicherstellen zu können, wurden in Zusammenarbeit mit weiteren Migros Partneragenturen die <strong>Shared Components</strong> ins Leben gerufen."
+      },
+      {
+        "id": "2",
+        "value": "Einzelne Module werden in einer gemeinsamen Registry abgelegt und können so einfach wiederverwendet werden und bieten dennoch ein einheitliches Benutzererlebnis."
+      }
+    ],
+    "imageSrc": "./case-study-migros-msc.png",
+    "imageAlt": "Abbildung eines Laptops mit dem Schriftzug Migros"
   }
 ]
