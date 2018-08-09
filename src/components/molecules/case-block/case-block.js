@@ -30,7 +30,7 @@ export const CaseBlock = ({ title, subtitle, children, graphic, isReverse }) => 
     <div className="case-block">
       <div className="row">
         {isReverse ? (
-          <CaseBlockImage graphic={graphic} />
+          graphic && <CaseBlockImage graphic={graphic} />
         ) : (
           <CaseBlockText title={title} subtitle={subtitle}>
             {children}
@@ -40,7 +40,7 @@ export const CaseBlock = ({ title, subtitle, children, graphic, isReverse }) => 
           <CaseBlockText title={title} subtitle={subtitle}>
             {children}
           </CaseBlockText>
-        ) : (
+        ) : graphic && (
           <CaseBlockImage graphic={graphic} />
         )}
       </div>

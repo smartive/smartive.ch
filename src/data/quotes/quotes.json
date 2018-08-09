@@ -14,5 +14,13 @@
     "company": "Cosmopolitan Vermögensverwaltungs AG",
     "url": "https://www.cosmopolitan.ch/de/",
     "image": "./stefan-bischofberger.jpg"
+  },
+  {
+    "id": "jason-fellmann-m-components",
+    "quote": "smartive setzt Aufträge schnell und professionell um. Die Zusammenarbeit ist unkompliziert und angenehm.",
+    "author": "Jason Fellmann",
+    "company": "Migros-Genossenschafts-Bund (MGB)",
+    "url": "https://www.migros.ch",
+    "image": "./jason-fellmann.jpg"
   }
 ]

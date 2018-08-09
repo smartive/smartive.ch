@@ -26,17 +26,18 @@ const Projects = ({ data }) => {
     </Stage>
 
     <CaseTeaser
-      url="/cases/migros-filialfinder"
-      title="Auf der Suche nach der nächsten Migros Filiale"
+      modifiers={['right-highlighted', 'image-padded']}
+      url="/cases/migros-shared-components"
+      title="Components Library für die Migros-Welt"
       subline="Case"
       image={{
         src: caseImage,
-        alt: 'Auf der Suche nach der nächsten Migros Filiale',
+        alt: 'Components Library für die Migros-Welt',
       }}
+      allProjects
     >
       <p>
-        Für den grössten Schweizer Detailhändler, den Migros-Genossenschafts-Bund, haben wir den
-        neuen Filialfinder umgesetzt.
+        Um eine einheitliche Benutzeroberfläche über die diversen Migros Plattformen sicherstellen zu können, wurden in Zusammenarbeit mit weiteren Migros Partneragenturen die Shared Components ins Leben gerufen.
       </p>
     </CaseTeaser>
 
@@ -110,7 +111,7 @@ query ProjectsQuery {
       }
     }
   }
-  allImageSharp(filter: {id: {regex: "/case-study-migros.png/"}}) {
+  allImageSharp(filter: {id: {regex: "/case-study-migros-msc.png/"}}) {
     edges {
       node {
         id

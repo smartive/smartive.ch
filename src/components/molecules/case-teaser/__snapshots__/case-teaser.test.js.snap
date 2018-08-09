@@ -2,58 +2,66 @@
 
 exports[`Caes Teaser renders correctly 1`] = `
 <div
-  className="case-teaser"
+  className=""
 >
   <div
-    className="container container--case"
+    className="case-teaser"
   >
     <div
-      className="row"
+      className="container container--case"
     >
       <div
-        className="case-teaser__col--img col-xs-12 col-lg-7 last-lg"
-      >
-        <figure>
-          <GatsbyLink
-            to="http://example.com"
-          >
-            <img
-              alt="Example"
-              className="case-image"
-              src="example.jpg"
-            />
-          </GatsbyLink>
-        </figure>
-      </div>
-      <div
-        className="case-teaser__col--body col-xs-12 col-lg-5 first-lg"
+        className="row"
       >
         <div
-          className="case-teaser__text"
+          className="case-teaser__col--img col-xs-12 col-lg-7 last-lg"
         >
-          <h2>
-            <small>
-              Subline
-            </small>
-            Title
-          </h2>
           <div
-            className="case-teaser__body"
+            className="img-container"
           >
-            <p>
-              Example Content
-            </p>
+            <figure>
+              <GatsbyLink
+                to="http://example.com"
+              >
+                <img
+                  alt="Example"
+                  className="case-image"
+                  src="example.jpg"
+                />
+              </GatsbyLink>
+            </figure>
           </div>
+        </div>
+        <div
+          className="case-teaser__col--body col-xs-12 col-lg-5 first-lg"
+        >
           <div
-            className="case-teaser__actions"
+            className="case-teaser__text"
           >
-            <Button
-              hasBorder={false}
-              isPrimary={true}
-              isWhite={false}
-              text="Case anschauen"
-              url="http://example.com"
-            />
+            <h2>
+              <small>
+                Subline
+              </small>
+              Title
+            </h2>
+            <div
+              className="case-teaser__body"
+            >
+              <p>
+                Example Content
+              </p>
+            </div>
+            <div
+              className="case-teaser__actions"
+            >
+              <Button
+                hasBorder={false}
+                isPrimary={true}
+                isWhite={false}
+                text="Case anschauen"
+                url="http://example.com"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -64,65 +72,73 @@ exports[`Caes Teaser renders correctly 1`] = `
 
 exports[`Caes Teaser renders correctly with «All Projects» Button 1`] = `
 <div
-  className="case-teaser"
+  className=""
 >
   <div
-    className="container container--case"
+    className="case-teaser"
   >
     <div
-      className="row"
+      className="container container--case"
     >
       <div
-        className="case-teaser__col--img col-xs-12 col-lg-7 last-lg"
-      >
-        <figure>
-          <GatsbyLink
-            to="http://example.com"
-          >
-            <img
-              alt="Example"
-              className="case-image"
-              src="example.jpg"
-            />
-          </GatsbyLink>
-        </figure>
-      </div>
-      <div
-        className="case-teaser__col--body col-xs-12 col-lg-5 first-lg"
+        className="row"
       >
         <div
-          className="case-teaser__text"
+          className="case-teaser__col--img col-xs-12 col-lg-7 last-lg"
         >
-          <h2>
-            <small>
-              Subline
-            </small>
-            Title
-          </h2>
           <div
-            className="case-teaser__body"
+            className="img-container"
           >
-            <p>
-              Example Content
-            </p>
+            <figure>
+              <GatsbyLink
+                to="http://example.com"
+              >
+                <img
+                  alt="Example"
+                  className="case-image"
+                  src="example.jpg"
+                />
+              </GatsbyLink>
+            </figure>
           </div>
+        </div>
+        <div
+          className="case-teaser__col--body col-xs-12 col-lg-5 first-lg"
+        >
           <div
-            className="case-teaser__actions"
+            className="case-teaser__text"
           >
-            <Button
-              hasBorder={false}
-              isPrimary={true}
-              isWhite={false}
-              text="Case anschauen"
-              url="http://example.com"
-            />
-            <Button
-              hasBorder={false}
-              isPrimary={false}
-              isWhite={false}
-              text="alle unsere Arbeiten"
-              url="/projekte"
-            />
+            <h2>
+              <small>
+                Subline
+              </small>
+              Title
+            </h2>
+            <div
+              className="case-teaser__body"
+            >
+              <p>
+                Example Content
+              </p>
+            </div>
+            <div
+              className="case-teaser__actions"
+            >
+              <Button
+                hasBorder={false}
+                isPrimary={true}
+                isWhite={false}
+                text="Case anschauen"
+                url="http://example.com"
+              />
+              <Button
+                hasBorder={false}
+                isPrimary={false}
+                isWhite={false}
+                text="alle unsere Arbeiten"
+                url="/projekte"
+              />
+            </div>
           </div>
         </div>
       </div>
