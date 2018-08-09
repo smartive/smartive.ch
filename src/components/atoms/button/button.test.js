@@ -9,8 +9,13 @@ import { Button } from './button';
 const renderer = new ShallowRenderer();
 
 describe('Button', () => {
-  it('renders default correctly', () => {
+  it('renders default external link correctly', () => {
     const tree = renderer.render(<Button url="http://example.com" text="Button" />);
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('renders default internal link correctly', () => {
+    const tree = renderer.render(<Button url="/internal" text="Button" />);
     expect(tree).toMatchSnapshot();
   });
 
