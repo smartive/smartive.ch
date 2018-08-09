@@ -6,16 +6,22 @@ import './button.scss';
 
 const mod = modifier => ` button--${modifier}`;
 
-export const Button = ({ url, text, isPrimary, isWhite, hasBorder }) => (
-  <Link
-    to={url}
-    className={`button${isPrimary ? mod('primary') : ''}${isWhite ? mod('white') : ''}${hasBorder
-      ? ' has-border'
-      : ''}`}
-  >
-    {text}
-  </Link>
-);
+export const Button = ({ url, text, isPrimary, isWhite, hasBorder }) => {
+  const internal = /^\/(?!\/)/.test(url);
+  const className = `button${isPrimary ? mod('primary') : ''}${isWhite ? mod('white') : ''}${hasBorder ? ' has-border' : ''}`;
+  if (internal) {
+    return (
+      <Link to={url} className={className}>
+        {text}
+      </Link>
+    );
+  }
+  return (
+    <a href={url} className={className}>
+      {text}
+    </a>
+  );
+};
 
 export default Button;
 
