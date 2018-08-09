@@ -22,7 +22,7 @@ const Services = ({ data }) => {
     >
       <div>
         {stageData.contentBlocks.map(block =>
-          <p key={block.id} dangerouslySetInnerHTML={{ __html: block.value }} />,
+          <p key={block.id}>{ block.value }</p>,
         )}
       </div>
     </Stage>

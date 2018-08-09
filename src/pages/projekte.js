@@ -21,7 +21,7 @@ const Projects = ({ data }) => {
       }
     >
       {stageData.contentBlocks.map(block =>
-        <p key={block.id} dangerouslySetInnerHTML={{ __html: block.value }} />,
+        <p key={block.id}>{ block.value }</p>,
       )}
     </Stage>
 
