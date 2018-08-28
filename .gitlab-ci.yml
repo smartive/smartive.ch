@@ -61,7 +61,7 @@ deploy app preview:
     NUMBER_OF_REPLICAS: 1
   script:
     - rm ./k8s/prod*
-    - k8s-deploy
+    - k8s --ci deploy
   environment:
     name: preview/$CI_COMMIT_REF_SLUG
     url: https://$CI_ENVIRONMENT_SLUG.smartive.ch
@@ -79,7 +79,7 @@ stop preview:
     NUMBER_OF_REPLICAS: 1
   script:
     - rm ./k8s/prod*
-    - k8s-delete
+    - k8s --ci delete
     - kubectl delete secret ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG} -n $NAMESPACE
   when: manual
   environment:
@@ -115,7 +115,7 @@ deploy app production:
     NUMBER_OF_REPLICAS: 2
   script:
     - rm ./k8s/preview*
-    - k8s-deploy
+    - k8s --ci deploy
   environment:
     name: production
     url: https://smartive.ch
