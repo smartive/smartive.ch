@@ -26,7 +26,7 @@
     max-width: 100%;
   }
 
-  picture {
+  &__col-img {
     display: block;
     position: relative;
     line-height: 0;
@@ -35,7 +35,7 @@
       margin: 0 4.5rem 5rem;
     }
 
-    &.is-highlighted {
+    .is-highlighted {
       box-shadow: 0 2rem 4rem 0 rgba(0, 0, 0, .1);
     }
   }

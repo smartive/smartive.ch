@@ -1,125 +1,126 @@
+import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import { CaseTeaser, Project, Stage } from '../components/molecules';
-import { getSiteHeader } from '../layouts';
+import { DefaultLayout } from '../components/layout';
 
-const Projects = ({ data }) => {
-  const stageData = data.allStagesJson.edges[0].node;
-  const caseImage = data.allImageSharp.edges[0].node.resize.src;
-
-  return (<div>
-    {getSiteHeader(stageData.siteTitle, stageData.siteDescription)}
-
-    <Stage
-      modifiers={['gradient']}
-      image={{
-        src: stageData.imageSrc.childImageSharp.original.src,
-        alt: stageData.imageAlt,
-      }}
-      title={
-        <h1 dangerouslySetInnerHTML={{ __html: stageData.title }} />
+const pageQuery = graphql`
+  {
+    allProjectsJson {
+      edges {
+        node {
+          title
+          category
+          description
+          image {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+              }
+            }
+          }
+          caseUrl
+        }
       }
-    >
-      {stageData.contentBlocks.map(block =>
-        <p key={block.id}>{ block.value }</p>,
-      )}
-    </Stage>
+    }
+    allStagesJson(filter: { siteTitle: { eq: "Projekte" } }) {
+      edges {
+        node {
+          id
+          siteTitle
+          siteDescription
+          title
+          contentBlocks {
+            id
+            value
+          }
+          imageSrc {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+              }
+            }
+          }
+          imageAlt
+        }
+      }
+    }
+    allImageSharp(filter: { fluid: { originalName: { regex: "/case-study-migros-msc.png/" } } }) {
+      edges {
+        node {
+          id
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid_withWebp_noBase64
+          }
+        }
+      }
+    }
+  }
+`;
 
-    <CaseTeaser
-      modifiers={['right-highlighted', 'image-padded']}
-      url="/cases/migros-shared-components"
-      title="Components Library für die Migros-Welt"
-      subline="Case"
-      image={{
-        src: caseImage,
-        alt: 'Components Library für die Migros-Welt',
-      }}
-      allProjects
-    >
-      <p>
-        Um eine einheitliche Benutzeroberfläche über die diversen Migros Plattformen sicherstellen zu können, wurden in Zusammenarbeit mit weiteren Migros Partneragenturen die Shared Components ins Leben gerufen.
-      </p>
-    </CaseTeaser>
+const Projects = () => (
+  <StaticQuery
+    query={pageQuery}
+    render={({ allStagesJson, allImageSharp, allProjectsJson }) => {
+      const { siteTitle, siteDescription, imageSrc, imageAlt, title, contentBlocks } = allStagesJson.edges[0].node;
+      const caseImage = allImageSharp.edges[0].node.fluid;
 
-    <div className="project-list">
-      <div className="container">
-        <div className="row">
-          {data.allProjectsJson.edges.map(({ node }) =>
-            (<Project
-              key={node.title}
-              title={node.title}
-              category={node.category}
-              image={{
-                src: node.image.childImageSharp.original.src,
-                alt: node.title,
-              }}
-              caseUrl={node.caseUrl}
-            >
-              <p dangerouslySetInnerHTML={{ __html: node.description }} />
-            </Project>),
-          )}
-        </div>
-      </div>
-    </div>
-  </div>);
-};
+      return (
+        <DefaultLayout siteTitle={siteTitle} siteDescription={siteDescription}>
+          <Stage
+            modifiers={['gradient']}
+            image={{
+              fluid: imageSrc.childImageSharp.fluid,
+              alt: imageAlt,
+            }}
+            title={<h1 dangerouslySetInnerHTML={{ __html: title }} />}
+          >
+            {contentBlocks.map(({ id, value }) => (
+              <p key={id}>{value}</p>
+            ))}
+          </Stage>
 
-Projects.propTypes = {
-  data: PropTypes.objectOf(PropTypes.object).isRequired,
-};
+          <CaseTeaser
+            modifiers={['right-highlighted', 'image-padded']}
+            url="/cases/migros-shared-components"
+            title="Components Library für die Migros-Welt"
+            subline="Case"
+            image={{
+              fluid: caseImage,
+              alt: 'Components Library für die Migros-Welt',
+            }}
+            allProjects
+          >
+            <p>
+              Um eine einheitliche Benutzeroberfläche über die diversen Migros Plattformen sicherstellen zu können, wurden in
+              Zusammenarbeit mit weiteren Migros Partneragenturen die Shared Components ins Leben gerufen.
+            </p>
+          </CaseTeaser>
+
+          <div className="project-list">
+            <div className="container">
+              <div className="row">
+                {allProjectsJson.edges.map(({ node }) => (
+                  <Project
+                    key={node.title}
+                    title={node.title}
+                    category={node.category}
+                    image={{
+                      fluid: node.image.childImageSharp.fluid,
+                      alt: node.title,
+                    }}
+                    caseUrl={node.caseUrl}
+                  >
+                    <p dangerouslySetInnerHTML={{ __html: node.description }} />
+                  </Project>
+                ))}
+              </div>
+            </div>
+          </div>
+        </DefaultLayout>
+      );
+    }}
+  />
+);
 
 export default Projects;
-
-export const pageQuery = graphql`
-query ProjectsQuery {
-  allProjectsJson {
-    edges {
-      node {
-        title
-        category
-        description
-        image {
-          childImageSharp {
-            original {
-              src
-            }
-          }
-        }
-        caseUrl
-      }
-    }
-  }
-  allStagesJson(filter: {siteTitle: {eq: "Projekte"}}) {
-    edges {
-      node {
-        id
-        siteTitle
-        siteDescription
-        title
-        contentBlocks {
-          id
-          value
-        }
-        imageSrc {
-          childImageSharp {
-            original {
-              src
-            }
-          }
-        }
-        imageAlt
-      }
-    }
-  }
-  allImageSharp(filter: {id: {regex: "/case-study-migros-msc.png/"}}) {
-    edges {
-      node {
-        id
-        resize(width: 1025) {
-          src
-        }
-      }
-    }
-  }
-}
-`;

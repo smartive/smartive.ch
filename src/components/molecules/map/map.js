@@ -6,10 +6,11 @@ import withScriptjs from 'react-google-maps/lib/async/withScriptjs';
 import './map.scss';
 import mapMarkerImage from './map-marker.png';
 
-export const baseUrl = 'https://maps.googleapis.com/maps/api/js?v=3.27&libraries=places,geometry&key=AIzaSyD1q6iI1c4XGqrbKGBPZfO2bnRTRVaRg04';
+export const baseUrl =
+  'https://maps.googleapis.com/maps/api/js?v=3.34&libraries=places,geometry&key=AIzaSyD1q6iI1c4XGqrbKGBPZfO2bnRTRVaRg04';
 
 const AsyncGoogleMaps = withScriptjs(
-  withGoogleMap(props => (
+  withGoogleMap((props) => (
     <GoogleMap
       ref={props.onMapLoad}
       defaultZoom={15}
@@ -40,12 +41,12 @@ const AsyncGoogleMaps = withScriptjs(
           </div>
         </InfoWindow>
       </Marker>
-    </GoogleMap>),
-  ),
+    </GoogleMap>
+  )),
 );
 
-export const Map = () =>
-  (<div className="map">
+export const Map = () => (
+  <div className="map">
     <div className="container">
       <div className="col-xs-12">
         <div className="map__container">
@@ -62,6 +63,7 @@ export const Map = () =>
         </div>
       </div>
     </div>
-  </div>);
+  </div>
+);
 
 export default Map;

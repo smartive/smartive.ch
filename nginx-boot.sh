@@ -11,7 +11,7 @@ export GZIP_TYPES=${GZIP_TYPES:-application/javascript application/x-javascript 
 export GZIP_LEVEL=${GZIP_LEVEL:-6}
 
 export CACHE_IGNORE=${CACHE_IGNORE:-html}
-export CACHE_PUBLIC=${CACHE_PUBLIC:-ico|jpg|jpeg|png|gif|svg|js|jsx|css|less|swf|eot|ttf|otf|woff|woff2}
+export CACHE_PUBLIC=${CACHE_PUBLIC:-ico|jpg|jpeg|png|gif|svg|js|jsx|css|less|swf|eot|ttf|otf|woff|woff2|webp}
 export CACHE_PUBLIC_EXPIRATION=${CACHE_PUBLIC_EXPIRATION:-1y}
 
 # Build config
@@ -96,7 +96,7 @@ http {
         expires    off;
     }
 
-    location ~* \.($CACHE_PUBLIC)$ {
+    location ~* (?:\.($CACHE_PUBLIC)|^\/static\/.*\/path---[A-Za-z0-9-]+\.json)$ {
         add_header Cache-Control "public";
         expires +$CACHE_PUBLIC_EXPIRATION;
     }

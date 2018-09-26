@@ -5,8 +5,8 @@ import { MediumTeaser } from '../medium-teaser';
 
 import './case-blog-teaser-list.scss';
 
-export const CaseBlogTeaserList = ({ posts }) =>
-  (<div className="case-blog-teaser-list">
+export const CaseBlogTeaserList = ({ posts }) => (
+  <div className="case-blog-teaser-list">
     <div className="container">
       <div className="row">
         <div className="col-xs-12">
@@ -18,7 +18,8 @@ export const CaseBlogTeaserList = ({ posts }) =>
       </div>
     </div>
     <MediumTeaser posts={posts} />
-  </div>);
+  </div>
+);
 
 CaseBlogTeaserList.propTypes = {
   posts: PropTypes.objectOf(PropTypes.array).isRequired,

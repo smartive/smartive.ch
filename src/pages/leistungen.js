@@ -1,103 +1,109 @@
+import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { Service, Stage } from '../components/molecules';
-import { getSiteHeader } from '../layouts';
+import { DefaultLayout } from '../components/layout';
 
-const Services = ({ data }) => {
-  const stageData = data.allStagesJson.edges[0].node;
-
-  return (<div>
-    {getSiteHeader(stageData.siteTitle, stageData.siteDescription)}
-
-    <Stage
-      modifiers={['left-highlighted', 'gradient']}
-      image={{
-        src: stageData.imageSrc.childImageSharp.original.src,
-        alt: stageData.imageAlt,
-      }}
-      title={
-        <h1 dangerouslySetInnerHTML={{ __html: stageData.title }} />
+const pageQuery = graphql`
+  {
+    allServicesJson {
+      edges {
+        node {
+          title
+          catchline
+          lead
+          body
+          image {
+            extension
+            publicURL
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+              }
+            }
+          }
+          linkedCase {
+            url
+            title
+          }
+        }
       }
-    >
-      <div>
-        {stageData.contentBlocks.map(block =>
-          <p key={block.id}>{ block.value }</p>,
-        )}
-      </div>
-    </Stage>
-    <div className="container">
-      <div className="row">
-        {data.allServicesJson.edges.map(({ node }) =>
-          (<Service
-            key={node.title}
-            title={node.title}
-            catchline={node.catchline}
-            lead={node.lead}
-            image={{
-              src: node.image.childImageSharp.original.src,
-              alt: node.title,
-            }}
-            linkedCase={node.linkedCase}
-          >
-            <div dangerouslySetInnerHTML={{ __html: node.body }} />
-          </Service>),
-        )}
-      </div>
-    </div>
-  </div>);
-};
+    }
+    allStagesJson(filter: { siteTitle: { eq: "Leistungen" } }) {
+      edges {
+        node {
+          id
+          siteTitle
+          siteDescription
+          title
+          contentBlocks {
+            id
+            value
+          }
+          imageSrc {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+              }
+            }
+          }
+          imageAlt
+        }
+      }
+    }
+  }
+`;
 
-Services.propTypes = {
-  data: PropTypes.objectOf(PropTypes.object).isRequired,
-};
+const Services = () => (
+  <StaticQuery
+    query={pageQuery}
+    render={({ allStagesJson, allServicesJson }) => {
+      const { siteTitle, siteDescription, imageSrc, imageAlt, title, contentBlocks } = allStagesJson.edges[0].node;
+
+      return (
+        <DefaultLayout siteTitle={siteTitle} siteDescription={siteDescription}>
+          <Stage
+            modifiers={['left-highlighted', 'gradient']}
+            image={{
+              fluid: imageSrc.childImageSharp.fluid,
+              alt: imageAlt,
+            }}
+            title={<h1 dangerouslySetInnerHTML={{ __html: title }} />}
+          >
+            <div>
+              {contentBlocks.map(({ id, value }) => (
+                <p key={id}>{value}</p>
+              ))}
+            </div>
+          </Stage>
+          <div className="container">
+            <div className="row">
+              {allServicesJson.edges.map(({ node }) => {
+                const { title: serviceTitle, catchline, lead, image, linkedCase, body } = node;
+                const { extension, publicURL, childImageSharp } = image;
+
+                return (
+                  <Service
+                    key={serviceTitle}
+                    title={serviceTitle}
+                    catchline={catchline}
+                    lead={lead}
+                    image={{
+                      ...(extension === 'svg' ? { src: publicURL } : { fluid: childImageSharp.fluid }),
+                      alt: serviceTitle,
+                    }}
+                    linkedCase={linkedCase}
+                  >
+                    <div dangerouslySetInnerHTML={{ __html: body }} />
+                  </Service>
+                );
+              })}
+            </div>
+          </div>
+        </DefaultLayout>
+      );
+    }}
+  />
+);
 
 export default Services;
-
-export const pageQuery = graphql`
-query ServicesQuery {
-  allServicesJson {
-    edges {
-      node {
-        title
-        catchline
-        lead
-        body
-        image {
-          childImageSharp {
-            original {
-              src
-            }
-          }
-        }
-        linkedCase {
-          url
-          title
-        }
-      }
-    }
-  }
-  allStagesJson(filter: {siteTitle: {eq: "Leistungen"}}) {
-    edges {
-      node {
-        id
-        siteTitle
-        siteDescription
-        title
-        contentBlocks {
-          id
-          value
-        }
-        imageSrc {
-          childImageSharp {
-            original {
-              src
-            }
-          }
-        }
-        imageAlt
-      }
-    }
-  }
-}
-`;

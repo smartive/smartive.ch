@@ -6,36 +6,36 @@ exports[`Navigation renders correctly 1`] = `
 >
   <ul>
     <li>
-      <GatsbyLink
+      <Unknown
         activeClassName="is-active"
         to="/leistungen"
       >
         Leistungen
-      </GatsbyLink>
+      </Unknown>
     </li>
     <li>
-      <GatsbyLink
+      <Unknown
         activeClassName="is-active"
         to="/projekte"
       >
         Projekte
-      </GatsbyLink>
+      </Unknown>
     </li>
     <li>
-      <GatsbyLink
+      <Unknown
         activeClassName="is-active"
         to="/agentur"
       >
         Agentur
-      </GatsbyLink>
+      </Unknown>
     </li>
     <li>
-      <GatsbyLink
+      <Unknown
         activeClassName="is-active"
         to="/kontakt"
       >
         Kontakt
-      </GatsbyLink>
+      </Unknown>
     </li>
     <li>
       <a
