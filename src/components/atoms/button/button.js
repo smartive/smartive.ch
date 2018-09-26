@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 
 import './button.scss';
 
-const mod = modifier => ` button--${modifier}`;
+const mod = (modifier) => ` button--${modifier}`;
 
 export const Button = ({ url, text, isPrimary, isWhite, hasBorder }) => {
   const internal = /^\/(?!\/)/.test(url);
-  const className = `button${isPrimary ? mod('primary') : ''}${isWhite ? mod('white') : ''}${hasBorder ? ' has-border' : ''}`;
+  const className = `button${isPrimary ? mod('primary') : ''}${isWhite ? mod('white') : ''}${
+    hasBorder ? ' has-border' : ''
+  }`;
   if (internal) {
     return (
       <Link to={url} className={className}>

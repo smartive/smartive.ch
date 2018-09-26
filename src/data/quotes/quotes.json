@@ -1,6 +1,6 @@
 [
   {
-    "id": "corinne-petit",
+    "slug": "corinne-petit",
     "quote": "smartive zeichnet sich durch Professionalität, Dynamik und Kundennähe aus.",
     "author": "Corinne Petit",
     "company": "Migros-Genossenschafts-Bund (MGB)",
@@ -8,7 +8,7 @@
     "image": "./corinne-petit.jpg"
   },
   {
-    "id": "stefan-bischofberger",
+    "slug": "stefan-bischofberger",
     "quote": "smartive war für uns der kompetente und zuverlässliche Partner, der unserem Projekt zum Erfolg verhalf.",
     "author": "Stefan Bischofberger",
     "company": "Cosmopolitan Vermögensverwaltungs AG",
@@ -16,7 +16,7 @@
     "image": "./stefan-bischofberger.jpg"
   },
   {
-    "id": "jason-fellmann-m-components",
+    "slug": "jason-fellmann-m-components",
     "quote": "smartive setzt Aufträge schnell und professionell um. Die Zusammenarbeit ist unkompliziert und angenehm.",
     "author": "Jason Fellmann",
     "company": "Migros-Genossenschafts-Bund (MGB)",

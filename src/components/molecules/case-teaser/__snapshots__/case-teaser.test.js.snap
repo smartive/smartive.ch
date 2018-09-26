@@ -20,7 +20,7 @@ exports[`Caes Teaser renders correctly 1`] = `
             className="img-container"
           >
             <figure>
-              <GatsbyLink
+              <Unknown
                 to="http://example.com"
               >
                 <img
@@ -28,7 +28,7 @@ exports[`Caes Teaser renders correctly 1`] = `
                   className="case-image"
                   src="example.jpg"
                 />
-              </GatsbyLink>
+              </Unknown>
             </figure>
           </div>
         </div>
@@ -90,7 +90,7 @@ exports[`Caes Teaser renders correctly with «All Projects» Button 1`] = `
             className="img-container"
           >
             <figure>
-              <GatsbyLink
+              <Unknown
                 to="http://example.com"
               >
                 <img
@@ -98,7 +98,7 @@ exports[`Caes Teaser renders correctly with «All Projects» Button 1`] = `
                   className="case-image"
                   src="example.jpg"
                 />
-              </GatsbyLink>
+              </Unknown>
             </figure>
           </div>
         </div>

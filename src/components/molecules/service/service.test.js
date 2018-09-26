@@ -20,12 +20,7 @@ describe('Service', () => {
 
   it('renders correctly with lead', () => {
     const tree = renderer.render(
-      <Service
-        title="Title"
-        image={{ src: 'example.jpg', alt: 'Example' }}
-        catchline="Catchline"
-        lead="Longer Lead Text"
-      >
+      <Service title="Title" image={{ src: 'example.jpg', alt: 'Example' }} catchline="Catchline" lead="Longer Lead Text">
         <p>Content</p>
       </Service>,
     );

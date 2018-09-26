@@ -13,7 +13,9 @@ describe('Blog Teaser', () => {
 
   it('renders default correctly with an img', () => {
     const tree = renderer
-      .create(<BlogTeaser url="http://example.com" title="Title" subline="Subline" lead="Longer lead text" img="image.jpg" />)
+      .create(
+        <BlogTeaser url="http://example.com" title="Title" subline="Subline" lead="Longer lead text" img="image.jpg" />,
+      )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });

@@ -6,8 +6,8 @@ import { Navigation } from '../../molecules';
 
 import './header.scss';
 
-export const Header = () =>
-  (<Headroom disableInlineStyles>
+export const Header = () => (
+  <Headroom disableInlineStyles>
     <header className="header">
       <div className="container">
         <div className="row middle-lg">
@@ -21,6 +21,7 @@ export const Header = () =>
         </div>
       </div>
     </header>
-  </Headroom>);
+  </Headroom>
+);
 
 export default Header;

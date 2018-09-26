@@ -1,21 +1,25 @@
 {
   "extends": [
-    "airbnb"
+    "airbnb",
+    "prettier",
+    "prettier/react"
   ],
+  "plugins": ["react", "prettier"],
   "settings": {
     "import/core-modules": []
   },
   "rules": {
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "max-len": [
-      "warn", 120, 2, {
+      "warn", 125, 2, {
         "ignoreUrls": true,
         "ignoreComments": false,
         "ignoreRegExpLiterals": true,
         "ignoreStrings": true,
         "ignoreTemplateLiterals": true
       }
-    ]
+    ],
+    "prettier/prettier": "error"
   },
   "env": {
     "browser": true,

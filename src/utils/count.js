@@ -9,8 +9,6 @@ export const replaceCount = (text, count) => {
 replaceCount.propTypes = {
   text: PropTypes.string.isRequired,
   count: PropTypes.number.isRequired,
-
 };
 
 export default replaceCount;
-

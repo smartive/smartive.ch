@@ -1,5 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import Img from 'gatsby-image';
 
 import './quote.scss';
 
@@ -8,11 +9,7 @@ export const Quote = ({ text, author, img, company, url }) => (
     <div className="quote-block">
       <div className="row">
         <div className="col-xs-12 col-md-3">
-          <img
-            className="quote__img"
-            alt={`Portrait von ${author}`}
-            src={img}
-          />
+          <Img className="quote__img" alt={`Portrait von ${author}`} fluid={img} />
         </div>
         <div className="col-xs-12.col-md-9 quote__body">
           <blockquote className="quote">
@@ -34,7 +31,15 @@ export const Quote = ({ text, author, img, company, url }) => (
 Quote.propTypes = {
   text: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
+  img: PropTypes.shape({
+    base64: PropTypes.string,
+    aspectRatio: PropTypes.number,
+    src: PropTypes.string,
+    srcSet: PropTypes.string,
+    srcSetType: PropTypes.string,
+    sizes: PropTypes.string,
+    originalImg: PropTypes.string,
+  }).isRequired,
   company: PropTypes.string,
   url: PropTypes.string,
 };

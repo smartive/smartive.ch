@@ -3,28 +3,23 @@ import PropTypes from 'prop-types';
 
 import './teaser.scss';
 
-export const Teaser = ({ title, subline, children }) =>
-  (<div className="teaser col-xs-12 col-sm-6 col-lg-4">
+export const Teaser = ({ title, subline, children }) => (
+  <div className="teaser col-xs-12 col-sm-6 col-lg-4">
     <div className="teaser__content">
       <h2>
-        <small>
-          {subline}
-        </small>
+        <small>{subline}</small>
         {title}
       </h2>
 
-      {children
-        ? <div className="description">
-          {children}
-        </div>
-        : null}
+      {children ? <div className="description">{children}</div> : null}
     </div>
-  </div>);
+  </div>
+);
 
 Teaser.propTypes = {
   title: PropTypes.string.isRequired,
   subline: PropTypes.string.isRequired,
-  children: PropTypes.element,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 };
 
 Teaser.defaultProps = {

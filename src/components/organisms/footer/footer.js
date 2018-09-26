@@ -23,8 +23,8 @@ const items = [
   },
 ];
 
-export const Footer = () =>
-  (<footer className="footer">
+export const Footer = () => (
+  <footer className="footer">
     <div className="container">
       <div className="footer__row--logo row">
         <div className="col-xs-12">
@@ -40,21 +40,25 @@ export const Footer = () =>
         </div>
         <div className="contact col-xs-12 col-md-3">
           <p>
-            <a href="tel:0041445525599" className="link">+41 44 552 55 99</a>
+            <a href="tel:0041445525599" className="link">
+              +41 44 552 55 99
+            </a>
             <br />
-            <a href="mailto:hello@smartive.ch" className="link">hello@smartive.ch</a>
+            <a href="mailto:hello@smartive.ch" className="link">
+              hello@smartive.ch
+            </a>
           </p>
         </div>
         <div className="footer__navigation col-xs-12 col-md-3">
           <nav className="social">
             <ul className="row">
-              {items.map(item =>
-                (<li key={item.href} className="col-xs">
+              {items.map((item) => (
+                <li key={item.href} className="col-xs">
                   <a className="footer__logo" href={item.href}>
                     <img src={item.src} alt={item.alt} />
                   </a>
-                </li>),
-              )}
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
@@ -65,6 +69,7 @@ export const Footer = () =>
         </div>
       </div>
     </div>
-  </footer>);
+  </footer>
+);
 
 export default Footer;

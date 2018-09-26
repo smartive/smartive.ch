@@ -3,10 +3,14 @@ import PropTypes from 'prop-types';
 
 import './case-block.scss';
 
-const CaseBlockImage = ({ graphic }) => <div className="col-xs-12 col-lg-6 case-block__col-img">{graphic}</div>;
+const CaseBlockImage = ({ graphic }) => (
+  <div className="col-xs-12 col-lg-6">
+    <div className="case-block__col-img">{graphic}</div>
+  </div>
+);
 
 CaseBlockImage.propTypes = {
-  graphic: PropTypes.element.isRequired,
+  graphic: PropTypes.node.isRequired,
 };
 
 const CaseBlockText = ({ title, subtitle, children }) => (
@@ -25,7 +29,7 @@ CaseBlockText.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export const CaseBlock = ({ title, subtitle, children, graphic, isReverse }) => (
+export const CaseBlock = ({ title, subtitle, children, graphic, isReverse = false }) => (
   <div className="container">
     <div className="case-block">
       <div className="row">
@@ -40,8 +44,8 @@ export const CaseBlock = ({ title, subtitle, children, graphic, isReverse }) => 
           <CaseBlockText title={title} subtitle={subtitle}>
             {children}
           </CaseBlockText>
-        ) : graphic && (
-          <CaseBlockImage graphic={graphic} />
+        ) : (
+          graphic && <CaseBlockImage graphic={graphic} />
         )}
       </div>
     </div>
