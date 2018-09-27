@@ -1,15 +1,9 @@
-FROM alpine:edge
-MAINTAINER José Moreira <josemoreiravarzim@gmail.com>
-# Forked of from https://hub.docker.com/r/gatsbyjs/gatsby/
+FROM fholzer/nginx-brotli:v1.14.0
+LABEL maintainer="hello@smartive.ch"
 
 EXPOSE 80
 
-ADD nginx-boot.sh /sbin/nginx-boot
+RUN rm -f /etc/nginx/conf.d/*.conf
+COPY nginx.conf /etc/nginx/conf.d/smartive.conf
 
 ADD public/ /pub
-
-RUN chmod +x /sbin/nginx-boot && \
-    apk --update add nginx bash && \
-    rm -fR /var/cache/apk/*
-
-CMD [ "/sbin/nginx-boot" ]

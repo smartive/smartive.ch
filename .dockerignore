@@ -1,0 +1,6 @@
+/__mocks__/
+/.cache/
+/k8s/
+/node_modules/
+/src/
+/static/
