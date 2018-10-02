@@ -33,7 +33,6 @@ module.exports = {
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-zopfli',
     'gatsby-plugin-brotli',
-    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -46,6 +45,7 @@ module.exports = {
         icon: 'static/icon.png',
       },
     },
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
