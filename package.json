@@ -59,6 +59,8 @@
     "eslint-plugin-jsx-a11y": "^5.0.0",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.3.0",
+    "gatsby-plugin-manifest": "^2.0.4",
+    "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-remove-trailing-slashes": "^2.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",

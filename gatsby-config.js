@@ -33,6 +33,19 @@ module.exports = {
     'gatsby-plugin-remove-trailing-slashes',
     'gatsby-plugin-zopfli',
     'gatsby-plugin-brotli',
+    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'smartive AG',
+        short_name: 'smartive AG',
+        start_url: '/',
+        background_color: '#fff',
+        theme_color: '#1e324b',
+        display: 'minimal-ui',
+        icon: 'static/icon.png',
+      },
+    },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
