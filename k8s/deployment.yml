@@ -36,8 +36,8 @@ spec:
           containerPort: 80
 
         env:
-        - name: COMMIT_HASH
-          value: ${CI_COMMIT_SHA}
+        - name: CI_JOB_ID
+          value: "${CI_JOB_ID}"
 
         livenessProbe:
           httpGet:
