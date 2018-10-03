@@ -142,9 +142,8 @@ const Index = () => (
             allProjects
           >
             <p>
-              Für das Schweizerische Bundesarchiv haben wir in Zusammenarbeit mit Microsoft einen Chatbot entwickelt,
-              welcher Webseitenbesucher bei der Recherche im Bundesarchiv unterstützen soll.
-
+              {`Für das Schweizerische Bundesarchiv haben wir in Zusammenarbeit mit Microsoft einen Chatbot entwickelt,
+welcher Webseitenbesucher bei der Recherche im Bundesarchiv unterstützen soll.`}
             </p>
           </CaseTeaser>
 
