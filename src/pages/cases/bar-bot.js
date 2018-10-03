@@ -98,7 +98,7 @@ const BarBotCase = () => (
             isReverse
           >
             <p>
-              Der Bot wird unterstützt durch LUIS - dem Language Understanding Intelligent Service von den Microsoft
+              Der Bot wird unterstützt durch LUIS - dem Language Understanding Intelligent Service welcher Teil der Microsoft
               Cognitive Services. LUIS analysiert Texteingaben von Benutzern mittels Natural Language Processing(NLP) und
               liefert dem Bot einen Intent - also eine Absicht - des Benutzers. Auf diese Absichten kann der Bot wiederum
               reagieren und dem Benutzer antworten. Diese Absichten können in einem Online GUI von Microsoft verwaltet,
@@ -113,7 +113,7 @@ const BarBotCase = () => (
           >
             <p>
               Das Microsoft Bot Builder SDK abstrahiert und vereinheitlicht die Schnittstellen üblicher Chats wie Skype,
-              Slack oder auch Chats auf einer Website und erlaubt die Entwicklung von Bots in C# oder Node.js.Somit kann bei
+              Slack oder auch Chats auf einer Website und erlaubt die Entwicklung von Bots in C# oder Node.js. Somit kann bei
               der Entwicklung der Fokus auf die User Experience und das Dialogdesign - sprich auf die Implementation des Bots
               selbst - gelegt werden.
             </p>
