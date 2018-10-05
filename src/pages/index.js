@@ -133,18 +133,18 @@ const Index = () => (
 
           <CaseTeaser
             modifiers={['right-highlighted', 'image-padded']}
-            url="/cases/bar-bot"
-            title="Das Schweizerische Bundesarchiv als Chatbot"
+            url="/cases/archive-bot"
+            title="Das Archiv als Chatbot"
             subline="Chatbot Case"
             image={{
               fluid: caseImage,
-              alt: 'Schweizerisches Budnesarchiv',
+              alt: 'Archiv',
             }}
             allProjects
           >
             <p>
-              {`Für das Schweizerische Bundesarchiv haben wir in Zusammenarbeit mit Microsoft einen Chatbot entwickelt,
-welcher Webseitenbesucher bei der Recherche im Bundesarchiv unterstützen soll.`}
+              {`Für unseren Kunden haben wir in Zusammenarbeit mit Microsoft einen Chatbot entwickelt,
+welcher Webseitenbesucher bei der Recherche in dessen Archiv unterstützen soll.`}
             </p>
           </CaseTeaser>
 

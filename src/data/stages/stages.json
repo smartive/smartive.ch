@@ -165,15 +165,15 @@
     "imageAlt": "Abbildung eines Laptops mit dem Schriftzug Migros"
   },
   {
-    "siteTitle": "BARBot",
-    "title": "Im <em>Dialog</em> mit dem Bundesarchiv",
+    "siteTitle": "ArchiveBot",
+    "title": "Im <em>Dialog</em> mit dem Archiv",
     "contentBlocks": [
       {
         "id": "1",
-        "value": "Für das Schweizerische Bundesarchiv haben wir in Zusammenarbeit mit Microsoft einen Chatbot entwickelt, welcher Webseitenbesucher bei der Recherche im Bundesarchiv unterstützen soll. Der Bot kann nach Personen und Themen in den Dokumenten des Schweizerischen Bundesarchivs suchen."
+        "value": "Für unseren Kunden haben wir in Zusammenarbeit mit Microsoft einen Chatbot entwickelt, welcher Webseitenbesucher bei der Recherche in dessen Archiv unterstützen soll. Wobei der Bot in den Dokumenten des Archivs nach Personen und Themen sucht."
       }
     ],
-    "imageSrc": "./case-study-barbot.png",
+    "imageSrc": "./case-study-archive-bot.png",
     "imageAlt": "Schweizerisches Bundesarchiv als Schriftzug auf rotem Hintergrund"
   }
 ]

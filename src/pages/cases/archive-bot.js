@@ -7,7 +7,7 @@ import { CaseBlock, Facts, Stage } from '../../components/molecules';
 
 const barBotQuery = graphql`
   query BarBotQuery {
-    allStagesJson(filter: { siteTitle: { eq: "BARBot" } }) {
+    allStagesJson(filter: { siteTitle: { eq: "ArchiveBot" } }) {
       edges {
         node {
           id
@@ -20,8 +20,8 @@ const barBotQuery = graphql`
           }
           imageSrc {
             childImageSharp {
-              resize(width: 1025) {
-                src
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
           }
@@ -56,7 +56,7 @@ const BarBotCase = () => (
           <Stage
             modifiers={['gradient', 'case']}
             image={{
-              src: stageData.imageSrc.childImageSharp.resize.src,
+              fluid: stageData.imageSrc.childImageSharp.fluid,
               alt: stageData.imageAlt,
             }}
             title={<h1 dangerouslySetInnerHTML={{ __html: stageData.title }} />}
