@@ -80,7 +80,7 @@ const Agency = () => (
       const members = allMembersJson.edges;
 
       return (
-        <DefaultLayout siteTitle={siteTitle} siteDescription={siteDescription}>
+        <DefaultLayout siteTitle={siteTitle} siteDescription={replaceCount(siteDescription, members.length)}>
           <Stage
             modifiers={['gradient', 'right-highlighted']}
             image={{
