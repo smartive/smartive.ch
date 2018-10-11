@@ -14,7 +14,7 @@ const pageQuery = graphql`
           description
           image {
             childImageSharp {
-              fluid(maxWidth: 800) {
+              fluid(maxWidth: 800, quality: 92) {
                 ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
@@ -36,7 +36,7 @@ const pageQuery = graphql`
           }
           imageSrc {
             childImageSharp {
-              fluid(maxWidth: 800) {
+              fluid(maxWidth: 800, quality: 92) {
                 ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
@@ -49,7 +49,7 @@ const pageQuery = graphql`
       edges {
         node {
           id
-          fluid(maxWidth: 800) {
+          fluid(maxWidth: 800, quality: 92) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
