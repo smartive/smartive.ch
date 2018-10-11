@@ -20,7 +20,7 @@ const cosmoCrmQuery = graphql`
           }
           imageSrc {
             childImageSharp {
-              fluid(maxWidth: 800) {
+              fluid(maxWidth: 800, quality: 92) {
                 ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
@@ -38,7 +38,7 @@ const cosmoCrmQuery = graphql`
           url
           image {
             childImageSharp {
-              fluid(maxWidth: 200) {
+              fluid(maxWidth: 200, quality: 92) {
                 ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
@@ -50,7 +50,7 @@ const cosmoCrmQuery = graphql`
       edges {
         node {
           id
-          fluid(maxWidth: 800) {
+          fluid(maxWidth: 800, quality: 92) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
