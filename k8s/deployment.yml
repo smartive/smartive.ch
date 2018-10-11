@@ -51,3 +51,8 @@ spec:
             port: 80
           initialDelaySeconds: 5
           timeoutSeconds: 1
+        resources:
+          requests:
+            memory: "32M"
+          limits:
+            memory: "64M"
