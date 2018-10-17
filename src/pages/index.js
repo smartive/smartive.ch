@@ -133,7 +133,7 @@ const Index = () => (
 
           <CaseTeaser
             modifiers={['right-highlighted', 'image-padded']}
-            url="/cases/archive-bot"
+            url="/cases/archiv-bot"
             title="Das Archiv als Chatbot"
             subline="Chatbot Case"
             image={{
