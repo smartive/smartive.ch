@@ -1,4 +1,4 @@
-image: node:9
+image: node:10
 
 stages:
   - test
