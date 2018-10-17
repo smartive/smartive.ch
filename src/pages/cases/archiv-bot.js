@@ -7,7 +7,7 @@ import { CaseBlock, Facts, Stage } from '../../components/molecules';
 
 const archiveBotQuery = graphql`
   query ArchiveBotQuery {
-    allStagesJson(filter: { siteTitle: { eq: "ArchiveBot" } }) {
+    allStagesJson(filter: { siteTitle: { eq: "Archiv-Bot" } }) {
       edges {
         node {
           id
