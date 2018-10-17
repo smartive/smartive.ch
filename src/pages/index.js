@@ -85,7 +85,7 @@ const pageQuery = graphql`
         }
       }
     }
-    allImageSharp(filter: { fluid: { originalName: { regex: "/case-study-archive-bot.png/" } } }) {
+    allImageSharp(filter: { fluid: { originalName: { regex: "/case-study-archive-bot-teaser.png/" } } }) {
       edges {
         node {
           id
