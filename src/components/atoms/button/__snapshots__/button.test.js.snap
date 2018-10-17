@@ -10,12 +10,12 @@ exports[`Button renders default external link correctly 1`] = `
 `;
 
 exports[`Button renders default internal link correctly 1`] = `
-<Unknown
+<GatsbyLink
   className="button"
   to="/internal"
 >
   Button
-</Unknown>
+</GatsbyLink>
 `;
 
 exports[`Button renders primary correctly 1`] = `
