@@ -163,5 +163,17 @@
     ],
     "imageSrc": "./case-study-migros-msc.png",
     "imageAlt": "Abbildung eines Laptops mit dem Schriftzug Migros"
+  },
+  {
+    "siteTitle": "ArchiveBot",
+    "title": "Im <em>Dialog</em> mit dem Archiv",
+    "contentBlocks": [
+      {
+        "id": "1",
+        "value": "Für unseren Kunden haben wir in Zusammenarbeit mit Microsoft einen Chatbot entwickelt, welcher Webseitenbesucher bei der Recherche in dessen Archiv unterstützen soll. Wobei der Bot in den Dokumenten des Archivs nach Personen und Themen sucht."
+      }
+    ],
+    "imageSrc": "./case-study-archive-bot.png",
+    "imageAlt": "Abbildung eines Laptops mit einer Chatbot Visualisation"
   }
 ]

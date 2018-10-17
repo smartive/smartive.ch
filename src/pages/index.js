@@ -85,7 +85,7 @@ const pageQuery = graphql`
         }
       }
     }
-    allImageSharp(filter: { fluid: { originalName: { regex: "/case-study-migros-msc.png/" } } }) {
+    allImageSharp(filter: { fluid: { originalName: { regex: "/case-study-archive-bot.png/" } } }) {
       edges {
         node {
           id
@@ -133,18 +133,18 @@ const Index = () => (
 
           <CaseTeaser
             modifiers={['right-highlighted', 'image-padded']}
-            url="/cases/migros-shared-components"
-            title="Components Library für die Migros-Welt"
-            subline="Case"
+            url="/cases/archive-bot"
+            title="Das Archiv als Chatbot"
+            subline="Chatbot Case"
             image={{
               fluid: caseImage,
-              alt: 'Components Library für die Migros-Welt',
+              alt: 'Archiv',
             }}
             allProjects
           >
             <p>
-              Um eine einheitliche Benutzeroberfläche über die diversen Migros Plattformen sicherstellen zu können, wurden in
-              Zusammenarbeit mit weiteren Migros Partneragenturen die Shared Components ins Leben gerufen.
+              {`Für unseren Kunden haben wir in Zusammenarbeit mit Microsoft einen Chatbot entwickelt,
+welcher Webseitenbesucher bei der Recherche in dessen Archiv unterstützen soll.`}
             </p>
           </CaseTeaser>
 
