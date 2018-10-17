@@ -20,7 +20,7 @@ const archiveBotQuery = graphql`
           }
           imageSrc {
             childImageSharp {
-              fluid(maxWidth: 800) {
+              fluid(maxWidth: 800, quality: 92) {
                 ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
@@ -33,7 +33,7 @@ const archiveBotQuery = graphql`
       edges {
         node {
           id
-          fluid(maxWidth: 800) {
+          fluid(maxWidth: 800, quality: 92) {
             ...GatsbyImageSharpFluid_withWebp_noBase64
           }
         }
