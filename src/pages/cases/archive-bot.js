@@ -5,8 +5,8 @@ import React from 'react';
 import { DefaultLayout } from '../../components/layout';
 import { CaseBlock, Facts, Stage } from '../../components/molecules';
 
-const barBotQuery = graphql`
-  query BarBotQuery {
+const archiveBotQuery = graphql`
+  query ArchiveBotQuery {
     allStagesJson(filter: { siteTitle: { eq: "ArchiveBot" } }) {
       edges {
         node {
@@ -42,9 +42,9 @@ const barBotQuery = graphql`
   }
 `;
 
-const BarBotCase = () => (
+const ArchiveBotCase = () => (
   <StaticQuery
-    query={barBotQuery}
+    query={archiveBotQuery}
     render={({ allStagesJson, allImageSharp }) => {
       const stageData = allStagesJson.edges[0].node;
       const chatFlowImg = allImageSharp.edges[2].node.fluid;
@@ -99,8 +99,8 @@ const BarBotCase = () => (
           >
             <p>
               Der Bot wird unterstützt durch LUIS - dem Language Understanding Intelligent Service welcher Teil der Microsoft
-              Cognitive Services. LUIS analysiert Texteingaben von Benutzern mittels Natural Language Processing(NLP) und
-              liefert dem Bot einen Intent - also eine Absicht - des Benutzers. Auf diese Absichten kann der Bot wiederum
+              Cognitive Services ist. LUIS analysiert Texteingaben von Benutzern mittels Natural Language Processing (NLP)
+              und liefert dem Bot einen Intent - also eine Absicht - des Benutzers. Auf diese Absichten kann der Bot wiederum
               reagieren und dem Benutzer antworten. Diese Absichten können in einem Online GUI von Microsoft verwaltet,
               trainiert und veröffentlicht werden.
             </p>
@@ -124,4 +124,4 @@ const BarBotCase = () => (
   />
 );
 
-export default BarBotCase;
+export default ArchiveBotCase;
