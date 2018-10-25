@@ -12,7 +12,7 @@ const teasers = [
     title: 'Zukunftsweisende Technologien',
     subline: 'Langjährige Erfahrung',
     description:
-      'Wir verfügen über viel Erfahrung, inbesondere mit Node.js, React, Angular, D3.js, GraphQL, Symfony, .NET Core, Docker, Kubernetes und Elasticsearch.',
+      'Wir verfügen über viel Erfahrung, inbesondere mit Node.js, React, Angular, D3.js, GraphQL, Symfony, .NET Core, Docker, Kubernetes, Cloud Foundry und Elasticsearch.',
     link: 'https://blog.smartive.ch',
     linkText: 'Unser Blog',
   },
