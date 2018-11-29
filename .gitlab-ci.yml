@@ -1,123 +1,120 @@
-image: node:10
+include:
+  - 'https://gitlab.com/smartive/open-source/gitlab-ci-templates/raw/master/templates.yml'
 
 stages:
-  - test
   - build
-  - deploy docker
-  - deploy app
+  - deploy
 
-cache:
-  paths:
-    - node_modules
-
-lint:
-  stage: test
-  script:
-    - yarn install
-    - yarn lint
-
-test:
-  stage: test
-  script:
-    - yarn install
-    - yarn test
-
-build static files:
+build:
+  extends: .gcb-docker
   stage: build
-  script:
-    - yarn install
-    - yarn build
-  artifacts:
-    paths:
-      - public/
-    expire_in: 1 day
-
-## Preview
-
-deploy docker preview:
-  stage: deploy docker
-  image: docker:latest
-  services:
-    - docker:dind
-  dependencies:
-    - build static files
   variables:
-    DOCKER_DRIVER: overlay2
-    DOCKER_HOST: tcp://localhost:2375
-  script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG .
-    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
-  except:
-    - master
+    SUB_REGISTRY: $REGISTRY
+    SUB_CI_PROJECT_NAMESPACE: $CI_PROJECT_NAMESPACE
+    SUB_CI_PROJECT_NAME: $CI_PROJECT_NAME
+    SUB_TAG: $CI_COMMIT_REF_SLUG
 
-deploy app preview:
-  stage: deploy app
-  image: $CI_REGISTRY/smartive/kubernetes-deploy:latest
-  dependencies: []
+deploy prod:
+  extends: .k8s-deploy
+  stage: deploy
   variables:
-    NAMESPACE: smartive-staging
-    IMAGE_TAG: $CI_COMMIT_REF_SLUG
-    NUMBER_OF_REPLICAS: 1
-  script:
-    - rm ./k8s/prod*
-    - k8s --ci deploy
-  environment:
-    name: preview/$CI_COMMIT_REF_SLUG
-    url: https://$CI_ENVIRONMENT_SLUG.smartive.ch
-    on_stop: stop preview
-  except:
-    - master
-
-stop preview:
-  stage: deploy app
-  image: $CI_REGISTRY/smartive/kubernetes-deploy:latest
-  dependencies: []
-  variables:
-    NAMESPACE: smartive-staging
-    IMAGE_TAG: $CI_COMMIT_REF_SLUG
-    NUMBER_OF_REPLICAS: 1
-  script:
-    - rm ./k8s/prod*
-    - k8s --ci delete
-    - kubectl delete secret ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG} -n $NAMESPACE
-  when: manual
-  environment:
-    name: preview/$CI_COMMIT_REF_SLUG
-    action: stop
-
-## Production
-
-deploy docker production:
-  stage: deploy docker
-  image: docker:latest
-  services:
-    - docker:dind
-  dependencies:
-    - build static files
-  variables:
-    DOCKER_DRIVER: overlay2
-    DOCKER_HOST: tcp://localhost:2375
-  script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build -t $CI_REGISTRY_IMAGE:latest .
-    - docker push $CI_REGISTRY_IMAGE:latest
-  only:
-    - master
-
-deploy app production:
-  stage: deploy app
-  image: $CI_REGISTRY/smartive/kubernetes-deploy:latest
-  dependencies: []
-  variables:
-    NAMESPACE: smartive-production
-    IMAGE_TAG: latest
-    NUMBER_OF_REPLICAS: 2
-  script:
-    - rm ./k8s/preview*
-    - k8s --ci deploy
+    CERT_ISSUER: letsencrypt-production
+    KUBE_CONFIG: $PROD_KUBE_CONFIG
+    REPLICAS: '2'
+    TAG: $CI_COMMIT_REF_SLUG
+    URL: smartive.ch
   environment:
     name: production
     url: https://smartive.ch
   only:
     - master
+
+# ## Preview
+
+# deploy docker preview:
+#   stage: deploy docker
+#   image: docker:latest
+#   services:
+#     - docker:dind
+#   dependencies:
+#     - build static files
+#   variables:
+#     DOCKER_DRIVER: overlay2
+#     DOCKER_HOST: tcp://localhost:2375
+#   script:
+#     - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+#     - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG .
+#     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+#   except:
+#     - master
+
+# deploy app preview:
+#   stage: deploy app
+#   image: $CI_REGISTRY/smartive/kubernetes-deploy:latest
+#   dependencies: []
+#   variables:
+#     NAMESPACE: smartive-staging
+#     IMAGE_TAG: $CI_COMMIT_REF_SLUG
+#     NUMBER_OF_REPLICAS: 1
+#   script:
+#     - rm ./k8s/prod*
+#     - k8s --ci deploy
+#   environment:
+#     name: preview/$CI_COMMIT_REF_SLUG
+#     url: https://$CI_ENVIRONMENT_SLUG.smartive.ch
+#     on_stop: stop preview
+#   except:
+#     - master
+
+# stop preview:
+#   stage: deploy app
+#   image: $CI_REGISTRY/smartive/kubernetes-deploy:latest
+#   dependencies: []
+#   variables:
+#     NAMESPACE: smartive-staging
+#     IMAGE_TAG: $CI_COMMIT_REF_SLUG
+#     NUMBER_OF_REPLICAS: 1
+#   script:
+#     - rm ./k8s/prod*
+#     - k8s --ci delete
+#     - kubectl delete secret ${CI_PROJECT_PATH_SLUG}-${CI_ENVIRONMENT_SLUG} -n $NAMESPACE
+#   when: manual
+#   environment:
+#     name: preview/$CI_COMMIT_REF_SLUG
+#     action: stop
+
+# ## Production
+
+# deploy docker production:
+#   stage: deploy docker
+#   image: docker:latest
+#   services:
+#     - docker:dind
+#   dependencies:
+#     - build static files
+#   variables:
+#     DOCKER_DRIVER: overlay2
+#     DOCKER_HOST: tcp://localhost:2375
+#   script:
+#     - docker login -u $CI_REGISTRY_USER -p $CI_JOB_TOKEN $CI_REGISTRY
+#     - docker build -t $CI_REGISTRY_IMAGE:latest .
+#     - docker push $CI_REGISTRY_IMAGE:latest
+#   only:
+#     - master
+
+# deploy app production:
+#   stage: deploy app
+#   image: $CI_REGISTRY/smartive/kubernetes-deploy:latest
+#   dependencies: []
+#   variables:
+#     NAMESPACE: smartive-production
+#     IMAGE_TAG: latest
+#     NUMBER_OF_REPLICAS: 2
+#   script:
+#     - rm ./k8s/preview*
+#     - k8s --ci deploy
+  # environment:
+  #   name: production
+  #   url: https://smartive.ch
+#   only:
+#     - master

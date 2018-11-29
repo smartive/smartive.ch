@@ -1,0 +1,10 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    id: docker
+    args:
+      - 'build'
+      - '-t'
+      - '${_REGISTRY}/${_CI_PROJECT_NAMESPACE}/${_CI_PROJECT_NAME}:${_TAG}'
+      - '.'
+images:
+  - '${_REGISTRY}/${_CI_PROJECT_NAMESPACE}/${_CI_PROJECT_NAME}:${_TAG}'

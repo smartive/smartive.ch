@@ -1,0 +1,110 @@
+# Certificate
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: ${CI_PROJECT_NAME}
+spec:
+  secretName: ${CI_PROJECT_NAME}-cert
+  dnsNames:
+    - ${URL}
+    - www.${URL}
+  acme:
+    config:
+      - domains:
+          - ${URL}
+          - www.${URL}
+        http01:
+          ingressClass: nginx
+  issuerRef:
+    name: ${CERT_ISSUER}
+    kind: ClusterIssuer
+
+---
+# Ingress
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ${CI_PROJECT_NAME}
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
+    nginx.ingress.kubernetes.io/from-to-www-redirect: 'true'
+spec:
+  tls:
+    - secretName: ${CI_PROJECT_NAME}-cert
+      hosts:
+        - ${URL}
+        - www.${URL}
+  rules:
+    - host: ${URL}
+      http:
+        paths:
+          - backend:
+              serviceName: ${CI_PROJECT_NAME}
+              servicePort: 80
+
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${CI_PROJECT_NAME}
+  labels:
+    app: ${CI_PROJECT_NAME}
+spec:
+  selector:
+    name: ${CI_PROJECT_NAME}
+    app: ${CI_PROJECT_NAME}
+  ports:
+    - name: http
+      port: 80
+      targetPort: http
+
+---
+# Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${CI_PROJECT_NAME}
+  labels:
+    app: ${CI_PROJECT_NAME}
+spec:
+  replicas: ${REPLICAS}
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: ${CI_PROJECT_NAME}
+  template:
+    metadata:
+      labels:
+        name: ${CI_PROJECT_NAME}
+        app: ${CI_PROJECT_NAME}
+    spec:
+      containers:
+        - name: webapp
+          image: ${REGISTRY}/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}:${TAG}
+          ports:
+            - name: http
+              containerPort: 80
+          env:
+            - name: COMMIT_SHA
+              value: ${CI_COMMIT_SHA}
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+          resources:
+            requests:
+              cpu: '10m'
+              memory: '8Mi'
+            limits:
+              cpu: '50m'
+              memory: '16Mi'
+      imagePullSecrets:
+        - name: ${REGISTRY_PULL_SECRET}
