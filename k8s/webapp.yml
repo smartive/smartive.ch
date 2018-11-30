@@ -83,6 +83,7 @@ spec:
       containers:
         - name: webapp
           image: ${REGISTRY}/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}:${TAG}
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 80
