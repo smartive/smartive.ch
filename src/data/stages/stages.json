@@ -175,5 +175,21 @@
     ],
     "imageSrc": "./case-study-archive-bot.png",
     "imageAlt": "Abbildung eines Laptops mit einer Chatbot Visualisation"
+  },
+  {
+    "siteTitle": "Migros Intranet Social Network",
+    "title": "Interne Kommunikation via <em>sozialem Netzwerk</em>.",
+    "contentBlocks": [
+      {
+        "id": "1",
+        "value": "Für den Migros-Genossenschafts-Bund, den grössten Schweizer Detailhändler, haben wir ein internes soziales Netzwerk umgesetzt. 100 000 Mitarbeitende können Gruppen erstellen und gemeinsame Interessen teilen. Die Unternehmen und Abteilungen des Migros-Genossenschafts-Bundes kommunizieren Gruppenspezifisch interne News. So rücken die Mitarbeitenden über das gesamte Unternehmen hinweg näher zusammen."
+      },
+      {
+        "id": "2",
+        "value": "<ul><li>React + React Native</li><li>Elasticsearch</li><li>Symfony</li><li>RESTful API</li></ul>"
+      }
+    ],
+    "imageSrc": "./main-image-dimmi-case.png",
+    "imageAlt": "Migros Logo auf einem Laptop"
   }
 ]

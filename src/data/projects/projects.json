@@ -2,123 +2,113 @@
   {
     "title": "Filialfinder",
     "category": "API und Webapplikation",
-    "description":
-      "<p>Mit dem neuen Migros Filialfinder können Kundinnen und Kunden zu Hause oder unterwegs relevante Filialinformationen schnell und einfach abrufen. Als Backend wurde eine Node.js API mit Elasticsearch als Suchindex entwickelt. Mit diesem Stack können eine hohe Performance und die optimale Volltextsuche garantiert werden. Durch starke Suchmaschinenoptimierung (SEO) können auch alle Filialen inklusive deren Öffnungszeiten bei renommierten Suchmaschinen gefunden werden.</p>",
+    "description": "<p>Mit dem neuen Migros Filialfinder können Kundinnen und Kunden zu Hause oder unterwegs relevante Filialinformationen schnell und einfach abrufen. Als Backend wurde eine Node.js API mit Elasticsearch als Suchindex entwickelt. Mit diesem Stack können eine hohe Performance und die optimale Volltextsuche garantiert werden. Durch starke Suchmaschinenoptimierung (SEO) können auch alle Filialen inklusive deren Öffnungszeiten bei renommierten Suchmaschinen gefunden werden.</p>",
     "image": "./migros-filialfinder.jpg",
     "caseUrl": "/cases/migros-filialfinder"
   },
   {
     "title": "Cosmopolitan",
     "category": "CRM",
-    "description":
-      "<p>Für die Cosmopolitan Vermögensverwaltungs AG haben wir, mit der Kundin zusammen, ein CRM-System entwickelt, welches die geschäftsspezifischen Prozesse genau abbildet. Die Webapplikation bietet viele Features wie Erfassungsassistenten, Vollständigkeitschecks, SIX API-Anbindung (Börse), Anlegetools und Reportings. Die Applikation wird in ihrer Funktionalität laufend erweitert.</p>",
+    "description": "<p>Für die Cosmopolitan Vermögensverwaltungs AG haben wir, mit der Kundin zusammen, ein CRM-System entwickelt, welches die geschäftsspezifischen Prozesse genau abbildet. Die Webapplikation bietet viele Features wie Erfassungsassistenten, Vollständigkeitschecks, SIX API-Anbindung (Börse), Anlegetools und Reportings. Die Applikation wird in ihrer Funktionalität laufend erweitert.</p>",
     "image": "./cosmopolitan.jpg",
     "caseUrl": "/cases/cosmo-crm"
   },
   {
+    "title": "Migros Intranet als Social Network",
+    "category": "Webapplikation, iOS und Android App",
+    "description": "<p>Für den Migros-Genossenschafts-Bund haben wir ein internes soziales Netzwerk umgesetzt. 100 000 Mitarbeitende können Gruppen erstellen und gemeinsame Interessen teilen. Die Unternehmen und Abteilungen des Migros-Genossenschafts-Bundes kommunizieren Gruppenspezifisch interne News. So rücken die Mitarbeitenden über das gesamte Unternehmen hinweg näher zusammen.</p>",
+    "image": "./dimmi-case.png",
+    "caseUrl": "/cases/migros-dimmi"
+  },
+  {
     "title": "Components Library",
     "category": "Frontend Komponenten",
-    "description":
-      "<p>Für die Migros erarbeiteten wir das Konzept und leiteten die Migration und Umsetzung zur Modularisierung ihrer Frontendkomponenten. Die Komponenten werden in einer gemeinsamen Registry abgelegt und können so einfach wiederverwendet werden und bieten dennoch ein einheitliches Benutzererlebnis.</p>",
+    "description": "<p>Für die Migros erarbeiteten wir das Konzept und leiteten die Migration und Umsetzung zur Modularisierung ihrer Frontendkomponenten. Die Komponenten werden in einer gemeinsamen Registry abgelegt und können so einfach wiederverwendet werden und bieten dennoch ein einheitliches Benutzererlebnis.</p>",
     "image": "./migros-shared-components.jpg",
     "caseUrl": "/cases/migros-shared-components"
   },
   {
     "title": "Stellenbörse",
     "category": "API und Webapplikation",
-    "description":
-      "<p>Für die Migros als diversifizierte Arbeitgeberin ist die Rekrutiertung von gut ausgebildetem Fachpersonal eminent wichtig, auch innerhalb des Onlineauftritts. In der Stellenbörse, die wir für sie entwickelt haben, sind offene Jobs in ansprechendem Design aufgelistet; zudem ermöglicht Elasticsearch intelligentes Suchen.</p>",
+    "description": "<p>Für die Migros als diversifizierte Arbeitgeberin ist die Rekrutiertung von gut ausgebildetem Fachpersonal eminent wichtig, auch innerhalb des Onlineauftritts. In der Stellenbörse, die wir für sie entwickelt haben, sind offene Jobs in ansprechendem Design aufgelistet; zudem ermöglicht Elasticsearch intelligentes Suchen.</p>",
     "image": "./migros-jobs.jpg"
   },
   {
     "title": "Global Family Business Index",
     "category": "Dataviz",
-    "description":
-      "<p>In Zusammenarbeit mit dem <a href=\"http://www.cfb.unisg.ch/en?sc_lang=de\">Center for Family Business, University of St.Gallen (HSG)</a> und <a href=\"https://familybusiness.ey-vx.com/home/home.aspx\">Global Family Business Center of Excellence von Ernst &amp; Young</a> haben wir die 500 grössten Familienunternehmen aufbereitet und ansprechend visualisiert.</p><p><a href=\"http://familybusinessindex.com/\">familybusinessindex.com</a></p>",
+    "description": "<p>In Zusammenarbeit mit dem <a href=\"http://www.cfb.unisg.ch/en?sc_lang=de\">Center for Family Business, University of St.Gallen (HSG)</a> und <a href=\"https://familybusiness.ey-vx.com/home/home.aspx\">Global Family Business Center of Excellence von Ernst &amp; Young</a> haben wir die 500 grössten Familienunternehmen aufbereitet und ansprechend visualisiert.</p><p><a href=\"http://familybusinessindex.com/\">familybusinessindex.com</a></p>",
     "image": "./gfbi.jpg"
   },
   {
     "title": "MATOOL.com",
     "category": "API und Webapplikation",
-    "description":
-      "<p>MATOOL.com ist eine innovative Plattform für das Suchen und Anbieten von Maschinenkapazitäten. Grundlegende Maschinendaten werden von der Applikation automatisch importiert, aufbereitet und den Usern mittels Google Maps einfach und verständlich präsentiert. Mittels Geo- und Facettensuche sind für den Benutzer interessante Maschinen einfach zu finden. Die Applikation wurden von Beginn an für hohe Skalierbarkeit ausgelegt und kann in einer AWS Cloud betrieben werden.</p>",
+    "description": "<p>MATOOL.com ist eine innovative Plattform für das Suchen und Anbieten von Maschinenkapazitäten. Grundlegende Maschinendaten werden von der Applikation automatisch importiert, aufbereitet und den Usern mittels Google Maps einfach und verständlich präsentiert. Mittels Geo- und Facettensuche sind für den Benutzer interessante Maschinen einfach zu finden. Die Applikation wurden von Beginn an für hohe Skalierbarkeit ausgelegt und kann in einer AWS Cloud betrieben werden.</p>",
     "image": "./matool.jpg"
   },
   {
     "title": "Gebäude­versicherung Graubünden",
     "category": "CMS / Frontend Entwicklung",
-    "description":
-      "<p>Der neue Webauftritt der Gebäudeversicherung Graubünden soll der Bevölkerung den Kontakt zur Verwaltung erleichtern. Wichtige Formulare werden den Benutzenden einfach und verständlich via Web zugänglich gemacht und erlauben es so beispielsweise, eine Schadenmeldung online zu erfassen.</p><p><a href=\"http://gvg.gr.ch/\">gvg.gr.ch</a></p>",
+    "description": "<p>Der neue Webauftritt der Gebäudeversicherung Graubünden soll der Bevölkerung den Kontakt zur Verwaltung erleichtern. Wichtige Formulare werden den Benutzenden einfach und verständlich via Web zugänglich gemacht und erlauben es so beispielsweise, eine Schadenmeldung online zu erfassen.</p><p><a href=\"http://gvg.gr.ch/\">gvg.gr.ch</a></p>",
     "image": "./gvg.jpg"
   },
   {
     "title": "Migros FAQ",
     "category": "API und Webapplikation",
-    "description":
-      "<p>Um ihren Kundinnen und Kunden allmögliche Fragen einfach und direkt beantworten zu können, hat die Migros eine FAQ Seite von uns erstellen lassen. Diese bietet eine Volltextsuche sowie eine Kategorisierung der Fragen. Durch starke Suchmaschinenoptimierungen (SEO) sind die Fragen auch bei renommierten Suchmaschinen gut auffindbar.</p><p><a href=\"https://faq.migros.ch/\">faq.migros.ch</a></p>",
+    "description": "<p>Um ihren Kundinnen und Kunden allmögliche Fragen einfach und direkt beantworten zu können, hat die Migros eine FAQ Seite von uns erstellen lassen. Diese bietet eine Volltextsuche sowie eine Kategorisierung der Fragen. Durch starke Suchmaschinenoptimierungen (SEO) sind die Fragen auch bei renommierten Suchmaschinen gut auffindbar.</p><p><a href=\"https://faq.migros.ch/\">faq.migros.ch</a></p>",
     "image": "./migros-faq.jpg"
   },
   {
     "title": "Migipedia",
     "category": "API",
-    "description":
-      "<p>Für Migipedia, die neue Community Plattform der Migros, haben wir neben diverser Lithium-Komponenten die Schnittstelle zu Migros-internen Systemen wie der M-Infoline sowie eine Abstraktion der Lithium-API für die Integration in Drittsysteme entwickelt.</p><p><a href=\"https://www.migipedia.ch/\">migipedia.ch</a></p>",
+    "description": "<p>Für Migipedia, die neue Community Plattform der Migros, haben wir neben diverser Lithium-Komponenten die Schnittstelle zu Migros-internen Systemen wie der M-Infoline sowie eine Abstraktion der Lithium-API für die Integration in Drittsysteme entwickelt.</p><p><a href=\"https://www.migipedia.ch/\">migipedia.ch</a></p>",
     "image": "./migipedia.jpg"
   },
   {
     "title": "Migros Suche",
     "category": "API und Webapplikation",
-    "description":
-      "<p>Für Migros, die grösste Detailhändlerin der Schweiz, haben wir eine zentrale, aggregierte Suche entwickelt. Sie ermöglicht es den Kundinnen und Kunden, Informationen aus verschiedenen von der Migros betriebenen Drittsystemen zielgerecht zu durchsuchen.</p>",
+    "description": "<p>Für Migros, die grösste Detailhändlerin der Schweiz, haben wir eine zentrale, aggregierte Suche entwickelt. Sie ermöglicht es den Kundinnen und Kunden, Informationen aus verschiedenen von der Migros betriebenen Drittsystemen zielgerecht zu durchsuchen.</p>",
     "image": "./migrossuche.jpg"
   },
   {
     "title": "Namenskarte",
     "category": "Dataviz",
-    "description":
-      "<p>Alles Müller oder was? Für den «Tages-Anzeiger» entwickelten wir zusammen mit der <a href=\"http://www.sotomo.ch/\">Forschungsstelle Sotomo</a> der Universität Zürich eine interaktive Karte zur Veranschaulichung der geografischen Auftretenswahrscheinlichkeit von Nachnamen, basierend auf Telefonbucheinträgen.</p><p><a href=\"http://blog.tagesanzeiger.ch/datenblog/index.php/6859/alles-mueller-oder-was\">tagi.ch</a></p>",
+    "description": "<p>Alles Müller oder was? Für den «Tages-Anzeiger» entwickelten wir zusammen mit der <a href=\"http://www.sotomo.ch/\">Forschungsstelle Sotomo</a> der Universität Zürich eine interaktive Karte zur Veranschaulichung der geografischen Auftretenswahrscheinlichkeit von Nachnamen, basierend auf Telefonbucheinträgen.</p><p><a href=\"http://blog.tagesanzeiger.ch/datenblog/index.php/6859/alles-mueller-oder-was\">tagi.ch</a></p>",
     "image": "./namenskarte.png"
   },
   {
     "title": "Einkommen im schweizweiten Vergleich",
     "category": "Dataviz",
-    "description":
-      "<p>Wo der Mittelstand prosperiert. Für den «Tages-Anzeiger» entwickelten wir zusammen mit der <a href=\"http://www.sotomo.ch/\">Forschungsstelle Sotomo</a> der Universität Zürich eine interaktive Karte zur Visualisierung der Einkommen im schweizweiten Vergleich.</p><p><a href=\"http://blog.tagesanzeiger.ch/datenblog/index.php/6683/wo-der-mittelstand-prosperiert\">tagi.ch</a></p>",
+    "description": "<p>Wo der Mittelstand prosperiert. Für den «Tages-Anzeiger» entwickelten wir zusammen mit der <a href=\"http://www.sotomo.ch/\">Forschungsstelle Sotomo</a> der Universität Zürich eine interaktive Karte zur Visualisierung der Einkommen im schweizweiten Vergleich.</p><p><a href=\"http://blog.tagesanzeiger.ch/datenblog/index.php/6683/wo-der-mittelstand-prosperiert\">tagi.ch</a></p>",
     "image": "./reineinkommen.png"
   },
   {
     "title": "Kräutergarten",
     "category": "Webapplikation",
-    "description":
-      "<p>Der Kräutergarten ist eine interaktive Applikation, die es den Kundinnen und Kunden ermöglicht, herauszufinden, für welche Kräuter sie den passenden Standort besitzen und die seinen kulinarischen Vorlieben entsprechen. Unter Verwendung von AngularJS haben wir die Seite für Generation M im responsiven Design kreiert.</p><p><a href=\"https://generation-m.migros.ch/de/nachhaltig-leben/tipps-tools/kraueter-guide.html\">generation-m.migros.ch</a></p>",
+    "description": "<p>Der Kräutergarten ist eine interaktive Applikation, die es den Kundinnen und Kunden ermöglicht, herauszufinden, für welche Kräuter sie den passenden Standort besitzen und die seinen kulinarischen Vorlieben entsprechen. Unter Verwendung von AngularJS haben wir die Seite für Generation M im responsiven Design kreiert.</p><p><a href=\"https://generation-m.migros.ch/de/nachhaltig-leben/tipps-tools/kraueter-guide.html\">generation-m.migros.ch</a></p>",
     "image": "./kraeutergarten.jpg"
   },
   {
     "title": "Saisontabelle",
     "category": "Webapplikation",
-    "description":
-      "<p>Für Generation M haben wir eine interaktive Saisontabelle als responsive Applikation, basierend auf AngularJS, erstellt. Für das Design der Applikation zeigt sich <a href=\"http://www.denkwerk.com/\">denkwerk</a> verantwortlich.</p><p><a href=\"https://generation-m.migros.ch/de/nachhaltig-leben/tipps-tools/saisonkalender.html\">generation-m.migros.ch</a></p>",
+    "description": "<p>Für Generation M haben wir eine interaktive Saisontabelle als responsive Applikation, basierend auf AngularJS, erstellt. Für das Design der Applikation zeigt sich <a href=\"http://www.denkwerk.com/\">denkwerk</a> verantwortlich.</p><p><a href=\"https://generation-m.migros.ch/de/nachhaltig-leben/tipps-tools/saisonkalender.html\">generation-m.migros.ch</a></p>",
     "image": "./saisontabelle.jpg"
   },
   {
     "title": "Lebenserwartungs­karte",
     "category": "Dataviz",
-    "description":
-      "<p>Für die «SonntagsZeitung» entwickelten wir zusammen mit der <a href=\"http://www.sotomo.ch/\">Forschungsstelle Sotomo</a> der Universität Zürich eine interaktive Karte, die der Visualisierung der Lebenserwartung im schweizweiten Vergleich dient.</p><p><a href=\"http://blog.tagesanzeiger.ch/datenblog/index.php/5419/wo-die-schweizer-wie-alt-werden\">tagi.ch</a></p>",
+    "description": "<p>Für die «SonntagsZeitung» entwickelten wir zusammen mit der <a href=\"http://www.sotomo.ch/\">Forschungsstelle Sotomo</a> der Universität Zürich eine interaktive Karte, die der Visualisierung der Lebenserwartung im schweizweiten Vergleich dient.</p><p><a href=\"http://blog.tagesanzeiger.ch/datenblog/index.php/5419/wo-die-schweizer-wie-alt-werden\">tagi.ch</a></p>",
     "image": "./lebenserwartung.png"
   },
   {
     "title": "Unfallkarte",
     "category": "Dataviz",
-    "description":
-      "<p>Für die «SonntagsZeitung», den «Tages-Anzeiger» und den «Matin Dimanche» entwickelten wir zusammen mit der <a href=\"http://www.sotomo.ch/\">Forschungsstelle Sotomo</a> der Universität Zürich eine Visualisierungskarte der Verkehrsunfälle der Schweiz basierend auf Google Maps.</p>",
+    "description": "<p>Für die «SonntagsZeitung», den «Tages-Anzeiger» und den «Matin Dimanche» entwickelten wir zusammen mit der <a href=\"http://www.sotomo.ch/\">Forschungsstelle Sotomo</a> der Universität Zürich eine Visualisierungskarte der Verkehrsunfälle der Schweiz basierend auf Google Maps.</p>",
     "image": "./unfallkarte.jpg"
   },
   {
     "title": "Steuerrechner",
     "category": "Dataviz",
-    "description":
-      "<p>Für den «Tages-Anzeiger» entwickelten wir zusammen mit der <a href=\"http://www.sotomo.ch/\">Forschungsstelle Sotomo</a> der Universität Zürich einen interaktiven Steuerrechner zur Visualisierung der Steuerbelastung im schweizweiten Vergleich.</p><p><a href=\"http://blog.tagesanzeiger.ch/datenblog/index.php/4117/wo-liegt-ihr-steuerparadies\">tagi.ch</a></p>",
+    "description": "<p>Für den «Tages-Anzeiger» entwickelten wir zusammen mit der <a href=\"http://www.sotomo.ch/\">Forschungsstelle Sotomo</a> der Universität Zürich einen interaktiven Steuerrechner zur Visualisierung der Steuerbelastung im schweizweiten Vergleich.</p><p><a href=\"http://blog.tagesanzeiger.ch/datenblog/index.php/4117/wo-liegt-ihr-steuerparadies\">tagi.ch</a></p>",
     "image": "./steuerrechner.jpg"
   }
 ]
