@@ -22,5 +22,13 @@
     "company": "Migros-Genossenschafts-Bund (MGB)",
     "url": "https://www.migros.ch",
     "image": "./jason-fellmann.jpg"
+  },
+  {
+    "slug": "danijela-nikolic",
+    "quote": "Die angenehme Zusammenarbeit und offene Kommunikation ermöglichte es, dieses komplexe Projekt in der kurzen Zeit umzusetzen.",
+    "author": "Danijela Nikolic",
+    "company": "Migros-Genossenschafts-Bund (MGB)",
+    "url": "https://www.migros.ch",
+    "image": "./danijela-nikolic.jpg"
   }
 ]

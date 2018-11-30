@@ -85,7 +85,7 @@ const pageQuery = graphql`
         }
       }
     }
-    allImageSharp(filter: { fluid: { originalName: { regex: "/case-study-archive-bot-teaser.png/" } } }) {
+    allImageSharp(filter: { fluid: { originalName: { regex: "/case-study-dimmi.png/" } } }) {
       edges {
         node {
           id
@@ -133,18 +133,19 @@ const Index = () => (
 
           <CaseTeaser
             modifiers={['right-highlighted', 'image-padded']}
-            url="/cases/archiv-bot"
-            title="Das Archiv als Chatbot"
-            subline="Chatbot Case"
+            url="/cases/migros-dimmi"
+            title="Migros Intranet als Social Network"
+            subline="Webapplikation, iOS und Android App"
             image={{
               fluid: caseImage,
-              alt: 'Archiv',
+              alt: 'Migros Intranet als Social Network',
             }}
             allProjects
           >
             <p>
-              {`Für unseren Kunden haben wir in Zusammenarbeit mit Microsoft einen Chatbot entwickelt,
-welcher Webseitenbesucher bei der Recherche in dessen Archiv unterstützen soll.`}
+              Für den Migros-Genossenschafts-Bund haben wir ein internes soziales Netzwerk umgesetzt. 100 000 Mitarbeitende
+              können Gruppen erstellen und gemeinsame Interessen teilen. So rücken die Mitarbeitenden über das gesamte
+              Unternehmen hinweg näher zusammen.
             </p>
           </CaseTeaser>
 

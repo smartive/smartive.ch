@@ -45,7 +45,7 @@ const pageQuery = graphql`
         }
       }
     }
-    allImageSharp(filter: { fluid: { originalName: { regex: "/case-study-migros-msc.png/" } } }) {
+    allImageSharp(filter: { fluid: { originalName: { regex: "/case-study-dimmi.png/" } } }) {
       edges {
         node {
           id
@@ -82,18 +82,18 @@ const Projects = () => (
 
           <CaseTeaser
             modifiers={['right-highlighted', 'image-padded']}
-            url="/cases/migros-shared-components"
-            title="Components Library für die Migros-Welt"
-            subline="Case"
+            url="/cases/migros-dimmi"
+            title="Migros Intranet als Social Network"
+            subline="Webapplikation, iOS und Android App"
             image={{
               fluid: caseImage,
-              alt: 'Components Library für die Migros-Welt',
+              alt: 'Migros Intranet als Social Network',
             }}
-            allProjects
           >
             <p>
-              Um eine einheitliche Benutzeroberfläche über die diversen Migros Plattformen sicherstellen zu können, wurden in
-              Zusammenarbeit mit weiteren Migros Partneragenturen die Shared Components ins Leben gerufen.
+              Für den Migros-Genossenschafts-Bund haben wir ein internes soziales Netzwerk umgesetzt. 100 000 Mitarbeitende
+              können Gruppen erstellen und gemeinsame Interessen teilen. So rücken die Mitarbeitenden über das gesamte
+              Unternehmen hinweg näher zusammen.
             </p>
           </CaseTeaser>
 
