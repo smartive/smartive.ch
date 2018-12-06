@@ -1,5 +1,6 @@
 include:
   - 'https://gitlab.com/smartive/open-source/gitlab-ci-templates/raw/master/templates.yml'
+  - 'https://gitlab.com/smartive/open-source/gitlab-ci-templates/raw/master/preview-branches.yml'
 
 stages:
   - build
@@ -15,45 +16,22 @@ build:
     SUB_TAG: $CI_COMMIT_REF_SLUG
 
 deploy preview:
-  extends: .k8s-deploy
-  stage: deploy
   variables:
     APP_NAME: $CI_COMMIT_REF_SLUG
-    CERT_ISSUER: letsencrypt-staging
     KUBE_CONFIG: $DEV_KUBE_CONFIG
     REPLICAS: '1'
     TAG: $CI_COMMIT_REF_SLUG
     URL: $CI_COMMIT_REF_SLUG-gatsby.smartive.ch
   environment:
-    name: preview/$CI_COMMIT_REF_SLUG
     url: https://$CI_COMMIT_REF_SLUG-gatsby.smartive.ch
-    on_stop: stop preview
-  except:
-    - master
 
 stop preview:
-  extends: .k8s-delete
-  stage: deploy
-  image: node:10
   variables:
     APP_NAME: $CI_COMMIT_REF_SLUG
-    CERT_ISSUER: letsencrypt-staging
-    GIT_CHECKOUT: 'false'
     KUBE_CONFIG: $DEV_KUBE_CONFIG
     REPLICAS: '1'
     TAG: $CI_COMMIT_REF_SLUG
     URL: $CI_COMMIT_REF_SLUG-gatsby.smartive.ch
-  when: manual
-  before_script:
-    - npm i -g @smartive/kuby
-    - kuby kubectl refresh
-    - kuby kubectl install 1 -n
-    - git checkout $CI_COMMIT_SHA || git checkout master
-  environment:
-    name: preview/$CI_COMMIT_REF_SLUG
-    action: stop
-  except:
-    - master
 
 deploy prod:
   extends: .k8s-deploy
