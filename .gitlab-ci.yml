@@ -46,6 +46,8 @@ stop preview:
   when: manual
   before_script:
     - npm i -g @smartive/kuby
+    - kuby kubectl refresh
+    - kuby kubectl install 1 -n
     - git checkout $CI_COMMIT_SHA || git checkout master
   environment:
     name: preview/$CI_COMMIT_REF_SLUG
