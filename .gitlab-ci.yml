@@ -34,6 +34,7 @@ deploy preview:
 stop preview:
   extends: .k8s-delete
   stage: deploy
+  image: node:10
   variables:
     APP_NAME: $CI_COMMIT_REF_SLUG
     CERT_ISSUER: letsencrypt-staging
@@ -44,6 +45,7 @@ stop preview:
     URL: $CI_COMMIT_REF_SLUG-gatsby.smartive.ch
   when: manual
   before_script:
+    - npm i -g @smartive/kuby
     - git checkout $CI_COMMIT_SHA || git checkout master
   environment:
     name: preview/$CI_COMMIT_REF_SLUG
