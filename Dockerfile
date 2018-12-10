@@ -41,7 +41,7 @@ RUN yarn build
 
 #---
 
-FROM fholzer/nginx-brotli:v1.14.0
+FROM fholzer/nginx-brotli:v1.14.2
 LABEL maintainer="hello@smartive.ch"
 
 EXPOSE 80
