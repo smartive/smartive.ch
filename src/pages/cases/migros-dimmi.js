@@ -96,7 +96,7 @@ const MigrosDimmiCase = () => (
       return (
         <DefaultLayout>
           <Stage
-            modifiers={['gradient', 'case']}
+            modifiers={['gradient', 'case', 'left-highlighted']}
             image={{ fluid: stageData.imageSrc.childImageSharp.fluid, alt: stageData.imageAlt }}
             title={<h1 dangerouslySetInnerHTML={{ __html: stageData.title }} />}
           >

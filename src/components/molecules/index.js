@@ -12,6 +12,8 @@ export { Member } from './member';
 
 export { Navigation } from './navigation';
 
+export { PersonalContact } from './personal-contact';
+
 export { Project } from './project';
 
 export { Quote } from './quote';

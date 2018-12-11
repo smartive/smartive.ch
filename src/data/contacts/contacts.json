@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "thilo",
+    "name": "Thilo Haas",
+    "image": "./thilo-haas.png",
+    "phone": "+41 44 552 55 99",
+    "mail": "thilo@smartive.ch"
+  },
+  {
+    "slug": "peter",
+    "name": "Peter Manser",
+    "image": "./peter-manser.jpg",
+    "phone": "+41 44 552 55 99",
+    "mail": "peter@smartive.ch"
+  },
+  {
+    "slug": "robert",
+    "name": "Robert Vogt",
+    "image": "./robert-vogt.jpg",
+    "phone": "+41 44 552 55 99",
+    "mail": "robert@smartive.ch"
+  }
+]

@@ -1,0 +1,41 @@
+@import '../../../scss/colors';
+@import '../../../scss/responsive';
+
+.personal-contact-block {
+  margin: 10rem 0 5rem;
+  padding: 3rem 2rem 2rem;
+  background: $light-blue;
+
+  @media #{$large-up} {
+    padding: 7rem 2rem;
+  }
+
+  small {
+    color: $smartive-dark-blue;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    margin: 0 0 1rem;
+    color: $smartive-dark-blue;
+    max-width: 50rem;
+  }
+
+  a {
+    margin-right: 2rem;
+    color: $smartive-dark-blue;
+  }
+
+  .personal-contact__img {
+    display: block;
+    height: auto;
+    width: 100%;
+    max-width: 19.2rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+
+    @media #{$large-up} {
+      margin: 1rem 3rem 0 auto;
+    }
+  }
+}

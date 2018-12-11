@@ -81,7 +81,7 @@ const Projects = () => (
           </Stage>
 
           <CaseTeaser
-            modifiers={['right-highlighted', 'image-padded']}
+            modifiers={['right-highlighted', 'image-padded', 'dark']}
             url="/cases/migros-dimmi"
             title="Migros Intranet als Social Network"
             subline="Webapplikation, iOS und Android App"

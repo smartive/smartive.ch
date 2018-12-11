@@ -5,7 +5,7 @@
     "contentBlocks": [
       {
         "id": "1",
-        "value": "Wir sind smartive — ${count} Entwickler mit der Passion für die Konzipierung und Umsetzung von Webapplikationen und APIs."
+        "value": "Wir sind smartive — ${count} Entwickler mit der Passion für Mobile- und Web-Applikationen. Wir beraten, konzipieren und entwickeln. Massgeschneidert für unsere Kunden: Vom Startup bis zur grössten Arbeitgeberin der Schweiz."
       }
     ],
     "imageSrc": "./home.jpg",
@@ -145,7 +145,7 @@
         "value": "<ul><li>Erfassungsassistenten</li><li>Datenprüfungen mit Aufgaben-, und Warnsystem</li><li>SIX API-Anbindung (Aktienkurse)</li><li>Verwaltung von Anlagen</li><li>Reports</li></ul>"
       }
     ],
-    "imageSrc": "./case-study-cosmo.png",
+    "imageSrc": "./case-study-cosmo.jpg",
     "imageAlt": "Cosmopolitan Logo auf einem Laptop"
   },
   {
@@ -189,7 +189,19 @@
         "value": "<ul><li>React + React Native</li><li>Elasticsearch</li><li>Symfony</li><li>RESTful API</li></ul>"
       }
     ],
-    "imageSrc": "./main-image-dimmi-case.png",
+    "imageSrc": "./case-study-dimmi.png",
+    "imageAlt": "Migros Logo auf einem Laptop"
+  },
+  {
+    "siteTitle": "Kasse als Progressive Web App",
+    "title": "Dank <em>agilem Ansatz</em> schnell am Markt.",
+    "contentBlocks": [
+      {
+        "id": "1",
+        "value": "Gemeinsam mit Subsidia erstellen wir ein Warenwirtschaftssystem und eine Kassensoftware (POS-System) mit nahtloser Integration ins Kunden-Marketing. Smartive unterstützte mit Beratung, Technologiewahl, DevOps und entwickelt nun mit. Agil und mit den neuesten Technologien."
+      }
+    ],
+    "imageSrc": "./case-study-subsidia.jpg",
     "imageAlt": "Migros Logo auf einem Laptop"
   }
 ]

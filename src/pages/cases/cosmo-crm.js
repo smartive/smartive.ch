@@ -71,7 +71,7 @@ const CosmoCrmCase = () => (
       return (
         <DefaultLayout>
           <Stage
-            modifiers={['gradient', 'case']}
+            modifiers={['gradient', 'case', 'left-highlighted']}
             image={{
               fluid: imageSrc.childImageSharp.fluid,
               alt: imageAlt,
