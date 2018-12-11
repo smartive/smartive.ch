@@ -1,38 +1,10 @@
 import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 
-import { Button } from '../components/atoms';
 import { DefaultLayout } from '../components/layout';
-import { CaseTeaser, Stage, Teaser } from '../components/molecules';
-import { MediumTeaser, TeaserList } from '../components/organisms';
+import { CaseTeaser, Stage, PersonalContact } from '../components/molecules';
+import { MediumTeaser } from '../components/organisms';
 import { replaceCount } from '../utils/count';
-
-const teasers = [
-  {
-    title: 'Zukunftsweisende Technologien',
-    subline: 'Langjährige Erfahrung',
-    description:
-      'Wir verfügen über viel Erfahrung, inbesondere mit Node.js, React, Angular, D3.js, GraphQL, Symfony, .NET Core, Docker, Kubernetes, Cloud Foundry und Elasticsearch.',
-    link: 'https://blog.smartive.ch',
-    linkText: 'Unser Blog',
-  },
-  {
-    title: 'Ein kompetenter Ansprechpartner',
-    subline: 'Ein Projekt, ein Team',
-    description:
-      'Ein Entwickler mit langjähriger Projektleitungserfahrung übernimmt im Projekt den Lead und garantiert die direkte Kommunikation mit viel technischem Know-How.',
-    link: '/projekte',
-    linkText: 'Unsere Projekte',
-  },
-  {
-    title: 'Alle sind beteiligt',
-    subline: 'Am Erfolg jedes Projektes interessiert',
-    description:
-      'Wir kennen keine klassischen Hierarchien. Alle sind am Erfolg jedes einzelnen Projektes beteiligt. Auch langfristig: Zwei Drittel der Belegschaft sind Aktionäre.',
-    link: '/agentur',
-    linkText: 'Über uns',
-  },
-];
 
 const pageQuery = graphql`
   {
@@ -49,6 +21,22 @@ const pageQuery = graphql`
             subtitle
             previewImage {
               imageId
+            }
+          }
+        }
+      }
+    }
+    allContactsJson(filter: { slug: { eq: "peter" } }) {
+      edges {
+        node {
+          name
+          phone
+          mail
+          image {
+            childImageSharp {
+              fluid(maxWidth: 640, quality: 92) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+              }
             }
           }
         }
@@ -85,7 +73,9 @@ const pageQuery = graphql`
         }
       }
     }
-    allImageSharp(filter: { fluid: { originalName: { regex: "/case-study-dimmi.png/" } } }) {
+    allImageSharp(
+      filter: { fluid: { originalName: { regex: "/case-study-dimmi.png|case-study-cosmo.jpg|case-study-subsidia.jpg/" } } }
+    ) {
       edges {
         node {
           id
@@ -101,9 +91,14 @@ const pageQuery = graphql`
 const Index = () => (
   <StaticQuery
     query={pageQuery}
-    render={({ allStagesJson, allMediumPost, allImageSharp, allMembersJson }) => {
-      const { imageSrc, imageAlt, title, contentBlocks, link, linkText } = allStagesJson.edges[0].node;
-      const caseImage = allImageSharp.edges[0].node.fluid;
+    render={({ allStagesJson, allMediumPost, allImageSharp, allMembersJson, allContactsJson }) => {
+      const { imageSrc, imageAlt, title, contentBlocks } = allStagesJson.edges[0].node;
+      const { name, phone, mail, image: contactImage } = allContactsJson.edges[0].node;
+
+      const caseImage1 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-dimmi'))[0];
+      const caseImage2 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-cosmo'))[0];
+      const caseImage3 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-subsidia'))[0];
+
       const members = allMembersJson.edges;
 
       return (
@@ -119,28 +114,17 @@ const Index = () => (
             {contentBlocks.map(({ id, value }) => (
               <p key={id}>{replaceCount(value, members.length)}</p>
             ))}
-            <Button url={link} text={linkText} isPrimary />
           </Stage>
 
-          <TeaserList>
-            {teasers.map((teaser) => (
-              <Teaser key={teaser.title} title={teaser.title} subline={teaser.subline}>
-                <p>{teaser.description}</p>
-                <Button url={teaser.link} text={teaser.linkText} isWhite hasBorder />
-              </Teaser>
-            ))}
-          </TeaserList>
-
           <CaseTeaser
-            modifiers={['right-highlighted', 'image-padded']}
+            modifiers={['right-highlighted', 'image-padded', 'dark']}
             url="/cases/migros-dimmi"
             title="Migros Intranet als Social Network"
             subline="Webapplikation, iOS und Android App"
             image={{
-              fluid: caseImage,
+              fluid: caseImage1 && caseImage1.node.fluid,
               alt: 'Migros Intranet als Social Network',
             }}
-            allProjects
           >
             <p>
               Für den Migros-Genossenschafts-Bund haben wir ein internes soziales Netzwerk umgesetzt. 100 000 Mitarbeitende
@@ -148,6 +132,49 @@ const Index = () => (
               Unternehmen hinweg näher zusammen.
             </p>
           </CaseTeaser>
+
+          <CaseTeaser
+            modifiers={['left-highlighted', 'image-padded', 'bright']}
+            url="/cases/cosmo-crm"
+            title="Digitale Geschäftsprozesse als Herzstück"
+            subline="CRM als Webapplikation"
+            image={{
+              fluid: caseImage2 && caseImage2.node.fluid,
+              alt: 'CRM als Webapplikation',
+            }}
+          >
+            <p>
+              Für die Cosmopolitan Vermögensverwaltungs AG konzipierten und entwickelten wir ein CRM System, welches die
+              spezifischen Geschäftsprozesse genau abbildet. Der Wunsch, die Daten von einigen Excel Files in eine
+              ausgereifte Datenstruktur zu überführen, hat zu einer Webapplikation geführt, welche mittlerweile das Herzstück
+              der Firma bildet - alle Daten werden zentral und einheitlich verwaltet.
+            </p>
+          </CaseTeaser>
+
+          <CaseTeaser
+            modifiers={['right-highlighted', 'image-padded', 'dark']}
+            url="/cases/subsidia-kasse"
+            title="Dank agilem Ansatz schnell am Markt"
+            subline="Kasse als Progressive Web App"
+            image={{
+              fluid: caseImage3 && caseImage3.node.fluid,
+              alt: 'Dank agilem Ansatz schnell am Markt',
+            }}
+          >
+            <p>
+              Gemeinsam mit Subsidia erstellen wir ein Warenwirtschaftssystem und eine Kassensoftware (POS-System) mit
+              nahtloser Integration ins Kunden-Marketing. Smartive unterstützte mit Beratung, Technologiewahl, Setup und
+              entwickelt nun mit. Agil und mit den neuesten Technologien.
+            </p>
+          </CaseTeaser>
+
+          <PersonalContact
+            name={`Ihr Ansprechpartner: ${name}`}
+            text={`Haben Sie ein innovatives Vorhaben? Wir freuen uns über Ihre Kontaktaufnahme und beraten Sie gerne.`}
+            mail={mail}
+            phone={phone}
+            img={contactImage.childImageSharp.fluid}
+          />
 
           <MediumTeaser posts={allMediumPost} />
         </DefaultLayout>

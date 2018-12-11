@@ -30,5 +30,13 @@
     "company": "Migros-Genossenschafts-Bund (MGB)",
     "url": "https://www.migros.ch",
     "image": "./danijela-nikolic.jpg"
+  },
+  {
+    "slug": "diego-goldener",
+    "quote": "Expertise und Erfahrung von smartive sind aussergewöhnlich. Die Beratung und das saubere Cloud-Setup ermöglichen uns schnelles Voranschreiten. Wir sind glücklich, dass wir nun auch bei der Umsetzung auf smartive zählen können.",
+    "author": "Diego Goldener, Unternehmer",
+    "company": "Subsidia AG",
+    "url": "https://www.subsidia.ch",
+    "image": "./diego-goldener.jpg"
   }
 ]

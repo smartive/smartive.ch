@@ -14,7 +14,7 @@ exports[`Caes Teaser renders correctly 1`] = `
         className="row"
       >
         <div
-          className="case-teaser__col--img col-xs-12 col-lg-7 last-lg"
+          className="case-teaser__col--img col-xs-12 col-lg-6 last-lg"
         >
           <div
             className="img-container"
@@ -33,7 +33,7 @@ exports[`Caes Teaser renders correctly 1`] = `
           </div>
         </div>
         <div
-          className="case-teaser__col--body col-xs-12 col-lg-5 first-lg"
+          className="case-teaser__col--body col-xs-12 col-lg-6 first-lg"
         >
           <div
             className="case-teaser__text"
@@ -84,7 +84,7 @@ exports[`Caes Teaser renders correctly with «All Projects» Button 1`] = `
         className="row"
       >
         <div
-          className="case-teaser__col--img col-xs-12 col-lg-7 last-lg"
+          className="case-teaser__col--img col-xs-12 col-lg-6 last-lg"
         >
           <div
             className="img-container"
@@ -103,7 +103,7 @@ exports[`Caes Teaser renders correctly with «All Projects» Button 1`] = `
           </div>
         </div>
         <div
-          className="case-teaser__col--body col-xs-12 col-lg-5 first-lg"
+          className="case-teaser__col--body col-xs-12 col-lg-6 first-lg"
         >
           <div
             className="case-teaser__text"

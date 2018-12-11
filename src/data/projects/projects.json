@@ -1,5 +1,12 @@
 [
   {
+    "title": "Subsidia",
+    "category": "Kasse (POS-System)",
+    "description": "<p>Gemeinsam mit Subsidia erstellen wir ein Warenwirtschaftssystem und eine Kassensoftware (POS-System) mit nahtloser Integration ins Kunden-Marketing. smartive unterstützte mit Beratung, Technologiewahl, DevOps und entwickelt nun mit. Agil und mit den neuesten Technologien.</p>",
+    "image": "./subsidia-case.jpg",
+    "caseUrl": "/cases/subsidia-kasse"
+  },
+  {
     "title": "Filialfinder",
     "category": "API und Webapplikation",
     "description": "<p>Mit dem neuen Migros Filialfinder können Kundinnen und Kunden zu Hause oder unterwegs relevante Filialinformationen schnell und einfach abrufen. Als Backend wurde eine Node.js API mit Elasticsearch als Suchindex entwickelt. Mit diesem Stack können eine hohe Performance und die optimale Volltextsuche garantiert werden. Durch starke Suchmaschinenoptimierung (SEO) können auch alle Filialen inklusive deren Öffnungszeiten bei renommierten Suchmaschinen gefunden werden.</p>",

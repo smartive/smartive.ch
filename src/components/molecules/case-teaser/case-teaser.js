@@ -12,7 +12,7 @@ export const CaseTeaser = ({ url, image, title, subline, children, allProjects, 
     <div className="case-teaser">
       <div className="container container--case">
         <div className="row">
-          <div className="case-teaser__col--img col-xs-12 col-lg-7 last-lg">
+          <div className="case-teaser__col--img col-xs-12 col-lg-6 last-lg">
             <div className="img-container">
               <figure>
                 <Link to={url}>
@@ -25,7 +25,7 @@ export const CaseTeaser = ({ url, image, title, subline, children, allProjects, 
               </figure>
             </div>
           </div>
-          <div className="case-teaser__col--body col-xs-12 col-lg-5 first-lg">
+          <div className="case-teaser__col--body col-xs-12 col-lg-6 first-lg">
             <div className="case-teaser__text">
               <h2>
                 <small>{subline}</small>

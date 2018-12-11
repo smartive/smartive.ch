@@ -1,5 +1,5 @@
-@import "../../../scss/colors";
-@import "../../../scss/responsive";
+@import '../../../scss/colors';
+@import '../../../scss/responsive';
 
 .case-teaser {
   margin: 0 0 5rem;
@@ -8,18 +8,14 @@
     margin: 5rem 0 7.5rem;
   }
 
-
   @media #{$xlarge-up} {
     margin: 5rem 0 12.5rem;
   }
 
-  .container--case {
-    background: $smartive-dark-blue;
-    color: $white;
-  }
-
   h2 {
-    small { color: $smartive-blue; }
+    small {
+      color: $smartive-blue;
+    }
   }
 
   &__text {
@@ -42,9 +38,8 @@
   &__actions {
     .button {
       @media #{$small-up} {
-        margin: 0 .5rem;
+        margin: 0 0.5rem;
       }
-
 
       &:first-of-type {
         @media #{$small-up} {
@@ -71,7 +66,7 @@
       margin: 0;
 
       @media #{$large-up} {
-        margin-top: -15%;
+        margin-top: -5%;
       }
 
       @media #{$xlarge-up} {
@@ -89,6 +84,19 @@
     @media #{$large-up} {
       padding-top: 0;
     }
+  }
+}
+
+.case-teaser--dark > .case-teaser {
+  .container--case {
+    background: $smartive-dark-blue;
+    color: $white;
+  }
+}
+
+.case-teaser--bright > .case-teaser {
+  .container--case {
+    background: $light-blue;
   }
 }
 
@@ -118,6 +126,8 @@
   .case-teaser__col--body {
     @media #{$xlarge-up} {
       order: -1;
+      margin: 0;
+      padding: 0 3rem 0 0;
     }
   }
 
@@ -125,16 +135,44 @@
     line-height: 0;
 
     .case-image {
-      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, .1);
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
     }
 
     @media #{$xlarge-up} {
-      margin-right: -1.5rem;
+      margin-right: -2.5rem;
 
       .case-image {
-        box-shadow: 0 2rem 4rem 0 rgba(0, 0, 0, .1);
+        box-shadow: 0 2rem 4rem 0 rgba(0, 0, 0, 0.1);
       }
     }
   }
 }
 
+.case-teaser--left-highlighted > .case-teaser {
+  .case-teaser__col--body {
+    @media #{$xlarge-up} {
+      order: 1;
+      margin: 0;
+      padding: 0 3rem 0 0;
+    }
+  }
+
+  .img-container {
+    line-height: 0;
+
+    .case-image {
+      max-width: 100%;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+    }
+
+    @media #{$xlarge-up} {
+      margin: 0 0 0 0;
+      padding: 0 0 0 0;
+      margin-left: -2.5rem;
+
+      .case-image {
+        box-shadow: 0 2rem 4rem 0 rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}
