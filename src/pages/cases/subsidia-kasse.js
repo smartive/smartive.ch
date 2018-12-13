@@ -1,4 +1,4 @@
-import { StaticQuery } from 'gatsby';
+import { graphql, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 
@@ -110,7 +110,7 @@ const SubsidiaCase = () => (
             <Facts title="Facts & Figures">
               <ul>
                 <li>Beratung und Technologiewahl</li>
-                <li>DevOps Setup mit Gitlab in Google Cloud Plattform</li>
+                <li>DevOps Setup mit GitLab in Google Cloud Plattform</li>
                 <li>Kasse als Progressive Web App mit React</li>
                 <li>Einfach erweiterbare Design Pattern Library</li>
               </ul>
@@ -175,9 +175,9 @@ const SubsidiaCase = () => (
           >
             <p>
               Für Subsidia haben wir eine Umgebung aufgesetzt, die agiles Arbeiten einfach macht. Dabei setzen wir auf
-              Continuous Integration mit Gitlab, Docker und Kubernetes. Alles läuft in der Google Cloud Platform. Pro Feature
+              Continuous Integration mit GitLab, Docker und Kubernetes. Alles läuft in der Google Cloud Platform. Pro Feature
               wird automatisiert eine Vorschau-Umgebung erstellt. Somit haben alle Zugriff auf die neuesten Funktionen. Vom
-              Projektleiter über den Designer bis hin zum Entwickler wird die Kommunikation vereinfacht. Und schnelles
+              Projektleiter über den Designer bis hin zum Entwickler wird die Kommunikation vereinfacht. Schnelles
               Vorwärtskommen ist garantiert.
             </p>
           </CaseBlock>

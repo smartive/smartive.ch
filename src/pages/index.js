@@ -163,8 +163,8 @@ const Index = () => (
           >
             <p>
               Gemeinsam mit Subsidia erstellen wir ein Warenwirtschaftssystem und eine Kassensoftware (POS-System) mit
-              nahtloser Integration ins Kunden-Marketing. Smartive unterstützte mit Beratung, Technologiewahl, Setup und
-              entwickelt nun mit. Agil und mit den neuesten Technologien.
+              nahtloser Integration ins Kunden-Marketing. smartive unterstützte mit Beratung, Technologiewahl, Setup und
+              verstärkt nun das Entwicklerteam bei der Umsetzung. Agil und unter Einbezug der neuesten Technologien.
             </p>
           </CaseTeaser>
 
