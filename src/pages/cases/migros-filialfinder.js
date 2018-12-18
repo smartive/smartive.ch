@@ -3,7 +3,7 @@ import Img from 'gatsby-image';
 import React from 'react';
 
 import { DefaultLayout } from '../../components/layout';
-import { CaseBlock, Facts, Quote, Stage } from '../../components/molecules';
+import { CaseBlock, Facts, Quote, Stage, PersonalContact } from '../../components/molecules';
 import { CaseBlogTeaserList } from '../../components/organisms/case-blog-teaser-list';
 
 const migrosCaseQuery = graphql`
@@ -65,6 +65,22 @@ const migrosCaseQuery = graphql`
         }
       }
     }
+    allContactsJson(filter: { slug: { eq: "moreno" } }) {
+      edges {
+        node {
+          name
+          phone
+          mail
+          image {
+            childImageSharp {
+              fluid(maxWidth: 640, quality: 92) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+              }
+            }
+          }
+        }
+      }
+    }
     allImageSharp(filter: { fluid: { originalName: { regex: "/(chart|data-aggregation|filialfinder-frontend)/" } } }) {
       edges {
         node {
@@ -81,12 +97,18 @@ const migrosCaseQuery = graphql`
 const MigrosFilialfinderCase = () => (
   <StaticQuery
     query={migrosCaseQuery}
-    render={({ allStagesJson, allQuotesJson, allImageSharp, allMediumPost }) => {
+    render={({ allStagesJson, allQuotesJson, allImageSharp, allMediumPost, allContactsJson }) => {
       const { imageSrc, imageAlt, title, contentBlocks } = allStagesJson.edges[0].node;
       const { quote, author, company, url, image } = allQuotesJson.edges[0].node;
       const aggregationImg = allImageSharp.edges[0].node.fluid;
       const chartImg = allImageSharp.edges[1].node.fluid;
       const frontendImg = allImageSharp.edges[2].node.fluid;
+      const {
+        name: contactName,
+        phone: contactPhone,
+        mail: contactMail,
+        image: contactImage,
+      } = allContactsJson.edges[0].node;
 
       return (
         <DefaultLayout>
@@ -167,6 +189,13 @@ const MigrosFilialfinderCase = () => (
           </CaseBlock>
 
           <Quote text={quote} author={author} company={company} url={url} img={image.childImageSharp.fluid} />
+
+          <PersonalContact
+            name={contactName}
+            mail={contactMail}
+            phone={contactPhone}
+            img={contactImage.childImageSharp.fluid}
+          />
 
           <CaseBlogTeaserList posts={allMediumPost} />
         </DefaultLayout>

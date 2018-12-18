@@ -93,7 +93,12 @@ const Index = () => (
     query={pageQuery}
     render={({ allStagesJson, allMediumPost, allImageSharp, allMembersJson, allContactsJson }) => {
       const { imageSrc, imageAlt, title, contentBlocks } = allStagesJson.edges[0].node;
-      const { name, phone, mail, image: contactImage } = allContactsJson.edges[0].node;
+      const {
+        name: contactName,
+        phone: contactPhone,
+        mail: contactMail,
+        image: contactImage,
+      } = allContactsJson.edges[0].node;
 
       const caseImage1 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-dimmi'))[0];
       const caseImage2 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-cosmo'))[0];
@@ -169,10 +174,11 @@ const Index = () => (
           </CaseTeaser>
 
           <PersonalContact
-            name={`Ihr Ansprechpartner: ${name}`}
-            text={`Haben Sie ein innovatives Vorhaben? Wir freuen uns über Ihre Kontaktaufnahme und beraten Sie gerne.`}
-            mail={mail}
-            phone={phone}
+            name={contactName}
+            titlePrefix={`Ihr Ansprechpartner`}
+            text={`Haben Sie ein innovatives Vorhaben? Wir freuen uns über Ihre Kontaktaufnahme und beraten Sie gerne persönlich.`}
+            mail={contactMail}
+            phone={contactPhone}
             img={contactImage.childImageSharp.fluid}
           />
 

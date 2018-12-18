@@ -3,7 +3,7 @@ import Img from 'gatsby-image';
 import React from 'react';
 
 import { DefaultLayout } from '../../components/layout';
-import { CaseBlock, Quote, Stage } from '../../components/molecules';
+import { CaseBlock, Quote, Stage, PersonalContact } from '../../components/molecules';
 import { CaseBlogTeaserList } from '../../components/organisms/case-blog-teaser-list';
 
 const sharedComponentsQuery = graphql`
@@ -68,6 +68,22 @@ const sharedComponentsQuery = graphql`
         }
       }
     }
+    allContactsJson(filter: { slug: { eq: "thilo" } }) {
+      edges {
+        node {
+          name
+          phone
+          mail
+          image {
+            childImageSharp {
+              fluid(maxWidth: 640, quality: 92) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+              }
+            }
+          }
+        }
+      }
+    }
     allFile(filter: { name: { regex: "/(atomic-design|webpack|documentation|tests)/" } }) {
       edges {
         node {
@@ -86,13 +102,19 @@ const sharedComponentsQuery = graphql`
 export const SharedComponentsCase = () => (
   <StaticQuery
     query={sharedComponentsQuery}
-    render={({ allStagesJson, allQuotesJson, allFile, allMediumPost }) => {
+    render={({ allStagesJson, allQuotesJson, allFile, allMediumPost, allContactsJson }) => {
       const { imageSrc, imageAlt, title, contentBlocks } = allStagesJson.edges[0].node;
       const { quote, author, company, url, image } = allQuotesJson.edges[0].node;
       const documentationImg = allFile.edges[0].node.publicURL;
       const testsImg = allFile.edges[1].node.publicURL;
       const webpackImg = allFile.edges[2].node.childImageSharp.fluid;
       const atomicDesignImg = allFile.edges[3].node.childImageSharp.fluid;
+      const {
+        name: contactName,
+        phone: contactPhone,
+        mail: contactMail,
+        image: contactImage,
+      } = allContactsJson.edges[0].node;
 
       return (
         <DefaultLayout>
@@ -198,6 +220,13 @@ export const SharedComponentsCase = () => (
           </CaseBlock>
 
           <Quote text={quote} author={author} company={company} url={url} img={image.childImageSharp.fluid} />
+
+          <PersonalContact
+            name={contactName}
+            mail={contactMail}
+            phone={contactPhone}
+            img={contactImage.childImageSharp.fluid}
+          />
 
           <CaseBlogTeaserList posts={allMediumPost} />
         </DefaultLayout>
