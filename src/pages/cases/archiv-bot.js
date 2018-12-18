@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 
 import { DefaultLayout } from '../../components/layout';
-import { CaseBlock, Facts, Stage } from '../../components/molecules';
+import { CaseBlock, Facts, Stage, PersonalContact } from '../../components/molecules';
 
 const archiveBotQuery = graphql`
   query ArchiveBotQuery {
@@ -29,6 +29,22 @@ const archiveBotQuery = graphql`
         }
       }
     }
+    allContactsJson(filter: { slug: { eq: "peter" } }) {
+      edges {
+        node {
+          name
+          phone
+          mail
+          image {
+            childImageSharp {
+              fluid(maxWidth: 640, quality: 92) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+              }
+            }
+          }
+        }
+      }
+    }
     allImageSharp(filter: { fluid: { originalName: { regex: "/(chatflow|nlp|sdk)/" } } }) {
       edges {
         node {
@@ -45,11 +61,17 @@ const archiveBotQuery = graphql`
 const ArchiveBotCase = () => (
   <StaticQuery
     query={archiveBotQuery}
-    render={({ allStagesJson, allImageSharp }) => {
+    render={({ allStagesJson, allImageSharp, allContactsJson }) => {
       const stageData = allStagesJson.edges[0].node;
       const chatFlowImg = allImageSharp.edges[2].node.fluid;
       const nlpImg = allImageSharp.edges[1].node.fluid;
       const sdkImg = allImageSharp.edges[0].node.fluid;
+      const {
+        name: contactName,
+        phone: contactPhone,
+        mail: contactMail,
+        image: contactImage,
+      } = allContactsJson.edges[0].node;
 
       return (
         <DefaultLayout>
@@ -118,6 +140,13 @@ const ArchiveBotCase = () => (
               selbst - gelegt werden.
             </p>
           </CaseBlock>
+
+          <PersonalContact
+            name={contactName}
+            mail={contactMail}
+            phone={contactPhone}
+            img={contactImage.childImageSharp.fluid}
+          />
         </DefaultLayout>
       );
     }}

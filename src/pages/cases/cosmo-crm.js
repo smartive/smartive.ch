@@ -3,7 +3,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 
 import { DefaultLayout } from '../../components/layout';
-import { CaseBlock, Facts, Quote, Stage } from '../../components/molecules';
+import { CaseBlock, Facts, Quote, Stage, PersonalContact } from '../../components/molecules';
 
 const cosmoCrmQuery = graphql`
   {
@@ -46,6 +46,22 @@ const cosmoCrmQuery = graphql`
         }
       }
     }
+    allContactsJson(filter: { slug: { eq: "peter" } }) {
+      edges {
+        node {
+          name
+          phone
+          mail
+          image {
+            childImageSharp {
+              fluid(maxWidth: 640, quality: 92) {
+                ...GatsbyImageSharpFluid_withWebp_noBase64
+              }
+            }
+          }
+        }
+      }
+    }
     allImageSharp(filter: { fluid: { originalName: { regex: "/(cosmo-tech-stack|feature-stack-cosmo)/" } } }) {
       edges {
         node {
@@ -62,11 +78,17 @@ const cosmoCrmQuery = graphql`
 const CosmoCrmCase = () => (
   <StaticQuery
     query={cosmoCrmQuery}
-    render={({ allStagesJson, allQuotesJson, allImageSharp }) => {
+    render={({ allStagesJson, allQuotesJson, allImageSharp, allContactsJson }) => {
       const { imageSrc, imageAlt, title, contentBlocks } = allStagesJson.edges[0].node;
       const { quote, author, company, url, image } = allQuotesJson.edges[0].node;
       const techImg = allImageSharp.edges[0].node.fluid;
       const featureImg = allImageSharp.edges[1].node.fluid;
+      const {
+        name: contactName,
+        phone: contactPhone,
+        mail: contactMail,
+        image: contactImage,
+      } = allContactsJson.edges[0].node;
 
       return (
         <DefaultLayout>
@@ -126,6 +148,13 @@ const CosmoCrmCase = () => (
           </CaseBlock>
 
           <Quote text={quote} author={author} company={company} url={url} img={image.childImageSharp.fluid} />
+
+          <PersonalContact
+            name={contactName}
+            mail={contactMail}
+            phone={contactPhone}
+            img={contactImage.childImageSharp.fluid}
+          />
         </DefaultLayout>
       );
     }}

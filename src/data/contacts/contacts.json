@@ -19,5 +19,12 @@
     "image": "./robert-vogt.jpg",
     "phone": "+41 44 552 55 99",
     "mail": "robert@smartive.ch"
+  },
+  {
+    "slug": "moreno",
+    "name": "Moreno Feltscher",
+    "image": "./moreno-feltscher.jpg",
+    "phone": "+41 44 552 55 99",
+    "mail": "moreno@smartive.ch"
   }
 ]

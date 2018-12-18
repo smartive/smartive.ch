@@ -83,7 +83,12 @@ const SubsidiaCase = () => (
   <StaticQuery
     query={subsidiaCaseQuery}
     render={({ allStagesJson, allQuotesJson, allImageSharp, allContactsJson }) => {
-      const { name, phone, mail, image: contactImage } = allContactsJson.edges[0].node;
+      const {
+        name: contactName,
+        phone: contactPhone,
+        mail: contactMail,
+        image: contactImage,
+      } = allContactsJson.edges[0].node;
 
       const stageData = allStagesJson.edges[0].node;
       const { quote, author, company, url, image } = allQuotesJson.edges[0].node;
@@ -185,10 +190,9 @@ const SubsidiaCase = () => (
           <Quote text={quote} author={author} company={company} url={url} img={image.childImageSharp.fluid} />
 
           <PersonalContact
-            name={`Unser Experte: ${name}`}
-            text={`Haben Sie Fragen zu diesem Projekt oder ein eigenes spannendes Vorhaben? Ich freue mich über Ihre Kontaktaufnahme und berate Sie gerne.`}
-            mail={mail}
-            phone={phone}
+            name={contactName}
+            mail={contactMail}
+            phone={contactPhone}
             img={contactImage.childImageSharp.fluid}
           />
         </DefaultLayout>
