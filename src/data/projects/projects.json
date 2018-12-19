@@ -7,6 +7,12 @@
     "caseUrl": "/cases/subsidia-kasse"
   },
   {
+    "title": "Ostschweizer Forum für Psychische Gesundheit",
+    "category": "API und Webapplikation",
+    "description": "<p>Zusammen mit dem Amt für Gesundheitsvorsorge, ZEPRA, St. Gallen haben wir einen neue Datenbank für Unterstützungs- und Entlastungsangebote konzipiert und entwickelt. Das Gesamtsystem ist mandantenfähig und das Frontend-Widget lässt sich problemlos auf allen Kantons-, Gemeinde- und Kampagnen-Seiten integrieren und durch die intelligente Suche und Filterung perfekt auf die Zielgruppe anpassen.</p><p><a href=\"https://ofpg.ch/notfall-hilfe-finden\">ofpg.ch</a> / <a href=\"https://www.kinderseele.ch/angebote/hilfe-finden/\">kinderseele.ch</a></p>",
+    "image": "./ofpg-kig.jpg"
+  },
+  {
     "title": "Filialfinder",
     "category": "API und Webapplikation",
     "description": "<p>Mit dem neuen Migros Filialfinder können Kundinnen und Kunden zu Hause oder unterwegs relevante Filialinformationen schnell und einfach abrufen. Als Backend wurde eine Node.js API mit Elasticsearch als Suchindex entwickelt. Mit diesem Stack können eine hohe Performance und die optimale Volltextsuche garantiert werden. Durch starke Suchmaschinenoptimierung (SEO) können auch alle Filialen inklusive deren Öffnungszeiten bei renommierten Suchmaschinen gefunden werden.</p>",
