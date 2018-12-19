@@ -101,10 +101,10 @@
     "image": "./kraeutergarten.jpg"
   },
   {
-    "title": "Saisontabelle",
+    "title": "Saisonkalender",
     "category": "Webapplikation",
-    "description": "<p>Für Generation M haben wir eine interaktive Saisontabelle als responsive Applikation, basierend auf AngularJS, erstellt. Für das Design der Applikation zeigt sich <a href=\"http://www.denkwerk.com/\">denkwerk</a> verantwortlich.</p><p><a href=\"https://generation-m.migros.ch/de/nachhaltig-leben/tipps-tools/saisonkalender.html\">generation-m.migros.ch</a></p>",
-    "image": "./saisontabelle.jpg"
+    "description": "<p>Für Generation M haben wir einen interaktiven Saisonkalender als responsive Applikation, basierend auf React, erstellt. Sie hilft dem Kunden, saisonale Früchte und Gemüse schnell und einfach zu finden und somit ökologisch einzukaufen.</p><p><a href=\"https://generation-m.migros.ch/de/nachhaltig-leben/tipps-tools/saisonkalender.html\">generation-m.migros.ch</a></p>",
+    "image": "./saisonkalender.jpg"
   },
   {
     "title": "Lebenserwartungs­karte",
