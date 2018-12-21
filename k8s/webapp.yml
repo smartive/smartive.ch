@@ -89,7 +89,7 @@ spec:
               containerPort: 80
           env:
             - name: CI_JOB_ID
-              value: ${CI_JOB_ID}
+              value: '${CI_JOB_ID}'
           livenessProbe:
             tcpSocket:
               port: 80
