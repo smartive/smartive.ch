@@ -212,10 +212,10 @@
   },
   {
     "img": "./portrait-kim.jpg",
-    "job": "Intern",
+    "job": "Software Engineer",
     "name": "Kim Beyeler",
     "education": "Master of Arts UZH",
-    "description": "Sprachnerd und Rheinliebhaber aus Schaffhausen. Mag Skandinavien, Grammatiken und bahnt sich einen Weg in den Code-Garten.",
+    "description": "Sprachnerd und Rheinliebhaber aus Schaffhausen. Mag Skandinavien, Grammatiken und bahnt sich einen Weg durch den Code-Garten",
     "links": [{
         "text": "kim@smartive.ch",
         "url": "mailto:kim@smartive.ch"
