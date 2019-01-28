@@ -5,7 +5,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import '../scss/main.scss';
-import { Footer, Header } from '../components/organisms';
+import { Footer, Header, KubeConfig } from '../components/organisms';
 
 export class DefaultLayout extends React.Component {
   componentDidMount() {
@@ -56,6 +56,7 @@ export class DefaultLayout extends React.Component {
         <main>{this.props.children}</main>
 
         <Footer />
+        <KubeConfig />
       </div>
     );
   }
