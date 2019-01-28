@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 
 const allowedKeys = {
@@ -79,7 +80,7 @@ function listener(e) {
     if (konamiCodePosition == konamiCode.length) {
       try {
         startEasterEgg();
-      } catch {
+      } catch (e) {
       } finally {
         document.removeEventListener('keydown', listener);
       }
@@ -90,13 +91,19 @@ function listener(e) {
   }
 }
 
-export const KubeConfig = () => {
-  if (!window.attached) {
-    document.addEventListener('keydown', listener);
-    window.attached = true;
+export class KubeConfig extends React.Component {
+  componentDidMount() {
+    if (typeof window !== 'undefined') {
+      if (!window.attached) {
+        document.addEventListener('keydown', listener);
+        window.attached = true;
+      }
+    }
   }
 
-  return <React.Fragment />;
-};
+  render() {
+    return <React.Fragment />;
+  }
+}
 
 export default KubeConfig;
