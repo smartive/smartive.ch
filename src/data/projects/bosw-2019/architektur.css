@@ -1,0 +1,150 @@
+@keyframes fromUpperLeft {
+  0% {
+    opacity: 1;
+    transform: translate(-8000px, -4000px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes fromUpperRight {
+  0% {
+    opacity: 1;
+    transform: translate(8000px, -4000px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+@keyframes fromLowerLeft {
+  0% {
+    opacity: 1;
+    transform: translate(-8000px, 4000px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+svg #Analytics---Tracking,
+svg #Busines-Intelligence,
+svg #Mail,
+svg #Rest,
+svg #Message-Broker,
+svg #Migros-Produkt,
+svg #Migros-User,
+svg #Verbindungen,
+svg #Beschriftung,
+svg #Facade-ACL,
+svg #GraphQL,
+svg #Widgets,
+svg #Rest,
+svg #SQL,
+svg #Database,
+svg #Bubble_GraphQL,
+svg #Bubble_SQL,
+svg #Bubble_REST {
+  opacity: 0;
+}
+svg #Analytics---Tracking {
+  animation: fromUpperLeft 1s 1.4s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #Busines-Intelligence {
+  animation: fromUpperLeft 1s 1.3s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #Mail {
+  animation: fromUpperLeft 1s 1.5s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #Rest {
+  animation: fromUpperLeft 1s 0.1s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #Message-Broker {
+  animation: fromUpperLeft 1s 0.3s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #Migros-Produkt {
+  animation: fromUpperLeft 1s 1.2s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #Migros-User {
+  animation: fromUpperLeft 1s 1.1s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #Verbindungen {
+  animation: appear 1s 1.5s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #Beschriftung {
+  animation: appear 1s 2s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #Facade-ACL {
+  animation: fromUpperRight 1s 0.2s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #GraphQL {
+  animation: fromUpperRight 1s 0.1s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #Widgets {
+  animation: fromUpperRight 1s 0.3s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #Rest {
+  animation: fromLowerLeft 1s 0.1s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #SQL {
+  animation: fromLowerLeft 1s 0.15s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #Database {
+  animation: fromLowerLeft 1s 0.2s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #Bubble_GraphQL {
+  animation: appear 1s 3s ease-in-out 1;
+  animation-fill-mode: forwards;
+}
+
+svg #Bubble_SQL,
+svg #Bubble_REST {
+  animation: appear 1s 6s ease-in-out 1;
+  animation-fill-mode: forwards;
+}

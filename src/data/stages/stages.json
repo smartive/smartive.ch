@@ -203,5 +203,25 @@
     ],
     "imageSrc": "./case-study-subsidia.jpg",
     "imageAlt": "Migros Logo auf einem Laptop"
+  },
+  {
+    "siteTitle": "Migros-Produkte bewerten",
+    "title": "Migros-Produkte bewerten",
+    "contentBlocks": [
+      {
+        "id": "1",
+        "value": "Produktebewertungen werden immer wichtiger: Sie erhöhen das Vertrauen und steigern die Kundenbindung. Zudem dienen Bewertungen als Feedbackchannel und damit wertvolle Quelle für die Produkteoptimierung."
+      },
+      {
+        "id": "2",
+        "value": "Auch die Migros setzt mit <a href='https://www.migipedia.ch'>migipedia.ch</a> und <a href='https://produkte.migros.ch'>migros.ch</a> seit Jahren auf Kundenfeedback. Nun konnten wir eine bereits etwas ältere Applikation für das Bewerten von Produkten auf den beiden Plattformen ablösen."
+      },
+      {
+        "id": "2",
+        "value": "Die neue Lösung ist zukunftsfähig und wird neu auch von <a href='https://www.sportxx.ch'>SportXX</a>, <a href='https://www.bikeworld.ch'>Bike World</a>, <a href='https://www.micasa.ch'>Micasa</a>, <a href='https://www.interio.ch'>Interio</a>, <a href='https://www.melectronics.ch'>melectronics</a> und <a href='https://www.doitgarden.ch/‎'>Do it + Garden</a> eingesetzt."
+      }
+    ],
+    "imageSrc": "./case-study-migros-reactions.png",
+    "imageAlt": "Migros Kundenbewertungen auf einem iPad"
   }
 ]

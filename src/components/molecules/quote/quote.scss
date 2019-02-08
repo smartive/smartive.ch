@@ -1,153 +1,164 @@
-@import "../../../scss/colors";
-@import "../../../scss/responsive";
+@import '../../../scss/colors';
+@import '../../../scss/responsive';
 
 .quote-block {
-    padding: 10rem 2rem 1.5rem;
+  padding: 10rem 2rem 1.5rem;
+
+  @media #{$medium-up} {
+    padding: 2.5rem 2rem;
+  }
+
+  @media #{$large-up} {
+    padding: 5rem 4.5rem;
+  }
+
+  .quote__img {
+    display: block;
+    height: auto;
+    width: 7.5rem;
+    margin: 2rem 0 0 2rem;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+
+    @media #{$large-up} {
+      width: 10rem;
+      margin: 2rem auto 0;
+    }
+  }
+
+  .quote__img__large {
+    width: 18rem;
+    margin: 1.5rem auto 0;
+  }
+
+  .quote__body {
+    order: -1;
+
+    @media #{$large-up} {
+      order: 1;
+    }
+  }
+
+  .quote {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    p {
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+
+      @media #{$large-up} {
+        font-size: 2.5rem;
+      }
+
+      &:before,
+      &:after {
+        position: absolute;
+        color: $smartive-blue;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      &:before {
+        content: '«';
+        margin-left: -1.25rem;
+
+        @media #{$large-up} {
+          margin-left: -2.5rem;
+        }
+      }
+
+      &:after {
+        content: '»';
+        margin-left: 0.25rem;
+      }
+    }
+
+    .large {
+      @media #{$large-up} {
+        font-size: 3rem;
+      }
+    }
+
+    cite {
+      font-size: 1rem;
+      font-weight: 300;
+      font-style: normal;
+
+      display: inline-block;
+      position: relative;
+      width: 100%;
+      word-break: break-all;
+
+      @media #{$medium-up} {
+        font-size: 1.5rem;
+      }
+
+      .quote__author {
+        margin-right: 0.5rem;
+
+        &:after {
+          content: ',';
+        }
+      }
+    }
+  }
+
+  &.quote-block--random {
+    margin-bottom: 10rem;
 
     @media #{$medium-up} {
-      padding: 2.5rem 2rem;
+      margin-bottom: 6rem;
     }
 
     @media #{$large-up} {
-      padding: 5rem 4.5rem;
+      margin-bottom: 10rem;
     }
+  }
 
+  &.quote-block--initial {
     .quote__img {
-        display: block;
-        height: auto;
-        width: 7.5rem;
-        margin: 2rem 0 0 2rem;
-        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, .1);
+      background: $light-blue;
+      margin: 1rem auto 0;
 
-        @media #{$large-up} {
-            width: 10rem;
-            margin: 2rem auto 0;
-        }
+      width: 7.5rem;
+      height: 7.5rem;
+
+      @media #{$large-up} {
+        width: 10rem;
+        height: 10rem;
+      }
     }
 
-    .quote__body {
-        order: -1;
-
-        @media #{$large-up} {
-            order: 1;
-        }
+    p {
+      &:before,
+      &:after {
+        color: $light-blue;
+      }
     }
 
-    .quote {
-        max-width: 60rem;
-        margin: 0 auto;
-        padding: 0 2rem;
+    .mock-text {
+      display: inline-block;
+      background: $light-blue;
+      height: 3rem;
+      width: 42rem;
 
-        p {
-            font-size: 1.8rem;
-            font-weight: 700;
-            line-height: 1.2;
-
-            @media #{$large-up} {
-                font-size: 3rem;
-            }
-
-            &:before,
-            &:after {
-                position: absolute;
-                color: $smartive-blue;
-                font-weight: 700;
-                line-height: 1.2;
-            }
-
-            &:before {
-                content: '«';
-                margin-left: -1.25rem;
-
-                @media #{$large-up} {
-                    margin-left: -2.5rem;
-                }
-            }
-
-            &:after {
-                content: '»';
-                margin-left: .25rem;
-            }
-        }
-
-        cite {
-            font-size: 1rem;
-            font-weight: 300;
-            font-style: normal;
-
-            display: inline-block;
-            position: relative;
-            width: 100%;
-            word-break: break-all;
-
-            @media #{$medium-up} {
-                font-size: 1.5rem;
-            }
-
-            .quote__author {
-                margin-right: .5rem;
-
-                &:after {
-                    content: ',';
-                }
-            }
-        }
+      &--short {
+        width: 35rem;
+      }
     }
 
-    &.quote-block--random {
-        margin-bottom: 10rem;
+    .quote cite .quote__author {
+      display: inline-block;
+      height: 1.5rem;
+      background: $light-blue;
+      width: 15rem;
 
-        @media #{$medium-up} {
-            margin-bottom: 6rem;
-        }
-
-        @media #{$large-up} {
-            margin-bottom: 10rem;
-        }
+      &:after {
+        display: none;
+        content: ' ';
+      }
     }
-
-    &.quote-block--initial {
-        .quote__img {
-            background: $light-blue;
-            margin: 1rem auto 0;
-
-            width: 7.5rem;
-            height: 7.5rem;
-
-            @media #{$large-up} {
-                width: 10rem;
-                height: 10rem;
-            }
-        }
-
-        p {
-            &:before,
-            &:after {
-                color: $light-blue;
-            }
-        }
-
-        .mock-text {
-            display: inline-block;
-            background: $light-blue;
-            height: 3rem;
-            width: 42rem;
-
-            &--short {
-                width: 35rem;
-            }
-        }
-
-        .quote cite .quote__author {
-            display: inline-block;
-            height: 1.5rem;
-            background: $light-blue;
-            width: 15rem;
-
-            &:after {
-                display: none;
-                content: " ";
-            }
-        }
-    }
+  }
 }

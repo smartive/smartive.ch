@@ -56,6 +56,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
+        exclude: ['/cases/bosw-2019', '/cases/migros-ratings-reviews'],
         query: `{
       site {
         siteMetadata {

@@ -9,7 +9,7 @@
   },
   {
     "slug": "stefan-bischofberger",
-    "quote": "smartive war für uns der kompetente und zuverlässliche Partner, der unserem Projekt zum Erfolg verhalf.",
+    "quote": "smartive war für uns der kompetente und zuverlässige Partner, der unserem Projekt zum Erfolg verhalf.",
     "author": "Stefan Bischofberger",
     "company": "Cosmopolitan Vermögensverwaltungs AG",
     "url": "https://www.cosmopolitan.ch/de/",
@@ -38,5 +38,29 @@
     "company": "Subsidia AG",
     "url": "https://www.subsidia.ch",
     "image": "./diego-goldener.jpg"
+  },
+  {
+    "slug": "philippe-buehler",
+    "quote": "Die Zusammenarbeit mit smartive ist unkompliziert. Auch dieses Projekt wurde sauber umgesetzt: Und zwar bezüglich Qualität, Zeit und Budget.",
+    "author": "Philipp Bühler, Senior Projektleiter",
+    "company": "Migros-Genossenschafts-Bund (MGB)",
+    "url": "https://www.migros.ch",
+    "image": "./philipp-buehler.jpg"
+  },
+  {
+    "slug": "roland-hunziker",
+    "quote": "Smartive hat dieses technisch sehr komplexe Projekt erfolgreich umgesetzt. Dank klarer, transparenter Kommunikation wussten wir bei der Migros immer bestens über den Projekt-Fortschritt Bescheid.",
+    "author": "Roland Hunziker, Technischer Projektleiter",
+    "company": "Migros-Genossenschafts-Bund (MGB)",
+    "url": "https://www.migros.ch",
+    "image": "./philipp-buehler.jpg"
+  },
+  {
+    "slug": "philippe-buehler-bosw",
+    "quote": "Migipedia lebt jetzt auf 8 Plattformen und ist eine grosse Migros-Community. Die eingesetzte, moderne Technologie bringt drei wesentliche Vorteile: massive Performance-Verbesserung, günstiger in Betrieb und Weiterentwicklung und erhöhte Zuverlässigkeit.",
+    "author": "Philipp Bühler, Senior Projektleiter",
+    "company": "Migros-Genossenschafts-Bund (MGB)",
+    "url": "https://www.migros.ch",
+    "image": "./philipp-buehler.jpg"
   }
 ]
