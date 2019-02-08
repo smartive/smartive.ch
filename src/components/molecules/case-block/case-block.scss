@@ -1,11 +1,17 @@
-@import "../../../scss/colors";
-@import "../../../scss/responsive";
+@import '../../../scss/colors';
+@import '../../../scss/responsive';
 
 .case-block {
-  padding: 1.5rem 1rem;
+  padding: 2.5rem 1rem;
+  &__content {
+    padding-top: 2rem;
+  }
 
   @media #{$medium-up} {
     padding: 2.5rem 2rem;
+    &__content {
+      padding-top: 0rem;
+    }
   }
 
   @media #{$large-up} {
@@ -36,7 +42,19 @@
     }
 
     .is-highlighted {
-      box-shadow: 0 2rem 4rem 0 rgba(0, 0, 0, .1);
+      box-shadow: 0 2rem 4rem 0 rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .remarkable {
+    padding: 2rem;
+    background: linear-gradient(to bottom, $light-blue 0%, $white 100%);
+
+    small {
+      color: $smartive-blue;
+      text-transform: none;
+      line-height: 1.5rem;
+      font-weight: 300;
     }
   }
 }

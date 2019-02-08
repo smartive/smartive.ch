@@ -8,8 +8,20 @@ exports[`Case Block renders correctly with a graphic image 1`] = `
     className="case-block"
   >
     <div
-      className="row"
+      className="row reverse"
     >
+      <div
+        className="col-xs-12 col-lg-6"
+      >
+        <div
+          className="case-block__col-img"
+        >
+          <img
+            alt="Example"
+            src="example.jpg"
+          />
+        </div>
+      </div>
       <div
         className="col-xs-12 col-lg-6"
       >
@@ -27,18 +39,6 @@ exports[`Case Block renders correctly with a graphic image 1`] = `
           </p>
         </div>
       </div>
-      <div
-        className="col-xs-12 col-lg-6"
-      >
-        <div
-          className="case-block__col-img"
-        >
-          <img
-            alt="Example"
-            src="example.jpg"
-          />
-        </div>
-      </div>
     </div>
   </div>
 </div>
@@ -52,7 +52,7 @@ exports[`Case Block renders correctly without a graphic image 1`] = `
     className="case-block"
   >
     <div
-      className="row"
+      className="row reverse"
     >
       <div
         className="col-xs-12 col-lg-6"

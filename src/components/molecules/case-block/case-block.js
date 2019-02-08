@@ -32,21 +32,11 @@ CaseBlockText.propTypes = {
 export const CaseBlock = ({ title, subtitle, children, graphic, isReverse = false }) => (
   <div className="container">
     <div className="case-block">
-      <div className="row">
-        {isReverse ? (
-          graphic && <CaseBlockImage graphic={graphic} />
-        ) : (
-          <CaseBlockText title={title} subtitle={subtitle}>
-            {children}
-          </CaseBlockText>
-        )}
-        {isReverse ? (
-          <CaseBlockText title={title} subtitle={subtitle}>
-            {children}
-          </CaseBlockText>
-        ) : (
-          graphic && <CaseBlockImage graphic={graphic} />
-        )}
+      <div className={isReverse ? 'row' : 'row reverse'}>
+        {graphic && <CaseBlockImage graphic={graphic} />}
+        <CaseBlockText title={title} subtitle={subtitle}>
+          {children}
+        </CaseBlockText>
       </div>
     </div>
   </div>

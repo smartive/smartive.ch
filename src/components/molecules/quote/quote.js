@@ -4,16 +4,16 @@ import Img from 'gatsby-image';
 
 import './quote.scss';
 
-export const Quote = ({ text, author, img, company, url }) => (
+export const Quote = ({ text, author, img, company, url, imgLarge, textLarge }) => (
   <div className="container">
     <div className="quote-block">
       <div className="row">
         <div className="col-xs-12 col-md-3">
-          <Img className="quote__img" alt={`Portrait von ${author}`} fluid={img} />
+          <Img className={`quote__img ${imgLarge && 'quote__img__large'}`} alt={`Portrait von ${author}`} fluid={img} />
         </div>
         <div className="col-xs-12.col-md-9 quote__body">
           <blockquote className="quote">
-            <p>{text}</p>
+            <p className={`${textLarge ? 'large' : ''}`}>{text}</p>
             <cite>
               <span>
                 {author}
@@ -40,6 +40,8 @@ Quote.propTypes = {
     sizes: PropTypes.string,
     originalImg: PropTypes.string,
   }).isRequired,
+  imgLarge: PropTypes.boolean,
+  textLarge: PropTypes.boolean,
   company: PropTypes.string,
   url: PropTypes.string,
 };
@@ -47,6 +49,8 @@ Quote.propTypes = {
 Quote.defaultProps = {
   company: null,
   url: null,
+  imgLarge: false,
+  textLarge: true,
 };
 
 export default Quote;

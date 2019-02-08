@@ -1,5 +1,5 @@
-@import "colors";
-@import "responsive";
+@import 'colors';
+@import 'responsive';
 
 html,
 body {
@@ -33,7 +33,7 @@ main {
   /* stylelint-enable */
 
   @media #{$large-up} {
-    width: 90%;
+    width: 90% !important;
   }
 }
 
@@ -91,23 +91,27 @@ figure {
 
 .emphasis {
   font-style: normal;
-  border-bottom: .125rem solid $smartive-blue;
+  border-bottom: 0.125rem solid $smartive-blue;
 }
 
 h1 > .emphasis,
 h1 > em {
-  border-bottom: .125rem solid $smartive-blue;
+  border-bottom: 0.125rem solid $smartive-blue;
   font-style: normal;
 
   @media #{$small-up} {
-    border-bottom-width: .25rem;
+    border-bottom-width: 0.25rem;
   }
 }
 
 h2 > .emphasis,
 h2 > em {
-  border-bottom: .2rem solid $smartive-blue;
+  border-bottom: 0.2rem solid $smartive-blue;
   font-style: normal;
+}
+
+h2 > small {
+  line-height: 2;
 }
 
 figcaption {

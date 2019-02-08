@@ -27,6 +27,7 @@
     "react-google-maps": "next",
     "react-headroom": "^2.1.6",
     "react-helmet": "^5.2.0",
+    "react-waypoint": "^8.1.0",
     "webfontloader": "^1.6.28"
   },
   "keywords": [
