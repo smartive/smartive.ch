@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 
 const allowedKeys = {
@@ -68,7 +67,9 @@ function startEasterEgg() {
   script.src = './tracker.js';
   egg.contentWindow.document.body.appendChild(script);
 
-  setTimeout(() => (flipper.style.transform = 'rotateY(180deg)'), 100);
+  setTimeout(() => {
+    flipper.style.transform = 'rotateY(180deg)';
+  }, 100);
 }
 
 function listener(e) {
@@ -76,11 +77,12 @@ function listener(e) {
   const requiredKey = konamiCode[konamiCodePosition];
 
   if (key === requiredKey) {
-    konamiCodePosition++;
-    if (konamiCodePosition == konamiCode.length) {
+    konamiCodePosition += 1;
+    if (konamiCodePosition === konamiCode.length) {
       try {
         startEasterEgg();
-      } catch (e) {
+      } catch (error) {
+        // do nothing
       } finally {
         document.removeEventListener('keydown', listener);
       }
