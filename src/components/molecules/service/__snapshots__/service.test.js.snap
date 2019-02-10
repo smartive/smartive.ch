@@ -38,7 +38,7 @@ exports[`Service renders correctly 1`] = `
     <div
       className="service__actions"
     >
-      <Button
+      <LinkButton
         hasBorder={true}
         isPrimary={false}
         isWhite={true}
@@ -88,14 +88,14 @@ exports[`Service renders correctly 2`] = `
     <div
       className="service__actions"
     >
-      <Button
+      <LinkButton
         hasBorder={false}
         isPrimary={true}
         isWhite={false}
         text="Case Link to Case"
         url="/case"
       />
-      <Button
+      <LinkButton
         hasBorder={true}
         isPrimary={false}
         isWhite={true}
@@ -145,7 +145,7 @@ exports[`Service renders correctly with lead 1`] = `
     <div
       className="service__actions"
     >
-      <Button
+      <LinkButton
         hasBorder={true}
         isPrimary={false}
         isWhite={true}

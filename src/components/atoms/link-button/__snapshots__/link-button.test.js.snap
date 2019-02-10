@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkButton renders default external link correctly 1`] = `
+<a
+  className="link-button"
+  href="http://example.com"
+>
+  LinkButton
+</a>
+`;
+
+exports[`LinkButton renders default internal link correctly 1`] = `
+<GatsbyLink
+  className="link-button"
+  to="/internal"
+>
+  LinkButton
+</GatsbyLink>
+`;
+
+exports[`LinkButton renders primary correctly 1`] = `
+<a
+  className="link-button link-button--primary"
+  href="http://example.com"
+>
+  Primary
+</a>
+`;
+
+exports[`LinkButton renders white with border correctly 1`] = `
+<a
+  className="link-button link-button--white has-border"
+  href="http://example.com"
+>
+  White w/ Border
+</a>
+`;

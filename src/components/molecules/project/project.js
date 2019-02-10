@@ -2,7 +2,7 @@ import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Button } from '../../atoms';
+import { LinkButton } from '../../atoms';
 import './project.scss';
 
 export const Project = ({ title, category, image, children, caseUrl }) => (
@@ -19,7 +19,7 @@ export const Project = ({ title, category, image, children, caseUrl }) => (
 
       {children}
 
-      {caseUrl ? <Button url={caseUrl} text="Case anschauen" isPrimary /> : null}
+      {caseUrl ? <LinkButton url={caseUrl} text="Case anschauen" isPrimary /> : null}
     </div>
   </div>
 );

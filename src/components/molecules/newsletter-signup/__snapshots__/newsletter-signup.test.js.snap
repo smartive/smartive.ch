@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewsletterSignup renders correctly 1`] = `
+<div
+  className="newsletter-signup"
+>
+  <h4>
+    Für unseren Newsletter anmelden:
+  </h4>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      className="input"
+      disabled={false}
+      name="newsletter-email"
+      onChange={[Function]}
+      placeholder="Email-Adresse eintragen"
+      type="email"
+      value=""
+    />
+    <button
+      className="button"
+      onClick={[Function]}
+    >
+      Anmelden
+    </button>
+    <div
+      className="newsletter-signup__info-container "
+    />
+  </form>
+</div>
+`;

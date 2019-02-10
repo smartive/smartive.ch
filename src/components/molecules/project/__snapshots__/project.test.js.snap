@@ -26,7 +26,7 @@ exports[`Project renders correctly 1`] = `
 </div>
 `;
 
-exports[`Project renders correctly with a «Case» Button 1`] = `
+exports[`Project renders correctly with a «Case» LinkButton 1`] = `
 <div
   className="project col-xs-12 col-md-6"
 >
@@ -48,7 +48,7 @@ exports[`Project renders correctly with a «Case» Button 1`] = `
     <p>
       Content
     </p>
-    <Button
+    <LinkButton
       hasBorder={false}
       isPrimary={true}
       isWhite={false}

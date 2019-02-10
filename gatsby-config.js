@@ -74,5 +74,11 @@ module.exports = {
 `,
       },
     },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: 'https://smartive.us1.list-manage.com/subscribe/post?u=b7783121353e2508ff91af015&amp;id=5e1c047a69',
+      },
+    },
   ],
 };

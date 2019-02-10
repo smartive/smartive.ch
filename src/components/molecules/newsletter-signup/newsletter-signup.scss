@@ -1,0 +1,41 @@
+@import "../../../scss/colors";
+@import "../../../scss/responsive";
+
+.newsletter-signup {
+  form {
+    margin-top: 1rem;
+  }
+  .button, .input {
+    height: 3rem;
+    padding: 0 .75rem;
+    margin: 0;
+  }
+  .input {
+    width: 100%;
+
+    @media #{$small-up} {
+      width: 55%;
+      margin-right: 0.5rem;
+    }
+  }
+  .button {
+    width: 100%;
+
+    @media #{$small-up} {
+      width: 30%;
+    }
+  }
+
+  &__info-container {
+    height: 2rem;
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+
+    &--error {
+      color: $red;
+    }
+    &--success {
+      color: $green;
+    }
+  }
+}
