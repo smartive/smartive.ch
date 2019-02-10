@@ -2,7 +2,7 @@ import Img from 'gatsby-image';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Button } from '../../atoms';
+import { LinkButton } from '../../atoms';
 
 import './service.scss';
 
@@ -19,8 +19,8 @@ export const Service = ({ title, catchline, lead, children, image, linkedCase })
       <p className="service__lead">{lead}</p>
       <div className="service__body">{children}</div>
       <div className="service__actions">
-        {linkedCase ? <Button url={linkedCase.url} text={`Case ${linkedCase.title}`} isPrimary /> : null}
-        <Button url="/projekte" text="alle Projekte" isWhite hasBorder />
+        {linkedCase ? <LinkButton url={linkedCase.url} text={`Case ${linkedCase.title}`} isPrimary /> : null}
+        <LinkButton url="/projekte" text="alle Projekte" isWhite hasBorder />
       </div>
     </div>
   </div>

@@ -19,7 +19,7 @@ describe('Caes Teaser', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders correctly with «All Projects» Button', () => {
+  it('renders correctly with «All Projects» LinkButton', () => {
     const tree = renderer.render(
       <CaseTeaser
         url="http://example.com"

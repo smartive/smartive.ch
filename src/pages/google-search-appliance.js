@@ -1,7 +1,7 @@
 import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 
-import { Button, TextBlock } from '../components/atoms';
+import { LinkButton, TextBlock } from '../components/atoms';
 import { DefaultLayout } from '../components/layout';
 import { BlogTeaser, Stage } from '../components/molecules';
 
@@ -99,7 +99,7 @@ const GSA = () => (
             </TextBlock>
             <TextBlock>
               <p>
-                <Button url="/kontakt" text="Kontakt aufnehmen" isPrimary />
+                <LinkButton url="/kontakt" text="Kontakt aufnehmen" isPrimary />
               </p>
             </TextBlock>
             <TextBlock>

@@ -4,7 +4,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 
 import './personal-contact.scss';
-import { Button } from '../../atoms/button';
+import { LinkButton } from '../../atoms';
 
 export const PersonalContact = ({
   text,
@@ -25,8 +25,8 @@ export const PersonalContact = ({
             <small>{titlePrefix}: {name}</small>
             {text}
           </h2>
-          <Button url={`mailto:${mail}`} text={mail} isWhite />
-          <Button url={`tel:${phone}`} text={phone} isWhite />
+          <LinkButton url={`mailto:${mail}`} text={mail} isWhite />
+          <LinkButton url={`tel:${phone}`} text={phone} isWhite />
         </div>
       </div>
     </div>

@@ -1,0 +1,20 @@
+@import "../../../scss/colors";
+@import "../../../scss/responsive";
+
+.input {
+  border: .1rem solid transparent;
+  background: $light-blue;
+  font-size: 1rem;
+  padding: .75rem;
+  transition: border .2s ease-in-out;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: $smartive-blue;
+  }
+
+  &:focus {
+    outline: none;
+    border: .1rem solid $smartive-blue;
+  }
+}

@@ -36,7 +36,7 @@
   }
 
   &__actions {
-    .button {
+    .link-button {
       @media #{$small-up} {
         margin: 0 0.5rem;
       }

@@ -23,3 +23,5 @@ export { Service } from './service';
 export { Stage } from './stage';
 
 export { Teaser } from './teaser';
+
+export { NewsletterSignup } from './newsletter-signup';

@@ -1,0 +1,81 @@
+@import "../../../scss/colors";
+@import "../../../scss/responsive";
+
+.link-button {
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  background: $smartive-dark-blue;
+  border: .0625rem solid $white;
+  color: $white;
+  display: block;
+  padding: .75rem 1.5rem;
+  margin: 1rem 0;
+  font-weight: 300;
+  transition: background .2s ease-in-out, color .2s ease-in-out, border-color .2s ease-in-out, box-shadow .2s ease-in-out;
+  box-shadow: 0 .25rem 1rem 0 rgba(0, 0, 0, .2);
+
+  &:hover {
+    color: $white;
+    box-shadow: 0 .75rem 2rem 0 rgba(0, 0, 0, .2);
+  }
+
+  &--primary {
+    background: $smartive-blue;
+    border: .0625rem solid $smartive-blue;
+    box-shadow: 0 .25rem 1rem 0 rgba(0, 0, 0, .2);
+
+    &:hover {
+      background: $smartive-blue;
+      border: .0625rem solid $smartive-blue;
+      color: $white;
+      box-shadow: 0 .75rem 2rem 0 rgba(0, 0, 0, .2);
+    }
+  }
+
+  &--white {
+    background: $white;
+    border: .0625rem solid $white;
+    color: $smartive-blue;
+    box-shadow: 0 .25rem 1rem 0 rgba(0, 0, 0, .1);
+
+    &.has-border {
+      border: .0625rem solid $smartive-blue;
+      box-shadow: none;
+
+      &:hover {
+        box-shadow: none;
+        background: darken($white, 3%);
+      }
+    }
+
+    &:hover {
+      color: $smartive-blue;
+      box-shadow: 0 .75rem 2rem 0 rgba(0, 0, 0, .2);
+    }
+  }
+
+  @media #{$small-up} {
+    display: inline-block;
+  }
+}
+
+.case-teaser {
+  .link-button {
+    box-shadow: none;
+
+    &:hover {
+      background: #243a54;
+      box-shadow: none;
+    }
+
+    &--primary {
+      box-shadow: 0 .25rem 1rem 0 rgba(0, 0, 0, .2);
+
+      &:hover {
+        background: $smartive-blue;
+        box-shadow: 0 .75rem 2rem 0 rgba(0, 0, 0, .4);
+      }
+    }
+  }
+}

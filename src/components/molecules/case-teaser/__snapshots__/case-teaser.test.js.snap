@@ -54,7 +54,7 @@ exports[`Caes Teaser renders correctly 1`] = `
             <div
               className="case-teaser__actions"
             >
-              <Button
+              <LinkButton
                 hasBorder={false}
                 isPrimary={true}
                 isWhite={false}
@@ -70,7 +70,7 @@ exports[`Caes Teaser renders correctly 1`] = `
 </div>
 `;
 
-exports[`Caes Teaser renders correctly with «All Projects» Button 1`] = `
+exports[`Caes Teaser renders correctly with «All Projects» LinkButton 1`] = `
 <div
   className=""
 >
@@ -124,14 +124,14 @@ exports[`Caes Teaser renders correctly with «All Projects» Button 1`] = `
             <div
               className="case-teaser__actions"
             >
-              <Button
+              <LinkButton
                 hasBorder={false}
                 isPrimary={true}
                 isWhite={false}
                 text="Case anschauen"
                 url="http://example.com"
               />
-              <Button
+              <LinkButton
                 hasBorder={false}
                 isPrimary={false}
                 isWhite={false}

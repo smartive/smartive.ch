@@ -1,37 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button renders default external link correctly 1`] = `
-<a
+exports[`Button renders correctly 1`] = `
+<button
   className="button"
-  href="http://example.com"
+  onClick={[Function]}
 >
   Button
-</a>
-`;
-
-exports[`Button renders default internal link correctly 1`] = `
-<GatsbyLink
-  className="button"
-  to="/internal"
->
-  Button
-</GatsbyLink>
-`;
-
-exports[`Button renders primary correctly 1`] = `
-<a
-  className="button button--primary"
-  href="http://example.com"
->
-  Primary
-</a>
-`;
-
-exports[`Button renders white with border correctly 1`] = `
-<a
-  className="button button--white has-border"
-  href="http://example.com"
->
-  White w/ Border
-</a>
+</button>
 `;

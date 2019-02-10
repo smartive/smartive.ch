@@ -5,7 +5,7 @@ import React from 'react';
 
 import './case-teaser.scss';
 
-import { Button } from '../../atoms';
+import { LinkButton } from '../../atoms';
 
 export const CaseTeaser = ({ url, image, title, subline, children, allProjects, modifiers }) => (
   <div className={modifiers.map((modifier) => `case-teaser--${modifier}`).join(' ')}>
@@ -34,8 +34,8 @@ export const CaseTeaser = ({ url, image, title, subline, children, allProjects, 
 
               <div className="case-teaser__body">{children}</div>
               <div className="case-teaser__actions">
-                <Button url={url} text="Case anschauen" isPrimary />
-                {allProjects ? <Button url="/projekte" text="alle unsere Arbeiten" /> : null}
+                <LinkButton url={url} text="Case anschauen" isPrimary />
+                {allProjects ? <LinkButton url="/projekte" text="alle unsere Arbeiten" /> : null}
               </div>
             </div>
           </div>

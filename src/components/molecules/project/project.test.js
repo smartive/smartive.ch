@@ -18,7 +18,7 @@ describe('Project', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders correctly with a «Case» Button', () => {
+  it('renders correctly with a «Case» LinkButton', () => {
     const tree = shallow.render(
       <Project title="Title" category="Category" image={{ src: 'example.jpg', alt: 'Example' }} caseUrl="/case">
         <p>Content</p>
