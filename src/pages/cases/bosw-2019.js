@@ -240,7 +240,7 @@ const BOSWInnovation = () => (
             <p>
               <strong>Schnelles Product Development:</strong> Benötigt ein neuer Client andere Daten, stellt dies unsere
               GraphQL-API meist bereits zur Verfügung. Und wenn nicht, dann kann das GraphQL-Schema einfach erweitert werden.
-              Das mühsame Versionieren wie bei REST APIs entfällt. Die API bleibt rückwerkskompatibel und trotzdem können
+              Das mühsame Versionieren wie bei REST APIs entfällt. Die API bleibt rückwärtskompatibel und trotzdem können
               neue Funktionen implementiert werden. Damit sind wir in der Weiterentwicklung massiv schneller und günstiger.
             </p>
           </CaseBlock>
