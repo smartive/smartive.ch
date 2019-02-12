@@ -1,10 +1,17 @@
 [
   {
-    "title": "Subsidia",
+    "title": "Subsidia Kasse und Warenwirtschaft",
     "category": "Kasse (POS-System)",
     "description": "<p>Gemeinsam mit Subsidia erstellen wir ein Warenwirtschaftssystem und eine Kassensoftware (POS-System) mit nahtloser Integration ins Kunden-Marketing. smartive unterstützte mit Beratung, Technologiewahl, DevOps und verstärkt nun das Entwicklerteam bei der Umsetzung. Agil und unter Einbezug der neuesten Technologien.</p>",
     "image": "./subsidia-case.jpg",
     "caseUrl": "/cases/subsidia-kasse"
+  },
+  {
+    "title": "Migros Community",
+    "category": "API und Webapplikation",
+    "description": "<p>Die Applikation für User Generated Content, das Herz von Migipedia, haben wir komplett neu entwickelt. Migipedia ist jetzt nicht mehr nur eine Plattform, sondern eine Community über acht Websites hinweg.</p>",
+    "image": "./migros-reactions.png",
+    "caseUrl": "/cases/migros-ratings-reviews"
   },
   {
     "title": "Ostschweizer Forum für Psychische Gesundheit",
@@ -13,14 +20,14 @@
     "image": "./ofpg-kig.jpg"
   },
   {
-    "title": "Filialfinder",
+    "title": "Migros Filialfinder",
     "category": "API und Webapplikation",
     "description": "<p>Mit dem neuen Migros Filialfinder können Kundinnen und Kunden zu Hause oder unterwegs relevante Filialinformationen schnell und einfach abrufen. Als Backend wurde eine Node.js API mit Elasticsearch als Suchindex entwickelt. Mit diesem Stack können eine hohe Performance und die optimale Volltextsuche garantiert werden. Durch starke Suchmaschinenoptimierung (SEO) können auch alle Filialen inklusive deren Öffnungszeiten bei renommierten Suchmaschinen gefunden werden.</p>",
     "image": "./migros-filialfinder.jpg",
     "caseUrl": "/cases/migros-filialfinder"
   },
   {
-    "title": "Cosmopolitan",
+    "title": "Cosmopolitan CRM-System",
     "category": "CRM",
     "description": "<p>Für die Cosmopolitan Vermögensverwaltungs AG haben wir, mit der Kundin zusammen, ein CRM-System entwickelt, welches die geschäftsspezifischen Prozesse genau abbildet. Die Webapplikation bietet viele Features wie Erfassungsassistenten, Vollständigkeitschecks, SIX API-Anbindung (Börse), Anlegetools und Reportings. Die Applikation wird in ihrer Funktionalität laufend erweitert.</p>",
     "image": "./cosmopolitan.jpg",
@@ -29,19 +36,19 @@
   {
     "title": "Migros Intranet als Social Network",
     "category": "Webapplikation, iOS und Android App",
-    "description": "<p>Für den Migros-Genossenschafts-Bund haben wir ein internes soziales Netzwerk umgesetzt. 100 000 Mitarbeitende können Gruppen erstellen und gemeinsame Interessen teilen. Die Unternehmen und Abteilungen des Migros-Genossenschafts-Bundes kommunizieren Gruppenspezifisch interne News. So rücken die Mitarbeitenden über das gesamte Unternehmen hinweg näher zusammen.</p>",
+    "description": "<p>Für den Migros-Genossenschafts-Bund haben wir ein internes soziales Netzwerk umgesetzt. 100&nbsp;000 Mitarbeitende können Gruppen erstellen und gemeinsame Interessen teilen. Die Unternehmen und Abteilungen des Migros-Genossenschafts-Bundes kommunizieren Gruppenspezifisch interne News. So rücken die Mitarbeitenden über das gesamte Unternehmen hinweg näher zusammen.</p>",
     "image": "./dimmi-case.png",
     "caseUrl": "/cases/migros-dimmi"
   },
   {
-    "title": "Components Library",
+    "title": "Migros Components Library",
     "category": "Frontend Komponenten",
     "description": "<p>Für die Migros erarbeiteten wir das Konzept und leiteten die Migration und Umsetzung zur Modularisierung ihrer Frontendkomponenten. Die Komponenten werden in einer gemeinsamen Registry abgelegt und können so einfach wiederverwendet werden und bieten dennoch ein einheitliches Benutzererlebnis.</p>",
     "image": "./migros-shared-components.jpg",
     "caseUrl": "/cases/migros-shared-components"
   },
   {
-    "title": "Stellenbörse",
+    "title": "Migros Stellenbörse",
     "category": "API und Webapplikation",
     "description": "<p>Für die Migros als diversifizierte Arbeitgeberin ist die Rekrutiertung von gut ausgebildetem Fachpersonal eminent wichtig, auch innerhalb des Onlineauftritts. In der Stellenbörse, die wir für sie entwickelt haben, sind offene Jobs in ansprechendem Design aufgelistet; zudem ermöglicht Elasticsearch intelligentes Suchen.</p>",
     "image": "./migros-jobs.jpg"
@@ -51,12 +58,6 @@
     "category": "Dataviz",
     "description": "<p>In Zusammenarbeit mit dem <a href=\"http://www.cfb.unisg.ch/en?sc_lang=de\">Center for Family Business, University of St.Gallen (HSG)</a> und <a href=\"https://familybusiness.ey-vx.com/home/home.aspx\">Global Family Business Center of Excellence von Ernst &amp; Young</a> haben wir die 500 grössten Familienunternehmen aufbereitet und ansprechend visualisiert.</p><p><a href=\"http://familybusinessindex.com/\">familybusinessindex.com</a></p>",
     "image": "./gfbi.jpg"
-  },
-  {
-    "title": "MATOOL.com",
-    "category": "API und Webapplikation",
-    "description": "<p>MATOOL.com ist eine innovative Plattform für das Suchen und Anbieten von Maschinenkapazitäten. Grundlegende Maschinendaten werden von der Applikation automatisch importiert, aufbereitet und den Usern mittels Google Maps einfach und verständlich präsentiert. Mittels Geo- und Facettensuche sind für den Benutzer interessante Maschinen einfach zu finden. Die Applikation wurden von Beginn an für hohe Skalierbarkeit ausgelegt und kann in einer AWS Cloud betrieben werden.</p>",
-    "image": "./matool.jpg"
   },
   {
     "title": "Gebäude­versicherung Graubünden",
