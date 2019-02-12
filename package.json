@@ -14,7 +14,7 @@
     "gatsby-plugin-mailchimp": "^4.0.0",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-sass": "^2.0.1",
-    "gatsby-plugin-sharp": "^2.0.5",
+    "gatsby-plugin-sharp": "^2.0.20",
     "gatsby-plugin-sitemap": "^2.0.1",
     "gatsby-plugin-zopfli": "^1.0.2",
     "gatsby-source-filesystem": "^2.0.1",
