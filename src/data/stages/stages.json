@@ -206,19 +206,15 @@
   },
   {
     "siteTitle": "Migros-Produkte bewerten",
-    "title": "Migros-Produkte bewerten",
+    "title": "Reactions: Von Migipedia zur Migros-Community",
     "contentBlocks": [
       {
         "id": "1",
-        "value": "Produktebewertungen werden immer wichtiger: Sie erhöhen das Vertrauen und steigern die Kundenbindung. Zudem dienen Bewertungen als Feedbackchannel und damit wertvolle Quelle für die Produkteoptimierung."
+        "value": "Die Applikation für User Generated Content, das Herz von Migipedia, haben wir komplett neu entwickelt. Migipedia ist jetzt nicht mehr nur eine Plattform, sondern eine Community über acht Websites hinweg."
       },
       {
         "id": "2",
-        "value": "Auch die Migros setzt mit <a href='https://www.migipedia.ch'>migipedia.ch</a> und <a href='https://produkte.migros.ch'>migros.ch</a> seit Jahren auf Kundenfeedback. Nun konnten wir eine bereits etwas ältere Applikation für das Bewerten von Produkten auf den beiden Plattformen ablösen."
-      },
-      {
-        "id": "2",
-        "value": "Die neue Lösung ist zukunftsfähig und wird neu auch von <a href='https://www.sportxx.ch'>SportXX</a>, <a href='https://www.bikeworld.ch'>Bike World</a>, <a href='https://www.micasa.ch'>Micasa</a>, <a href='https://www.interio.ch'>Interio</a>, <a href='https://www.melectronics.ch'>melectronics</a> und <a href='https://www.doitgarden.ch/‎'>Do it + Garden</a> eingesetzt."
+        "value": "Die Performance wurde verachtfacht, die Kosten für Betrieb und Entwicklung um 80% gesenkt. Kunden interagieren auf der Plattform ihrer Wahl und nicht mehr dort, wo die Migros das schönste «Angelplätzchen» vermutet."
       }
     ],
     "imageSrc": "./case-study-migros-reactions.png",

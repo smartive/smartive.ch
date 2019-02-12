@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 
 import './quote.scss';
 
-export const Quote = ({ text, author, img, company, url, imgLarge, textLarge }) => (
+export const Quote = ({ text, author, img, company, url, imgLarge = false, textLarge = true }) => (
   <div className="container">
     <div className="quote-block">
       <div className="row">
