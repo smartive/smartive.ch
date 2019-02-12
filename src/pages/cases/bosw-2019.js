@@ -173,8 +173,8 @@ const BOSWInnovation = () => (
             isReverse
           >
             <p>
-              Die neu entwickelte Migros-Community API ist das zu Hause für alle nutzergenerierten Inhalte der Migros-
-              Community. Alle Inhalte gehen durch eine zentrale Prüfung und werden an einem Ort moderiert.
+              Die neu entwickelte Migros-Community-API ist das zu Hause für alle nutzergenerierten Inhalte der
+              Migros-Community. Alle Inhalte gehen durch eine zentrale Prüfung und werden an einem Ort moderiert.
             </p>
             <p>
               Neben Reviews, Fragen, Antworten und Kommentaren können beispielsweise auch Ideen eingereicht werden. Ein
@@ -240,7 +240,7 @@ const BOSWInnovation = () => (
             <p>
               <strong>Schnelles Product Development:</strong> Benötigt ein neuer Client andere Daten, stellt dies unsere
               GraphQL-API meist bereits zur Verfügung. Und wenn nicht, dann kann das GraphQL-Schema einfach erweitert werden.
-              Das mühsame Versionieren wie bei REST APIs entfällt. Die API bleibt rückwärtskompatibel und trotzdem können
+              Das mühsame Versionieren wie bei REST-APIs entfällt. Die API bleibt rückwärtskompatibel und trotzdem können
               neue Funktionen implementiert werden. Damit sind wir in der Weiterentwicklung massiv schneller und günstiger.
             </p>
           </CaseBlock>
@@ -279,12 +279,12 @@ const BOSWInnovation = () => (
             isReverse
           >
             <p>
-              Die User- und Produktedaten werden dynamisch über eine REST API angebunden. Damit entfällt eine meist
+              Die User- und Produktedaten werden dynamisch über eine REST-API angebunden. Damit entfällt eine meist
               fehleranfällige doppelte Datenhaltung. Eine GraphQL-Query holt die Daten dynamisch aus unterschiedlichen
               Quellen, aber natürlich nur dann, wenn die Daten vom Client auch angefragt wurden.
             </p>
             <p>
-              Ein zusätzliches Caching der REST APIs in der Community API garantiert Geschwindigkeit und Zuverlässigkeit.
+              Ein zusätzliches Caching der REST-APIs in der Community-API garantiert Geschwindigkeit und Zuverlässigkeit.
             </p>
           </CaseBlock>
 
