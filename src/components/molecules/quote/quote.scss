@@ -26,7 +26,9 @@
   }
 
   .quote__img__large {
-    width: 18rem;
+    @media #{$xxlarge-up} {
+      width: 17rem;
+    }
     margin: 1.5rem auto 0;
   }
 

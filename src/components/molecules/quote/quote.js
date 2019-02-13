@@ -11,7 +11,7 @@ export const Quote = ({ text, author, img, company, url, imgLarge = false, textL
         <div className="col-xs-12 col-md-3">
           <Img className={`quote__img ${imgLarge && 'quote__img__large'}`} alt={`Portrait von ${author}`} fluid={img} />
         </div>
-        <div className="col-xs-12.col-md-9 quote__body">
+        <div className="col-xs-12 col-md-9 quote__body">
           <blockquote className="quote">
             <p className={`${textLarge ? 'large' : ''}`}>{text}</p>
             <cite>
