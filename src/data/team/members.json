@@ -225,5 +225,22 @@
         "url": "https://github.com/kimbylr"
       }
     ]
+  },
+  {
+    "img": "./portrait-anna.jpg",
+    "job": "Internship",
+    "name": "Anna Wyss",
+    "education": "Master of Arts HU zu Berlin",
+    "description": "Zürcherin mit einem Koffer in Berlin, jazztreue Tanzverbissene, Bouldern an den Küsten Mallorcas stillt Abenteuerhunger, Programmieren wird geliebtes Kletterexperiment",
+    "links": [{
+        "text": "anna@smartive.ch",
+        "url": "mailto:anna@smartive.ch"
+      },
+      {
+        "text": "GitHub",
+        "url": "https://github.com/BigAccessBrother"
+      }
+    ]
   }
+
 ]
