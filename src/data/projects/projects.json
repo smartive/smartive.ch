@@ -41,6 +41,14 @@
     "caseUrl": "/cases/migros-dimmi"
   },
   {
+    "title": "Migros Suche",
+    "category": "Crawler, API und Webapplikation",
+    "description":
+    "<p>Für Migros, die grösste Detailhändlerin der Schweiz, haben wir eine zentrale, aggregierte Suche entwickelt. Kundinnen und Kunden können Informationen aus verschiedenen Migros-Systemen zielgerichtet durchsuchen.</p>",
+    "image": "./migrossuche.jpg",
+    "caseUrl": "/cases/enterprise-search"
+  },
+  {
     "title": "Migros Components Library",
     "category": "Frontend Komponenten",
     "description": "<p>Für die Migros erarbeiteten wir das Konzept und leiteten die Migration und Umsetzung zur Modularisierung ihrer Frontendkomponenten. Die Komponenten werden in einer gemeinsamen Registry abgelegt und können so einfach wiederverwendet werden und bieten dennoch ein einheitliches Benutzererlebnis.</p>",
@@ -76,12 +84,6 @@
     "category": "API",
     "description": "<p>Für Migipedia, die neue Community Plattform der Migros, haben wir neben diverser Lithium-Komponenten die Schnittstelle zu Migros-internen Systemen wie der M-Infoline sowie eine Abstraktion der Lithium-API für die Integration in Drittsysteme entwickelt.</p><p><a href=\"https://www.migipedia.ch/\">migipedia.ch</a></p>",
     "image": "./migipedia.jpg"
-  },
-  {
-    "title": "Migros Suche",
-    "category": "API und Webapplikation",
-    "description": "<p>Für Migros, die grösste Detailhändlerin der Schweiz, haben wir eine zentrale, aggregierte Suche entwickelt. Sie ermöglicht es den Kundinnen und Kunden, Informationen aus verschiedenen von der Migros betriebenen Drittsystemen zielgerecht zu durchsuchen.</p>",
-    "image": "./migrossuche.jpg"
   },
   {
     "title": "Namenskarte",

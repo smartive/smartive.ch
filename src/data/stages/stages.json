@@ -219,5 +219,21 @@
     ],
     "imageSrc": "./case-study-migros-reactions.png",
     "imageAlt": "Migros Kundenbewertungen auf einem iPad"
+  },
+  {
+    "siteTitle": "Enterprise Search",
+    "title": "GSA und GSS Alternative als <em>Open Source</em> Lösung",
+    "contentBlocks": [
+      {
+        "id": "1",
+        "value": "Mit Apache Nutch und Elasticsearch bieten wir einen Web-Crawler und eine Volltextsuche als Open Source Lösung zum Finden von Seiteninhalt, PDFs, Excel und weiteren Dokumenten im Web und Intranet."
+      },
+      {
+        "id": "2",
+        "value": "Mit diesem Setup konnten wir die Suche über die Seiten des grössten Detailhändlers der Schweiz erfolgreich von Google Search Appliance und Google Site Search auf eine spezialisierte Open Source Lösung migrieren."
+      }
+    ],
+    "imageSrc": "./case-study-enterprise-search.png",
+    "imageAlt": "Abbildung eines Laptops mit einer Visualisierung der Enterprise Suche"
   }
 ]

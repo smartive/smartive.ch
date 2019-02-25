@@ -93,8 +93,8 @@ const ArchiveBotCase = () => (
           <div className="container">
             <Facts title="Technologie">
               <ul>
-                <li>Umsetzung mit TypeScript 2.6</li>
-                <li>Microsoft Bot Builder SDK 3 für Node.js</li>
+                <li>Umsetzung mit TypeScript</li>
+                <li>Microsoft Bot Builder SDK für Node.js</li>
                 <li>Continuous Integration und Continuous Deployment mit GitLab CI</li>
                 <li>Cloud - Infrastruktur auf Microsoft Azure</li>
               </ul>
@@ -116,7 +116,7 @@ const ArchiveBotCase = () => (
           <CaseBlock
             title="LUIS"
             subtitle="Natürliches Sprachverständnis"
-            graphic={<Img fluid={nlpImg} alt="Funktionalitäten der CRM Applikation" />}
+            graphic={<Img fluid={nlpImg} alt="NLP Framework für ein natürliches Sprachverständnis" />}
             isReverse
           >
             <p>
@@ -131,7 +131,7 @@ const ArchiveBotCase = () => (
           <CaseBlock
             title="Microsoft Bot Builder SDK"
             subtitle="Fokus aufs Wesentliche"
-            graphic={<Img fluid={sdkImg} alt="Funktionalitäten der CRM Applikation" />}
+            graphic={<Img fluid={sdkImg} alt="Bot Builder SDK als Toolkit" />}
           >
             <p>
               Das Microsoft Bot Builder SDK abstrahiert und vereinheitlicht die Schnittstellen üblicher Chats wie Skype,
