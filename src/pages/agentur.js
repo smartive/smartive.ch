@@ -108,7 +108,7 @@ const Agency = () => (
                   education={node.education}
                   links={node.links}
                 >
-                  <p dangerouslySetInnerHTML={{ __html: node.description }} />
+                  <div dangerouslySetInnerHTML={{ __html: node.description }} />
                 </Member>
               ))}
             </div>
