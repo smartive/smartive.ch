@@ -111,7 +111,7 @@ const Projects = () => (
                     }}
                     caseUrl={node.caseUrl}
                   >
-                    <p dangerouslySetInnerHTML={{ __html: node.description }} />
+                    <div dangerouslySetInnerHTML={{ __html: node.description }} />
                   </Project>
                 ))}
               </div>
