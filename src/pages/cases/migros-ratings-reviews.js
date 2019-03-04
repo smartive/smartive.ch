@@ -196,10 +196,10 @@ const MigrosRatingReviewsCase = () => (
               die Community beantwortet sowie tausende von Likes vergeben.
             </p>
             <p>
-              Nun ist dies auch auf <a href="https://www.melectronics.ch">melectronics</a> möglich. Die Fachmärkte{' '}
+              Nun ist dies auch auf allen Fachmärkten möglich: <a href="https://www.melectronics.ch">melectronics</a>,{' '}
               <a href="https://www.sportxx.ch">SportXX</a>, <a href="https://www.bikeworld.ch">Bike World</a>,{' '}
               <a href="https://www.micasa.ch">Micasa</a>, <a href="https://www.interio.ch">Interio</a>, und{' '}
-              <a href="https://www.doitgarden.ch/‎">Do it + Garden</a> folgen bis April.
+              <a href="https://www.doitgarden.ch/‎">Do it + Garden</a>.
             </p>
             <p>Eine Community auf acht Plattformen.</p>
           </CaseBlock>
