@@ -74,7 +74,9 @@ const pageQuery = graphql`
       }
     }
     allImageSharp(
-      filter: { fluid: { originalName: { regex: "/case-study-dimmi.png|case-study-cosmo.jpg|case-study-subsidia.jpg/" } } }
+      filter: {
+        fluid: { originalName: { regex: "/case-study-migros-reactions.png|case-study-cosmo.jpg|case-study-subsidia.jpg/" } }
+      }
     ) {
       edges {
         node {
@@ -100,7 +102,7 @@ const Index = () => (
         image: contactImage,
       } = allContactsJson.edges[0].node;
 
-      const caseImage1 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-dimmi'))[0];
+      const caseImage1 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-migros-reactions'))[0];
       const caseImage2 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-cosmo'))[0];
       const caseImage3 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-subsidia'))[0];
 
@@ -123,18 +125,17 @@ const Index = () => (
 
           <CaseTeaser
             modifiers={['right-highlighted', 'image-padded', 'dark']}
-            url="/cases/migros-dimmi"
-            title="Migros Intranet als Social Network"
-            subline="Webapplikation, iOS und Android App"
+            url="/cases/migros-ratings-reviews"
+            title="Von Migipedia zur Migros-Community"
+            subline="GraphQL API und React"
             image={{
               fluid: caseImage1 && caseImage1.node.fluid,
-              alt: 'Migros Intranet als Social Network',
+              alt: 'Migipedia Webseite auf einem iPad',
             }}
           >
             <p>
-              Für den Migros-Genossenschafts-Bund haben wir ein internes soziales Netzwerk umgesetzt. 100 000 Mitarbeitende
-              können Gruppen erstellen und gemeinsame Interessen teilen. So rücken die Mitarbeitenden über das gesamte
-              Unternehmen hinweg näher zusammen.
+              Die Applikation für User Generated Content, das Herz von Migipedia, haben wir komplett neu entwickelt.
+              Migipedia ist jetzt nicht mehr nur eine Plattform, sondern eine Community über acht Websites hinweg.
             </p>
           </CaseTeaser>
 
@@ -145,7 +146,7 @@ const Index = () => (
             subline="CRM als Webapplikation"
             image={{
               fluid: caseImage2 && caseImage2.node.fluid,
-              alt: 'CRM als Webapplikation',
+              alt: 'CRM Formular auf einem Laptop',
             }}
           >
             <p>
@@ -163,7 +164,7 @@ const Index = () => (
             subline="Kasse als Progressive Web App"
             image={{
               fluid: caseImage3 && caseImage3.node.fluid,
-              alt: 'Dank agilem Ansatz schnell am Markt',
+              alt: 'PWA Kassen-App auf einem Smartphone',
             }}
           >
             <p>
