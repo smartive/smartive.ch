@@ -79,7 +79,7 @@ const CosmoCrmCase = () => (
   <StaticQuery
     query={cosmoCrmQuery}
     render={({ allStagesJson, allQuotesJson, allImageSharp, allContactsJson }) => {
-      const { imageSrc, imageAlt, title, contentBlocks } = allStagesJson.edges[0].node;
+      const { imageSrc, imageAlt, title, contentBlocks, siteTitle, siteDescription } = allStagesJson.edges[0].node;
       const { quote, author, company, url, image } = allQuotesJson.edges[0].node;
       const techImg = allImageSharp.edges[0].node.fluid;
       const featureImg = allImageSharp.edges[1].node.fluid;
@@ -91,7 +91,7 @@ const CosmoCrmCase = () => (
       } = allContactsJson.edges[0].node;
 
       return (
-        <DefaultLayout>
+        <DefaultLayout siteTitle={`${siteTitle} | Projekte`} siteDescription={siteDescription}>
           <Stage
             modifiers={['gradient', 'case', 'left-highlighted']}
             image={{

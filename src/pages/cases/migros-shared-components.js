@@ -103,7 +103,7 @@ export const SharedComponentsCase = () => (
   <StaticQuery
     query={sharedComponentsQuery}
     render={({ allStagesJson, allQuotesJson, allFile, allMediumPost, allContactsJson }) => {
-      const { imageSrc, imageAlt, title, contentBlocks } = allStagesJson.edges[0].node;
+      const { imageSrc, imageAlt, title, contentBlocks, siteTitle, siteDescription } = allStagesJson.edges[0].node;
       const { quote, author, company, url, image } = allQuotesJson.edges[0].node;
       const documentationImg = allFile.edges[0].node.publicURL;
       const testsImg = allFile.edges[1].node.publicURL;
@@ -117,7 +117,7 @@ export const SharedComponentsCase = () => (
       } = allContactsJson.edges[0].node;
 
       return (
-        <DefaultLayout>
+        <DefaultLayout siteTitle={`${siteTitle} | Projekte`} siteDescription={siteDescription}>
           <Stage
             modifiers={['gradient', 'case', 'left-highlighted']}
             image={{
