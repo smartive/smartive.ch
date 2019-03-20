@@ -74,7 +74,7 @@ const ArchiveBotCase = () => (
       } = allContactsJson.edges[0].node;
 
       return (
-        <DefaultLayout>
+        <DefaultLayout siteTitle={`${stageData.siteTitle} | Projekte`} siteDescription={stageData.siteDescription}>
           <Stage
             modifiers={['gradient', 'case']}
             image={{

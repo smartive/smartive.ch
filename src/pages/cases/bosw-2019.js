@@ -134,7 +134,7 @@ const BOSWInnovation = () => (
       const idea = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('idea'))[0];
 
       return (
-        <DefaultLayout>
+        <DefaultLayout siteTitle={`${stageData.siteTitle} | Projekte`} siteDescription={stageData.siteDescription}>
           <Stage
             modifiers={['gradient', 'case', 'left-highlighted']}
             image={{ fluid: stageData.imageSrc.childImageSharp.fluid, alt: stageData.imageAlt }}

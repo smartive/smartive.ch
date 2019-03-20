@@ -116,7 +116,7 @@ const MigrosDimmiCase = () => (
       } = allContactsJson.edges[0].node;
 
       return (
-        <DefaultLayout>
+        <DefaultLayout siteTitle={`${stageData.siteTitle} | Projekte`} siteDescription={stageData.siteDescription}>
           <Stage
             modifiers={['gradient', 'case', 'left-highlighted']}
             image={{ fluid: stageData.imageSrc.childImageSharp.fluid, alt: stageData.imageAlt }}
