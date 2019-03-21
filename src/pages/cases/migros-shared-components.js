@@ -3,12 +3,12 @@ import Img from 'gatsby-image';
 import React from 'react';
 
 import { DefaultLayout } from '../../components/layout';
-import { CaseBlock, Quote, Stage, PersonalContact } from '../../components/molecules';
+import { CaseBlock, PersonalContact, Quote, Stage } from '../../components/molecules';
 import { CaseBlogTeaserList } from '../../components/organisms/case-blog-teaser-list';
 
 const sharedComponentsQuery = graphql`
   {
-    allStagesJson(filter: { siteTitle: { eq: "Shared Components" } }) {
+    allStagesJson(filter: { siteTitle: { eq: "Shared Components Library" } }) {
       edges {
         node {
           id
