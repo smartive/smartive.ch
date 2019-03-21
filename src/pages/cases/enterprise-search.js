@@ -85,7 +85,7 @@ const enterpriseSearchQuery = graphql`
 const EnterpriseSearchCase = () => (
   <StaticQuery
     query={enterpriseSearchQuery}
-    render={({ allStagesJson, allContactsJson, allMediumPost, allFile, siteTitle, siteDescription }) => {
+    render={({ allStagesJson, allContactsJson, allMediumPost, allFile }) => {
       const { name, phone, mail, image: contactImage } = allContactsJson.edges[0].node;
       const stageData = allStagesJson.edges[0].node;
       const searchImg = allFile.edges[0].node.publicURL;
@@ -93,7 +93,7 @@ const EnterpriseSearchCase = () => (
       const structuredDataImg = allFile.edges[2].node.publicURL;
 
       return (
-        <DefaultLayout siteTitle={`${siteTitle} | Projekte`} siteDescription={siteDescription}>
+        <DefaultLayout siteTitle={`${stageData.siteTitle} | Projekte`} siteDescription={stageData.siteDescription}>
           <Stage
             modifiers={['gradient', 'case']}
             image={{

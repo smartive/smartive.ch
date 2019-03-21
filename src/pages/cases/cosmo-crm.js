@@ -1,13 +1,13 @@
-import Img from 'gatsby-image';
 import { graphql, StaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 import React from 'react';
 
 import { DefaultLayout } from '../../components/layout';
-import { CaseBlock, Facts, Quote, Stage, PersonalContact } from '../../components/molecules';
+import { CaseBlock, Facts, PersonalContact, Quote, Stage } from '../../components/molecules';
 
 const cosmoCrmQuery = graphql`
   {
-    allStagesJson(filter: { siteTitle: { eq: "Cosmo Crm" } }) {
+    allStagesJson(filter: { siteTitle: { eq: "Cosmopolitan CRM-System" } }) {
       edges {
         node {
           id

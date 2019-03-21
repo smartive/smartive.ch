@@ -1,13 +1,13 @@
-import Img from 'gatsby-image';
 import { graphql, StaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 import React from 'react';
 
 import { DefaultLayout } from '../../components/layout';
-import { CaseBlock, Facts, Stage, PersonalContact } from '../../components/molecules';
+import { CaseBlock, Facts, PersonalContact, Stage } from '../../components/molecules';
 
 const archiveBotQuery = graphql`
   query ArchiveBotQuery {
-    allStagesJson(filter: { siteTitle: { eq: "Archiv-Bot" } }) {
+    allStagesJson(filter: { siteTitle: { eq: "Archiv-Chatbot" } }) {
       edges {
         node {
           id
