@@ -70,6 +70,10 @@ metadata:
     app: ${CI_PROJECT_NAME}
 spec:
   replicas: ${REPLICAS}
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   revisionHistoryLimit: 0
   selector:
     matchLabels:
