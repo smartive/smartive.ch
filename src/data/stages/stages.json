@@ -5,7 +5,7 @@
     "contentBlocks": [
       {
         "id": "1",
-        "value": "Wir sind smartive — ${count} Entwickler mit der Passion für Mobile- und Web-Applikationen. Wir beraten, konzipieren und entwickeln. Massgeschneidert für unsere Kunden: Vom Startup bis zur grössten Arbeitgeberin der Schweiz."
+        "value": "Wir sind smartive — ${count} Entwicklerinnen und Entwickler mit der Passion für Mobile- und Web-Applikationen. Wir beraten, konzipieren und entwickeln. Massgeschneidert für unsere Kunden: Vom Startup bis zur grössten Arbeitgeberin der Schweiz."
       }
     ],
     "imageSrc": "./home.jpg",
