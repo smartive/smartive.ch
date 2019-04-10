@@ -35,17 +35,6 @@ exports[`Service renders correctly 1`] = `
         Content
       </p>
     </div>
-    <div
-      className="service__actions"
-    >
-      <LinkButton
-        hasBorder={true}
-        isPrimary={false}
-        isWhite={true}
-        text="alle Projekte"
-        url="/projekte"
-      />
-    </div>
   </div>
 </div>
 `;
@@ -85,24 +74,6 @@ exports[`Service renders correctly 2`] = `
         Content
       </p>
     </div>
-    <div
-      className="service__actions"
-    >
-      <LinkButton
-        hasBorder={false}
-        isPrimary={true}
-        isWhite={false}
-        text="Case Link to Case"
-        url="/case"
-      />
-      <LinkButton
-        hasBorder={true}
-        isPrimary={false}
-        isWhite={true}
-        text="alle Projekte"
-        url="/projekte"
-      />
-    </div>
   </div>
 </div>
 `;
@@ -141,17 +112,6 @@ exports[`Service renders correctly with lead 1`] = `
       <p>
         Content
       </p>
-    </div>
-    <div
-      className="service__actions"
-    >
-      <LinkButton
-        hasBorder={true}
-        isPrimary={false}
-        isWhite={true}
-        text="alle Projekte"
-        url="/projekte"
-      />
     </div>
   </div>
 </div>

@@ -2,11 +2,9 @@ import Img from 'gatsby-image';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { LinkButton } from '../../atoms';
-
 import './service.scss';
 
-export const Service = ({ title, catchline, lead, children, image, linkedCase }) => (
+export const Service = ({ title, catchline, lead, children, image }) => (
   <div className="service col-xs-12 col-lg-6">
     <div className="service__content">
       <div className="service__image">
@@ -18,10 +16,6 @@ export const Service = ({ title, catchline, lead, children, image, linkedCase })
       </h2>
       <p className="service__lead">{lead}</p>
       <div className="service__body">{children}</div>
-      <div className="service__actions">
-        {linkedCase ? <LinkButton url={linkedCase.url} text={`Case ${linkedCase.title}`} isPrimary /> : null}
-        <LinkButton url="/projekte" text="alle Projekte" isWhite hasBorder />
-      </div>
     </div>
   </div>
 );
@@ -44,14 +38,9 @@ Service.propTypes = {
   catchline: PropTypes.string.isRequired,
   lead: PropTypes.string,
   children: PropTypes.element.isRequired,
-  linkedCase: PropTypes.shape({
-    url: PropTypes.string,
-    title: PropTypes.string,
-  }),
 };
 
 Service.defaultProps = {
-  linkedCase: null,
   lead: '',
 };
 

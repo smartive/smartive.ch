@@ -1,65 +1,82 @@
-@import "../../../scss/colors";
-@import "../../../scss/responsive";
+@import '../../../scss/colors';
+@import '../../../scss/responsive';
 
 .service {
-    margin-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
 
-    @media #{$large-up} {
-        margin-bottom: 12.5rem;
+  @media #{$large-up} {
+    margin-bottom: 12.5rem;
 
-        &:nth-of-type(odd) {
-            padding-right: 1.5rem !important;
+    &:nth-of-type(odd) {
+      padding-right: 1.5rem !important;
+    }
+    &:nth-of-type(even) {
+      padding-left: 1.5rem !important;
+    }
+  }
+
+  .service__content {
+    background: linear-gradient(to bottom, $light-blue 0%, $white 100%);
+    padding: 5rem 2.5rem 2.5rem;
+  }
+
+  .service__image {
+    display: block;
+    width: 50%;
+    margin: 0 auto 5rem;
+  }
+
+  h2 {
+    font-weight: 900;
+  }
+
+  .service__catchline {
+    color: $smartive-blue;
+    line-height: 2rem;
+  }
+
+  .service__lead {
+    color: $smartive-blue;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  ul li {
+    font-size: 1.2rem;
+    margin: 0 2rem;
+    list-style-type: none;
+
+    @media #{large-up} {
+      margin: 0 2.5rem 0 3.5rem;
+    }
+
+    &:before {
+      position: absolute;
+      content: '—';
+      color: $smartive-blue;
+      text-indent: -2rem;
+      font-weight: 700;
+    }
+  }
+
+  .service__actions {
+    margin-top: 5rem;
+
+    .link-button {
+      @media #{$small-up} {
+        margin: 0 0.5rem;
+      }
+
+      &:first-of-type {
+        @media #{$small-up} {
+          margin-left: 0;
         }
-        &:nth-of-type(even) {
-            padding-left: 1.5rem !important;
-        }
+      }
     }
-
-    .service__content {
-        background: linear-gradient(to bottom, $light-blue 0%, $white 100%);
-        padding: 5rem 2.5rem 2.5rem;
-    }
-
-    .service__image {
-        display: block;
-        width: 50%;
-        margin: 0 auto 5rem;
-    }
-
-    h2 {
-        font-weight: 900;
-    }
-
-    .service__catchline {
-        color: $smartive-blue;
-        line-height: 2rem;
-    }
-
-    .service__lead {
-        color: $smartive-blue;
-        font-size: 1.5rem;
-        font-weight: 700;
-        line-height: 1.5;
-    }
-
-    p {
-        font-size: 1.2rem;
-    }
-
-    .service__actions {
-        margin-top: 5rem;
-
-        .link-button {
-            @media #{$small-up} {
-            margin: 0 .5rem;
-            }
-
-
-            &:first-of-type {
-            @media #{$small-up} {
-                margin-left: 0;
-            }
-            }
-        }
-    }
+  }
 }

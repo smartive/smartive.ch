@@ -1,36 +1,39 @@
 [
   {
+    "title": "Konzeption & Beratung",
+    "catchline": "Das Richtige richtig umsetzen",
+    "lead": "Wo soll es hingehen? Wie kommen wir dahin? Mit welchen Technologien und welcher Architektur? ",
+    "body": "<p>Jedes Vorhaben startet mit einer Idee. Wir begleiten Sie von Anfang an bis zum Go-Live. Wir zeigen Chancen und Risiken der neusten Technologien. Wir kennen die Vor- und Nachteile unterschiedlicher System-Architekturen. Wir unterstützen Sie in der Auswahl eines für Sie geeigneten Technologie-Stacks. Damit Ihre Idee Wirklichkeit wird.</p><p>Mit Architektur- und Code-Reviews schaffen wir eine Ausgangslage für Entscheidungen. Mithilfe von Proof of Concepts verifizieren wir die Eignung von Technologien. So reduzieren wir Risiken und erarbeiten das geeignete technologische Konzept für Ihr Vorhaben.</p><p>So zum Beispiel für unsere Kundin Subsidia: Im Rahmen der Neuentwicklung des <a href='/cases/subsidia-kasse'>Subsidia Kassensystems</a> erarbeiteten wir für das noch junge Unternehmen eine saubere Entscheidungsgrundlage für ihre Technologiewahl.</p>",
+    "image": "./concepts.svg",
+    "linkedCase": {
+      "url": "/cases/subsidia-kasse",
+      "title": "Subsidia Kassensystem"
+    }
+  },
+  {
     "title": "Webapplikationen",
     "catchline": "Smart, interaktiv und responsive",
-    "lead": "Wir schaffen massgeschneiderte Visualisierungen, die Menschen verbinden, unterstützen und begeistern.",
-    "body": "<p>Wir konzipieren und entwickeln zeitgemässe, interaktive und responsive Webapplikationen. Mit massgeschneiderten Content Management Systemen (CMS), Customer Relationship Management (CRM) Systemen und interaktiven Visualisierungen bieten wir Ihnen vollkommen auf Ihre Bedürfnisse zugeschnittene Lösungen.</p> <p>Für eine elegante Präsentation Ihrer Daten in Form von interaktiven, responsiven Webapplikationen sorgen wir mit unserer Expertise in AngularJS, BackboneJS, React und D3.</p> <p>Wir stellen den Benutzer ins Zentrum und entwickeln moderne Webapplikationen mit dem Ziel, Prozesse zu vereinfachen und Informationen effizient zu finden und zu verarbeiten.</p>",
-    "image": "./apps.svg",
-    "linkedCase": {
-      "url": "/cases/migros-filialfinder",
-      "title": "Filialfinder"
-    }
+    "lead": "Massgeschneiderte Webapplikationen und Mobile Apps für Ihre Kunden und Mitarbeiter",
+    "body": "<p>Mit viel Erfahrung und Handwerkskunst kreieren wir Webapplikationen:</p><p><ul><li><a href='/cases/migros-dimmi'>Intranet als Social Network</a> für die Migros</li><li><a href='/cases/cosmo-crm'>Costumor Relationship Management</a> für Cosmopolitan Vermögensverwaltung</li><li><a href='/cases/enterprise-search'>Volltext-Suche für alle Webseiten</a> der Migros</li><li><a href='/cases/subsidia-kasse'>Kassensystem als Progressive Web App</a> für Subsidia</li><li><a href='/cases/migros-ratings-reviews'>Kunden-Community</a> für die Migros</li></ul></p><p>Dabei setzen wir auf moderne Technologien wie React, Angular, D3, Node, Symfony, Elasticsearch und .NET Core. Wir integrieren die erarbeitete Lösung nahtlos in Ihre bestehende IT-Infrastruktur.</p>",
+    "image": "./apps.svg"
   },
   {
     "title": "API-Entwicklung",
-    "catchline": "Nutzen Sie Ihre Daten",
-    "lead": "Steigern Sie Effizienz und Innovation durch die richtige Anwendung und Bereitstellung Ihrer Daten.",
-    "body": "<p>Mit unserer Erfahrung in der Verarbeitung und Aggregation verschiedener Datenformate aus unterschiedlichen Systemen helfen wir Ihnen, Ihre Daten effizient und zielgerichtet zu nutzen. Ob Volltextsuche oder Produktdatenbanken — wir entwickeln sichere und performante Schnittstellen für die Verwendung im Web.</p> <p>Wir stellen hohe Qualitätsansprüche an Software, die wir entwickeln. Unit und Functional Testing zusammen mit Continuous Integration unterstützen uns dabei, diesen Anspruch zu jedem Zeitpunkt aufrecht zu erhalten.</p> <p>Greifen Sie auf unsere Expertise in Varnish Caching zurück und wir versichern Ihnen, Ihre Daten zum fliegen zu bringen.</p>",
-    "image": "./api.svg",
+    "catchline": "Performant, sicher und stabil",
+    "lead": "Ihre Daten über eine Schnittstelle für Ihre Webseiten und Apps",
+    "body": "<p>Wir entwickeln GraphQL- und REST-APIs. Hoch verfügbar, sicher, äussert performant und stabil im Betrieb:<ul><li><a href='/cases/migros-ratings-reviews'>Community Inhalte als GraphQL-API</a> für die Migros</li><li><a href='/cases/migros-filialfinder'>Filialen finden dank REST-API</a> für die Migros</li></ul></p><p>Mit einem gut durchdachten API Design legen wir die Grundlage für eine nachhaltige API. Neue Anforderungen können leicht integriert werden.</p><p> Unsere APIs skalieren und sind auch bei hoher Last performant, was wir jeweils mit Performance-Tests garantieren. Mit sauberem Monitoring haben wir die Verfügbarkeit und Stabiltität jederzeit unter Kontrolle.</p>",
+    "image": "./api.svg"
+  },
+  {
+    "title": "DevOps",
+    "catchline": "Jederzeit und überall verfügbar",
+    "lead": "Wie gelangen Ihre Daten ins Netz? Welcher Hostinganbieter ist der richtige? Cloud? On Premise? Hybride Lösung?",
+    "body": "<p>Mit unserer Expertise im Bereich Continuous Integration & Delivery Lösungen unterstützen wir Sie auf dem Weg ins Web. Der Einsatz modernster automatisierter Testingvorgehen gehört für uns zum Alltag und stellt die Qualität Ihrer Software-Lösung sicher. Insbesondere in den Container-Technologien Docker, Kubernetes oder Cloud Foundry verfügen wir über viel Erfahrung.</p><p>Auch im Rahmen des Beratungs- und Entwicklungsauftrages für das <a href='/cases/subsidia-kasse'>Subsidia Kassensystem</a> setzen wir erfolgreich auf moderne Container- und Cloud-Technologien.</p><p>Wir unterstützen Sie dabei, Ihre Applikationen auf gängigen Cloud-Plattformen wie Google Cloud Platform (GCP), Amazon Web Services (AWS), Microsoft Azure oder aber direkt vor Ort sicher und unterbruchsfrei zu betreiben. Gemeinsam mit ausgewählten Partnern stellen wir den reibungslosen Betrieb und Support Ihrer Webapplikationen sicher, überall und jederzeit.</p>",
+    "image": "./devops.svg",
     "linkedCase": {
-      "url": "/cases/cosmo-crm",
-      "title": "Cosmo CRM"
-    }
-  },
-  {
-    "title": "Konzeption & Beratung",
-    "catchline": "Wir finden Lösungen",
-    "body": "<p>Wir unterstützen Sie in der Konzeption und Umsetzung und begleiten Ihr Projekt als innovativer Partner von der Idee bis ins Web.</p> <p>Aufgrund unserer langjährigen Erfahrung in der Entwicklung von Applikationen für das Web, sowie unseren akademischen Hintergründen sind wir es uns gewohnt, komplexe Systemarchitekturen zu analysieren, konzipieren und umzusetzen. Ein hoher Wissensgrad im Bezug auf verfügbare Technologien, deren Einsatzmöglichkeiten und Verbreitung hilft uns, für Sie die massgeschneiderte Lösung zu erarbeiten, die Sie sich wünschen.</p> <p>Wir beraten Sie gerne auch bei Fragen zu Suchmaschinenoptimierung (SEO). Mit der Verknüpfung ins Semantic Web und den Einsatz von strukturierten Daten helfen wir Ihnen, Ihre Seiten innerhalb von Suchmaschinenergebnissen besser zu positionieren.</p>",
-    "image": "./concepts.svg"
-  },
-  {
-    "title": "Open Source",
-    "catchline": "Social Sharing",
-    "body": "<p>Wir glauben an Open Source Software und profitieren tagtäglich von deren Entwicklungen und Innovationen. Aus diesem Grund sind wir auch selbst aktiv in der Open Source Community und tragen unseren Teil zu einer innovativen und nachhaltigen Weiterentwicklung der Tools bei.</p> <p>Wir engagieren uns für Node.js und Typescript mit Projekten wie <a href=\"https://github.com/smartive/giuseppe\">giuseppe</a>, <a href=\"https://github.com/smartive/proc-that\">proc-that</a> oder <a href=\"https://github.com/smartive/graylog-ts\">graylog-ts</a> und unterstützen Symfony mit diversen Bundles wie zum Beispiel eine <a href=\"https://github.com/smartive/SmartiveHandlebarsBundle\">Integration des Renderings von Handlebars Templates</a> oder einen <a href=\"https://github.com/smartive/SmartiveCronCommandBundle\">Konfigurator für Cronjobs</a>.</p> <p>Die vollständige Liste unseres Engagements ist auf unserem <a href=\"https://github.com/smartive\">GitHub Profil</a> ersichtlich.</p>",
-    "image": "./oss.svg"
+      "url": "/cases/subsidia-kasse",
+      "title": "Kassensystem als Containerlösung"
+    },
+    "showProjectsLink": false
   }
 ]
