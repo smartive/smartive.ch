@@ -2,14 +2,14 @@ import { graphql, StaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 
+import { LinkButton } from '../../components/atoms';
+import { DefaultLayout } from '../../components/layout';
+import { CaseBlock, PersonalContact, Quote, Stage } from '../../components/molecules';
 import ArchitectureBig from '../../data/projects/bosw-2019/architektur';
 import GraphQLAPI from '../../data/projects/bosw-2019/graphQLAPI';
-import GraphQLtoSQL from '../../data/projects/bosw-2019/graphQLtoSQL';
-import GraphQLtoREST from '../../data/projects/bosw-2019/graphQLtoREST';
 import GraphQLtoBI from '../../data/projects/bosw-2019/graphQLtoBI';
-
-import { DefaultLayout } from '../../components/layout';
-import { CaseBlock, Quote, Stage, PersonalContact } from '../../components/molecules';
+import GraphQLtoREST from '../../data/projects/bosw-2019/graphQLtoREST';
+import GraphQLtoSQL from '../../data/projects/bosw-2019/graphQLtoSQL';
 
 const Fast = () => (
   <div className="col-xs-12 col-sm-12 col-lg-12">
@@ -108,7 +108,11 @@ const migrosReactionsCaseQuery = graphql`
         }
       }
     }
-    allImageSharp(filter: { fluid: { originalName: { regex: "/(data-migration|idea|allChannels|widget)/" } } }) {
+    allImageSharp(
+      filter: {
+        fluid: { originalName: { regex: "/(data-migration|idea|allChannels|widget|community-plattform-reactions)/" } }
+      }
+    ) {
       edges {
         node {
           id
@@ -139,6 +143,9 @@ const MigrosRatingReviewsCase = () => (
       const widget = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('widget'))[0];
       const allChannels = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('allChannels'))[0];
       const idea = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('idea'))[0];
+      const reactionsCommunity = allImageSharp.edges.filter(({ node }) =>
+        node.fluid.src.includes('community-plattform-reactions'),
+      )[0];
 
       return (
         <DefaultLayout siteTitle={`${stageData.siteTitle} | Projekte`} siteDescription={stageData.siteDescription}>
@@ -215,6 +222,18 @@ const MigrosRatingReviewsCase = () => (
               Diese Inhalte haben wir erfolgreich in ein neues Format überführt. So bleibt der wertvolle Datenschatz erhalten
               und kann neu einfacher und schneller abgefragt werden.
             </p>
+          </CaseBlock>
+
+          <CaseBlock
+            title=""
+            subtitle="Auf der Suche nach einer Community-Lösung?"
+            graphic={<Img fluid={reactionsCommunity && reactionsCommunity.node.fluid} alt="Datenmigration" />}
+          >
+            <p>
+              Mit Reactions – unserer Community-Software – ist das Betreiben einer Online Community für jede Organisation ein
+              Kinderspiel. Integrierbar in jede Webseite oder App. Mit Interaktionsformen, die man frei definieren kann.
+            </p>
+            <LinkButton text="Mehr zu Reactions" url="https://reactions.dev" isPrimary />
           </CaseBlock>
 
           <Quote

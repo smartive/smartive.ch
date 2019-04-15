@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import './case-teaser.scss';
-
 import { LinkButton } from '../../atoms';
 
-export const CaseTeaser = ({ url, image, title, subline, children, allProjects, modifiers }) => (
+export const CaseTeaser = ({ url, image, title, subline, children, allProjects, modifiers, linkText }) => (
   <div className={modifiers.map((modifier) => `case-teaser--${modifier}`).join(' ')}>
     <div className="case-teaser">
       <div className="container container--case">
@@ -34,7 +33,7 @@ export const CaseTeaser = ({ url, image, title, subline, children, allProjects, 
 
               <div className="case-teaser__body">{children}</div>
               <div className="case-teaser__actions">
-                <LinkButton url={url} text="Case anschauen" isPrimary />
+                <LinkButton url={url} text={linkText} isPrimary />
                 {allProjects ? <LinkButton url="/projekte" text="alle unsere Arbeiten" /> : null}
               </div>
             </div>
@@ -65,11 +64,13 @@ CaseTeaser.propTypes = {
   children: PropTypes.element.isRequired,
   allProjects: PropTypes.bool,
   modifiers: PropTypes.arrayOf(PropTypes.string),
+  linkText: PropTypes.string,
 };
 
 CaseTeaser.defaultProps = {
   allProjects: false,
   modifiers: [],
+  linkText: 'Case anschauen',
 };
 
 export default CaseTeaser;

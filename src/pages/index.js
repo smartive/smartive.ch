@@ -2,7 +2,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 
 import { DefaultLayout } from '../components/layout';
-import { CaseTeaser, Stage, PersonalContact } from '../components/molecules';
+import { CaseTeaser, PersonalContact, Stage } from '../components/molecules';
 import { MediumTeaser } from '../components/organisms';
 import { replaceCount } from '../utils/count';
 
@@ -75,7 +75,11 @@ const pageQuery = graphql`
     }
     allImageSharp(
       filter: {
-        fluid: { originalName: { regex: "/case-study-migros-reactions.png|case-study-cosmo.jpg|case-study-subsidia.jpg/" } }
+        fluid: {
+          originalName: {
+            regex: "/case-study-migros-reactions.png|case-study-cosmo.jpg|case-study-subsidia.jpg|community-plattform-reactions.png/"
+          }
+        }
       }
     ) {
       edges {
@@ -102,6 +106,10 @@ const Index = () => (
         image: contactImage,
       } = allContactsJson.edges[0].node;
 
+      const caseImage0 = allImageSharp.edges.filter(({ node }) =>
+        node.fluid.src.includes('community-plattform-reactions'),
+      )[0];
+
       const caseImage1 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-migros-reactions'))[0];
       const caseImage2 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-cosmo'))[0];
       const caseImage3 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-subsidia'))[0];
@@ -125,6 +133,23 @@ const Index = () => (
 
           <CaseTeaser
             modifiers={['right-highlighted', 'image-padded', 'dark']}
+            url="https://reactions.dev"
+            title="Die Community-Plattform, die sich anpasst"
+            subline="Reactions"
+            linkText="Mehr zu Reactions"
+            image={{
+              fluid: caseImage0 && caseImage0.node.fluid,
+              alt: 'Reactions auf dem Macbook',
+            }}
+          >
+            <p>
+              Mit Reactions – unserer Community-Software – ist das Betreiben einer Online Community für jede Organisation ein
+              Kinderspiel. Integrierbar in jede Webseite oder App. Mit Interaktionsformen, die man frei definieren kann.
+            </p>
+          </CaseTeaser>
+
+          <CaseTeaser
+            modifiers={['left-highlighted', 'image-padded', 'bright']}
             url="/cases/migros-ratings-reviews"
             title="Von Migipedia zur Migros-Community"
             subline="GraphQL API und React"
@@ -135,12 +160,13 @@ const Index = () => (
           >
             <p>
               Die Applikation für User Generated Content, das Herz von Migipedia, haben wir komplett neu entwickelt.
-              Migipedia ist jetzt nicht mehr nur eine Plattform, sondern eine Community über acht Websites hinweg.
+              Migipedia nutzt jetzt Reactions - unserer Community-Software. Nun ist Migipedia nicht mehr nur eine Plattform,
+              sondern eine Community über acht Websites hinweg.
             </p>
           </CaseTeaser>
 
           <CaseTeaser
-            modifiers={['left-highlighted', 'image-padded', 'bright']}
+            modifiers={['right-highlighted', 'image-padded', 'dark']}
             url="/cases/cosmo-crm"
             title="Digitale Geschäftsprozesse als Herzstück"
             subline="CRM als Webapplikation"
@@ -158,7 +184,7 @@ const Index = () => (
           </CaseTeaser>
 
           <CaseTeaser
-            modifiers={['right-highlighted', 'image-padded', 'dark']}
+            modifiers={['left-highlighted', 'image-padded', 'bright']}
             url="/cases/subsidia-kasse"
             title="Dank agilem Ansatz schnell am Markt"
             subline="Kasse als Progressive Web App"

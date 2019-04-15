@@ -210,7 +210,7 @@
     "contentBlocks": [
       {
         "id": "1",
-        "value": "Die Applikation für User Generated Content, das Herz von Migipedia, haben wir komplett neu entwickelt. Migipedia ist jetzt nicht mehr nur eine Plattform, sondern eine Community über acht Websites hinweg."
+        "value": "Die Applikation für User Generated Content, das Herz von Migipedia, haben wir komplett neu entwickelt. Migipedia nutzt jetzt <a href='https://reactions.dev'>Reactions</a> - unsere Community-Software. Nun ist Migipedia nicht mehr nur eine Plattform, sondern eine Community über acht Websites hinweg."
       },
       {
         "id": "2",
