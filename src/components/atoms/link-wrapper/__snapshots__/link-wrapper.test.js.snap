@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkWrapper renders default external link correctly 1`] = `
+<a
+  className=""
+  href="http://example.com"
+>
+  TestLink
+</a>
+`;
+
+exports[`LinkWrapper renders default internal link correctly 1`] = `
+<GatsbyLink
+  className=""
+  to="/internal"
+>
+  TestLink
+</GatsbyLink>
+`;
