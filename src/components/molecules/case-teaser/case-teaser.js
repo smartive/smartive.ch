@@ -1,10 +1,10 @@
-import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { LinkButton } from '../../atoms/link-button';
+import { LinkWrapper } from '../../atoms/link-wrapper';
 import './case-teaser.scss';
-import { LinkButton } from '../../atoms';
 
 export const CaseTeaser = ({ url, image, title, subline, children, allProjects, modifiers, linkText }) => (
   <div className={modifiers.map((modifier) => `case-teaser--${modifier}`).join(' ')}>
@@ -14,13 +14,13 @@ export const CaseTeaser = ({ url, image, title, subline, children, allProjects, 
           <div className="case-teaser__col--img col-xs-12 col-lg-6 last-lg">
             <div className="img-container">
               <figure>
-                <Link to={url}>
+                <LinkWrapper to={url}>
                   {image.fluid ? (
                     <Img className="case-image" fluid={image.fluid} alt={image.alt} />
                   ) : (
                     <img className="case-image" src={image.src} alt={image.alt} />
                   )}
-                </Link>
+                </LinkWrapper>
               </figure>
             </div>
           </div>
