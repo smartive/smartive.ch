@@ -6,14 +6,7 @@ import Img from 'gatsby-image';
 import './personal-contact.scss';
 import { LinkButton } from '../../atoms';
 
-export const PersonalContact = ({
-  text,
-  titlePrefix,
-  name,
-  img,
-  phone,
-  mail,
-}) => (
+export const PersonalContact = ({ text, titlePrefix, name, img, phone, mail }) => (
   <div className="container">
     <div className="personal-contact-block">
       <div className="row">
@@ -22,7 +15,9 @@ export const PersonalContact = ({
         </div>
         <div className="col-xs-12 col-md-7">
           <h2>
-            <small>{titlePrefix}: {name}</small>
+            <small>
+              {titlePrefix}: {name}
+            </small>
             {text}
           </h2>
           <LinkButton url={`mailto:${mail}`} text={mail} isWhite />
@@ -52,7 +47,8 @@ PersonalContact.propTypes = {
 
 PersonalContact.defaultProps = {
   titlePrefix: 'Unser Experte',
-  text: 'Haben Sie Fragen zu diesem Projekt oder ein eigenes spannendes Vorhaben? Ich freue mich über Ihre Kontaktaufnahme und berate Sie gerne persönlich.',
+  text:
+    'Haben Sie Fragen zu diesem Projekt oder ein eigenes spannendes Vorhaben? Ich freue mich über Ihre Kontaktaufnahme und berate Sie gerne persönlich.',
   nameSuffix: null,
   url: null,
 };

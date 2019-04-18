@@ -62,5 +62,13 @@
     "company": "Migros-Genossenschafts-Bund (MGB)",
     "url": "https://www.migros.ch",
     "image": "./philipp-buehler.jpg"
+  },
+  {
+    "slug": "fabrina-cerf",
+    "quote": "Das Projekt stösst auf sehr positives Feedback und grosses Interesse bei anderen Kantonen und Organisationen. Durch die Erfahrung und Kompetenz von smartive konnten wir dieses Projekt als moderne Weblösung realisieren.",
+    "author": "Fabrina Cerf",
+    "company": "Fachstelle Psychische Gesundheit, Kanton St.Gallen",
+    "url": "https://www.zepra.info/psychische-gesundheit.html",
+    "image": "./fabrina-cerf.jpg"
   }
 ]
