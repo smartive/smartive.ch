@@ -239,5 +239,21 @@
     ],
     "imageSrc": "./case-study-enterprise-search.png",
     "imageAlt": "Abbildung eines Laptops mit einer Visualisierung der Enterprise Suche"
+  },
+  {
+    "siteTitle": "Online Hilfe finden",
+    "title": "<em>Online Hilfe finden:</em> Über 1700 Angebote der Deutschschweiz durchsuchbar",
+    "contentBlocks": [
+      {
+        "id": "1",
+        "value": "Das Ostschweizer Forum für Psychische Gesundheit verfügt über ein grosses Netzwerk an Anbietern für Unterstützungsangebote im Bereich Gesundheit und Soziales. Ein einfacher Zugang, wie diese gefunden werden können, fehlte bis anhin. smartive macht die Unterstützungsangebote mit einem Widget einfach durchsuchbar. Das Widget kann auf unterschiedlichen Webseiten des Kantons, der Gemeinden und anderen Organisationen eingebunden werden. Die Anbieter pflegen ihre Angebote zentral in einer einfachen Administration."
+      },
+      {
+        "id": "2",
+        "value": "<ul><li>React</li><li>Elasticsearch</li><li>Symfony</li><li>RESTful API</li></ul>"
+      }
+    ],
+    "imageSrc": "./case-study-online-hilfe-finden.jpg",
+    "imageAlt": "Zwei Personen im Gespräch. Eine Person macht Notizen."
   }
 ]
