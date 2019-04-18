@@ -215,9 +215,13 @@
       {
         "id": "2",
         "value": "Die Performance wurde verachtfacht, die Kosten für Betrieb und Entwicklung um 80% gesenkt. Kunden interagieren auf der Plattform ihrer Wahl und nicht mehr dort, wo die Migros das schönste «Angelplätzchen» vermutet."
+      },
+      {
+        "id": "3",
+        "value": "Am Best of Swiss Web 2019 erhielt Reactions die Auszeichnungen Bronze in der Kategorie Technology und Silver in der Kategorie Innovation."
       }
     ],
-    "imageSrc": "./case-study-migros-reactions.png",
+    "imageSrc": "./case-study-migros-reactions-bronze.png",
     "imageAlt": "Migros Kundenbewertungen auf einem iPad"
   },
   {

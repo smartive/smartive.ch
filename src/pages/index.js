@@ -77,7 +77,7 @@ const pageQuery = graphql`
       filter: {
         fluid: {
           originalName: {
-            regex: "/case-study-migros-reactions.png|case-study-cosmo.jpg|case-study-subsidia.jpg|community-plattform-reactions.png/"
+            regex: "/case-study-migros-reactions-bronze.png|case-study-cosmo.jpg|case-study-subsidia.jpg|community-plattform-reactions.png/"
           }
         }
       }
