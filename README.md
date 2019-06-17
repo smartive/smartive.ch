@@ -20,13 +20,13 @@ to do so.
 ## Setup
 
 ```
-yarn
+npm ci
 ```
 
 ## Development
 
 ```
-yarn develop
+npm run develop
 ```
 
 This runs gatsby in dev mode on `localhost:8000` with HMR, etc.

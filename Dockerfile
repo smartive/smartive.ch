@@ -1,8 +1,8 @@
 FROM node:10 as deps
 
 WORKDIR /app
-COPY ./package.json ./yarn.lock ./
-RUN yarn install
+COPY ./package.json ./package-lock.json ./
+RUN npm ci
 
 #---
 
@@ -25,24 +25,28 @@ COPY ./mock.js ./mock.js
 
 FROM source as lint
 
-RUN yarn lint
+RUN npm run lint
 
 #---
 
 FROM source as test
 
-RUN yarn test
+RUN npm test
 
 #---
 
 FROM source as build
 
-RUN yarn build
+ENV GATSBY_TELEMETRY_DISABLED=1
+
+RUN npm run build
 
 #---
 
 FROM fholzer/nginx-brotli:v1.14.2
 LABEL maintainer="hello@smartive.ch"
+
+ENV GATSBY_TELEMETRY_DISABLED=1
 
 EXPOSE 80
 

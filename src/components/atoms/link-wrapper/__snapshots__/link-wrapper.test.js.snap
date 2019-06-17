@@ -10,10 +10,10 @@ exports[`LinkWrapper renders default external link correctly 1`] = `
 `;
 
 exports[`LinkWrapper renders default internal link correctly 1`] = `
-<GatsbyLink
+<ForwardRef
   className=""
   to="/internal"
 >
   TestLink
-</GatsbyLink>
+</ForwardRef>
 `;
