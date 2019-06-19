@@ -113,6 +113,30 @@
     "imageAlt": "Mitarbeiter an einem Laptop, drei Zimmerpflanzen im Hintergrund"
   },
   {
+    "siteTitle": "Einweihung",
+    "title": "Wir ziehen um.<br /><blue>Und laden ein.</blue>",
+    "contentBlocks": [
+      {
+        "id": "1",
+        "value": "smartive wächst und braucht mehr Platz. Deshalb verlassen wir unser geliebtes Büro und ziehen 500 Meter weiter. Wir freuen uns auf mehr Platz und ein neues Kapitel in unserer Geschichte."
+      },
+      {
+        "id": "2",
+        "value": "In wenigen Tagen ist es bereits so weit. Die Zügelkisten sind gepackt. Das neue Büro steht. Wir ziehen um. Ab dem <strong>25. Juni 2019</strong> sind wir dann bereits unter unserer neuen Adresse im Erdgeschoss zu finden:"
+      },
+      {
+        "id": "3",
+        "value": "<strong>smartive AG</strong><br /><strong>Pfingstweidstrasse 60<br /><strong>CH-8005 Zürich</strong>"
+      },
+      {
+        "id": "4",
+        "value": "Du bist herzlich eingeladen, mit uns am <strong>22. August ab 17 Uhr</strong> das brandneue smartive Büro einzuweihen."
+      }
+    ],
+    "imageSrc": "./new-office.jpg",
+    "imageAlt": "Neues smartive Büro an der Pfingstweidstrasse 60"
+  },
+  {
     "siteTitle": "Migros Filialfinder",
     "title": "Auf der Suche nach der nächsten <em>Migros-Filiale</em>.",
     "contentBlocks": [
