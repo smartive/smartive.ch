@@ -14,10 +14,10 @@ const AsyncGoogleMaps = withScriptjs(
     <GoogleMap
       ref={props.onMapLoad}
       defaultZoom={15}
-      defaultCenter={{ lat: 47.3884069, lng: 8.5181335 }}
+      defaultCenter={{ lat: 47.389962, lng: 8.514064 }}
       defaultOptions={{ scrollwheel: false }}
     >
-      <Marker icon={mapMarkerImage} position={{ lat: 47.3884069, lng: 8.5181335 }}>
+      <Marker icon={mapMarkerImage} position={{ lat: 47.389962, lng: 8.514064 }}>
         <InfoWindow>
           <div className="map__schema" itemScope itemType="https://schema.org/ContactPage">
             <p className="map-info">
@@ -26,7 +26,7 @@ const AsyncGoogleMaps = withScriptjs(
               </span>
               <span itemScope itemProp="address" itemType="https://schema.org/PostalAddress">
                 <span className="map-info--street" itemProp="streetAddress">
-                  Schiffbaustrasse 7
+                  Pfingstweidstrasse 60
                 </span>
                 CH-
                 <span className="map-info--zip" itemProp="postalCode">
