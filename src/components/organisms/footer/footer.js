@@ -35,7 +35,8 @@ export const Footer = () => (
       <div className="footer__row--contact row center-xs start-md middle-lg">
         <div className="address col-xs-12 col-md-3 col-lg-2">
           <p>
-            Schiffbaustrasse 7<br />
+            Pfingstweidstrasse 60
+            <br />
             CH-8005 Zürich
           </p>
         </div>
