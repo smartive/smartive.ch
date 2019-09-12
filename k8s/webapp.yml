@@ -8,13 +8,6 @@ spec:
   dnsNames:
     - ${URL}
     - www.${URL}
-  acme:
-    config:
-      - domains:
-          - ${URL}
-          - www.${URL}
-        http01:
-          ingressClass: nginx
   issuerRef:
     name: ${CERT_ISSUER}
     kind: ClusterIssuer
