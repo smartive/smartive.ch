@@ -11,6 +11,7 @@ FROM deps as source
 COPY ./__mocks__ ./__mocks__
 COPY ./src ./src
 COPY ./static ./static
+COPY ./plugins ./plugins
 COPY ./.babelrc ./.babelrc
 COPY ./.eslintignore ./.eslintignore
 COPY ./.eslintrc ./.eslintrc

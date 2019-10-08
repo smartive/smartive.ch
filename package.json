@@ -18,7 +18,6 @@
     "gatsby-plugin-sitemap": "^2.0.1",
     "gatsby-plugin-zopfli": "^1.0.2",
     "gatsby-source-filesystem": "^2.0.1",
-    "gatsby-source-medium": "^2.0.0",
     "gatsby-transformer-json": "^2.1.1",
     "gatsby-transformer-sharp": "^2.1.1",
     "node-sass": "^4.9.3",

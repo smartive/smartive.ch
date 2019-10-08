@@ -17,6 +17,14 @@ Currently most of the stuff is statically exported from the `data` directory,
 but if someone wants to do this properly with GraphQL, they're more than welcome
 to do so.
 
+### Blog Posts
+Medium decided to restrict access to their JSON API and therefor we're no longer
+able to fetch blog posts automatically :sad-face:
+
+The current workaround involves fetching the JSON file manually and adding it to
+this repository. To do so, you have to access https://medium.com/smartive/latest?format=json&limit=100
+using your browser and downloading the JSON file to `src/blog/posts.json`.
+
 ## Setup
 
 ```

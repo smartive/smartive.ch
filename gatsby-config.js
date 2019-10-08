@@ -23,9 +23,9 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-transformer-json',
     {
-      resolve: 'gatsby-source-medium',
+      resolve: 'medium-local-plugin',
       options: {
-        username: 'smartive',
+        path: `${__dirname}/src/blog/posts.json`,
       },
     },
     'gatsby-plugin-react-helmet',
