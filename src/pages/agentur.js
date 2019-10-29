@@ -26,7 +26,7 @@ const pageQuery = graphql`
         }
       }
     }
-    allMembersJson {
+    allMembersJson(sort: { fields: [name], order: ASC }) {
       edges {
         node {
           img {
