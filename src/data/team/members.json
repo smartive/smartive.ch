@@ -241,6 +241,21 @@
         "url": "https://github.com/BigAccessBrother"
       }
     ]
+  },
+  {
+    "img": "./portrait-benjamin.jpg",
+    "job": "Software Engineer",
+    "name": "Benjamin Brossi",
+    "education": "Bachelor of Science ZFH in Informatik",
+    "description": "<p>Taucht gerne im Meer, badet gerne in Seen und Flüssen, isst gerne abwechslungsreich und geniesst den dazu passenden Wein</p>",
+    "links": [{
+        "text": "benjamin@smartive.ch",
+        "url": "mailto:benjamin@smartive.ch"
+      },
+      {
+        "text": "GitHub",
+        "url": "https://github.com/benjaminbrossi"
+      }
+    ]
   }
-
 ]

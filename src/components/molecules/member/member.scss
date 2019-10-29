@@ -4,7 +4,7 @@
 .member {
   margin-bottom: $padding-sm-v;
 
-  &.col-lg-4 {
+  &.col-lg-6 {
     @media #{$large-up} {
       /* Sorry about that, but flexgrid */
       padding: 0 ($padding-lg-h/2) !important;

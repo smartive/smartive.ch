@@ -5,7 +5,7 @@ import Img from 'gatsby-image';
 import './member.scss';
 
 export const Member = ({ name, job, image, education, children, links = [] }) => (
-  <div className="member col-xs-12 col-md-6 col-lg-4" itemScope itemProp="employee" itemType="http://schema.org/Person">
+  <div className="member col-xs-12 col-md-6 col-lg-6" itemScope itemProp="employee" itemType="http://schema.org/Person">
     {image.fluid ? (
       <Img className="member__portrait" fluid={image.fluid} alt={image.alt} />
     ) : (

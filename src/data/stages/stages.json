@@ -9,9 +9,9 @@
       }
     ],
     "imageSrc": "./home.jpg",
-    "imageAlt": "Zwei smartive Mitarbeiter bei einer Besprechung",
+    "linkText": "Unser Leistungsangebot",
     "link": "/leistungen",
-    "linkText": "Unser Leistungsangebot"
+    "imageAlt": "smartive Team im Austausch beim Mittagessen"
   },
   {
     "siteTitle": "Agentur",
@@ -35,8 +35,8 @@
         "value": "Jeder erhält pro Jahr 10 Tage und CHF 2'500, um sich weiterzubilden. Frei nach Wahl."
       }
     ],
-    "imageSrc": "../team/thilo-peter-meeting.jpg",
-    "imageAlt": "Zwei smartive Mitarbeiter bei einer Besprechung"
+    "imageSrc": "../team/team-lunch.jpg",
+    "imageAlt": "smartive Team beim Mittagessen"
   },
   {
     "siteTitle": "Leistungen",
@@ -57,7 +57,7 @@
       }
     ],
     "imageSrc": "./services.jpg",
-    "imageAlt": "Zwei smartive Mitarbeiter bei einer Besprechung"
+    "imageAlt": "smartive Mitarbeiter im Austausch"
   },
   {
     "siteTitle": "Projekte",
@@ -77,8 +77,8 @@
         "value": "Das Resultat: Smarte Applikation."
       }
     ],
-    "imageSrc": "./work.png",
-    "imageAlt": "Unsere Kunden"
+    "imageSrc": "./work.jpg",
+    "imageAlt": "Vier smartive Mitarbeiter bei einer Besprechung"
   },
   {
     "siteTitle": "Kontakt",
@@ -94,7 +94,7 @@
       }
     ],
     "imageSrc": "./contact.jpg",
-    "imageAlt": "smartive Büro bei Regen"
+    "imageAlt": "smartive Büro mit Blick auf Kaffeeküche"
   },
   {
     "siteTitle": "GSA",
