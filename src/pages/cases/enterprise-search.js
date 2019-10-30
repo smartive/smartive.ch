@@ -103,7 +103,7 @@ const EnterpriseSearchCase = () => (
             title={<h1 dangerouslySetInnerHTML={{ __html: stageData.title }} />}
           >
             <div>
-              {stageData.contentBlocks.map((block) => (
+              {stageData.contentBlocks.map(block => (
                 <p key={block.id} dangerouslySetInnerHTML={{ __html: block.value }} />
               ))}
             </div>
@@ -112,7 +112,7 @@ const EnterpriseSearchCase = () => (
           <div className="container">
             <Facts title="Features">
               <ul>
-                <li>Realtime Suche über {`100'000`} Seiten und Dokumente</li>
+                <li>Realtime Suche über 100&#39;000 Seiten und Dokumente</li>
                 <li>Indexierung von Excel, PDF, Word und weiteren Dokumentformaten</li>
                 <li>Unterstützung für mehrsprachige und dynamische Inhalte</li>
                 <li>Spelling Correction, Autocomplete, Filter, Pagination</li>
@@ -158,7 +158,7 @@ const EnterpriseSearchCase = () => (
           <div className="container">
             <Facts title="Technologie">
               <ul>
-                <li>Realtime Suche über {`100'000`} Dokumente in &lt; 100ms</li>
+                <li>Realtime Suche über 100&#39;000 Dokumente in &lt; 100ms</li>
                 <li>Skalierbar und ausfallsicher dank Elasticsearch und Lucene</li>
                 <li>Erkennt stukturierte Inhalte wie Meta-Tags, OG-Tags und JSON-LD für Filter</li>
                 <li>Full Stack Open Source mit Apache Nutch, Elasticsearch und Node.js</li>

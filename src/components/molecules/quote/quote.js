@@ -40,8 +40,8 @@ Quote.propTypes = {
     sizes: PropTypes.string,
     originalImg: PropTypes.string,
   }).isRequired,
-  imgLarge: PropTypes.boolean,
-  textLarge: PropTypes.boolean,
+  imgLarge: PropTypes.bool,
+  textLarge: PropTypes.bool,
   company: PropTypes.string,
   url: PropTypes.string,
 };

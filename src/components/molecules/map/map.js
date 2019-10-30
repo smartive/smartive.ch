@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
-import withScriptjs from 'react-google-maps/lib/async/withScriptjs';
+import { withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow } from 'react-google-maps';
 
 import './map.scss';
 import mapMarkerImage from './map-marker.png';
@@ -10,7 +9,7 @@ export const baseUrl =
   'https://maps.googleapis.com/maps/api/js?v=3.34&libraries=places,geometry&key=AIzaSyD1q6iI1c4XGqrbKGBPZfO2bnRTRVaRg04';
 
 const AsyncGoogleMaps = withScriptjs(
-  withGoogleMap((props) => (
+  withGoogleMap(props => (
     <GoogleMap
       ref={props.onMapLoad}
       defaultZoom={15}
@@ -42,7 +41,7 @@ const AsyncGoogleMaps = withScriptjs(
         </InfoWindow>
       </Marker>
     </GoogleMap>
-  )),
+  ))
 );
 
 export const Map = () => (

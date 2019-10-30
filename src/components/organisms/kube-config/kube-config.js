@@ -104,7 +104,7 @@ export class KubeConfig extends React.Component {
   }
 
   render() {
-    return <React.Fragment />;
+    return <></>;
   }
 }
 

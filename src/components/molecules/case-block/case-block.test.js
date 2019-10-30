@@ -9,7 +9,7 @@ describe('Case Block', () => {
       .create(
         <CaseBlock title="Title" subtitle="Subtitle" graphic={<img src="example.jpg" alt="Example" />}>
           <p>Example Case Block Text</p>
-        </CaseBlock>,
+        </CaseBlock>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -20,7 +20,7 @@ describe('Case Block', () => {
       .create(
         <CaseBlock title="Title" subtitle="Subtitle">
           <p>Example Content</p>
-        </CaseBlock>,
+        </CaseBlock>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

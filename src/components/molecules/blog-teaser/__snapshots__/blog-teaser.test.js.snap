@@ -3,6 +3,7 @@
 exports[`Blog Teaser renders default correctly 1`] = `
 <div
   className="blog-teaser col-xs-12 col-lg-5 first-lg"
+  style={Object {}}
 >
   <a
     className="blog-teaser__link"

@@ -5,7 +5,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import '../scss/main.scss';
-import { Footer, Header, KubeConfig } from '../components/organisms';
+import { Footer, Header, KubeConfig } from './organisms';
 
 export class DefaultLayout extends React.Component {
   componentDidMount() {
@@ -29,6 +29,7 @@ export class DefaultLayout extends React.Component {
 
   render() {
     const {
+      children,
       siteTitle,
       siteDescription = 'Wir sind smartive — eine dynamische, innovative Schweizer Webentwicklungsagentur. Die Realisierung zeitgemässer Weblösungen gehört genauso zu unserer Passion, wie die konstruktive Zusammenarbeit mit unseren Kundinnen und Kunden.',
     } = this.props;
@@ -53,7 +54,7 @@ export class DefaultLayout extends React.Component {
 
         <Header />
 
-        <main>{this.props.children}</main>
+        <main>{children}</main>
 
         <Footer />
         <KubeConfig />

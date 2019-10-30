@@ -5,7 +5,7 @@ import React from 'react';
 import './stage.scss';
 
 export const Stage = ({ title, image, children, modifiers }) => (
-  <div className={modifiers.map((modifier) => `stage--${modifier}`).join(' ')}>
+  <div className={modifiers.map(modifier => `stage--${modifier}`).join(' ')}>
     <div className="stage">
       <div className="container container--stage">
         <div className="row">

@@ -1,5 +1,5 @@
 import React from 'react';
-import Waypoint from 'react-waypoint';
+import { Waypoint } from 'react-waypoint';
 
 class GraphQLAPI extends React.Component {
   constructor(props) {
@@ -7,9 +7,11 @@ class GraphQLAPI extends React.Component {
     this.state = { showSVG: false };
     this.handleEnter = this.handleEnter.bind(this);
   }
+
   handleEnter() {
     this.setState({ showSVG: true });
   }
+
   handleLeave() {
     this.setState({ showSVG: false });
   }

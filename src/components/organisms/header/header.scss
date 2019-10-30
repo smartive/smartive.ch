@@ -1,7 +1,7 @@
 @import '../../../scss/colors';
 @import '../../../scss/responsive';
 
-.headroom--scrolled {
+.headroom--unpinned {
   .header {
     @media #{$large-up} {
       padding: 0;

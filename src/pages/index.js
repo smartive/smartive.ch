@@ -181,8 +181,8 @@ const Index = () => (
 
           <PersonalContact
             name={contactName}
-            titlePrefix={`Ihr Ansprechpartner`}
-            text={`Haben Sie ein innovatives Vorhaben? Wir freuen uns über Ihre Kontaktaufnahme und beraten Sie gerne persönlich.`}
+            titlePrefix="Ihr Ansprechpartner"
+            text="Haben Sie ein innovatives Vorhaben? Wir freuen uns über Ihre Kontaktaufnahme und beraten Sie gerne persönlich."
             mail={contactMail}
             phone={contactPhone}
             img={contactImage.childImageSharp.fluid}

@@ -14,7 +14,7 @@ describe('Teaser', () => {
       .create(
         <Teaser title="Title" subline="Subline">
           <p>Content</p>
-        </Teaser>,
+        </Teaser>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

@@ -13,7 +13,7 @@ describe('Caes Teaser', () => {
     const tree = renderer.render(
       <CaseTeaser url="http://example.com" image={{ src: 'example.jpg', alt: 'Example' }} title="Title" subline="Subline">
         <p>Example Content</p>
-      </CaseTeaser>,
+      </CaseTeaser>
     );
 
     expect(tree).toMatchSnapshot();
@@ -29,7 +29,7 @@ describe('Caes Teaser', () => {
         allProjects
       >
         <p>Example Content</p>
-      </CaseTeaser>,
+      </CaseTeaser>
     );
     expect(tree).toMatchSnapshot();
   });
