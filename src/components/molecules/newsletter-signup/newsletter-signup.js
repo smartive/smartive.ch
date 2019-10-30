@@ -24,10 +24,11 @@ export class NewsletterSignup extends React.Component {
 
   async handleSubmit(event) {
     event.preventDefault();
-    if (this.state.loading) {
+    const { loading, email } = this.state;
+    if (loading) {
       return;
     }
-    if (!this.state.email) {
+    if (!email) {
       this.setState({
         info: {
           type: 'error',
@@ -38,13 +39,13 @@ export class NewsletterSignup extends React.Component {
     }
     try {
       this.setState({ loading: true });
-      const { result, msg } = await addToMailchimp(this.state.email);
+      const { result, msg } = await addToMailchimp(email);
       if (result === 'error') {
         let message = DEFAULT_ERROR_MESSAGE;
         let type = 'error';
         if (msg === 'The email you entered is not valid.') {
           message = 'Diese E-Mail Adresse ist invalid.';
-        } else if (msg.startsWith(`${this.state.email} is already subscribed to list Newsletter`)) {
+        } else if (msg.startsWith(`${email} is already subscribed to list Newsletter`)) {
           message = 'Diese E-Mail Adresse ist bereits registriert. Vielen Dank für deine Treue!';
           type = 'success';
         }
@@ -75,28 +76,25 @@ export class NewsletterSignup extends React.Component {
   }
 
   render() {
+    const { loading, email, info } = this.state;
     return (
       <div className="newsletter-signup">
         <h4>Für unseren Newsletter anmelden:</h4>
         <form onSubmit={this.handleSubmit}>
           <Input
             name="newsletter-email"
-            value={this.state.email}
+            value={email}
             type="email"
             placeholder="Email-Adresse eintragen"
             onChange={this.handleChange}
           />
-          <Button
-            text={this.state.loading ? 'Sende..' : 'Anmelden'}
-            disabled={this.state.loading}
-            onClick={this.handleSubmit}
-          />
+          <Button text={loading ? 'Sende..' : 'Anmelden'} disabled={loading} onClick={this.handleSubmit} />
           <div
             className={`newsletter-signup__info-container ${
-              this.state.info && this.state.info.type ? `newsletter-signup__info-container--${this.state.info.type}` : ''
+              info && info.type ? `newsletter-signup__info-container--${info.type}` : ''
             }`}
           >
-            {this.state.info && this.state.info.message && this.state.info.message}
+            {info && info.message && info.message}
           </div>
         </form>
       </div>

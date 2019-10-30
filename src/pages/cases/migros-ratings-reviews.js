@@ -144,7 +144,7 @@ const MigrosRatingReviewsCase = () => (
       const allChannels = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('allChannels'))[0];
       const idea = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('idea'))[0];
       const reactionsCommunity = allImageSharp.edges.filter(({ node }) =>
-        node.fluid.src.includes('community-plattform-reactions'),
+        node.fluid.src.includes('community-plattform-reactions')
       )[0];
 
       return (
@@ -155,7 +155,7 @@ const MigrosRatingReviewsCase = () => (
             title={<h1 dangerouslySetInnerHTML={{ __html: stageData.title }} />}
           >
             <div>
-              {stageData.contentBlocks.map((block) => (
+              {stageData.contentBlocks.map(block => (
                 <p key={block.id} dangerouslySetInnerHTML={{ __html: block.value }} />
               ))}
             </div>

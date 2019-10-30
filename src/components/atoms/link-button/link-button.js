@@ -4,7 +4,7 @@ import React from 'react';
 import './link-button.scss';
 import { LinkWrapper } from '../link-wrapper';
 
-const mod = (modifier) => ` link-button--${modifier}`;
+const mod = modifier => ` link-button--${modifier}`;
 
 export const LinkButton = ({ url, text, isPrimary, isWhite, hasBorder }) => {
   const className = `link-button${isPrimary ? mod('primary') : ''}${isWhite ? mod('white') : ''}${

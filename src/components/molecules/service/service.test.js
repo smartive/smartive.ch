@@ -13,7 +13,7 @@ describe('Service', () => {
     const tree = renderer.render(
       <Service title="Title" image={{ src: 'example.jpg', alt: 'Example' }} catchline="Catchline">
         <p>Content</p>
-      </Service>,
+      </Service>
     );
     expect(tree).toMatchSnapshot();
   });
@@ -22,7 +22,7 @@ describe('Service', () => {
     const tree = renderer.render(
       <Service title="Title" image={{ src: 'example.jpg', alt: 'Example' }} catchline="Catchline" lead="Longer Lead Text">
         <p>Content</p>
-      </Service>,
+      </Service>
     );
     expect(tree).toMatchSnapshot();
   });
@@ -36,7 +36,7 @@ describe('Service', () => {
         linkedCase={{ url: '/case', title: 'Link to Case' }}
       >
         <p>Content</p>
-      </Service>,
+      </Service>
     );
     expect(tree).toMatchSnapshot();
   });

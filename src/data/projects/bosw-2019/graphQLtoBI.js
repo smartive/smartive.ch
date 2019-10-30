@@ -1,5 +1,5 @@
 import React from 'react';
-import Waypoint from 'react-waypoint';
+import { Waypoint } from 'react-waypoint';
 
 class GraphQLtoBI extends React.Component {
   constructor(props) {
@@ -8,9 +8,11 @@ class GraphQLtoBI extends React.Component {
     this.handleEnter = this.handleEnter.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
   }
+
   handleEnter() {
     this.setState({ showSVG: true });
   }
+
   handleLeave() {
     this.setState({ showSVG: false });
   }

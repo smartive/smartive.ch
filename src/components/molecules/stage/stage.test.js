@@ -14,7 +14,7 @@ describe('Stage', () => {
       .create(
         <Stage image={{ src: 'example.jpg', alt: 'Example' }} title={<h1>Hello World!</h1>}>
           <p>Content</p>
-        </Stage>,
+        </Stage>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -25,7 +25,7 @@ describe('Stage', () => {
       .create(
         <Stage modifiers={['foo', 'bar']} image={{ src: 'example.jpg', alt: 'Example' }} title={<h1>Hello World!</h1>}>
           <p>Content</p>
-        </Stage>,
+        </Stage>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -38,7 +38,7 @@ describe('Stage', () => {
           <p>Content 1</p>
           <p>Content 2</p>
           <p>Content 3</p>
-        </Stage>,
+        </Stage>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

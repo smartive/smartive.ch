@@ -3,26 +3,14 @@ import PropTypes from 'prop-types';
 
 import './blog-teaser.scss';
 
-const getBackgroundImage = (img) => {
-  if (img) {
-    return {
-      style: {
-        backgroundImage: `url(${img})`,
-      },
-    };
-  }
-
-  return {};
-};
-
-const getClassNames = (img) => {
+const getClassNames = img => {
   const classNames = ['blog-teaser', 'col-xs-12', img ? 'blog-teaser--image col-lg-7' : 'col-lg-5 first-lg'];
 
   return classNames.join(' ');
 };
 
 export const BlogTeaser = ({ url, subline, title, lead, img }) => (
-  <div className={getClassNames(img)} {...getBackgroundImage(img)}>
+  <div className={getClassNames(img)} style={img ? { backgroundImage: `url(${img})` } : {}}>
     <a className="blog-teaser__link" href={url}>
       <div className="blog-teaser__content">
         <h2>

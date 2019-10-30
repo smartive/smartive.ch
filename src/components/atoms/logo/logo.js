@@ -16,7 +16,7 @@ export const Logo = ({ isNegativ }) => (
 export default Logo;
 
 Logo.propTypes = {
-  isNegativ: PropTypes.bool.isRequired,
+  isNegativ: PropTypes.bool,
 };
 
 Logo.defaultProps = {

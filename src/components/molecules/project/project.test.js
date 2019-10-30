@@ -12,7 +12,7 @@ describe('Project', () => {
       .create(
         <Project title="Title" category="Category" image={{ src: 'example.jpg', alt: 'Example' }}>
           <p>Content</p>
-        </Project>,
+        </Project>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -22,7 +22,7 @@ describe('Project', () => {
     const tree = shallow.render(
       <Project title="Title" category="Category" image={{ src: 'example.jpg', alt: 'Example' }} caseUrl="/case">
         <p>Content</p>
-      </Project>,
+      </Project>
     );
     expect(tree).toMatchSnapshot();
   });

@@ -30,8 +30,8 @@ export const PersonalContact = ({ text, titlePrefix, name, img, phone, mail }) =
 
 PersonalContact.propTypes = {
   name: PropTypes.string.isRequired,
-  titlePrefix: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  titlePrefix: PropTypes.string,
+  text: PropTypes.string,
   phone: PropTypes.string.isRequired,
   mail: PropTypes.string.isRequired,
   img: PropTypes.shape({
@@ -49,8 +49,6 @@ PersonalContact.defaultProps = {
   titlePrefix: 'Unser Experte',
   text:
     'Haben Sie Fragen zu diesem Projekt oder ein eigenes spannendes Vorhaben? Ich freue mich über Ihre Kontaktaufnahme und berate Sie gerne persönlich.',
-  nameSuffix: null,
-  url: null,
 };
 
 export default PersonalContact;

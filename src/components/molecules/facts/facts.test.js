@@ -9,7 +9,7 @@ describe('Facts', () => {
       .create(
         <Facts title="Title">
           <p>Content</p>
-        </Facts>,
+        </Facts>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

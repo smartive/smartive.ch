@@ -17,7 +17,7 @@ describe('Member', () => {
           education="Funny dude"
         >
           <p>Content</p>
-        </Member>,
+        </Member>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -37,7 +37,7 @@ describe('Member', () => {
           links={[{ url: '/foo', text: 'Foo' }, { url: '/bar', text: 'Bar' }]}
         >
           <p>Content</p>
-        </Member>,
+        </Member>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
