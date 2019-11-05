@@ -7,20 +7,26 @@ import './footer.scss';
 import githubImgSrc from './github.svg';
 import twitterImgSrc from './twitter.svg';
 import facebookImgSrc from './facebook.svg';
+import linkedInImgSrc from './linkedin.svg';
 import smsImgSrc from './sms.svg';
 import { NewsletterSignup } from '../../molecules';
 
 const items = [
   { href: 'https://github.com/smartive', src: githubImgSrc, alt: 'smartive auf GitHub' },
   {
-    href: 'https://twitter.com/smartive_ch',
-    src: twitterImgSrc,
-    alt: 'smartive auf Twitter',
+    href: 'https://www.linkedin.com/company/smartive-ag/',
+    src: linkedInImgSrc,
+    alt: 'smartive auf LinkedIn',
   },
   {
     href: 'https://facebook.com/smartive.ch',
     src: facebookImgSrc,
     alt: 'smartive auf Facebook',
+  },
+  {
+    href: 'https://twitter.com/smartive_ch',
+    src: twitterImgSrc,
+    alt: 'smartive auf Twitter',
   },
 ];
 
