@@ -77,7 +77,7 @@ const pageQuery = graphql`
       filter: {
         fluid: {
           originalName: {
-            regex: "/case-study-migros-reactions-bronze.png|case-study-cosmo.jpg|case-study-subsidia.jpg|community-plattform-reactions.png/"
+            regex: "/case-study-migros-reactions-bronze.png|case-study-cosmo.jpg|subsidia-phone-bosa.jpg|community-plattform-reactions.png/"
           }
         }
       }
@@ -108,7 +108,7 @@ const Index = () => (
 
       const caseImage1 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-migros-reactions'))[0];
       const caseImage2 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-cosmo'))[0];
-      const caseImage3 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-subsidia'))[0];
+      const caseImage3 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('subsidia-phone-bosa'))[0];
 
       const members = allMembersJson.edges;
 
