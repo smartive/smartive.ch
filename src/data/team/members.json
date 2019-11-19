@@ -305,5 +305,25 @@
         "url": "https://github.com/benjaminbrossi"
       }
     ]
+  },
+  {
+    "img": "./portrait-dominik.jpg",
+    "job": "Software Engineer",
+    "name": "Dominik Friederich",
+    "education": "Informatiker EFZ Systemtechnik",
+    "description": "<p>Hätte gerne mehr Stunden pro Tag, immer in Bewegung, Chillizüchter, Bierbrauer, Kletterfanatiker & angehender Routenbauer</p>",
+    "links": [{
+        "text": "dominik@smartive.ch",
+        "url": "mailto:dominik@smartive.ch"
+      },
+      {
+        "text": "LinkedIn",
+        "url": "https://www.linkedin.com/in/dominik-friederich-a844a7187/"
+      },
+      {
+        "text": "GitHub",
+        "url": "https://github.com/dominikfriederich"
+      }
+    ]
   }
 ]
