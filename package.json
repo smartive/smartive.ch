@@ -52,7 +52,7 @@
     "@smartive/prettier-config": "^2.0.1",
     "babel-core": "^7.0.0-0",
     "babel-jest": "^24.9.0",
-    "eslint": "^6.6.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.5.0",
