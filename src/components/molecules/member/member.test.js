@@ -34,7 +34,10 @@ describe('Member', () => {
             alt: 'Example',
           }}
           education="Funny dude"
-          links={[{ url: '/foo', text: 'Foo' }, { url: '/bar', text: 'Bar' }]}
+          links={[
+            { url: '/foo', text: 'Foo' },
+            { url: '/bar', text: 'Bar' },
+          ]}
         >
           <p>Content</p>
         </Member>
