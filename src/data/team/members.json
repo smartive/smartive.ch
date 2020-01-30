@@ -1,10 +1,12 @@
-[{
+[
+  {
     "img": "./portrait-peter.jpg",
-    "job": "Partner",
+    "job": "Digital Strategist",
     "name": "Peter Manser",
     "education": "Bachelor of Science FHO in Informatik",
     "description": "<p>Web Passionist, mag Herausforderungen, liebt Daten und APIs, Nachtmensch, TV-Serien-Junkie, Fitness Freak, Organisator des <a href=\"http://webnesday.ch/\">Webnesday in St.Gallen</a></p>",
-    "links": [{
+    "links": [
+      {
         "text": "peter@smartive.ch",
         "url": "mailto:peter@smartive.ch"
       },
@@ -24,11 +26,12 @@
   },
   {
     "img": "./portrait-thilo.jpg",
-    "job": "Partner",
+    "job": "Digital Strategist",
     "name": "Thilo Haas",
     "education": "Master of Science UZH in Informatik",
     "description": "<p>Ex-Luzerner, kulturinteressierter Weltenbummler, liebt knifflige Fragestellungen, Big Data und Statistical Learning, Naturliebhaber, Tennisamateur, Schönwetterjogger</p>",
-    "links": [{
+    "links": [
+      {
         "text": "thilo@smartive.ch",
         "url": "mailto:thilo@smartive.ch"
       },
@@ -48,11 +51,12 @@
   },
   {
     "img": "./portrait-moreno.jpg",
-    "job": "Partner",
+    "job": "Digital Strategist",
     "name": "Moreno Feltscher",
     "education": "Bachelor of Science FHO in Informatik",
     "description": "<p>Exil-Bündner, Technologiefreak, Filme- und Serienliebhaber, Nachtmensch, hat ein Faible für komplexe Systemarchitekturen, Kaffeegeniesser, hebt gerne Gewichte, Bücherwurm, liebt Reisen in ferne Länder, politikinteressiert</p>",
-    "links": [{
+    "links": [
+      {
         "text": "moreno@smartive.ch",
         "url": "mailto:moreno@smartive.ch"
       },
@@ -76,7 +80,8 @@
     "name": "Marco Bohler",
     "education": "Bachelor of Science ZFH in Informatik",
     "description": "<p>Begeisterter Web-Developer, liebt das Ausprobieren neuer Technologien, Reisevogel, isst die Bratwurst ohne Senf, Kung-Fu-Padawan, Freund der Championship League, Serienverrückter</p>",
-    "links": [{
+    "links": [
+      {
         "text": "marco@smartive.ch",
         "url": "mailto:marco@smartive.ch"
       },
@@ -100,7 +105,8 @@
     "name": "Christoph Bühler",
     "education": "Bachelor of Science FHO in Informatik",
     "description": "<p>Entdecker, Tech-Evangelist, Tüftler, Snowboarder, Entwickler von Extensions und Frameworks, technologieverliebter Framework-Narr, passionierter Bier-Liebhaber, Kung-Fu Kanone, heilender Diener des Pelor</p>",
-    "links": [{
+    "links": [
+      {
         "text": "christoph@smartive.ch",
         "url": "mailto:christoph@smartive.ch"
       },
@@ -120,7 +126,8 @@
     "name": "Dominique Wirz",
     "education": "Bachelor of Science FHO in Informatik",
     "description": "<p>Webfanatiker von A(ngular) bis Z(urb Foundation), Limmatstädter, Stadtclubanhänger, Fitnessfan, Bartträger, Wanderer, Reisender, Feinschmecker</p>",
-    "links": [{
+    "links": [
+      {
         "text": "dominique@smartive.ch",
         "url": "mailto:dominique@smartive.ch"
       },
@@ -144,7 +151,8 @@
     "name": "Nicola Marcacci Rossi",
     "education": "Master of Science ETH in Informatik",
     "description": "<p>Tessiner mit Berner Akzent, Psychologie- und Selbstentwicklungsnerd, Entrepreneur, trägt seinen Bart mit Stolz, programmiert im Bus und im Schlaf, träumt davon, mal wieder zehn Tage meditieren zu gehen</p>",
-    "links": [{
+    "links": [
+      {
         "text": "nicola@smartive.ch",
         "url": "mailto:nicola@smartive.ch"
       },
@@ -160,11 +168,12 @@
   },
   {
     "img": "./portrait-robert.jpg",
-    "job": "Software Engineer",
+    "job": "Digital Strategist",
     "name": "Robert Vogt",
     "education": "Bachelor of Science FHO in Informatik",
     "description": "<p>Liechtensteiner mit Leidenschaft für englischen Fussball, Mountainbiker, designaffin, auf Reisen in fernen Ländern mit seinem Kindle, nie ohne Bart, manchmal auch offline</p>",
-    "links": [{
+    "links": [
+      {
         "text": "robert@smartive.ch",
         "url": "mailto:robert@smartive.ch"
       },
@@ -188,7 +197,8 @@
     "name": "Mirco Strässle",
     "education": "Bachelor of Science FHO in Informatik",
     "description": "<p>Entdeckt von St. Gallen aus die Welt, Hobbyfotograf, sportbegeistert drinnen und draussen, isst und kocht gerne leckeres Essen, schätzt ein gutes Buch, schaut zu viele Filme & Serien</p>",
-    "links": [{
+    "links": [
+      {
         "text": "mirco@smartive.ch",
         "url": "mailto:mirco@smartive.ch"
       },
@@ -204,11 +214,12 @@
   },
   {
     "img": "./portrait-thomas.jpg",
-    "job": "Software Engineer",
+    "job": "Digital Strategist",
     "name": "Thomas Moser",
     "education": "Master of Science UZH",
     "description": "<p>Begeisterter Mountainbiker und Snowboarder aus Luzern, kocht liebend gerne Japanisch und Indisch, entdeckt gerade das Legospielen mit seinen Göttibuben neu</p>",
-    "links": [{
+    "links": [
+      {
         "text": "thomas@smartive.ch",
         "url": "mailto:thomas@smartive.ch"
       },
@@ -228,7 +239,8 @@
     "name": "Joshua Wirth",
     "education": "Application Engineer EFZ",
     "description": "<p>Musiker und leidenschaftlicher, audiophiler Tontechniker aus St.Gallen. Analysiert und diskutiert gerne über jede Art von Musik und fürchtet sich vor einer Welt ohne Internet</p>",
-    "links": [{
+    "links": [
+      {
         "text": "joshua@smartive.ch",
         "url": "mailto:joshua@smartive.ch"
       },
@@ -252,7 +264,8 @@
     "name": "Kim Beyeler",
     "education": "Master of Arts UZH",
     "description": "<p>Sprachnerd und Rheinliebhaber aus Schaffhausen. Mag Skandinavien, Grammatiken und bahnt sich einen Weg durch den Code-Garten</p>",
-    "links": [{
+    "links": [
+      {
         "text": "kim@smartive.ch",
         "url": "mailto:kim@smartive.ch"
       },
@@ -272,7 +285,8 @@
     "name": "Anna Wyss",
     "education": "Master of Arts HU zu Berlin",
     "description": "<p>Zürcherin mit einem Koffer in Berlin, jazztreue Tanzverbissene, Bouldern an den Küsten Mallorcas stillt Abenteuerhunger, Programmieren wird geliebtes Kletterexperiment</p>",
-    "links": [{
+    "links": [
+      {
         "text": "anna@smartive.ch",
         "url": "mailto:anna@smartive.ch"
       },
@@ -292,7 +306,8 @@
     "name": "Benjamin Brossi",
     "education": "Bachelor of Science ZFH in Informatik",
     "description": "<p>Taucht gerne im Meer, badet gerne in Seen und Flüssen, isst gerne abwechslungsreich und geniesst den dazu passenden Wein</p>",
-    "links": [{
+    "links": [
+      {
         "text": "benjamin@smartive.ch",
         "url": "mailto:benjamin@smartive.ch"
       },
@@ -312,7 +327,8 @@
     "name": "Dominik Friederich",
     "education": "Informatiker EFZ Systemtechnik",
     "description": "<p>Hätte gerne mehr Stunden pro Tag, immer in Bewegung, Chillizüchter, Bierbrauer, Kletterfanatiker & angehender Routenbauer</p>",
-    "links": [{
+    "links": [
+      {
         "text": "dominik@smartive.ch",
         "url": "mailto:dominik@smartive.ch"
       },
