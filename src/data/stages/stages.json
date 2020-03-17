@@ -5,7 +5,7 @@
     "contentBlocks": [
       {
         "id": "1",
-        "value": "Wir sind smartive — ${count} Entwicklerinnen und Entwickler mit der Passion für Mobile- und Web-Applikationen. Wir beraten, konzipieren und entwickeln. Massgeschneidert für unsere Kunden: Vom Startup bis zur grössten Arbeitgeberin der Schweiz."
+        "value": "Wir sind smartive — fünf Digital Strategists und 11 EntwicklerInnen mit der Passion für Mobile- und Web-Applikationen. Wir beraten, konzipieren und entwickeln. Massgeschneidert für unsere Kunden: Vom Startup bis zur grössten Arbeitgeberin der Schweiz."
       }
     ],
     "imageSrc": "./home.jpg",
@@ -15,12 +15,12 @@
   },
   {
     "siteTitle": "Agentur",
-    "siteDescription": "Wir sind ${count} Entwickler. Als Digitale Natives teilen wir die Passion für die Entwicklung von Webapplikationen - sowohl am Arbeitsplatz als auch in unserer Freizeit.",
+    "siteDescription": "Wir sind fünf Digital Strategists und 11 EntwicklerInnen. Als Digitale Natives teilen wir die Passion für die Konzeption und Entwicklung von Webapplikationen - sowohl am Arbeitsplatz als auch in unserer Freizeit.",
     "title": "Creating a <em>Smarter</em> Web, Together.",
     "contentBlocks": [
       {
         "id": "1",
-        "value": "Wir sind ${count} Entwickler, alle im Zeitalter der Digitalisierung gross geworden. Als Digital Natives teilen wir die Passion für die Konzeption und Umsetzung von Webapplikationen - sowohl am Arbeitsplatz als auch in unserer Freizeit."
+        "value": "Wir fünf Digital Strategists und 11 EntwicklerInnen, alle im Zeitalter der Digitalisierung gross geworden. Als Digital Natives teilen wir die Passion für die Konzeption und Umsetzung von Webapplikationen - sowohl am Arbeitsplatz als auch in unserer Freizeit."
       },
       {
         "id": "2",
@@ -32,7 +32,7 @@
       },
       {
         "id": "4",
-        "value": "Jeder erhält pro Jahr 10 Tage und CHF 2'500, um sich weiterzubilden. Frei nach Wahl."
+        "value": "Jeder erhält pro Jahr 12.5 Tage oder CHF 12'500, um sich weiterzubilden. Frei nach Wahl."
       }
     ],
     "imageSrc": "../team/team-lunch.jpg",
