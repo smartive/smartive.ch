@@ -20,7 +20,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-transformer-sharp',
+      options: {
+        checkSupportedExtensions: false,
+      },
+    },
     'gatsby-transformer-json',
     {
       resolve: 'medium-local-plugin',

@@ -9,4 +9,4 @@ steps:
       - '.'
 images:
   - '${_REGISTRY}/${_CI_PROJECT_NAMESPACE}/${_CI_PROJECT_NAME}:${_TAG}'
-timeout: 1000s
+timeout: 1800s
