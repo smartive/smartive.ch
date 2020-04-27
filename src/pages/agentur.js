@@ -35,6 +35,8 @@ const pageQuery = graphql`
                 ...GatsbyImageSharpFluid_withWebp_noBase64
               }
             }
+            extension
+            publicURL
           }
           job
           name
@@ -96,21 +98,24 @@ const Agency = () => (
 
           <div className="container">
             <div className="row">
-              {members.map(({ node }) => (
-                <Member
-                  key={node.name}
-                  name={node.name}
-                  job={node.job}
-                  image={{
-                    fluid: node.img.childImageSharp.fluid,
-                    alt: node.name,
-                  }}
-                  education={node.education}
-                  links={node.links}
-                >
-                  <div dangerouslySetInnerHTML={{ __html: node.description }} />
-                </Member>
-              ))}
+              {members.map(({ node }) => {
+                const { extension, publicURL, childImageSharp } = node.img;
+                return (
+                  <Member
+                    key={node.name}
+                    name={node.name}
+                    job={node.job}
+                    image={{
+                      ...(extension === 'svg' ? { src: publicURL } : { fluid: childImageSharp.fluid }),
+                      alt: node.name,
+                    }}
+                    education={node.education}
+                    links={node.links}
+                  >
+                    <div dangerouslySetInnerHTML={{ __html: node.description }} />
+                  </Member>
+                );
+              })}
             </div>
           </div>
 
