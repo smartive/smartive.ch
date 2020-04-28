@@ -99,16 +99,12 @@ const Agency = () => (
           <div className="container">
             <div className="row">
               {members.map(({ node }) => {
-                const { extension, publicURL, childImageSharp } = node.img;
                 return (
                   <Member
                     key={node.name}
                     name={node.name}
                     job={node.job}
-                    image={{
-                      ...(extension === 'svg' ? { src: publicURL } : { fluid: childImageSharp.fluid }),
-                      alt: node.name,
-                    }}
+                    image={node.img && node.img.childImageSharp ? { fluid: node.img.childImageSharp.fluid } : null}
                     education={node.education}
                     links={node.links}
                   >

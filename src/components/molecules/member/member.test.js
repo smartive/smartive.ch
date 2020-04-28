@@ -7,15 +7,7 @@ describe('Member', () => {
   it('renders without links', () => {
     const tree = renderer
       .create(
-        <Member
-          name="Foo Bar"
-          job="Bazzer"
-          image={{
-            src: 'image.jpg',
-            alt: 'Example',
-          }}
-          education="Funny dude"
-        >
+        <Member name="Foo Bar" job="Bazzer" image={null} education="Funny dude">
           <p>Content</p>
         </Member>
       )
@@ -29,10 +21,7 @@ describe('Member', () => {
         <Member
           name="Foo Bar"
           job="Bazzer"
-          image={{
-            src: 'image.jpg',
-            alt: 'Example',
-          }}
+          image={null}
           education="Funny dude"
           links={[
             { url: '/foo', text: 'Foo' },

@@ -7,11 +7,7 @@ exports[`Member renders with links 1`] = `
   itemScope={true}
   itemType="http://schema.org/Person"
 >
-  <img
-    alt="Example"
-    className="member__portrait"
-    src="image.jpg"
-  />
+  <test-file-stub />
   <div
     className="member__text"
   >
@@ -60,11 +56,7 @@ exports[`Member renders without links 1`] = `
   itemScope={true}
   itemType="http://schema.org/Person"
 >
-  <img
-    alt="Example"
-    className="member__portrait"
-    src="image.jpg"
-  />
+  <test-file-stub />
   <div
     className="member__text"
   >

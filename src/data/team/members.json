@@ -343,7 +343,7 @@
     ]
   },
   {
-    "img": "./no-portrait-yet.svg",
+    "img": null,
     "job": "Software Engineer",
     "name": "Nadia Posch",
     "education": "Bachelor of Science ETH in Umweltwissenschaften",
@@ -360,7 +360,7 @@
     ]
   },
   {
-    "img": "./no-portrait-yet.svg",
+    "img": null,
     "job": "Chief Happiness Officer ",
     "name": "Camilla Robinson",
     "education": "Nothing you can learn at any University",
