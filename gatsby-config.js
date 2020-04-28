@@ -28,6 +28,14 @@ module.exports = {
         path: `${__dirname}/src/blog/posts.json`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
+        },
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-remove-trailing-slashes',
