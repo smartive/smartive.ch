@@ -1,4 +1,4 @@
-FROM node:10 as deps
+FROM node:12 as deps
 
 WORKDIR /app
 COPY ./package.json ./package-lock.json ./
@@ -44,7 +44,7 @@ RUN npm run build
 
 #---
 
-FROM fholzer/nginx-brotli:v1.14.2
+FROM fholzer/nginx-brotli:v1.16.0
 LABEL maintainer="hello@smartive.ch"
 
 ENV GATSBY_TELEMETRY_DISABLED=1
