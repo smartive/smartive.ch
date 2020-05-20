@@ -1,6 +1,6 @@
 import React from 'react';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
-import { Input, Button } from '../../atoms';
+import { Button, Input } from '../../atoms';
 
 import './newsletter-signup.scss';
 
@@ -79,7 +79,6 @@ export class NewsletterSignup extends React.Component {
     const { loading, email, info } = this.state;
     return (
       <div className="newsletter-signup">
-        <h4>Für unseren Newsletter anmelden:</h4>
         <form onSubmit={this.handleSubmit}>
           <Input
             name="newsletter-email"
@@ -88,13 +87,13 @@ export class NewsletterSignup extends React.Component {
             placeholder="Email-Adresse eintragen"
             onChange={this.handleChange}
           />
-          <Button text={loading ? 'Sende..' : 'Anmelden'} disabled={loading} onClick={this.handleSubmit} />
+          <Button text={loading ? 'Sende...' : 'Anmelden'} disabled={loading} onClick={this.handleSubmit} />
           <div
             className={`newsletter-signup__info-container ${
               info && info.type ? `newsletter-signup__info-container--${info.type}` : ''
             }`}
           >
-            {info && info.message && info.message}
+            {info && info.message}
           </div>
         </form>
       </div>

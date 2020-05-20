@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Newsletter Block renders correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="newsletter-block"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-10 col-xs-offset-1    col-sm-8 col-sm-offset-2    col-lg-6 col-lg-offset-3"
+      >
+        <h4>
+          Neugierig, was bei smartive läuft?
+        </h4>
+        <p>
+          Unser Newsletter erscheint in lockeren Abständen. Er enthält spannende Infos zu digitalen Trends und Insights zu unserem Team.
+        </p>
+        <div
+          className="newsletter-signup"
+        >
+          <form
+            onSubmit={[Function]}
+          >
+            <input
+              className="input"
+              disabled={false}
+              name="newsletter-email"
+              onChange={[Function]}
+              placeholder="Email-Adresse eintragen"
+              type="email"
+              value=""
+            />
+            <button
+              className="button"
+              onClick={[Function]}
+              type="button"
+            >
+              Anmelden
+            </button>
+            <div
+              className="newsletter-signup__info-container "
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

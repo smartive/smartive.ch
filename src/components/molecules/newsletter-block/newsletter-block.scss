@@ -1,0 +1,14 @@
+@import '../../../scss/colors';
+@import '../../../scss/responsive';
+
+.newsletter-block {
+  margin: 8rem 0 5rem;
+
+  @media #{$large-up} {
+    margin: 10rem 0;
+  }
+
+  @media #{$xlarge-up} {
+    margin: -2rem 0 8rem;
+  }
+}
