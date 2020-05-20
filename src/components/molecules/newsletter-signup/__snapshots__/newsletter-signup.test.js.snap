@@ -4,9 +4,6 @@ exports[`NewsletterSignup renders correctly 1`] = `
 <div
   className="newsletter-signup"
 >
-  <h4>
-    Für unseren Newsletter anmelden:
-  </h4>
   <form
     onSubmit={[Function]}
   >

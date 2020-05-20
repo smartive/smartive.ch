@@ -25,3 +25,5 @@ export { Stage } from './stage';
 export { Teaser } from './teaser';
 
 export { NewsletterSignup } from './newsletter-signup';
+
+export { NewsletterBlock } from './newsletter-block';

@@ -60,6 +60,7 @@ export const Footer = () => (
         <div className="footer__newsletter col-xs-12 col-md-4">
           <div className="row">
             <div className="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 col-md-offset-0 col-md-12">
+              <h4>Für unseren Newsletter anmelden:</h4>
               <NewsletterSignup />
             </div>
           </div>

@@ -2,7 +2,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import React from 'react';
 
 import { DefaultLayout } from '../components/layout';
-import { CaseTeaser, PersonalContact, Stage } from '../components/molecules';
+import { CaseTeaser, NewsletterBlock, PersonalContact, Stage } from '../components/molecules';
 import { MediumTeaser } from '../components/organisms';
 import { replaceCount } from '../utils/count';
 
@@ -143,6 +143,8 @@ const Index = () => (
               sondern eine Community über acht Websites hinweg.
             </p>
           </CaseTeaser>
+
+          <NewsletterBlock />
 
           <CaseTeaser
             modifiers={['left-highlighted', 'image-padded', 'bright']}
