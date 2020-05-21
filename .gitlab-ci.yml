@@ -21,9 +21,9 @@ deploy preview:
     KUBE_CONFIG: $DEV_KUBE_CONFIG
     REPLICAS: '1'
     TAG: $CI_COMMIT_REF_SLUG
-    URL: $CI_COMMIT_REF_SLUG-gatsby.smartive.ch
+    URL: $CI_COMMIT_REF_SLUG.preview.smartive.ch
   environment:
-    url: https://$CI_COMMIT_REF_SLUG-gatsby.smartive.ch
+    url: https://$CI_COMMIT_REF_SLUG.preview.smartive.ch
 
 stop preview:
   variables:
@@ -31,7 +31,7 @@ stop preview:
     KUBE_CONFIG: $DEV_KUBE_CONFIG
     REPLICAS: '1'
     TAG: $CI_COMMIT_REF_SLUG
-    URL: $CI_COMMIT_REF_SLUG-gatsby.smartive.ch
+    URL: $CI_COMMIT_REF_SLUG.preview.smartive.ch
 
 deploy prod:
   extends: .k8s-deploy
