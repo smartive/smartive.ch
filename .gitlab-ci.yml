@@ -1,6 +1,10 @@
 include:
-  - 'https://gitlab.com/smartive/open-source/gitlab-ci-templates/raw/master/templates.yml'
-  - 'https://gitlab.com/smartive/open-source/gitlab-ci-templates/raw/master/preview-branches.yml'
+  - project: 'smartive/ci-templates'
+    ref: v2.3.4
+    file: '/all-templates.yml'
+  - project: 'smartive/ci-templates'
+    ref: v2.3.4
+    file: '/preview/default-preview-builds.yml'
 
 stages:
   - build
@@ -10,41 +14,30 @@ build:
   extends: .gcb-docker
   stage: build
   variables:
-    SUB_REGISTRY: $REGISTRY
-    SUB_CI_PROJECT_NAMESPACE: $CI_PROJECT_NAMESPACE
-    SUB_CI_PROJECT_NAME: $CI_PROJECT_NAME
-    SUB_TAG: $CI_COMMIT_REF_SLUG
+    SUB_IMAGE: $REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_COMMIT_SHORT_SHA
+  rules:
+    - if: $CI_MERGE_REQUEST_IID
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
 deploy preview:
-  variables:
-    APP_NAME: $CI_COMMIT_REF_SLUG
-    KUBE_CONFIG: $DEV_KUBE_CONFIG
-    REPLICAS: '1'
-    TAG: $CI_COMMIT_REF_SLUG
-    URL: $CI_COMMIT_REF_SLUG.preview.smartive.ch
-  environment:
-    url: https://$CI_COMMIT_REF_SLUG.preview.smartive.ch
-
-stop preview:
-  variables:
-    APP_NAME: $CI_COMMIT_REF_SLUG
-    KUBE_CONFIG: $DEV_KUBE_CONFIG
-    REPLICAS: '1'
-    TAG: $CI_COMMIT_REF_SLUG
-    URL: $CI_COMMIT_REF_SLUG.preview.smartive.ch
-
-deploy prod:
-  extends: .k8s-deploy
   stage: deploy
   variables:
-    APP_NAME: $CI_PROJECT_NAME
-    CERT_ISSUER: letsencrypt-production
-    KUBE_CONFIG: $PROD_KUBE_CONFIG
-    REPLICAS: '2'
-    TAG: $CI_COMMIT_REF_SLUG
-    URL: smartive.ch
+    OPS_DIR: ./preview
+    IMAGE_NAME: appimage
+    IMAGE: $REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_COMMIT_SHORT_SHA
+
+stop preview:
+  stage: deploy
+
+deploy production:
+  stage: deploy
+  extends: .gitops-update-image
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   environment:
     name: production
     url: https://smartive.ch
-  only:
-    - master
+  variables:
+    OPS_DIR: ./prd
+    IMAGE_NAME: appimage
+    IMAGE: $REGISTRY/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME:$CI_COMMIT_SHORT_SHA
