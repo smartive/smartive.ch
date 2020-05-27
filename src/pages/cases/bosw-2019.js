@@ -92,22 +92,6 @@ const migrosBoswInnovation = graphql`
         }
       }
     }
-    allContactsJson(filter: { slug: { eq: "peter" } }) {
-      edges {
-        node {
-          name
-          phone
-          mail
-          image {
-            childImageSharp {
-              fluid(maxWidth: 640, quality: 92) {
-                ...GatsbyImageSharpFluid_withWebp_noBase64
-              }
-            }
-          }
-        }
-      }
-    }
     allImageSharp(filter: { fluid: { originalName: { regex: "/(graphql-api|graphqltosql|widget|allChannels|idea)/" } } }) {
       edges {
         node {

@@ -37,6 +37,7 @@ const enterpriseSearchQuery = graphql`
           name
           phone
           mail
+          appointmentLink
           image {
             childImageSharp {
               fluid(maxWidth: 640, quality: 92) {
@@ -86,7 +87,7 @@ const EnterpriseSearchCase = () => (
   <StaticQuery
     query={enterpriseSearchQuery}
     render={({ allStagesJson, allContactsJson, allMediumPost, allFile }) => {
-      const { name, phone, mail, image: contactImage } = allContactsJson.edges[0].node;
+      const { image: contactImage, ...contact } = allContactsJson.edges[0].node;
       const stageData = allStagesJson.edges[0].node;
       const searchImg = allFile.edges[0].node.publicURL;
       const crawlerImg = allFile.edges[1].node.publicURL;
@@ -186,10 +187,9 @@ const EnterpriseSearchCase = () => (
           </CaseBlock>
 
           <PersonalContact
-            name={name}
-            text={`${name} berät Sie gerne zum Thema Apache Nutch, Elasticsearch und deren Anwendung für Enterprise Search.`}
-            mail={mail}
-            phone={phone}
+            text="Ich berate Sie gerne zum Thema Apache Nutch, Elasticsearch und deren Anwendung für Enterprise Search."
+            contact={contact}
+            titlePrefix="Unser Experte"
             img={contactImage.childImageSharp.fluid}
           />
 

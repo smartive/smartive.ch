@@ -32,6 +32,7 @@ const pageQuery = graphql`
           name
           phone
           mail
+          appointmentLink
           image {
             childImageSharp {
               fluid(maxWidth: 640, quality: 92) {
@@ -99,12 +100,7 @@ const Index = () => (
     query={pageQuery}
     render={({ allStagesJson, allMediumPost, allImageSharp, allMembersJson, allContactsJson }) => {
       const { imageSrc, imageAlt, title, contentBlocks } = allStagesJson.edges[0].node;
-      const {
-        name: contactName,
-        phone: contactPhone,
-        mail: contactMail,
-        image: contactImage,
-      } = allContactsJson.edges[0].node;
+      const { image: contactImage, ...contact } = allContactsJson.edges[0].node;
 
       const caseImage1 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-migros-reactions'))[0];
       const caseImage2 = allImageSharp.edges.filter(({ node }) => node.fluid.src.includes('case-study-cosmo'))[0];
@@ -182,11 +178,8 @@ const Index = () => (
           </CaseTeaser>
 
           <PersonalContact
-            name={contactName}
-            titlePrefix="Ihr Ansprechpartner"
-            text="Haben Sie ein innovatives Vorhaben? Wir freuen uns über Ihre Kontaktaufnahme und beraten Sie gerne persönlich."
-            mail={contactMail}
-            phone={contactPhone}
+            text="Wir ❤️ digitale Produkte – und wir sprechen gerne darüber! Vielleicht bei einem unverbindlichen und kostenlosen Kaffee?"
+            contact={contact}
             img={contactImage.childImageSharp.fluid}
           />
 

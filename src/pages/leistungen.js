@@ -31,6 +31,7 @@ const pageQuery = graphql`
           name
           phone
           mail
+          appointmentLink
           image {
             childImageSharp {
               fluid(maxWidth: 640, quality: 92) {
@@ -71,12 +72,7 @@ const Services = () => (
     query={pageQuery}
     render={({ allStagesJson, allServicesJson, allContactsJson }) => {
       const { siteTitle, siteDescription, imageSrc, imageAlt, title, contentBlocks } = allStagesJson.edges[0].node;
-      const {
-        name: contactName,
-        phone: contactPhone,
-        mail: contactMail,
-        image: contactImage,
-      } = allContactsJson.edges[0].node;
+      const { image: contactImage, ...contact } = allContactsJson.edges[0].node;
 
       return (
         <DefaultLayout siteTitle={siteTitle} siteDescription={siteDescription}>
@@ -116,11 +112,8 @@ const Services = () => (
                 );
               })}
               <PersonalContact
-                name={contactName}
-                titlePrefix="Ihr Ansprechpartner"
-                text="Haben Sie ein innovatives Vorhaben? Wir freuen uns über Ihre Kontaktaufnahme und beraten Sie gerne persönlich."
-                mail={contactMail}
-                phone={contactPhone}
+                text="Wir ❤️ digitale Produkte – und wir sprechen gerne darüber! Vielleicht bei einem unverbindlichen und kostenlosen Kaffee?"
+                contact={contact}
                 img={contactImage.childImageSharp.fluid}
               />
             </div>

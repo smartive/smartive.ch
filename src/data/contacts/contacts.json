@@ -4,27 +4,31 @@
     "name": "Thilo Haas",
     "image": "./thilo-haas.jpg",
     "phone": "+41 44 552 55 99",
-    "mail": "thilo@smartive.ch"
+    "mail": "thilo@smartive.ch",
+    "appointmentLink": "https://meetings.hubspot.com/thilo1"
   },
   {
     "slug": "peter",
     "name": "Peter Manser",
     "image": "./peter-manser.jpg",
     "phone": "+41 44 552 55 99",
-    "mail": "peter@smartive.ch"
+    "mail": "peter@smartive.ch",
+    "appointmentLink": "https://meetings.hubspot.com/peter538"
   },
   {
     "slug": "robert",
     "name": "Robert Vogt",
     "image": "./robert-vogt.jpg",
     "phone": "+41 44 552 55 99",
-    "mail": "robert@smartive.ch"
+    "mail": "robert@smartive.ch",
+    "appointmentLink": "https://meetings.hubspot.com/robert446"
   },
   {
     "slug": "moreno",
     "name": "Moreno Feltscher",
     "image": "./moreno-feltscher.jpg",
     "phone": "+41 44 552 55 99",
-    "mail": "moreno@smartive.ch"
+    "mail": "moreno@smartive.ch",
+    "appointmentLink": "https://meetings.hubspot.com/moreno"
   }
 ]
