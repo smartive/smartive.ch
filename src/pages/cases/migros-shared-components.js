@@ -74,6 +74,7 @@ const sharedComponentsQuery = graphql`
           name
           phone
           mail
+          appointmentLink
           image {
             childImageSharp {
               fluid(maxWidth: 640, quality: 92) {
@@ -109,12 +110,7 @@ export const SharedComponentsCase = () => (
       const testsImg = allFile.edges[1].node.publicURL;
       const webpackImg = allFile.edges[2].node.childImageSharp.fluid;
       const atomicDesignImg = allFile.edges[3].node.childImageSharp.fluid;
-      const {
-        name: contactName,
-        phone: contactPhone,
-        mail: contactMail,
-        image: contactImage,
-      } = allContactsJson.edges[0].node;
+      const { image: contactImage, ...contact } = allContactsJson.edges[0].node;
 
       return (
         <DefaultLayout siteTitle={`${siteTitle} | Projekte`} siteDescription={siteDescription}>
@@ -221,12 +217,7 @@ export const SharedComponentsCase = () => (
 
           <Quote text={quote} author={author} company={company} url={url} img={image.childImageSharp.fluid} />
 
-          <PersonalContact
-            name={contactName}
-            mail={contactMail}
-            phone={contactPhone}
-            img={contactImage.childImageSharp.fluid}
-          />
+          <PersonalContact titlePrefix="Unser Experte" contact={contact} img={contactImage.childImageSharp.fluid} />
 
           <CaseBlogTeaserList posts={allMediumPost} />
         </DefaultLayout>

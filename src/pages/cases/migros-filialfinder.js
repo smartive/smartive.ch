@@ -71,6 +71,7 @@ const migrosCaseQuery = graphql`
           name
           phone
           mail
+          appointmentLink
           image {
             childImageSharp {
               fluid(maxWidth: 640, quality: 92) {
@@ -103,12 +104,7 @@ const MigrosFilialfinderCase = () => (
       const aggregationImg = allImageSharp.edges[0].node.fluid;
       const chartImg = allImageSharp.edges[1].node.fluid;
       const frontendImg = allImageSharp.edges[2].node.fluid;
-      const {
-        name: contactName,
-        phone: contactPhone,
-        mail: contactMail,
-        image: contactImage,
-      } = allContactsJson.edges[0].node;
+      const { image: contactImage, ...contact } = allContactsJson.edges[0].node;
 
       return (
         <DefaultLayout siteTitle={`${siteTitle} | Projekte`} siteDescription={siteDescription}>
@@ -190,12 +186,7 @@ const MigrosFilialfinderCase = () => (
 
           <Quote text={quote} author={author} company={company} url={url} img={image.childImageSharp.fluid} />
 
-          <PersonalContact
-            name={contactName}
-            mail={contactMail}
-            phone={contactPhone}
-            img={contactImage.childImageSharp.fluid}
-          />
+          <PersonalContact titlePrefix="Unser Experte" contact={contact} img={contactImage.childImageSharp.fluid} />
 
           <CaseBlogTeaserList posts={allMediumPost} />
         </DefaultLayout>

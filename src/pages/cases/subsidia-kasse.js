@@ -53,6 +53,7 @@ const subsidiaCaseQuery = graphql`
           name
           phone
           mail
+          appointmentLink
           image {
             childImageSharp {
               fluid(maxWidth: 640, quality: 92) {
@@ -83,12 +84,7 @@ const SubsidiaCase = () => (
   <StaticQuery
     query={subsidiaCaseQuery}
     render={({ allStagesJson, allQuotesJson, allImageSharp, allContactsJson }) => {
-      const {
-        name: contactName,
-        phone: contactPhone,
-        mail: contactMail,
-        image: contactImage,
-      } = allContactsJson.edges[0].node;
+      const { image: contactImage, ...contact } = allContactsJson.edges[0].node;
 
       const stageData = allStagesJson.edges[0].node;
       const { quote, author, company, url, image } = allQuotesJson.edges[0].node;
@@ -189,12 +185,7 @@ const SubsidiaCase = () => (
 
           <Quote text={quote} author={author} company={company} url={url} img={image.childImageSharp.fluid} />
 
-          <PersonalContact
-            name={contactName}
-            mail={contactMail}
-            phone={contactPhone}
-            img={contactImage.childImageSharp.fluid}
-          />
+          <PersonalContact titlePrefix="Unser Experte" contact={contact} img={contactImage.childImageSharp.fluid} />
         </DefaultLayout>
       );
     }}

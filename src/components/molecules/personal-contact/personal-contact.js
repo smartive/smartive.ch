@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 import './personal-contact.scss';
 import { LinkButton } from '../../atoms';
 
-export const PersonalContact = ({ text, titlePrefix, name, img, phone, mail }) => (
+export const PersonalContact = ({ text, titlePrefix, img, contact: { name, phone, mail, appointmentLink } }) => (
   <div className="container">
     <div className="personal-contact-block">
       <div className="row">
@@ -15,11 +15,10 @@ export const PersonalContact = ({ text, titlePrefix, name, img, phone, mail }) =
         </div>
         <div className="col-xs-12 col-md-7">
           <h2>
-            <small>
-              {titlePrefix}: {name}
-            </small>
+            <small>{titlePrefix ? `${titlePrefix}: ${name}` : name}</small>
             {text}
           </h2>
+          <LinkButton url={appointmentLink} text="Termin vereinbaren" isPrimary />
           <LinkButton url={`mailto:${mail}`} text={mail} isWhite />
           <LinkButton url={`tel:${phone}`} text={phone} isWhite />
         </div>
@@ -29,11 +28,14 @@ export const PersonalContact = ({ text, titlePrefix, name, img, phone, mail }) =
 );
 
 PersonalContact.propTypes = {
-  name: PropTypes.string.isRequired,
-  titlePrefix: PropTypes.string,
   text: PropTypes.string,
-  phone: PropTypes.string.isRequired,
-  mail: PropTypes.string.isRequired,
+  titlePrefix: PropTypes.string,
+  contact: PropTypes.shape({
+    name: PropTypes.string,
+    phone: PropTypes.string,
+    mail: PropTypes.string,
+    appointmentLink: PropTypes.string,
+  }).isRequired,
   img: PropTypes.shape({
     base64: PropTypes.string,
     aspectRatio: PropTypes.number,
@@ -46,9 +48,9 @@ PersonalContact.propTypes = {
 };
 
 PersonalContact.defaultProps = {
-  titlePrefix: 'Unser Experte',
+  titlePrefix: null,
   text:
-    'Haben Sie Fragen zu diesem Projekt oder ein eigenes spannendes Vorhaben? Ich freue mich über Ihre Kontaktaufnahme und berate Sie gerne persönlich.',
+    'Haben Sie Fragen oder ein eigenes Vorhaben? Wir ❤️ digitale Produkte und beraten Sie gerne. Unverbindlich und kostenlos, Kaffee inklusive.',
 };
 
 export default PersonalContact;

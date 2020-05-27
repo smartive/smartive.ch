@@ -53,6 +53,7 @@ const onlineHilfeFindenCaseQuery = graphql`
           name
           phone
           mail
+          appointmentLink
           image {
             childImageSharp {
               fluid(maxWidth: 640, quality: 92) {
@@ -93,12 +94,7 @@ const onlineHilfeFindenCase = () => (
       const geoSearchImg = allFile.edges[3].node.publicURL;
       const clientsImg = allFile.edges[4].node.publicURL;
       const reviewImg = allFile.edges[5].node.publicURL;
-      const {
-        name: contactName,
-        phone: contactPhone,
-        mail: contactMail,
-        image: contactImage,
-      } = allContactsJson.edges[0].node;
+      const { image: contactImage, ...contact } = allContactsJson.edges[0].node;
 
       return (
         <DefaultLayout siteTitle={`${stageData.siteTitle} | Projekte`} siteDescription={stageData.siteDescription}>
@@ -215,12 +211,7 @@ const onlineHilfeFindenCase = () => (
 
           <Quote text={quote} author={author} company={company} url={url} img={image.childImageSharp.fluid} />
 
-          <PersonalContact
-            name={contactName}
-            mail={contactMail}
-            phone={contactPhone}
-            img={contactImage.childImageSharp.fluid}
-          />
+          <PersonalContact titlePrefix="Unser Experte" contact={contact} img={contactImage.childImageSharp.fluid} />
         </DefaultLayout>
       );
     }}

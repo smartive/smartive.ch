@@ -35,6 +35,7 @@ const archiveBotQuery = graphql`
           name
           phone
           mail
+          appointmentLink
           image {
             childImageSharp {
               fluid(maxWidth: 640, quality: 92) {
@@ -66,12 +67,7 @@ const ArchiveBotCase = () => (
       const chatFlowImg = allImageSharp.edges[2].node.fluid;
       const nlpImg = allImageSharp.edges[1].node.fluid;
       const sdkImg = allImageSharp.edges[0].node.fluid;
-      const {
-        name: contactName,
-        phone: contactPhone,
-        mail: contactMail,
-        image: contactImage,
-      } = allContactsJson.edges[0].node;
+      const { image: contactImage, ...contact } = allContactsJson.edges[0].node;
 
       return (
         <DefaultLayout siteTitle={`${stageData.siteTitle} | Projekte`} siteDescription={stageData.siteDescription}>
@@ -141,12 +137,7 @@ const ArchiveBotCase = () => (
             </p>
           </CaseBlock>
 
-          <PersonalContact
-            name={contactName}
-            mail={contactMail}
-            phone={contactPhone}
-            img={contactImage.childImageSharp.fluid}
-          />
+          <PersonalContact titlePrefix="Unser Experte" contact={contact} img={contactImage.childImageSharp.fluid} />
         </DefaultLayout>
       );
     }}

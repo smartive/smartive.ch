@@ -98,6 +98,7 @@ const migrosReactionsCaseQuery = graphql`
           name
           phone
           mail
+          appointmentLink
           image {
             childImageSharp {
               fluid(maxWidth: 640, quality: 92) {
@@ -130,12 +131,7 @@ const MigrosRatingReviewsCase = () => (
   <StaticQuery
     query={migrosReactionsCaseQuery}
     render={({ allStagesJson, allQuotesJson, allImageSharp, allContactsJson }) => {
-      const {
-        name: contactName,
-        phone: contactPhone,
-        mail: contactMail,
-        image: contactImage,
-      } = allContactsJson.edges[0].node;
+      const { image: contactImage, ...contact } = allContactsJson.edges[0].node;
 
       const stageData = allStagesJson.edges[0].node;
       const quotePhilipp = allQuotesJson.edges.filter(({ node }) => node.author.includes('Philipp'))[0].node;
@@ -342,12 +338,7 @@ const MigrosRatingReviewsCase = () => (
             </p>
           </CaseBlock>
 
-          <PersonalContact
-            name={contactName}
-            mail={contactMail}
-            phone={contactPhone}
-            img={contactImage.childImageSharp.fluid}
-          />
+          <PersonalContact titlePrefix="Unser Experte" contact={contact} img={contactImage.childImageSharp.fluid} />
         </DefaultLayout>
       );
     }}
