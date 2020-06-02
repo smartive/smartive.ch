@@ -5,7 +5,7 @@
     "image": "./thilo-haas.jpg",
     "phone": "+41 44 552 55 99",
     "mail": "thilo@smartive.ch",
-    "appointmentLink": "https://meetings.hubspot.com/thilo1"
+    "appointmentLink": "https://smr.tv/meet-thilo"
   },
   {
     "slug": "peter",
@@ -13,7 +13,7 @@
     "image": "./peter-manser.jpg",
     "phone": "+41 44 552 55 99",
     "mail": "peter@smartive.ch",
-    "appointmentLink": "https://meetings.hubspot.com/peter538"
+    "appointmentLink": "https://smr.tv/meet-peter"
   },
   {
     "slug": "robert",
@@ -21,7 +21,7 @@
     "image": "./robert-vogt.jpg",
     "phone": "+41 44 552 55 99",
     "mail": "robert@smartive.ch",
-    "appointmentLink": "https://meetings.hubspot.com/robert446"
+    "appointmentLink": "https://smr.tv/meet-robert"
   },
   {
     "slug": "moreno",
@@ -29,6 +29,6 @@
     "image": "./moreno-feltscher.jpg",
     "phone": "+41 44 552 55 99",
     "mail": "moreno@smartive.ch",
-    "appointmentLink": "https://meetings.hubspot.com/moreno"
+    "appointmentLink": "https://smr.tv/meet-moreno"
   }
 ]
