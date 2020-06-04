@@ -36,6 +36,7 @@ exports[`Newsletter Block renders correctly 1`] = `
             />
             <button
               className="button"
+              disabled={false}
               onClick={[Function]}
               type="button"
             >

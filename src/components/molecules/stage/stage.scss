@@ -21,32 +21,6 @@
   }
 }
 
-.stage--contact {
-  .stage__description p {
-    font-size: 2rem;
-    font-weight: 800;
-    font-size: 1.9rem;
-    line-height: 1.25em;
-    font-weight: 800;
-    word-wrap: break-word;
-
-    @media #{$medium-up} {
-      font-size: 3rem;
-    }
-
-    a {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: $smartive-dark-blue;
-      border-bottom: 0.25rem solid $smartive-blue;
-
-      @media #{$medium-up} {
-        font-size: 3rem;
-      }
-    }
-  }
-}
-
 .stage--right-highlighted > .stage {
   .stage__col--body {
     @media #{$large-up} {

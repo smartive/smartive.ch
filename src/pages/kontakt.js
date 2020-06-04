@@ -3,6 +3,7 @@ import React from 'react';
 
 import { DefaultLayout } from '../components/layout';
 import { Map, Stage } from '../components/molecules';
+import { ContactForm } from '../components/organisms/contact-form/contact-form';
 
 const pageQuery = graphql`
   {
@@ -35,7 +36,7 @@ const Contact = () => (
   <StaticQuery
     query={pageQuery}
     render={({ allStagesJson }) => {
-      const { siteTitle, siteDescription, imageSrc, imageAlt, contentBlocks } = allStagesJson.edges[0].node;
+      const { siteTitle, siteDescription, imageSrc, imageAlt, title } = allStagesJson.edges[0].node;
 
       return (
         <DefaultLayout siteTitle={siteTitle} siteDescription={siteDescription}>
@@ -45,13 +46,11 @@ const Contact = () => (
               fluid: imageSrc.childImageSharp.fluid,
               alt: imageAlt,
             }}
+            title={<h1 dangerouslySetInnerHTML={{ __html: title }} />}
           >
-            <h1>
-              {contentBlocks.map(({ id, value }) => (
-                <p key={id} dangerouslySetInnerHTML={{ __html: value }} />
-              ))}
-            </h1>
+            <ContactForm />
           </Stage>
+
           <Map />
         </DefaultLayout>
       );
