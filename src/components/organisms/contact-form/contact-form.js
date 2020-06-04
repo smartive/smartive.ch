@@ -41,17 +41,18 @@ export const ContactForm = () => {
     try {
       const res = await fetch(FORM_URL, {
         method: 'POST',
-        mode: 'no-cors',
         headers: { Accept: 'application/json' },
         body: JSON.stringify({ name, contact, subject, additionalInfo }),
       });
 
-      if (res.status === 200) {
-        setMessage({ type: 'success', text: THANKS_MESSAGE });
-        resetForm();
-      } else {
-        setMessage({ type: 'error', text: DEFAULT_ERROR_MESSAGE });
+      if (!res.ok) {
+        throw new Error();
       }
+
+      setMessage({ type: 'success', text: THANKS_MESSAGE });
+      resetForm();
+    } catch (err) {
+      setMessage({ type: 'error', text: DEFAULT_ERROR_MESSAGE });
     } finally {
       setLoading(false);
     }
