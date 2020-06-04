@@ -1,0 +1,57 @@
+@import '../../../scss/colors';
+@import '../../../scss/responsive';
+
+.contact-form {
+  .button {
+    width: 100%;
+
+    @media #{$small-up} {
+      width: 250px;
+
+      &[name='goal'] {
+        width: 400px;
+      }
+    }
+  }
+
+  form {
+    overflow: hidden;
+    word-break: break-word;
+  }
+
+  .inline-input {
+    color: $smartive-dark-blue;
+    border: none;
+    border-bottom: 2px dotted $light-gray;
+    background: none;
+    font-size: 1em;
+    padding: 0;
+    outline: none;
+  }
+
+  .inline-input-placeholder {
+    border: none;
+    font-size: 1em;
+    background: none;
+    padding: 0;
+    font-weight: inherit;
+    font-family: inherit;
+    cursor: text;
+    outline: none;
+    color: $smartive-blue;
+    border-bottom: 2px dotted $smartive-blue;
+  }
+
+  &__message {
+    height: 2rem;
+    padding-top: 0.5rem;
+    font-size: 0.8rem;
+
+    &--error {
+      color: $red;
+    }
+    &--success {
+      color: $green;
+    }
+  }
+}

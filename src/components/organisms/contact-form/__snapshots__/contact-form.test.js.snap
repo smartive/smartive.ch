@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactForm renders correctly 1`] = `
+<div
+  className="contact-form"
+>
+  <p>
+    Verraten Sie uns, worüber Sie gern mit uns sprechen möchten.
+  </p>
+  <form
+    onSubmit={[Function]}
+  >
+    <p>
+      Ich heisse 
+      <span
+        aria-label="mein Name"
+        className="inline-input"
+        contentEditable={true}
+        onInput={[Function]}
+        role="textbox"
+      />
+      <button
+        className="inline-input-placeholder"
+        onClick={[Function]}
+        type="button"
+      >
+        mein Name
+      </button>
+      . Gerne würde ich mich mit Euch über
+       
+      <span
+        aria-label="mein Thema"
+        className="inline-input"
+        contentEditable={true}
+        onInput={[Function]}
+        role="textbox"
+      />
+      <button
+        className="inline-input-placeholder"
+        onClick={[Function]}
+        type="button"
+      >
+        mein Thema
+      </button>
+       austauschen. Dabei geht es mir vor allem um
+       
+      <span
+        aria-label="zusätzliche Infos"
+        className="inline-input"
+        contentEditable={true}
+        onInput={[Function]}
+        role="textbox"
+      />
+      <button
+        className="inline-input-placeholder"
+        onClick={[Function]}
+        type="button"
+      >
+        zusätzliche Infos
+      </button>
+      . Am besten erreicht ihr mich unter
+       
+      <span
+        aria-label="meine E-Mail / Tel."
+        className="inline-input"
+        contentEditable={true}
+        onInput={[Function]}
+        role="textbox"
+      />
+      <button
+        className="inline-input-placeholder"
+        onClick={[Function]}
+        type="button"
+      >
+        meine E-Mail / Tel.
+      </button>
+      .
+    </p>
+    <button
+      className="button"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Senden
+    </button>
+    <div
+      className="contact-form__message "
+    />
+  </form>
+</div>
+`;
