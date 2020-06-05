@@ -112,7 +112,7 @@ const Services = () => (
                 );
               })}
               <PersonalContact
-                text="Wir ❤️ digitale Produkte – und wir sprechen gerne darüber! Vielleicht bei einem unverbindlichen und kostenlosen Kaffee?"
+                text="Wir ❤️ digitale Produkte – und wir sprechen gerne darüber! Vielleicht bei einem unverbindlichen Kaffee?"
                 contact={contact}
                 img={contactImage.childImageSharp.fluid}
               />
