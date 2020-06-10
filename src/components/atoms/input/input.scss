@@ -17,4 +17,8 @@
     outline: none;
     border: .1rem solid $smartive-blue;
   }
+
+  &.has-border {
+    border: .1rem solid $smartive-blue;
+  }
 }

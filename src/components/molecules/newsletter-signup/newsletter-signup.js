@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import { Button, Input } from '../../atoms';
 
@@ -16,6 +17,7 @@ export class NewsletterSignup extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.outline = props.outline;
   }
 
   handleChange(event) {
@@ -86,6 +88,7 @@ export class NewsletterSignup extends React.Component {
             type="email"
             placeholder="Email-Adresse eintragen"
             onChange={this.handleChange}
+            hasBorder={this.outline}
           />
           <Button text={loading ? 'Sende...' : 'Anmelden'} disabled={loading} onClick={this.handleSubmit} />
           <div
@@ -100,5 +103,13 @@ export class NewsletterSignup extends React.Component {
     );
   }
 }
+
+NewsletterSignup.propTypes = {
+  outline: PropTypes.bool,
+};
+
+NewsletterSignup.defaultProps = {
+  outline: false,
+};
 
 export default NewsletterSignup;

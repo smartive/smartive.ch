@@ -69,7 +69,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/cases/bosw-2019', '/einweihung'],
+        exclude: ['/cases/bosw-2019', '/einweihung', '/newsletter'],
         query: `{
       site {
         siteMetadata {

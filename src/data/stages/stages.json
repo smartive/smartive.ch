@@ -114,6 +114,22 @@
     "imageAlt": "Mitarbeiter an einem Laptop, drei Zimmerpflanzen im Hintergrund"
   },
   {
+    "siteTitle": "Newsletter",
+    "title": "<em>Neugierig</em>, was bei uns läuft?",
+    "contentBlocks": [
+      {
+        "id": "1",
+        "value": "Gerne halten wir Sie auf dem Laufenden, woran wir arbeiten und wie unsere Firma gerade tickt."
+      },
+      {
+        "id": "2",
+        "value": "Unser Newsletter erscheint in lockeren Abständen. Er enthält spannende Infos zu digitalen Trends und Insights zu unserem Team."
+      }
+    ],
+    "imageSrc": "./newsletter.jpg",
+    "imageAlt": "Mitarbeiter an einem Laptop, drei Zimmerpflanzen im Hintergrund"
+  },
+  {
     "siteTitle": "Einweihung",
     "title": "Wir sind umgezogen.<br /><blue>Und laden ein.</blue>",
     "contentBlocks": [

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import './input.scss';
 
-export const Input = ({ name, type, value, placeholder, disabled, onChange }) => (
+export const Input = ({ name, type, value, placeholder, disabled, onChange, hasBorder }) => (
   <input
-    className="input"
+    className={`input${hasBorder ? ' has-border' : ''}`}
     value={value}
     type={type}
     name={name}
@@ -24,6 +24,7 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   disabled: PropTypes.bool,
+  hasBorder: PropTypes.bool,
 };
 
 Input.defaultProps = {
@@ -31,5 +32,6 @@ Input.defaultProps = {
   placeholder: '',
   value: '',
   disabled: false,
+  hasBorder: false,
   onChange: () => null,
 };
