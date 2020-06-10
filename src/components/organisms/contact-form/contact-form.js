@@ -5,6 +5,7 @@ import { InlineInput } from './inline-input';
 import './contact-form.scss';
 
 const DEFAULT_ERROR_MESSAGE = 'Es ist ein Fehler aufgetreten. Bitte versuchen Sie es noch einmal.';
+const REQUIRED_MESSAGE = 'Bitte mindestens Name, E-Mail Adresse und Anliegen angeben.';
 const THANKS_MESSAGE = 'Danke für Ihre Nachricht. Wir werden uns bei Ihnen melden.';
 const FORM_URL = 'https://formspree.io/xnqgjbjz';
 
@@ -22,6 +23,22 @@ export const ContactForm = () => {
     setAdditionalInfo('');
     setName('');
     setContact('');
+
+    try {
+      const inputs = document.getElementsByClassName('inline-input');
+      // eslint-disable-next-line no-plusplus
+      for (let i = 0; i < inputs.length; i++) {
+        inputs.item(i).innerHTML = '';
+      }
+
+      const placeholders = document.getElementsByClassName('inline-input-placeholder');
+      // eslint-disable-next-line no-plusplus
+      for (let i = 0; i < inputs.length; i++) {
+        placeholders.item(i).style.display = 'inline';
+      }
+    } catch (err) {
+      // in case resetting fails for some reason, success message should stay on screen
+    }
   };
 
   const submit = async event => {
@@ -32,7 +49,7 @@ export const ContactForm = () => {
     }
 
     if (!contact.trim() || !name.trim() || !subject.trim()) {
-      setMessage({ type: 'error', text: 'Bitte mindestens Name, E-Mail Adresse und Anliegen angeben.' });
+      setMessage({ type: 'error', text: REQUIRED_MESSAGE });
       return;
     }
 
