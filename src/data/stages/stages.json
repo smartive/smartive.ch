@@ -115,6 +115,7 @@
   },
   {
     "siteTitle": "Newsletter",
+    "siteDescription": "Newsletter abonnieren, um über Neuigkeiten bei smartive informiert zu werden.",
     "title": "<em>Neugierig</em>, was bei uns läuft?",
     "contentBlocks": [
       {
@@ -127,7 +128,7 @@
       }
     ],
     "imageSrc": "./newsletter.jpg",
-    "imageAlt": "Mitarbeiter an einem Laptop, drei Zimmerpflanzen im Hintergrund"
+    "imageAlt": "Mitarbeiter beim Daily Standup Meeting"
   },
   {
     "siteTitle": "Einweihung",

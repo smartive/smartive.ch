@@ -54,10 +54,10 @@ const Newsletter = () => (
   <StaticQuery
     query={pageQuery}
     render={({ allStagesJson, allMediumPost }) => {
-      const { imageSrc, imageAlt, title, contentBlocks } = allStagesJson.edges[0].node;
+      const { siteTitle, siteDescription, imageSrc, imageAlt, title, contentBlocks } = allStagesJson.edges[0].node;
 
       return (
-        <DefaultLayout>
+        <DefaultLayout siteTitle={siteTitle} siteDescription={siteDescription}>
           <Stage
             modifiers={['landing-page', 'left-highlighted']}
             image={{
