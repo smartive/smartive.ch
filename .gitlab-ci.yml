@@ -1,9 +1,9 @@
 include:
   - project: 'smartive/ci-templates'
-    ref: v2.3.4
+    ref: 4.x
     file: '/all-templates.yml'
   - project: 'smartive/ci-templates'
-    ref: v2.3.4
+    ref: 4.x
     file: '/preview/default-preview-builds.yml'
 
 stages:
