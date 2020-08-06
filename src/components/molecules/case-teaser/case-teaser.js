@@ -7,7 +7,7 @@ import { LinkWrapper } from '../../atoms/link-wrapper';
 import './case-teaser.scss';
 
 export const CaseTeaser = ({ url, image, title, subline, children, allProjects, modifiers, linkText }) => (
-  <div className={modifiers.map(modifier => `case-teaser--${modifier}`).join(' ')}>
+  <div className={modifiers.map((modifier) => `case-teaser--${modifier}`).join(' ')}>
     <div className="case-teaser">
       <div className="container container--case">
         <div className="row">

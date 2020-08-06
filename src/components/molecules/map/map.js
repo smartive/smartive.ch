@@ -9,7 +9,7 @@ export const baseUrl =
   'https://maps.googleapis.com/maps/api/js?v=3.34&libraries=places,geometry&key=AIzaSyD1q6iI1c4XGqrbKGBPZfO2bnRTRVaRg04';
 
 const AsyncGoogleMaps = withScriptjs(
-  withGoogleMap(props => (
+  withGoogleMap((props) => (
     <GoogleMap
       ref={props.onMapLoad}
       defaultZoom={15}

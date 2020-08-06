@@ -41,7 +41,7 @@ export const ContactForm = () => {
     }
   };
 
-  const submit = async event => {
+  const submit = async (event) => {
     event.preventDefault();
 
     if (loading) {

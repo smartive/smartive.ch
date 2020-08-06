@@ -104,7 +104,7 @@ const onlineHilfeFindenCase = () => (
             title={<h1 dangerouslySetInnerHTML={{ __html: stageData.title }} />}
           >
             <div>
-              {stageData.contentBlocks.map(block => (
+              {stageData.contentBlocks.map((block) => (
                 <p key={block.id} dangerouslySetInnerHTML={{ __html: block.value }} />
               ))}
             </div>
