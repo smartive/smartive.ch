@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './blog-teaser.scss';
 
-const getClassNames = img => {
+const getClassNames = (img) => {
   const classNames = ['blog-teaser', 'col-xs-12', img ? 'blog-teaser--image col-lg-7' : 'col-lg-5 first-lg'];
 
   return classNames.join(' ');

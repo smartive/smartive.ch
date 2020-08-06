@@ -77,7 +77,7 @@ export const Footer = () => (
             <div className="col-xs-12">
               <nav className="social">
                 <ul className="row">
-                  {items.map(item => (
+                  {items.map((item) => (
                     <li key={item.href} className="col-xs">
                       <a className="footer__logo" href={item.href}>
                         <img src={item.src} alt={item.alt} />

@@ -17,7 +17,7 @@ export const Member = ({ name, job, image, education, children, links = [] }) =>
       <p>
         {links.length > 0
           ? links
-              .map(link => {
+              .map((link) => {
                 const linkItemProp = link.url.match(/^mailto:.+$/i) ? 'email' : 'sameAs';
                 return (
                   <a key={link.url} href={link.url} itemProp={linkItemProp}>

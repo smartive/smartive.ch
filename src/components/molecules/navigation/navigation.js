@@ -12,7 +12,7 @@ const items = [
 export const Navigation = () => (
   <nav className="navigation">
     <ul>
-      {items.map(item => (
+      {items.map((item) => (
         <li key={item.label}>
           <Link to={item.href} activeClassName="is-active">
             {item.label}
