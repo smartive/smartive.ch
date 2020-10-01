@@ -1,7 +1,7 @@
 # smartive.ch
 The yet-again-all-new smartive.ch website is built with [Gatsby](https://www.gatsbyjs.org)
 - a «Blazing-fast static site generator for React».
-
+ohohoh
 ## Structure
 All files in `pages` represent, surprise surprise, pages/routes on smartive.ch.
 They compose different components into full pages. So if you want to change
