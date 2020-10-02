@@ -1,5 +1,5 @@
 # smartive.ch
-The yet-again-all-new smartive.ch website is built with [Gatsby](https://www.gatsbyjs.org)
+It is an amazing project and the yet-again-all-new smartive.ch website is built with [Gatsby](https://www.gatsbyjs.org)
 - a «Blazing-fast static site generator for React».
 
 ## Structure
