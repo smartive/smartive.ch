@@ -1,0 +1,25 @@
+include:
+  - project: 'smartive/ci-templates'
+    ref: v3.1.2
+    file: '/all-templates.yml'
+
+stages:
+  - test
+
+.default_template:
+  extends: .base
+  image: node
+  before_script:
+    - npm ci
+
+.test_template:
+  extends: .default_template
+  stage: test
+  except:
+    - tags
+
+lint:
+  extends: .test_template
+  script:
+    - npm run lint
+    - npm run check

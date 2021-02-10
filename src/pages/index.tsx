@@ -13,7 +13,13 @@ export default function Home() {
         <Navigation />
       </header>
 
-      <main>Meine erste Homepage</main>
+      <h1 className="font-bold font-sans text-6xl">
+        Wir erschaffen <em className="font-serif font-normal">digitale</em> Produkte. Zusammen mit dir.
+      </h1>
+
+      <main>
+        <p className="text-cornflower-500 bg-apricot-500">eine erste Homepage</p>
+      </main>
     </div>
   );
 }
