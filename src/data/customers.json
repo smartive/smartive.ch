@@ -1,0 +1,14 @@
+{
+  "migros": {
+    "name": "Migros",
+    "logo": "/images/logos/migros.svg"
+  },
+  "abraxas": {
+    "name": "Abraxas",
+    "logo": "/images/logos/abraxas.svg"
+  },
+  "sge": {
+    "name": "Switzerland Global Enterprise",
+    "logo": "/images/logos/sge.svg"
+  }
+}

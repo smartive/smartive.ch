@@ -1,0 +1,16 @@
+{
+  "marco": {
+    "firstname": "Marco",
+    "lastname": "Bohler",
+    "image": "/images/portraits/marco.jpg",
+    "tel": "+41 123 45 67",
+    "email": "marco@smartive.ch"
+  },
+  "peter": {
+    "firstname": "Peter",
+    "lastname": "Manser",
+    "image": "/images/portraits/peter.jpg",
+    "tel": "+41 123 45 67",
+    "email": "peter@smartive.ch"
+  }
+}
