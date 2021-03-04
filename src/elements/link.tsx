@@ -1,5 +1,5 @@
 import NextLink, { LinkProps } from 'next/link';
-import { FC, PropsWithChildren } from 'react';
+import { FC, HTMLAttributes, PropsWithChildren } from 'react';
 
 export enum LinkVariants {
   Underline,
@@ -7,7 +7,11 @@ export enum LinkVariants {
   Feature,
 }
 
-type Props = PropsWithChildren<LinkProps> & { className?: string; variant?: LinkVariants; newTab?: boolean };
+type Props = PropsWithChildren<LinkProps> & {
+  className?: string;
+  variant?: LinkVariants;
+  newTab?: boolean;
+} & HTMLAttributes<HTMLElement>;
 
 const VariantStyles = {
   [LinkVariants.Underline]: 'border-b hover:border-apricot-500 no-underline',

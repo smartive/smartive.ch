@@ -9,20 +9,33 @@ export const Footer: FC = () => (
     style={{ height: '484px', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}
   >
     <div className="container mx-auto px-40 pt-40 pb-8 h-full">
-      <div className="grid grid-cols-3 grid-flow-row items-end justify-items-center">
-        <Label as="div" className="grid grid-flow-row">
-          <p>smartive AG</p>
-          <p>Pfingstweidstrasse 60</p>
-          <p>CH-8005 Zürich</p>
-          <Link variant={LinkVariants.NoUnderline} href="tel:+41 44 552 55 99">
-            +41 44 552 55 99
-          </Link>
-          <Link variant={LinkVariants.NoUnderline} href="mailto:hello@smartive.ch">
-            hello@smartive.ch
-          </Link>
-        </Label>
+      <Label as="div" className="grid grid-cols-3 grid-flow-row items-end justify-items-center">
+        <address
+          className="not-italic grid grid-flow-row font-sans font-bold text-sm"
+          itemScope
+          itemType="http://schema.org/Organization"
+        >
+          <span itemProp="name">smartive AG</span>
+          <div itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
+            <span itemProp="streetAddress">Pfingstweidstrasse 60</span>
+            <br />
+            <span itemProp="addressCountry">CH</span>-<span itemProp="postalCode">8005</span>&nbsp;
+            <span itemProp="addressLocality">Zürich</span>
+          </div>
+          <span>
+            <Link variant={LinkVariants.NoUnderline} href="tel:+41 44 552 55 99" itemProp="telephone">
+              +41 44 552 55 99
+            </Link>
+          </span>
+          <span>
+            <Link variant={LinkVariants.NoUnderline} href="mailto:hello@smartive.ch" itemProp="email">
+              hello@smartive.ch
+            </Link>
+          </span>
+        </address>
+
         <NewsletterRegistration className="px-8" />
-        <Label as="div" className="grid grid-flow-row">
+        <div className="grid grid-flow-row">
           <Link variant={LinkVariants.NoUnderline} href="https://www.linkedin.com/company/smartive-ag/" newTab>
             LinkedIn
           </Link>
@@ -35,7 +48,7 @@ export const Footer: FC = () => (
           <Link variant={LinkVariants.NoUnderline} href="https://facebook.com/smartive.ch" newTab>
             Facebook
           </Link>
-        </Label>
+        </div>
         <svg
           className="col-span-3 text-center mt-32 text-black"
           width="244"
@@ -121,7 +134,7 @@ export const Footer: FC = () => (
             fill="white"
           />
         </svg>
-      </div>
+      </Label>
     </div>
   </div>
 );
