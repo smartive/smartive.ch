@@ -2,15 +2,445 @@
   "marco": {
     "firstname": "Marco",
     "lastname": "Bohler",
-    "image": "/images/portraits/marco.jpg",
+    "portrait": "/images/employees/portraits/marco.jpg",
+    "image": "/images/employees/marco.jpg",
     "tel": "+41 123 45 67",
-    "email": "marco@smartive.ch"
+    "email": "marco@smartive.ch",
+    "job": "Software Engineer",
+    "bio": "Begeisterter Web-Developer, liebt das Ausprobieren neuer Technologien, Reisevogel, isst die Bratwurst ohne Senf, Kung-Fu-Padawan, Freund der Championship League, Serienverrückter",
+    "links": [
+      {
+        "label": "marco@smartive.ch",
+        "url": "mailto:marco@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/marco-bohler-6178a642/"
+      },
+      {
+        "label": "Twitter",
+        "url": "https://twitter.com/triggerer"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/triggertoo"
+      }
+    ]
   },
   "peter": {
     "firstname": "Peter",
     "lastname": "Manser",
-    "image": "/images/portraits/peter.jpg",
+    "portrait": "/images/employees/portraits/peter.jpg",
+    "image": "/images/employees/peter.jpg",
     "tel": "+41 123 45 67",
-    "email": "peter@smartive.ch"
+    "email": "peter@smartive.ch",
+    "job": "Digital Strategist",
+    "bio": "Web Passionist, mag Herausforderungen und innovative Projekte, liebt Openairs, TV-Serien-Junkie, Appenzeller und Hobby-Walliser, Co-Organisator des Webnesday in St.Gallen",
+    "links": [
+      {
+        "label": "peter@smartive.ch",
+        "url": "mailto:peter@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/petermanser1/"
+      },
+      {
+        "label": "Twitter",
+        "url": "https://twitter.com/petermanser"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/petermanser"
+      }
+    ]
+  },
+  "thilo": {
+    "firstname": "Thilo",
+    "lastname": "Haas",
+    "portrait": "/images/employees/portraits/thilo.jpg",
+    "image": "/images/employees/thilo.jpg",
+    "tel": "+41 123 45 67",
+    "email": "thilo@smartive.ch",
+    "job": "Digital Strategist",
+    "bio": "Ex-Luzerner, kulturinteressierter Weltenbummler, liebt knifflige Fragestellungen, Big Data und Statistical Learning, Naturliebhaber, Tennisamateur, Schönwetterjogger",
+    "links": [
+      {
+        "label": "thilo@smartive.ch",
+        "url": "mailto:thilo@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/thilo-haas-64b3b646/"
+      },
+      {
+        "label": "Twitter",
+        "url": "https://twitter.com/thilohaas"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/thilohaas"
+      }
+    ]
+  },
+  "moreno": {
+    "firstname": "Moreno",
+    "lastname": "Feltscher",
+    "portrait": "/images/employees/portraits/moreno.jpg",
+    "image": "/images/employees/moreno.jpg",
+    "tel": "+41 123 45 67",
+    "email": "moreno@smartive.ch",
+    "job": "Digital Strategist",
+    "bio": "Exil-Bündner, Technologiefreak, Filme- und Serienliebhaber, Nachtmensch, hat ein Faible für komplexe Systemarchitekturen, Kaffeegeniesser, hebt gerne Gewichte, Bücherwurm, liebt Reisen in ferne Länder, politikinteressiert",
+    "links": [
+      {
+        "label": "moreno@smartive.ch",
+        "url": "mailto:moreno@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/morenofeltscher/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/mfeltscher"
+      }
+    ]
+  },
+  "christoph": {
+    "firstname": "Christoph",
+    "lastname": "Bühler",
+    "portrait": "/images/employees/portraits/christoph.jpg",
+    "image": "/images/employees/christoph.jpg",
+    "tel": "+41 123 45 67",
+    "email": "christoph@smartive.ch",
+    "job": "Software Engineer",
+    "bio": "Entdecker, Tech-Evangelist, Tüftler, Snowboarder, Entwickler von Extensions und Frameworks, technologieverliebter Framework-Narr, passionierter Bier-Liebhaber, Kung-Fu Kanone, heilender Diener des Pelor",
+    "links": [
+      {
+        "label": "christoph@smartive.ch",
+        "url": "mailto:christoph@smartive.ch"
+      },
+      {
+        "label": "Twitter",
+        "url": "https://twitter.com/buehler_c"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/buehler"
+      }
+    ]
+  },
+  "dominique": {
+    "firstname": "Dominique",
+    "lastname": "Wirz",
+    "portrait": "/images/employees/portraits/dominique.jpg",
+    "image": "/images/employees/dominique.jpg",
+    "tel": "+41 123 45 67",
+    "email": "dominique@smartive.ch",
+    "job": "Software Engineer",
+    "bio": "Webfanatiker von A(ngular) bis Z(urb Foundation), Limmatstädter, Stadtclubanhänger, Fitnessfan, Bartträger, Wanderer, Reisender, Feinschmecker",
+    "links": [
+      {
+        "label": "dominique@smartive.ch",
+        "url": "mailto:dominique@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/dwirz/"
+      },
+      {
+        "label": "Twitter",
+        "url": "https://twitter.com/d_wirz"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/dwirz"
+      }
+    ]
+  },
+  "nicola": {
+    "firstname": "Nicola",
+    "lastname": "Marcacci Rossi",
+    "portrait": "/images/employees/portraits/nicola.jpg",
+    "image": "/images/employees/nicola.jpg",
+    "tel": "+41 123 45 67",
+    "email": "nicola@smartive.ch",
+    "job": "Software Engineer",
+    "bio": "Tessiner mit Berner Akzent, Psychologie- und Selbstentwicklungsnerd, Entrepreneur, trägt seinen Bart mit Stolz, programmiert im Bus und im Schlaf, träumt davon, mal wieder zehn Tage meditieren zu gehen",
+    "links": [
+      {
+        "label": "nicola@smartive.ch",
+        "url": "mailto:nicola@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/nicolamr/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/nmaro"
+      }
+    ]
+  },
+  "robert": {
+    "firstname": "Robert",
+    "lastname": "Vogt",
+    "portrait": "/images/employees/portraits/robert.jpg",
+    "image": "/images/employees/robert.jpg",
+    "tel": "+41 123 45 67",
+    "email": "robert@smartive.ch",
+    "job": "Digital Strategist",
+    "bio": "Ostschweizer mit Leidenschaft für Fussball, designaffin, nie ohne Bart, Weinliebhaber, leichte Tendenz zu Football Manager-Sucht, kocht gerne indisch, baut seit neustem Duplotürme und Brio-Bahnanlagen.",
+    "links": [
+      {
+        "label": "robert@smartive.ch",
+        "url": "mailto:robert@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/robert-vogt-b69884185/"
+      },
+      {
+        "label": "Twitter",
+        "url": "https://twitter.com/_deniaz"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/deniaz"
+      }
+    ]
+  },
+  "mirco": {
+    "firstname": "Mirco",
+    "lastname": "Strässle",
+    "portrait": "/images/employees/portraits/mirco.jpg",
+    "image": "/images/employees/mirco.jpg",
+    "tel": "+41 123 45 67",
+    "email": "mirco@smartive.ch",
+    "job": "Software Engineer",
+    "bio": "Entdeckt von St. Gallen aus die Welt, Hobbyfotograf, sportbegeistert drinnen und draussen, isst und kocht gerne leckeres Essen, schätzt ein gutes Buch, schaut zu viele Filme & Serien",
+    "links": [
+      {
+        "label": "mirco@smartive.ch",
+        "url": "mailto:mirco@smartive.ch"
+      },
+      {
+        "label": "Twitter",
+        "url": "https://twitter.com/mircostraessle"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/mircostraessle"
+      }
+    ]
+  },
+  "thomas": {
+    "firstname": "Thomas",
+    "lastname": "Moser",
+    "portrait": "/images/employees/portraits/thomas.jpg",
+    "image": "/images/employees/thomas.jpg",
+    "tel": "+41 123 45 67",
+    "email": "thomas@smartive.ch",
+    "job": "Digital Strategist",
+    "bio": "Begeisterter Mountainbiker und Snowboarder aus Luzern, kocht liebend gerne Japanisch und Indisch, entdeckt gerade das Legospielen mit seinen Göttibuben neu",
+    "links": [
+      {
+        "label": "thomas@smartive.ch",
+        "url": "mailto:thomas@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/thomas-moser-9067a0155/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/thommymo"
+      }
+    ]
+  },
+  "joshua": {
+    "firstname": "Joshua",
+    "lastname": "Wirth",
+    "portrait": "/images/employees/portraits/joshua.jpg",
+    "image": "/images/employees/joshua.jpg",
+    "tel": "+41 123 45 67",
+    "email": "joshua@smartive.ch",
+    "job": "Digital Strategist",
+    "bio": "Sänger, Gitarrist, Tontechniker, Software- und Devops Engineer aus St.Gallen. Entdeckt seit kurzem die Nachbarschaft mit dem Kinderwagen neu",
+    "links": [
+      {
+        "label": "joshua@smartive.ch",
+        "url": "mailto:joshua@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/joshua-wirth-0a957398/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/virth"
+      },
+      {
+        "label": "Twitter",
+        "url": "https://twitter.com/virth91"
+      }
+    ]
+  },
+  "kim": {
+    "firstname": "Kim",
+    "lastname": "Beyeler",
+    "portrait": "/images/employees/portraits/kim.jpg",
+    "image": "/images/employees/kim.jpg",
+    "tel": "+41 123 45 67",
+    "email": "kim@smartive.ch",
+    "job": "Software Engineer",
+    "bio": "Sprachnerd und Rheinliebhaber aus Schaffhausen. Mag Skandinavien, Grammatiken und bahnt sich einen Weg durch den Code-Garten",
+    "links": [
+      {
+        "label": "kim@smartive.ch",
+        "url": "mailto:kim@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/kimbeyeler/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/kimbylr"
+      }
+    ]
+  },
+  "anna": {
+    "firstname": "Anna",
+    "lastname": "Wyss",
+    "portrait": "/images/employees/portraits/anna.jpg",
+    "image": "/images/employees/anna.jpg",
+    "tel": "+41 123 45 67",
+    "email": "anna@smartive.ch",
+    "job": "Software Engineer",
+    "bio": "Zürcherin mit einem Koffer in Berlin, jazztreue Tanzverbissene, Bouldern an den Küsten Mallorcas stillt Abenteuerhunger, Programmieren wird geliebtes Kletterexperiment",
+    "links": [
+      {
+        "label": "anna@smartive.ch",
+        "url": "mailto:anna@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/anna-wyss/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/BigAccessBrother"
+      }
+    ]
+  },
+  "benjamin": {
+    "firstname": "Benjamin",
+    "lastname": "Brossi",
+    "portrait": "/images/employees/portraits/benjamin.jpg",
+    "image": "/images/employees/benjamin.jpg",
+    "tel": "+41 123 45 67",
+    "email": "benjamin@smartive.ch",
+    "job": "Software Engineer",
+    "bio": "Taucht gerne im Meer, badet gerne in Seen und Flüssen, isst gerne abwechslungsreich und geniesst den dazu passenden Wein",
+    "links": [
+      {
+        "label": "benjamin@smartive.ch",
+        "url": "mailto:benjamin@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/benjamin-brossi-85749936/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/benjaminbrossi"
+      }
+    ]
+  },
+  "dominik": {
+    "firstname": "Dominik",
+    "lastname": "Friederich",
+    "portrait": "/images/employees/portraits/dominik.jpg",
+    "image": "/images/employees/dominik.jpg",
+    "tel": "+41 123 45 67",
+    "email": "dominik@smartive.ch",
+    "job": "Software Engineer",
+    "bio": "Hätte gerne mehr Stunden pro Tag, immer in Bewegung, Chillizüchter, Bierbrauer, Kletterfanatiker & angehender Routenbauer",
+    "links": [
+      {
+        "label": "dominik@smartive.ch",
+        "url": "mailto:dominik@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/dominik-friederich-a844a7187/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/dominikfriederich"
+      }
+    ]
+  },
+  "nadia": {
+    "firstname": "Nadia",
+    "lastname": "Posch",
+    "portrait": "",
+    "image": "",
+    "tel": "+41 123 45 67",
+    "email": "nadia@smartive.ch",
+    "job": "Software Engineer",
+    "bio": "Wissensdurstiger Freigeist mit einem Flair für Informatik und Design, Hobbyphilosophin und Fitnessenthusiastin, die sich eine Welt ohne Musik und gutes Essen nicht vorstellen kann",
+    "links": [
+      {
+        "label": "nadia@smartive.ch",
+        "url": "mailto:nadia@smartive.ch"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/NadiaPosch"
+      }
+    ]
+  },
+  "damian": {
+    "firstname": "Damian",
+    "lastname": "Caduff",
+    "portrait": "",
+    "image": "",
+    "tel": "+41 123 45 67",
+    "email": "damian@smartive.ch",
+    "job": "Interaction Designer",
+    "bio": "Churer mit nur zweieinhalb Gesichtsausdrücken, liebt prozedurales Design, hat viel zu viel Hintergrundwissen über Filme & Videospiele, sagt jedem Hund «Hoi», hört gerne zu, weibelt für mehr Entwickler-Denken bei Designern",
+    "links": [
+      {
+        "label": "damian@smartive.ch",
+        "url": "mailto:damian@smartive.ch"
+      },
+      {
+        "label": "Twitter",
+        "url": "https://twitter.com/damiancaduff"
+      }
+    ]
+  },
+  "sabrina": {
+    "firstname": "Sabrina",
+    "lastname": "Oertle",
+    "portrait": "",
+    "image": "",
+    "tel": "+41 123 45 67",
+    "email": "sabrina@smartive.ch",
+    "job": "Interaction Designer",
+    "bio": "Sieht den Pflanzen gerne beim Wachsen zu, hasst heisse Sommertage, mag Strategiespiele, Hobbyveganer, liebt Schnee, Eis und Pingus, lernt gern Neues, interessiert sich für Neuropsychologie",
+    "links": [
+      {
+        "label": "sabrina@smartive.ch",
+        "url": "mailto:sabrina@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/sabrina-oertle-60a70a8b/"
+      }
+    ]
   }
 }

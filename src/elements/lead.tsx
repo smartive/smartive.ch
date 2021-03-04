@@ -6,5 +6,5 @@ type Props = {
 };
 
 export const Lead: FC<Props> = ({ children, as: Tag = 'p', className = '' }) => (
-  <Tag className={`font-sans font-normal text-base mt-8 first:mt-0 ${className}`}>{children}</Tag>
+  <Tag className={`font-sans font-normal text-base my-8 first:mt-0 ${className}`}>{children}</Tag>
 );

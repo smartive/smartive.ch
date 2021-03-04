@@ -9,10 +9,10 @@ type Props = {
 };
 
 export const Contact: FC<Props> = ({ contact }) => {
-  const { firstname, lastname, image, tel, email } = contact;
+  const { firstname, lastname, portrait, tel, email } = contact;
   return (
     <div className="grid place-content-center items-center grid-flow-col gap-12 px-14">
-      <Portrait image={image} alt={`${firstname} ${lastname}`} variant={PortraitVariant.big} />
+      <Portrait image={portrait} alt={`${firstname} ${lastname}`} variant={PortraitVariant.big} />
       <div>
         <Heading2>
           Fragen oder Interesse? <br />

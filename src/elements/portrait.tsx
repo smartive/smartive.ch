@@ -14,5 +14,13 @@ type Props = {
 };
 
 export const Portrait: FC<Props> = ({ image, alt, variant, className = '' }) => (
-  <Image src={image} alt={alt} className={`rounded-full ${className}`} objectFit="cover" height={variant} width={variant} />
+  <Image
+    src={image}
+    alt={alt}
+    className={`rounded-full ${className}`}
+    layout="fixed"
+    objectFit="cover"
+    height={variant}
+    width={variant}
+  />
 );
