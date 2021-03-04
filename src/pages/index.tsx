@@ -1,6 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { CustomersList } from '../components/customers-list';
 import { LinkList } from '../components/link-list';
 import { Contact } from '../compositions/contact';
 import { CardColors, ContentCard } from '../compositions/content-card';
@@ -64,14 +65,7 @@ const Home: NextPage<Props> = ({ contact, customers }) => {
           </div>
         </PageSection>
         <PageSection title="In guter Gesellschaft – von Startups bis hin zur grössten Arbeitgeberin der Schweiz.">
-          <div className="grid grid-flow-col gap-24">
-            {customers.map(({ name, logo }) => (
-              <Image key={name} src={logo} alt={name} height="60" width="170" />
-            ))}
-            {customers.map(({ name, logo }) => (
-              <Image key={name} src={logo} alt={name} height="60" width="170" />
-            ))}
-          </div>
+          <CustomersList customers={new Array(2).fill(customers).flat()} />
         </PageSection>
         <PageSection title="In welcher Phase steckt dein Projekt? Wir unterstützen dich von der Idee bis über den Golive hinaus.">
           <div className="grid grid-cols-4 gap-16">
