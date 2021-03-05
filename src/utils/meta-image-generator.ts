@@ -1,5 +1,6 @@
 import nodeHtmlToImage from 'node-html-to-image';
 import tailwindConfig from '../../tailwind.config';
+import { GoogleFontUrl } from '../pages/_document';
 
 const backgroundColors = [
   tailwindConfig.theme.colors.apricot[500],
@@ -9,7 +10,7 @@ const backgroundColors = [
 
 const getOGImageTemplate = (text: string, decoration?: string) => `<html>
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=block" rel="stylesheet" />
+  <link href="${GoogleFontUrl}&display=block" rel="stylesheet" />
   <style>
     body {
         display: grid;
