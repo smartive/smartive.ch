@@ -4,24 +4,26 @@ import { LinkList } from '../components/link-list';
 import { QuoteCard } from '../components/quote-card';
 import { Contact } from '../compositions/contact';
 import { EmployeeCard } from '../compositions/employee-card';
-import { PageHeader } from '../compositions/page-header';
+import { MetaInfos, PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { Employee } from '../data/employees';
 import Employees from '../data/employees.json';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
 import { Lead } from '../elements/lead';
+import { generateMetaImage } from '../utils/meta-image-generator';
 
 type Props = {
   contact: Employee;
   employees: Employee[];
   quote: Quote;
+  metaInfos: MetaInfos;
 };
 
-const Team: NextPage<Props> = ({ employees, contact, quote }) => {
+const Team: NextPage<Props> = ({ employees, contact, quote, metaInfos }) => {
   return (
     <div>
-      <PageHeader title="Cursus magna, vel scelerisque nisl consectetur et." decoration="magna">
+      <PageHeader title={metaInfos.title} decoration={metaInfos.decoration} metaInfos={metaInfos}>
         <Lead>
           Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet,
           consectetur adipiscing elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
@@ -49,7 +51,9 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const pageTitle = { title: 'Cursus magna, vel scelerisque nisl consectetur et.', decoration: 'magna' };
+
   return {
     props: {
       contact: Employees.thilo,
@@ -57,6 +61,12 @@ export const getStaticProps: GetStaticProps = async () => {
         first < second ? -1 : first > second ? 1 : 0
       ),
       quote: Quotes['thilo-newwork'],
+      metaInfos: {
+        ...pageTitle,
+        description:
+          'Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        image: await generateMetaImage(pageTitle.title, pageTitle.decoration),
+      },
     },
   };
 };

@@ -3,7 +3,7 @@ import { CustomersList } from '../components/customers-list';
 import { QuoteCard } from '../components/quote-card';
 import { Contact } from '../compositions/contact';
 import { ImageCard, ImageCardVariants, Props as ImageCardProps } from '../compositions/image-card';
-import { PageHeader } from '../compositions/page-header';
+import { MetaInfos, PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { Customer } from '../data/customers';
 import Customers from '../data/customers.json';
@@ -12,6 +12,7 @@ import Employees from '../data/employees.json';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
 import { Copy } from '../elements/copy';
+import { generateMetaImage } from '../utils/meta-image-generator';
 
 const imageCard: ImageCardProps = {
   label: 'Projekt — Migipedia',
@@ -37,12 +38,13 @@ type Props = {
   customers: Customer[];
   quoteStefanie: Quote;
   contact: Employee;
+  metaInfos: MetaInfos;
 };
 
-const Projekte: NextPage<Props> = ({ customers, quoteStefanie, contact }) => {
+const Projekte: NextPage<Props> = ({ customers, quoteStefanie, contact, metaInfos }) => {
   return (
     <div>
-      <PageHeader title="Donec id elit non mi porta gravida at eget metus." decoration="eget">
+      <PageHeader title="Donec id elit non mi porta gravida at eget metus." decoration="eget" metaInfos={metaInfos}>
         <Copy>
           Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet,
           consectetur adipiscing elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
@@ -77,12 +79,15 @@ const Projekte: NextPage<Props> = ({ customers, quoteStefanie, contact }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       customers: Object.values(Customers),
       quoteStefanie: Quotes['stefanie-abraxas'],
       contact: Employees.peter,
+      metaInfos: {
+        image: await generateMetaImage('Yay kuuli Projekt!', 'kuuli'),
+      },
     },
   };
 };

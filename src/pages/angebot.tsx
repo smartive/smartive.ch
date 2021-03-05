@@ -1,20 +1,22 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { QuoteCard } from '../components/quote-card';
-import { PageHeader } from '../compositions/page-header';
+import { MetaInfos, PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
 import { Lead } from '../elements/lead';
+import { generateMetaImage } from '../utils/meta-image-generator';
 
 type Props = {
   quoteStefanie: Quote;
+  metaInfos: MetaInfos;
 };
 
-const Angebot: NextPage<Props> = ({ quoteStefanie }) => {
+const Angebot: NextPage<Props> = ({ quoteStefanie, metaInfos }) => {
   return (
     <div>
-      <PageHeader title="Working soft or softly working?" decoration="softly">
+      <PageHeader title="Working soft or softly working?" decoration="softly" metaInfos={metaInfos}>
         <Lead>
           Wir beraten, konzipieren und entwickeln. Unser Markenzeichen sind massgeschneiderte digitale Produkte.
           <br />
@@ -36,10 +38,14 @@ const Angebot: NextPage<Props> = ({ quoteStefanie }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       quoteStefanie: Quotes['stefanie-abraxas'],
+      metaInfos: {
+        image: await generateMetaImage('Unser Markenzeichen sind massgeschneiderte digitale Produkte.', 'massgeschneiderte'),
+        description: 'Unsere Kunden reichen vom Startup bis zur grösste Arbeitgeberin der Schweiz.',
+      },
     },
   };
 };

@@ -6,23 +6,25 @@ import { LinkList } from '../components/link-list';
 import { Contact } from '../compositions/contact';
 import { CardColors, ContentCard } from '../compositions/content-card';
 import { ImageCard } from '../compositions/image-card';
-import { PageHeader } from '../compositions/page-header';
+import { MetaInfos, PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { Customer } from '../data/customers';
 import Customers from '../data/customers.json';
 import { Employee } from '../data/employees';
 import Employees from '../data/employees.json';
 import { Clock } from '../elements/icons';
+import { generateMetaImage } from '../utils/meta-image-generator';
 
 type Props = {
   contact: Employee;
   customers: Customer[];
+  metaInfos: MetaInfos;
 };
 
-const Home: NextPage<Props> = ({ contact, customers }) => {
+const Home: NextPage<Props> = ({ contact, customers, metaInfos }) => {
   return (
     <div>
-      <PageHeader title="Wir erschaffen digitale Produkte. Zusammen mit dir." decoration="digitale">
+      <PageHeader title={metaInfos.title} decoration={metaInfos.decoration} metaInfos={metaInfos}>
         <LinkList
           links={[
             { label: 'Wie machen wir das?', href: '/angebot' },
@@ -126,11 +128,19 @@ const Home: NextPage<Props> = ({ contact, customers }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const pageTitle = { title: 'Wir erschaffen digitale Produkte. Zusammen mit dir.', decoration: 'digitale' };
+
   return {
     props: {
       contact: Employees.marco,
       customers: Object.values(Customers),
+      metaInfos: {
+        ...pageTitle,
+        description:
+          'Wir sind smartive — eine dynamische, innovative Schweizer Webentwicklungsagentur. Die Realisierung zeitgemässer Weblösungen gehört genauso zu unserer Passion, wie die konstruktive Zusammenarbeit mit unseren Kundinnen und Kunden.',
+        image: await generateMetaImage(pageTitle.title, pageTitle.decoration),
+      },
     },
   };
 };
