@@ -24,7 +24,7 @@ export const PageHeader: FC<Props> = ({ title, decoration, children, metaInfos }
   return (
     <div className="my-48">
       <Head>
-        <title>{metaInfos.title ?? title}</title>
+        <title>{metaInfos?.title ?? title}</title>
         {metaInfos && (
           <>
             <meta name="description" content={metaInfos.description} />
