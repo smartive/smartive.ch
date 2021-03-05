@@ -3,8 +3,8 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      sans: ['Inter', 'sans-serif'],
-      serif: ['IBM Plex Serif', 'serif'],
+      sans: ['"Inter"', 'sans-serif'],
+      serif: ['"IBM Plex Serif"', 'serif'],
     },
     fontWeight: {
       normal: '400',
