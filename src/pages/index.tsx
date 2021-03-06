@@ -13,6 +13,7 @@ import Customers from '../data/customers.json';
 import { Employee } from '../data/employees';
 import Employees from '../data/employees.json';
 import { Clock } from '../elements/icons';
+import { Lead } from '../elements/lead';
 import { generateMetaImage } from '../utils/meta-image-generator';
 
 type Props = {
@@ -38,7 +39,7 @@ const Home: NextPage<Props> = ({ contact, customers, metaInfos }) => {
           <Image
             className="rounded"
             src="/images/YB_06742.jpg"
-            alt="Lustigi Lüüt amne Tisch"
+            alt="smartive Team beim Mittagessen an einem Holztisch"
             priority
             objectFit="cover"
             width={1504}
@@ -58,18 +59,22 @@ const Home: NextPage<Props> = ({ contact, customers, metaInfos }) => {
               image={{ src: '/images/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
             />
             <ContentCard
-              label="Software Developer 80–100%"
-              title="Gestalte mit uns die digitale Zukunft der Schweiz"
-              content="Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras mattis consectetur purus sit amet fermentum."
-              link={{ label: 'Jetzt bewerben', href: '#' }}
-              background={CardColors.Cornflower}
+              label="Migipedia"
+              title="Migipedia auf der Best of Swiss Web Shortlist!"
+              content="Seit 10 Jahren stehen für Migipedia die User im Mittelpunk. Nun steht Migipedia auf der Shortlist der Best of Swiss Web Awards 2021."
+              link={{ label: 'Zur Shortlist', href: '#' }}
+              background={CardColors.Apricot}
             />
           </div>
         </PageSection>
-        <PageSection title="In guter Gesellschaft – von Startups bis hin zur grössten Arbeitgeberin der Schweiz.">
+        <PageSection title="Weiter gebracht haben wir unter anderem schon">
           <CustomersList customers={new Array(2).fill(customers).flat()} />
         </PageSection>
-        <PageSection title="In welcher Phase steckt dein Projekt? Wir unterstützen dich von der Idee bis über den Golive hinaus.">
+        <PageSection title="Wir unterstützen dich, egal wie weit du schon bist.">
+          <Lead>
+            In welcher Phase steckt dein Projekt? Mit unserer langjährigen Expertise unterstützen wir dich von der Idee bis
+            über den Golive hinaus.
+          </Lead>
           <div className="grid grid-cols-4 gap-16">
             <ContentCard
               label={

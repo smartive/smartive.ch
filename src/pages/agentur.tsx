@@ -155,7 +155,10 @@ const Agentur: NextPage<Props> = ({ employees, metaInfos }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageTitle = { title: 'Mit Freunden und viel Freiheit zu digitalen Lösungen', decoration: 'Freunden' };
+  const pageTitle = {
+    title: 'Wir sind smartive. Wir stehen für digitale Lösungen und eine bizli andere Firmenkultur.',
+    decoration: 'smartive',
+  };
 
   return {
     props: {
