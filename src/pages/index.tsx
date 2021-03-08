@@ -28,7 +28,7 @@ const Home: NextPage<Props> = ({ contact, customers, metaInfos }) => {
         <LinkList
           links={[
             { label: 'Wie machen wir das?', href: '/angebot' },
-            { label: 'Projekte anschauen', href: '/projekte' },
+            { label: 'Projekte anschauen', href: '/projekte/migipedia' },
           ]}
         />
       </PageHeader>
@@ -48,13 +48,13 @@ const Home: NextPage<Props> = ({ contact, customers, metaInfos }) => {
             <ImageCard
               label="Projekt — Migipedia"
               title="Der User im Mittelpunkt – seit 10 Jahren"
-              link={{ label: 'Projekt anschauen', href: '/projekte' }}
+              link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
               image={{ src: '/images/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
             />
             <ImageCard
               label="Projekt — Migipedia"
               title="Der User im Mittelpunkt – seit 10 Jahren"
-              link={{ label: 'Projekt anschauen', href: '/projekte' }}
+              link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
               image={{ src: '/images/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
             />
             <ContentCard

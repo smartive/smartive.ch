@@ -2,10 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { FC } from 'react';
 import { Url } from 'url';
+import { AwardTags } from '../components/award-tags';
 import { Copy } from '../elements/copy';
 import { Heading3 } from '../elements/heading-3';
-
-const TagColors = ['bg-apricot-500', 'bg-mint-500', 'bg-cornflower-500'] as const;
 
 export enum ImageCardVariants {
   'BIG',
@@ -31,20 +30,7 @@ export const ImageCard: FC<Props> = ({ image, label, title, link, variant = Imag
         height={variant === ImageCardVariants.BIG ? '480' : '240'}
         width={variant === ImageCardVariants.BIG ? '720' : '465'}
       />
-      {awardTags.length > 0 && (
-        <div className="grid grid-flow-col gap-6 absolute top-0 right-6">
-          {awardTags.map((tag, index) => (
-            <Copy
-              key={tag}
-              className={`${
-                TagColors[index % 3]
-              } text-white-100 rounded-t-sm p-3 transform origin-center rotate-180 writing-vertical`}
-            >
-              {tag}
-            </Copy>
-          ))}
-        </div>
-      )}
+      {awardTags.length > 0 && <AwardTags awardTags={awardTags} vertical className="absolute top-0 right-6" />}
       <div className="p-8">
         <Copy className="mb-6">{label}</Copy>
         <Heading3 as="p">{title}</Heading3>

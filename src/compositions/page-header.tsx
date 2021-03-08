@@ -1,6 +1,7 @@
 import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
 import React, { FC } from 'react';
+import { AwardTags } from '../components/award-tags';
 import { Decoration } from '../elements/decoration';
 import { Heading1 } from '../elements/heading-1';
 
@@ -15,9 +16,10 @@ type Props = {
   title?: string;
   decoration?: string;
   metaInfos?: MetaInfos;
+  awardTags?: string[];
 };
 
-export const PageHeader: FC<Props> = ({ title, decoration, children, metaInfos }) => {
+export const PageHeader: FC<Props> = ({ title, decoration, children, metaInfos, awardTags }) => {
   const { asPath } = useRouter();
   const pageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${asPath}`;
 
@@ -41,6 +43,11 @@ export const PageHeader: FC<Props> = ({ title, decoration, children, metaInfos }
           </>
         )}
       </Head>
+      {awardTags && awardTags.length > 0 && (
+        <div className="grid grid-flow-col gap-4 mb-3">
+          <AwardTags awardTags={awardTags} />
+        </div>
+      )}
       {title && (
         <Heading1>
           {decoration && title.includes(decoration) ? (
