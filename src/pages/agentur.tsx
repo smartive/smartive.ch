@@ -3,13 +3,15 @@ import Image from 'next/image';
 import { ShuffleCard } from '../components/shuffle-card';
 import { MetaInfos, PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
-import { Props as TextBlockProps, TextBlock } from '../compositions/text-block';
+import { TextBlock } from '../compositions/text-block';
 import { Employee } from '../data/employees';
 import Employees from '../data/employees.json';
+import { Heading2 } from '../elements/heading-2';
 import { Lead } from '../elements/lead';
+import { Link } from '../elements/link';
 import { generateMetaImage } from '../utils/meta-image-generator';
 
-const textBlocks: TextBlockProps[] = [
+const textBlocks = [
   {
     title: 'Organisiert auf Augenhöhe',
     content:
@@ -64,8 +66,8 @@ const Agentur: NextPage<Props> = ({ employees, metaInfos }) => {
           <div className="grid grid-flow-col grid-cols-2 grid-rows-2 gap-16">
             <Image
               className="rounded"
-              src="/images/RGB_02_snack_001.jpg"
-              alt="Lustigi Lüüt amne Tisch"
+              src="/images/IMG_0691.jpeg"
+              alt="smartive Team sitzt auf einer Bank mit blauem Himmel und Thunersee im Hintergrund"
               priority
               objectFit="cover"
               width={720}
@@ -73,8 +75,8 @@ const Agentur: NextPage<Props> = ({ employees, metaInfos }) => {
             />
             <Image
               className="rounded"
-              src="/images/RGB_02_snack_001.jpg"
-              alt="Lustigi Lüüt amne Tisch"
+              src="/images/DSC06098.jpeg"
+              alt="smartive Mitarbeiter hält einen Vortrag vor mehreren Leuten"
               priority
               objectFit="cover"
               width={720}
@@ -84,7 +86,7 @@ const Agentur: NextPage<Props> = ({ employees, metaInfos }) => {
               <Image
                 className="rounded"
                 src="/images/YB_06742.jpg"
-                alt="Lustigi Lüüt amne Tisch"
+                alt="smartive Team am Mittagstisch beim Essen"
                 priority
                 objectFit="cover"
                 layout="fill"
@@ -93,15 +95,17 @@ const Agentur: NextPage<Props> = ({ employees, metaInfos }) => {
           </div>
           <div className="grid grid-cols-3 gap-16 my-16">
             {textBlocks.map(({ title, content }) => (
-              <TextBlock key={title} title={title} content={content} />
+              <TextBlock key={title} title={title}>
+                {content}
+              </TextBlock>
             ))}
           </div>
           <ShuffleCard employees={employees.filter((employee) => employee.portrait)} />
           <div className="grid grid-cols-2 gap-16 my-16">
             <Image
               className="rounded"
-              src="/images/RGB_02_snack_001.jpg"
-              alt="Lustigi Lüüt amne Tisch"
+              src="/images/IMG_3812.jpeg"
+              alt="smartive Team am arbeiten an einem Tisch im freien mit dem Valle Verzasca im Hintergrund"
               priority
               objectFit="cover"
               width={720}
@@ -110,8 +114,8 @@ const Agentur: NextPage<Props> = ({ employees, metaInfos }) => {
             <div className="row-span-3">
               <Image
                 className="rounded"
-                src="/images/YB_06742.jpg"
-                alt="Lustigi Lüüt amne Tisch"
+                src="/images/20180922_114902.jpeg"
+                alt="smartive Team bei einer Wanderung mit dem Gasthaus Aescher-Wildkirchli im Hintergrund"
                 priority
                 objectFit="cover"
                 width={720}
@@ -120,8 +124,8 @@ const Agentur: NextPage<Props> = ({ employees, metaInfos }) => {
             </div>
             <Image
               className="rounded"
-              src="/images/RGB_02_snack_001.jpg"
-              alt="Lustigi Lüüt amne Tisch"
+              src="/images/LabFinger-DSC05310.jpeg"
+              alt="smartive Mitarbeiter mit einem Schild auf dem smartive beworben wird"
               priority
               objectFit="cover"
               width={720}
@@ -129,8 +133,8 @@ const Agentur: NextPage<Props> = ({ employees, metaInfos }) => {
             />
             <Image
               className="rounded"
-              src="/images/RGB_02_snack_001.jpg"
-              alt="Lustigi Lüüt amne Tisch"
+              src="/images/MVIMG_20200903_183052.jpeg"
+              alt="smartive Team beim Fussballspielen auf einer grünen Wiese"
               priority
               objectFit="cover"
               width={720}
@@ -139,13 +143,48 @@ const Agentur: NextPage<Props> = ({ employees, metaInfos }) => {
             <div className="col-span-2">
               <Image
                 className="rounded"
-                src="/images/YB_06742.jpg"
-                alt="Lustigi Lüüt amne Tisch"
+                src="/images/IMG_20190905_125318.jpeg"
+                alt="smartive Team beim Mittagessen im Freien"
                 priority
                 objectFit="cover"
                 width={1504}
                 height={800}
               />
+            </div>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <Heading2>Du willst noch mehr über smartive wissen? Ein paar kurzweilige Fakten.</Heading2>
+            <div className="mb-20">
+              <TextBlock title="Bald eine Dekade">
+                smartive wurde <strong>2021</strong> gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, wo
+                wir uns alle einbringen und so arbeiten, wie es uns entspricht.
+              </TextBlock>
+            </div>
+
+            <div className="mb-20">
+              <TextBlock title="Anderthalb Dutzend">
+                Heute kommen <strong>{Object.values(Employees).length} Mitarbeiter*innen</strong> in Zürich zusammen und
+                bringen ihre Fähigkeiten und ihre Art ein – in Software-Entwicklung, Projektleitung, Design und User
+                Experience.
+              </TextBlock>
+            </div>
+            <div className="mb-20">
+              <TextBlock title="Zwölf Teilhaber*innen">
+                Darauf sind wir stolz: <strong>Zwölf</strong> unserer {Object.values(Employees).length} Mitarbeiter*innen
+                besitzen smartive-Aktien. Es gibt keine externen Aktionär*innen oder Stakeholder.
+              </TextBlock>
+              <div className="mb-20"></div>
+              <TextBlock title="Erfolgreiche Projekte: dreistellig">
+                In den letzten Jahren haben wir über <strong>300 Projekte</strong> erfolgreich gemeistert. Sowohl in
+                Zusammenarbeit mit <Link href="subsidia">Start-Ups</Link> als auch mit der{' '}
+                <Link href="/projekte/migipedia/">grössten Arbeitgeberin der Schweiz</Link>.
+              </TextBlock>
+            </div>
+            <div className="mb-20">
+              <TextBlock title="Aufsteiger des Jahres">
+                Unsere Projekte werden regelmässig ausgezeichnet. Bei den Best of Swiss Web Awards rangieren wir in den Top
+                20 der vergangenen 5 Jahre.
+              </TextBlock>
             </div>
           </div>
         </PageSection>

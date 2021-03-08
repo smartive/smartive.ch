@@ -25,8 +25,9 @@ const Team: NextPage<Props> = ({ employees, contact, quote, metaInfos }) => {
     <div>
       <PageHeader title={metaInfos.title} decoration={metaInfos.decoration} metaInfos={metaInfos}>
         <Lead>
-          Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+          {employees.length} Menschen, eine Idee: Zusammen Herausforderungen stemmen und digitale Produkte schaffen, die
+          herausragen. Und eine ungezwungene Atmosphäre: Wir pflegen die Freundschaft. Wir entscheiden zusammen. Wir geben
+          allen das Vertrauen und die Freiheit, sich auf ihre Art einzubringen.
         </Lead>
         <LinkList links={[{ label: 'mehr über New Work', href: '#' }]} />
       </PageHeader>
@@ -52,19 +53,22 @@ const Team: NextPage<Props> = ({ employees, contact, quote, metaInfos }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageTitle = { title: 'Cursus magna, vel scelerisque nisl consectetur et.', decoration: 'magna' };
+  const pageTitle = { title: 'Mega viel schöni Mensche mit Bildli.', decoration: 'Mensche' };
+
+  const employees = Object.values(Employees).sort(({ firstname: first }, { firstname: second }) =>
+    first < second ? -1 : first > second ? 1 : 0
+  );
 
   return {
     props: {
+      employees,
       contact: Employees.thilo,
-      employees: Object.values(Employees).sort(({ firstname: first }, { firstname: second }) =>
-        first < second ? -1 : first > second ? 1 : 0
-      ),
       quote: Quotes['thilo-newwork'],
       metaInfos: {
         ...pageTitle,
-        description:
-          'Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        description: `${employees.length} Menschen, eine Idee: Zusammen Herausforderungen stemmen und digitale Produkte schaffen, die
+          herausragen. Und eine ungezwungene Atmosphäre: Wir pflegen die Freundschaft. Wir entscheiden zusammen. Wir geben
+          allen das Vertrauen und die Freiheit, sich auf ihre Art einzubringen.`,
         image: await generateMetaImage(pageTitle.title, pageTitle.decoration),
       },
     },

@@ -75,19 +75,27 @@ const Migipedia: NextPage<Props> = ({ quoteStefanie, contact, metaInfos }) => {
             <div className="col-span-2">
               <TextBlock
                 title="Dynamisch und statisch: Endlich beste Freunde"
-                content="Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros."
                 link={{ label: 'Weiterführender Link', href: '' }}
-              />
+              >
+                Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+                ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum
+                dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+                ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum
+                dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+              </TextBlock>
             </div>
-            <TextBlock
-              title="Steigerung von Maximierungen"
-              content="Nulla vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam."
-            />
+            <TextBlock title="Steigerung von Maximierungen">
+              Nulla vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla
+              vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+            </TextBlock>
             <TextBlock
               title="Agile Development, agile Design, ah geil Agile"
-              content="Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper."
               link={{ label: 'Weiterführender Link', href: '' }}
-            />
+            >
+              Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+              risus. Vestibulum id ligula porta felis euismod semper.
+            </TextBlock>
           </div>
           <QuoteCard className="mt-16" quote={quoteStefanie} />
           <Heading2 className="mt-16">Mit welchen Tools haben wir Migipedia geholfen?</Heading2>

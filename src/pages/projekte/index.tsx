@@ -46,8 +46,9 @@ const Projekte: NextPage<Props> = ({ customers, quoteStefanie, contact, metaInfo
     <div>
       <PageHeader title={metaInfos.title} decoration={metaInfos.decoration} metaInfos={metaInfos}>
         <Copy>
-          Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+          Webapps, APIs und DevOps, für Grossunternehmen und Start-ups: Seit 2012 haben wir Brandneues auf die Beine
+          gestellt, bestehende Lösungen analysiert und Projekte über viele Jahre begleitet und weiterentwickelt. Immer agil,
+          massgeschneidert und mit Leidenschaft. Und wiederholt ausgezeichnet.
         </Copy>
       </PageHeader>
 
@@ -80,7 +81,7 @@ const Projekte: NextPage<Props> = ({ customers, quoteStefanie, contact, metaInfo
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageTitle = { title: 'Donec id elit non mi porta gravida at eget metus.', decoration: 'eget' };
+  const pageTitle = { title: 'Von der Idee bis zum Golive.', decoration: 'Idee' };
 
   return {
     props: {
@@ -89,7 +90,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       contact: Employees.peter,
       metaInfos: {
         ...pageTitle,
-        description: 'Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur.',
+        description:
+          'Webapps, APIs und DevOps, für Grossunternehmen und Start-ups: Seit 2012 haben wir Brandneues auf die Beine gestellt, bestehende Lösungen analysiert und Projekte über viele Jahre begleitet und weiterentwickelt. Immer agil, massgeschneidert und mit Leidenschaft. Und wiederholt ausgezeichnet.',
         image: await generateMetaImage(pageTitle.title, pageTitle.decoration),
       },
     },
