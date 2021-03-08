@@ -7,3 +7,8 @@
     writing-mode: vertical-rl;
   }
 }
+
+::selection {
+  @apply bg-cornflower-500;
+  @apply text-mint-500;
+}
