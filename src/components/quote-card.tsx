@@ -16,7 +16,7 @@ export const QuoteCard: FC<Props> = ({ quote: { text, decoration, credit, portra
   >
     <Portrait image={portrait} alt="" variant={PortraitVariant.small} />
     <Heading2 as="p" className="mt-4">
-      «
+      &laquo;
       {decoration && text.includes(decoration) ? (
         <>
           {text.split(decoration)[0]}
@@ -26,7 +26,7 @@ export const QuoteCard: FC<Props> = ({ quote: { text, decoration, credit, portra
       ) : (
         text
       )}
-      »
+      &raquo;
     </Heading2>
     <Copy>{credit}</Copy>
   </div>

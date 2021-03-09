@@ -2,6 +2,7 @@ import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import { CustomersList } from '../components/customers-list';
+import { QuoteCard } from '../components/quote-card';
 import { Contact } from '../compositions/contact';
 import { CardColors, ContentCard } from '../compositions/content-card';
 import { ImageCard } from '../compositions/image-card';
@@ -12,6 +13,8 @@ import { Customer } from '../data/customers';
 import Customers from '../data/customers.json';
 import { Employee } from '../data/employees';
 import Employees from '../data/employees.json';
+import { Quote } from '../data/quotes';
+import Quotes from '../data/quotes.json';
 import { Clock } from '../elements/icons';
 import { Lead } from '../elements/lead';
 import { GridSlider } from '../layouts/grid-slider';
@@ -19,9 +22,10 @@ import { GridSlider } from '../layouts/grid-slider';
 type Props = {
   contact: Employee;
   customers: Customer[];
+  quote: Quote;
 };
 
-const Home: NextPage<Props> = ({ contact, customers }) => {
+const Home: NextPage<Props> = ({ contact, customers, quote }) => {
   return (
     <div>
       <PageHeader
@@ -71,6 +75,9 @@ const Home: NextPage<Props> = ({ contact, customers }) => {
         </PageSection>
         <PageSection title="Weiter gebracht haben wir unter anderem schon">
           <CustomersList customers={new Array(2).fill(customers).flat()} />
+        </PageSection>
+        <PageSection>
+          <QuoteCard quote={quote} />
         </PageSection>
         <PageSection title="Wir unterstützen dich, egal wie weit du schon bist.">
           <Lead>
@@ -140,6 +147,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       contact: Employees.marco,
       customers: Object.values(Customers),
+      quote: Quotes['setareh-dife'],
     },
   };
 };
