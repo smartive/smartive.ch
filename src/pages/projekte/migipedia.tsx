@@ -5,7 +5,7 @@ import { QuoteCard } from '../../components/quote-card';
 import { Contact } from '../../compositions/contact';
 import { CardColors, ContentCard } from '../../compositions/content-card';
 import { ImageCard } from '../../compositions/image-card';
-import { MetaInfos, PageHeader } from '../../compositions/page-header';
+import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { TextBlock } from '../../compositions/text-block';
 import { Employee } from '../../data/employees';
@@ -15,21 +15,18 @@ import Quotes from '../../data/quotes.json';
 import { Copy } from '../../elements/copy';
 import { Clock } from '../../elements/icons';
 import { Grid } from '../../layouts/grid';
-import { generateMetaImage } from '../../utils/meta-image-generator';
 
 type Props = {
   quoteStefanie: Quote;
   contact: Employee;
-  metaInfos: MetaInfos;
 };
 
-const Migipedia: NextPage<Props> = ({ quoteStefanie, contact, metaInfos }) => {
+const Migipedia: NextPage<Props> = ({ quoteStefanie, contact }) => {
   return (
     <div>
       <PageHeader
-        title={metaInfos.title}
-        decoration={metaInfos.decoration}
-        metaInfos={metaInfos}
+        markdownTitle="Migipedia – _10 Jahre_ User im Mittelpunkt."
+        description="Migipedia.ch ist seit 10 Jahren fester Bestandteil des digitalen Marketings der Migros und schafft Werte für Kundinnen und Kunden sowie fürs Unternehmen. Gemeinsam mit der Migros entwickelten wir eine komplett neue Lösung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor."
         awardTags={['Best of Swiss Web 2021', 'Best of Swiss Web 2020']}
       >
         <Copy>
@@ -182,18 +179,10 @@ const Migipedia: NextPage<Props> = ({ quoteStefanie, contact, metaInfos }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageTitle = { title: 'Migipedia – 10 Jahre User im Mittelpunkt.', decoration: '10 Jahre' };
-
   return {
     props: {
       quoteStefanie: Quotes['stefanie-abraxas'],
       contact: Employees.thomas,
-      metaInfos: {
-        ...pageTitle,
-        description:
-          'Migipedia.ch ist seit 10 Jahren fester Bestandteil des digitalen Marketings der Migros und schafft Werte für Kundinnen und Kunden sowie fürs Unternehmen. Gemeinsam mit der Migros entwickelten wir eine komplett neue Lösung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor.',
-        image: await generateMetaImage(pageTitle.title, pageTitle.decoration),
-      },
     },
   };
 };

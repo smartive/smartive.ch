@@ -4,7 +4,7 @@ import { QuoteCard } from '../components/quote-card';
 import { Contact } from '../compositions/contact';
 import { EmployeeCard } from '../compositions/employee-card';
 import { LinkList } from '../compositions/link-list';
-import { MetaInfos, PageHeader } from '../compositions/page-header';
+import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { Employee } from '../data/employees';
 import Employees from '../data/employees.json';
@@ -12,19 +12,20 @@ import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
 import { Lead } from '../elements/lead';
 import { Grid } from '../layouts/grid';
-import { generateMetaImage } from '../utils/meta-image-generator';
 
 type Props = {
   contact: Employee;
   employees: Employee[];
   quote: Quote;
-  metaInfos: MetaInfos;
 };
 
-const Team: NextPage<Props> = ({ employees, contact, quote, metaInfos }) => {
+const Team: NextPage<Props> = ({ employees, contact, quote }) => {
   return (
     <div>
-      <PageHeader title={metaInfos.title} decoration={metaInfos.decoration} metaInfos={metaInfos}>
+      <PageHeader
+        markdownTitle="Wir konzipieren und _kompostieren_, entwickeln und verwickeln, beraten und bräteln, gemeinsam"
+        description={`${employees.length} Menschen, eine Idee: Zusammen Herausforderungen stemmen und digitale Produkte schaffen, die herausragen. Und eine ungezwungene Atmosphäre: Wir pflegen die Freundschaft. Wir entscheiden zusammen. Wir geben allen das Vertrauen und die Freiheit, sich auf ihre Art einzubringen.`}
+      >
         <Lead>
           {employees.length} Menschen, eine Idee: Zusammen Herausforderungen stemmen und digitale Produkte schaffen, die
           herausragen. Und eine ungezwungene Atmosphäre: Wir pflegen die Freundschaft. Wir entscheiden zusammen. Wir geben
@@ -54,8 +55,6 @@ const Team: NextPage<Props> = ({ employees, contact, quote, metaInfos }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageTitle = { title: 'Mega viel schöni Mensche mit Bildli.', decoration: 'Mensche' };
-
   const employees = Object.values(Employees).sort(({ firstname: first }, { firstname: second }) =>
     first < second ? -1 : first > second ? 1 : 0
   );
@@ -65,13 +64,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       employees,
       contact: Employees.thilo,
       quote: Quotes['thilo-newwork'],
-      metaInfos: {
-        ...pageTitle,
-        description: `${employees.length} Menschen, eine Idee: Zusammen Herausforderungen stemmen und digitale Produkte schaffen, die
-          herausragen. Und eine ungezwungene Atmosphäre: Wir pflegen die Freundschaft. Wir entscheiden zusammen. Wir geben
-          allen das Vertrauen und die Freiheit, sich auf ihre Art einzubringen.`,
-        image: await generateMetaImage(pageTitle.title, pageTitle.decoration),
-      },
     },
   };
 };

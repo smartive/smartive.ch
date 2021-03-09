@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { ShuffleCard } from '../components/shuffle-card';
 import { BlockList } from '../compositions/block-list';
-import { MetaInfos, PageHeader } from '../compositions/page-header';
+import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { TextBlock } from '../compositions/text-block';
 import { Employee } from '../data/employees';
@@ -12,7 +12,6 @@ import { Lead } from '../elements/lead';
 import { Link } from '../elements/link';
 import { Grid } from '../layouts/grid';
 import { GridSlider } from '../layouts/grid-slider';
-import { generateMetaImage } from '../utils/meta-image-generator';
 
 const textBlocks = [
   {
@@ -49,13 +48,15 @@ const textBlocks = [
 
 type Props = {
   employees: Employee[];
-  metaInfos: MetaInfos;
 };
 
-const Agentur: NextPage<Props> = ({ employees, metaInfos }) => {
+const Agentur: NextPage<Props> = ({ employees }) => {
   return (
     <div>
-      <PageHeader title={metaInfos.title} decoration={metaInfos.decoration} metaInfos={metaInfos}>
+      <PageHeader
+        markdownTitle="Wir sind _smartive_. Wir stehen für digitale Lösungen und eine bizli andere Firmenkultur."
+        description="Wir wollen einen Ort schaffen, an dem wir nicht nur arbeiten, sondern auch Freundschaft und Freiheit leben. Mit Platz für verschiedene Persönlichkeiten, Interessen und Entwicklung. Dies ermöglicht uns die volle Entfaltung unseres Potenzials."
+      >
         <Lead>
           Chefgehabe ist uns so fremd wie komplexe Hierarchien und Gärtchendenken. Herausforderungen werden gemeinsam
           angegangen, Probleme offen angesprochen und gelöst. Wir wollen einen Ort schaffen, an dem wir nicht nur arbeiten,
@@ -184,18 +185,9 @@ const Agentur: NextPage<Props> = ({ employees, metaInfos }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const pageTitle = {
-    title: 'Wir sind smartive. Wir stehen für digitale Lösungen und eine bizli andere Firmenkultur.',
-    decoration: 'smartive',
-  };
-
   return {
     props: {
       employees: Object.values(Employees),
-      metaInfos: {
-        ...pageTitle,
-        image: await generateMetaImage(pageTitle.title, pageTitle.decoration),
-      },
     },
   };
 };

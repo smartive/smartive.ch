@@ -6,7 +6,7 @@ import { Contact } from '../compositions/contact';
 import { CardColors, ContentCard } from '../compositions/content-card';
 import { ImageCard } from '../compositions/image-card';
 import { LinkList } from '../compositions/link-list';
-import { MetaInfos, PageHeader } from '../compositions/page-header';
+import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { Customer } from '../data/customers';
 import Customers from '../data/customers.json';
@@ -15,18 +15,19 @@ import Employees from '../data/employees.json';
 import { Clock } from '../elements/icons';
 import { Lead } from '../elements/lead';
 import { GridSlider } from '../layouts/grid-slider';
-import { generateMetaImage } from '../utils/meta-image-generator';
 
 type Props = {
   contact: Employee;
   customers: Customer[];
-  metaInfos: MetaInfos;
 };
 
-const Home: NextPage<Props> = ({ contact, customers, metaInfos }) => {
+const Home: NextPage<Props> = ({ contact, customers }) => {
   return (
     <div>
-      <PageHeader title={metaInfos.title} decoration={metaInfos.decoration} metaInfos={metaInfos}>
+      <PageHeader
+        markdownTitle="Wir erschaffen _digitale_ Produkte. Zusammen mit dir."
+        description="Wir sind smartive — eine dynamische, innovative Schweizer Webentwicklungsagentur. Die Realisierung zeitgemässer Weblösungen gehört genauso zu unserer Passion, wie die konstruktive Zusammenarbeit mit unseren Kundinnen und Kunden."
+      >
         <LinkList
           links={[
             { label: 'Wie machen wir das?', href: '/angebot' },
@@ -135,18 +136,10 @@ const Home: NextPage<Props> = ({ contact, customers, metaInfos }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageTitle = { title: 'Wir erschaffen digitale Produkte. Zusammen mit dir.', decoration: 'digitale' };
-
   return {
     props: {
       contact: Employees.marco,
       customers: Object.values(Customers),
-      metaInfos: {
-        ...pageTitle,
-        description:
-          'Wir sind smartive — eine dynamische, innovative Schweizer Webentwicklungsagentur. Die Realisierung zeitgemässer Weblösungen gehört genauso zu unserer Passion, wie die konstruktive Zusammenarbeit mit unseren Kundinnen und Kunden.',
-        image: await generateMetaImage(pageTitle.title, pageTitle.decoration),
-      },
     },
   };
 };

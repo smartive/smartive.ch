@@ -4,7 +4,7 @@ import { CustomersList } from '../../components/customers-list';
 import { QuoteCard } from '../../components/quote-card';
 import { Contact } from '../../compositions/contact';
 import { ImageCard, ImageCardVariants, Props as ImageCardProps } from '../../compositions/image-card';
-import { MetaInfos, PageHeader } from '../../compositions/page-header';
+import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { Customer } from '../../data/customers';
 import Customers from '../../data/customers.json';
@@ -15,7 +15,6 @@ import Quotes from '../../data/quotes.json';
 import { Copy } from '../../elements/copy';
 import { Grid } from '../../layouts/grid';
 import { GridSlider } from '../../layouts/grid-slider';
-import { generateMetaImage } from '../../utils/meta-image-generator';
 
 const imageCard: ImageCardProps = {
   label: 'Projekt — Migipedia',
@@ -41,13 +40,15 @@ type Props = {
   customers: Customer[];
   quoteStefanie: Quote;
   contact: Employee;
-  metaInfos: MetaInfos;
 };
 
-const Projekte: NextPage<Props> = ({ customers, quoteStefanie, contact, metaInfos }) => {
+const Projekte: NextPage<Props> = ({ customers, quoteStefanie, contact }) => {
   return (
     <div>
-      <PageHeader title={metaInfos.title} decoration={metaInfos.decoration} metaInfos={metaInfos}>
+      <PageHeader
+        markdownTitle="Von der _Idee_ bis zum Golive."
+        description="Webapps, APIs und DevOps, für Grossunternehmen und Start-ups: Seit 2012 haben wir Brandneues auf die Beine gestellt, bestehende Lösungen analysiert und Projekte über viele Jahre begleitet und weiterentwickelt. Immer agil, massgeschneidert und mit Leidenschaft. Und wiederholt ausgezeichnet."
+      >
         <Copy>
           Webapps, APIs und DevOps, für Grossunternehmen und Start-ups: Seit 2012 haben wir Brandneues auf die Beine
           gestellt, bestehende Lösungen analysiert und Projekte über viele Jahre begleitet und weiterentwickelt. Immer agil,
@@ -84,19 +85,11 @@ const Projekte: NextPage<Props> = ({ customers, quoteStefanie, contact, metaInfo
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageTitle = { title: 'Von der Idee bis zum Golive.', decoration: 'Idee' };
-
   return {
     props: {
       customers: Object.values(Customers),
       quoteStefanie: Quotes['stefanie-abraxas'],
       contact: Employees.peter,
-      metaInfos: {
-        ...pageTitle,
-        description:
-          'Webapps, APIs und DevOps, für Grossunternehmen und Start-ups: Seit 2012 haben wir Brandneues auf die Beine gestellt, bestehende Lösungen analysiert und Projekte über viele Jahre begleitet und weiterentwickelt. Immer agil, massgeschneidert und mit Leidenschaft. Und wiederholt ausgezeichnet.',
-        image: await generateMetaImage(pageTitle.title, pageTitle.decoration),
-      },
     },
   };
 };
