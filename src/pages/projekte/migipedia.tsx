@@ -1,5 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
+import React from 'react';
 import { QuoteCard } from '../../components/quote-card';
 import { Contact } from '../../compositions/contact';
 import { CardColors, ContentCard } from '../../compositions/content-card';
@@ -12,8 +13,8 @@ import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Copy } from '../../elements/copy';
-import { Heading2 } from '../../elements/heading-2';
 import { Clock } from '../../elements/icons';
+import { Grid } from '../../layouts/grid';
 import { generateMetaImage } from '../../utils/meta-image-generator';
 
 type Props = {
@@ -40,7 +41,7 @@ const Migipedia: NextPage<Props> = ({ quoteStefanie, contact, metaInfos }) => {
 
       <main>
         <PageSection>
-          <div className="grid grid-cols-2 gap-16 mb-16">
+          <Grid cols={2}>
             <Image
               className="rounded"
               src="/images/RGB_02_snack_001.jpg"
@@ -70,8 +71,8 @@ const Migipedia: NextPage<Props> = ({ quoteStefanie, contact, metaInfos }) => {
                 height={800}
               />
             </div>
-          </div>
-          <div className="grid grid-cols-2 gap-16">
+          </Grid>
+          <Grid cols={2}>
             <div className="col-span-2">
               <TextBlock
                 title="Dynamisch und statisch: Endlich beste Freunde"
@@ -96,10 +97,11 @@ const Migipedia: NextPage<Props> = ({ quoteStefanie, contact, metaInfos }) => {
               Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
               risus. Vestibulum id ligula porta felis euismod semper.
             </TextBlock>
-          </div>
-          <QuoteCard className="mt-16" quote={quoteStefanie} />
-          <Heading2 className="mt-16">Mit welchen Tools haben wir Migipedia geholfen?</Heading2>
-          <div className="grid grid-cols-4 gap-16 mb-16">
+          </Grid>
+          <QuoteCard quote={quoteStefanie} />
+        </PageSection>
+        <PageSection title="Mit welchen Tools haben wir Migipedia geholfen?">
+          <Grid cols={4}>
             <ContentCard
               label={
                 <>
@@ -147,13 +149,13 @@ const Migipedia: NextPage<Props> = ({ quoteStefanie, contact, metaInfos }) => {
               link={{ label: 'Weitere Informationen', href: '#' }}
               background={CardColors.Cornflower}
             />
-          </div>
+          </Grid>
         </PageSection>
         <PageSection>
           <Contact contact={contact} />
         </PageSection>
         <PageSection title="Weitere Erfolgsgeschichten">
-          <div className="grid grid-cols-3 gap-16 mt-16">
+          <Grid cols={3}>
             <ImageCard
               label="KIG, Gesundheitsamt Sankt Gallen"
               title="Web statt App – plane deine Freizeit mit Spilo."
@@ -172,7 +174,7 @@ const Migipedia: NextPage<Props> = ({ quoteStefanie, contact, metaInfos }) => {
               link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
               image={{ src: '/images/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
             />
-          </div>
+          </Grid>
         </PageSection>
       </main>
     </div>

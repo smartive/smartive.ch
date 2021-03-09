@@ -7,10 +7,11 @@ import { Link, LinkVariants } from '../elements/link';
 
 type Props = {
   employee: Employee;
+  className?: string;
 };
 
-export const EmployeeCard: FC<Props> = ({ employee: { firstname, lastname, job, bio, image, links } }) => (
-  <div className="bg-white-100 rounded overflow-hidden">
+export const EmployeeCard: FC<Props> = ({ employee: { firstname, lastname, job, bio, image, links }, className = '' }) => (
+  <div className={`bg-white-100 rounded overflow-hidden ${className}`}>
     {image ? (
       <Image src={image} alt="" layout="fixed" objectFit="cover" width="463" height="640" />
     ) : (
@@ -22,7 +23,7 @@ export const EmployeeCard: FC<Props> = ({ employee: { firstname, lastname, job, 
         {firstname} {lastname}
       </Heading3>
       <Copy>{bio}</Copy>
-      <div className="flex flex-row gap-4 mt-6">
+      <div className="flex flex-row flex-wrap gap-4 mt-6">
         {links.map(({ label, url }, index) => (
           <Link key={index} href={url} variant={LinkVariants.Underline}>
             {label}

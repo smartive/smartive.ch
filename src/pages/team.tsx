@@ -1,9 +1,9 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { LinkList } from '../components/link-list';
 import { QuoteCard } from '../components/quote-card';
 import { Contact } from '../compositions/contact';
 import { EmployeeCard } from '../compositions/employee-card';
+import { LinkList } from '../compositions/link-list';
 import { MetaInfos, PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { Employee } from '../data/employees';
@@ -11,6 +11,7 @@ import Employees from '../data/employees.json';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
 import { Lead } from '../elements/lead';
+import { Grid } from '../layouts/grid';
 import { generateMetaImage } from '../utils/meta-image-generator';
 
 type Props = {
@@ -34,15 +35,15 @@ const Team: NextPage<Props> = ({ employees, contact, quote, metaInfos }) => {
 
       <main>
         <PageSection>
-          <div className="grid grid-cols-3 grid-flow-row gap-16">
+          <Grid cols={3}>
             {employees.slice(0, Math.floor(employees.length / 2)).map((employee) => (
               <EmployeeCard key={employee.email} employee={employee} />
             ))}
-            <QuoteCard className="col-start-1 col-span-3" quote={quote} />
+            <QuoteCard className="col-start-1 md:col-span-2 lg:col-span-3" quote={quote} />
             {employees.slice(Math.floor(employees.length / 2)).map((employee) => (
               <EmployeeCard key={employee.email} employee={employee} />
             ))}
-          </div>
+          </Grid>
         </PageSection>
         <PageSection>
           <Contact contact={contact} />

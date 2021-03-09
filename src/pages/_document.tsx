@@ -9,7 +9,6 @@ export default class CustomDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href={`${GoogleFontUrl}&display=swap`} rel="stylesheet" />
-
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <body className="bg-white-200 text-black overflow-x-hidden">

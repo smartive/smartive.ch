@@ -24,7 +24,7 @@ export const PageHeader: FC<Props> = ({ title, decoration, children, metaInfos, 
   const pageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${asPath}`;
 
   return (
-    <div className="my-48">
+    <header className="my-12 lg:my-48">
       <Head>
         <title>{metaInfos?.title ?? title}</title>
         {metaInfos && (
@@ -62,6 +62,6 @@ export const PageHeader: FC<Props> = ({ title, decoration, children, metaInfos, 
         </Heading1>
       )}
       {children}
-    </div>
+    </header>
   );
 };

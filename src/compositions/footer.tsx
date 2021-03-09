@@ -4,17 +4,13 @@ import { Label } from '../elements/label';
 import { Link, LinkVariants } from '../elements/link';
 
 export const Footer: FC = () => (
-  <div
-    className="relative w-screen bg-apricot-500"
-    style={{ height: '484px', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}
-  >
-    <div className="container mx-auto px-40 pt-40 pb-8 h-full">
-      <Label as="div" className="grid grid-cols-3 grid-flow-row items-end justify-items-center">
-        <address
-          className="not-italic grid grid-flow-row font-sans font-bold text-sm"
-          itemScope
-          itemType="http://schema.org/Organization"
-        >
+  <footer className="bg-apricot-500">
+    <div className="container mx-auto px-8 pt-24 xl:px-32 xl:pt-32 pb-8 h-full">
+      <Label
+        as="div"
+        className="grid grid-cols-1 gap-12 lg:gap-0 lg:grid-cols-3 grid-flow-row items-end justify-items-center"
+      >
+        <address className="not-italic grid grid-flow-row" itemScope itemType="http://schema.org/Organization">
           <span itemProp="name">smartive AG</span>
           <div itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
             <span itemProp="streetAddress">Pfingstweidstrasse 60</span>
@@ -34,7 +30,7 @@ export const Footer: FC = () => (
           </span>
         </address>
 
-        <NewsletterRegistration className="px-8" />
+        <NewsletterRegistration className="px-2 xl:px-8" />
         <div className="grid grid-flow-row">
           <Link variant={LinkVariants.NoUnderline} href="https://www.linkedin.com/company/smartive-ag/" newTab>
             LinkedIn
@@ -50,7 +46,7 @@ export const Footer: FC = () => (
           </Link>
         </div>
         <svg
-          className="col-span-3 text-center mt-32 text-black"
+          className="lg:col-span-3 text-center lg:mt-32 text-black"
           width="244"
           height="25"
           viewBox="0 0 244 25"
@@ -136,5 +132,5 @@ export const Footer: FC = () => (
         </svg>
       </Label>
     </div>
-  </div>
+  </footer>
 );

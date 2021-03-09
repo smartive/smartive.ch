@@ -10,13 +10,13 @@ const UnderlineColors = ['border-apricot-500', 'border-mint-500', 'border-cornfl
 const UnderlineHoverColors = ['hover:border-apricot-800', 'hover:border-mint-800', 'hover:border-cornflower-800'] as const;
 
 export const LinkList: FC<Props> = ({ links }) => (
-  <div className="inline-block text-base font-bold h-9">
+  <div className="flex flex-wrap justify-start text-xxs lg:text-base font-bold">
     {links.map(({ label, href }, index) => (
       <Link
         variant={LinkVariants.Feature}
         href={href}
         key={index}
-        className={`${UnderlineColors[index % 3]} ${UnderlineHoverColors[index % 3]} pb-1 ml-8 first:ml-0`}
+        className={`${UnderlineColors[index % 3]} ${UnderlineHoverColors[index % 3]} pb-1 mr-8 last:mr-0 mb-2`}
       >
         {label}
       </Link>

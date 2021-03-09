@@ -6,5 +6,5 @@ type Props = {
 };
 
 export const Heading1: FC<Props> = ({ children, as: Tag = 'h1', className = '' }) => (
-  <Tag className={`font-sans font-bold text-xxl mb-8 ${className}`}>{children}</Tag>
+  <Tag className={`font-sans font-bold text-lg lg:text-xxl mb-8 ${className}`}>{children}</Tag>
 );

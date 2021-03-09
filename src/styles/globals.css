@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
 @layer utilities {
   .writing-vertical {
     writing-mode: vertical-rl;
@@ -11,4 +17,21 @@
 ::selection {
   @apply bg-cornflower-500;
   @apply text-mint-500;
+}
+
+footer {
+  @apply relative;
+  @apply -m-4;
+}
+
+@screen lg {
+  footer {
+    @apply w-screen;
+    @apply m-0;
+    height: 489px;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
 }

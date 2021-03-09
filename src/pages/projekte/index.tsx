@@ -1,4 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
+import React from 'react';
 import { CustomersList } from '../../components/customers-list';
 import { QuoteCard } from '../../components/quote-card';
 import { Contact } from '../../compositions/contact';
@@ -12,6 +13,8 @@ import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Copy } from '../../elements/copy';
+import { Grid } from '../../layouts/grid';
+import { GridSlider } from '../../layouts/grid-slider';
 import { generateMetaImage } from '../../utils/meta-image-generator';
 
 const imageCard: ImageCardProps = {
@@ -55,22 +58,22 @@ const Projekte: NextPage<Props> = ({ customers, quoteStefanie, contact, metaInfo
       <main>
         <PageSection>
           <CustomersList customers={new Array(2).fill(customers).flat()} />
-          <div className="grid grid-cols-2 gap-16 mt-16">
+          <Grid cols={2}>
             {bigImageCards.map(({ label, title, link, image, variant, awardTags }) => (
               <ImageCard label={label} title={title} link={link} image={image} variant={variant} awardTags={awardTags} />
             ))}
-          </div>
-          <div className="grid grid-cols-3 gap-16 mt-16">
+          </Grid>
+          <GridSlider>
             {new Array(3).fill(imageCard).map(({ label, title, link, image }) => (
               <ImageCard label={label} title={title} link={link} image={image} />
             ))}
-          </div>
-          <QuoteCard className="mt-16" quote={quoteStefanie} />
-          <div className="grid grid-cols-3 gap-16 mt-16">
+          </GridSlider>
+          <QuoteCard quote={quoteStefanie} />
+          <Grid cols={3}>
             {new Array(5).fill(imageCard).map(({ label, title, link, image }) => (
               <ImageCard label={label} title={title} link={link} image={image} />
             ))}
-          </div>
+          </Grid>
         </PageSection>
         <PageSection>
           <Contact contact={contact} />

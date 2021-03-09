@@ -11,7 +11,9 @@ type Props = {
 };
 
 export const QuoteCard: FC<Props> = ({ quote: { text, decoration, credit, portrait }, className = '' }) => (
-  <div className={`grid grid-flow-row place-items-center text-center w-full rounded bg-apricot-500 p-32 ${className}`}>
+  <div
+    className={`grid grid-flow-row place-items-center text-center w-full rounded bg-apricot-500 p-8 lg:p-32 ${className}`}
+  >
     <Portrait image={portrait} alt="" variant={PortraitVariant.small} />
     <Heading2 as="p" className="mt-4">
       «

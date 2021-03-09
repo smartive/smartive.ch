@@ -20,7 +20,9 @@ type Props = {
 
 export const ContentCard: FC<Props> = ({ title, label, content, link, background }) => (
   <Link href={link.href}>
-    <div className={`grid grid-rows-headerFooter p-8 gap-8 group cursor-pointer ${background} rounded overflow-hidden`}>
+    <div
+      className={`grid grid-rows-headerFooter w-full h-full p-8 gap-8 group cursor-pointer ${background} rounded overflow-hidden`}
+    >
       <Copy className="inline-flex flex-row items-center">{label}</Copy>
       <div>
         <Heading3 as="p">{title}</Heading3>

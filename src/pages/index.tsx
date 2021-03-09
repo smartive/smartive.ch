@@ -2,10 +2,10 @@ import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import { CustomersList } from '../components/customers-list';
-import { LinkList } from '../components/link-list';
 import { Contact } from '../compositions/contact';
 import { CardColors, ContentCard } from '../compositions/content-card';
 import { ImageCard } from '../compositions/image-card';
+import { LinkList } from '../compositions/link-list';
 import { MetaInfos, PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { Customer } from '../data/customers';
@@ -14,6 +14,7 @@ import { Employee } from '../data/employees';
 import Employees from '../data/employees.json';
 import { Clock } from '../elements/icons';
 import { Lead } from '../elements/lead';
+import { GridSlider } from '../layouts/grid-slider';
 import { generateMetaImage } from '../utils/meta-image-generator';
 
 type Props = {
@@ -45,7 +46,7 @@ const Home: NextPage<Props> = ({ contact, customers, metaInfos }) => {
             width={1504}
             height={800}
           />
-          <div className="grid grid-cols-3 gap-16 mt-16">
+          <GridSlider>
             <ImageCard
               label="Projekt — Migipedia"
               title="Der User im Mittelpunkt – seit 10 Jahren"
@@ -65,7 +66,7 @@ const Home: NextPage<Props> = ({ contact, customers, metaInfos }) => {
               link={{ label: 'Zur Shortlist', href: '#' }}
               background={CardColors.Apricot}
             />
-          </div>
+          </GridSlider>
         </PageSection>
         <PageSection title="Weiter gebracht haben wir unter anderem schon">
           <CustomersList customers={new Array(2).fill(customers).flat()} />
@@ -75,7 +76,7 @@ const Home: NextPage<Props> = ({ contact, customers, metaInfos }) => {
             In welcher Phase steckt dein Projekt? Mit unserer langjährigen Expertise unterstützen wir dich von der Idee bis
             über den Golive hinaus.
           </Lead>
-          <div className="grid grid-cols-4 gap-16">
+          <GridSlider>
             <ContentCard
               label={
                 <>
@@ -123,7 +124,7 @@ const Home: NextPage<Props> = ({ contact, customers, metaInfos }) => {
               link={{ label: 'Weitere Informationen', href: '#' }}
               background={CardColors.Cornflower}
             />
-          </div>
+          </GridSlider>
         </PageSection>
         <PageSection>
           <Contact contact={contact} />

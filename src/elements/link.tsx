@@ -1,5 +1,5 @@
 import NextLink, { LinkProps } from 'next/link';
-import { FC, HTMLAttributes, PropsWithChildren } from 'react';
+import { FC, HTMLAttributes } from 'react';
 
 export enum LinkVariants {
   Underline,
@@ -7,7 +7,7 @@ export enum LinkVariants {
   Feature,
 }
 
-type Props = PropsWithChildren<LinkProps> & {
+type Props = LinkProps & {
   className?: string;
   variant?: LinkVariants;
   newTab?: boolean;
@@ -36,11 +36,11 @@ export const Link: FC<Props> = ({
   </NextLink>
 );
 
-type LinkButtonProps = PropsWithChildren<{
+type LinkButtonProps = {
   onClick(): void;
   className?: string;
   variant?: LinkVariants;
-}>;
+};
 
 export const LinkButton: FC<LinkButtonProps> = ({ children, onClick, variant = LinkVariants.Underline, className = '' }) => (
   <button onClick={onClick} className={`${VariantStyles[variant]} transition-colors duration-150 ${className}`}>

@@ -1,14 +1,17 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
+import React from 'react';
 import { ShuffleCard } from '../components/shuffle-card';
+import { BlockList } from '../compositions/block-list';
 import { MetaInfos, PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { TextBlock } from '../compositions/text-block';
 import { Employee } from '../data/employees';
 import Employees from '../data/employees.json';
-import { Heading2 } from '../elements/heading-2';
 import { Lead } from '../elements/lead';
 import { Link } from '../elements/link';
+import { Grid } from '../layouts/grid';
+import { GridSlider } from '../layouts/grid-slider';
 import { generateMetaImage } from '../utils/meta-image-generator';
 
 const textBlocks = [
@@ -63,70 +66,70 @@ const Agentur: NextPage<Props> = ({ employees, metaInfos }) => {
 
       <main>
         <PageSection>
-          <div className="grid grid-flow-col grid-cols-2 grid-rows-2 gap-16">
+          <Grid cols={2}>
             <Image
               className="rounded"
               src="/images/IMG_0691.jpeg"
               alt="smartive Team sitzt auf einer Bank mit blauem Himmel und Thunersee im Hintergrund"
-              priority
               objectFit="cover"
               width={720}
               height={500}
             />
-            <Image
-              className="rounded"
-              src="/images/DSC06098.jpeg"
-              alt="smartive Mitarbeiter hält einen Vortrag vor mehreren Leuten"
-              priority
-              objectFit="cover"
-              width={720}
-              height={500}
-            />
-            <div className="col-start-2 row-span-2 relative">
+            <div className="md:col-start-2 md:row-span-2 relative">
               <Image
                 className="rounded"
                 src="/images/YB_06742.jpg"
                 alt="smartive Team am Mittagstisch beim Essen"
-                priority
                 objectFit="cover"
                 layout="fill"
               />
             </div>
-          </div>
-          <div className="grid grid-cols-3 gap-16 my-16">
-            {textBlocks.map(({ title, content }) => (
+            <Image
+              className="rounded"
+              src="/images/DSC06098.jpeg"
+              alt="smartive Mitarbeiter hält einen Vortrag vor mehreren Leuten"
+              objectFit="cover"
+              width={720}
+              height={500}
+            />
+          </Grid>
+          <GridSlider>
+            {textBlocks.slice(0, Math.floor(textBlocks.length / 2)).map(({ title, content }) => (
               <TextBlock key={title} title={title}>
                 {content}
               </TextBlock>
             ))}
-          </div>
+          </GridSlider>
+          <GridSlider>
+            {textBlocks.slice(Math.floor(textBlocks.length / 2)).map(({ title, content }) => (
+              <TextBlock key={title} title={title}>
+                {content}
+              </TextBlock>
+            ))}
+          </GridSlider>
           <ShuffleCard employees={employees.filter((employee) => employee.portrait)} />
-          <div className="grid grid-cols-2 gap-16 my-16">
+          <Grid cols={2}>
             <Image
               className="rounded"
               src="/images/IMG_3812.jpeg"
               alt="smartive Team am arbeiten an einem Tisch im freien mit dem Valle Verzasca im Hintergrund"
-              priority
               objectFit="cover"
               width={720}
               height={380}
             />
-            <div className="row-span-3">
+            <div className="md:row-span-3 relative">
               <Image
                 className="rounded"
                 src="/images/20180922_114902.jpeg"
                 alt="smartive Team bei einer Wanderung mit dem Gasthaus Aescher-Wildkirchli im Hintergrund"
-                priority
                 objectFit="cover"
-                width={720}
-                height={1275}
+                layout="fill"
               />
             </div>
             <Image
               className="rounded"
               src="/images/LabFinger-DSC05310.jpeg"
               alt="smartive Mitarbeiter mit einem Schild auf dem smartive beworben wird"
-              priority
               objectFit="cover"
               width={720}
               height={380}
@@ -135,58 +138,45 @@ const Agentur: NextPage<Props> = ({ employees, metaInfos }) => {
               className="rounded"
               src="/images/MVIMG_20200903_183052.jpeg"
               alt="smartive Team beim Fussballspielen auf einer grünen Wiese"
-              priority
               objectFit="cover"
               width={720}
               height={380}
             />
-            <div className="col-span-2">
+            <div className="md:col-span-2">
               <Image
                 className="rounded"
                 src="/images/IMG_20190905_125318.jpeg"
                 alt="smartive Team beim Mittagessen im Freien"
-                priority
                 objectFit="cover"
                 width={1504}
                 height={800}
               />
             </div>
-          </div>
-          <div className="max-w-3xl mx-auto">
-            <Heading2>Du willst noch mehr über smartive wissen? Ein paar kurzweilige Fakten.</Heading2>
-            <div className="mb-20">
-              <TextBlock title="Bald eine Dekade">
-                smartive wurde <strong>2021</strong> gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, wo
-                wir uns alle einbringen und so arbeiten, wie es uns entspricht.
-              </TextBlock>
-            </div>
-
-            <div className="mb-20">
-              <TextBlock title="Anderthalb Dutzend">
-                Heute kommen <strong>{Object.values(Employees).length} Mitarbeiter*innen</strong> in Zürich zusammen und
-                bringen ihre Fähigkeiten und ihre Art ein – in Software-Entwicklung, Projektleitung, Design und User
-                Experience.
-              </TextBlock>
-            </div>
-            <div className="mb-20">
-              <TextBlock title="Zwölf Teilhaber*innen">
-                Darauf sind wir stolz: <strong>Zwölf</strong> unserer {Object.values(Employees).length} Mitarbeiter*innen
-                besitzen smartive-Aktien. Es gibt keine externen Aktionär*innen oder Stakeholder.
-              </TextBlock>
-              <div className="mb-20"></div>
-              <TextBlock title="Erfolgreiche Projekte: dreistellig">
-                In den letzten Jahren haben wir über <strong>300 Projekte</strong> erfolgreich gemeistert. Sowohl in
-                Zusammenarbeit mit <Link href="subsidia">Start-Ups</Link> als auch mit der{' '}
-                <Link href="/projekte/migipedia/">grössten Arbeitgeberin der Schweiz</Link>.
-              </TextBlock>
-            </div>
-            <div className="mb-20">
-              <TextBlock title="Aufsteiger des Jahres">
-                Unsere Projekte werden regelmässig ausgezeichnet. Bei den Best of Swiss Web Awards rangieren wir in den Top
-                20 der vergangenen 5 Jahre.
-              </TextBlock>
-            </div>
-          </div>
+          </Grid>
+          <BlockList title="Du willst noch mehr über smartive wissen? Ein paar kurzweilige Fakten.">
+            <TextBlock title="Bald eine Dekade">
+              smartive wurde <strong>2021</strong> gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, wo
+              wir uns alle einbringen und so arbeiten, wie es uns entspricht.
+            </TextBlock>
+            <TextBlock title="Anderthalb Dutzend">
+              Heute kommen <strong>{Object.values(Employees).length} Mitarbeiter*innen</strong> in Zürich zusammen und
+              bringen ihre Fähigkeiten und ihre Art ein – in Software-Entwicklung, Projektleitung, Design und User
+              Experience.
+            </TextBlock>
+            <TextBlock title="Zwölf Teilhaber*innen">
+              Darauf sind wir stolz: <strong>Zwölf</strong> unserer {Object.values(Employees).length} Mitarbeiter*innen
+              besitzen smartive-Aktien. Es gibt keine externen Aktionär*innen oder Stakeholder.
+            </TextBlock>
+            <TextBlock title="Erfolgreiche Projekte: dreistellig">
+              In den letzten Jahren haben wir über <strong>300 Projekte</strong> erfolgreich gemeistert. Sowohl in
+              Zusammenarbeit mit <Link href="subsidia">Start-Ups</Link> als auch mit der{' '}
+              <Link href="/projekte/migipedia/">grössten Arbeitgeberin der Schweiz</Link>.
+            </TextBlock>
+            <TextBlock title="Aufsteiger des Jahres">
+              Unsere Projekte werden regelmässig ausgezeichnet. Bei den Best of Swiss Web Awards rangieren wir in den Top 20
+              der vergangenen 5 Jahre.
+            </TextBlock>
+          </BlockList>
         </PageSection>
       </main>
     </div>

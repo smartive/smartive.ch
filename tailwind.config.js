@@ -11,7 +11,8 @@ module.exports = {
       bold: '600',
     },
     fontSize: {
-      xs: ['1rem', { lineHeight: '1' }],
+      xxs: ['0.875rem', { lineHeight: '150%' }],
+      xs: ['1rem', { lineHeight: '150%' }],
       sm: ['1.125rem', { lineHeight: '150%' }],
       base: ['1.5rem', { lineHeight: '150%' }],
       lg: ['2rem', { lineHeight: '125%' }],
@@ -56,11 +57,15 @@ module.exports = {
       gridTemplateColumns: {
         form: '1fr auto',
       },
+      minWidth: {
+        '3/4': '75%',
+      },
     },
   },
   variants: {
     extend: {
       margin: ['responsive', 'first', 'last'],
+      padding: ['responsive', 'first', 'last'],
     },
   },
   plugins: [],

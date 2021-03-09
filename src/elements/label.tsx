@@ -6,5 +6,5 @@ type Props = {
 };
 
 export const Label: FC<Props> = ({ children, as: Tag = 'span', className = '' }) => (
-  <Tag className={`font-sans font-bold text-sm ${className}`}>{children}</Tag>
+  <Tag className={`font-sans font-bold text-sm lg:text-base ${className}`}>{children}</Tag>
 );
