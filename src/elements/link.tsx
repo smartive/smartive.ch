@@ -11,6 +11,7 @@ type Props = LinkProps & {
   className?: string;
   variant?: LinkVariants;
   newTab?: boolean;
+  onClick?: () => void;
 } & HTMLAttributes<HTMLElement>;
 
 export const VariantStyles = {
@@ -24,12 +25,14 @@ export const Link: FC<Props> = ({
   variant = LinkVariants.Underline,
   className = '',
   newTab = false,
+  onClick,
   ...props
 }) => (
   <NextLink passHref {...props}>
     <a
       className={`${VariantStyles[variant]} transition-colors duration-150 ${className}`}
       {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}
+      onClick={onClick}
     >
       {children}
     </a>
