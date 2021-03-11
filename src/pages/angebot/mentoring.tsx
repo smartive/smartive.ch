@@ -18,55 +18,44 @@ type Props = {
   contact: Employee;
 };
 
-const IdeationSprint: NextPage<Props> = ({ contact }) => {
+const Mentoring: NextPage<Props> = ({ contact }) => {
   return (
     <div>
       <PageHeader
-        markdownTitle="Ideation Sprint"
-        description="Gewinne‌ ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌ ‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generiere‌ ‌daraus‌
-          ‌funktionsfähige‌ ‌Ideen.‌ ‌Erhalte‌ ‌einen‌ ‌ersten‌ ‌visuellen‌ ‌Prototypen‌ ‌und‌ ‌hole‌ ‌Feedback‌ ‌deiner‌
-          ‌Kunden‌ ‌dazu‌ ‌ab.‌"
+        markdownTitle="Mentoring"
+        description="Profitiere von einem erfahrenen Team und erhalte fortlaufend objektive Einschätzungen und Vorschläge für dein Projekt. Tausche dich in regelmässigen Jour fixes mit unseren Digital Strategists über dein Produkt und deine Strategie aus. Deine Ideen werden auf konstruktiv gechallenged. So kannst du dein Vorgehen festigen und gewinnst Sicherheit, dass du auf dem richtigen Weg bist."
         variant={PageHeaderVariants.Card}
       >
-        <Label className="inline-flex flex-row items-center mb-8">
-          <Clock className="h-6 w-6 mr-2 inline" />
-          2–5 Tage
-        </Label>
         <Copy>
-          ‌Gewinne‌ ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌ ‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generiere‌ ‌daraus‌
-          ‌funktionsfähige‌ ‌Ideen.‌ ‌Erhalte‌ ‌einen‌ ‌ersten‌ ‌visuellen‌ ‌Prototypen‌ ‌und‌ ‌hole‌ ‌Feedback‌ ‌deiner‌
-          ‌Kunden‌ ‌dazu‌ ‌ab.‌
+          Profitiere von einem erfahrenen Team und erhalte fortlaufend objektive Einschätzungen und Vorschläge für dein
+          Projekt. Tausche dich in regelmässigen Jour fixes mit unseren Digital Strategists über dein Produkt und deine
+          Strategie aus. Deine Ideen werden auf konstruktiv gechallenged. So kannst du dein Vorgehen festigen und gewinnst
+          Sicherheit, dass du auf dem richtigen Weg bist.
         </Copy>
       </PageHeader>
 
       <main>
         <PageSection>
-          <Heading2>Was ist ein Ideation Sprint?</Heading2>
+          <Heading2>Was beinhaltet das Mentoring?</Heading2>
           <Copy>
-            Du hast eine Marktlücke oder die Chance für einen Innovationssprung deines digitalen Produkts erkannt. Du bist
-            dir aber nicht sicher, wie du diese Herausforderung angehen sollst. In einem Ideation Workshop zerlegen wir
-            gemeinsam mit Fachexperten das Problem in seine Einzelteile und entwickeln daraus eine Lösung. Dabei setzen wir
-            auf modernste Methoden wie Design Sprints oder Lightning Decision Jams. Je nach Komplexität der Herausforderung
-            entwickeln wir einen visuellen, klickbaren Prototypen und führen bereits ein erstes Testing mit deinen
-            po­ten­zi­ellen Nutzern durch.
+            Du möchtest ein digitales Produkt schaffen oder ein bestehendes weiterentwickeln, bist aber nicht immer ganz
+            sicher ob du auf dem richtigen Weg bist? Dir fehlt die Erfahrung im Aufbau oder der Entwicklung eines Produkts?
+            In einem regelmässigen Jour fixe tauscht du dich mit unseren Digital Strategists über das Projekt aus. Den
+            thematischen Fokus legen wir gemeinsam fest, das von der Strategie, über User Experience, agiles Projekt
+            Management, Entwicklung bis hin zu Cloud Deployments alles sein. In diesen Gesprächen erhältst du objektives
+            Feedback zu deinem Vorgehen und kannst Pitfalls frühzeitig erkennen.
           </Copy>
           <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
             <UnorderedList
               title="Das hast du davon"
               items={[
-                'Du profitierst von einem agilen, hochqualifizierten Team.',
-                'In wenigen Tagen wird eine konkrete und lösungsorientierte Idee für deine Herausforderung entwickelt.',
-                'Du erhältst Rückmeldungen deiner Nutzer zur Idee und weisst, ob sie standhält.',
-                'Bei komplexeren Ideen hast du einen visuellen und klickbaren Prototypen, der bereits mit deiner Zielgruppe getestet wurde.',
+                'Du profitierst von der langjährigen Expertise unserer Digital Strategists.',
+                'Wir erlauben dir ein persönliches Rubber Ducking, wir antworten aber auch.',
+                'Du gewinnst Sicherheit in deinem Vorgehen.',
+                'Wir haben ein Team aus der User Experience, DevOps und der Software Entwicklung, welches jederzeit hinzugezogen werden kann.',
               ]}
             />
-            <UnorderedList
-              title="Das brauchen wir von dir"
-              items={[
-                'Du hast 2 - 3 Tage Zeit, um mit uns an den Workshops zusammen zu arbeiten.',
-                'Du kennst dich in deinem “Problem Space” aus und kannst diesen verständlich erklären.',
-              ]}
-            />
+            <UnorderedList title="Das brauchen wir von dir" items={['Einen regelmässigen Termin für einen Jour fixe.']} />
           </div>
         </PageSection>
         <PageSection>
@@ -158,4 +147,4 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-export default IdeationSprint;
+export default Mentoring;

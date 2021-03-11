@@ -18,53 +18,44 @@ type Props = {
   contact: Employee;
 };
 
-const IdeationSprint: NextPage<Props> = ({ contact }) => {
+const ScaleUp: NextPage<Props> = ({ contact }) => {
   return (
     <div>
       <PageHeader
-        markdownTitle="Ideation Sprint"
-        description="Gewinne‌ ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌ ‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generiere‌ ‌daraus‌
-          ‌funktionsfähige‌ ‌Ideen.‌ ‌Erhalte‌ ‌einen‌ ‌ersten‌ ‌visuellen‌ ‌Prototypen‌ ‌und‌ ‌hole‌ ‌Feedback‌ ‌deiner‌
-          ‌Kunden‌ ‌dazu‌ ‌ab.‌"
+        markdownTitle="Scale Up"
+        description="Baue deinen MVP entlang der messbaren Ziele aus und erweitere den Umfang deines Produkts."
         variant={PageHeaderVariants.Card}
       >
         <Label className="inline-flex flex-row items-center mb-8">
           <Clock className="h-6 w-6 mr-2 inline" />
-          2–5 Tage
+          2-3 Monate
         </Label>
-        <Copy>
-          ‌Gewinne‌ ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌ ‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generiere‌ ‌daraus‌
-          ‌funktionsfähige‌ ‌Ideen.‌ ‌Erhalte‌ ‌einen‌ ‌ersten‌ ‌visuellen‌ ‌Prototypen‌ ‌und‌ ‌hole‌ ‌Feedback‌ ‌deiner‌
-          ‌Kunden‌ ‌dazu‌ ‌ab.‌
-        </Copy>
+        <Copy>Baue deinen MVP entlang der messbaren Ziele aus und erweitere den Umfang deines Produkts.</Copy>
       </PageHeader>
 
       <main>
         <PageSection>
-          <Heading2>Was ist ein Ideation Sprint?</Heading2>
+          <Heading2>Was ist heisst Scale Up?</Heading2>
           <Copy>
-            Du hast eine Marktlücke oder die Chance für einen Innovationssprung deines digitalen Produkts erkannt. Du bist
-            dir aber nicht sicher, wie du diese Herausforderung angehen sollst. In einem Ideation Workshop zerlegen wir
-            gemeinsam mit Fachexperten das Problem in seine Einzelteile und entwickeln daraus eine Lösung. Dabei setzen wir
-            auf modernste Methoden wie Design Sprints oder Lightning Decision Jams. Je nach Komplexität der Herausforderung
-            entwickeln wir einen visuellen, klickbaren Prototypen und führen bereits ein erstes Testing mit deinen
-            po­ten­zi­ellen Nutzern durch.
+            Du hast dein Produkt als MVP am Markt. Du möchtest es entweder verbessern oder weiterentwickeln. Die angestrebten
+            Ziele und sind definiert und werden gemessen. Anhand dieser Ziele legen wir gemeinsam deine nächsten
+            Zwischenziele fest und arbeiten auf diese hin. Die Umsetzung erfolgt in agilen zweiwöchigen Sprints, wobei du
+            laufend den Fortschritt siehst.
           </Copy>
           <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
             <UnorderedList
               title="Das hast du davon"
               items={[
-                'Du profitierst von einem agilen, hochqualifizierten Team.',
-                'In wenigen Tagen wird eine konkrete und lösungsorientierte Idee für deine Herausforderung entwickelt.',
-                'Du erhältst Rückmeldungen deiner Nutzer zur Idee und weisst, ob sie standhält.',
-                'Bei komplexeren Ideen hast du einen visuellen und klickbaren Prototypen, der bereits mit deiner Zielgruppe getestet wurde.',
+                'Ein ausgereiftes Produkt mit der Möglichkeit, den Erfolg deiner Ziele zu messen.',
+                'Agiles und leanes Vorgehen zum Ausbau deines Produkts.',
+                'Definition deiner wichtigsten Customer Journeys.',
               ]}
             />
             <UnorderedList
               title="Das brauchen wir von dir"
               items={[
-                'Du hast 2 - 3 Tage Zeit, um mit uns an den Workshops zusammen zu arbeiten.',
-                'Du kennst dich in deinem “Problem Space” aus und kannst diesen verständlich erklären.',
+                'Du oder ein*e Entscheidungsträger*in aus deinem Team kann wöchentlich an Planning- und Review-Meetings teilnehmen.',
+                'Du bist gewillt, sehr schnell vorwärts zu machen und Entscheide zu treffen.',
               ]}
             />
           </div>
@@ -153,9 +144,9 @@ const IdeationSprint: NextPage<Props> = ({ contact }) => {
 export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
-      contact: Employees.peter,
+      contact: Employees.thilo,
     },
   };
 };
 
-export default IdeationSprint;
+export default ScaleUp;

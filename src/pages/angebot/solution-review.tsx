@@ -18,53 +18,48 @@ type Props = {
   contact: Employee;
 };
 
-const IdeationSprint: NextPage<Props> = ({ contact }) => {
+const SolutionReview: NextPage<Props> = ({ contact }) => {
   return (
     <div>
       <PageHeader
-        markdownTitle="Ideation Sprint"
-        description="Gewinne‌ ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌ ‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generiere‌ ‌daraus‌
-          ‌funktionsfähige‌ ‌Ideen.‌ ‌Erhalte‌ ‌einen‌ ‌ersten‌ ‌visuellen‌ ‌Prototypen‌ ‌und‌ ‌hole‌ ‌Feedback‌ ‌deiner‌
-          ‌Kunden‌ ‌dazu‌ ‌ab.‌"
+        markdownTitle="Solution Review"
+        description="Erhalte eine objektive Einschätzung der Chancen und Risiken deines digitalen Produkts sowie einen klaren Massnahmenplan, was du verbessern kannst."
         variant={PageHeaderVariants.Card}
       >
         <Label className="inline-flex flex-row items-center mb-8">
-          <Clock className="h-6 w-6 mr-2 inline" />
-          2–5 Tage
+          <Clock className="h-6 w-6 mr-2 inline" />5 Tage
         </Label>
         <Copy>
-          ‌Gewinne‌ ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌ ‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generiere‌ ‌daraus‌
-          ‌funktionsfähige‌ ‌Ideen.‌ ‌Erhalte‌ ‌einen‌ ‌ersten‌ ‌visuellen‌ ‌Prototypen‌ ‌und‌ ‌hole‌ ‌Feedback‌ ‌deiner‌
-          ‌Kunden‌ ‌dazu‌ ‌ab.‌
+          Erhalte eine objektive Einschätzung der Chancen und Risiken deines digitalen Produkts sowie einen klaren
+          Massnahmenplan, was du verbessern kannst.
         </Copy>
       </PageHeader>
 
       <main>
         <PageSection>
-          <Heading2>Was ist ein Ideation Sprint?</Heading2>
+          <Heading2>Was ist ein Solution Review?</Heading2>
           <Copy>
-            Du hast eine Marktlücke oder die Chance für einen Innovationssprung deines digitalen Produkts erkannt. Du bist
-            dir aber nicht sicher, wie du diese Herausforderung angehen sollst. In einem Ideation Workshop zerlegen wir
-            gemeinsam mit Fachexperten das Problem in seine Einzelteile und entwickeln daraus eine Lösung. Dabei setzen wir
-            auf modernste Methoden wie Design Sprints oder Lightning Decision Jams. Je nach Komplexität der Herausforderung
-            entwickeln wir einen visuellen, klickbaren Prototypen und führen bereits ein erstes Testing mit deinen
-            po­ten­zi­ellen Nutzern durch.
+            Du hast ein digitales Produkt am Markt. Es geht nicht voran oder du bist dir nicht sicher, ob die Lösung hält,
+            was sie verspricht. Du möchtest das Produkt verbessern oder weiterentwickeln, bist dir aber nicht darüber im
+            Klaren, welches die nächsten Schritte sind. Bei einem Solution Review analysieren wir deine bestehende Lösung und
+            liefern dir unsere Erkenntnisse, Risiken und Empfehlungen.
           </Copy>
           <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
             <UnorderedList
               title="Das hast du davon"
               items={[
-                'Du profitierst von einem agilen, hochqualifizierten Team.',
-                'In wenigen Tagen wird eine konkrete und lösungsorientierte Idee für deine Herausforderung entwickelt.',
-                'Du erhältst Rückmeldungen deiner Nutzer zur Idee und weisst, ob sie standhält.',
-                'Bei komplexeren Ideen hast du einen visuellen und klickbaren Prototypen, der bereits mit deiner Zielgruppe getestet wurde.',
+                'Eine objektive Meinung, wie es um dein Produkt steht.',
+                'Eine Dokumentation mit unseren Erkenntnissen, den vorhandenen Risiken und konkreten Empfehlungen.',
+                'Eine zweistündige Präsentation mit Zeit für Fragen von deiner Seite.',
               ]}
             />
             <UnorderedList
               title="Das brauchen wir von dir"
               items={[
-                'Du hast 2 - 3 Tage Zeit, um mit uns an den Workshops zusammen zu arbeiten.',
-                'Du kennst dich in deinem “Problem Space” aus und kannst diesen verständlich erklären.',
+                'Zugriff auf den Source Code und dessen Dokumentation.',
+                'Du bist offen für konstruktives Feedback mit konkreten Empfehlungen für dein Produkt.',
+                'Du hast zwei Stunden Zeit für die Präsentation unserer Resultate.',
+                'Eine Liste mit konkreten Fragen oder Fokusthemen für den Review, falls du das hast.',
               ]}
             />
           </div>
@@ -153,9 +148,9 @@ const IdeationSprint: NextPage<Props> = ({ contact }) => {
 export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
-      contact: Employees.peter,
+      contact: Employees.joshua,
     },
   };
 };
 
-export default IdeationSprint;
+export default SolutionReview;
