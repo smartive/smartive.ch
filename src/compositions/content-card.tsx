@@ -10,7 +10,7 @@ export enum CardColors {
   Mint = 'bg-mint-500',
 }
 
-type Props = {
+export type ContentCardProps = {
   label?: string | ReactNode;
   title: string;
   content?: string;
@@ -18,7 +18,7 @@ type Props = {
   background: CardColors;
 };
 
-export const ContentCard: FC<Props> = ({ title, label, content, link, background }) => (
+export const ContentCard: FC<ContentCardProps> = ({ title, label, content, link, background }) => (
   <Link href={link.href}>
     <div
       className={`grid grid-rows-headerFooter w-full h-full p-8 gap-8 cursor-pointer ${background} rounded overflow-hidden card-hover`}
