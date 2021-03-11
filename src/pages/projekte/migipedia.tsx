@@ -62,7 +62,7 @@ const Migipedia: NextPage<Props> = ({ quoteStefanie, contact, packages }) => {
             <div className="col-span-2">
               <Image
                 className="rounded"
-                src="/images/YB_06742.jpg"
+                src="/images/mood/YB_06742.jpg"
                 alt="Lustigi Lüüt amne Tisch"
                 priority
                 objectFit="cover"

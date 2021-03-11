@@ -70,7 +70,7 @@ const Agentur: NextPage<Props> = ({ employees }) => {
           <Grid cols={2}>
             <Image
               className="rounded"
-              src="/images/IMG_0691.jpeg"
+              src="/images/mood/code-retreat-terrasse.jpg"
               alt="smartive Team sitzt auf einer Bank mit blauem Himmel und Thunersee im Hintergrund"
               objectFit="cover"
               width={720}
@@ -79,7 +79,7 @@ const Agentur: NextPage<Props> = ({ employees }) => {
             <div className="md:col-start-2 md:row-span-2 relative">
               <Image
                 className="rounded"
-                src="/images/YB_06742.jpg"
+                src="/images/mood/YB_06742.jpg"
                 alt="smartive Team am Mittagstisch beim Essen"
                 objectFit="cover"
                 layout="fill"
@@ -87,7 +87,7 @@ const Agentur: NextPage<Props> = ({ employees }) => {
             </div>
             <Image
               className="rounded"
-              src="/images/DSC06098.jpeg"
+              src="/images/mood/robert-dife.jpg"
               alt="smartive Mitarbeiter hält einen Vortrag vor mehreren Leuten"
               objectFit="cover"
               width={720}
@@ -112,7 +112,7 @@ const Agentur: NextPage<Props> = ({ employees }) => {
           <Grid cols={2}>
             <Image
               className="rounded"
-              src="/images/IMG_3812.jpeg"
+              src="/images/mood/code-retreat-hackday.jpg"
               alt="smartive Team am arbeiten an einem Tisch im freien mit dem Valle Verzasca im Hintergrund"
               objectFit="cover"
               width={720}
@@ -121,7 +121,7 @@ const Agentur: NextPage<Props> = ({ employees }) => {
             <div className="md:row-span-3 relative">
               <Image
                 className="rounded"
-                src="/images/20180922_114902.jpeg"
+                src="/images/mood/aescher-gruppenbild.jpg"
                 alt="smartive Team bei einer Wanderung mit dem Gasthaus Aescher-Wildkirchli im Hintergrund"
                 objectFit="cover"
                 layout="fill"
@@ -129,7 +129,7 @@ const Agentur: NextPage<Props> = ({ employees }) => {
             </div>
             <Image
               className="rounded"
-              src="/images/LabFinger-DSC05310.jpeg"
+              src="/images/mood/dominique-lab-finger.jpg"
               alt="smartive Mitarbeiter mit einem Schild auf dem smartive beworben wird"
               objectFit="cover"
               width={720}
@@ -137,7 +137,7 @@ const Agentur: NextPage<Props> = ({ employees }) => {
             />
             <Image
               className="rounded"
-              src="/images/MVIMG_20200903_183052.jpeg"
+              src="/images/mood/code-retreat-fussball.jpg"
               alt="smartive Team beim Fussballspielen auf einer grünen Wiese"
               objectFit="cover"
               width={720}
@@ -146,7 +146,7 @@ const Agentur: NextPage<Props> = ({ employees }) => {
             <div className="md:col-span-2">
               <Image
                 className="rounded"
-                src="/images/IMG_20190905_125318.jpeg"
+                src="/images/mood/code-retreat-lunch.jpg"
                 alt="smartive Team beim Mittagessen im Freien"
                 objectFit="cover"
                 width={1504}
