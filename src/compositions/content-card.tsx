@@ -11,9 +11,9 @@ export enum CardColors {
 }
 
 type Props = {
-  label: string | ReactNode;
+  label?: string | ReactNode;
   title: string;
-  content: string;
+  content?: string;
   link: { label: string; href: Url | string };
   background: CardColors;
 };
@@ -21,15 +21,15 @@ type Props = {
 export const ContentCard: FC<Props> = ({ title, label, content, link, background }) => (
   <Link href={link.href}>
     <div
-      className={`grid grid-rows-headerFooter w-full h-full p-8 gap-8 group cursor-pointer ${background} rounded overflow-hidden`}
+      className={`grid grid-rows-headerFooter w-full h-full p-8 gap-8 cursor-pointer ${background} rounded overflow-hidden card-hover`}
     >
-      <Copy className="inline-flex flex-row items-center">{label}</Copy>
+      {label && <Copy className="inline-flex flex-row items-center">{label}</Copy>}
       <div>
         <Heading3 as="p">{title}</Heading3>
-        <Copy>{content}</Copy>
+        {content && <Copy>{content}</Copy>}
       </div>
       <div>
-        <span className="border-b group-hover:border-apricot-500 transition-colors duration-150">{link.label}</span>
+        <span className="border-b">{link.label}</span>
       </div>
     </div>
   </Link>

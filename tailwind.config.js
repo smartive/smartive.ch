@@ -57,8 +57,14 @@ module.exports = {
       gridTemplateColumns: {
         form: '1fr auto',
       },
+      spacing: {
+        120: '30rem',
+      },
       minWidth: {
         '3/4': '75%',
+      },
+      borderWidth: {
+        3: '3px',
       },
     },
   },

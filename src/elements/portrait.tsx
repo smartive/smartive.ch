@@ -2,8 +2,8 @@ import Image from 'next/image';
 import React, { FC } from 'react';
 
 export enum PortraitVariant {
-  big = 208,
-  small = 128,
+  Big = 208,
+  Small = 128,
 }
 
 type Props = {

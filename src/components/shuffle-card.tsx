@@ -26,7 +26,7 @@ export const ShuffleCard: FC<Props> = ({ employees }) => {
     <div className="grid grid-flow-row place-items-center text-center w-full rounded bg-cornflower-500 p-16">
       <Heading2 as="p">Alles nur Corporate Blabla und Worthülsen?</Heading2>
       <Copy className="mb-16">Dann frag einen random Smartie!</Copy>
-      <Portrait image={currentEmployee.portrait} alt="" variant={PortraitVariant.small} />
+      <Portrait image={currentEmployee.portrait} alt="" variant={PortraitVariant.Small} />
       <div className="mt-10">
         <Link href={`mailto:${currentEmployee.email}`} className="mr-8">
           Frag {currentEmployee.firstname}

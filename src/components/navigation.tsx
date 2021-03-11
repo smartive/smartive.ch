@@ -73,16 +73,16 @@ export const Navigation: FC = () => {
               exit={{ opacity: 0 }}
             >
               {Main.map(({ label, link }) => (
-                <Heading2 as="li" noSpacing>
-                  <Link key={label} variant={LinkVariants.NoUnderline} href={link} onClick={() => setMobileNavOpen(false)}>
+                <Heading2 key={label} as="li" noSpacing>
+                  <Link variant={LinkVariants.NoUnderline} href={link} onClick={() => setMobileNavOpen(false)}>
                     {label}
                   </Link>
                 </Heading2>
               ))}
               <br />
               {Meta.map(({ label, link }) => (
-                <Label as="li">
-                  <Link key={label} variant={LinkVariants.NoUnderline} href={link} onClick={() => setMobileNavOpen(false)}>
+                <Label key={label} as="li">
+                  <Link variant={LinkVariants.NoUnderline} href={link} onClick={() => setMobileNavOpen(false)}>
                     {label}
                   </Link>
                 </Label>

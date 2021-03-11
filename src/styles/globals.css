@@ -14,6 +14,12 @@
   }
 }
 
+@layer utilities {
+  .card-hover {
+    @apply border-transparent border-3 hover:border-black transition-colors duration-150;
+  }
+}
+
 ::selection {
   @apply bg-cornflower-500;
   @apply text-mint-500;

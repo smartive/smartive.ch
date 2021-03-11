@@ -15,7 +15,7 @@ export const LinkList: FC<Props> = ({ links }) => (
       <Link
         variant={LinkVariants.Feature}
         href={href}
-        key={index}
+        key={label}
         className={`${UnderlineColors[index % 3]} ${UnderlineHoverColors[index % 3]} pb-1 mr-8 last:mr-0 mb-2`}
       >
         {label}

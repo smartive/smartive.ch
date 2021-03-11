@@ -12,6 +12,7 @@
   "dependencies": {
     "autoprefixer": "^10.2.4",
     "body-scroll-lock": "^3.1.5",
+    "dayjs": "^1.10.4",
     "framer-motion": "^3.10.2",
     "next": "10.0.6",
     "postcss": "^8.2.5",

@@ -24,8 +24,8 @@ export const EmployeeCard: FC<Props> = ({ employee: { firstname, lastname, job, 
       </Heading3>
       <Copy>{bio}</Copy>
       <div className="flex flex-row flex-wrap gap-4 mt-6">
-        {links.map(({ label, url }, index) => (
-          <Link key={index} href={url} variant={LinkVariants.Underline}>
+        {links.map(({ label, url }) => (
+          <Link key={url} href={url} variant={LinkVariants.Underline}>
             {label}
           </Link>
         ))}

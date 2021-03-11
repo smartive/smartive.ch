@@ -14,7 +14,7 @@ export const QuoteCard: FC<Props> = ({ quote: { text, decoration, credit, portra
   <div
     className={`grid grid-flow-row place-items-center text-center w-full rounded bg-apricot-500 p-8 lg:p-32 ${className}`}
   >
-    <Portrait image={portrait} alt="" variant={PortraitVariant.small} />
+    <Portrait image={portrait} alt="" variant={PortraitVariant.Small} />
     <Heading2 as="p" className="mt-4">
       &laquo;
       {decoration && text.includes(decoration) ? (

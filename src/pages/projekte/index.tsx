@@ -26,12 +26,12 @@ const imageCard: ImageCardProps = {
 const bigImageCards: ImageCardProps[] = [
   {
     ...imageCard,
-    variant: ImageCardVariants.BIG,
+    variant: ImageCardVariants.Big,
     awardTags: ['Best of Swiss Web 2021'],
   },
   {
     ...imageCard,
-    variant: ImageCardVariants.BIG,
+    variant: ImageCardVariants.Big,
     awardTags: ['Best of Swiss Web 2021', 'Best of Swiss Web 2020'],
   },
 ];

@@ -15,7 +15,7 @@ export const Contact: FC<Props> = ({ contact }) => {
       <Portrait
         image={portrait}
         alt={`${firstname} ${lastname}`}
-        variant={PortraitVariant.big}
+        variant={PortraitVariant.Big}
         className="h-16 w-16 lg:h-52 lg:w-52"
       />
       <div>

@@ -1,40 +1,65 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Url } from 'url';
 import { AwardTags } from '../components/award-tags';
 import { Copy } from '../elements/copy';
 import { Heading3 } from '../elements/heading-3';
+import { Lead } from '../elements/lead';
+import { isExternalUrl } from '../utils/url';
 
 export enum ImageCardVariants {
-  'BIG',
-  'SMALL',
+  Big,
+  Small,
+  Wide,
 }
+
+const ImageSizes = {
+  [ImageCardVariants.Small]: 'h-60',
+  [ImageCardVariants.Big]: 'h-120',
+  [ImageCardVariants.Wide]: 'h-60 md:h-full',
+} as const;
 
 export type Props = {
   image: { src: string; alt?: string };
-  label: string;
+  label: string | ReactNode;
   title: string;
+  description?: string;
   link: { label: string; href: Url | string };
   awardTags?: string[];
   variant?: ImageCardVariants;
+  className?: string;
 };
 
-export const ImageCard: FC<Props> = ({ image, label, title, link, variant = ImageCardVariants.SMALL, awardTags = [] }) => (
+export const ImageCard: FC<Props> = ({
+  image,
+  label,
+  title,
+  description,
+  link,
+  variant = ImageCardVariants.Small,
+  awardTags = [],
+  className = '',
+}) => (
   <Link href={link.href}>
-    <div className="group cursor-pointer bg-white-100 rounded overflow-hidden relative">
-      <Image
-        src={image.src}
-        alt={image.alt}
-        objectFit="cover"
-        height={variant === ImageCardVariants.BIG ? '480' : '240'}
-        width={variant === ImageCardVariants.BIG ? '720' : '465'}
-      />
+    <div
+      className={`relative grid grid-flow-row ${
+        variant === ImageCardVariants.Wide ? 'md:grid-cols-3' : ''
+      } cursor-pointer border-transparent bg-white-100 rounded overflow-hidden card-hover ${className}`}
+    >
+      <div className={`relative w-full ${ImageSizes[variant]}`}>
+        {isExternalUrl(image.src) ? (
+          <img className="object-cover h-full w-full" src={image.src} alt={image.alt} loading="lazy" />
+        ) : (
+          <Image src={image.src} alt={image.alt} objectFit="cover" layout="fill" />
+        )}
+      </div>
       {awardTags.length > 0 && <AwardTags awardTags={awardTags} vertical className="absolute top-0 right-6" />}
-      <div className="p-8">
-        <Copy className="mb-6">{label}</Copy>
+      <div className={`p-8 ${variant === ImageCardVariants.Wide ? 'md:col-span-2 md:p-16' : ''}`}>
+        <Copy className="inline-flex items-center mb-6">{label}</Copy>
         <Heading3 as="p">{title}</Heading3>
-        <span className="border-b group-hover:border-apricot-500 transition-colors duration-150">{link.label}</span>
+        {description && <Lead>{description}</Lead>}
+        <span className="border-b">{link.label}</span>
       </div>
     </div>
   </Link>
