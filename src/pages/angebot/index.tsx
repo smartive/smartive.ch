@@ -1,19 +1,19 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { QuoteCard } from '../components/quote-card';
-import { ContentCard } from '../compositions/content-card';
-import { LinkList } from '../compositions/link-list';
-import { PageHeader } from '../compositions/page-header';
-import { PageSection } from '../compositions/page-section';
-import { TextBlock } from '../compositions/text-block';
-import Packages, { Package } from '../data/packages';
-import { Quote } from '../data/quotes';
-import Quotes from '../data/quotes.json';
-import { Copy } from '../elements/copy';
-import { Clock } from '../elements/icons';
-import { Lead } from '../elements/lead';
-import { Link } from '../elements/link';
-import { GridSlider } from '../layouts/grid-slider';
+import { QuoteCard } from '../../components/quote-card';
+import { ContentCard } from '../../compositions/content-card';
+import { LinkList } from '../../compositions/link-list';
+import { PageHeader } from '../../compositions/page-header';
+import { PageSection } from '../../compositions/page-section';
+import { TextBlock } from '../../compositions/text-block';
+import Packages, { Package } from '../../data/packages';
+import { Quote } from '../../data/quotes';
+import Quotes from '../../data/quotes.json';
+import { Copy } from '../../elements/copy';
+import { Clock } from '../../elements/icons';
+import { Lead } from '../../elements/lead';
+import { Link } from '../../elements/link';
+import { GridSlider } from '../../layouts/grid-slider';
 
 type Props = {
   packages: Package[];
@@ -45,7 +45,6 @@ const Angebot: NextPage<Props> = ({ packages, quote }) => {
             möchten etwas schaffen, das dich, deine Kund*innen und uns überzeugt. Mit Scrum stellen wir sicher, dass dein
             Projekt fortlaufend evaluiert wird und du in die Entwicklung mit einbezogen bist.
           </TextBlock>
-
           <LinkList
             links={[
               { label: 'Wie kann ich mein Projekt möglichst schnell lancieren?', href: '/blog/mvp' },

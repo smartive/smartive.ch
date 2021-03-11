@@ -8,13 +8,58 @@ import { highlight, purify } from '../utils/markdown';
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 const OG_IMAGE_SERVICE_URL = process.env.NEXT_PUBLIC_OG_IMAGE_SERVICE_URL;
 
-type Props = {
+export enum PageHeaderVariants {
+  Simple,
+  Card,
+}
+
+const HeaderSpacing = {
+  [PageHeaderVariants.Simple]: 'my-12 lg:my-48',
+  [PageHeaderVariants.Card]: 'my-12 lg:my-24',
+} as const;
+
+type PageHeaderProps = {
   markdownTitle: string;
   description?: string;
   awardTags?: string[];
+  variant?: PageHeaderVariants;
 };
 
-export const PageHeader: FC<Props> = ({ markdownTitle, description, children, awardTags }) => {
+type SimplePageHeaderProps = {
+  display?: string;
+  awardTags?: string[];
+};
+
+type CardPageHeaderProps = {
+  display?: string;
+};
+
+const SimplePageHeader: FC<SimplePageHeaderProps> = ({ display, awardTags, children }) => (
+  <>
+    {awardTags && awardTags.length > 0 && (
+      <div className="grid grid-flow-col gap-4 mb-3">
+        <AwardTags awardTags={awardTags} />
+      </div>
+    )}
+    {display && <Heading1>{display.includes('_') ? highlight(display) : display}</Heading1>}
+    {children}
+  </>
+);
+
+const CardPageHeader: FC<CardPageHeaderProps> = ({ display, children }) => (
+  <div className="grid grid-flow-row justify-items-center bg-cornflower-500 rounded p-12 md:p-20 lg:p-32">
+    {display && <Heading1>{display}</Heading1>}
+    {children}
+  </div>
+);
+
+export const PageHeader: FC<PageHeaderProps> = ({
+  markdownTitle,
+  description,
+  children,
+  awardTags,
+  variant = PageHeaderVariants.Simple,
+}) => {
   const { asPath } = useRouter();
   const pageUrl = `${SITE_URL}${asPath}`;
   const imageUrl = `${OG_IMAGE_SERVICE_URL}/${encodeURIComponent(markdownTitle)}.png?md=1&fontSize=5rem`;
@@ -23,7 +68,7 @@ export const PageHeader: FC<Props> = ({ markdownTitle, description, children, aw
   const display = purify(markdownTitle, /[*`]/g); // only remove * and ` but keep _
 
   return (
-    <header className="my-12 lg:my-48">
+    <header className={`${HeaderSpacing[variant]}`}>
       <Head>
         <title>{title}</title>
 
@@ -44,13 +89,10 @@ export const PageHeader: FC<Props> = ({ markdownTitle, description, children, aw
         {description && <meta property="twitter:description" content={description} />}
         <meta property="twitter:image" content={imageUrl} />
       </Head>
-      {awardTags && awardTags.length > 0 && (
-        <div className="grid grid-flow-col gap-4 mb-3">
-          <AwardTags awardTags={awardTags} />
-        </div>
+      {variant === PageHeaderVariants.Simple && (
+        <SimplePageHeader display={display} awardTags={awardTags} children={children} />
       )}
-      {title && <Heading1>{display.includes('_') ? highlight(display) : display}</Heading1>}
-      {children}
+      {variant === PageHeaderVariants.Card && <CardPageHeader display={display} children={children} />}
     </header>
   );
 };
