@@ -14,7 +14,7 @@ export type ContentCardProps = {
   label?: string | ReactNode;
   title: string;
   content?: string;
-  link: { label: string; href: Url | string };
+  link: { label: string; href: Url | string; newTab?: boolean };
   background: CardColors;
 };
 
