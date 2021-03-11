@@ -61,10 +61,13 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
               image={{ src: '/images/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
             />
             <ImageCard
-              label="Projekt — Migipedia"
-              title="Der User im Mittelpunkt – seit 10 Jahren"
-              link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
+              label="Projekt — Subsidia"
+              title="Digitalisierung der Lifestyle-Branche."
+              link={{ label: 'Mehr erfahren', href: '/projekte/subsidia' }}
+              image={{
+                src: '/images/projekte/subsidia/pwa-etikett-scan.png',
+                alt: 'Verkäuferin scannt Etikett eines Kleidungsstücks mit dem Smartphone',
+              }}
             />
             <ContentCard
               label="Migipedia"
