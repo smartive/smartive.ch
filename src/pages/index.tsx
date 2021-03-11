@@ -147,7 +147,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       contact: Employees.marco,
       customers: Object.values(Customers),
-      quote: Quotes['setareh-dife'],
+      quote: Quotes['marc-frontify'],
     },
   };
 };
