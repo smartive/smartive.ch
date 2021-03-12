@@ -5,11 +5,9 @@ import { ContentCard } from '../../compositions/content-card';
 import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
-import { TextBlock } from '../../compositions/text-block';
 import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Copy } from '../../elements/copy';
 import { Clock } from '../../elements/icons';
 import { Lead } from '../../elements/lead';
 import { Link } from '../../elements/link';
@@ -39,12 +37,12 @@ const Angebot: NextPage<Props> = ({ packages, quote }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
-          <TextBlock title="Wir arbeiten agil.">
+        <PageSection title="Wir arbeiten agil.">
+          <Lead>
             Wir arbeiten agil. Klingt gut, hat aber auch gute Gründe: Wir möchten nicht die Katze im Sack verkaufen. Und wir
             möchten etwas schaffen, das dich, deine Kund*innen und uns überzeugt. Mit Scrum stellen wir sicher, dass dein
             Projekt fortlaufend evaluiert wird und du in die Entwicklung mit einbezogen bist.
-          </TextBlock>
+          </Lead>
           <LinkList
             links={[
               { label: 'Wie kann ich mein Projekt möglichst schnell lancieren?', href: '/blog/mvp' },
@@ -55,15 +53,13 @@ const Angebot: NextPage<Props> = ({ packages, quote }) => {
         <PageSection>
           <QuoteCard quote={quote} />
         </PageSection>
-        <PageSection>
-          <TextBlock title="Etwas für jede Projektphase.">
+        <PageSection title="Etwas für jede Projektphase.">
+          <Lead>
             Wichtig ist: Wir versuchen mit dir gemeinsam dein Produkt so schnell wie möglich an deine Nutzer zu bringen. Denn
             wir glauben, dass ein Produkt in den Händen der Nutzer mehr Wert bringt als ein Produkt in der Schublade, auch
             wenn es noch nicht alles kann.
-          </TextBlock>
-          <Copy>Vielliecht ist eines der folgenden Angebot was für dich?</Copy>
-        </PageSection>
-        <PageSection>
+          </Lead>
+          <Lead>Vielliecht ist eines der folgenden Angebot was für dich?</Lead>
           <GridSlider>
             {packages.map(({ label, ...paeckli }) => (
               <ContentCard

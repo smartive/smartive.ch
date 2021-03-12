@@ -7,5 +7,7 @@ type Props = {
 };
 
 export const Heading2: FC<Props> = ({ children, as: Tag = 'h2', className = '', noSpacing = false }) => (
-  <Tag className={`font-sans font-bold text-base lg:text-xl ${noSpacing ? '' : 'mb-8'} ${className}`}>{children}</Tag>
+  <Tag className={`font-sans font-bold text-base lg:text-xl ${noSpacing ? '' : 'mb-4 lg:mb-8'} ${className}`}>
+    {children}
+  </Tag>
 );

@@ -4,32 +4,23 @@ import { Url } from 'url';
 import { Copy } from '../elements/copy';
 import { Heading3 } from '../elements/heading-3';
 
-export enum CardColors {
-  Apricot = 'bg-apricot-500',
-  Cornflower = 'bg-cornflower-500',
-  Mint = 'bg-mint-500',
-}
-
 export type ContentCardProps = {
   label?: string | ReactNode;
   title: string;
   content?: string;
   link: { label: string; href: Url | string; newTab?: boolean };
-  background: CardColors;
 };
 
-export const ContentCard: FC<ContentCardProps> = ({ title, label, content, link, background }) => (
+export const ContentCard: FC<ContentCardProps> = ({ title, label, content, link }) => (
   <Link href={link.href}>
-    <div
-      className={`grid grid-rows-headerFooter w-full h-full p-8 gap-8 cursor-pointer ${background} rounded overflow-hidden card-hover`}
-    >
+    <div className="grid grid-rows-headerFooter w-full h-full p-8 gap-8 cursor-pointer rounded overflow-hidden card-shadow content-card-bg">
       {label && <Copy className="inline-flex flex-row items-center">{label}</Copy>}
       <div>
         <Heading3 as="p">{title}</Heading3>
         {content && <Copy>{content}</Copy>}
       </div>
       <div>
-        <span className="border-b">{link.label}</span>
+        <span className="border-b-2">{link.label}</span>
       </div>
     </div>
   </Link>

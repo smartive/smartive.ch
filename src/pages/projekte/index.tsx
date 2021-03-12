@@ -12,7 +12,7 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Copy } from '../../elements/copy';
+import { Lead } from '../../elements/lead';
 import { Grid } from '../../layouts/grid';
 import { GridSlider } from '../../layouts/grid-slider';
 
@@ -46,14 +46,14 @@ const Projekte: NextPage<Props> = ({ customers, quoteStefanie, contact }) => {
   return (
     <div>
       <PageHeader
-        markdownTitle="Von der _Idee_ bis zum Golive."
+        markdownTitle="Von der _Idee_ bis zum Go-live."
         description="Webapps, APIs und DevOps, für Grossunternehmen und Start-ups: Seit 2012 haben wir Brandneues auf die Beine gestellt, bestehende Lösungen analysiert und Projekte über viele Jahre begleitet und weiterentwickelt. Immer agil, massgeschneidert und mit Leidenschaft. Und wiederholt ausgezeichnet."
       >
-        <Copy>
+        <Lead>
           Webapps, APIs und DevOps, für Grossunternehmen und Start-ups: Seit 2012 haben wir Brandneues auf die Beine
           gestellt, bestehende Lösungen analysiert und Projekte über viele Jahre begleitet und weiterentwickelt. Immer agil,
           massgeschneidert und mit Leidenschaft. Und wiederholt ausgezeichnet.
-        </Copy>
+        </Lead>
       </PageHeader>
 
       <main>

@@ -60,6 +60,7 @@ export const Navigation: FC = () => {
       <motion.div
         className="fixed inset-0 grid place-items-center text-center overflow-hidden z-40 bg-mint-500"
         ref={mobileNavRef}
+        initial={{ opacity: 0 }}
         animate={mobileNavOpen ? 'open' : 'closed'}
         variants={variants}
         custom={{ height: mobileNavRef?.current?.clientHeight, width: mobileNavRef?.current?.clientWidth }}

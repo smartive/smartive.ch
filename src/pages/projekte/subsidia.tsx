@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { QuoteCard } from '../../components/quote-card';
 import { Contact } from '../../compositions/contact';
-import { CardColors, ContentCard } from '../../compositions/content-card';
+import { ContentCard } from '../../compositions/content-card';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { TextBlock } from '../../compositions/text-block';
@@ -134,7 +134,6 @@ const Subsidia: NextPage<Props> = ({ quote, contact }) => (
             title="Ideation Sprint"
             content="Gewinn ein besseres Verständnis für die Bedürfnisse deiner Nutzer und zieh daraus praktikable Ideen. Erhalte einen ersten visuellen Prototypen und hol Feedback deiner Kunden ein."
             link={{ label: 'Wie geht das?', href: '#' }}
-            background={CardColors.Cornflower}
           />
           <ContentCard
             label={
@@ -145,7 +144,6 @@ const Subsidia: NextPage<Props> = ({ quote, contact }) => (
             title="Speedboat"
             content="Lancier in kurzer Zeit dein MVP (Minimum Viable Product) und teste anhand messbarer Ziele, wie dein Produkt ankommt."
             link={{ label: 'Zeig mir mehr!', href: '#' }}
-            background={CardColors.Apricot}
           />
           <ContentCard
             label={
@@ -157,7 +155,6 @@ const Subsidia: NextPage<Props> = ({ quote, contact }) => (
             title="Scale Up"
             content="Bau dein MVP entlang der messbaren Ziele aus und erweitere den Umfang deines Produkts."
             link={{ label: 'Wie genau?', href: '#' }}
-            background={CardColors.Mint}
           />
           <ContentCard
             label={
@@ -169,7 +166,6 @@ const Subsidia: NextPage<Props> = ({ quote, contact }) => (
             title="Solution Review"
             content="Erhalte eine objektive Einschätzung der Chancen und Risiken deines digitalen Produkts sowie einen klaren Massnahmenplan, was du verbessern kannst."
             link={{ label: 'Weitere Informationen', href: '#' }}
-            background={CardColors.Cornflower}
           />
         </GridSlider>
       </PageSection>

@@ -11,7 +11,6 @@ import Employees from '../data/employees.json';
 import { Lead } from '../elements/lead';
 import { Link } from '../elements/link';
 import { Grid } from '../layouts/grid';
-import { GridSlider } from '../layouts/grid-slider';
 
 const textBlocks = [
   {
@@ -76,13 +75,23 @@ const Agentur: NextPage<Props> = ({ employees }) => {
               width={720}
               height={500}
             />
-            <div className="md:col-start-2 md:row-span-2 relative">
+            <div className="hidden md:block md:col-start-2 md:row-span-2 relative">
               <Image
                 className="rounded"
                 src="/images/mood/YB_06742.jpg"
                 alt="smartive Team am Mittagstisch beim Essen"
                 objectFit="cover"
                 layout="fill"
+              />
+            </div>
+            <div className="block md:hidden">
+              <Image
+                className="rounded"
+                src="/images/mood/YB_06742.jpg"
+                alt="smartive Team am Mittagstisch beim Essen"
+                objectFit="cover"
+                width={720}
+                height={500}
               />
             </div>
             <Image
@@ -94,20 +103,13 @@ const Agentur: NextPage<Props> = ({ employees }) => {
               height={500}
             />
           </Grid>
-          <GridSlider>
-            {textBlocks.slice(0, Math.floor(textBlocks.length / 2)).map(({ title, content }) => (
+          <Grid cols={3}>
+            {textBlocks.map(({ title, content }) => (
               <TextBlock key={title} title={title}>
                 {content}
               </TextBlock>
             ))}
-          </GridSlider>
-          <GridSlider>
-            {textBlocks.slice(Math.floor(textBlocks.length / 2)).map(({ title, content }) => (
-              <TextBlock key={title} title={title}>
-                {content}
-              </TextBlock>
-            ))}
-          </GridSlider>
+          </Grid>
           <ShuffleCard employees={employees.filter((employee) => employee.portrait)} />
           <Grid cols={2}>
             <Image
@@ -154,6 +156,8 @@ const Agentur: NextPage<Props> = ({ employees }) => {
               />
             </div>
           </Grid>
+        </PageSection>
+        <PageSection>
           <BlockList title="Du willst noch mehr über smartive wissen? Ein paar kurzweilige Fakten.">
             <TextBlock title="Bald eine Dekade">
               smartive wurde <strong>2021</strong> gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, wo

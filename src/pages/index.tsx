@@ -4,7 +4,7 @@ import React from 'react';
 import { CustomersList } from '../components/customers-list';
 import { QuoteCard } from '../components/quote-card';
 import { Contact } from '../compositions/contact';
-import { CardColors, ContentCard } from '../compositions/content-card';
+import { ContentCard } from '../compositions/content-card';
 import { ImageCard } from '../compositions/image-card';
 import { LinkList } from '../compositions/link-list';
 import { PageHeader } from '../compositions/page-header';
@@ -78,7 +78,6 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
                 label: 'Zur Shortlist',
                 href: 'https://www.bestofswissweb.swiss/de/hall-of-fame/shortlist/2021/',
               }}
-              background={CardColors.Apricot}
             />
           </GridSlider>
         </PageSection>

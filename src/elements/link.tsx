@@ -15,9 +15,9 @@ type Props = LinkProps & {
 } & HTMLAttributes<HTMLElement>;
 
 export const VariantStyles = {
-  [LinkVariants.Underline]: 'border-b hover:border-apricot-500 no-underline',
+  [LinkVariants.Underline]: 'border-b-2 hover:border-apricot-500 no-underline',
   [LinkVariants.NoUnderline]: 'no-underline border-b-2 border-transparent hover:border-black',
-  [LinkVariants.Feature]: 'no-underline border-b-4 border-apricot-500 hover:border-apricot-800',
+  [LinkVariants.Feature]: 'no-underline border-b-4 border-apricot-500 hover:border-black',
 };
 
 export const Link: FC<Props> = ({

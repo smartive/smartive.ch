@@ -12,11 +12,46 @@
   .writing-vertical {
     writing-mode: vertical-rl;
   }
-}
 
-@layer utilities {
-  .card-hover {
-    @apply border-transparent border-3 hover:border-black transition-colors duration-150;
+  .card-shadow {
+    @apply transition-shadow duration-150;
+  }
+  li:nth-of-type(n) > .card-shadow,
+  .card-shadow:nth-of-type(n) {
+    box-shadow: theme('colors.mint.500') 0 0;
+  }
+  li:nth-of-type(n) > .card-shadow:hover,
+  .card-shadow:nth-of-type(n):hover {
+    box-shadow: theme('colors.mint.500') 0.5rem 0.5rem;
+  }
+  li:nth-of-type(2n) > .card-shadow,
+  .card-shadow:nth-of-type(2n) {
+    box-shadow: theme('colors.cornflower.500') 0 0;
+  }
+  li:nth-of-type(2n) > .card-shadow:hover,
+  .card-shadow:nth-of-type(2n):hover {
+    box-shadow: theme('colors.cornflower.500') 0.5rem 0.5rem;
+  }
+  li:nth-of-type(3n) > .card-shadow,
+  .card-shadow:nth-of-type(3n) {
+    box-shadow: theme('colors.apricot.500') 0 0;
+  }
+  li:nth-of-type(3n) > .card-shadow:hover,
+  .card-shadow:nth-of-type(3n):hover {
+    box-shadow: theme('colors.apricot.500') 0.5rem 0.5rem;
+  }
+
+  li:nth-of-type(n) > .content-card-bg,
+  .content-card-bg:nth-of-type(n) {
+    @apply bg-apricot-500;
+  }
+  li:nth-of-type(2n) > .content-card-bg,
+  .content-card-bg:nth-of-type(2n) {
+    @apply bg-mint-500;
+  }
+  li:nth-of-type(3n) > .content-card-bg,
+  .content-card-bg:nth-of-type(3n) {
+    @apply bg-cornflower-500;
   }
 }
 

@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/de';
 import { GetStaticProps, NextPage } from 'next';
 import React, { Fragment } from 'react';
-import { CardColors, ContentCard } from '../compositions/content-card';
+import { ContentCard } from '../compositions/content-card';
 import { ImageCard, ImageCardVariants } from '../compositions/image-card';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
@@ -55,7 +55,6 @@ const Team: NextPage<Props> = ({ posts }) => {
                   <ContentCard
                     title="Suchst du eine Gastautorin für deinen Blog oder einen Speaker für deinen nächsten Event?"
                     link={{ label: 'Melde dich bei Robert', href: 'mailto:rober@smartive.ch' }}
-                    background={CardColors.Cornflower}
                   />
                 )}
               </Fragment>

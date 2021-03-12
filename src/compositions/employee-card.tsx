@@ -10,22 +10,42 @@ type Props = {
   className?: string;
 };
 
-export const EmployeeCard: FC<Props> = ({ employee: { firstname, lastname, job, bio, image, links }, className = '' }) => (
-  <div className={`bg-white-100 rounded overflow-hidden ${className}`}>
-    {image ? (
-      <Image src={image} alt="" layout="fixed" objectFit="cover" width="463" height="640" />
-    ) : (
-      <div className="bg-mint-200" style={{ height: '640px', width: '463px' }} />
-    )}
-    <div className="p-8">
+export const EmployeeCard: FC<Props> = ({
+  employee: { firstname, lastname, job, bio, image, portrait, links },
+  className = '',
+}) => (
+  <div className={`flex flex-col bg-white-100 rounded overflow-hidden ${className}`}>
+    <div className="hidden lg:block w-full">
+      <Image
+        className="bg-mint-200"
+        src={image || '/images/portrait-fallback.svg'}
+        alt=""
+        layout="responsive"
+        objectFit="cover"
+        width="463"
+        height="640"
+      />
+    </div>
+    <div className="block lg:hidden w-full">
+      <Image
+        className="bg-mint-200"
+        src={portrait || '/images/portrait-fallback.svg'}
+        alt=""
+        layout="responsive"
+        objectFit="cover"
+        width="343"
+        height="216"
+      />
+    </div>
+    <div className="flex flex-col flex-1 p-8">
       <Copy className="mb-6">{job}</Copy>
       <Heading3 as="p">
         {firstname} {lastname}
       </Heading3>
       <Copy>{bio}</Copy>
-      <div className="flex flex-row flex-wrap gap-4 mt-6">
+      <div className="flex flex-1 content-end flex-row flex-wrap mt-6">
         {links.map(({ label, url }) => (
-          <Link key={url} href={url} variant={LinkVariants.Underline}>
+          <Link className="mr-4 last:mr-0" key={url} href={url} variant={LinkVariants.Underline}>
             {label}
           </Link>
         ))}

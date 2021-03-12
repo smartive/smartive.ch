@@ -6,7 +6,7 @@ type Props = {
 };
 
 export const BlockList: FC<Props> = ({ title, children }) => (
-  <div className="grid grid-flow-row max-w-3xl mx-auto gap-8 xl:gap-16">
+  <div className="grid grid-flow-row gap-8 xl:gap-16 max-w-prose mx-auto">
     <Heading2>{title}</Heading2>
     {children}
   </div>

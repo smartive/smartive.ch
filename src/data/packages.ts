@@ -1,13 +1,11 @@
 import { ReactNode } from 'react';
 import { Url } from 'url';
-import { CardColors } from '../compositions/content-card';
 
 export type Package = {
   label: string | ReactNode;
   title: string;
   content: string;
   link: { label: string; href: Url | string };
-  background: CardColors;
 };
 
 export default {
@@ -20,7 +18,6 @@ export default {
       label: 'Zeig mir mehr!',
       href: '/angebot/speedboat',
     },
-    background: CardColors.Apricot,
   },
   'ideation-sprint': {
     label: '2-5 Tage',
@@ -31,7 +28,6 @@ export default {
       label: 'Wie geht das?',
       href: '/angebot/ideation-sprint',
     },
-    background: CardColors.Cornflower,
   },
   'scale-up': {
     label: '2-3 Monate',
@@ -41,7 +37,6 @@ export default {
       label: 'Wie genau?',
       href: '/angebot/scale-up',
     },
-    background: CardColors.Mint,
   },
   'solution-review': {
     label: '2-5 Tage',
@@ -52,6 +47,5 @@ export default {
       label: 'Weitere Infos',
       href: '/angebot/solution-review',
     },
-    background: CardColors.Apricot,
   },
 } as Record<string, Package>;
