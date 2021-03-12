@@ -2,7 +2,6 @@ import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import { ShuffleCard } from '../components/shuffle-card';
-import { BlockList } from '../compositions/block-list';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { TextBlock } from '../compositions/text-block';
@@ -156,32 +155,29 @@ const Agentur: NextPage<Props> = ({ employees }) => {
               />
             </div>
           </Grid>
-        </PageSection>
-        <PageSection>
-          <BlockList title="Du willst noch mehr über smartive wissen? Ein paar kurzweilige Fakten.">
-            <TextBlock title="Bald eine Dekade">
-              smartive wurde <strong>2021</strong> gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, wo
-              wir uns alle einbringen und so arbeiten, wie es uns entspricht.
+          <Grid cols={2}>
+            <TextBlock title="Bald eine Dekade" number={10}>
+              smartive wurde 2021 gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, wo wir uns alle
+              einbringen und so arbeiten, wie es uns entspricht.
             </TextBlock>
-            <TextBlock title="Anderthalb Dutzend">
-              Heute kommen <strong>{Object.values(Employees).length} Mitarbeiter*innen</strong> in Zürich zusammen und
-              bringen ihre Fähigkeiten und ihre Art ein – in Software-Entwicklung, Projektleitung, Design und User
-              Experience.
+            <TextBlock title="Zwölf Teilhaber*innen" number={12}>
+              Darauf sind wir stolz: Zwölf unserer {Object.values(Employees).length} Mitarbeiter*innen besitzen
+              smartive-Aktien. Es gibt keine externen Aktionär*innen oder Stakeholder.
             </TextBlock>
-            <TextBlock title="Zwölf Teilhaber*innen">
-              Darauf sind wir stolz: <strong>Zwölf</strong> unserer {Object.values(Employees).length} Mitarbeiter*innen
-              besitzen smartive-Aktien. Es gibt keine externen Aktionär*innen oder Stakeholder.
+            <TextBlock title="Anderthalb Dutzend" number={Object.values(Employees).length}>
+              Heute kommen {Object.values(Employees).length} Mitarbeiter*innen in Zürich zusammen und bringen ihre
+              Fähigkeiten und ihre Art ein – in Software-Entwicklung, Projektleitung, Design und User Experience.
             </TextBlock>
-            <TextBlock title="Erfolgreiche Projekte: dreistellig">
-              In den letzten Jahren haben wir über <strong>300 Projekte</strong> erfolgreich gemeistert. Sowohl in
-              Zusammenarbeit mit <Link href="subsidia">Start-Ups</Link> als auch mit der{' '}
+            <TextBlock title="Erfolgreiche Projekte: dreistellig" number={300}>
+              In den letzten Jahren haben wir über 300 Projekte erfolgreich gemeistert. Sowohl in Zusammenarbeit mit{' '}
+              <Link href="subsidia">Start-Ups</Link> als auch mit der{' '}
               <Link href="/projekte/migipedia/">grössten Arbeitgeberin der Schweiz</Link>.
             </TextBlock>
-            <TextBlock title="Aufsteiger des Jahres">
+            <TextBlock title="Aufsteiger des Jahres" number={20}>
               Unsere Projekte werden regelmässig ausgezeichnet. Bei den Best of Swiss Web Awards rangieren wir in den Top 20
               der vergangenen 5 Jahre.
             </TextBlock>
-          </BlockList>
+          </Grid>
         </PageSection>
       </main>
     </div>

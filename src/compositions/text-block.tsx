@@ -7,10 +7,12 @@ import { Link } from '../elements/link';
 type Props = {
   title: string;
   link?: { label: string; href: Url | string };
+  number?: number;
 };
 
-export const TextBlock: FC<Props> = ({ title, children, link }) => (
+export const TextBlock: FC<Props> = ({ title, children, link, number }) => (
   <div>
+    {number && <p className="text-xl lg:text-xxl font-bold">{number}</p>}
     <Heading3 as="p">{title}</Heading3>
     <Copy className={link ? 'mb-8' : ''}>{children}</Copy>
     {link && <Link href={link.href}>{link.label}</Link>}
