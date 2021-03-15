@@ -3,7 +3,7 @@ import React from 'react';
 import { CustomersList } from '../../components/customers-list';
 import { QuoteCard } from '../../components/quote-card';
 import { Contact } from '../../compositions/contact';
-import { ImageCard, ImageCardVariants, Props as ImageCardProps } from '../../compositions/image-card';
+import { ImageCard, ImageCardVariants } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { Customer } from '../../data/customers';
@@ -80,7 +80,17 @@ const Projekte: NextPage<Props> = ({ customers, quoteStefanie, contact }) => {
               }}
             />
 
-            {new Array(2).fill(imageCard).map(({ label, title, link, image }) => (
+            <ImageCard
+              label="Migusto"
+              title="Schnelle Rezepte für schnelles Kochen"
+              link={{ label: 'Zum Projekt', href: '/projekte/migusto' }}
+              image={{
+                src: '/images/projekte/migusto/migusto-logo.png',
+                alt: 'Migusto Logo',
+              }}
+            />
+
+            {new Array(1).fill(imageCard).map(({ label, title, link, image }) => (
               <ImageCard label={label} title={title} link={link} image={image} />
             ))}
           </GridSlider>
