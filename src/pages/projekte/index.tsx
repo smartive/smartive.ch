@@ -16,25 +16,12 @@ import { Lead } from '../../elements/lead';
 import { Grid } from '../../layouts/grid';
 import { GridSlider } from '../../layouts/grid-slider';
 
-const imageCard: ImageCardProps = {
-  label: 'Projekt — Migipedia',
+const imageCard = {
+  label: 'Migipedia',
   title: 'Der User im Mittelpunkt – seit 10 Jahren',
   link: { label: 'Projekt anschauen', href: '/projekte/migipedia' },
   image: { src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' },
 };
-
-const bigImageCards: ImageCardProps[] = [
-  {
-    ...imageCard,
-    variant: ImageCardVariants.Big,
-    awardTags: ['Best of Swiss Web 2021'],
-  },
-  {
-    ...imageCard,
-    variant: ImageCardVariants.Big,
-    awardTags: ['Best of Swiss Web 2021', 'Best of Swiss Web 2020'],
-  },
-];
 
 type Props = {
   customers: Customer[];
@@ -60,12 +47,40 @@ const Projekte: NextPage<Props> = ({ customers, quoteStefanie, contact }) => {
         <PageSection>
           <CustomersList customers={new Array(2).fill(customers).flat()} />
           <Grid cols={2}>
-            {bigImageCards.map(({ label, title, link, image, variant, awardTags }) => (
-              <ImageCard label={label} title={title} link={link} image={image} variant={variant} awardTags={awardTags} />
-            ))}
+            <ImageCard
+              label="Migipedia"
+              title="Der User im Mittelpunkt — seit 10 Jahren"
+              link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
+              image={{ src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
+              variant={ImageCardVariants.Big}
+              awardTags={['Best of Swiss Web 2019']}
+            />
+
+            <ImageCard
+              label="Subsidia"
+              title="Der mobile Einzalhandel"
+              link={{ label: 'Projekt anschauen', href: '/projekte/subsidia' }}
+              image={{
+                src: '/images/projekte/subsidia/pwa-etikett-scan.png',
+                alt: 'Verkäuferin scannt Etikett eines Kleidungsstücks mit dem Smartphone',
+              }}
+              variant={ImageCardVariants.Big}
+              awardTags={['Best of Swiss Apps 2019']}
+            />
           </Grid>
           <GridSlider>
-            {new Array(3).fill(imageCard).map(({ label, title, link, image }) => (
+            <ImageCard
+              label="Migros Supply Chain"
+              title="Digitalisierung der Lieferkette"
+              link={{ label: 'Zum Projekt', href: '/projekte/migros-supply-chain' }}
+              awardTags={['Best of Swiss Web 2020', 'Best of Swiss Apps 2020']}
+              image={{
+                src: '/images/projekte/supply-chain/man_mit_heber.jpg',
+                alt: 'Ein Mann transportiert Boxen in einem Lager',
+              }}
+            />
+
+            {new Array(2).fill(imageCard).map(({ label, title, link, image }) => (
               <ImageCard label={label} title={title} link={link} image={image} />
             ))}
           </GridSlider>

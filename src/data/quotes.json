@@ -34,5 +34,10 @@
     "text": "Der Einsatz einer für uns massgeschneiderten, modernen und performanten Technologie ist sozusagen das Lebenselixier und vielleicht der wichtigste Grund dafür, dass die Community heute so aktiv ist wie nie zuvor.",
     "portrait": "/images/portraits/philipp-buehler.jpg",
     "credit": "Philipp Bühler, Senior Product Owner Migipedia & Brand"
+  },
+  "daniel-grai": {
+    "portrait": "/images/portraits/daniel-schoenmann.jpg",
+    "credit": "Daniel Schönmann, Shared Information Services, Migros-Genossenschafts-Bund",
+    "text": "Innerhalb kürzester Zeit konnten wir durch den PWA Ansatz einen PoC beim Lieferanten testen und die Entwicklung des MVP starten. Die PWA läuft sehr schnell, stabil und ist auf allen Geräten verfügbar und die gesteckten Effizienzziele wurden bereits erreicht."
   }
 }

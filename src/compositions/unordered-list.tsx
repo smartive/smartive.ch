@@ -11,8 +11,8 @@ export const UnorderedList: FC<Props> = ({ title, items }) => (
   <>
     <Heading2>{title}</Heading2>
     <ul>
-      {items.map((item) => (
-        <li className="list-disc mb-2">
+      {items.map((item, i) => (
+        <li key={i} className="list-disc mb-2">
           <Label>{item}</Label>
         </li>
       ))}

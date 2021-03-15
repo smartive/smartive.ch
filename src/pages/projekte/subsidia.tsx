@@ -27,7 +27,9 @@ const Subsidia: NextPage<Props> = ({ quote, contact }) => (
     <PageHeader
       awardTags={['Best of Swiss Apps 2019']}
       markdownTitle="Subsidia macht den Einzelhandel der Modebranche _mobil_."
-      description="blablabla"
+      description="Subsidia digitalisiert mit innovativen und modernen Apps den Einzelhandel in der Modebranche. Die wichtigste App ist
+      dabei die Kassen-App, die auf jedem Smartphone läuft. Wir begleiten Subsidia seit den Anfängen, egal ob bei der
+      Architekturwahl für die Apps, Setup der Cloud-Umgebung mit Google oder sogar beim Teamaufbau."
     >
       <Lead>
         Subsidia digitalisiert mit innovativen und modernen Apps den Einzelhandel in der Modebranche. Die wichtigste App ist
