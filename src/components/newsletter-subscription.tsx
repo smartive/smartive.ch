@@ -8,9 +8,10 @@ import { Tooltip } from '../elements/tooltip';
 type Props = {
   className?: string;
   label?: string;
+  button?: string;
 };
 
-export const NewsletterSubscription: FC<Props> = ({ className = '', label = '' }) => {
+export const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button = 'Go!' }) => {
   const [email, setEmail] = useState('');
   const [notification, setNotification] = useState('');
 
@@ -47,21 +48,20 @@ export const NewsletterSubscription: FC<Props> = ({ className = '', label = '' }
         }
 
         return (
-          <div className={`grid grid-flow-row w-full ${className}`}>
-            {label && <Label className="col-span-2">{label}</Label>}
-            <form className="grid grid-cols-form" onSubmit={(event) => handleSubmit(event, subscribe)}>
+          <div className={`${className}`}>
+            {label && <Label>{label}</Label>}
+            <form className="grid grid-flow-row lg:grid-flow-col gap-2" onSubmit={(event) => handleSubmit(event, subscribe)}>
               <Tooltip text={notification} isOpen={!!notification}>
                 <Input
                   disabled={status === 'sending'}
                   placeholder="E-Mail-Adresse"
-                  className="mr-2"
                   value={email}
                   onChange={(event) => handleChange(event)}
                   type="email"
                 />
               </Tooltip>
               <Button type="submit" disabled={status === 'sending'}>
-                {status === 'sending' ? '...' : 'Go!'}
+                {status === 'sending' ? '...' : button}
               </Button>
             </form>
           </div>
