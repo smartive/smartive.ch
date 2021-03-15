@@ -25,11 +25,11 @@ const imageCard = {
 
 type Props = {
   customers: Customer[];
-  quoteStefanie: Quote;
+  quote: Quote;
   contact: Employee;
 };
 
-const Projekte: NextPage<Props> = ({ customers, quoteStefanie, contact }) => {
+const Projekte: NextPage<Props> = ({ customers, quote, contact }) => {
   return (
     <div>
       <PageHeader
@@ -94,7 +94,7 @@ const Projekte: NextPage<Props> = ({ customers, quoteStefanie, contact }) => {
               <ImageCard label={label} title={title} link={link} image={image} />
             ))}
           </GridSlider>
-          <QuoteCard quote={quoteStefanie} />
+          <QuoteCard quote={quote} />
           <Grid cols={3}>
             {new Array(5).fill(imageCard).map(({ label, title, link, image }) => (
               <ImageCard label={label} title={title} link={link} image={image} />
@@ -113,7 +113,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       customers: Object.values(Customers),
-      quoteStefanie: Quotes['stefanie-abraxas'],
+      quote: Quotes['coco-partner'],
       contact: Employees.peter,
     },
   };

@@ -44,5 +44,10 @@
     "portrait": "/images/portraits/desiree-poffet.jpg",
     "credit": "Désirée Poffet, Projektleiterin Digital Platforms & Product Owner migusto.ch",
     "text": "Die Rezept-API bildet die Basis für eine flexible sowie nachhaltige Nutzung der Rezept-Daten. Die performante API ermöglicht eine plattformunabhängige Nutzung der Rezepte und bietet dem Benutzer eine State-of-the-Art Suche an. Im Backend steht ein Playground für laufende Analysen und Optimierungen des Algorithmus der Volltextsuche zur Verfügung."
+  },
+  "coco-partner": {
+    "portrait": "/images/portraits/coco-petit.jpg",
+    "text": "Wer nicht nur eine Umsetzungs-Agentur sucht, sondern einen Partner auf Augenhöhe, der dich challenged und doch alles möglich macht, der ist bei smartive goldrichtig.",
+    "credit": "Corinne Petit, Agile Coach & Technical Product Owner beim Migros-Genossenschafts-Bund"
   }
 }
