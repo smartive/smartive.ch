@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { NewsletterRegistration } from '../components/newsletter-registration';
+import { NewsletterSubscription } from '../components/newsletter-subscription';
 import { Label } from '../elements/label';
 import { Link, LinkVariants } from '../elements/link';
 
@@ -30,7 +30,7 @@ export const Footer: FC = () => (
           </span>
         </address>
 
-        <NewsletterRegistration className="px-2 xl:px-8" />
+        <NewsletterSubscription className="px-2 xl:px-8" label="Newsletter jetzt abonnieren" />
         <div className="grid grid-flow-row">
           <Link variant={LinkVariants.NoUnderline} href="https://www.linkedin.com/company/smartive-ag/" newTab>
             LinkedIn
