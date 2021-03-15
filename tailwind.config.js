@@ -73,6 +73,7 @@ module.exports = {
     extend: {
       margin: ['responsive', 'first', 'last'],
       padding: ['responsive', 'first', 'last'],
+      ringColor: ['responsive', 'focus', 'hover'],
     },
   },
   plugins: [],

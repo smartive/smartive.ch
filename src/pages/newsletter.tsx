@@ -3,18 +3,18 @@ import React from 'react';
 import { NewsletterSubscription } from '../components/newsletter-subscription';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
-import { Lead } from '../elements/lead';
+import { Copy } from '../elements/copy';
 import { Grid } from '../layouts/grid';
 
 const Newsletter = () => {
   return (
     <div>
       <PageHeader markdownTitle="Neugierig, was bei uns läuft?">
-        <Lead>
+        <Copy>
           Du willst wissen, woran wir gerade arbeiten und was hinter den Kulissen passiert? Toll! Genau dafür haben wir einen
           Newsletter. Der Newsletter erscheint in lockeren Abständen und liefert dir einen Einblick in unsere aktuellen
           Projekte, digitale Trends und das smartive-Team.
-        </Lead>
+        </Copy>
         <div className="sm:w-80">
           <NewsletterSubscription />
         </div>

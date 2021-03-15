@@ -12,7 +12,7 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Lead } from '../../elements/lead';
+import { Copy } from '../../elements/copy';
 import { Grid } from '../../layouts/grid';
 
 type Props = {
@@ -27,13 +27,13 @@ const OfpgKig: NextPage<Props> = ({ quote, contact }) => {
         markdownTitle="Aus über 1ʼ700 Angeboten die richtige _Hilfe_ finden."
         description="Migipedia.ch ist seit 10 Jahren fester Bestandteil des digitalen Marketings der Migros und schafft Werte für Kundinnen und Kunden sowie fürs Unternehmen. Gemeinsam mit der Migros entwickelten wir eine komplett neue Lösung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor."
       >
-        <Lead>
+        <Copy>
           Das Ostschweizer Forum für Psychische Gesundheit verfügt über ein grosses Netzwerk an Anbietern für
           Unterstützungsangebote im Bereich Gesundheit und Soziales. Ein einfacher Zugang, wie diese gefunden werden können,
           fehlte bis anhin. smartive macht die Unterstützungsangebote mit einem Widget einfach durchsuchbar. Das Widget kann
           auf unterschiedlichen Webseiten des Kantons, der Gemeinden und anderen Organisationen eingebunden werden. Die
           Anbieter pflegen ihre Angebote zentral in einer einfachen Administration.
-        </Lead>
+        </Copy>
       </PageHeader>
 
       <main>

@@ -10,7 +10,7 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Heading2 } from '../../elements/heading-2';
 import { Clock } from '../../elements/icons';
-import { Lead } from '../../elements/lead';
+import { Copy } from '../../elements/copy';
 import { GridSlider } from '../../layouts/grid-slider';
 
 type Props = {
@@ -25,25 +25,25 @@ const Mentoring: NextPage<Props> = ({ contact }) => {
         description="Profitiere von einem erfahrenen Team und erhalte fortlaufend objektive Einschätzungen und Vorschläge für dein Projekt. Tausche dich in regelmässigen Jour fixes mit unseren Digital Strategists über dein Produkt und deine Strategie aus. Deine Ideen werden auf konstruktiv gechallenged. So kannst du dein Vorgehen festigen und gewinnst Sicherheit, dass du auf dem richtigen Weg bist."
         variant={PageHeaderVariants.Card}
       >
-        <Lead>
+        <Copy>
           Profitiere von einem erfahrenen Team und erhalte fortlaufend objektive Einschätzungen und Vorschläge für dein
           Projekt. Tausche dich in regelmässigen Jour fixes mit unseren Digital Strategists über dein Produkt und deine
           Strategie aus. Deine Ideen werden auf konstruktiv gechallenged. So kannst du dein Vorgehen festigen und gewinnst
           Sicherheit, dass du auf dem richtigen Weg bist.
-        </Lead>
+        </Copy>
       </PageHeader>
 
       <main>
         <PageSection>
           <Heading2>Was beinhaltet das Mentoring?</Heading2>
-          <Lead>
+          <Copy>
             Du möchtest ein digitales Produkt schaffen oder ein bestehendes weiterentwickeln, bist aber nicht immer ganz
             sicher ob du auf dem richtigen Weg bist? Dir fehlt die Erfahrung im Aufbau oder der Entwicklung eines Produkts?
             In einem regelmässigen Jour fixe tauscht du dich mit unseren Digital Strategists über das Projekt aus. Den
             thematischen Fokus legen wir gemeinsam fest, das von der Strategie, über User Experience, agiles Projekt
             Management, Entwicklung bis hin zu Cloud Deployments alles sein. In diesen Gesprächen erhältst du objektives
             Feedback zu deinem Vorgehen und kannst Pitfalls frühzeitig erkennen.
-          </Lead>
+          </Copy>
           <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
             <UnorderedList
               title="Das hast du davon"

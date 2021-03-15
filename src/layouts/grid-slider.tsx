@@ -10,7 +10,7 @@ export const GridSlider: FC<Props> = ({ children }) => (
     {Children.map(children, (child, i) => (
       <li
         key={i}
-        className="flex pr-4 first:pl-0 last:pr-4 lg:p-0 lg:last:pr-0 min-w-11/12 w-11/12 md:w-2/3 md:min-w-2/3 min-w lg:w-full"
+        className="flex pr-4 pb-2 first:pl-0 last:pr-4 lg:p-0 lg:last:pr-0 min-w-11/12 w-11/12 md:w-2/3 md:min-w-2/3 min-w lg:w-full"
         style={{ scrollSnapAlign: 'center' }}
       >
         {child}

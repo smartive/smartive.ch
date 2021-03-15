@@ -9,7 +9,7 @@ import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Clock } from '../../elements/icons';
-import { Lead } from '../../elements/lead';
+import { Copy } from '../../elements/copy';
 import { Link } from '../../elements/link';
 import { GridSlider } from '../../layouts/grid-slider';
 
@@ -25,24 +25,24 @@ const Angebot: NextPage<Props> = ({ packages, quote }) => {
         markdownTitle="Gemeinsam zu deinem _digitalen_ Produkt."
         description="Wir beraten, konzipieren und entwickeln. Unser Markenzeichen sind massgeschneiderte digitale Produkte. Unsere Kunden reichen vom Startup bis zur grösste Arbeitgeberin der Schweiz."
       >
-        <Lead>
+        <Copy>
           Wir beraten, konzipieren und entwickeln. Unser Markenzeichen sind massgeschneiderte digitale Produkte. Unsere
           Kunden reichen vom Startup bis zur grösste Arbeitgeberin der Schweiz.
-        </Lead>
-        <Lead>
+        </Copy>
+        <Copy>
           Wir sind überzeugt, dass die besten Resultate gemeinsam in einem iterativen Vorgehen entstehen. Was wir darunter
           verstehen, liest du unten. Oder du wirfst einen Blick auf <Link href="/projekte">die Projekte</Link>, die wir
           umgesetzt haben.
-        </Lead>
+        </Copy>
       </PageHeader>
 
       <main>
         <PageSection title="Wir arbeiten agil.">
-          <Lead>
+          <Copy>
             Wir arbeiten agil. Klingt gut, hat aber auch gute Gründe: Wir möchten nicht die Katze im Sack verkaufen. Und wir
             möchten etwas schaffen, das dich, deine Kund*innen und uns überzeugt. Mit Scrum stellen wir sicher, dass dein
             Projekt fortlaufend evaluiert wird und du in die Entwicklung mit einbezogen bist.
-          </Lead>
+          </Copy>
           <LinkList
             links={[
               { label: 'Wie kann ich mein Projekt möglichst schnell lancieren?', href: '/blog/mvp' },
@@ -54,12 +54,12 @@ const Angebot: NextPage<Props> = ({ packages, quote }) => {
           <QuoteCard quote={quote} />
         </PageSection>
         <PageSection title="Etwas für jede Projektphase.">
-          <Lead>
+          <Copy>
             Wichtig ist: Wir versuchen mit dir gemeinsam dein Produkt so schnell wie möglich an deine Nutzer zu bringen. Denn
             wir glauben, dass ein Produkt in den Händen der Nutzer mehr Wert bringt als ein Produkt in der Schublade, auch
             wenn es noch nicht alles kann.
-          </Lead>
-          <Lead>Vielliecht ist eines der folgenden Angebot was für dich?</Lead>
+          </Copy>
+          <Copy>Vielliecht ist eines der folgenden Angebot was für dich?</Copy>
           <GridSlider>
             {packages.map(({ label, ...paeckli }) => (
               <ContentCard

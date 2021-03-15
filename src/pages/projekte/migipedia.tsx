@@ -15,7 +15,7 @@ import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Clock } from '../../elements/icons';
-import { Lead } from '../../elements/lead';
+import { Copy } from '../../elements/copy';
 import { Link } from '../../elements/link';
 import { Grid } from '../../layouts/grid';
 
@@ -33,11 +33,11 @@ const Migipedia: NextPage<Props> = ({ quote, contact, packages }) => {
         description="Migipedia.ch ist seit 10 Jahren fester Bestandteil des digitalen Marketings der Migros und schafft Werte für Kundinnen und Kunden sowie fürs Unternehmen. Gemeinsam mit der Migros entwickelten wir eine komplett neue Lösung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor."
         awardTags={['Best of Swiss Web 2019']}
       >
-        <Lead>
+        <Copy>
           Seit 2010 ist die Migros-Community online, seit 2014 begleitet smartive die Migros bei der Weiterentwicklung. Die
           Ansprüche der User an die Plattform haben sich in dieser Zeit immer wieder verändert. Der Migipedia-Relaunch von
           2020 trägt dem einmal mehr Rechnung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor.
-        </Lead>
+        </Copy>
       </PageHeader>
 
       <main>

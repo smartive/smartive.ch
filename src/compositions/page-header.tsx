@@ -47,7 +47,7 @@ const SimplePageHeader: FC<SimplePageHeaderProps> = ({ display, awardTags, child
 );
 
 const CardPageHeader: FC<CardPageHeaderProps> = ({ display, children }) => (
-  <div className="grid grid-flow-row justify-items-center bg-cornflower-500 rounded p-12 md:p-20 lg:p-32">
+  <div className="grid grid-flow-row justify-items-center text-center bg-cornflower-500 rounded p-12 md:p-20 lg:p-32">
     {display && <Heading1>{display}</Heading1>}
     {children}
   </div>

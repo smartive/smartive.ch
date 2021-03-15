@@ -12,9 +12,8 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
-import { Lead } from '../../elements/lead';
+import { Copy } from '../../elements/copy';
 import { Link } from '../../elements/link';
 import { Grid } from '../../layouts/grid';
 
@@ -30,15 +29,15 @@ const Migusto: NextPage<Props> = ({ quote, contact }) => {
         markdownTitle="_Schnelle_ Rezepte für schnelles Kochen."
         description="Für die neue Migusto-Plattform der Migros haben wir eine Rezepte-API entwickelt. Unsere Lösung bietet einen zentralen Zugriff auf die Migros Rezeptdatenbank mit Rezepten von Migusto, Famigros und iMpuls."
       >
-        <Lead>
+        <Copy>
           Für das neue <Link href="https://migusto.ch">Migusto</Link> der Migros haben wir eine Rezepte-API entwickelt.
           Unsere Lösung bietet einen zentralen Zugriff auf die Migros Rezeptdatenbank mit Rezepten von Migusto, Famigros und
           iMpuls.
-        </Lead>
-        <Lead>
+        </Copy>
+        <Copy>
           Sie bildet das Rückgrat der Migusto Webseite für alle rezeptspezifischen Suchabfragen, das Autocomplete und die
           Rezeptdaten für die Detailseite - in Echtzeit.
-        </Lead>
+        </Copy>
       </PageHeader>
 
       <main>

@@ -10,9 +10,8 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
-import { Lead } from '../../elements/lead';
+import { Copy } from '../../elements/copy';
 import { Grid } from '../../layouts/grid';
 
 type Props = {
@@ -27,11 +26,11 @@ const Subsidia: NextPage<Props> = ({ quote, contact }) => (
       markdownTitle="_Digitalisierung_ der Lieferkette."
       description="Als grösste Detailhändlerin der Schweiz ist die Migros auf reibungslose Prozesse in der Lieferkette angewiesen. Bestellungen bei externen Zulieferern sollen möglichst effizient abgewickelt und in die eigene Warenbewirtschaftung eingepflegt werden können."
     >
-      <Lead>
+      <Copy>
         Als grösste Detailhändlerin der Schweiz ist die Migros auf reibungslose Prozesse in der Lieferkette angewiesen.
         Bestellungen bei externen Zulieferern sollen möglichst effizient abgewickelt und in die eigene Warenbewirtschaftung
         eingepflegt werden können.
-      </Lead>
+      </Copy>
     </PageHeader>
 
     <main>

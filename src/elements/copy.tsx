@@ -6,5 +6,7 @@ type Props = {
 };
 
 export const Copy: FC<Props> = ({ children, as: Tag = 'p', className = '' }) => (
-  <Tag className={`font-sans font-normal text-xxs mb-4 lg:text-sm max-w-prose ${className}`}>{children}</Tag>
+  <Tag className={`font-sans font-normal text-xs lg:text-base md:max-w-prose my-4 lg:my-8 first:mt-0 ${className}`}>
+    {children}
+  </Tag>
 );

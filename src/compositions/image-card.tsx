@@ -3,9 +3,7 @@ import Link from 'next/link';
 import React, { FC, ReactNode } from 'react';
 import { Url } from 'url';
 import { AwardTags } from '../components/award-tags';
-import { Copy } from '../elements/copy';
 import { Heading3 } from '../elements/heading-3';
-import { Lead } from '../elements/lead';
 import { isExternalUrl } from '../utils/url';
 
 export enum ImageCardVariants {
@@ -65,10 +63,14 @@ export const ImageCard: FC<Props> = ({
             className={awardClassName}
           />
         )}
-        <div className={`p-4 ${variant === ImageCardVariants.Wide ? 'md:col-span-2 md:p-16' : 'lg:m-8'}`}>
-          <Copy className="inline-flex items-center mb-4">{label}</Copy>
+        <div
+          className={`font-sans font-normal text-xxs mb-4 lg:text-sm p-4 ${
+            variant === ImageCardVariants.Wide ? 'md:col-span-2 md:p-16' : 'lg:m-8'
+          }`}
+        >
+          <p className="inline-flex items-center mb-4">{label}</p>
           <Heading3 as="p">{title}</Heading3>
-          {description && <Lead>{description}</Lead>}
+          {description && <p className="mb-4">{description}</p>}
           <span className="border-b-2">{link.label}</span>
         </div>
       </div>

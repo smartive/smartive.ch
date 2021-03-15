@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import React, { FC } from 'react';
 import { Employee } from '../data/employees';
-import { Copy } from '../elements/copy';
 import { Heading3 } from '../elements/heading-3';
 import { Link, LinkVariants } from '../elements/link';
 
@@ -37,12 +36,12 @@ export const EmployeeCard: FC<Props> = ({
         height="216"
       />
     </div>
-    <div className="flex flex-col flex-1 p-8">
-      <Copy className="mb-6">{job}</Copy>
+    <div className="flex flex-col flex-1 p-8 font-sans font-normal text-xxs lg:text-sm">
+      <p className="mb-6">{job}</p>
       <Heading3 as="p">
         {firstname} {lastname}
       </Heading3>
-      <Copy>{bio}</Copy>
+      <p>{bio}</p>
       <div className="flex flex-1 content-end flex-row flex-wrap mt-6">
         {links.map(({ label, url }) => (
           <Link className="mr-4 last:mr-0" key={url} href={url} variant={LinkVariants.Underline}>

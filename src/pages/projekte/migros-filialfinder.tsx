@@ -11,9 +11,8 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
-import { Lead } from '../../elements/lead';
+import { Copy } from '../../elements/copy';
 import { Grid } from '../../layouts/grid';
 
 type Props = {
@@ -28,11 +27,11 @@ const Filialfinder: NextPage<Props> = ({ quote, contact }) => {
         markdownTitle="Auf der Suche nach der nächsten _Migros-Filiale_."
         description="Migipedia.ch ist seit 10 Jahren fester Bestandteil des digitalen Marketings der Migros und schafft Werte für Kundinnen und Kunden sowie fürs Unternehmen. Gemeinsam mit der Migros entwickelten wir eine komplett neue Lösung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor."
       >
-        <Lead>
+        <Copy>
           Für den grössten Schweizer Detailhändler, den Migros-Genossenschafts-Bund, haben wir den neuen Filialfinder
           umgesetzt. Ziel war es, eine responsive und ansprechende Lösung zu entwickeln, die es dem Kunden erlaubt, zu Hause
           oder unterwegs für ihn interessante Informationen zu Filialen in der Nähe schnell und einfach abrufen zu können.
-        </Lead>
+        </Copy>
       </PageHeader>
 
       <main>

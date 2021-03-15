@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
+import { useRouter } from 'next/dist/client/router';
 import React, { FC, useRef, useState } from 'react';
 import { Heading2 } from '../elements/heading-2';
 import { Label } from '../elements/label';
@@ -19,6 +20,7 @@ const Meta = [
 ] as const;
 
 export const Navigation: FC = () => {
+  const { pathname } = useRouter();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const mobileNavRef = useRef(null);
   useLockBodyScroll(mobileNavOpen, mobileNavRef);
@@ -33,7 +35,11 @@ export const Navigation: FC = () => {
       <ul className="hidden lg:grid grid-flow-col gap-8">
         {Main.map(({ label, link }) => (
           <li key={label}>
-            <Link variant={LinkVariants.NoUnderline} href={link}>
+            <Link
+              variant={LinkVariants.NoUnderline}
+              href={link}
+              className={pathname.includes(link) ? 'border-apricot-500' : ''}
+            >
               {label}
             </Link>
           </li>
@@ -75,7 +81,12 @@ export const Navigation: FC = () => {
             >
               {Main.map(({ label, link }) => (
                 <Heading2 key={label} as="li" noSpacing>
-                  <Link variant={LinkVariants.NoUnderline} href={link} onClick={() => setMobileNavOpen(false)}>
+                  <Link
+                    variant={LinkVariants.NoUnderline}
+                    href={link}
+                    onClick={() => setMobileNavOpen(false)}
+                    className={pathname.includes(link) ? 'border-cornflower-500' : ''}
+                  >
                     {label}
                   </Link>
                 </Heading2>

@@ -9,7 +9,7 @@ import { PageSection } from '../compositions/page-section';
 import { LinkedInArticle } from '../data/linkedin-articles';
 import LinkedInArticles from '../data/linkedin-articles.json';
 import { Calendar } from '../elements/icons';
-import { Lead } from '../elements/lead';
+import { Copy } from '../elements/copy';
 import { Grid } from '../layouts/grid';
 
 type Props = {
@@ -23,10 +23,10 @@ const Team: NextPage<Props> = ({ posts }) => {
         markdownTitle="Sed posuere _consectetur_ est at."
         description="Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       >
-        <Lead>
+        <Copy>
           Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet,
           consectetur adipiscing elit.
-        </Lead>
+        </Copy>
       </PageHeader>
 
       <main>

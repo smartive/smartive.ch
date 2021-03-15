@@ -11,7 +11,7 @@ import Employees from '../../data/employees.json';
 import { Heading2 } from '../../elements/heading-2';
 import { Clock } from '../../elements/icons';
 import { Label } from '../../elements/label';
-import { Lead } from '../../elements/lead';
+import { Copy } from '../../elements/copy';
 import { GridSlider } from '../../layouts/grid-slider';
 
 type Props = {
@@ -32,24 +32,24 @@ const IdeationSprint: NextPage<Props> = ({ contact }) => {
           <Clock className="h-6 w-6 mr-2 inline" />
           2–5 Tage
         </Label>
-        <Lead>
+        <Copy>
           ‌Gewinne‌ ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌ ‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generiere‌ ‌daraus‌
           ‌funktionsfähige‌ ‌Ideen.‌ ‌Erhalte‌ ‌einen‌ ‌ersten‌ ‌visuellen‌ ‌Prototypen‌ ‌und‌ ‌hole‌ ‌Feedback‌ ‌deiner‌
           ‌Kunden‌ ‌dazu‌ ‌ab.‌
-        </Lead>
+        </Copy>
       </PageHeader>
 
       <main>
         <PageSection>
           <Heading2>Was ist ein Ideation Sprint?</Heading2>
-          <Lead>
+          <Copy>
             Du hast eine Marktlücke oder die Chance für einen Innovationssprung deines digitalen Produkts erkannt. Du bist
             dir aber nicht sicher, wie du diese Herausforderung angehen sollst. In einem Ideation Workshop zerlegen wir
             gemeinsam mit Fachexperten das Problem in seine Einzelteile und entwickeln daraus eine Lösung. Dabei setzen wir
             auf modernste Methoden wie Design Sprints oder Lightning Decision Jams. Je nach Komplexität der Herausforderung
             entwickeln wir einen visuellen, klickbaren Prototypen und führen bereits ein erstes Testing mit deinen
             po­ten­zi­ellen Nutzern durch.
-          </Lead>
+          </Copy>
           <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
             <UnorderedList
               title="Das hast du davon"

@@ -17,7 +17,7 @@ import Packages, { Package } from '../data/packages';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
 import { Clock } from '../elements/icons';
-import { Lead } from '../elements/lead';
+import { Copy } from '../elements/copy';
 import { GridSlider } from '../layouts/grid-slider';
 
 type Props = {
@@ -88,10 +88,10 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
           <QuoteCard quote={quote} />
         </PageSection>
         <PageSection title="Wir unterstützen dich, egal wie weit du schon bist.">
-          <Lead>
+          <Copy>
             In welcher Phase steckt dein Projekt? Mit unserer langjährigen Expertise unterstützen wir dich von der Idee bis
             über den Golive hinaus.
-          </Lead>
+          </Copy>
           <GridSlider>
             {packages.map(({ label, ...paeckli }) => (
               <ContentCard

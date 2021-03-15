@@ -1,4 +1,6 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import type { AppProps } from 'next/app';
+import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
 import React from 'react';
 import { Navigation } from '../components/navigation';
@@ -6,6 +8,7 @@ import { Footer } from '../compositions/footer';
 import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
+  const { pathname } = useRouter();
   return (
     <div className="min-h-screen grid grid-rows-headerFooter lg:container lg:mx-auto px-4 pt-8">
       <Head>
@@ -15,7 +18,11 @@ export default function App({ Component, pageProps }: AppProps) {
         />
       </Head>
       <Navigation />
-      <Component {...pageProps} />
+      <AnimatePresence>
+        <motion.div key={pathname} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+          <Component {...pageProps} />
+        </motion.div>
+      </AnimatePresence>
       <Footer />
     </div>
   );

@@ -10,7 +10,7 @@ import { Employee } from '../data/employees';
 import Employees from '../data/employees.json';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
-import { Lead } from '../elements/lead';
+import { Copy } from '../elements/copy';
 import { Grid } from '../layouts/grid';
 
 type Props = {
@@ -26,11 +26,11 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
         markdownTitle="Wir konzipieren und _kompostieren_, entwickeln und verwickeln, beraten und bräteln, gemeinsam"
         description={`${employees.length} Menschen, eine Idee: Zusammen Herausforderungen stemmen und digitale Produkte schaffen, die herausragen. Und eine ungezwungene Atmosphäre: Wir pflegen die Freundschaft. Wir entscheiden zusammen. Wir geben allen das Vertrauen und die Freiheit, sich auf ihre Art einzubringen.`}
       >
-        <Lead>
+        <Copy>
           {employees.length} Menschen, eine Idee: Zusammen Herausforderungen stemmen und digitale Produkte schaffen, die
           herausragen. Und eine ungezwungene Atmosphäre: Wir pflegen die Freundschaft. Wir entscheiden zusammen. Wir geben
           allen das Vertrauen und die Freiheit, sich auf ihre Art einzubringen.
-        </Lead>
+        </Copy>
         <LinkList links={[{ label: 'mehr über New Work', href: '#' }]} />
       </PageHeader>
 

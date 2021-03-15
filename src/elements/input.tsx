@@ -5,7 +5,7 @@ type Props = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputE
 export const Input: FC<Props> = forwardRef(({ className = '', ...props }, ref) => (
   <input
     ref={ref}
-    className={`rounded border-2 focus:ring-mint-500 focus:outline-none focus:ring-1 border-black bg-white-100 text-black p-3 ${className}`}
+    className={`rounded border-2 ring-inset ring-1 ring-transparent hover:ring-black focus:ring-black focus:outline-none border-black bg-white-100 text-black p-3 ${className}`}
     {...props}
   />
 ));

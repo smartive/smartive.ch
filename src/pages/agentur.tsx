@@ -7,7 +7,7 @@ import { PageSection } from '../compositions/page-section';
 import { TextBlock } from '../compositions/text-block';
 import { Employee } from '../data/employees';
 import Employees from '../data/employees.json';
-import { Lead } from '../elements/lead';
+import { Copy } from '../elements/copy';
 import { Link } from '../elements/link';
 import { Grid } from '../layouts/grid';
 
@@ -55,12 +55,12 @@ const Agentur: NextPage<Props> = ({ employees }) => {
         markdownTitle="Wir sind _smartive_. Wir stehen für digitale Lösungen und eine bizli andere Firmenkultur."
         description="Wir wollen einen Ort schaffen, an dem wir nicht nur arbeiten, sondern auch Freundschaft und Freiheit leben. Mit Platz für verschiedene Persönlichkeiten, Interessen und Entwicklung. Dies ermöglicht uns die volle Entfaltung unseres Potenzials."
       >
-        <Lead>
+        <Copy>
           Chefgehabe ist uns so fremd wie komplexe Hierarchien und Gärtchendenken. Herausforderungen werden gemeinsam
           angegangen, Probleme offen angesprochen und gelöst. Wir wollen einen Ort schaffen, an dem wir nicht nur arbeiten,
           sondern auch Freundschaft und Freiheit leben. Mit Platz für verschiedene Persönlichkeiten, Interessen und
           Entwicklung. Dies ermöglicht uns die volle Entfaltung unseres Potenzials.
-        </Lead>
+        </Copy>
       </PageHeader>
 
       <main>

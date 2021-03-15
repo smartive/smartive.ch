@@ -11,7 +11,7 @@ import Employees from '../../data/employees.json';
 import { Heading2 } from '../../elements/heading-2';
 import { Clock } from '../../elements/icons';
 import { Label } from '../../elements/label';
-import { Lead } from '../../elements/lead';
+import { Copy } from '../../elements/copy';
 import { GridSlider } from '../../layouts/grid-slider';
 
 type Props = {
@@ -29,21 +29,21 @@ const SolutionReview: NextPage<Props> = ({ contact }) => {
         <Label className="inline-flex flex-row items-center mb-8">
           <Clock className="h-6 w-6 mr-2 inline" />5 Tage
         </Label>
-        <Lead>
+        <Copy>
           Erhalte eine objektive Einschätzung der Chancen und Risiken deines digitalen Produkts sowie einen klaren
           Massnahmenplan, was du verbessern kannst.
-        </Lead>
+        </Copy>
       </PageHeader>
 
       <main>
         <PageSection>
           <Heading2>Was ist ein Solution Review?</Heading2>
-          <Lead>
+          <Copy>
             Du hast ein digitales Produkt am Markt. Es geht nicht voran oder du bist dir nicht sicher, ob die Lösung hält,
             was sie verspricht. Du möchtest das Produkt verbessern oder weiterentwickeln, bist dir aber nicht darüber im
             Klaren, welches die nächsten Schritte sind. Bei einem Solution Review analysieren wir deine bestehende Lösung und
             liefern dir unsere Erkenntnisse, Risiken und Empfehlungen.
-          </Lead>
+          </Copy>
           <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
             <UnorderedList
               title="Das hast du davon"

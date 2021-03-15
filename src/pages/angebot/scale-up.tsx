@@ -11,7 +11,7 @@ import Employees from '../../data/employees.json';
 import { Heading2 } from '../../elements/heading-2';
 import { Clock } from '../../elements/icons';
 import { Label } from '../../elements/label';
-import { Lead } from '../../elements/lead';
+import { Copy } from '../../elements/copy';
 import { GridSlider } from '../../layouts/grid-slider';
 
 type Props = {
@@ -30,18 +30,18 @@ const ScaleUp: NextPage<Props> = ({ contact }) => {
           <Clock className="h-6 w-6 mr-2 inline" />
           2-3 Monate
         </Label>
-        <Lead>Baue deinen MVP entlang der messbaren Ziele aus und erweitere den Umfang deines Produkts.</Lead>
+        <Copy>Baue deinen MVP entlang der messbaren Ziele aus und erweitere den Umfang deines Produkts.</Copy>
       </PageHeader>
 
       <main>
         <PageSection>
           <Heading2>Was ist heisst Scale Up?</Heading2>
-          <Lead>
+          <Copy>
             Du hast dein Produkt als MVP am Markt. Du möchtest es entweder verbessern oder weiterentwickeln. Die angestrebten
             Ziele und sind definiert und werden gemessen. Anhand dieser Ziele legen wir gemeinsam deine nächsten
             Zwischenziele fest und arbeiten auf diese hin. Die Umsetzung erfolgt in agilen zweiwöchigen Sprints, wobei du
             laufend den Fortschritt siehst.
-          </Lead>
+          </Copy>
           <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
             <UnorderedList
               title="Das hast du davon"

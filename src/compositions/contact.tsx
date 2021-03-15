@@ -19,7 +19,7 @@ export const Contact: FC<Props> = ({
 }) => {
   const { firstname, lastname, portrait, tel, email } = contact;
   return (
-    <div className="grid place-content-center items-center justify-items-center text-center grid-flow-row lg:grid-flow-col gap-12 px-4 lg:px-14">
+    <div className="grid place-content-center items-center justify-items-center text-center lg:text-left grid-flow-row lg:grid-flow-col gap-12 px-4 lg:px-14">
       <Portrait
         image={portrait}
         alt={`${firstname} ${lastname}`}

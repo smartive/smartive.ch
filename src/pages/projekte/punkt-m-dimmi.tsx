@@ -10,9 +10,8 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
-import { Lead } from '../../elements/lead';
+import { Copy } from '../../elements/copy';
 import { Grid } from '../../layouts/grid';
 
 type Props = {
@@ -28,12 +27,12 @@ const Dimmi: NextPage<Props> = ({ quote, contact }) => (
       dabei die Kassen-App, die auf jedem Smartphone läuft. Wir begleiten Subsidia seit den Anfängen, egal ob bei der
       Architekturwahl für die Apps, Setup der Cloud-Umgebung mit Google oder sogar beim Teamaufbau."
     >
-      <Lead>
+      <Copy>
         Für den Migros-Genossenschafts-Bund, den grössten Schweizer Detailhändler, haben wir ein internes soziales Netzwerk
         umgesetzt. 100 000 Mitarbeitende können Gruppen erstellen und gemeinsame Interessen teilen. Die Unternehmen und
         Abteilungen des Migros-Genossenschafts-Bundes kommunizieren Gruppenspezifisch interne News. So rücken die
         Mitarbeitenden über das gesamte Unternehmen hinweg näher zusammen.
-      </Lead>
+      </Copy>
     </PageHeader>
 
     <main>
