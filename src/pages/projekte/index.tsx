@@ -91,13 +91,13 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact }) => {
             />
 
             {new Array(1).fill(imageCard).map(({ label, title, link, image }) => (
-              <ImageCard label={label} title={title} link={link} image={image} />
+              <ImageCard key={title} label={label} title={title} link={link} image={image} />
             ))}
           </GridSlider>
           <QuoteCard quote={quote} />
           <Grid cols={3}>
             {new Array(5).fill(imageCard).map(({ label, title, link, image }) => (
-              <ImageCard label={label} title={title} link={link} image={image} />
+              <ImageCard key={title} label={label} title={title} link={link} image={image} />
             ))}
           </Grid>
         </PageSection>

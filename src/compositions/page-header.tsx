@@ -90,9 +90,11 @@ export const PageHeader: FC<PageHeaderProps> = ({
         <meta property="twitter:image" content={imageUrl} />
       </Head>
       {variant === PageHeaderVariants.Simple && (
-        <SimplePageHeader display={display} awardTags={awardTags} children={children} />
+        <SimplePageHeader display={display} awardTags={awardTags}>
+          {children}
+        </SimplePageHeader>
       )}
-      {variant === PageHeaderVariants.Card && <CardPageHeader display={display} children={children} />}
+      {variant === PageHeaderVariants.Card && <CardPageHeader display={display}>{children}</CardPageHeader>}
     </header>
   );
 };

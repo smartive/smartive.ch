@@ -181,7 +181,7 @@ const Migusto: NextPage<Props> = ({ quote, contact }) => {
             Rezeptinhalte.
           </Copy>
           <Copy>
-            Die GraphQL API, welche auf Cloud Foundry betrieben wird, hielt bei durchgeführten Lasttests auch 20'000 Anfragen
+            Die GraphQL API, welche auf Cloud Foundry betrieben wird, hielt bei durchgeführten Lasttests auch 20’000 Anfragen
             pro Minute problemlos stand.
           </Copy>
         </PageSection>

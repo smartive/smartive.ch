@@ -5,7 +5,6 @@ import { QuoteCard } from '../../components/quote-card';
 import { Contact } from '../../compositions/contact';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
-import { TextBlock } from '../../compositions/text-block';
 import { UnorderedList } from '../../compositions/unordered-list';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
