@@ -38,7 +38,7 @@ const SimplePageHeader: FC<SimplePageHeaderProps> = ({ display, awardTags, child
   <>
     {awardTags && awardTags.length > 0 && (
       <div className="grid grid-flow-col gap-4 mb-3">
-        <AwardTags awardTags={awardTags} />
+        <AwardTags tags={awardTags} />
       </div>
     )}
     {display && <Heading1>{display.includes('_') ? highlight(display) : display}</Heading1>}

@@ -1,6 +1,8 @@
-import React, { Children, FC } from 'react';
+import React, { Children, FC, ReactNode } from 'react';
 
-export const GridSlider: FC = ({ children }) => (
+type Props = { children: ReactNode };
+
+export const GridSlider: FC<Props> = ({ children }) => (
   <ul
     className="w-screen lg:w-full -mx-4 lg:mx-0 px-4 lg:p-0 my-8 xl:my-16 flex items-stretch overflow-x-auto lg:overflow-x-visible lg:grid lg:grid-flow-col lg:auto-cols-fr lg:gap-8 xl:gap-16"
     style={{ scrollSnapType: 'x mandatory' }}

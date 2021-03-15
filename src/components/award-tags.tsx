@@ -1,24 +1,27 @@
-import React, { Children, FC } from 'react';
-import { Copy } from '../elements/copy';
+import React, { FC } from 'react';
 
 type Props = {
-  awardTags: string[];
+  tags: string[];
   vertical?: boolean;
+  size?: 'S' | 'L';
   className?: string;
 };
 
 const TagColors = ['bg-apricot-500', 'bg-mint-500', 'bg-cornflower-500'] as const;
 
-export const AwardTags: FC<Props> = ({ awardTags, vertical = false, className = '' }) => (
-  <div className={`grid grid-flow-col gap-2 lg:gap-6 justify-start ${className} text-xxs lg:text-xs`}>
-    {Children.map(awardTags, (tag, index) => (
-      <Copy
-        className={`${TagColors[index % 3]} text-white-100 py-1 px-2 lg:py-3 lg:px-4 ${
-          vertical ? 'rounded-t-sm transform origin-center rotate-180 writing-vertical' : 'rounded-sm'
-        }`}
-      >
-        {tag}
-      </Copy>
-    ))}
-  </div>
-);
+export const AwardTags: FC<Props> = ({ tags, vertical = false, className = '', size = 'L' }) => {
+  const fontSize = size === 'L' ? 'text-xs lg:text-sm' : 'text-xxs';
+  const positioning = vertical ? 'rounded-t-sm transform origin-center rotate-180 writing-vertical' : 'rounded-sm';
+  const textStyles = `font-sans font-normal text-white-100 ${fontSize}`;
+  const gap = size === 'L' ? 'gap-2 lg:gap-6' : 'gap-1 lg:gap-2';
+
+  return (
+    <div className={`grid grid-flow-col ${gap} justify-start ${className}`}>
+      {tags.map((tag, index) => (
+        <span key={index} className={`${TagColors[index % 3]} py-2 px-2 lg:py-4 lg:px-2 ${textStyles} ${positioning}`}>
+          {tag}
+        </span>
+      ))}
+    </div>
+  );
+};

@@ -40,27 +40,38 @@ export const ImageCard: FC<Props> = ({
   variant = ImageCardVariants.Small,
   awardTags = [],
   className = '',
-}) => (
-  <Link href={link.href}>
-    <div
-      className={`relative grid grid-flow-row w-full ${
-        variant === ImageCardVariants.Wide ? 'md:grid-cols-3' : ''
-      } cursor-pointer border-transparent bg-white-100 rounded overflow-hidden card-shadow ${className}`}
-    >
-      <div className={`relative w-full ${ImageSizes[variant]}`}>
-        {isExternalUrl(image.src) ? (
-          <img className="object-cover h-full w-full" src={image.src} alt={image.alt} loading="lazy" />
-        ) : (
-          <Image src={image.src} alt={image.alt} objectFit="cover" layout="fill" />
+}) => {
+  const awardClassName = variant === ImageCardVariants.Small ? 'absolute top-0 right-4' : 'absolute top-0 right-10';
+
+  return (
+    <Link href={link.href}>
+      <div
+        className={`relative grid grid-flow-row w-full ${
+          variant === ImageCardVariants.Wide ? 'md:grid-cols-3' : ''
+        } cursor-pointer border-transparent bg-white-100 rounded overflow-hidden card-shadow ${className}`}
+      >
+        <div className={`relative w-full ${ImageSizes[variant]}`}>
+          {isExternalUrl(image.src) ? (
+            <img className="object-cover h-full w-full" src={image.src} alt={image.alt} loading="lazy" />
+          ) : (
+            <Image src={image.src} alt={image.alt} objectFit="cover" layout="fill" />
+          )}
+        </div>
+        {awardTags.length > 0 && (
+          <AwardTags
+            size={variant === ImageCardVariants.Small ? 'S' : 'L'}
+            tags={awardTags}
+            vertical
+            className={awardClassName}
+          />
         )}
+        <div className={`p-4 ${variant === ImageCardVariants.Wide ? 'md:col-span-2 md:p-16' : 'lg:m-8'}`}>
+          <Copy className="inline-flex items-center mb-4">{label}</Copy>
+          <Heading3 as="p">{title}</Heading3>
+          {description && <Lead>{description}</Lead>}
+          <span className="border-b-2">{link.label}</span>
+        </div>
       </div>
-      {awardTags.length > 0 && <AwardTags awardTags={awardTags} vertical className="absolute top-0 right-6" />}
-      <div className={`p-4 ${variant === ImageCardVariants.Wide ? 'md:col-span-2 md:p-16' : 'lg:m-8'}`}>
-        <Copy className="inline-flex items-center mb-4">{label}</Copy>
-        <Heading3 as="p">{title}</Heading3>
-        {description && <Lead>{description}</Lead>}
-        <span className="border-b-2">{link.label}</span>
-      </div>
-    </div>
-  </Link>
-);
+    </Link>
+  );
+};

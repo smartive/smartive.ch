@@ -66,7 +66,7 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact }) => {
               label="Migros Supply Chain"
               title="Digitalisierung der Lieferkette"
               link={{ label: 'Zum Projekt', href: '/projekte/migros-supply-chain' }}
-              awardTags={['Best of Swiss Web 2020', 'Best of Swiss Apps 2020']}
+              awardTags={['BOSW 2020', 'BOSA 2020']}
               image={{
                 src: '/images/projekte/supply-chain/man_mit_heber.jpg',
                 alt: 'Ein Mann transportiert Boxen in einem Lager',
