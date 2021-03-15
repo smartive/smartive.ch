@@ -8,34 +8,36 @@ import { ImageCard } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { TextBlock } from '../../compositions/text-block';
+import { UnorderedList } from '../../compositions/unordered-list';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Copy } from '../../elements/copy';
 import { Clock } from '../../elements/icons';
+import { Lead } from '../../elements/lead';
+import { Link } from '../../elements/link';
 import { Grid } from '../../layouts/grid';
 
 type Props = {
-  quoteStefanie: Quote;
+  quote: Quote;
   contact: Employee;
   packages: Package[];
 };
 
-const Migipedia: NextPage<Props> = ({ quoteStefanie, contact, packages }) => {
+const Migipedia: NextPage<Props> = ({ quote, contact, packages }) => {
   return (
     <div>
       <PageHeader
         markdownTitle="Migipedia – _10 Jahre_ User im Mittelpunkt."
         description="Migipedia.ch ist seit 10 Jahren fester Bestandteil des digitalen Marketings der Migros und schafft Werte für Kundinnen und Kunden sowie fürs Unternehmen. Gemeinsam mit der Migros entwickelten wir eine komplett neue Lösung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor."
-        awardTags={['Best of Swiss Web 2021', 'Best of Swiss Web 2020']}
+        awardTags={['Best of Swiss Web 2021']}
       >
-        <Copy>
-          Migipedia.ch ist seit 10 Jahren fester Bestandteil des digitalen Marketings der Migros und schafft Werte für
-          Kundinnen und Kunden sowie fürs Unternehmen. Gemeinsam mit der Migros entwickelten wir eine komplett neue Lösung.
-          Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor.
-        </Copy>
+        <Lead>
+          Seit 2010 ist die Migros-Community online, seit 2014 begleitet smartive die Migros bei der Weiterentwicklung. Die
+          Ansprüche der User an die Plattform haben sich in dieser Zeit immer wieder verändert. Der Migipedia-Relaunch von
+          2020 trägt dem einmal mehr Rechnung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor.
+        </Lead>
       </PageHeader>
 
       <main>
@@ -43,8 +45,8 @@ const Migipedia: NextPage<Props> = ({ quoteStefanie, contact, packages }) => {
           <Grid cols={2}>
             <Image
               className="rounded"
-              src="/images/RGB_02_snack_001.jpg"
-              alt="Lustigi Lüüt amne Tisch"
+              src="/images/migipedia/RGB_04_kitchen_012.jpg"
+              alt="Frau in orangem Pullover isst Joghurt"
               priority
               objectFit="cover"
               width={720}
@@ -52,52 +54,75 @@ const Migipedia: NextPage<Props> = ({ quoteStefanie, contact, packages }) => {
             />
             <Image
               className="rounded"
-              src="/images/RGB_02_snack_001.jpg"
-              alt="Lustigi Lüüt amne Tisch"
+              src="/images/migipedia/RGB_01_diskutieren_007.jpg"
+              alt="Eine Frau und ein Mann betrachten etwas auf einem Smartphone"
               priority
               objectFit="cover"
               width={720}
               height={383}
             />
-            <div className="col-span-2">
-              <Image
-                className="rounded"
-                src="/images/mood/YB_06742.jpg"
-                alt="Lustigi Lüüt amne Tisch"
-                priority
-                objectFit="cover"
-                width={1504}
-                height={800}
-              />
-            </div>
           </Grid>
+        </PageSection>
+        <PageSection>
+          <UnorderedList
+            title="Migipedia auf einen Blick"
+            items={[
+              'Auf elf digitalen Touchpoints präsent',
+              '120 000 aktiven Nutzer*innen',
+              '300 000 Bewertungen verfasst',
+              '105 Mio. Mal Bewertungen abgerufen in einem Jahr',
+              '60% mehr Bewertungen im Vergleich zum Vorjahr',
+              'Reduzierung der Betriebskosten um über 90% durch die Ablösung der bisherigen SaaS-Lösung',
+            ]}
+          />
+        </PageSection>
+        <PageSection>
+          <Image
+            className="rounded"
+            src="/images/migipedia/RGB_05_couch_010.jpg"
+            alt="Eine Frau sitzt mit ihrem Sohn im Wohnzimmer. Sie sortieren Migros Mania Sammelelemente."
+            priority
+            objectFit="cover"
+            width={1504}
+            height={800}
+          />
+        </PageSection>
+        <PageSection>
           <Grid cols={2}>
-            <div className="col-span-2">
-              <TextBlock
-                title="Dynamisch und statisch: Endlich beste Freunde"
-                link={{ label: 'Weiterführender Link', href: '' }}
-              >
-                Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-                ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum
-                dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-                ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum
-                dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-              </TextBlock>
-            </div>
-            <TextBlock title="Steigerung von Maximierungen">
-              Nulla vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla
-              vitae elit libero, a pharetra augue. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+            <TextBlock title="Die Herausforderung">
+              Migipedia.ch verbindet Nutzen für Nutzer*innen mit Mehwert für die Migros. Sie ist seit zehn Jahren fester
+              Bestandteil des digitalen Marketings der Migros. Die Community soll attraktiver werden und zu mehr
+              User-Interaktionen führen. Sie soll nicht mehr nur auf Migipedia leben, sondern auf vielen weiteren digitalen
+              Touchpoints präsent sein.
             </TextBlock>
-            <TextBlock
-              title="Agile Development, agile Design, ah geil Agile"
-              link={{ label: 'Weiterführender Link', href: '' }}
-            >
-              Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet
-              risus. Vestibulum id ligula porta felis euismod semper.
+            <TextBlock title="Unsere Lösung">
+              Mit der Migros zusammen haben wir Migipedia von einer Plattform zum modularen Community-Service
+              weiterenwickelt. Modernste Web-Technik, personalisierten Empfehlungen sowie komplett überarbeitete UX und UI
+              bringen ein App-Feeling ins Web. Bewertungen und Fragen erstrecken sich auf zehn weitere Touchpoints wie die
+              Migros App oder melectronics.ch. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor.
             </TextBlock>
           </Grid>
-          <QuoteCard quote={quoteStefanie} />
+          <QuoteCard quote={quote} />
+        </PageSection>
+        <PageSection title="Wie wir der Migros geholfen haben">
+          <Grid cols={2}>
+            <TextBlock title="Von der Plattform zum Community-Service">
+              Eine Frage zu einem Rezept auf Migusto stellen, einen Einkauf auf SportXX bewerten, eine Produktfrage in der
+              Migros-App beantworten, an einem Produkttest auf Migros.ch teilnehmen und im Forum auf Migipedia mitdiskutieren
+              – Die Migros-Community ist da, wo die User sind, auf elf unterschiedlichen digitalen Touchpoints der Migros.
+              Möglich macht diese Modularisierung <Link href="https://www.reactions.dev">Reactions</Link>, unsere
+              Community-Lösung.
+            </TextBlock>
+            <TextBlock title="Eine App im Web">
+              Was, wenn Migipedia eine App wäre? Beinah 80% der Nutzer*innen besuchen Migipedia mit einem Smartphone. Mit dem
+              Relaunch von 2020 geht Migipedia einen Schritt weiter als datensparenden Bildgrössen und grosse Touchflächen:
+              Aus Apps bekannte UX-Konzepte wie Slider, Client-Side Transition mit Prefethcing und Micro-Interactions machen
+              Migipedia zu einer App im Web. Persönlichen Empfehlungen durch Recommender runden das Erlebnis ab.
+            </TextBlock>
+          </Grid>
+        </PageSection>
+        <PageSection>
+          <Contact contact={contact} />
         </PageSection>
         <PageSection title="Mit welchen Tools haben wir Migipedia geholfen?">
           <Grid cols={4}>
@@ -115,28 +140,25 @@ const Migipedia: NextPage<Props> = ({ quoteStefanie, contact, packages }) => {
             ))}
           </Grid>
         </PageSection>
-        <PageSection>
-          <Contact contact={contact} />
-        </PageSection>
         <PageSection title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
             <ImageCard
               label="KIG, Gesundheitsamt Sankt Gallen"
               title="Web statt App – plane deine Freizeit mit Spilo."
               link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
+              image={{ src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
             />
             <ImageCard
               label="KIG, Gesundheitsamt Sankt Gallen"
               title="Web statt App – plane deine Freizeit mit Spilo."
               link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
+              image={{ src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
             />
             <ImageCard
               label="Cosmopolitan"
               title="Massgeschneidertes CRM"
               link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
+              image={{ src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
             />
           </Grid>
         </PageSection>
@@ -151,7 +173,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       packages,
-      quoteStefanie: Quotes['stefanie-abraxas'],
+      quote: Quotes['philipp-migipedia'],
       contact: Employees.thomas,
     },
   };
