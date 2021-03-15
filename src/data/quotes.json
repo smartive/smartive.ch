@@ -64,5 +64,15 @@
     "portrait": "/images/portraits/danijela-nikolic.jpg",
     "text": "Die angenehme Zusammenarbeit und offene Kommunikation ermöglichte es, dieses komplexe Projekt in der kurzen Zeit umzusetzen.",
     "credit": "Danijela Nikolic, Migros-Genossenschafts-Bund (MGB)"
+  },
+  "stefan-cosmo": {
+    "portrait": "/images/portraits/stefan-bischofberger.jpg",
+    "text": "smartive ist für uns der kompetente und zuverlässige Partner, der unserem Projekt zum Erfolg verhilft.",
+    "credit": "Stefan Bischofberger, Cosmopolitan Vermögensverwaltungs AG"
+  },
+  "coco-msrc": {
+    "portrait": "/images/portraits/coco-petit.jpg",
+    "text": "Der Code den smartive schreibt, ist sauber und von sehr hoher Qualität. Das wird mir immer wieder bestätigt.",
+    "credit": "Corinne Petit, Agile Coach & Technical Product Owner beim Migros-Genossenschafts-Bund"
   }
 }

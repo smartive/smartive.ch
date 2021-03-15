@@ -38,7 +38,7 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact }) => {
 
       <main>
         <PageSection>
-          <CustomersList customers={new Array(2).fill(customers).flat()} />
+          <CustomersList customers={customers} />
           <Grid cols={2}>
             <ImageCard
               label="Migipedia"
@@ -108,6 +108,24 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact }) => {
               label=".M Dimmi"
               title="Ein Social Network für die Migros."
               link={{ label: 'Zum Projekt', href: '/projekte/punkt-m-dimmi' }}
+              image={{
+                src: '/images/projekte/supply-chain/man_mit_heber.jpg',
+                alt: 'Ein Mann transportiert Boxen in einem Lager',
+              }}
+            />
+            <ImageCard
+              label="Cosmopolitan Vermögensverwaltungs AG"
+              title="Digitale Geschäftsprozesse als Herzstück"
+              link={{ label: 'Zum Projekt', href: '/projekte/punkt-m-dimmi' }}
+              image={{
+                src: '/images/projekte/supply-chain/man_mit_heber.jpg',
+                alt: 'Ein Mann transportiert Boxen in einem Lager',
+              }}
+            />
+            <ImageCard
+              label="Migros"
+              title="Components Library für die Migros-Welt"
+              link={{ label: 'Zum Projekt', href: '/projekte/migros-shared-components' }}
               image={{
                 src: '/images/projekte/supply-chain/man_mit_heber.jpg',
                 alt: 'Ein Mann transportiert Boxen in einem Lager',

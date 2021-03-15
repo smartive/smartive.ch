@@ -23,7 +23,7 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
   return (
     <div>
       <PageHeader
-        markdownTitle="Wir konzipieren und _kompostieren_, entwickeln und verwickeln, beraten und bräteln, gemeinsam"
+        markdownTitle="Wir konzipieren und kompostieren, entwickeln und verwickeln, beraten und bräteln, _gemeinsam_."
         description={`${employees.length} Menschen, eine Idee: Zusammen Herausforderungen stemmen und digitale Produkte schaffen, die herausragen. Und eine ungezwungene Atmosphäre: Wir pflegen die Freundschaft. Wir entscheiden zusammen. Wir geben allen das Vertrauen und die Freiheit, sich auf ihre Art einzubringen.`}
       >
         <Copy>

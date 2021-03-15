@@ -37,7 +37,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
         <LinkList
           links={[
             { label: 'Wie machen wir das?', href: '/angebot' },
-            { label: 'Projekte anschauen', href: '/projekte/migipedia' },
+            { label: 'Projekte anschauen', href: '/projekte' },
           ]}
         />
       </PageHeader>
@@ -82,7 +82,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
           </GridSlider>
         </PageSection>
         <PageSection title="Weiter gebracht haben wir unter anderem schon">
-          <CustomersList customers={new Array(2).fill(customers).flat()} />
+          <CustomersList customers={customers} />
         </PageSection>
         <PageSection>
           <QuoteCard quote={quote} />

@@ -7,8 +7,20 @@
     "name": "Abraxas",
     "logo": "/images/logos/abraxas.svg"
   },
+  "subsidia": {
+    "name": "Subsidia",
+    "logo": "/images/logos/subsidia.svg"
+  },
   "sge": {
     "name": "Switzerland Global Enterprise",
     "logo": "/images/logos/sge.svg"
+  },
+  "frontify": {
+    "name": "Frontify",
+    "logo": "/images/logos/frontify.png"
+  },
+  "uni-sg": {
+    "name": "Universität St. Gallen",
+    "logo": "/images/logos/uni-sg.svg"
   }
 }

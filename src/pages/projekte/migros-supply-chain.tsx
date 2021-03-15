@@ -19,7 +19,7 @@ type Props = {
   contact: Employee;
 };
 
-const Subsidia: NextPage<Props> = ({ quote, contact }) => (
+const SupplyChain: NextPage<Props> = ({ quote, contact }) => (
   <div>
     <PageHeader
       awardTags={['Best of Swiss Web 2020', 'Best of Swiss Apps 2020', 'Swiss Logistics Award 2020']}
@@ -126,4 +126,4 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default Subsidia;
+export default SupplyChain;
