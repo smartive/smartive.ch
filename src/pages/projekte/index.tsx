@@ -16,13 +16,6 @@ import { Lead } from '../../elements/lead';
 import { Grid } from '../../layouts/grid';
 import { GridSlider } from '../../layouts/grid-slider';
 
-const imageCard = {
-  label: 'Migipedia',
-  title: 'Der User im Mittelpunkt – seit 10 Jahren',
-  link: { label: 'Projekt anschauen', href: '/projekte/migipedia' },
-  image: { src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' },
-};
-
 type Props = {
   customers: Customer[];
   quote: Quote;
@@ -90,15 +83,36 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact }) => {
               }}
             />
 
-            {new Array(1).fill(imageCard).map(({ label, title, link, image }) => (
-              <ImageCard key={title} label={label} title={title} link={link} image={image} />
-            ))}
+            <ImageCard
+              label="Kanton St. Gallen"
+              title="Online Hilfe finden."
+              link={{ label: 'Zum Projekt', href: '/projekte/ofpg-kig' }}
+              image={{
+                src: '/images/projekte/supply-chain/man_mit_heber.jpg',
+                alt: 'Ein Mann transportiert Boxen in einem Lager',
+              }}
+            />
           </GridSlider>
           <QuoteCard quote={quote} />
           <Grid cols={3}>
-            {new Array(5).fill(imageCard).map(({ label, title, link, image }) => (
-              <ImageCard key={title} label={label} title={title} link={link} image={image} />
-            ))}
+            <ImageCard
+              label="Migros"
+              title="Filialfinder"
+              link={{ label: 'Zum Projekt', href: '/projekte/migros-filialfinder' }}
+              image={{
+                src: '/images/projekte/supply-chain/man_mit_heber.jpg',
+                alt: 'Ein Mann transportiert Boxen in einem Lager',
+              }}
+            />
+            <ImageCard
+              label=".M Dimmi"
+              title="Ein Social Network für die Migros."
+              link={{ label: 'Zum Projekt', href: '/projekte/punkt-m-dimmi' }}
+              image={{
+                src: '/images/projekte/supply-chain/man_mit_heber.jpg',
+                alt: 'Ein Mann transportiert Boxen in einem Lager',
+              }}
+            />
           </Grid>
         </PageSection>
         <PageSection>
