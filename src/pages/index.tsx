@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { BlobColor, PositionX, PositionY } from '../components/blob';
 import { CustomersList } from '../components/customers-list';
-import { QuoteCard } from '../components/quote-card';
+import { Testimonial } from '../components/testimonial';
 import { Contact } from '../compositions/contact';
 import { ContentCard } from '../compositions/content-card';
 import { ImageCard } from '../compositions/image-card';
@@ -86,7 +86,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
           <CustomersList customers={customers} />
         </PageSection>
         <PageSection>
-          <QuoteCard
+          <Testimonial
             quote={quote}
             blobs={[
               { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.cornflower },

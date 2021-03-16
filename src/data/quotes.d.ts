@@ -1,6 +1,6 @@
 export type Quote = {
+  excerpt?: string;
   text: string;
-  decoration?: string;
   portrait: string;
   credit: string;
 };

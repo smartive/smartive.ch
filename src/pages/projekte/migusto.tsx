@@ -1,8 +1,9 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { BlobColor, PositionX, PositionY } from '../../components/blob';
 import { Glance } from '../../components/glance';
-import { QuoteCard } from '../../components/quote-card';
+import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ImageCard } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
@@ -128,7 +129,17 @@ const Migusto: NextPage<Props> = ({ quote, contact }) => {
           </Grid>
         </PageSection>
         <PageSection>
-          <QuoteCard quote={quote} />
+          <Testimonial
+            background="bg-apricot-500"
+            blobs={[
+              { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.cornflower },
+              { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.mint },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.cornflower },
+              { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.cornflower },
+              { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.mint },
+            ]}
+            quote={quote}
+          />
         </PageSection>
         <PageSection title="Dank Big Data die richtigen Produkte im Einkaufswagen.">
           <Copy>

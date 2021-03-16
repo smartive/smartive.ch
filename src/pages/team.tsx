@@ -1,6 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { QuoteCard } from '../components/quote-card';
+import { BlobColor, PositionX, PositionY } from '../components/blob';
+import { Testimonial } from '../components/testimonial';
 import { Contact } from '../compositions/contact';
 import { EmployeeCard } from '../compositions/employee-card';
 import { PageHeader } from '../compositions/page-header';
@@ -38,7 +39,18 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
             {employees.slice(0, Math.floor(employees.length / 2)).map((employee) => (
               <EmployeeCard key={employee.email} employee={employee} />
             ))}
-            <QuoteCard className="col-start-1 md:col-span-2 lg:col-span-3" quote={quote} />
+            <Testimonial
+              className="col-start-1 md:col-span-2 lg:col-span-3"
+              background="bg-mint-500"
+              blobs={[
+                { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.cornflower },
+                { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.cornflower },
+                { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.apricot },
+                { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.cornflower },
+                { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.apricot },
+              ]}
+              quote={quote}
+            />
             {employees.slice(Math.floor(employees.length / 2)).map((employee) => (
               <EmployeeCard key={employee.email} employee={employee} />
             ))}

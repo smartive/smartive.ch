@@ -1,7 +1,8 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { QuoteCard } from '../../components/quote-card';
+import { BlobColor, PositionX, PositionY } from '../../components/blob';
+import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ImageCard } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
@@ -99,7 +100,17 @@ const OfpgKig: NextPage<Props> = ({ quote, contact }) => {
               Burnout für Erwachsene ausgespielt werden.
             </TextBlock>
           </Grid>
-          <QuoteCard quote={quote} />
+          <Testimonial
+            background="bg-cornflower-500"
+            blobs={[
+              { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.mint },
+              { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.apricot },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.mint },
+              { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.mint },
+              { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.apricot },
+            ]}
+            quote={quote}
+          />
         </PageSection>
         <PageSection>
           <Grid cols={2}>

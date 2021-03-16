@@ -1,7 +1,8 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { QuoteCard } from '../components/quote-card';
+import { BlobColor, PositionX, PositionY } from '../components/blob';
+import { Testimonial } from '../components/testimonial';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { TextBlock } from '../compositions/text-block';
@@ -110,7 +111,16 @@ const Agentur: NextPage<Props> = ({ quote }) => {
               </TextBlock>
             ))}
           </Grid>
-          <QuoteCard quote={quote} />
+          <Testimonial
+            background="bg-cornflower-500"
+            blobs={[
+              { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.mint },
+              { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.apricot },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.mint },
+              { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.apricot },
+            ]}
+            quote={quote}
+          />
           <Grid cols={2}>
             <Image
               className="rounded"

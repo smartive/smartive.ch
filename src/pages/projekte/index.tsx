@@ -1,7 +1,8 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
+import { BlobColor, PositionX, PositionY } from '../../components/blob';
 import { CustomersList } from '../../components/customers-list';
-import { QuoteCard } from '../../components/quote-card';
+import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ImageCard, ImageCardVariants } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
@@ -53,7 +54,16 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers })
               <ImageCard key={teaser.title} {...teaser} />
             ))}
           </GridSlider>
-          <QuoteCard quote={quote} />
+          <Testimonial
+            quote={quote}
+            background="bg-apricot-500"
+            blobs={[
+              { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.mint },
+              { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.cornflower },
+              { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.mint },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.cornflower },
+            ]}
+          />
           <Grid cols={3}>
             {teasers.slice(3, teasers.length).map((teaser) => (
               <ImageCard key={teaser.title} {...teaser} />

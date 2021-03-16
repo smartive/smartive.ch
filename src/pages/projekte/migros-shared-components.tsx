@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { QuoteCard } from '../../components/quote-card';
+import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
@@ -14,6 +14,7 @@ import { Heading3 } from '../../elements/heading-3';
 import { Copy } from '../../elements/copy';
 import { Grid } from '../../layouts/grid';
 import { TextBlock } from '../../compositions/text-block';
+import { BlobColor, PositionX, PositionY } from '../../components/blob';
 
 type Props = {
   quote: Quote;
@@ -88,7 +89,17 @@ const SharedComponents: NextPage<Props> = ({ quote, contact }) => (
         </Copy>
       </PageSection>
       <PageSection>
-        <QuoteCard quote={quote} />
+        <Testimonial
+          background="bg-apricot-500"
+          blobs={[
+            { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.cornflower },
+            { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.mint },
+            { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.cornflower },
+            { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.cornflower },
+            { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.mint },
+          ]}
+          quote={quote}
+        />
       </PageSection>
       <PageSection>
         <Grid cols={3}>

@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { Quote } from '../data/quotes';
-import { Decoration } from '../elements/decoration';
 import { Heading2 } from '../elements/heading-2';
 import { Portrait, PortraitVariant } from '../elements/portrait';
+import { highlight } from '../utils/markdown';
 import { Blob, BlobColor, PositionX, PositionY } from './blob';
 
 type Props = {
@@ -12,8 +12,8 @@ type Props = {
   blobs?: { color: BlobColor; positionX: PositionX; positionY: PositionY }[];
 };
 
-export const QuoteCard: FC<Props> = ({
-  quote: { text, decoration, credit, portrait },
+export const Testimonial: FC<Props> = ({
+  quote: { text, excerpt, credit, portrait },
   className = '',
   blobs = [],
   background = 'bg-apricot-500',
@@ -24,17 +24,10 @@ export const QuoteCard: FC<Props> = ({
     <Portrait className="z-10" image={portrait} alt="" variant={PortraitVariant.Small} />
     <Heading2 as="p" className="mt-4 z-10">
       &laquo;
-      {decoration && text.includes(decoration) ? (
-        <>
-          {text.split(decoration)[0]}
-          <Decoration>{decoration}</Decoration>
-          {text.split(decoration)[1]}
-        </>
-      ) : (
-        text
-      )}
+      {excerpt ? highlight(excerpt) : highlight(text)}
       &raquo;
     </Heading2>
+    {excerpt && <p className="mb-8 text-base font-bold">{text}</p>}
     <p className="z-10">{credit}</p>
     {blobs.map(({ color, positionX, positionY }, index) => (
       <Blob key={index} positionX={positionX} positionY={positionY} color={color} />

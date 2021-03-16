@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { BlobColor, PositionX, PositionY } from '../../components/blob';
-import { QuoteCard } from '../../components/quote-card';
+import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ContentCard } from '../../compositions/content-card';
 import { LinkList } from '../../compositions/link-list';
@@ -56,7 +56,7 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
           />
         </PageSection>
         <PageSection>
-          <QuoteCard
+          <Testimonial
             quote={quote}
             background="bg-cornflower-500"
             blobs={[

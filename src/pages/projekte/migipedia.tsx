@@ -2,7 +2,7 @@ import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import { Glance } from '../../components/glance';
-import { QuoteCard } from '../../components/quote-card';
+import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ContentCard } from '../../compositions/content-card';
 import { ImageCard } from '../../compositions/image-card';
@@ -21,6 +21,7 @@ import { Clock } from '../../elements/icons';
 import { Link } from '../../elements/link';
 import { Grid } from '../../layouts/grid';
 import Teasers from '../../data/teasers.json';
+import { BlobColor, PositionX, PositionY } from '../../components/blob';
 
 type Props = {
   quote: Quote;
@@ -108,7 +109,17 @@ const Migipedia: NextPage<Props> = ({ quote, contact, packages, teasers }) => {
               Migros App oder melectronics.ch. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor.
             </TextBlock>
           </Grid>
-          <QuoteCard quote={quote} />
+          <Testimonial
+            background="bg-apricot-500"
+            blobs={[
+              { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.cornflower },
+              { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.mint },
+              { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.cornflower },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.cornflower },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.mint },
+            ]}
+            quote={quote}
+          />
         </PageSection>
         <PageSection title="Wie wir der Migros geholfen haben">
           <Grid cols={2}>

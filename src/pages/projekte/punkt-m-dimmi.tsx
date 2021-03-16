@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { QuoteCard } from '../../components/quote-card';
+import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
@@ -13,6 +13,7 @@ import Quotes from '../../data/quotes.json';
 import { Heading3 } from '../../elements/heading-3';
 import { Copy } from '../../elements/copy';
 import { Grid } from '../../layouts/grid';
+import { BlobColor, PositionX, PositionY } from '../../components/blob';
 
 type Props = {
   quote: Quote;
@@ -118,7 +119,17 @@ const Dimmi: NextPage<Props> = ({ quote, contact }) => (
         </Grid>
       </PageSection>
       <PageSection>
-        <QuoteCard quote={quote} />
+        <Testimonial
+          background="bg-mint-500"
+          blobs={[
+            { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.cornflower },
+            { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.apricot },
+            { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.cornflower },
+            { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.cornflower },
+            { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.apricot },
+          ]}
+          quote={quote}
+        />
       </PageSection>
       <PageSection>
         <Heading3>Automatisierte Releases und Deployments</Heading3>

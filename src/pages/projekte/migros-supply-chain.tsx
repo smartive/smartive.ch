@@ -1,8 +1,9 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { BlobColor, PositionX, PositionY } from '../../components/blob';
 import { Glance } from '../../components/glance';
-import { QuoteCard } from '../../components/quote-card';
+import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
@@ -109,7 +110,17 @@ const SupplyChain: NextPage<Props> = ({ quote, contact }) => (
         </Copy>
       </PageSection>
       <PageSection>
-        <QuoteCard quote={quote} />
+        <Testimonial
+          background="bg-apricot-500"
+          blobs={[
+            { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.cornflower },
+            { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.mint },
+            { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.cornflower },
+            { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.cornflower },
+            { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.mint },
+          ]}
+          quote={quote}
+        />
       </PageSection>
       <PageSection>
         <Contact contact={contact}>
