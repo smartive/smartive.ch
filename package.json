@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.2.4",
+    "blobs": "^2.2.0",
     "body-scroll-lock": "^3.1.5",
     "dayjs": "^1.10.4",
     "framer-motion": "^3.10.2",

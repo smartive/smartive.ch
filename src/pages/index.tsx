@@ -1,6 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { BlobColor, PositionX, PositionY } from '../components/blob';
 import { CustomersList } from '../components/customers-list';
 import { QuoteCard } from '../components/quote-card';
 import { Contact } from '../compositions/contact';
@@ -16,8 +17,8 @@ import Employees from '../data/employees.json';
 import Packages, { Package } from '../data/packages';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
-import { Clock } from '../elements/icons';
 import { Copy } from '../elements/copy';
+import { Clock } from '../elements/icons';
 import { GridSlider } from '../layouts/grid-slider';
 
 type Props = {
@@ -85,7 +86,16 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
           <CustomersList customers={customers} />
         </PageSection>
         <PageSection>
-          <QuoteCard quote={quote} />
+          <QuoteCard
+            quote={quote}
+            blobs={[
+              { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.cornflower },
+              { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.mint },
+              { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.cornflower },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.cornflower },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.mint },
+            ]}
+          />
         </PageSection>
         <PageSection title="Wir unterstützen dich, egal wie weit du schon bist.">
           <Copy>

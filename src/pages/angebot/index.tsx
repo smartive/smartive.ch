@@ -1,20 +1,21 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
+import { BlobColor, PositionX, PositionY } from '../../components/blob';
 import { QuoteCard } from '../../components/quote-card';
+import { Contact } from '../../compositions/contact';
 import { ContentCard } from '../../compositions/content-card';
 import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
+import { Employee } from '../../data/employees';
+import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Clock } from '../../elements/icons';
 import { Copy } from '../../elements/copy';
+import { Clock } from '../../elements/icons';
 import { Link } from '../../elements/link';
 import { GridSlider } from '../../layouts/grid-slider';
-import Employees from '../../data/employees.json';
-import { Employee } from '../../data/employees';
-import { Contact } from '../../compositions/contact';
 
 type Props = {
   contact: Employee;
@@ -55,7 +56,17 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
           />
         </PageSection>
         <PageSection>
-          <QuoteCard quote={quote} />
+          <QuoteCard
+            quote={quote}
+            background="bg-cornflower-500"
+            blobs={[
+              { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.apricot },
+              { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.mint },
+              { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.apricot },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.apricot },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.mint },
+            ]}
+          />
         </PageSection>
         <PageSection title="Etwas für jede Projektphase.">
           <Copy>

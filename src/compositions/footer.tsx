@@ -45,7 +45,7 @@ export const Footer: FC = () => (
 
         <NewsletterSubscription className="col-span-2 place-items-center" label="Newsletter jetzt abonnieren" />
 
-        <div className="grid grid-flow-row place-self-end">
+        <div className="grid grid-flow-row place-self-end justify-items-start">
           <Link variant={LinkVariants.NoUnderline} href="https://www.linkedin.com/company/smartive-ag/" newTab>
             LinkedIn
           </Link>
