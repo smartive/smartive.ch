@@ -1,6 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { Glance } from '../../components/glance';
 import { QuoteCard } from '../../components/quote-card';
 import { Contact } from '../../compositions/contact';
 import { ImageCard } from '../../compositions/image-card';
@@ -12,11 +13,10 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Heading3 } from '../../elements/heading-3';
 import { Copy } from '../../elements/copy';
+import { Heading3 } from '../../elements/heading-3';
 import { Link } from '../../elements/link';
 import { Grid } from '../../layouts/grid';
-
 type Props = {
   quote: Quote;
   contact: Employee;
@@ -30,13 +30,12 @@ const Migusto: NextPage<Props> = ({ quote, contact }) => {
         description="Für die neue Migusto-Plattform der Migros haben wir eine Rezepte-API entwickelt. Unsere Lösung bietet einen zentralen Zugriff auf die Migros Rezeptdatenbank mit Rezepten von Migusto, Famigros und iMpuls."
       >
         <Copy>
-          Für das neue <Link href="https://migusto.ch">Migusto</Link> der Migros haben wir eine Rezepte-API entwickelt.
-          Unsere Lösung bietet einen zentralen Zugriff auf die Migros Rezeptdatenbank mit Rezepten von Migusto, Famigros und
-          iMpuls.
+          Für den neuen Auftritt von <Link href="https://migusto.ch">Migusto</Link> haben wir eine Rezepte-API entwickelt.
+          Sie ist nun die zentrale Anlaufstellt für alle Migros-Rezepte und wird von Migusto, Famigros und iMpuls benutzt.
         </Copy>
         <Copy>
-          Sie bildet das Rückgrat der Migusto Webseite für alle rezeptspezifischen Suchabfragen, das Autocomplete und die
-          Rezeptdaten für die Detailseite - in Echtzeit.
+          In Echtzeit (und verdammt schnell 🚀) liefert die GraphQL-Schnittstelle Rezeptdaten aus. Aber nicht nur das, dank
+          einer intelligenten Suche ist sie auch das Rückgrat der Migusto-Suchfunktion.
         </Copy>
       </PageHeader>
 
@@ -64,17 +63,31 @@ const Migusto: NextPage<Props> = ({ quote, contact }) => {
           </Grid>
         </PageSection>
         <PageSection>
-          <UnorderedList
-            title="Ein kurzer Blick"
-            items={[
-              'Auf elf digitalen Touchpoints präsent',
-              '120 000 aktiven Nutzer*innen',
-              '300 000 Bewertungen verfasst',
-              '105 Mio. Mal Bewertungen abgerufen in einem Jahr',
-              '60% mehr Bewertungen im Vergleich zum Vorjahr',
-              'Reduzierung der Betriebskosten um über 90% durch die Ablösung der bisherigen SaaS-Lösung',
-            ]}
-          />
+          <Glance>
+            <UnorderedList
+              title="Hauptzutaten für eine schnelle API"
+              items={[
+                'Rezepte mit saisonalen Zutaten werden höher gewichtet',
+                'Persönliche Diäten (vegan, glutenfrei) werden beachtet',
+                'Zentrale Rezept-API für Migusto, Famigros und iMpuls',
+                'Hohe Performance und komplexe Abfragen dank GraphQL',
+              ]}
+            />
+          </Glance>
+        </PageSection>
+        <PageSection title="Sofort die relevanten Rezept auf dem Teller">
+          <Copy>
+            Die Rezepte-API aggregiert Inhalte verschiedener Herkunft und stellt sie Plattformen mit unterschiedlichen
+            Anforderungen zur Verfügung. Regelmässig werden die Rezepte aus dem Redaktionssystem importiert und der Suchindex
+            optimiert. Die Rezepte werden live mit Community-Daten (Bewertungen, Kommentaren und Fragen) von{' '}
+            <Link href="https://reactions.dev">Reactions</Link> angereichert:
+            <em>Schmeckt toll, aber noch besser mit etwas Chili.</em>
+          </Copy>
+          <Copy>
+            Die Schnittstelle kann mit mehreren Mandanten umgehen. Sie liefert Rezepte für Migusto, Famigros und iMpuls. Dank
+            GraphQL ist eine flexible, auf den Mandanten und den Kontext zugeschnittene Abfrage möglich: Nur die jeweils
+            benötigten Felder werden abgefragt, seien es Bild und Titel oder alle Schritte und detaillierte Nährwertangaben.
+          </Copy>
         </PageSection>
         <PageSection>
           <Image
@@ -87,56 +100,21 @@ const Migusto: NextPage<Props> = ({ quote, contact }) => {
             height={800}
           />
         </PageSection>
-        <PageSection>
-          <Grid cols={2}>
-            <div>
-              <Heading3>Von der Konzeption über die Entwicklung bis zur Evaluation und Optimierung</Heading3>
-              <Copy>
-                Wir konzipierten und entwickelten die zentrale Schnittstelle mit Datenimport, Datenhaltung und Anreicherung
-                inklusive Volltextsuche, Aggregationen und Filterung.
-              </Copy>
-              <Copy>
-                Die Volltextsuche wurde anhand von live Analytics Daten zusätzlich evaluiert und optimiert, sodass ein
-                insgesamt um 20% besseres Ranking der Suchresultate erreicht werden konnte.
-              </Copy>
-              <Copy>
-                Die Migusto Webseite greift in Echtzeit auf die Rezept API zu. Um die Skalierbarkeit sicherzustellen wählten
-                wir ein Microservice Setup mit redundanter Architektur. Zusätzlich wurde mit Lasttests die Performance
-                geprüft und optimiert sodass die API auch Peaks im minimalen Setup von nur zwei Nodes problemlos standhalten
-                können.
-              </Copy>
-            </div>
-            <div>
-              <Heading3>Resilienter Datenimport</Heading3>
-              <Copy>
-                Die Kulinarik-Redaktion erfasst Rezepte sowohl für Online- als auch Printkanäle in einem zentralen
-                Redaktionssystem. Da die Schnittstellen des Redaktionssystems nicht für Echtzeitabfragen ausgelegt ist,
-                werden die Rezepte regelmässig von unserem Importer (einExtract, Transform, Load Prozess entwickelt mit RxJS)
-                ausgelesen, mit weiteren Daten wie z.B. Bewertungen angereichert und in einem Elasticsearch Suchindex
-                abgespeichert. Der Importer kann auch mit langsamen und fehlerhaften Antworten umgehen.
-              </Copy>
-            </div>
-          </Grid>
-          <QuoteCard quote={quote} />
-        </PageSection>
-        <PageSection>
-          <Heading3>Schnelle Resultate auch bei komplexen Abfragen</Heading3>
+        <PageSection title="Schnell zum richtigen Rezept.">
           <Copy>
-            Wie beim Filialfinder oder der Migros-Suche setzen wir auch bei der Rezepte-API auf Elasticsearch für die
-            Volltextsuche und Filterung von Resultaten. Somit können wir eine grosse Anzahl von Rezepte effizient nach
-            Suchbegriffen durchsuchen oder nach Kategorien wie z.B. <code>vegan</code> und <code>dessert</code> filtern.
+            Die Migusto-Webseite ist auf eine blitzschnelle Suche angewiesen. Die Rezepte-API bietet Volltextsuche in einer
+            grossen Anzahl von Rezepten, kombinierbar mit Filterung nach Kategorien wie z.B. &ldquo;vegan&rdquo; und
+            &ldquo;Dessert&rdquo;. Auch komplexe Suchanfragen liefern relevante Resultate – Dank Elasticsearch und
+            Autocorrect, Bigram Matching, Stemming sowie Synonym-Erkennung mit einer durchschnittlichen Response-Time von
+            lediglich 40ms.
           </Copy>
+
           <Copy>
-            Die Schnittstelle bietet die Möglichkeit, Rezepte nach ihrer saisonalen Relevanz auszuliefern. Sucht man z.B. im
-            Frühling nach einem Risotto, wird ein Bärlauch-Risotto vorgeschlagen, wohingegen im Herbst ein Steinpilz-Risotto
-            höher gewichtet wird.
-          </Copy>
-          <Copy>
-            Mit Elasticsearch liefert die Suche auch für äusserst komplexe Suchabfragen relevante Resultate - dank
-            Autocorrect, Bigram Matching, Stemming, Synonymen, und vielen mehr.
+            Auf der Suche nach Inspiration? Die Autocomplete-Funktion nimmt Tipparbeit ab und liefert Kochideen. Pizza…
+            Margherita? Pizzabrot? Mit Crevetten?
           </Copy>
         </PageSection>
-        <PageSection>
+        <PageSection title="Atemberaubend schnell">
           <Grid cols={3}>
             <TextBlock title="rpm" number={20000}>
               Spitzenwerte der Rezepte-API
@@ -150,40 +128,49 @@ const Migusto: NextPage<Props> = ({ quote, contact }) => {
           </Grid>
         </PageSection>
         <PageSection>
+          <QuoteCard quote={quote} />
+        </PageSection>
+        <PageSection title="Dank Big Data die richtigen Produkte im Einkaufswagen.">
+          <Copy>
+            Ein Rezept hat Zutaten, aber im Einkaufswagen landen Produkte. Hier schlägt die Rezepte-API die Brücke. Es werden
+            passende Produkte angeführt, die direkt in die Einkaufsliste übernommen werden können. Ist eine Präferenz
+            bekannt, werden dazu passende Produkte vorgeschlagen, etwa Bio-Milch. Mit Hadoop wird die Präferenz aus Käufen in
+            der Migros personalisiert errechnet. Dank innovativem Einsatz von Big Data werden bei allen Schritten von der
+            Rezeptsuche über den Einkauf bis zum fertigen Menu sinnvolle Funktionen angeboten, die das Leben leichter machen.
+          </Copy>
+          <Heading3>Immer die passenden Rezepte</Heading3>
+          <Copy>
+            Die Schnittstelle liefert Rezepte nach saisonaler Relevanz aus. Sucht man z.B. im Frühling nach einem Risotto,
+            wird ein Bärlauch-Risotto vorgeschlagen, im Herbst wird hingegen ein Steinpilz-Risotto höher gewichtet.
+            Persönliche Präferenzen wie vegane oder laktosefreie Ernährung werden ebenfalls, soweit bekannt, in die
+            Gewichtung einbezogen.
+          </Copy>
+        </PageSection>
+        <PageSection>
           <Grid cols={2}>
             <Image
               className="rounded"
-              src="/images/projekte/migusto/jason-briscoe-7MAjXGUmaPw-unsplash.jpg"
-              alt="Eine Frau rührt sehr enthusiastisch in einem orangen Topf"
+              src="/images/projekte/migusto/anna-auza-wqrX5t1wBG0-unsplash.jpg"
+              alt="Frischer Bärlauch auf einem Schneidebrett"
               priority
+              objectPosition="center center"
               objectFit="cover"
               width={720}
               height={383}
             />
             <Image
               className="rounded"
-              src="/images/projekte/migusto/alyson-mcphee-yWG-ndhxvqY-unsplash.jpg"
-              alt="Eine Frauenhand mit Damiantring schneidet frischen Koriander"
+              src="/images/projekte/migusto/megumi-nachev-qkQR-OrvZic-unsplash.jpg"
+              alt="Ein Kuheuter auf einer grünen Wiese"
               priority
+              objectPosition="center top"
               objectFit="cover"
               width={720}
               height={383}
             />
           </Grid>
         </PageSection>
-        <PageSection>
-          <Heading3>Hochperformante GraphQL API</Heading3>
-          <Copy>
-            Die Rezepte werden über eine Node.js API mit GraphQL ausgespielt. Dafür setzen wir, wie schon bei Reactions, auf
-            Apollo Server. GraphQL erlaubt es den API-Konsumenten genau zu definieren, welche Daten sie erhalten wollen. So
-            kann auf einer Übersichtsseite nur Bild und Titel abgefragt werden, auf einer Detailseite aber sämtliche
-            Rezeptinhalte.
-          </Copy>
-          <Copy>
-            Die GraphQL API, welche auf Cloud Foundry betrieben wird, hielt bei durchgeführten Lasttests auch 20’000 Anfragen
-            pro Minute problemlos stand.
-          </Copy>
-        </PageSection>
+
         <PageSection>
           <Contact contact={contact} />
         </PageSection>
