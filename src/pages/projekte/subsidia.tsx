@@ -11,8 +11,8 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Clock } from '../../elements/icons';
 import { Copy } from '../../elements/copy';
+import { Clock } from '../../elements/icons';
 import { Grid } from '../../layouts/grid';
 import { GridSlider } from '../../layouts/grid-slider';
 

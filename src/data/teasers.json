@@ -1,0 +1,102 @@
+{
+  "migipedia": {
+    "label": "Migipedia",
+    "title": "Der User im Mittelpunkt — seit 10 Jahren",
+    "link": { "label": "Projekt anschauen", "href": "/projekte/migipedia" },
+    "image": { "src": "/images/migipedia/RGB_02_snack_001.jpg", "alt": "Frau sitzt mit Handy am Boden" },
+    "awards": [
+      {
+        "short": "BOSW19",
+        "full": "Best of Swiss Web 2019"
+      }
+    ]
+  },
+  "subsidia": {
+    "label": "Subsidia",
+    "title": "Der mobile Einzalhandel",
+    "link": { "label": "Projekt anschauen", "href": "/projekte/subsidia" },
+    "image": {
+      "src": "/images/projekte/subsidia/pwa-etikett-scan.png",
+      "alt": "Verkäuferin scannt Etikett eines Kleidungsstücks mit dem Smartphone"
+    },
+    "awards": [
+      {
+        "short": "BOSA19",
+        "full": "Best of Swiss Apps 2019"
+      }
+    ]
+  },
+  "supply-chain": {
+    "label": "Migros Supply Chain",
+    "title": "Digitalisierung der Lieferkette",
+    "link": { "label": "Projekt anschauen", "href": "/projekte/migros-supply-chain" },
+    "image": {
+      "src": "/images/projekte/supply-chain/man_mit_heber.jpg",
+      "alt": "Ein Mann transportiert Boxen in einem Lager"
+    },
+    "awards": [
+      {
+        "short": "BOSA20",
+        "full": "Best of Swiss Apps 2020"
+      },
+      {
+        "short": "BOSW20",
+        "full": "Best of Swiss Web 2020"
+      }
+    ]
+  },
+  "migusto": {
+    "label": "Migusto",
+    "title": "Schnelle Rezepte für schnelles Kochen",
+    "link": { "label": "Projekt anschauen", "href": "/projekte/migusto" },
+    "image": {
+      "src": "/images/projekte/migusto/migusto-logo.png",
+      "alt": "Migusto Logo"
+    }
+  },
+  "ofpg": {
+    "label": "Kanton St. Gallen",
+    "title": "Online Hilfe finden",
+    "link": { "label": "Projekt anschauen", "href": "/projekte/ofpg-kig" },
+    "image": {
+      "src": "/images/projekte/supply-chain/man_mit_heber.jpg",
+      "alt": "Ein Mann transportiert Boxen in einem Lager"
+    }
+  },
+  "filialfinder": {
+    "label": "Migros",
+    "title": "Filialfinder",
+    "link": { "label": "Projekt anschauen", "href": "/projekte/migros-filialfinder" },
+    "image": {
+      "src": "/images/projekte/supply-chain/man_mit_heber.jpg",
+      "alt": "Ein Mann transportiert Boxen in einem Lager"
+    }
+  },
+  "dimmi": {
+    "label": ".M Dimmi",
+    "title": "Ein Social Network für die Migros",
+    "link": { "label": "Projekt anschauen", "href": "/projekte/punkt-m-dimmi" },
+    "image": {
+      "src": "/images/projekte/supply-chain/man_mit_heber.jpg",
+      "alt": "Ein Mann transportiert Boxen in einem Lager"
+    }
+  },
+  "cosmo": {
+    "label": "Cosmopolitan Vermögensverwaltungs AG",
+    "title": "Digitale Geschäftsprozesse als Herzstück",
+    "link": { "label": "Projekt anschauen", "href": "/projekte/cosmo-crm" },
+    "image": {
+      "src": "/images/projekte/supply-chain/man_mit_heber.jpg",
+      "alt": "Ein Mann transportiert Boxen in einem Lager"
+    }
+  },
+  "msrc": {
+    "label": "Migros",
+    "title": "Components Library für die Migros-Welt",
+    "link": { "label": "Projekt anschauen", "href": "/projekte/migros-shared-components" },
+    "image": {
+      "src": "/images/projekte/supply-chain/man_mit_heber.jpg",
+      "alt": "Ein Mann transportiert Boxen in einem Lager"
+    }
+  }
+}

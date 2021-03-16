@@ -3,14 +3,14 @@ import { Heading2 } from '../elements/heading-2';
 import { Label } from '../elements/label';
 
 type Props = {
-  title: string;
+  title?: string;
   items: string[];
 };
 
 export const UnorderedList: FC<Props> = ({ title, items }) => (
   <>
-    <Heading2>{title}</Heading2>
-    <ul>
+    {title && <Heading2>{title}</Heading2>}
+    <ul className="md:max-w-prose">
       {items.map((item, i) => (
         <li key={i} className="list-disc mb-2">
           <Label>{item}</Label>

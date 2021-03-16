@@ -12,13 +12,17 @@ import { Clock } from '../../elements/icons';
 import { Copy } from '../../elements/copy';
 import { Link } from '../../elements/link';
 import { GridSlider } from '../../layouts/grid-slider';
+import Employees from '../../data/employees.json';
+import { Employee } from '../../data/employees';
+import { Contact } from '../../compositions/contact';
 
 type Props = {
+  contact: Employee;
   packages: Package[];
   quote: Quote;
 };
 
-const Angebot: NextPage<Props> = ({ packages, quote }) => {
+const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
   return (
     <div>
       <PageHeader
@@ -45,8 +49,8 @@ const Angebot: NextPage<Props> = ({ packages, quote }) => {
           </Copy>
           <LinkList
             links={[
-              { label: 'Wie kann ich mein Projekt möglichst schnell lancieren?', href: '/blog/mvp' },
-              { label: 'Wie bitte, Scrum?', href: '/blog/scrum' },
+              { label: 'Was, MVP?', href: '/angebot/mvp' },
+              { label: 'Wie bitte, Scrum?', href: '/angebot/agile' },
             ]}
           />
         </PageSection>
@@ -75,6 +79,9 @@ const Angebot: NextPage<Props> = ({ packages, quote }) => {
             ))}
           </GridSlider>
         </PageSection>
+        <PageSection>
+          <Contact contact={contact} />
+        </PageSection>
       </main>
     </div>
   );
@@ -87,6 +94,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       packages,
       quote: Quotes['benj-scrum'],
+      contact: Employees.joshua,
     },
   };
 };

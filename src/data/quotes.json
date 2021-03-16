@@ -74,5 +74,10 @@
     "portrait": "/images/portraits/coco-petit.jpg",
     "text": "Der Code den smartive schreibt, ist sauber und von sehr hoher Qualität. Das wird mir immer wieder bestätigt.",
     "credit": "Corinne Petit, Agile Coach & Technical Product Owner beim Migros-Genossenschafts-Bund"
+  },
+  "dominique-kultur": {
+    "portrait": "/images/employees/portraits/dominique.jpg",
+    "text": "Was ist zentral für eine gesunde Kultur? Probleme auf den Tisch zu bringen und sie zu lösen — mit der Unterstützung von allen.",
+    "credit": "Dominique, einer von uns"
   }
 }

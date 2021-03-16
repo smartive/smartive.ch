@@ -1,12 +1,13 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { ShuffleCard } from '../components/shuffle-card';
+import { QuoteCard } from '../components/quote-card';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { TextBlock } from '../compositions/text-block';
-import { Employee } from '../data/employees';
 import Employees from '../data/employees.json';
+import { Quote } from '../data/quotes';
+import Quotes from '../data/quotes.json';
 import { Copy } from '../elements/copy';
 import { Link } from '../elements/link';
 import { Grid } from '../layouts/grid';
@@ -45,10 +46,10 @@ const textBlocks = [
 ];
 
 type Props = {
-  employees: Employee[];
+  quote: Quote;
 };
 
-const Agentur: NextPage<Props> = ({ employees }) => {
+const Agentur: NextPage<Props> = ({ quote }) => {
   return (
     <div>
       <PageHeader
@@ -109,7 +110,7 @@ const Agentur: NextPage<Props> = ({ employees }) => {
               </TextBlock>
             ))}
           </Grid>
-          <ShuffleCard employees={employees.filter((employee) => employee.portrait)} />
+          <QuoteCard quote={quote} />
           <Grid cols={2}>
             <Image
               className="rounded"
@@ -157,7 +158,7 @@ const Agentur: NextPage<Props> = ({ employees }) => {
           </Grid>
           <Grid cols={2}>
             <TextBlock title="Bald eine Dekade" number={10}>
-              smartive wurde 2021 gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, wo wir uns alle
+              smartive wurde 2012 gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, wo wir uns alle
               einbringen und so arbeiten, wie es uns entspricht.
             </TextBlock>
             <TextBlock title="Zwölf Teilhaber*innen" number={12}>
@@ -187,7 +188,7 @@ const Agentur: NextPage<Props> = ({ employees }) => {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      employees: Object.values(Employees),
+      quote: Quotes['dominique-kultur'],
     },
   };
 };

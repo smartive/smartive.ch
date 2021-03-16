@@ -121,7 +121,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       packages,
-      contact: Employees.marco,
+      contact: Employees.peter,
       customers: Object.values(Customers),
       quote: Quotes['marc-frontify'],
     },

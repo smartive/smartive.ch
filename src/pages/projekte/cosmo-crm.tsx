@@ -3,7 +3,6 @@ import Image from 'next/image';
 import React from 'react';
 import { QuoteCard } from '../../components/quote-card';
 import { Contact } from '../../compositions/contact';
-import { ImageCard } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { UnorderedList } from '../../compositions/unordered-list';
@@ -11,8 +10,8 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Heading3 } from '../../elements/heading-3';
 import { Copy } from '../../elements/copy';
+import { Heading3 } from '../../elements/heading-3';
 import { Grid } from '../../layouts/grid';
 
 type Props = {

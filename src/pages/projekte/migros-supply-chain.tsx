@@ -1,6 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { Glance } from '../../components/glance';
 import { QuoteCard } from '../../components/quote-card';
 import { Contact } from '../../compositions/contact';
 import { PageHeader } from '../../compositions/page-header';
@@ -10,8 +11,8 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Heading3 } from '../../elements/heading-3';
 import { Copy } from '../../elements/copy';
+import { Heading3 } from '../../elements/heading-3';
 import { Grid } from '../../layouts/grid';
 
 type Props = {
@@ -46,16 +47,19 @@ const SupplyChain: NextPage<Props> = ({ quote, contact }) => (
         />
       </PageSection>
       <PageSection>
-        <UnorderedList
-          title="Kurz und knackig"
-          items={[
-            'Digitalisierung der Lieferkette führt zu Prozessoptimierung mit hohen Einsparungen (über 700 Personentage).',
-            'In 3 Monaten von der Idee zum MVP',
-            'Auslieferung neuer Features erfolgt schnell, einfach und unabhängig von Herstellern.',
-            'Durch Automatisierung der Prozesse ist die Datenqualität höher, was weitere Optimierung der Prozesse ermöglicht.',
-          ]}
-        />
+        <Glance image={<Image src="/images/smartive-phone.png" height="566" width="275" objectFit="contain" />}>
+          <UnorderedList
+            title="Kurz und knackig"
+            items={[
+              'Digitalisierung der Lieferkette führt zu Prozessoptimierung mit hohen Einsparungen (über 700 Personentage).',
+              'In 3 Monaten von der Idee zum MVP',
+              'Auslieferung neuer Features erfolgt schnell, einfach und unabhängig von Herstellern.',
+              'Durch Automatisierung der Prozesse ist die Datenqualität höher, was weitere Optimierung der Prozesse ermöglicht.',
+            ]}
+          />
+        </Glance>
       </PageSection>
+
       <PageSection title="Zweimal so schnell — und das zweimal.">
         <Copy>
           Das Herzstück ist eine Progressive Web App – kurz PWA. Mit der Smartphone-Kamera wird der weltweit eindeutige
@@ -109,7 +113,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact }) => (
       </PageSection>
       <PageSection>
         <Contact contact={contact}>
-          {contact.firstname} begleitet Subsidia seit dem Anfang. Und auch heute noch.
+          {contact.firstname} unterstützt Subsidia auch heute noch.
           <br /> Melde dich bei ihm, falls du mehr wissen möchtest.
         </Contact>
       </PageSection>

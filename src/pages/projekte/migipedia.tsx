@@ -1,6 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { Glance } from '../../components/glance';
 import { QuoteCard } from '../../components/quote-card';
 import { Contact } from '../../compositions/contact';
 import { ContentCard } from '../../compositions/content-card';
@@ -14,18 +15,21 @@ import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Clock } from '../../elements/icons';
+import { Teaser } from '../../data/teaser';
 import { Copy } from '../../elements/copy';
+import { Clock } from '../../elements/icons';
 import { Link } from '../../elements/link';
 import { Grid } from '../../layouts/grid';
+import Teasers from '../../data/teasers.json';
 
 type Props = {
   quote: Quote;
   contact: Employee;
   packages: Package[];
+  teasers: Teaser[];
 };
 
-const Migipedia: NextPage<Props> = ({ quote, contact, packages }) => {
+const Migipedia: NextPage<Props> = ({ quote, contact, packages, teasers }) => {
   return (
     <div>
       <PageHeader
@@ -64,17 +68,19 @@ const Migipedia: NextPage<Props> = ({ quote, contact, packages }) => {
           </Grid>
         </PageSection>
         <PageSection>
-          <UnorderedList
-            title="Migipedia auf einen Blick"
-            items={[
-              'Auf elf digitalen Touchpoints präsent',
-              '120 000 aktiven Nutzer*innen',
-              '300 000 Bewertungen verfasst',
-              '105 Mio. Mal Bewertungen abgerufen in einem Jahr',
-              '60% mehr Bewertungen im Vergleich zum Vorjahr',
-              'Reduzierung der Betriebskosten um über 90% durch die Ablösung der bisherigen SaaS-Lösung',
-            ]}
-          />
+          <Glance image={<Image src="/images/migipedia/smartive-phone.png" height="566" width="275" objectFit="contain" />}>
+            <UnorderedList
+              title="Migipedia auf einen Blick"
+              items={[
+                'Auf elf digitalen Touchpoints präsent',
+                '120 000 aktiven Nutzer*innen',
+                '300 000 Bewertungen verfasst',
+                '105 Mio. Mal Bewertungen abgerufen in einem Jahr',
+                '60% mehr Bewertungen im Vergleich zum Vorjahr',
+                'Reduzierung der Betriebskosten um über 90% durch die Ablösung der bisherigen SaaS-Lösung',
+              ]}
+            />
+          </Glance>
         </PageSection>
         <PageSection>
           <Image
@@ -142,24 +148,9 @@ const Migipedia: NextPage<Props> = ({ quote, contact, packages }) => {
         </PageSection>
         <PageSection title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
-            <ImageCard
-              label="KIG, Gesundheitsamt Sankt Gallen"
-              title="Web statt App – plane deine Freizeit mit Spilo."
-              link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
-            />
-            <ImageCard
-              label="KIG, Gesundheitsamt Sankt Gallen"
-              title="Web statt App – plane deine Freizeit mit Spilo."
-              link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
-            />
-            <ImageCard
-              label="Cosmopolitan"
-              title="Massgeschneidertes CRM"
-              link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
-            />
+            {teasers.map((teaser) => (
+              <ImageCard key={teaser.title} {...teaser} />
+            ))}
           </Grid>
         </PageSection>
       </main>
@@ -169,9 +160,11 @@ const Migipedia: NextPage<Props> = ({ quote, contact, packages }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const packages = [Packages['ideation-sprint'], Packages['speedboat'], Packages['scale-up'], Packages['solution-review']];
+  const teasers = [Teasers.ofpg, Teasers.cosmo, Teasers.subsidia];
 
   return {
     props: {
+      teasers,
       packages,
       quote: Quotes['philipp-migipedia'],
       contact: Employees.thomas,

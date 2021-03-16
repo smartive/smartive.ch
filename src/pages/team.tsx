@@ -3,7 +3,6 @@ import React from 'react';
 import { QuoteCard } from '../components/quote-card';
 import { Contact } from '../compositions/contact';
 import { EmployeeCard } from '../compositions/employee-card';
-import { LinkList } from '../compositions/link-list';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { Employee } from '../data/employees';
@@ -31,7 +30,6 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
           herausragen. Und eine ungezwungene Atmosphäre: Wir pflegen die Freundschaft. Wir entscheiden zusammen. Wir geben
           allen das Vertrauen und die Freiheit, sich auf ihre Art einzubringen.
         </Copy>
-        <LinkList links={[{ label: 'mehr über New Work', href: '#' }]} />
       </PageHeader>
 
       <main>
@@ -62,7 +60,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       employees,
-      contact: Employees.thilo,
+      contact: Employees.moreno,
       quote: Quotes['thilo-newwork'],
     },
   };
