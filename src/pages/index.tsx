@@ -47,8 +47,8 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
         <PageSection>
           <Image
             className="rounded"
-            src="/images/mood/YB_06742.jpg"
-            alt="smartive Team beim Mittagessen an einem Holztisch"
+            src="/images/mood/YB_07015.jpg"
+            alt="Drei smartive Mitarbeiter beim Gespräch vor einem Computerbildschirm"
             priority
             objectFit="cover"
             width={1504}

@@ -28,11 +28,11 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
     <div>
       <PageHeader
         markdownTitle="Gemeinsam zu deinem _digitalen_ Produkt."
-        description="Wir beraten, konzipieren und entwickeln. Unser Markenzeichen sind massgeschneiderte digitale Produkte. Unsere Kunden reichen vom Startup bis zur grösste Arbeitgeberin der Schweiz."
+        description="Wir beraten, konzipieren und entwickeln. Unser Markenzeichen sind massgeschneiderte digitale Produkte. Unsere Kunden reichen vom Startup bis zur grössten Arbeitgeberin der Schweiz."
       >
         <Copy>
           Wir beraten, konzipieren und entwickeln. Unser Markenzeichen sind massgeschneiderte digitale Produkte. Unsere
-          Kunden reichen vom Startup bis zur grösste Arbeitgeberin der Schweiz.
+          Kunden reichen vom Startup bis zur grössten Arbeitgeberin der Schweiz.
         </Copy>
         <Copy>
           Wir sind überzeugt, dass die besten Resultate gemeinsam in einem iterativen Vorgehen entstehen. Was wir darunter
@@ -74,7 +74,7 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
             wir glauben, dass ein Produkt in den Händen der Nutzer mehr Wert bringt als ein Produkt in der Schublade, auch
             wenn es noch nicht alles kann.
           </Copy>
-          <Copy>Vielliecht ist eines der folgenden Angebot was für dich?</Copy>
+          <Copy>Vielleicht ist eines der folgenden Angebot was für dich?</Copy>
           <GridSlider>
             {packages.map(({ label, ...paeckli }) => (
               <ContentCard

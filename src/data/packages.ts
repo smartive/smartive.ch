@@ -20,7 +20,7 @@ export default {
     },
   },
   'ideation-sprint': {
-    label: '2-5 Tage',
+    label: '2–5 Tage',
     title: 'Ideation Sprint',
     content:
       'Gewinn ein besseres Verständnis für die Bedürfnisse deiner Nutzer und zieh daraus praktikable Ideen. Erhalte einen ersten visuellen Prototypen und hol Feedback deiner Kunden ein.',
@@ -30,7 +30,7 @@ export default {
     },
   },
   'scale-up': {
-    label: '2-3 Monate',
+    label: '2–3 Monate',
     title: 'Scale Up',
     content: 'Bau dein MVP entlang der messbaren Ziele aus und erweitere den Umfang deines Produkts.',
     link: {
@@ -39,7 +39,7 @@ export default {
     },
   },
   'solution-review': {
-    label: '2-5 Tage',
+    label: '2–5 Tage',
     title: 'Solution Review',
     content:
       'Erhalte eine objektive Einschätzung der Chancen und Risiken deines digitalen Produkts sowie einen klaren Massnahmenplan, was du verbessern kannst.',

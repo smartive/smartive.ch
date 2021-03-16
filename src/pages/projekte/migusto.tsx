@@ -65,7 +65,7 @@ const Migusto: NextPage<Props> = ({ quote, contact }) => {
         <PageSection>
           <Glance>
             <UnorderedList
-              title="Hauptzutaten für eine schnelle API"
+              title="Hauptzutaten der neuen API"
               items={[
                 'Rezepte mit saisonalen Zutaten werden höher gewichtet',
                 'Persönliche Diäten (vegan, glutenfrei) werden beachtet',
@@ -75,7 +75,7 @@ const Migusto: NextPage<Props> = ({ quote, contact }) => {
             />
           </Glance>
         </PageSection>
-        <PageSection title="Sofort die relevanten Rezept auf dem Teller">
+        <PageSection title="Sofort die relevanten Rezepte auf dem Teller">
           <Copy>
             Die Rezepte-API aggregiert Inhalte verschiedener Herkunft und stellt sie Plattformen mit unterschiedlichen
             Anforderungen zur Verfügung. Regelmässig werden die Rezepte aus dem Redaktionssystem importiert und der Suchindex

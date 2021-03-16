@@ -14,11 +14,6 @@ import { Grid } from '../layouts/grid';
 
 const textBlocks = [
   {
-    title: 'Organisiert auf Augenhöhe',
-    content:
-      'Wir pflegen eine Kommunikation auf Augenhöhe. Eine offene Feedback-Kultur schafft Raum für Innovation und Kreativität. ',
-  },
-  {
     title: 'Advice Process',
     content:
       'Bei smartive können alle Entscheide treffen – zu jedem Thema. Vorausgesetzt, sie hören sich zuerst das Feedback der betroffenen Personen an und übernehmen die Verantwortung für die Entscheidung. Dafür nutzen wir den Advice Process.',
@@ -29,9 +24,9 @@ const textBlocks = [
       'Digitale Technologien sind unsere Leidenschaft. Darum stehen allen Mitarbeitenden jährlich 12.5 Tage oder 12’500 Fr. für Fortbildung zur freien Verfügung. Einmal im Monat lassen wir uns von einer Kollegin oder einem Kollegen etwas vorstellen – sei es ein neues Frontend-Framework oder Meditationstechniken.',
   },
   {
-    title: 'Vaterschaftsurlaub',
+    title: 'Code Retreat',
     content:
-      'Zwei Wochen Vaterschaftsurlaub sind schön. Besser finden wir allerdings vier Wochen, wie es bei uns gehandhabt wird. ',
+      'Einmal im Jahr ziehen wir uns ein paar Tage zurück, um uns mit Themen auseinanderzusetzen, die uns am Herzen liegen – von AI bis Bierbrauen, von Supernova bis Design Sprint, von technisch über alltäglich bis wissenschaftlich. Der Code Retreat bietet Raum für Diskussionen und zum Zusammensein ausserhalb des Büros.',
   },
   {
     title: 'Lohn & Bonus',
@@ -39,9 +34,14 @@ const textBlocks = [
       'Wir verhandeln keine Löhne, sondern setzen auf ein transparentes, faires Lohnsystem: Lohn = Basislohn + Ausbildung + Erfahrung + Firmentreue. Dazu geht mindestens ein Drittel des Gewinns zu gleichen Teilen an alle Mitarbeitenden.',
   },
   {
-    title: 'Code Retreat',
+    title: 'Organisiert auf Augenhöhe',
     content:
-      'Einmal im Jahr ziehen wir uns ein paar Tage zurück, um uns mit Themen auseinanderzusetzen, die uns am Herzen liegen – von AI bis Bierbrauen, von Supernova bis Design Sprint, von technisch über alltäglich bis wissenschaftlich. Der Code Retreat bietet Raum für Diskussionen und zum Zusammensein ausserhalb des Büros.',
+      'Wir pflegen eine Kommunikation auf Augenhöhe. Eine offene Feedback-Kultur schafft Raum für Innovation und Kreativität. ',
+  },
+  {
+    title: 'Vaterschaftsurlaub',
+    content:
+      'Zwei Wochen Vaterschaftsurlaub sind schön. Besser finden wir allerdings vier Wochen, wie es bei uns gehandhabt wird. ',
   },
 ];
 
@@ -69,11 +69,11 @@ const Agentur: NextPage<Props> = ({ quote }) => {
           <Grid cols={2}>
             <Image
               className="rounded"
-              src="/images/mood/code-retreat-terrasse.jpg"
-              alt="smartive Team sitzt auf einer Bank mit blauem Himmel und Thunersee im Hintergrund"
+              src="/images/mood/dominique-lab-finger.jpg"
+              alt="smartive Mitarbeiter mit einem Schild auf dem smartive beworben wird"
               objectFit="cover"
               width={720}
-              height={500}
+              height={380}
             />
             <div className="hidden md:block md:col-start-2 md:row-span-2 relative">
               <Image
@@ -96,7 +96,7 @@ const Agentur: NextPage<Props> = ({ quote }) => {
             </div>
             <Image
               className="rounded"
-              src="/images/mood/robert-dife.jpg"
+              src="/images/mood/robert-dife-close-up.jpg"
               alt="smartive Mitarbeiter hält einen Vortrag vor mehreren Leuten"
               objectFit="cover"
               width={720}
@@ -131,11 +131,11 @@ const Agentur: NextPage<Props> = ({ quote }) => {
             </div>
             <Image
               className="rounded"
-              src="/images/mood/dominique-lab-finger.jpg"
-              alt="smartive Mitarbeiter mit einem Schild auf dem smartive beworben wird"
+              src="/images/mood/code-retreat-terrasse.jpg"
+              alt="smartive Team sitzt auf einer Bank mit blauem Himmel und Thunersee im Hintergrund"
               objectFit="cover"
               width={720}
-              height={380}
+              height={500}
             />
             <Image
               className="rounded"
