@@ -17,7 +17,7 @@ export const EmployeeCard: FC<Props> = ({
     <div className="hidden lg:block w-full">
       <Image
         className="bg-mint-200"
-        src={image || '/images/portrait-fallback.svg'}
+        src={image || getFallbackImage()}
         alt=""
         layout="responsive"
         objectFit="cover"
@@ -28,7 +28,7 @@ export const EmployeeCard: FC<Props> = ({
     <div className="block lg:hidden w-full">
       <Image
         className="bg-mint-200"
-        src={portrait || '/images/portrait-fallback.svg'}
+        src={portrait || getFallbackImage()}
         alt=""
         layout="responsive"
         objectFit="cover"
@@ -52,3 +52,6 @@ export const EmployeeCard: FC<Props> = ({
     </div>
   </div>
 );
+
+const getFallbackImage = () =>
+  `/images/portrait-fallback-${['apricot', 'mint', 'cornflower'][Math.floor(Math.random() * 3)]}.svg`;

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
+    viewBox="0 0 1600 1067" style="white-space: pre; background: #F8C0A0;">
+    <style>
+        @keyframes member__portrait-animation1 {
+            0% {
+                transform: translate(722px, 495px);
+            }
+
+            14.2857% {
+                transform: translate(722px, 495px);
+                animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+            }
+
+            17.1428% {
+                transform: translate(722px, 525px);
+                animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+            }
+
+            28.5714% {
+                transform: translate(722px, 524.999925px);
+                animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+            }
+
+            32.8571% {
+                transform: translate(722px, 465.999986px);
+                animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+            }
+
+            42.8571% {
+                transform: translate(722px, 465.999925px);
+                animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+            }
+
+            45.7142% {
+                transform: translate(722px, 494.999925px);
+                animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+            }
+
+            65.7142% {
+                transform: translate(722px, 494.999925px);
+                animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+            }
+
+            68.5714% {
+                transform: translate(697px, 494.999925px);
+                animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+            }
+
+            75.7142% {
+                transform: translate(697px, 494.999925px);
+                animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+            }
+
+            78.5714% {
+                transform: translate(722px, 494.999925px);
+                animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+            }
+
+            88.5714% {
+                transform: translate(722px, 494.999925px);
+                animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+            }
+
+            91.4285% {
+                transform: translate(766px, 494.999925px);
+                animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+            }
+
+            94.2857% {
+                transform: translate(766px, 494.999925px);
+                animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+            }
+
+            97.1428% {
+                transform: translate(722px, 494.999925px);
+            }
+
+            100% {
+                transform: translate(722px, 494.999925px);
+            }
+        }
+
+        @keyframes member__portrait-animation2 {
+            0% {
+                transform: translate(16px, 16px) scale(1, 1);
+            }
+
+            7.1428% {
+                transform: translate(16px, 16px) scale(1, 1);
+            }
+
+            8.5714% {
+                transform: translate(16px, 16px) scale(1, 0);
+            }
+
+            10% {
+                transform: translate(16px, 16px) scale(1, 1);
+            }
+
+            54.2857% {
+                transform: translate(16px, 16px) scale(1, 1);
+            }
+
+            55.7142% {
+                transform: translate(16px, 16px) scale(1, 0);
+            }
+
+            57.1428% {
+                transform: translate(16px, 16px) scale(1, 1);
+            }
+
+            58.5714% {
+                transform: translate(16px, 16px) scale(1, 1);
+            }
+
+            60% {
+                transform: translate(16px, 16px) scale(1, 0);
+            }
+
+            61.4285% {
+                transform: translate(16px, 16px) scale(1, 1);
+            }
+
+            100% {
+                transform: translate(16px, 16px) scale(1, 1);
+            }
+        }
+
+        @keyframes member__portrait-animation3 {
+            0% {
+                transform: translate(139px, 16px) scale(1, 1);
+            }
+
+            7.1428% {
+                transform: translate(139px, 16px) scale(1, 1);
+            }
+
+            8.5714% {
+                transform: translate(139px, 16px) scale(1, 0);
+            }
+
+            10% {
+                transform: translate(139px, 16px) scale(1, 1);
+            }
+
+            54.2857% {
+                transform: translate(139px, 16px) scale(1, 1);
+            }
+
+            55.7142% {
+                transform: translate(139px, 16px) scale(1, 0);
+            }
+
+            57.1428% {
+                transform: translate(139px, 16px) scale(1, 1);
+            }
+
+            58.5714% {
+                transform: translate(139px, 16px) scale(1, 1);
+            }
+
+            60% {
+                transform: translate(139px, 16px) scale(1, 0);
+            }
+
+            61.4285% {
+                transform: translate(139px, 16px) scale(1, 1);
+            }
+
+            100% {
+                transform: translate(139px, 16px) scale(1, 1);
+            }
+        }
+    </style>
+    <ellipse fill="#F8935A" rx="160" ry="160" transform="translate(800,533)"></ellipse>
+    <g transform="translate(799.5,539.5) translate(-77.5,-44.5001)"
+        style="animation: 7s linear 0s infinite normal both running member__portrait-animation1;">
+        <path
+            d="M854.883,555.43C848.819,564.091,840.79,571.194,831.455,576.157C822.119,581.121,811.741,583.805,801.169,583.99C790.598,584.174,780.132,581.854,770.629,577.219C761.126,572.584,752.855,565.766,746.491,557.322"
+            stroke="#252525" stroke-width="12" stroke-linecap="round" fill="none"
+            transform="translate(78.687,74.7151) translate(-800.687,-569.715)"></path>
+        <ellipse fill="#252525" rx="16" ry="16" transform="translate(16,16)"
+            style="animation: 7s linear 0s infinite normal both running member__portrait-animation2;"></ellipse>
+        <ellipse fill="#252525" rx="16" ry="16" transform="translate(139,16)"
+            style="animation: 7s linear 0s infinite normal both running member__portrait-animation3;"></ellipse>
+    </g>
+</svg>

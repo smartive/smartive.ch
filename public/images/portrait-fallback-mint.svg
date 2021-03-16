@@ -1,5 +1,7 @@
-<svg shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 1600 1067"
-    style="white-space: pre; background: rgb(242, 250, 254);">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"
+    viewBox="0 0 1600 1067" style="white-space: pre; background: #C4EBE6;">
     <style>
         @keyframes member__portrait-animation1 {
             0% {
@@ -172,16 +174,16 @@
             }
         }
     </style>
-    <ellipse fill="#ACC8D6" rx="160" ry="160" transform="translate(800,533)"></ellipse>
+    <ellipse fill="#7DDDD1" rx="160" ry="160" transform="translate(800,533)"></ellipse>
     <g transform="translate(799.5,539.5) translate(-77.5,-44.5001)"
         style="animation: 7s linear 0s infinite normal both running member__portrait-animation1;">
         <path
             d="M854.883,555.43C848.819,564.091,840.79,571.194,831.455,576.157C822.119,581.121,811.741,583.805,801.169,583.99C790.598,584.174,780.132,581.854,770.629,577.219C761.126,572.584,752.855,565.766,746.491,557.322"
-            stroke="#F2FAFE" stroke-width="12" stroke-linecap="round" fill="none"
+            stroke="#252525" stroke-width="12" stroke-linecap="round" fill="none"
             transform="translate(78.687,74.7151) translate(-800.687,-569.715)"></path>
-        <ellipse fill="#F2FAFE" rx="16" ry="16" transform="translate(16,16)"
+        <ellipse fill="#252525" rx="16" ry="16" transform="translate(16,16)"
             style="animation: 7s linear 0s infinite normal both running member__portrait-animation2;"></ellipse>
-        <ellipse fill="#F2FAFE" rx="16" ry="16" transform="translate(139,16)"
+        <ellipse fill="#252525" rx="16" ry="16" transform="translate(139,16)"
             style="animation: 7s linear 0s infinite normal both running member__portrait-animation3;"></ellipse>
     </g>
 </svg>

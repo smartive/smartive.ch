@@ -37,6 +37,7 @@ module.exports = {
       cornflower: {
         800: '#133097',
         500: '#6986E8',
+        200: '#B1C0F4',
       },
       mint: {
         800: '#0D7E6F',
