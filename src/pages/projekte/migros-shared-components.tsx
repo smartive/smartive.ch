@@ -132,10 +132,7 @@ const SharedComponents: NextPage<Props> = ({ quote, contact }) => (
         </Grid>
       </PageSection>
       <PageSection>
-        <Contact contact={contact}>
-          {contact.firstname} begleitet Subsidia seit dem Anfang. Und auch heute noch.
-          <br /> Melde dich bei ihm, falls du mehr wissen möchtest.
-        </Contact>
+        <Contact contact={contact} />
       </PageSection>
     </main>
   </div>

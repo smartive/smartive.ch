@@ -138,7 +138,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards }) => (
       </PageSection>
       <PageSection>
         <Contact contact={contact}>
-          {contact.firstname} unterstützt Subsidia auch heute noch.
+          {contact.firstname} weiss so einiges über Supply Chain.
           <br /> Melde dich bei ihm, falls du mehr wissen möchtest.
         </Contact>
       </PageSection>

@@ -117,8 +117,8 @@ const Filialfinder: NextPage<Props> = ({ quote, contact }) => {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
-      quote: Quotes['stefan-cosmo'],
-      contact: Employees.peter,
+      quote: Quotes['coco-fil'],
+      contact: Employees.moreno,
     },
   };
 };
