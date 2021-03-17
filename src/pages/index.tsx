@@ -72,12 +72,12 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
             />
             <ContentCard
               label="WHOOP WHOOP! 📣🥳"
-              title="Migipedia auf der Best of Swiss Web Shortlist!"
+              title="Migipedia ist Masterkandidat der Best of Swiss Web Awards!"
               content="Zum 10 jährigen Jubiläum von Migipedia haben wir die Migros Community komplett überarbeitet. Und nun stehen wir mit Migipedia auf der Shortlist für Best of Swiss Web! Wir sind mega happy und freuen uns auf die Award-Night."
               link={{
                 newTab: true,
-                label: 'Zur Shortlist',
-                href: 'https://www.bestofswissweb.swiss/de/hall-of-fame/shortlist/2021/',
+                label: 'Zur Master Nomination',
+                href: 'https://www.bestofswissweb.swiss/de/hall-of-fame/master/2021/',
               }}
             />
           </GridSlider>
