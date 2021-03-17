@@ -51,8 +51,8 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
           <Grid cols={2}>
             <Image
               className="rounded"
-              src="/images/migipedia/RGB_04_kitchen_012.jpg"
-              alt="Frau in orangem Pullover isst Joghurt"
+              src="/images/projekte/ofpg-kig/ben-wicks-iDCtsz-INHI-unsplash.jpg"
+              alt="Kinderfüsse in Gummistiefeln"
               priority
               objectFit="cover"
               width={720}
@@ -60,8 +60,8 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
             />
             <Image
               className="rounded"
-              src="/images/migipedia/RGB_01_diskutieren_007.jpg"
-              alt="Eine Frau und ein Mann betrachten etwas auf einem Smartphone"
+              src="/images/projekte/ofpg-kig/dylan-gillis-KdeqA3aTnBY-unsplash.jpg"
+              alt="Leute sitzen an einem Tisch und besprechen sich"
               priority
               objectFit="cover"
               width={720}
@@ -82,17 +82,7 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
             />
           </Keyfigure>
         </PageSection>
-        <PageSection>
-          <Image
-            className="rounded"
-            src="/images/migipedia/RGB_05_couch_010.jpg"
-            alt="Eine Frau sitzt mit ihrem Sohn im Wohnzimmer. Sie sortieren Migros Mania Sammelelemente."
-            priority
-            objectFit="cover"
-            width={1504}
-            height={800}
-          />
-        </PageSection>
+
         <PageSection>
           <Grid cols={2}>
             <div>
