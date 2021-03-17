@@ -2,6 +2,7 @@ import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import { PositionX, PositionY } from '../../components/blob';
+import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ImageCard } from '../../compositions/image-card';
@@ -13,27 +14,35 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
+import { Teaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
+import { Heading3 } from '../../elements/heading-3';
+import { Link } from '../../elements/link';
 import { Grid } from '../../layouts/grid';
 
 type Props = {
   quote: Quote;
   contact: Employee;
+  teasers: Teaser[];
 };
 
-const OfpgKig: NextPage<Props> = ({ quote, contact }) => {
+const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
   return (
     <div>
       <PageHeader
         markdownTitle="Aus über 1ʼ700 Angeboten die richtige _Hilfe_ finden."
-        description="Migipedia.ch ist seit 10 Jahren fester Bestandteil des digitalen Marketings der Migros und schafft Werte für Kundinnen und Kunden sowie fürs Unternehmen. Gemeinsam mit der Migros entwickelten wir eine komplett neue Lösung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor."
+        description="Das Ostschweizer Forum für Psychische Gesundheit hat ein grosses Netzwerk an Anbietern für Unterstützungsangebote im Bereich Gesundheit und Soziales. Bisher gab es keinen einfachen Zugang zu diesen Angeboten. Hier schufen wir Abhilfe mit einem zentralen Tool zur Verwaltung und einem Widget für den Zugriff."
       >
         <Copy>
-          Das Ostschweizer Forum für Psychische Gesundheit verfügt über ein grosses Netzwerk an Anbietern für
-          Unterstützungsangebote im Bereich Gesundheit und Soziales. Ein einfacher Zugang, wie diese gefunden werden können,
-          fehlte bis anhin. smartive macht die Unterstützungsangebote mit einem Widget einfach durchsuchbar. Das Widget kann
-          auf unterschiedlichen Webseiten des Kantons, der Gemeinden und anderen Organisationen eingebunden werden. Die
-          Anbieter pflegen ihre Angebote zentral in einer einfachen Administration.
+          Das Ostschweizer Forum für Psychische Gesundheit hat ein grosses Netzwerk an Anbietern für Unterstützungsangebote
+          im Bereich Gesundheit und Soziales. Bisher gab es keinen einfachen Zugang zu diesen Angeboten. Hier schufen wir
+          Abhilfe mit einem zentralen Tool zur Verwaltung und einem Widget für den Zugriff.
+        </Copy>
+        <Copy>
+          Der Vorteil an einem Widget: Das Anzeigen und Durchsuchen der Angebote ist nicht an eine Website gebunden, sondern
+          das Widget kann überall eingebunden eingebunden werden. Angebote von Kantonen, Gemeinden und Organisationen werden
+          neu mit einem zentralen Tool einheitlich verwaltet.
         </Copy>
       </PageHeader>
 
@@ -61,16 +70,17 @@ const OfpgKig: NextPage<Props> = ({ quote, contact }) => {
           </Grid>
         </PageSection>
         <PageSection>
-          <UnorderedList
-            title="Auf einen Blick"
-            items={[
-              'Über 1ʼ700 Angebote von 1ʼ000 Anbietern',
-              'Kann als React-Widget auf anderen Webseiten eingebunden werden',
-              'Elasticsearch für eine schnelle, fehlertolerante und standortbezogene Suche',
-              'Hohe Datenqualität dank Publikations-Workflow',
-              'Skalierbare Infrastruktur für eine nachhaltige Erweiterung',
-            ]}
-          />
+          <Keyfigure>
+            <UnorderedList
+              title="Auf einen Blick"
+              items={[
+                'Über 1ʼ700 Angebote von 1ʼ000 Anbietern',
+                'Kann als React-Widget im Nu auf jeder beliebigen Webseite eingebunden werden',
+                'Elasticsearch für eine schnelle, fehlertolerante und standortbezogene Suche',
+                'Hohe Datenqualität dank Publikations-Workflow',
+              ]}
+            />
+          </Keyfigure>
         </PageSection>
         <PageSection>
           <Image
@@ -85,20 +95,32 @@ const OfpgKig: NextPage<Props> = ({ quote, contact }) => {
         </PageSection>
         <PageSection>
           <Grid cols={2}>
-            <TextBlock title="Agiles Vorgehen führt zum Erfolg">
-              Durch eine iterative Vorgehensweise wurde das Projekt in kleinen Paketen entwickelt, welche durch
-              wiederkehrende Test-Iterationen evaluiert und auf ihre Funktionsweise getestet wurden. So konnten neue oder
-              veränderte Anforderungen stets miteinbezogen werden. Der Kunde kann so das Produkt stets aktiv mitgestalten und
-              Wünsche können im Entwicklungsprozess berücksichtigt werden. Ebenso erfolgt auch die Weiterentwicklung der
-              Applikation in der Umsetzung von kleinen Paketen.
-            </TextBlock>
-            <TextBlock title="Gezieltes Ausspielen von Angeboten an Zielgruppen">
-              Die Angebote sollen auf möglichst vielen Seiten ausgespielt werden, damit die Kunden die Angebote im gegebenen
-              Kontext finden. Durch ein React-Widget lässt sich die Angebotssuche kostengünstig und technologieunabhängig auf
-              beliebigen Seiten ausspielen. Das Definieren von Grund-Filtern hilft die Angebote perfekt gezielt auf den
-              Besucher der jeweiligen Seite anzupassen. Beispielsweise können nur Angebote aus dem Kanton St.Gallen zum Thema
-              Burnout für Erwachsene ausgespielt werden.
-            </TextBlock>
+            <div>
+              <Heading3>Schritt für Schritt vorwärts</Heading3>
+              <Copy>
+                Auch bei diesem Projekt sind wir iterativ vorgegangen — mit <Link href="/angebot/agile">Scrum</Link>.
+                Regelmässig wurden neue Features getestet und evaluiert. Das erlaubte dem Kanton und uns, auf neue oder sich
+                ändernde Anforderungen einzugehen und diesen gerecht zu werden.
+              </Copy>
+              <Copy>
+                Das iterative Vorgehen macht es einfach, auf die Bedürfnisse der Nutzer*innen einzugehen. Das macht auch uns
+                und dem Kunden Freude. So wurde die Anzeige von Resultaten in einer Karte auf Wunsch der Nutzer*innen
+                implementiert.
+              </Copy>
+            </div>
+            <div>
+              <Heading3>Eine Suche, aber auf vielen Seiten</Heading3>
+              <Copy>
+                Ein Suchangebot hilft nur, wenn es gut verankert ist. Gerade in schwierigen Situationen greift man gern auf
+                bereits bekannte Angebote zurück. Also haben wir die Suche so konzipiert und entwickelt, dass sie genau dort
+                platziert werden kann, wo sie gebraucht wird. Das Einbetten auf einer Seite ist ein Kinderspiel.
+              </Copy>
+              <Copy>
+                Die Resultate können so vorgefiltert werden, dass sie auf die Zielgruppe der einbindenden Website passen:
+                Eine Beratungsstelle für Jugendliche kann beispielsweise die Resultate auf Angebote für Kinder und Jugedliche
+                einschränken.
+              </Copy>
+            </div>
           </Grid>
           <Testimonial
             background="cornflower"
@@ -113,29 +135,25 @@ const OfpgKig: NextPage<Props> = ({ quote, contact }) => {
           />
         </PageSection>
         <PageSection>
-          <Grid cols={2}>
-            <TextBlock title="Schnelle und fehlertolerante Suche">
-              Eine schnelle und einfache Suche unterstützt Benutzer dabei, zu den gewünschten Ergebnissen zu kommen. Durch
-              Elasticsearch wird sichergestellt, dass Tippfehler kein Problem darstellen und auch Synonyme einfliessen. Der
-              Benutzer soll seine Begriffe aller Art verwenden können, auch wenn es sich um lateinische Fachbegriffe handelt.
-              Durch Filter werden dem Benutzer zudem die Möglichkeiten geboten, die vielen Angebote für seine Bedürfnisse
-              einzuschränken.
-            </TextBlock>
-            <TextBlock title="Standortbezogene Suche für optimale Resultate">
-              Damit der Benutzer Angebote vor seiner Haustüre findet, fliesst die Distanz zum jeweiligen Angebot in die
-              Gewichtung der Suchresultate ein. Wenn der Benutzer seinen Standort angibt, können Angebote im nahen Umkreis
-              höher priorisiert werden und somit die lokalen Angebote vorgezogen werden.
-            </TextBlock>
-          </Grid>
+          <Heading3>Schnelle und nutzerfreundliche Suche</Heading3>
+          <Copy>
+            Wir benutzen gerne Elasticsearch für Suchprojekte. Damit bekommen wir die schnellen Suchergebnisse schon mal
+            geschenkt. Mit der Pflege von Synonymen und einer gewissen Fehlertoleranz können wir sogar passende Angebote
+            anzeigen, wenn sich Nutzer*innen vertippen (gerade auf dem Snartphonr 🙄).
+          </Copy>
+          <Copy>
+            Zusätzlich zur cleveren Volltextsuche und gängigen Filtern ist die Distanz zum Anbieter wichtig. Wenn wir den
+            Standort der Nutzer*innen kennen, gewichten wir nahe gelegene Angebote höher.
+          </Copy>
         </PageSection>
         <PageSection>
           <Grid cols={2}>
-            <TextBlock title="Über mehrere Kantone und Organisationen verteilt">
+            <TextBlock title="Verteilte Daten, zentral verwaltet">
               Mehrere Kantone und Organisationen sind im Backend aktiv. Jeder Mandant pflegt seine eigenen Anbieter-Kreise,
               was zu einer Vielfalt von Angeboten führt. Jeder Mandant ist für seine Anbieter und somit die Daten und
               Angebote verantwortlich und kann spezifische, auf ihn angepasste Konfigurationen vornehmen.
             </TextBlock>
-            <TextBlock title="Hohe Datenqualität durch Publikations-Workflow">
+            <TextBlock title="Vier-Augen-Prinzip">
               Eine hohe Datenqualität der Inhalte ist für das Angebotsverzeichnis entscheidend. Die Anbieter haben die
               Möglichkeit, ihre Daten selber zu pflegen um Aktualität und Attraktivität zu gewährleisten. Der Review-Prozess
               spielt dabei eine zentrale Rolle - die verantworlichen Personen müssen Änderungsanträge prüfen und
@@ -150,24 +168,9 @@ const OfpgKig: NextPage<Props> = ({ quote, contact }) => {
 
         <PageSection title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
-            <ImageCard
-              label="KIG, Gesundheitsamt Sankt Gallen"
-              title="Web statt App – plane deine Freizeit mit Spilo."
-              link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
-            />
-            <ImageCard
-              label="KIG, Gesundheitsamt Sankt Gallen"
-              title="Web statt App – plane deine Freizeit mit Spilo."
-              link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
-            />
-            <ImageCard
-              label="Cosmopolitan"
-              title="Massgeschneidertes CRM"
-              link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
-            />
+            {teasers.map((teaser) => (
+              <ImageCard key={teaser.title} {...teaser} />
+            ))}
           </Grid>
         </PageSection>
       </main>
@@ -176,8 +179,11 @@ const OfpgKig: NextPage<Props> = ({ quote, contact }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  const teasers = [Teasers.migipedia, Teasers.subsidia, Teasers['supply-chain']];
+
   return {
     props: {
+      teasers,
       quote: Quotes['fabrina-kig'],
       contact: Employees.marco,
     },
