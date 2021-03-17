@@ -12,6 +12,8 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
+import { Award } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
 import { Grid } from '../../layouts/grid';
@@ -19,12 +21,13 @@ import { Grid } from '../../layouts/grid';
 type Props = {
   quote: Quote;
   contact: Employee;
+  awards: Award[];
 };
 
-const SupplyChain: NextPage<Props> = ({ quote, contact }) => (
+const SupplyChain: NextPage<Props> = ({ quote, contact, awards }) => (
   <div>
     <PageHeader
-      awardTags={['Best of Swiss Web 2020', 'Best of Swiss Apps 2020', 'Swiss Logistics Award 2020']}
+      awards={awards}
       markdownTitle="_Digitalisierung_ der Lieferkette."
       description="Als grösste Detailhändlerin der Schweiz ist die Migros auf reibungslose Prozesse in der Lieferkette angewiesen. Bestellungen bei externen Zulieferern sollen möglichst effizient abgewickelt und in die eigene Warenbewirtschaftung eingepflegt werden können."
     >
@@ -132,11 +135,12 @@ const SupplyChain: NextPage<Props> = ({ quote, contact }) => (
   </div>
 );
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       contact: Employees.peter,
       quote: Quotes['daniel-grai'],
+      awards: Teasers['supply-chain'].awards,
     },
   };
 };

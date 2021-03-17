@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
+import { Award } from '../data/teaser';
 
 type Props = {
-  tags: string[];
+  tags: Award[];
   vertical?: boolean;
   size?: 'S' | 'L';
   className?: string;
@@ -20,7 +21,7 @@ export const AwardTags: FC<Props> = ({ tags, vertical = false, className = '', s
     <div className={`grid grid-flow-col ${gap} justify-start ${className}`}>
       {tags.map((tag, index) => (
         <span key={index} className={`${TagColors[index % 3]} ${padding} ${textStyles} ${positioning}`}>
-          {tag}
+          {size === 'L' ? tag.full : tag.short}
         </span>
       ))}
     </div>

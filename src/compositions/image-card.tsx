@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { FC, ReactNode } from 'react';
 import { Url } from 'url';
 import { AwardTags } from '../components/award-tags';
+import { Award } from '../data/teaser';
 import { Heading3 } from '../elements/heading-3';
 import { isExternalUrl } from '../utils/url';
 
@@ -24,7 +25,7 @@ export type Props = {
   title: string;
   description?: string;
   link: { label: string; href: Url | string };
-  awardTags?: string[];
+  awards?: Award[];
   variant?: ImageCardVariants;
   className?: string;
 };
@@ -36,7 +37,7 @@ export const ImageCard: FC<Props> = ({
   description,
   link,
   variant = ImageCardVariants.Small,
-  awardTags = [],
+  awards = [],
   className = '',
 }) => {
   const awardClassName = variant === ImageCardVariants.Small ? 'absolute top-0 right-4' : 'absolute top-0 right-10';
@@ -55,10 +56,10 @@ export const ImageCard: FC<Props> = ({
             <Image src={image.src} alt={image.alt} objectFit="cover" layout="fill" />
           )}
         </div>
-        {awardTags.length > 0 && (
+        {awards.length > 0 && (
           <AwardTags
             size={variant === ImageCardVariants.Small ? 'S' : 'L'}
-            tags={awardTags}
+            tags={awards}
             vertical
             className={awardClassName}
           />

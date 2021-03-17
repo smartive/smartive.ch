@@ -1,4 +1,4 @@
-type Award = {
+export type Award = {
   short: string;
   full: string;
 };

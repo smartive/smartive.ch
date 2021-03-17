@@ -1,6 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { BlobColor, PositionX, PositionY } from '../../components/blob';
 import { Glance } from '../../components/glance';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
@@ -15,28 +16,28 @@ import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser } from '../../data/teaser';
+import { Award, Teaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Clock } from '../../elements/icons';
 import { Link } from '../../elements/link';
 import { Grid } from '../../layouts/grid';
-import Teasers from '../../data/teasers.json';
-import { BlobColor, PositionX, PositionY } from '../../components/blob';
 
 type Props = {
   quote: Quote;
   contact: Employee;
   packages: Package[];
   teasers: Teaser[];
+  awards: Award[];
 };
 
-const Migipedia: NextPage<Props> = ({ quote, contact, packages, teasers }) => {
+const Migipedia: NextPage<Props> = ({ quote, contact, packages, teasers, awards }) => {
   return (
     <div>
       <PageHeader
         markdownTitle="Migipedia – _10 Jahre_ User im Mittelpunkt."
         description="Migipedia.ch ist seit 10 Jahren fester Bestandteil des digitalen Marketings der Migros und schafft Werte für Kundinnen und Kunden sowie fürs Unternehmen. Gemeinsam mit der Migros entwickelten wir eine komplett neue Lösung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor."
-        awardTags={['Best of Swiss Web 2019']}
+        awards={awards}
       >
         <Copy>
           Seit 2010 ist die Migros-Community online, seit 2014 begleitet smartive die Migros bei der Weiterentwicklung. Die
@@ -169,7 +170,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, packages, teasers }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const packages = [Packages['ideation-sprint'], Packages['speedboat'], Packages['scale-up'], Packages['solution-review']];
   const teasers = [Teasers.ofpg, Teasers.cosmo, Teasers.subsidia];
 
@@ -179,6 +180,7 @@ export const getStaticProps: GetStaticProps = async () => {
       packages,
       quote: Quotes['philipp-migipedia'],
       contact: Employees.thomas,
+      awards: Teasers.migipedia.awards,
     },
   };
 };

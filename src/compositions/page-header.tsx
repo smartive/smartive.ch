@@ -2,6 +2,7 @@ import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
 import React, { FC } from 'react';
 import { AwardTags } from '../components/award-tags';
+import { Award } from '../data/teaser';
 import { Heading1 } from '../elements/heading-1';
 import { highlight, purify } from '../utils/markdown';
 
@@ -21,24 +22,24 @@ const HeaderSpacing = {
 type PageHeaderProps = {
   markdownTitle: string;
   description?: string;
-  awardTags?: string[];
+  awards?: Award[];
   variant?: PageHeaderVariants;
 };
 
 type SimplePageHeaderProps = {
   display?: string;
-  awardTags?: string[];
+  awards?: Award[];
 };
 
 type CardPageHeaderProps = {
   display?: string;
 };
 
-const SimplePageHeader: FC<SimplePageHeaderProps> = ({ display, awardTags, children }) => (
+const SimplePageHeader: FC<SimplePageHeaderProps> = ({ display, awards, children }) => (
   <>
-    {awardTags && awardTags.length > 0 && (
+    {awards && awards.length > 0 && (
       <div className="grid grid-flow-col gap-4 mb-3">
-        <AwardTags tags={awardTags} />
+        <AwardTags tags={awards} />
       </div>
     )}
     {display && <Heading1>{display.includes('_') ? highlight(display) : display}</Heading1>}
@@ -57,7 +58,7 @@ export const PageHeader: FC<PageHeaderProps> = ({
   markdownTitle,
   description,
   children,
-  awardTags,
+  awards,
   variant = PageHeaderVariants.Simple,
 }) => {
   const { asPath } = useRouter();
@@ -90,7 +91,7 @@ export const PageHeader: FC<PageHeaderProps> = ({
         <meta property="twitter:image" content={imageUrl} />
       </Head>
       {variant === PageHeaderVariants.Simple && (
-        <SimplePageHeader display={display} awardTags={awardTags}>
+        <SimplePageHeader display={display} awards={awards}>
           {children}
         </SimplePageHeader>
       )}

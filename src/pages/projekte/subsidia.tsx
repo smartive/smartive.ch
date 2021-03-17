@@ -12,6 +12,8 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
+import { Award } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Clock } from '../../elements/icons';
 import { Grid } from '../../layouts/grid';
@@ -20,12 +22,13 @@ import { GridSlider } from '../../layouts/grid-slider';
 type Props = {
   quote: Quote;
   contact: Employee;
+  awards: Award[];
 };
 
-const Subsidia: NextPage<Props> = ({ quote, contact }) => (
+const Subsidia: NextPage<Props> = ({ quote, contact, awards }) => (
   <div>
     <PageHeader
-      awardTags={['Best of Swiss Apps 2019']}
+      awards={awards}
       markdownTitle="Subsidia macht den Einzelhandel der Modebranche _mobil_."
       description="Subsidia digitalisiert mit innovativen und modernen Apps den Einzelhandel in der Modebranche. Die wichtigste App ist
       dabei die Kassen-App, die auf jedem Smartphone läuft. Wir begleiten Subsidia seit den Anfängen, egal ob bei der
@@ -185,11 +188,12 @@ const Subsidia: NextPage<Props> = ({ quote, contact }) => (
   </div>
 );
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       contact: Employees.dominique,
       quote: Quotes['diego-subsidia'],
+      awards: Teasers.subsidia.awards,
     },
   };
 };
