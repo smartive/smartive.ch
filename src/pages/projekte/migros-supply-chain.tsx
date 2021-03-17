@@ -96,6 +96,17 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards }) => (
             height={383}
           />
         </Grid>
+        <Image
+          className="rounded"
+          src="/images/projekte/supply-chain/gebaeude.jpg"
+          alt="Migros Logistik Zentrum"
+          priority
+          objectFit="cover"
+          width={1504}
+          height={800}
+        />
+      </PageSection>
+      <PageSection>
         <Heading3>Mehr Überblick, weniger Doppelspurigkeit</Heading3>
         <Copy>
           Die Migros Supply Chain App vereinfacht nicht nur die Verknüpfung von Daten und Warenkisten, sondern sorgt auch für
