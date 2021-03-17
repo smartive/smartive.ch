@@ -30,7 +30,7 @@ export const Testimonial: FC<Props> = ({
       {excerpt ? highlight(excerpt) : highlight(text)}
       &raquo;
     </Heading2>
-    {excerpt && <p className="mb-8 text-base font-bold">{text}</p>}
+    {excerpt && <p className="mb-8 text-sm lg:text-base font-bold z-10">{text}</p>}
     <p className="z-10">{credit}</p>
     {blobs.map(({ color, positionX, positionY }, index) => (
       <Blob key={index} positionX={positionX} positionY={positionY} color={color} />
