@@ -62,17 +62,15 @@
 
 footer {
   @apply relative;
-  @apply -m-4;
 }
 
 @screen lg {
   footer {
-    @apply w-screen;
-    @apply m-0;
+    @apply w-full;
     height: 489px;
     left: 50%;
     right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
+    margin-left: -50%;
+    margin-right: -50%;
   }
 }

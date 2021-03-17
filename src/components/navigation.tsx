@@ -26,7 +26,7 @@ export const Navigation: FC = () => {
   useLockBodyScroll(mobileNavOpen, mobileNavRef);
 
   return (
-    <nav className="grid grid-flow-col content-start font-sans font-bold text-xs">
+    <nav className="grid grid-flow-col content-start lg:container lg:mx-auto px-4 pt-8 font-sans font-bold text-xs">
       <div className="z-50">
         <Link variant={LinkVariants.NoUnderline} href="/" onClick={() => setMobileNavOpen(false)}>
           smartive

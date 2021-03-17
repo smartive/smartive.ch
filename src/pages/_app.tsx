@@ -10,7 +10,7 @@ import '../styles/globals.css';
 export default function App({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter();
   return (
-    <div className="min-h-screen grid grid-rows-headerFooter lg:container lg:mx-auto px-4 pt-8">
+    <div className="min-h-screen grid grid-rows-headerFooter">
       <Head>
         <meta
           name="viewport"
@@ -19,7 +19,13 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <Navigation />
       <AnimatePresence>
-        <motion.div key={pathname} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        <motion.div
+          className="lg:container lg:mx-auto px-4 pt-8"
+          key={pathname}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
           <Component {...pageProps} />
         </motion.div>
       </AnimatePresence>
