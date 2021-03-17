@@ -166,6 +166,7 @@ const Agentur: NextPage<Props> = ({ quote }) => {
               />
             </div>
           </Grid>
+
           <Grid cols={2}>
             <TextBlock title="Bald eine Dekade" number={10}>
               smartive wurde 2012 gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, wo wir uns alle

@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import { PositionX, PositionY } from '../components/blob';
 import { CustomersList } from '../components/customers-list';
+import { NewsletterCard } from '../components/newsletter-card';
 import { Testimonial } from '../components/testimonial';
 import { Contact } from '../compositions/contact';
 import { ContentCard } from '../compositions/content-card';
@@ -117,6 +118,15 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
             ))}
           </GridSlider>
         </PageSection>
+        <NewsletterCard
+          background="cornflower"
+          blobs={[
+            { positionX: PositionX.right, positionY: PositionY.bottom, color: 'apricot' },
+            { positionX: PositionX.right, positionY: PositionY.bottom, color: 'mint' },
+            { positionX: PositionX.left, positionY: PositionY.top, color: 'apricot' },
+            { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
+          ]}
+        />
         <PageSection>
           <Contact contact={contact} />
         </PageSection>

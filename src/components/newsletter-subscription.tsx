@@ -48,20 +48,26 @@ export const NewsletterSubscription: FC<Props> = ({ className = '', label = '', 
         }
 
         return (
-          <div className={`${className}`}>
-            {label && <Label>{label}</Label>}
-            <form className="grid grid-flow-row lg:grid-flow-col gap-2" onSubmit={(event) => handleSubmit(event, subscribe)}>
-              <Tooltip text={notification} isOpen={!!notification}>
-                <Input
-                  disabled={status === 'sending'}
-                  placeholder="E-Mail-Adresse"
-                  value={email}
-                  onChange={(event) => handleChange(event)}
-                  type="email"
-                />
-              </Tooltip>
+          <div className={className}>
+            <form
+              className="grid grid-flow-row lg:grid-flow-col gap-2 lg:place-items-end"
+              onSubmit={(event) => handleSubmit(event, subscribe)}
+            >
+              <Label as="label" className="grid grid-flow-row">
+                {label}
+                <Tooltip text={notification} isOpen={!!notification}>
+                  <Input
+                    id="newsletter-email"
+                    disabled={status === 'sending'}
+                    placeholder="E-Mail-Adresse"
+                    value={email}
+                    onChange={(event) => handleChange(event)}
+                    type="email"
+                  />
+                </Tooltip>
+              </Label>
               <Button type="submit" disabled={status === 'sending'}>
-                {status === 'sending' ? '...' : button}
+                <Label>{status === 'sending' ? '...' : button}</Label>
               </Button>
             </form>
           </div>

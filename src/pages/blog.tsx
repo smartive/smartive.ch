@@ -55,7 +55,7 @@ const Team: NextPage<Props> = ({ posts }) => {
                 {index === 4 && (
                   <ContentCard
                     title="Suchst du eine Gastautorin für deinen Blog oder einen Speaker für deinen nächsten Event?"
-                    link={{ label: 'Melde dich bei Robert', href: 'mailto:rober@smartive.ch' }}
+                    link={{ label: 'Melde dich bei Robert', href: 'mailto:robert@smartive.ch' }}
                     blobs={[
                       { positionX: PositionX.right, positionY: PositionY.bottom, color: 'mint' },
                       { positionX: PositionX.right, positionY: PositionY.bottom, color: 'apricot' },
