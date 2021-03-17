@@ -2,18 +2,18 @@
   "headers": [
     {
       "source": "/(.*)",
-      "headers" : [
+      "headers": [
         {
-          "key" : "X-Content-Type-Options",
-          "value" : "nosniff"
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
         },
         {
-          "key" : "X-Frame-Options",
-          "value" : "DENY"
+          "key": "X-Frame-Options",
+          "value": "DENY"
         },
         {
-          "key" : "X-XSS-Protection",
-          "value" : "1; mode=block"
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
         },
         {
           "key": "Referrer-Policy",
@@ -29,5 +29,21 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    { "source": "/leistungen", "destination": "/angebot" },
+    { "source": "/cases/archiv-bot", "destination": "/projekte" },
+    { "source": "/cases/cosmo-crm", "destination": "/projekte/cosmo-crm" },
+    { "source": "/cases/enterprise-search", "destination": "/projekte" },
+    { "source": "/cases/migros-dimmi", "destination": "/projekte/punkt-m-dimmi" },
+    { "source": "/cases/migros-filialfinder", "destination": "/projekte/migros-filialfinder" },
+    { "source": "/cases/migros-ratings-reviews", "destination": "/projekte/migipedia" },
+    { "source": "/cases/migros-shared-components", "destination": "/projekte/migros-shared-components" },
+    { "source": "/cases/migros-supply-chain-app", "destination": "/projekte/migros-supply-chain" },
+    { "source": "/cases/migusto", "destination": "/projekte/migusto" },
+    { "source": "/cases/online-hilfe-finden", "destination": "/projekte/ofpg-kig" },
+    { "source": "/cases/subsidia-kasse", "destination": "/projekte/subsidia" },
+    { "source": "/google-search-appliance", "destination": "/projekte" },
+    { "source": "/kontakt", "destination": "/agentur" }
   ]
 }
