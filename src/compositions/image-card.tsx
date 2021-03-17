@@ -45,7 +45,7 @@ export const ImageCard: FC<Props> = ({
     <Link href={link.href}>
       <div
         className={`relative grid grid-flow-row w-full ${
-          variant === ImageCardVariants.Wide ? 'md:grid-cols-3' : ''
+          variant === ImageCardVariants.Wide ? 'md:grid-cols-3' : 'grid-rows-headerFooter'
         } cursor-pointer border-transparent bg-white-100 rounded overflow-hidden card-shadow ${className}`}
       >
         <div className={`relative w-full ${ImageSizes[variant]}`}>
@@ -64,14 +64,18 @@ export const ImageCard: FC<Props> = ({
           />
         )}
         <div
-          className={`font-sans font-normal text-xxs mb-4 lg:text-sm p-4 ${
-            variant === ImageCardVariants.Wide ? 'md:col-span-2 md:p-16' : 'lg:m-8'
+          className={`grid grid-rows-headerFooter font-sans font-normal text-xxs lg:text-sm p-4 ${
+            variant === ImageCardVariants.Wide ? 'md:col-span-2 md:p-16' : 'lg:p-8'
           }`}
         >
           <p className="inline-flex items-center mb-4">{label}</p>
-          <Heading3 as="p">{title}</Heading3>
-          {description && <p className="mb-4">{description}</p>}
-          <span className="border-b-2">{link.label}</span>
+          <div>
+            <Heading3 as="p">{title}</Heading3>
+            {description && <p className="mb-4">{description}</p>}
+          </div>
+          <div>
+            <span className="border-b-2">{link.label}</span>
+          </div>
         </div>
       </div>
     </Link>

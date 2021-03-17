@@ -28,7 +28,7 @@ export const Contact: FC<Props> = ({
       />
       <div>
         <Heading2>{children}</Heading2>
-        <div className="grid place-items-center">
+        <div className="grid place-items-center lg:place-items-start">
           <LinkList
             links={[
               { label: email, href: `mailto:${email}` },

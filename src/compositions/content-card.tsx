@@ -14,9 +14,9 @@ export type ContentCardProps = {
 
 export const ContentCard: FC<ContentCardProps> = ({ title, label, content, link, blobs = [] }) => (
   <Link href={link.href}>
-    <div className="relative grid grid-rows-headerFooter w-full h-full p-8 gap-8 cursor-pointer rounded overflow-hidden card-shadow content-card-bg font-sans font-normal text-xxs mb-4 lg:text-sm">
+    <div className="grid grid-rows-headerFooter w-full h-full p-8 gap-8 cursor-pointer rounded overflow-hidden card-shadow content-card-bg font-sans font-normal text-xxs lg:text-sm">
       {label && <p className="inline-flex flex-row items-center z-10">{label}</p>}
-      <div className="mb-4 z-10">
+      <div className={`mb-4 z-10 ${label ? '' : 'row-span-2'}`}>
         <Heading3 as="p">{title}</Heading3>
         {content && <p>{content}</p>}
       </div>

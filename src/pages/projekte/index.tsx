@@ -38,11 +38,11 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers })
           gestellt, bestehende Lösungen analysiert und Projekte über viele Jahre begleitet und weiterentwickelt. Immer agil,
           massgeschneidert und mit Leidenschaft. Und wiederholt ausgezeichnet.
         </Copy>
+        <CustomersList customers={customers} />
       </PageHeader>
 
       <main>
         <PageSection>
-          <CustomersList customers={customers} />
           <Grid cols={2}>
             {main.map((teaser) => (
               <ImageCard key={teaser.title} {...teaser} variant={ImageCardVariants.Big} />

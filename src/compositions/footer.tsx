@@ -92,7 +92,7 @@ export const Footer: FC = () => (
             </ButtonLink>
           </span>
         </address>
-        <div className="grid grid-flow-row">
+        <div className="grid grid-flow-row place-items-center">
           <Link variant={LinkVariants.NoUnderline} href="https://www.linkedin.com/company/smartive-ag/" newTab>
             LinkedIn
           </Link>

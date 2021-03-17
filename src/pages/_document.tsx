@@ -11,7 +11,7 @@ export default class CustomDocument extends Document {
           <link href={`${GoogleFontUrl}&display=swap`} rel="stylesheet" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <body className="bg-white-200 text-black overflow-x-hidden">
+        <body className="bg-white-200 text-black">
           <Main />
           <NextScript />
         </body>
