@@ -2,24 +2,27 @@ import React, { FC } from 'react';
 import { Quote } from '../data/quotes';
 import { Heading2 } from '../elements/heading-2';
 import { Portrait, PortraitVariant } from '../elements/portrait';
+import { BrandColor, mapColorToBG } from '../utils/colors';
 import { highlight } from '../utils/markdown';
-import { Blob, BlobColor, PositionX, PositionY } from './blob';
+import { Blob, PositionX, PositionY } from './blob';
 
 type Props = {
   className?: string;
   quote: Quote;
-  background?: 'bg-apricot-500' | 'bg-mint-500' | 'bg-cornflower-500';
-  blobs?: { color: BlobColor; positionX: PositionX; positionY: PositionY }[];
+  background?: BrandColor;
+  blobs?: { color: BrandColor; positionX: PositionX; positionY: PositionY }[];
 };
 
 export const Testimonial: FC<Props> = ({
   quote: { text, excerpt, credit, portrait },
   className = '',
   blobs = [],
-  background = 'bg-apricot-500',
+  background = 'apricot',
 }) => (
   <div
-    className={`relative grid grid-flow-row place-items-center text-center w-full rounded ${background} p-8 lg:p-32 font-sans font-normal text-xxs mb-4 lg:text-sm ${className}`}
+    className={`relative grid grid-flow-row place-items-center text-center w-full rounded ${mapColorToBG(
+      background
+    )} p-8 lg:p-32 font-sans font-normal text-xxs mb-4 lg:text-sm ${className}`}
   >
     <Portrait className="z-10" image={portrait} alt="" variant={PortraitVariant.Small} />
     <Heading2 as="p" className="mt-4 z-10">

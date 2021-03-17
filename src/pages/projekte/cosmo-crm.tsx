@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { BlobColor, PositionX, PositionY } from '../../components/blob';
+import { PositionX, PositionY } from '../../components/blob';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { PageHeader } from '../../compositions/page-header';
@@ -71,13 +71,13 @@ const Cosmo: NextPage<Props> = ({ quote, contact }) => {
         </PageSection>
         <PageSection>
           <Testimonial
-            background="bg-cornflower-500"
+            background="cornflower"
             blobs={[
-              { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.mint },
-              { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.apricot },
-              { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.mint },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.mint },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.apricot },
+              { positionX: PositionX.right, positionY: PositionY.top, color: 'mint' },
+              { positionX: PositionX.right, positionY: PositionY.top, color: 'apricot' },
+              { positionX: PositionX.left, positionY: PositionY.top, color: 'mint' },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'apricot' },
             ]}
             quote={quote}
           />

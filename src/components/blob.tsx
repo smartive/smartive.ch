@@ -1,5 +1,6 @@
 import { canvasPath } from 'blobs/v2/animate';
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
+import { BrandColor, mapColorToHex } from '../utils/colors';
 
 export enum PositionX {
   left = 'left-0',
@@ -11,14 +12,8 @@ export enum PositionY {
   bottom = 'bottom-0',
 }
 
-export enum BlobColor {
-  apricot = '#F8935A',
-  mint = '#7DDDD1',
-  cornflower = '#6986E8',
-}
-
 type Props = {
-  color: BlobColor;
+  color: BrandColor;
   positionX: PositionX;
   positionY: PositionY;
   className?: string;
@@ -67,7 +62,7 @@ export const Blob: FC<Props> = ({ positionX, positionY, color, className = '' })
 
     const renderAnimation = () => {
       context.clearRect(0, 0, size, size);
-      context.fillStyle = color;
+      context.fillStyle = mapColorToHex(color);
       context.fill(animation.renderFrame());
       requestAnimationFrame(renderAnimation);
     };

@@ -1,8 +1,8 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { BlobColor, PositionX, PositionY } from '../../components/blob';
-import { Glance } from '../../components/glance';
+import { PositionX, PositionY } from '../../components/blob';
+import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { PageHeader } from '../../compositions/page-header';
@@ -51,7 +51,12 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards }) => (
         />
       </PageSection>
       <PageSection>
-        <Glance image={<Image src="/images/smartive-phone.png" height="566" width="275" objectFit="contain" />}>
+        <Keyfigure
+          background="apricot"
+          image={
+            <Image src="/images/projekte/supply-chain/smartive-phone.png" height="566" width="275" objectFit="contain" />
+          }
+        >
           <UnorderedList
             title="Kurz und knackig"
             items={[
@@ -61,7 +66,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards }) => (
               'Durch Automatisierung der Prozesse ist die Datenqualität höher, was weitere Optimierung der Prozesse ermöglicht.',
             ]}
           />
-        </Glance>
+        </Keyfigure>
       </PageSection>
 
       <PageSection title="Zweimal so schnell — und das zweimal.">
@@ -125,13 +130,13 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards }) => (
       </PageSection>
       <PageSection>
         <Testimonial
-          background="bg-apricot-500"
+          background="apricot"
           blobs={[
-            { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.cornflower },
-            { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.mint },
-            { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.cornflower },
-            { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.cornflower },
-            { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.mint },
+            { positionX: PositionX.right, positionY: PositionY.top, color: 'cornflower' },
+            { positionX: PositionX.right, positionY: PositionY.top, color: 'mint' },
+            { positionX: PositionX.left, positionY: PositionY.top, color: 'cornflower' },
+            { positionX: PositionX.left, positionY: PositionY.bottom, color: 'cornflower' },
+            { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
           ]}
           quote={quote}
         />

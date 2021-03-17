@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { BlobColor, PositionX, PositionY } from '../../components/blob';
+import { PositionX, PositionY } from '../../components/blob';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ContentCard } from '../../compositions/content-card';
@@ -120,13 +120,13 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards }) => (
       </PageSection>
       <PageSection>
         <Testimonial
-          background="bg-mint-500"
+          background="mint"
           blobs={[
-            { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.cornflower },
-            { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.apricot },
-            { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.cornflower },
-            { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.cornflower },
-            { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.apricot },
+            { positionX: PositionX.right, positionY: PositionY.top, color: 'cornflower' },
+            { positionX: PositionX.right, positionY: PositionY.top, color: 'apricot' },
+            { positionX: PositionX.left, positionY: PositionY.top, color: 'cornflower' },
+            { positionX: PositionX.left, positionY: PositionY.bottom, color: 'cornflower' },
+            { positionX: PositionX.left, positionY: PositionY.bottom, color: 'apricot' },
           ]}
           quote={quote}
         />

@@ -1,8 +1,8 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { BlobColor, PositionX, PositionY } from '../../components/blob';
-import { Glance } from '../../components/glance';
+import { PositionX, PositionY } from '../../components/blob';
+import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ImageCard } from '../../compositions/image-card';
@@ -64,7 +64,7 @@ const Migusto: NextPage<Props> = ({ quote, contact }) => {
           </Grid>
         </PageSection>
         <PageSection>
-          <Glance>
+          <Keyfigure>
             <UnorderedList
               title="Hauptzutaten der neuen API"
               items={[
@@ -74,7 +74,7 @@ const Migusto: NextPage<Props> = ({ quote, contact }) => {
                 'Hohe Performance und komplexe Abfragen dank GraphQL',
               ]}
             />
-          </Glance>
+          </Keyfigure>
         </PageSection>
         <PageSection title="Sofort die relevanten Rezepte auf dem Teller">
           <Copy>
@@ -130,13 +130,13 @@ const Migusto: NextPage<Props> = ({ quote, contact }) => {
         </PageSection>
         <PageSection>
           <Testimonial
-            background="bg-apricot-500"
+            background="apricot"
             blobs={[
-              { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.cornflower },
-              { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.mint },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.cornflower },
-              { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.cornflower },
-              { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.mint },
+              { positionX: PositionX.right, positionY: PositionY.bottom, color: 'cornflower' },
+              { positionX: PositionX.right, positionY: PositionY.bottom, color: 'mint' },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'cornflower' },
+              { positionX: PositionX.left, positionY: PositionY.top, color: 'cornflower' },
+              { positionX: PositionX.left, positionY: PositionY.top, color: 'mint' },
             ]}
             quote={quote}
           />

@@ -2,7 +2,7 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/de';
 import { GetStaticProps, NextPage } from 'next';
 import React, { Fragment } from 'react';
-import { BlobColor, PositionX, PositionY } from '../components/blob';
+import { PositionX, PositionY } from '../components/blob';
 import { ContentCard } from '../compositions/content-card';
 import { ImageCard, ImageCardVariants } from '../compositions/image-card';
 import { PageHeader } from '../compositions/page-header';
@@ -57,9 +57,9 @@ const Team: NextPage<Props> = ({ posts }) => {
                     title="Suchst du eine Gastautorin für deinen Blog oder einen Speaker für deinen nächsten Event?"
                     link={{ label: 'Melde dich bei Robert', href: 'mailto:rober@smartive.ch' }}
                     blobs={[
-                      { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.mint },
-                      { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.apricot },
-                      { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.mint },
+                      { positionX: PositionX.right, positionY: PositionY.bottom, color: 'mint' },
+                      { positionX: PositionX.right, positionY: PositionY.bottom, color: 'apricot' },
+                      { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
                     ]}
                   />
                 )}

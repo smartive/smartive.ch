@@ -11,6 +11,7 @@ import { Heading3 } from '../../elements/heading-3';
 import { Grid } from '../../layouts/grid';
 
 import Teasers from '../../data/teasers.json';
+import { Keyfigure } from '../../components/keyfigure';
 
 type Props = {
   teasers: Teaser[];
@@ -30,16 +31,20 @@ const Agile: NextPage<Props> = ({ teasers }) => (
       />
     </PageHeader>
     <main>
-      <PageSection title="Was braucht's für Scrum?">
-        <UnorderedList
-          items={[
-            'Wir arbeiten in zweiwöchigen Iterationen (Sprints).',
-            'Anforderungen werden als User Stories fixiert.',
-            'Vor jedem Sprint wird der Inhalt und Umfang geplant: Das Team schätzt gemeinsam die Komplexität der einzelnen User Stories und du setzt fest, was in welcher Reihenfolge umgesetzt werden soll.',
-            'Am Ende des Sprints präsentieren wir die abgeschlossenen Stories – laufend und interaktiv. Eine der wichtigsten Regeln der agilen Entwicklung ist nämlich, stets ein lauffähiges Produkt zu haben.',
-            'Zusätzlich blicken wir gemeinsam auf den Sprint zurück: Was ist gut gelaufen, wie können wir die Zusammenarbeit verbessern?',
-          ]}
-        />
+      <PageSection>
+        <Keyfigure>
+          <UnorderedList
+            title="Was braucht's für Scrum?"
+            items={[
+              'Wir arbeiten in zweiwöchigen Iterationen (Sprints).',
+              'Anforderungen werden als User Stories fixiert.',
+              'Vor jedem Sprint wird der Inhalt und Umfang geplant: Das Team schätzt gemeinsam die Komplexität der einzelnen User Stories und du setzt fest, was in welcher Reihenfolge umgesetzt werden soll.',
+              'Am Ende des Sprints präsentieren wir die abgeschlossenen Stories – laufend und interaktiv. Eine der wichtigsten Regeln der agilen Entwicklung ist nämlich, stets ein lauffähiges Produkt zu haben.',
+              'Zusätzlich blicken wir gemeinsam auf den Sprint zurück: Was ist gut gelaufen, wie können wir die Zusammenarbeit verbessern?',
+            ]}
+          />
+        </Keyfigure>
+
         <Grid cols={3}>
           <TextBlock title="Product Owner">
             Das bist du. Oder jemand aus deinem Team. Wichtig ist, dass die Person Entscheidungen treffen kann und will. Der

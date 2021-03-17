@@ -1,20 +1,20 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { PositionX, PositionY } from '../../components/blob';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
+import { TextBlock } from '../../compositions/text-block';
 import { UnorderedList } from '../../compositions/unordered-list';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Heading3 } from '../../elements/heading-3';
 import { Copy } from '../../elements/copy';
+import { Heading3 } from '../../elements/heading-3';
 import { Grid } from '../../layouts/grid';
-import { TextBlock } from '../../compositions/text-block';
-import { BlobColor, PositionX, PositionY } from '../../components/blob';
 
 type Props = {
   quote: Quote;
@@ -90,13 +90,13 @@ const SharedComponents: NextPage<Props> = ({ quote, contact }) => (
       </PageSection>
       <PageSection>
         <Testimonial
-          background="bg-apricot-500"
+          background="apricot"
           blobs={[
-            { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.cornflower },
-            { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.mint },
-            { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.cornflower },
-            { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.cornflower },
-            { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.mint },
+            { positionX: PositionX.right, positionY: PositionY.bottom, color: 'cornflower' },
+            { positionX: PositionX.right, positionY: PositionY.bottom, color: 'mint' },
+            { positionX: PositionX.left, positionY: PositionY.bottom, color: 'cornflower' },
+            { positionX: PositionX.left, positionY: PositionY.top, color: 'cornflower' },
+            { positionX: PositionX.left, positionY: PositionY.top, color: 'mint' },
           ]}
           quote={quote}
         />

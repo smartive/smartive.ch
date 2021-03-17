@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { BlobColor, PositionX, PositionY } from '../components/blob';
+import { PositionX, PositionY } from '../components/blob';
 import { CustomersList } from '../components/customers-list';
 import { Testimonial } from '../components/testimonial';
 import { Contact } from '../compositions/contact';
@@ -89,11 +89,11 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
           <Testimonial
             quote={quote}
             blobs={[
-              { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.cornflower },
-              { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.mint },
-              { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.cornflower },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.cornflower },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.mint },
+              { positionX: PositionX.right, positionY: PositionY.top, color: 'cornflower' },
+              { positionX: PositionX.right, positionY: PositionY.top, color: 'mint' },
+              { positionX: PositionX.left, positionY: PositionY.top, color: 'cornflower' },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'cornflower' },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
             ]}
           />
         </PageSection>

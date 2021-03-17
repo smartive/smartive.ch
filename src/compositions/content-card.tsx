@@ -1,15 +1,16 @@
 import Link from 'next/link';
 import React, { FC, ReactNode } from 'react';
 import { Url } from 'url';
-import { Blob, BlobColor, PositionX, PositionY } from '../components/blob';
+import { Blob, PositionX, PositionY } from '../components/blob';
 import { Heading3 } from '../elements/heading-3';
+import { BrandColor } from '../utils/colors';
 
 export type ContentCardProps = {
   label?: string | ReactNode;
   title: string;
   content?: string;
   link: { label: string; href: Url | string; newTab?: boolean };
-  blobs?: { color: BlobColor; positionX: PositionX; positionY: PositionY }[];
+  blobs?: { color: BrandColor; positionX: PositionX; positionY: PositionY }[];
 };
 
 export const ContentCard: FC<ContentCardProps> = ({ title, label, content, link, blobs = [] }) => (

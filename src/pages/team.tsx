@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { BlobColor, PositionX, PositionY } from '../components/blob';
+import { PositionX, PositionY } from '../components/blob';
 import { Testimonial } from '../components/testimonial';
 import { Contact } from '../compositions/contact';
 import { EmployeeCard } from '../compositions/employee-card';
@@ -41,13 +41,13 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
             ))}
             <Testimonial
               className="col-start-1 md:col-span-2 lg:col-span-3"
-              background="bg-mint-500"
+              background="mint"
               blobs={[
-                { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.cornflower },
-                { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.cornflower },
-                { positionX: PositionX.right, positionY: PositionY.top, color: BlobColor.apricot },
-                { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.cornflower },
-                { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.apricot },
+                { positionX: PositionX.right, positionY: PositionY.bottom, color: 'cornflower' },
+                { positionX: PositionX.right, positionY: PositionY.top, color: 'cornflower' },
+                { positionX: PositionX.right, positionY: PositionY.top, color: 'apricot' },
+                { positionX: PositionX.left, positionY: PositionY.bottom, color: 'cornflower' },
+                { positionX: PositionX.left, positionY: PositionY.top, color: 'apricot' },
               ]}
               quote={quote}
             />

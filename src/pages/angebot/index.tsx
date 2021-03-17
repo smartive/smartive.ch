@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { BlobColor, PositionX, PositionY } from '../../components/blob';
+import { PositionX, PositionY } from '../../components/blob';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ContentCard } from '../../compositions/content-card';
@@ -58,13 +58,13 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
         <PageSection>
           <Testimonial
             quote={quote}
-            background="bg-cornflower-500"
+            background="cornflower"
             blobs={[
-              { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.apricot },
-              { positionX: PositionX.right, positionY: PositionY.bottom, color: BlobColor.mint },
-              { positionX: PositionX.left, positionY: PositionY.top, color: BlobColor.apricot },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.apricot },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: BlobColor.mint },
+              { positionX: PositionX.right, positionY: PositionY.bottom, color: 'apricot' },
+              { positionX: PositionX.right, positionY: PositionY.bottom, color: 'mint' },
+              { positionX: PositionX.left, positionY: PositionY.top, color: 'apricot' },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'apricot' },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
             ]}
           />
         </PageSection>
