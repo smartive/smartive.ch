@@ -180,9 +180,9 @@ const Agentur: NextPage<Props> = ({ quote }) => {
               Heute kommen {Object.values(Employees).length} Mitarbeiter*innen in Zürich zusammen und bringen ihre
               Fähigkeiten und ihre Art ein – in Software-Entwicklung, Projektleitung, Design und User Experience.
             </TextBlock>
-            <TextBlock title="Erfolgreiche Projekte: dreistellig" number={300}>
+            <TextBlock title="Erfolgreiche Projekte: dreistellig" number={300} highlightNumber>
               In den letzten Jahren haben wir über 300 Projekte erfolgreich gemeistert. Sowohl in Zusammenarbeit mit{' '}
-              <Link href="subsidia">Start-Ups</Link> als auch mit der{' '}
+              <Link href="/projekte/subsidia">Start-Ups</Link> als auch mit der{' '}
               <Link href="/projekte/migipedia/">grössten Arbeitgeberin der Schweiz</Link>.
             </TextBlock>
             <TextBlock title="Aufsteiger des Jahres" number={20}>

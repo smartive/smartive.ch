@@ -28,18 +28,14 @@ export const Navigation: FC = () => {
   return (
     <nav className="grid grid-flow-col content-start lg:container lg:mx-auto px-4 pt-8 font-sans font-bold text-xs">
       <div className="z-50">
-        <Link variant={LinkVariants.NoUnderline} href="/" onClick={() => setMobileNavOpen(false)}>
+        <Link variant={LinkVariants.Navigation} href="/" onClick={() => setMobileNavOpen(false)}>
           smartive
         </Link>
       </div>
       <ul className="hidden lg:grid grid-flow-col gap-8">
         {Main.map(({ label, link }) => (
           <li key={label}>
-            <Link
-              variant={LinkVariants.NoUnderline}
-              href={link}
-              className={pathname.includes(link) ? 'border-apricot-500' : ''}
-            >
+            <Link variant={LinkVariants.Navigation} href={link} active={pathname.includes(link)}>
               {label}
             </Link>
           </li>
@@ -47,7 +43,7 @@ export const Navigation: FC = () => {
       </ul>
       <div className="hidden lg:block text-right">
         {Meta.map(({ label, link }) => (
-          <Link key={label} variant={LinkVariants.NoUnderline} className="mr-8 last:mr-0" href={link}>
+          <Link key={label} variant={LinkVariants.Navigation} className="mr-8 last:mr-0" href={link}>
             {label}
           </Link>
         ))}
@@ -55,7 +51,7 @@ export const Navigation: FC = () => {
       <div className="text-right z-50 lg:hidden">
         <LinkButton
           className="relative font-sans font-bold text-xs"
-          variant={LinkVariants.NoUnderline}
+          variant={LinkVariants.Navigation}
           onClick={() => setMobileNavOpen((current) => !current)}
         >
           {mobileNavOpen ? 'Schliessen' : 'Menü'}
@@ -84,10 +80,10 @@ export const Navigation: FC = () => {
               {Main.map(({ label, link }) => (
                 <Heading2 key={label} as="li" noSpacing>
                   <Link
-                    variant={LinkVariants.NoUnderline}
+                    variant={LinkVariants.Navigation}
                     href={link}
                     onClick={() => setMobileNavOpen(false)}
-                    className={pathname.includes(link) ? 'border-cornflower-500' : ''}
+                    active={pathname.includes(link)}
                   >
                     {label}
                   </Link>
@@ -96,7 +92,7 @@ export const Navigation: FC = () => {
               <br />
               {Meta.map(({ label, link }) => (
                 <Label key={label} as="li">
-                  <Link variant={LinkVariants.NoUnderline} href={link} onClick={() => setMobileNavOpen(false)}>
+                  <Link variant={LinkVariants.Navigation} href={link} onClick={() => setMobileNavOpen(false)}>
                     {label}
                   </Link>
                 </Label>

@@ -118,15 +118,17 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
             ))}
           </GridSlider>
         </PageSection>
-        <NewsletterCard
-          background="cornflower"
-          blobs={[
-            { positionX: PositionX.right, positionY: PositionY.bottom, color: 'apricot' },
-            { positionX: PositionX.right, positionY: PositionY.bottom, color: 'mint' },
-            { positionX: PositionX.left, positionY: PositionY.top, color: 'apricot' },
-            { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
-          ]}
-        />
+        <PageSection>
+          <NewsletterCard
+            background="cornflower"
+            blobs={[
+              { positionX: PositionX.right, positionY: PositionY.bottom, color: 'apricot' },
+              { positionX: PositionX.right, positionY: PositionY.bottom, color: 'mint' },
+              { positionX: PositionX.left, positionY: PositionY.top, color: 'apricot' },
+              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
+            ]}
+          />
+        </PageSection>
         <PageSection>
           <Contact contact={contact} />
         </PageSection>

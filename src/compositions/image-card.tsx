@@ -45,9 +45,9 @@ export const ImageCard: FC<Props> = ({
   return (
     <Link href={link.href}>
       <div
-        className={`relative grid grid-flow-row w-full ${
-          variant === ImageCardVariants.Wide ? 'md:grid-cols-3' : 'grid-rows-headerFooter'
-        } cursor-pointer border-transparent bg-white-100 rounded overflow-hidden card-shadow ${className}`}
+        className={`relative grid w-full ${
+          variant === ImageCardVariants.Wide ? 'md:grid-cols-3' : 'grid-rows-[auto,1fr]'
+        } cursor-pointer border-transparent bg-white-100 rounded overflow-hidden card-shadow transform transition-transform active:scale-[.99] ${className}`}
       >
         <div className={`relative w-full ${ImageSizes[variant]}`}>
           {isExternalUrl(image.src) ? (
@@ -56,16 +56,8 @@ export const ImageCard: FC<Props> = ({
             <Image src={image.src} alt={image.alt} objectFit="cover" layout="fill" />
           )}
         </div>
-        {awards.length > 0 && (
-          <AwardTags
-            size={variant === ImageCardVariants.Small ? 'S' : 'L'}
-            tags={awards}
-            vertical
-            className={awardClassName}
-          />
-        )}
         <div
-          className={`grid grid-rows-headerFooter font-sans font-normal text-xxs lg:text-sm p-4 ${
+          className={`grid grid-rows-[auto,1fr,auto] font-sans font-normal text-xxs lg:text-sm p-4 ${
             variant === ImageCardVariants.Wide ? 'md:col-span-2 md:p-16' : 'lg:p-8'
           }`}
         >
@@ -78,6 +70,14 @@ export const ImageCard: FC<Props> = ({
             <span className="border-b-2">{link.label}</span>
           </div>
         </div>
+        {awards.length > 0 && (
+          <AwardTags
+            size={variant === ImageCardVariants.Small ? 'S' : 'L'}
+            tags={awards}
+            vertical
+            className={awardClassName}
+          />
+        )}
       </div>
     </Link>
   );

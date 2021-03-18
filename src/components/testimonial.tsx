@@ -25,7 +25,7 @@ export const Testimonial: FC<Props> = ({
     )} p-8 lg:p-32 font-sans font-normal text-xxs mb-4 lg:text-sm ${className}`}
   >
     <Portrait className="z-10" image={portrait} alt="" variant={PortraitVariant.Small} />
-    <Heading2 as="p" className="mt-4 z-10">
+    <Heading2 as="p" className="mt-4 z-10 overflow-hidden sm:overflow-visible">
       &laquo;
       {excerpt ? highlight(excerpt) : highlight(text)}
       &raquo;

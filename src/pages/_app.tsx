@@ -10,7 +10,7 @@ import '../styles/globals.css';
 export default function App({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter();
   return (
-    <div className="min-h-screen grid grid-rows-headerFooter">
+    <div className="min-h-screen grid grid-rows-[auto,1fr,auto]">
       <Head>
         <meta
           name="viewport"

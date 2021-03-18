@@ -13,6 +13,14 @@
     writing-mode: vertical-rl;
   }
 
+  .fancy-text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: contain;
+    background-image: url('/images/text-background.svg');
+    color: transparent;
+  }
+
   .card-shadow {
     @apply transition-shadow duration-150;
   }

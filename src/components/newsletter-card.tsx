@@ -14,12 +14,12 @@ export const NewsletterCard: FC<Props> = ({ className = '', blobs = [], backgrou
   <div
     className={`relative grid grid-flow-row place-items-center text-center w-full rounded ${mapColorToBG(
       background
-    )} p-8 lg:p-32 mb-4 lg:text-sm ${className}`}
+    )} p-8 lg:p-32 lg:text-sm ${className}`}
   >
     <Heading2 as="p" className="z-10">
       Wir schreiben nicht nur super Code sondern auch gute Newsletter.
     </Heading2>
-    <NewsletterSubscription label="Newsletter abonnieren" className="text-left z-10" />
+    <NewsletterSubscription label="Newsletter abonnieren" className="text-left z-10 overflow-hidden sm:overflow-visible" />
     {blobs.map(({ color, positionX, positionY }, index) => (
       <Blob key={index} positionX={positionX} positionY={positionY} color={color} />
     ))}

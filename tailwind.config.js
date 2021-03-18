@@ -52,12 +52,6 @@ module.exports = {
       full: '9999px',
     },
     extend: {
-      gridTemplateRows: {
-        headerFooter: 'auto 1fr auto',
-      },
-      gridTemplateColumns: {
-        form: '1fr auto',
-      },
       spacing: {
         120: '30rem',
       },
@@ -68,13 +62,6 @@ module.exports = {
       borderWidth: {
         3: '3px',
       },
-    },
-  },
-  variants: {
-    extend: {
-      margin: ['responsive', 'first', 'last'],
-      padding: ['responsive', 'first', 'last'],
-      ringColor: ['responsive', 'focus', 'hover'],
     },
   },
   plugins: [],

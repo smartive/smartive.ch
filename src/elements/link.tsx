@@ -2,35 +2,39 @@ import NextLink, { LinkProps } from 'next/link';
 import { FC, HTMLAttributes } from 'react';
 
 export enum LinkVariants {
-  Underline,
-  NoUnderline,
+  Default,
+  Navigation,
   Feature,
 }
 
 type Props = LinkProps & {
   className?: string;
-  variant?: LinkVariants;
   newTab?: boolean;
+  variant?: LinkVariants;
   onClick?: () => void;
+  active?: boolean;
 } & HTMLAttributes<HTMLElement>;
 
-export const VariantStyles = {
-  [LinkVariants.Underline]: 'border-b-2 hover:border-apricot-500 no-underline',
-  [LinkVariants.NoUnderline]: 'no-underline border-b-2 border-transparent hover:border-black',
+const getVariantStyles = (active = false) => ({
+  [LinkVariants.Default]: 'border-b-2 hover:border-apricot-500 no-underline',
+  [LinkVariants.Navigation]: `no-underline border-b-2 ${
+    active ? 'border-apricot-500' : 'border-transparent'
+  } hover:border-black`,
   [LinkVariants.Feature]: 'no-underline border-b-4 border-apricot-500 hover:border-black',
-};
+});
 
 export const Link: FC<Props> = ({
   children,
-  variant = LinkVariants.Underline,
+  variant = LinkVariants.Default,
   className = '',
   newTab = false,
+  active = false,
   onClick,
   ...props
 }) => (
   <NextLink passHref {...props}>
     <a
-      className={`${VariantStyles[variant]} transition-colors duration-150 ${className}`}
+      className={`${getVariantStyles(active)[variant]} ${className} transition-colors duration-150`}
       {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}
       onClick={onClick}
     >
@@ -45,8 +49,8 @@ type LinkButtonProps = {
   variant?: LinkVariants;
 };
 
-export const LinkButton: FC<LinkButtonProps> = ({ children, onClick, variant = LinkVariants.Underline, className = '' }) => (
-  <button onClick={onClick} className={`${VariantStyles[variant]} transition-colors duration-150 ${className}`}>
+export const LinkButton: FC<LinkButtonProps> = ({ children, onClick, variant = LinkVariants.Default, className = '' }) => (
+  <button onClick={onClick} className={`${getVariantStyles()[variant]} transition-colors duration-150 ${className}`}>
     {children}
   </button>
 );

@@ -15,13 +15,17 @@ export type ContentCardProps = {
 
 export const ContentCard: FC<ContentCardProps> = ({ title, label, content, link, blobs = [] }) => (
   <Link href={link.href}>
-    <div className="relative grid grid-rows-headerFooter w-full h-full p-8 gap-8 cursor-pointer rounded overflow-hidden card-shadow content-card-bg font-sans font-normal text-xxs lg:text-sm">
+    <div
+      className={`relative grid ${
+        label ? 'grid-rows-[auto,1fr,auto]' : 'grid-rows-[1fr,auto]'
+      } w-full h-full p-8 gap-8 cursor-pointer rounded overflow-hidden card-shadow content-card-bg font-sans font-normal text-xxs lg:text-sm transform transition-transform active:scale-[.99]`}
+    >
       {label && <p className="inline-flex flex-row items-center z-10">{label}</p>}
-      <div className={`mb-4 z-10 ${label ? '' : 'row-span-2'}`}>
+      <div className="mb-4 z-10">
         <Heading3 as="p">{title}</Heading3>
         {content && <p>{content}</p>}
       </div>
-      <div className="z-10">
+      <div className="flex z-10 items-end">
         <span className="border-b-2">{link.label}</span>
       </div>
       {blobs.map(({ color, positionX, positionY }, index) => (

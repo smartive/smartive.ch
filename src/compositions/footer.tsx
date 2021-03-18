@@ -32,12 +32,12 @@ export const Footer: FC = () => (
             <span itemProp="addressLocality">{Address.locality}</span>
           </div>
           <span>
-            <Link variant={LinkVariants.NoUnderline} href={`tel:${Address.telephone}`} itemProp="telephone">
+            <Link variant={LinkVariants.Navigation} href={`tel:${Address.telephone}`} itemProp="telephone">
               {Address.telephone}
             </Link>
           </span>
           <span>
-            <Link variant={LinkVariants.NoUnderline} href={`mailto:${Address.email}`} itemProp="email">
+            <Link variant={LinkVariants.Navigation} href={`mailto:${Address.email}`} itemProp="email">
               {Address.email}
             </Link>
           </span>
@@ -46,25 +46,25 @@ export const Footer: FC = () => (
         <NewsletterSubscription className="col-span-2 place-items-center" label="Newsletter jetzt abonnieren" />
 
         <div className="grid grid-flow-row place-self-end justify-items-start">
-          <Link variant={LinkVariants.NoUnderline} href="https://www.linkedin.com/company/smartive-ag/" newTab>
+          <Link variant={LinkVariants.Navigation} href="https://www.linkedin.com/company/smartive-ag/" newTab>
             LinkedIn
           </Link>
-          <Link variant={LinkVariants.NoUnderline} href="https://www.instagram.com/smartive_ch/" newTab>
+          <Link variant={LinkVariants.Navigation} href="https://www.instagram.com/smartive_ch/" newTab>
             Instagram
           </Link>
-          <Link variant={LinkVariants.NoUnderline} href="https://twitter.com/smartive_ch" newTab>
+          <Link variant={LinkVariants.Navigation} href="https://twitter.com/smartive_ch" newTab>
             Twitter
           </Link>
-          <Link variant={LinkVariants.NoUnderline} href="https://facebook.com/smartive.ch" newTab>
+          <Link variant={LinkVariants.Navigation} href="https://facebook.com/smartive.ch" newTab>
             Facebook
           </Link>
         </div>
         <SwissMadeSoftwareLogo />
       </Label>
 
-      <Label as="div" className="relative grid lg:hidden grid-flow-row place-items-center gap-8 w-80 mx-auto">
+      <Label as="div" className="relative grid lg:hidden grid-flow-row place-items-center gap-8 max-w-[20rem] mx-auto">
         <address
-          className="not-italic grid grid-flow-row w-80 text-center"
+          className="not-italic grid grid-flow-row text-center w-full"
           itemScope
           itemType="http://schema.org/Organization"
         >
@@ -93,16 +93,16 @@ export const Footer: FC = () => (
           </span>
         </address>
         <div className="grid grid-flow-row place-items-center">
-          <Link variant={LinkVariants.NoUnderline} href="https://www.linkedin.com/company/smartive-ag/" newTab>
+          <Link variant={LinkVariants.Navigation} href="https://www.linkedin.com/company/smartive-ag/" newTab>
             LinkedIn
           </Link>
-          <Link variant={LinkVariants.NoUnderline} href="https://www.instagram.com/smartive_ch/" newTab>
+          <Link variant={LinkVariants.Navigation} href="https://www.instagram.com/smartive_ch/" newTab>
             Instagram
           </Link>
-          <Link variant={LinkVariants.NoUnderline} href="https://twitter.com/smartive_ch" newTab>
+          <Link variant={LinkVariants.Navigation} href="https://twitter.com/smartive_ch" newTab>
             Twitter
           </Link>
-          <Link variant={LinkVariants.NoUnderline} href="https://facebook.com/smartive.ch" newTab>
+          <Link variant={LinkVariants.Navigation} href="https://facebook.com/smartive.ch" newTab>
             Facebook
           </Link>
         </div>
