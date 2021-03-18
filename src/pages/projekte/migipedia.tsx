@@ -51,7 +51,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, packages, teasers, awards 
           <Grid cols={2}>
             <Image
               className="rounded"
-              src="/images/migipedia/RGB_04_kitchen_012.jpg"
+              src="/images/projekte/migipedia/RGB_04_kitchen_012.jpg"
               alt="Frau in orangem Pullover isst Joghurt"
               priority
               objectFit="cover"
@@ -60,7 +60,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, packages, teasers, awards 
             />
             <Image
               className="rounded"
-              src="/images/migipedia/RGB_01_diskutieren_007.jpg"
+              src="/images/projekte/migipedia/RGB_01_diskutieren_007.jpg"
               alt="Eine Frau und ein Mann betrachten etwas auf einem Smartphone"
               priority
               objectFit="cover"
@@ -71,7 +71,9 @@ const Migipedia: NextPage<Props> = ({ quote, contact, packages, teasers, awards 
         </PageSection>
         <PageSection>
           <Keyfigure
-            image={<Image src="/images/migipedia/smartive-phone.png" height="566" width="275" objectFit="contain" />}
+            image={
+              <Image src="/images/projekte/migipedia/smartive-phone.png" height="566" width="275" objectFit="contain" />
+            }
           >
             <UnorderedList
               title="Migipedia auf einen Blick"
@@ -89,7 +91,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, packages, teasers, awards 
         <PageSection>
           <Image
             className="rounded"
-            src="/images/migipedia/RGB_05_couch_010.jpg"
+            src="/images/projekte/migipedia/RGB_05_couch_010.jpg"
             alt="Eine Frau sitzt mit ihrem Sohn im Wohnzimmer. Sie sortieren Migros Mania Sammelelemente."
             priority
             objectFit="cover"

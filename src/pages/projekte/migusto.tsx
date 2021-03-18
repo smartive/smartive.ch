@@ -14,16 +14,21 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
+import Teasers from '../../data/teasers.json';
+
+import { Teaser } from '../../data/teaser';
 import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
 import { Link } from '../../elements/link';
 import { Grid } from '../../layouts/grid';
+
 type Props = {
   quote: Quote;
   contact: Employee;
+  teasers: Teaser[];
 };
 
-const Migusto: NextPage<Props> = ({ quote, contact }) => {
+const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
   return (
     <div>
       <PageHeader
@@ -188,24 +193,9 @@ const Migusto: NextPage<Props> = ({ quote, contact }) => {
 
         <PageSection title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
-            <ImageCard
-              label="KIG, Gesundheitsamt Sankt Gallen"
-              title="Web statt App – plane deine Freizeit mit Spilo."
-              link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
-            />
-            <ImageCard
-              label="KIG, Gesundheitsamt Sankt Gallen"
-              title="Web statt App – plane deine Freizeit mit Spilo."
-              link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
-            />
-            <ImageCard
-              label="Cosmopolitan"
-              title="Massgeschneidertes CRM"
-              link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
-            />
+            {teasers.map((teaser) => (
+              <ImageCard key={teaser.title} {...teaser} />
+            ))}
           </Grid>
         </PageSection>
       </main>
@@ -214,8 +204,11 @@ const Migusto: NextPage<Props> = ({ quote, contact }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
+  const teasers = [Teasers.subsidia, Teasers.migipedia, Teasers.ofpg];
+
   return {
     props: {
+      teasers,
       quote: Quotes['desiree-migusto'],
       contact: Employees.thilo,
     },

@@ -10,7 +10,7 @@ type Props = {
 export const UnorderedList: FC<Props> = ({ title, items }) => (
   <>
     {title && <Heading2>{title}</Heading2>}
-    <ul className="md:max-w-prose">
+    <ul className="list-inside">
       {items.map((item, i) => (
         <li key={i} className="list-disc mb-2">
           <Label>{item}</Label>

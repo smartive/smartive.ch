@@ -3,7 +3,7 @@
     "label": "Migipedia",
     "title": "Der User im Mittelpunkt — seit 10 Jahren",
     "link": { "label": "Projekt anschauen", "href": "/projekte/migipedia" },
-    "image": { "src": "/images/migipedia/RGB_02_snack_001.jpg", "alt": "Frau sitzt mit Handy am Boden" },
+    "image": { "src": "/images/projekte/migipedia/RGB_02_snack_001.jpg", "alt": "Frau sitzt mit Handy am Boden" },
     "awards": [
       {
         "short": "BOSW19",
@@ -63,7 +63,7 @@
     "title": "Online Hilfe finden",
     "link": { "label": "Projekt anschauen", "href": "/projekte/ofpg-kig" },
     "image": {
-      "src": "/images/projekte/supply-chain/man_mit_heber.jpg",
+      "src": "/images/projekte/ofpg-kig/ben-wicks-iDCtsz-INHI-unsplash.jpg",
       "alt": "Ein Mann transportiert Boxen in einem Lager"
     }
   },
@@ -72,8 +72,8 @@
     "title": "Filialfinder",
     "link": { "label": "Projekt anschauen", "href": "/projekte/migros-filialfinder" },
     "image": {
-      "src": "/images/projekte/supply-chain/man_mit_heber.jpg",
-      "alt": "Ein Mann transportiert Boxen in einem Lager"
+      "src": "/images/projekte/fil/migros-filiale-zuerich-airport.jpg",
+      "alt": "Migros Filiale am Flughafen Zürich"
     }
   },
   "dimmi": {

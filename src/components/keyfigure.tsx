@@ -12,7 +12,7 @@ export const Keyfigure: FC<Props> = ({ image, children, background = 'cornflower
   const bg = mapColorToBG(background);
 
   return (
-    <div className={[bg, grid, 'rounded p-8 md:px-16 md:gap-6'].join(' ')}>
+    <div className={[bg, grid, 'rounded p-8 md:px-16 md:gap-12'].join(' ')}>
       {image && <div className="mx-auto mb-8 md:mb-0 md:mx-0">{image}</div>}
       <div className={`${span} flex flex-col justify-center`}>{children}</div>
     </div>

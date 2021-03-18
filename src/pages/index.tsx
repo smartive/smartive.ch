@@ -60,7 +60,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
               label="Projekt — Migipedia"
               title="Der User im Mittelpunkt – seit 10 Jahren"
               link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
+              image={{ src: '/images/projekte/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
             />
             <ImageCard
               label="Projekt — Subsidia"
