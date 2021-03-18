@@ -1,7 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { PositionX, PositionY } from '../../components/blob';
 import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
@@ -19,6 +18,7 @@ import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Link } from '../../elements/link';
 import { Grid } from '../../layouts/grid';
+import { BlobVariations } from '../../utils/blob-variations';
 import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
@@ -111,17 +111,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
               Migros App oder melectronics.ch. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor.
             </TextBlock>
           </Grid>
-          <Testimonial
-            background="apricot"
-            blobs={[
-              { positionX: PositionX.right, positionY: PositionY.top, color: 'cornflower' },
-              { positionX: PositionX.right, positionY: PositionY.top, color: 'mint' },
-              { positionX: PositionX.left, positionY: PositionY.top, color: 'cornflower' },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'cornflower' },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
-            ]}
-            quote={quote}
-          />
+          <Testimonial background="apricot" blobs={BlobVariations.apricot[0]} quote={quote} />
         </PageSection>
         <PageSection title="Wie wir der Migros geholfen haben">
           <Grid cols={2}>

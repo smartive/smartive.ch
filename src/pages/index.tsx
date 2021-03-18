@@ -1,7 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { PositionX, PositionY } from '../components/blob';
 import { CustomersList } from '../components/customers-list';
 import { NewsletterCard } from '../components/newsletter-card';
 import { Testimonial } from '../components/testimonial';
@@ -21,6 +20,7 @@ import Quotes from '../data/quotes.json';
 import { Copy } from '../elements/copy';
 import { Clock } from '../elements/icons';
 import { GridSlider } from '../layouts/grid-slider';
+import { BlobVariations } from '../utils/blob-variations';
 
 type Props = {
   contact: Employee;
@@ -75,6 +75,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
               label="WHOOP WHOOP! 📣🥳"
               title="Migipedia ist Masterkandidat der Best of Swiss Web Awards!"
               content="Zum 10 jährigen Jubiläum von Migipedia haben wir die Migros Community komplett überarbeitet. Und nun stehen wir mit Migipedia auf der Shortlist für Best of Swiss Web! Wir sind mega happy und freuen uns auf die Award-Night."
+              background="cornflower"
               link={{
                 newTab: true,
                 label: 'Zur Master Nomination',
@@ -87,16 +88,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
           <CustomersList customers={customers} />
         </PageSection>
         <PageSection>
-          <Testimonial
-            quote={quote}
-            blobs={[
-              { positionX: PositionX.right, positionY: PositionY.top, color: 'cornflower' },
-              { positionX: PositionX.right, positionY: PositionY.top, color: 'mint' },
-              { positionX: PositionX.left, positionY: PositionY.top, color: 'cornflower' },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'cornflower' },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
-            ]}
-          />
+          <Testimonial quote={quote} blobs={BlobVariations.apricot[0]} />
         </PageSection>
         <PageSection title="Wir unterstützen dich, egal wie weit du schon bist.">
           <Copy>
@@ -119,15 +111,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
           </GridSlider>
         </PageSection>
         <PageSection>
-          <NewsletterCard
-            background="cornflower"
-            blobs={[
-              { positionX: PositionX.right, positionY: PositionY.bottom, color: 'apricot' },
-              { positionX: PositionX.right, positionY: PositionY.bottom, color: 'mint' },
-              { positionX: PositionX.left, positionY: PositionY.top, color: 'apricot' },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
-            ]}
-          />
+          <NewsletterCard background="cornflower" blobs={BlobVariations.cornflower[2]} />
         </PageSection>
         <PageSection>
           <Contact contact={contact} />

@@ -7,6 +7,7 @@ import { PageSection } from '../../compositions/page-section';
 import { UnorderedList } from '../../compositions/unordered-list';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
+import Packages from '../../data/packages';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
@@ -14,6 +15,7 @@ import { Heading2 } from '../../elements/heading-2';
 import { Clock } from '../../elements/icons';
 import { Label } from '../../elements/label';
 import { Grid } from '../../layouts/grid';
+import { BlobVariations } from '../../utils/blob-variations';
 
 type Props = {
   contact: Employee;
@@ -27,6 +29,8 @@ const ScaleUp: NextPage<Props> = ({ contact, teasers }) => {
         markdownTitle="Scale Up"
         description="Baue deinen MVP entlang der messbaren Ziele aus und erweitere den Umfang deines Produkts."
         variant={PageHeaderVariants.Card}
+        background={Packages['scale-up'].background}
+        blobs={BlobVariations.cornflower[3]}
       >
         <Label className="inline-flex flex-row items-center mb-8">
           <Clock className="h-6 w-6 mr-2 inline" />

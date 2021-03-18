@@ -1,7 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { PositionX, PositionY } from '../../components/blob';
 import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
@@ -20,6 +19,7 @@ import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
 import { Link } from '../../elements/link';
 import { Grid } from '../../layouts/grid';
+import { BlobVariations } from '../../utils/blob-variations';
 import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
@@ -113,17 +113,7 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
               </Copy>
             </div>
           </Grid>
-          <Testimonial
-            background="cornflower"
-            blobs={[
-              { positionX: PositionX.right, positionY: PositionY.bottom, color: 'mint' },
-              { positionX: PositionX.right, positionY: PositionY.bottom, color: 'apricot' },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
-              { positionX: PositionX.left, positionY: PositionY.top, color: 'mint' },
-              { positionX: PositionX.left, positionY: PositionY.top, color: 'apricot' },
-            ]}
-            quote={quote}
-          />
+          <Testimonial background="cornflower" blobs={BlobVariations.cornflower[2]} quote={quote} />
         </PageSection>
         <PageSection>
           <Heading3>Schnelle und nutzerfreundliche Suche</Heading3>

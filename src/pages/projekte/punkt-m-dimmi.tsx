@@ -1,7 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { PositionX, PositionY } from '../../components/blob';
 import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
@@ -18,6 +17,7 @@ import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
 import { Grid } from '../../layouts/grid';
+import { BlobVariations } from '../../utils/blob-variations';
 import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
@@ -127,17 +127,7 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers }) => (
         </Grid>
       </PageSection>
       <PageSection>
-        <Testimonial
-          background="mint"
-          blobs={[
-            { positionX: PositionX.right, positionY: PositionY.top, color: 'cornflower' },
-            { positionX: PositionX.right, positionY: PositionY.top, color: 'apricot' },
-            { positionX: PositionX.left, positionY: PositionY.top, color: 'cornflower' },
-            { positionX: PositionX.left, positionY: PositionY.bottom, color: 'cornflower' },
-            { positionX: PositionX.left, positionY: PositionY.bottom, color: 'apricot' },
-          ]}
-          quote={quote}
-        />
+        <Testimonial background="mint" blobs={BlobVariations.mint[2]} quote={quote} />
       </PageSection>
       <PageSection>
         <Heading3>Automatisierte Releases und Deployments</Heading3>

@@ -2,15 +2,16 @@ import React, { FC } from 'react';
 import { Quote } from '../data/quotes';
 import { Heading2 } from '../elements/heading-2';
 import { Portrait, PortraitVariant } from '../elements/portrait';
+import { BlobType } from '../utils/blob-variations';
 import { BrandColor, mapColorToBG } from '../utils/colors';
 import { highlight } from '../utils/markdown';
-import { Blob, PositionX, PositionY } from './blob';
+import { Blob } from './blob';
 
 type Props = {
   className?: string;
   quote: Quote;
   background?: BrandColor;
-  blobs?: { color: BrandColor; positionX: PositionX; positionY: PositionY }[];
+  blobs?: BlobType[];
 };
 
 export const Testimonial: FC<Props> = ({

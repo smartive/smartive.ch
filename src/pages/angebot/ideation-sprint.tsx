@@ -15,6 +15,7 @@ import { Heading2 } from '../../elements/heading-2';
 import { Clock } from '../../elements/icons';
 import { Label } from '../../elements/label';
 import { GridSlider } from '../../layouts/grid-slider';
+import { BlobVariations } from '../../utils/blob-variations';
 
 type Props = {
   contact: Employee;
@@ -31,6 +32,8 @@ const IdeationSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
           ‌funktionsfähige‌ ‌Ideen.‌ ‌Erhalte‌ ‌einen‌ ‌ersten‌ ‌visuellen‌ ‌Prototypen‌ ‌und‌ ‌hole‌ ‌Feedback‌ ‌deiner‌
           ‌Kunden‌ ‌dazu‌ ‌ab.‌"
         variant={PageHeaderVariants.Card}
+        background={Packages['ideation-sprint'].background}
+        blobs={BlobVariations.apricot[2]}
       >
         <Label className="inline-flex flex-row items-center mb-8">
           <Clock className="h-6 w-6 mr-2 inline" />

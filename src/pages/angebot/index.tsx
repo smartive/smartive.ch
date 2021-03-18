@@ -1,6 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { PositionX, PositionY } from '../../components/blob';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ContentCard } from '../../compositions/content-card';
@@ -16,6 +15,7 @@ import { Copy } from '../../elements/copy';
 import { Clock } from '../../elements/icons';
 import { Link } from '../../elements/link';
 import { GridSlider } from '../../layouts/grid-slider';
+import { BlobVariations } from '../../utils/blob-variations';
 
 type Props = {
   contact: Employee;
@@ -56,17 +56,7 @@ const Angebot: NextPage<Props> = ({ chunks, quote, contact }) => {
           />
         </PageSection>
         <PageSection>
-          <Testimonial
-            quote={quote}
-            background="cornflower"
-            blobs={[
-              { positionX: PositionX.right, positionY: PositionY.bottom, color: 'apricot' },
-              { positionX: PositionX.right, positionY: PositionY.bottom, color: 'mint' },
-              { positionX: PositionX.left, positionY: PositionY.top, color: 'apricot' },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'apricot' },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
-            ]}
-          />
+          <Testimonial quote={quote} background="cornflower" blobs={BlobVariations.cornflower[3]} />
         </PageSection>
         <PageSection title="Etwas für jede Projektphase.">
           <Copy>

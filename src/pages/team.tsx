@@ -1,6 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { PositionX, PositionY } from '../components/blob';
 import { Testimonial } from '../components/testimonial';
 import { Contact } from '../compositions/contact';
 import { EmployeeCard } from '../compositions/employee-card';
@@ -12,6 +11,7 @@ import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
 import { Copy } from '../elements/copy';
 import { Grid } from '../layouts/grid';
+import { BlobVariations } from '../utils/blob-variations';
 
 type Props = {
   contact: Employee;
@@ -42,13 +42,7 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
             <Testimonial
               className="col-start-1 md:col-span-2 lg:col-span-3"
               background="mint"
-              blobs={[
-                { positionX: PositionX.right, positionY: PositionY.bottom, color: 'cornflower' },
-                { positionX: PositionX.right, positionY: PositionY.top, color: 'cornflower' },
-                { positionX: PositionX.right, positionY: PositionY.top, color: 'apricot' },
-                { positionX: PositionX.left, positionY: PositionY.bottom, color: 'cornflower' },
-                { positionX: PositionX.left, positionY: PositionY.top, color: 'apricot' },
-              ]}
+              blobs={BlobVariations.mint[0]}
               quote={quote}
             />
             {employees.slice(Math.floor(employees.length / 2)).map((employee) => (

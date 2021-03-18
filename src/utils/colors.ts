@@ -20,6 +20,11 @@ const colorMap: Record<BrandColor, Options> = {
   },
 };
 
+export const getContrastColor = (background: BrandColor) => {
+  const possibleColors = ['apricot', 'mint', 'cornflower'].filter((color) => color !== background);
+  return possibleColors[Math.round(Math.random())];
+};
+
 export const mapColorToBG = (brand: BrandColor) => colorMap[brand].bg;
 
 export const mapColorToHex = (brand: BrandColor) => colorMap[brand].hex;

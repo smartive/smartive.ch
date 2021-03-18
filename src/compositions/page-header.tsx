@@ -2,8 +2,11 @@ import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
 import React, { FC } from 'react';
 import { AwardTags } from '../components/award-tags';
+import { Blob } from '../components/blob';
 import { Award } from '../data/teaser';
 import { Heading1 } from '../elements/heading-1';
+import { BlobType } from '../utils/blob-variations';
+import { BrandColor, mapColorToBG } from '../utils/colors';
 import { highlight, purify } from '../utils/markdown';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
@@ -24,6 +27,8 @@ type PageHeaderProps = {
   description?: string;
   awards?: Award[];
   variant?: PageHeaderVariants;
+  background?: BrandColor;
+  blobs?: BlobType[];
 };
 
 type SimplePageHeaderProps = {
@@ -33,6 +38,8 @@ type SimplePageHeaderProps = {
 
 type CardPageHeaderProps = {
   display?: string;
+  background?: BrandColor;
+  blobs?: BlobType[];
 };
 
 const SimplePageHeader: FC<SimplePageHeaderProps> = ({ display, awards, children }) => (
@@ -47,10 +54,19 @@ const SimplePageHeader: FC<SimplePageHeaderProps> = ({ display, awards, children
   </>
 );
 
-const CardPageHeader: FC<CardPageHeaderProps> = ({ display, children }) => (
-  <div className="grid grid-flow-row justify-items-center text-center bg-cornflower-500 rounded p-12 md:p-20 lg:p-32">
-    {display && <Heading1>{display}</Heading1>}
-    {children}
+const CardPageHeader: FC<CardPageHeaderProps> = ({ display, children, background = 'cornflower', blobs = [] }) => (
+  <div
+    className={`relative grid grid-flow-row justify-items-center text-center ${mapColorToBG(
+      background
+    )} rounded p-12 md:p-20 lg:p-32`}
+  >
+    <div className={blobs ? 'z-10' : ''}>
+      {display && <Heading1>{display}</Heading1>}
+      {children}
+    </div>
+    {blobs.map(({ color, positionX, positionY }, index) => (
+      <Blob key={index} positionX={positionX} positionY={positionY} color={color} />
+    ))}
   </div>
 );
 
@@ -60,6 +76,8 @@ export const PageHeader: FC<PageHeaderProps> = ({
   children,
   awards,
   variant = PageHeaderVariants.Simple,
+  background = 'cornflower',
+  blobs = [],
 }) => {
   const { asPath } = useRouter();
   const pageUrl = `${SITE_URL}${asPath}`;
@@ -95,7 +113,11 @@ export const PageHeader: FC<PageHeaderProps> = ({
           {children}
         </SimplePageHeader>
       )}
-      {variant === PageHeaderVariants.Card && <CardPageHeader display={display}>{children}</CardPageHeader>}
+      {variant === PageHeaderVariants.Card && (
+        <CardPageHeader display={display} background={background} blobs={blobs}>
+          {children}
+        </CardPageHeader>
+      )}
     </header>
   );
 };

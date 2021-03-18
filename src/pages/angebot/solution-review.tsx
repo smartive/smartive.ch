@@ -15,6 +15,7 @@ import { Heading2 } from '../../elements/heading-2';
 import { Clock } from '../../elements/icons';
 import { Label } from '../../elements/label';
 import { GridSlider } from '../../layouts/grid-slider';
+import { BlobVariations } from '../../utils/blob-variations';
 
 type Props = {
   contact: Employee;
@@ -29,6 +30,8 @@ const SolutionReview: NextPage<Props> = ({ contact, teasers, packages }) => {
         markdownTitle="Solution Review"
         description="Erhalte eine objektive Einschätzung der Chancen und Risiken deines digitalen Produkts sowie einen klaren Massnahmenplan, was du verbessern kannst."
         variant={PageHeaderVariants.Card}
+        background={Packages['solution-review'].background}
+        blobs={BlobVariations.mint[1]}
       >
         <Label className="inline-flex flex-row items-center mb-8">
           <Clock className="h-6 w-6 mr-2 inline" />5 Tage

@@ -2,7 +2,6 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/de';
 import { GetStaticProps, NextPage } from 'next';
 import React, { Fragment } from 'react';
-import { PositionX, PositionY } from '../components/blob';
 import { ContentCard } from '../compositions/content-card';
 import { ImageCard, ImageCardVariants } from '../compositions/image-card';
 import { PageHeader } from '../compositions/page-header';
@@ -12,6 +11,7 @@ import LinkedInArticles from '../data/linkedin-articles.json';
 import { Copy } from '../elements/copy';
 import { Calendar } from '../elements/icons';
 import { Grid } from '../layouts/grid';
+import { BlobVariations } from '../utils/blob-variations';
 
 type Props = {
   posts: BlogPost[];
@@ -57,11 +57,8 @@ const Team: NextPage<Props> = ({ posts }) => {
                   <ContentCard
                     title="Suchst du eine Gastautorin für deinen Blog oder einen Speaker für deinen nächsten Event?"
                     link={{ label: 'Melde dich bei Robert', href: 'mailto:robert@smartive.ch' }}
-                    blobs={[
-                      { positionX: PositionX.right, positionY: PositionY.bottom, color: 'mint' },
-                      { positionX: PositionX.right, positionY: PositionY.bottom, color: 'apricot' },
-                      { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
-                    ]}
+                    background="cornflower"
+                    blobs={BlobVariations.cornflower[1]}
                   />
                 )}
               </Fragment>

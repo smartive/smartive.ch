@@ -1,7 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { PositionX, PositionY } from '../components/blob';
 import { Testimonial } from '../components/testimonial';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
@@ -12,6 +11,7 @@ import Quotes from '../data/quotes.json';
 import { Copy } from '../elements/copy';
 import { Link } from '../elements/link';
 import { Grid } from '../layouts/grid';
+import { BlobVariations } from '../utils/blob-variations';
 
 const textBlocks = [
   {
@@ -111,16 +111,7 @@ const Agentur: NextPage<Props> = ({ quote }) => {
               </TextBlock>
             ))}
           </Grid>
-          <Testimonial
-            background="cornflower"
-            blobs={[
-              { positionX: PositionX.right, positionY: PositionY.top, color: 'mint' },
-              { positionX: PositionX.right, positionY: PositionY.top, color: 'apricot' },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
-              { positionX: PositionX.left, positionY: PositionY.top, color: 'apricot' },
-            ]}
-            quote={quote}
-          />
+          <Testimonial background="cornflower" blobs={BlobVariations.cornflower[0]} quote={quote} />
           <Grid cols={2}>
             <Image
               className="rounded"

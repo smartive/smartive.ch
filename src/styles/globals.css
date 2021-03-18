@@ -21,45 +21,41 @@
     color: transparent;
   }
 
-  .card-shadow {
+  .card-shadow,
+  .card-shadow-mint,
+  .card-shadow-cornflower,
+  .card-shadow-apricot {
     @apply transition-shadow duration-150;
   }
   li:nth-of-type(n) > .card-shadow,
-  .card-shadow:nth-of-type(n) {
+  .card-shadow:nth-of-type(n),
+  .card-shadow-mint {
     box-shadow: theme('colors.mint.500') 0 0;
   }
   li:nth-of-type(n) > .card-shadow:hover,
-  .card-shadow:nth-of-type(n):hover {
+  .card-shadow:nth-of-type(n):hover,
+  .card-shadow-mint:hover {
     box-shadow: theme('colors.mint.500') 0.5rem 0.5rem;
   }
   li:nth-of-type(2n) > .card-shadow,
-  .card-shadow:nth-of-type(2n) {
+  .card-shadow:nth-of-type(2n),
+  .card-shadow-cornflower {
     box-shadow: theme('colors.cornflower.500') 0 0;
   }
   li:nth-of-type(2n) > .card-shadow:hover,
-  .card-shadow:nth-of-type(2n):hover {
+  .card-shadow:nth-of-type(2n):hover,
+  .card-shadow-cornflower:hover {
     box-shadow: theme('colors.cornflower.500') 0.5rem 0.5rem;
   }
   li:nth-of-type(3n) > .card-shadow,
-  .card-shadow:nth-of-type(3n) {
+  .card-shadow:nth-of-type(3n),
+  .card-shadow-apricot {
     box-shadow: theme('colors.apricot.500') 0 0;
   }
   li:nth-of-type(3n) > .card-shadow:hover,
-  .card-shadow:nth-of-type(3n):hover {
+  .card-shadow:nth-of-type(3n):hover,
+  .card-shadow-apricot:hover {
     box-shadow: theme('colors.apricot.500') 0.5rem 0.5rem;
-  }
-
-  li:nth-of-type(n) > .content-card-bg,
-  .content-card-bg:nth-of-type(n) {
-    @apply bg-apricot-500;
-  }
-  li:nth-of-type(2n) > .content-card-bg,
-  .content-card-bg:nth-of-type(2n) {
-    @apply bg-mint-500;
-  }
-  li:nth-of-type(3n) > .content-card-bg,
-  .content-card-bg:nth-of-type(3n) {
-    @apply bg-cornflower-500;
   }
 }
 

@@ -1,7 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { PositionX, PositionY } from '../../components/blob';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ImageCard } from '../../compositions/image-card';
@@ -17,6 +16,7 @@ import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
 import { Grid } from '../../layouts/grid';
+import { BlobVariations } from '../../utils/blob-variations';
 import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
@@ -68,17 +68,7 @@ const SharedComponents: NextPage<Props> = ({ quote, contact, teasers }) => (
         </Copy>
       </PageSection>
       <PageSection>
-        <Testimonial
-          background="apricot"
-          blobs={[
-            { positionX: PositionX.right, positionY: PositionY.bottom, color: 'cornflower' },
-            { positionX: PositionX.right, positionY: PositionY.bottom, color: 'mint' },
-            { positionX: PositionX.left, positionY: PositionY.bottom, color: 'cornflower' },
-            { positionX: PositionX.left, positionY: PositionY.top, color: 'cornflower' },
-            { positionX: PositionX.left, positionY: PositionY.top, color: 'mint' },
-          ]}
-          quote={quote}
-        />
+        <Testimonial background="apricot" blobs={BlobVariations.apricot[2]} quote={quote} />
       </PageSection>
       <PageSection>
         <Grid cols={3}>

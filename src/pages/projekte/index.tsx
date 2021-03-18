@@ -1,6 +1,5 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { PositionX, PositionY } from '../../components/blob';
 import { CustomersList } from '../../components/customers-list';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
@@ -18,6 +17,7 @@ import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Grid } from '../../layouts/grid';
 import { GridSlider } from '../../layouts/grid-slider';
+import { BlobVariations } from '../../utils/blob-variations';
 
 type Props = {
   customers: Customer[];
@@ -54,16 +54,7 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers })
               <ImageCard key={teaser.title} {...teaser} />
             ))}
           </GridSlider>
-          <Testimonial
-            quote={quote}
-            background="apricot"
-            blobs={[
-              { positionX: PositionX.right, positionY: PositionY.bottom, color: 'mint' },
-              { positionX: PositionX.right, positionY: PositionY.top, color: 'cornflower' },
-              { positionX: PositionX.right, positionY: PositionY.top, color: 'mint' },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'cornflower' },
-            ]}
-          />
+          <Testimonial quote={quote} background="apricot" blobs={BlobVariations.apricot[1]} />
           <Grid cols={3}>
             {teasers.slice(3, teasers.length).map((teaser) => (
               <ImageCard key={teaser.title} {...teaser} />

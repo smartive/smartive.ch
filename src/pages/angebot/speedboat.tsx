@@ -17,6 +17,7 @@ import { Clock } from '../../elements/icons';
 import { Label } from '../../elements/label';
 import { Grid } from '../../layouts/grid';
 import { GridSlider } from '../../layouts/grid-slider';
+import { BlobVariations } from '../../utils/blob-variations';
 
 type Props = {
   contact: Employee;
@@ -31,6 +32,8 @@ const Speedboat: NextPage<Props> = ({ contact, packages, teasers }) => {
         markdownTitle="Speedboat"
         description="Lanciere in kurzer Zeit dein MVP (Minimum Viable Product) und teste anhand messbarer Ziele, wie dein Produkt ankommt."
         variant={PageHeaderVariants.Card}
+        background={Packages['speedboat'].background}
+        blobs={BlobVariations.mint[0]}
       >
         <Label className="inline-flex flex-row items-center mb-8">
           <Clock className="h-6 w-6 mr-2 inline" />4 Wochen

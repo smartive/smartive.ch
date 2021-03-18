@@ -1,11 +1,13 @@
 import { ReactNode } from 'react';
 import { Url } from 'url';
+import { BrandColor } from '../utils/colors';
 
 export type Package = {
   label: string | ReactNode;
   title: string;
   content: string;
   link: { label: string; href: Url | string };
+  background: BrandColor;
 };
 
 export default {
@@ -18,6 +20,7 @@ export default {
       label: 'Wie geht das?',
       href: '/angebot/ideation-sprint',
     },
+    background: 'apricot',
   },
   speedboat: {
     label: '4 Wochen',
@@ -28,6 +31,7 @@ export default {
       label: 'Zeig mir mehr!',
       href: '/angebot/speedboat',
     },
+    background: 'mint',
   },
   'scale-up': {
     label: '2–3 Monate',
@@ -37,6 +41,7 @@ export default {
       label: 'Wie genau?',
       href: '/angebot/scale-up',
     },
+    background: 'cornflower',
   },
   'solution-review': {
     label: '2–5 Tage',
@@ -47,6 +52,7 @@ export default {
       label: 'Weitere Infos',
       href: '/angebot/solution-review',
     },
+    background: 'mint',
   },
   mentoring: {
     label: 'Laufend',
@@ -57,5 +63,6 @@ export default {
       label: 'Mehr zum Mentoring',
       href: '/angebot/mentoring',
     },
+    background: 'apricot',
   },
 } as Record<string, Package>;

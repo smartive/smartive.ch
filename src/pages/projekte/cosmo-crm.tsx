@@ -1,7 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { PositionX, PositionY } from '../../components/blob';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ImageCard } from '../../compositions/image-card';
@@ -16,6 +15,7 @@ import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
 import { Grid } from '../../layouts/grid';
+import { BlobVariations } from '../../utils/blob-variations';
 import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
@@ -64,17 +64,7 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
         </PageSection>
 
         <PageSection>
-          <Testimonial
-            background="cornflower"
-            blobs={[
-              { positionX: PositionX.right, positionY: PositionY.top, color: 'mint' },
-              { positionX: PositionX.right, positionY: PositionY.top, color: 'apricot' },
-              { positionX: PositionX.left, positionY: PositionY.top, color: 'mint' },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'mint' },
-              { positionX: PositionX.left, positionY: PositionY.bottom, color: 'apricot' },
-            ]}
-            quote={quote}
-          />
+          <Testimonial background="cornflower" blobs={BlobVariations.cornflower[4]} quote={quote} />
         </PageSection>
 
         <PageSection>

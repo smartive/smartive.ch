@@ -15,6 +15,7 @@ import { Heading2 } from '../../elements/heading-2';
 import { Clock } from '../../elements/icons';
 import { Label } from '../../elements/label';
 import { GridSlider } from '../../layouts/grid-slider';
+import { BlobVariations } from '../../utils/blob-variations';
 
 type Props = {
   contact: Employee;
@@ -29,6 +30,8 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages }) => {
         markdownTitle="Mentoring"
         description="Profitiere von einem erfahrenen Team und erhalte fortlaufend objektive Einschätzungen und Vorschläge für dein Projekt. Tausche dich in regelmässigen Jour fixes mit unseren Digital Strategists über dein Produkt und deine Strategie aus. Deine Ideen werden auf konstruktiv gechallenged. So kannst du dein Vorgehen festigen und gewinnst Sicherheit, dass du auf dem richtigen Weg bist."
         variant={PageHeaderVariants.Card}
+        background={Packages['mentoring'].background}
+        blobs={BlobVariations.apricot[1]}
       >
         <Label className="inline-flex flex-row items-center mb-8">
           <Clock className="h-6 w-6 mr-2 inline" />
