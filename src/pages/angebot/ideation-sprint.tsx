@@ -8,17 +8,21 @@ import { PageSection } from '../../compositions/page-section';
 import { UnorderedList } from '../../compositions/unordered-list';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
+import Packages, { Package } from '../../data/packages';
+import { Teaser } from '../../data/teaser';
+import { Copy } from '../../elements/copy';
 import { Heading2 } from '../../elements/heading-2';
 import { Clock } from '../../elements/icons';
 import { Label } from '../../elements/label';
-import { Copy } from '../../elements/copy';
 import { GridSlider } from '../../layouts/grid-slider';
 
 type Props = {
   contact: Employee;
+  packages: Package[];
+  teasers: Teaser[];
 };
 
-const IdeationSprint: NextPage<Props> = ({ contact }) => {
+const IdeationSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
   return (
     <div>
       <PageHeader
@@ -70,75 +74,36 @@ const IdeationSprint: NextPage<Props> = ({ contact }) => {
           </div>
         </PageSection>
         <PageSection>
-          <Contact contact={contact} />
+          <Contact contact={contact}>
+            Fragen zum Ablauf des Ideation Sprints?
+            <br /> {contact.firstname} hilft gerne!
+          </Contact>
         </PageSection>
         <PageSection>
-          <Heading2>Diese Projekte haben mit einem Ideation Sprint gestartet:</Heading2>
-          <GridSlider>
-            <ImageCard
-              label="KIG, Gesundheitsamt Sankt Gallen"
-              title="Web statt App – plane deine Freizeit mit Spilo."
-              link={{ label: 'Projekt anschauen', href: '/projekte' }}
-              image={{ src: '/images/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
-            />
-            <ImageCard
-              label="Migros"
-              title="Digitalisierung der Lieferkette"
-              link={{ label: 'Projekt anschauen', href: '/projekte' }}
-              image={{ src: '/images/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
-            />
-            <ImageCard
-              label="Cosmopolitan"
-              title="Massgeschneidertes CRM"
-              link={{ label: 'Projekt anschauen', href: '/projekte' }}
-              image={{ src: '/images/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
-            />
-          </GridSlider>
+          {teasers.length > 0 && (
+            <>
+              <Heading2>Diese Projekte haben mit einem Ideation Sprint gestartet:</Heading2>
+              <GridSlider>
+                {teasers.map((teaser) => (
+                  <ImageCard key={teaser.title} {...teaser} />
+                ))}
+              </GridSlider>
+            </>
+          )}
           <Heading2>Und damit könnte es nach deinem Ideation Sprint weiter gehen:</Heading2>
           <GridSlider>
-            <ContentCard
-              label={
-                <>
-                  <Clock className="h-4 w-4 mr-2 inline" />
-                  2–5 Tage
-                </>
-              }
-              title="Ideation Sprint"
-              content="Gewinn ein besseres Verständnis für die Bedürfnisse deiner Nutzer und zieh daraus praktikable Ideen. Erhalte einen ersten visuellen Prototypen und hol Feedback deiner Kunden ein."
-              link={{ label: 'Wie geht das?', href: '#' }}
-            />
-            <ContentCard
-              label={
-                <>
-                  <Clock className="h-4 w-4 mr-2 inline" />4 Wochen
-                </>
-              }
-              title="Speedboat"
-              content="Lancier in kurzer Zeit dein MVP (Minimum Viable Product) und teste anhand messbarer Ziele, wie dein Produkt ankommt."
-              link={{ label: 'Zeig mir mehr!', href: '#' }}
-            />
-            <ContentCard
-              label={
-                <>
-                  <Clock className="h-4 w-4 mr-2 inline" />
-                  2–3 Monate
-                </>
-              }
-              title="Scale Up"
-              content="Bau dein MVP entlang der messbaren Ziele aus und erweitere den Umfang deines Produkts."
-              link={{ label: 'Wie genau?', href: '#' }}
-            />
-            <ContentCard
-              label={
-                <>
-                  <Clock className="h-4 w-4 mr-2 inline" />
-                  2–5 Tage
-                </>
-              }
-              title="Solution Review"
-              content="Erhalte eine objektive Einschätzung der Chancen und Risiken deines digitalen Produkts sowie einen klaren Massnahmenplan, was du verbessern kannst."
-              link={{ label: 'Weitere Informationen', href: '#' }}
-            />
+            {packages.map((paeckli) => (
+              <ContentCard
+                key={paeckli.title}
+                {...paeckli}
+                label={
+                  <>
+                    <Clock className="h-4 w-4 mr-2 inline" />
+                    {paeckli.label}
+                  </>
+                }
+              />
+            ))}
           </GridSlider>
         </PageSection>
       </main>
@@ -147,9 +112,13 @@ const IdeationSprint: NextPage<Props> = ({ contact }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const packages = [Packages.mentoring, Packages.speedboat, Packages['scale-up']];
+
   return {
     props: {
-      contact: Employees.peter,
+      packages,
+      teasers: [],
+      contact: Employees.robert,
     },
   };
 };

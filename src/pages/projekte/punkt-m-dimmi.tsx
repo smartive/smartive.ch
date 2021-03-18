@@ -2,8 +2,10 @@ import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import { PositionX, PositionY } from '../../components/blob';
+import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
+import { ImageCard } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { UnorderedList } from '../../compositions/unordered-list';
@@ -11,22 +13,24 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
+import { Teaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
 import { Grid } from '../../layouts/grid';
+import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
   quote: Quote;
   contact: Employee;
+  teasers: Teaser[];
 };
 
-const Dimmi: NextPage<Props> = ({ quote, contact }) => (
+const Dimmi: NextPage<Props> = ({ quote, contact, teasers }) => (
   <div>
     <PageHeader
       markdownTitle="Ein _Social Network_ für die interne Kommunikation."
-      description="Subsidia digitalisiert mit innovativen und modernen Apps den Einzelhandel in der Modebranche. Die wichtigste App ist
-      dabei die Kassen-App, die auf jedem Smartphone läuft. Wir begleiten Subsidia seit den Anfängen, egal ob bei der
-      Architekturwahl für die Apps, Setup der Cloud-Umgebung mit Google oder sogar beim Teamaufbau."
+      description=" Für den Migros-Genossenschafts-Bund, den grössten Schweizer Detailhändler, haben wir ein internes soziales Netzwerk umgesetzt. 100 000 Mitarbeitende können Gruppen erstellen und gemeinsame Interessen teilen. Die Unternehmen und Abteilungen des Migros-Genossenschafts-Bundes kommunizieren Gruppenspezifisch interne News. So rücken die Mitarbeitenden über das gesamte Unternehmen hinweg näher zusammen."
     >
       <Copy>
         Für den Migros-Genossenschafts-Bund, den grössten Schweizer Detailhändler, haben wir ein internes soziales Netzwerk
@@ -38,27 +42,42 @@ const Dimmi: NextPage<Props> = ({ quote, contact }) => (
 
     <main>
       <PageSection>
-        <Image
-          className="rounded"
-          src="/images/projekte/subsidia/pwa-etikett-scan.png"
-          alt="Verkäuferin scannt Etikett eines Kleidungsstücks mit dem Smartphone"
-          priority
-          objectFit="cover"
-          width={1504}
-          height={800}
-        />
+        <Grid cols={2}>
+          <Image
+            className="rounded"
+            src="/images/projekte/dimmi/jowa-stgaller-brot-mitarbeitende-header.jpg"
+            alt="Mitarbeiterin von Jowa zeigt ein Brot"
+            priority
+            objectFit="cover"
+            width={720}
+            height={383}
+          />
+          <Image
+            className="rounded"
+            src="/images/projekte/dimmi/melectronics-beratung-staubsauger-0.jpg"
+            alt="melectronics bei der Beratung zum Staubsaugerkauf"
+            priority
+            objectFit="cover"
+            width={720}
+            height={383}
+          />
+        </Grid>
       </PageSection>
       <PageSection>
-        <UnorderedList
-          title="Was bringts"
-          items={[
-            'Social Network für über 100 000 Benutzer aus über 50 unterschiedlichen Unternehmen',
-            'Verfügbar im Web, sowie als iOS und Android App',
-            'Code-Sharing zwischen React und React Native',
-            'Hohe Performance dank Optimistic Updates und Elasticsearch',
-            'Automatisierte Deployments auf alle Zielplattformen',
-          ]}
-        />
+        <Keyfigure
+          image={<Image src="/images/projekte/dimmi/smartive-phone.png" height="566" width="275" objectFit="contain" />}
+        >
+          <UnorderedList
+            title="Was bringts"
+            items={[
+              'Social Network für über 100ʼ000 Benutzer aus über 50 unterschiedlichen Unternehmen',
+              'Verfügbar im Web, sowie als iOS und Android App',
+              'Code-Sharing zwischen React und React Native',
+              'Hohe Performance dank Optimistic Updates und Elasticsearch',
+              'Automatisierte Deployments auf alle Zielplattformen',
+            ]}
+          />
+        </Keyfigure>
       </PageSection>
       <PageSection title="Agiles Vorgehen führt zum Erfolg">
         <Copy>... oder: Wie baut man ein Soziales Netzwerk in einem halben Jahr?</Copy>
@@ -71,26 +90,15 @@ const Dimmi: NextPage<Props> = ({ quote, contact }) => (
         </Copy>
       </PageSection>
       <PageSection>
-        <Grid cols={2}>
-          <Image
-            className="rounded"
-            src="/images/projekte/subsidia/subsidia-pos-screen.png"
-            alt="Eine Hand die ein Smartphone mit der Subsidia Kassen-App hält"
-            priority
-            objectFit="cover"
-            width={720}
-            height={383}
-          />
-          <Image
-            className="rounded"
-            src="/images/projekte/subsidia/verkauf-an-stationaerer-kasse.png"
-            alt="Verkaufsberater an einer stationären Kasse hinter einem Bildschirm"
-            priority
-            objectFit="cover"
-            width={720}
-            height={383}
-          />
-        </Grid>
+        <Image
+          className="rounded"
+          src="/images/projekte/dimmi/midor-mitarbeiterin-im-schutzanzug-haelt-guetzli.png"
+          alt="Midor Mitarbeiterin im Schutzanzug hält Guetzli"
+          priority
+          objectFit="cover"
+          width={1504}
+          height={800}
+        />
       </PageSection>
       <PageSection>
         <Grid cols={2}>
@@ -143,6 +151,13 @@ const Dimmi: NextPage<Props> = ({ quote, contact }) => (
       <PageSection>
         <Contact contact={contact} />
       </PageSection>
+      <PageSection title="Weitere Erfolgsgeschichten">
+        <Grid cols={3}>
+          {teasers.map((teaser) => (
+            <ImageCard key={teaser.title} {...teaser} />
+          ))}
+        </Grid>
+      </PageSection>
     </main>
   </div>
 );
@@ -150,6 +165,7 @@ const Dimmi: NextPage<Props> = ({ quote, contact }) => (
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
+      teasers: getRandomTeasers(3, Teasers.dimmi.title),
       contact: Employees.robert,
       quote: Quotes['danijela-dimmi'],
     },

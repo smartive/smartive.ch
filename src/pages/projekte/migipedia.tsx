@@ -5,7 +5,6 @@ import { PositionX, PositionY } from '../../components/blob';
 import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
-import { ContentCard } from '../../compositions/content-card';
 import { ImageCard } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
@@ -13,25 +12,23 @@ import { TextBlock } from '../../compositions/text-block';
 import { UnorderedList } from '../../compositions/unordered-list';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Award, Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
-import { Clock } from '../../elements/icons';
 import { Link } from '../../elements/link';
 import { Grid } from '../../layouts/grid';
+import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
   quote: Quote;
   contact: Employee;
-  packages: Package[];
   teasers: Teaser[];
   awards: Award[];
 };
 
-const Migipedia: NextPage<Props> = ({ quote, contact, packages, teasers, awards }) => {
+const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
   return (
     <div>
       <PageHeader
@@ -146,22 +143,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, packages, teasers, awards 
         <PageSection>
           <Contact contact={contact} />
         </PageSection>
-        <PageSection title="Mit welchen Tools haben wir Migipedia geholfen?">
-          <Grid cols={4}>
-            {packages.map(({ label, ...paeckli }) => (
-              <ContentCard
-                {...paeckli}
-                key={paeckli.title}
-                label={
-                  <>
-                    <Clock className="h-4 w-4 mr-2 inline" />
-                    {label}
-                  </>
-                }
-              />
-            ))}
-          </Grid>
-        </PageSection>
+
         <PageSection title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
             {teasers.map((teaser) => (
@@ -175,13 +157,9 @@ const Migipedia: NextPage<Props> = ({ quote, contact, packages, teasers, awards 
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const packages = [Packages['ideation-sprint'], Packages['speedboat'], Packages['scale-up'], Packages['solution-review']];
-  const teasers = [Teasers.ofpg, Teasers.cosmo, Teasers.subsidia];
-
   return {
     props: {
-      teasers,
-      packages,
+      teasers: getRandomTeasers(3, Teasers.migipedia.title),
       quote: Quotes['philipp-migipedia'],
       contact: Employees.thomas,
       awards: Teasers.migipedia.awards,

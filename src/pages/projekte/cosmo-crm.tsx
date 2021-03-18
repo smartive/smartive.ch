@@ -4,23 +4,27 @@ import React from 'react';
 import { PositionX, PositionY } from '../../components/blob';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
+import { ImageCard } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
-import { UnorderedList } from '../../compositions/unordered-list';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
+import { Teaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
 import { Grid } from '../../layouts/grid';
+import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
   quote: Quote;
   contact: Employee;
+  teasers: Teaser[];
 };
 
-const Cosmo: NextPage<Props> = ({ quote, contact }) => {
+const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
   return (
     <div>
       <PageHeader
@@ -58,17 +62,7 @@ const Cosmo: NextPage<Props> = ({ quote, contact }) => {
             />
           </Grid>
         </PageSection>
-        <PageSection>
-          <UnorderedList
-            title="Insights"
-            items={[
-              'Automatisierung von komplexen und zeitintensiven Abläufen',
-              'Automatisierte Datenkontrollen',
-              'Intelligente Suche',
-              'Dynamische Kundenprofile',
-            ]}
-          />
-        </PageSection>
+
         <PageSection>
           <Testimonial
             background="cornflower"
@@ -95,18 +89,6 @@ const Cosmo: NextPage<Props> = ({ quote, contact }) => {
         </PageSection>
 
         <PageSection>
-          <Image
-            className="rounded"
-            src="/images/projekte/cosmo/william-iven-jrh5lAq-mIs-unsplash.jpg"
-            alt="Ausgedruckte Statisiken und Grafiken"
-            priority
-            objectFit="cover"
-            width={1504}
-            height={800}
-          />
-        </PageSection>
-
-        <PageSection>
           <div>
             <Heading3>State-of-the-Art Architektur</Heading3>
             <Copy>
@@ -118,6 +100,13 @@ const Cosmo: NextPage<Props> = ({ quote, contact }) => {
         <PageSection>
           <Contact contact={contact} />
         </PageSection>
+        <PageSection title="Weitere Erfolgsgeschichten">
+          <Grid cols={3}>
+            {teasers.map((teaser) => (
+              <ImageCard key={teaser.title} {...teaser} />
+            ))}
+          </Grid>
+        </PageSection>
       </main>
     </div>
   );
@@ -126,6 +115,7 @@ const Cosmo: NextPage<Props> = ({ quote, contact }) => {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
+      teasers: getRandomTeasers(3, Teasers.cosmo.title),
       quote: Quotes['stefan-cosmo'],
       contact: Employees.peter,
     },

@@ -5,6 +5,7 @@ import { PositionX, PositionY } from '../../components/blob';
 import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
+import { ImageCard } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { UnorderedList } from '../../compositions/unordered-list';
@@ -12,19 +13,21 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Award } from '../../data/teaser';
+import { Award, Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
 import { Grid } from '../../layouts/grid';
+import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
   quote: Quote;
   contact: Employee;
   awards: Award[];
+  teasers: Teaser[];
 };
 
-const SupplyChain: NextPage<Props> = ({ quote, contact, awards }) => (
+const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers }) => (
   <div>
     <PageHeader
       awards={awards}
@@ -147,6 +150,13 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards }) => (
           <br /> Melde dich bei ihm, falls du mehr wissen möchtest.
         </Contact>
       </PageSection>
+      <PageSection title="Weitere Erfolgsgeschichten">
+        <Grid cols={3}>
+          {teasers.map((teaser) => (
+            <ImageCard key={teaser.title} {...teaser} />
+          ))}
+        </Grid>
+      </PageSection>
     </main>
   </div>
 );
@@ -154,6 +164,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards }) => (
 export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
+      teasers: getRandomTeasers(3, Teasers['supply-chain'].title),
       contact: Employees.peter,
       quote: Quotes['daniel-grai'],
       awards: Teasers['supply-chain'].awards,

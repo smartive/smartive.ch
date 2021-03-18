@@ -5,6 +5,7 @@ import { PositionX, PositionY } from '../../components/blob';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ContentCard } from '../../compositions/content-card';
+import { ImageCard } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { TextBlock } from '../../compositions/text-block';
@@ -12,20 +13,22 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Award } from '../../data/teaser';
+import { Award, Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Clock } from '../../elements/icons';
 import { Grid } from '../../layouts/grid';
 import { GridSlider } from '../../layouts/grid-slider';
+import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
   quote: Quote;
   contact: Employee;
   awards: Award[];
+  teasers: Teaser[];
 };
 
-const Subsidia: NextPage<Props> = ({ quote, contact, awards }) => (
+const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers }) => (
   <div>
     <PageHeader
       awards={awards}
@@ -184,6 +187,13 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards }) => (
           />
         </GridSlider>
       </PageSection>
+      <PageSection title="Weitere Erfolgsgeschichten">
+        <Grid cols={3}>
+          {teasers.map((teaser) => (
+            <ImageCard key={teaser.title} {...teaser} />
+          ))}
+        </Grid>
+      </PageSection>
     </main>
   </div>
 );
@@ -191,6 +201,7 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards }) => (
 export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
+      teasers: getRandomTeasers(3, Teasers.subsidia.title),
       contact: Employees.dominique,
       quote: Quotes['diego-subsidia'],
       awards: Teasers.subsidia.awards,

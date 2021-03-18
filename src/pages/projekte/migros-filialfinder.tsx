@@ -5,6 +5,7 @@ import { PositionX, PositionY } from '../../components/blob';
 import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
+import { ImageCard } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { UnorderedList } from '../../compositions/unordered-list';
@@ -12,16 +13,20 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
+import { Teaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
 import { Grid } from '../../layouts/grid';
+import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
   quote: Quote;
   contact: Employee;
+  teasers: Teaser[];
 };
 
-const Filialfinder: NextPage<Props> = ({ quote, contact }) => {
+const Filialfinder: NextPage<Props> = ({ quote, contact, teasers }) => {
   return (
     <div>
       <PageHeader
@@ -131,6 +136,13 @@ const Filialfinder: NextPage<Props> = ({ quote, contact }) => {
         <PageSection>
           <Contact contact={contact} />
         </PageSection>
+        <PageSection title="Weitere Erfolgsgeschichten">
+          <Grid cols={3}>
+            {teasers.map((teaser) => (
+              <ImageCard key={teaser.title} {...teaser} />
+            ))}
+          </Grid>
+        </PageSection>
       </main>
     </div>
   );
@@ -139,6 +151,7 @@ const Filialfinder: NextPage<Props> = ({ quote, contact }) => {
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
+      teasers: getRandomTeasers(3, Teasers.filialfinder.title),
       quote: Quotes['coco-fil'],
       contact: Employees.moreno,
     },

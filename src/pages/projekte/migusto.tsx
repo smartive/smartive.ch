@@ -14,13 +14,13 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import Teasers from '../../data/teasers.json';
-
 import { Teaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
 import { Link } from '../../elements/link';
 import { Grid } from '../../layouts/grid';
+import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
   quote: Quote;
@@ -204,11 +204,9 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const teasers = [Teasers.subsidia, Teasers.migipedia, Teasers.ofpg];
-
   return {
     props: {
-      teasers,
+      teasers: getRandomTeasers(3, Teasers.migusto.title),
       quote: Quotes['desiree-migusto'],
       contact: Employees.thilo,
     },

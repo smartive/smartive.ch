@@ -88,7 +88,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       teasers,
       main: [Teasers.migipedia, Teasers.subsidia],
       customers: Object.values(Customers),
-      quote: Quotes['coco-partner'],
+      quote: Quotes['setareh-dife'],
       contact: Employees.joshua,
     },
   };

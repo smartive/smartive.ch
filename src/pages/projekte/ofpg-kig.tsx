@@ -20,6 +20,7 @@ import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
 import { Link } from '../../elements/link';
 import { Grid } from '../../layouts/grid';
+import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
   quote: Quote;
@@ -169,11 +170,9 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const teasers = [Teasers.migipedia, Teasers.subsidia, Teasers['supply-chain']];
-
   return {
     props: {
-      teasers,
+      teasers: getRandomTeasers(3, Teasers.ofpg.title),
       quote: Quotes['fabrina-kig'],
       contact: Employees.marco,
     },

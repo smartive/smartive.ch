@@ -4,24 +4,28 @@ import React from 'react';
 import { PositionX, PositionY } from '../../components/blob';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
+import { ImageCard } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { TextBlock } from '../../compositions/text-block';
-import { UnorderedList } from '../../compositions/unordered-list';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
+import { Teaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
 import { Grid } from '../../layouts/grid';
+import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
   quote: Quote;
   contact: Employee;
+  teasers: Teaser[];
 };
 
-const SharedComponents: NextPage<Props> = ({ quote, contact }) => (
+const SharedComponents: NextPage<Props> = ({ quote, contact, teasers }) => (
   <div>
     <PageHeader
       markdownTitle="Wiederverwendbare Komponenten für die _ganze_ Migros."
@@ -41,41 +45,16 @@ const SharedComponents: NextPage<Props> = ({ quote, contact }) => (
       <PageSection>
         <Image
           className="rounded"
-          src="/images/projekte/supply-chain/man_mit_heber.jpg"
-          alt="Ein Mann transportiert Boxen in einem Lager"
+          src="/images/projekte/msrc/supermarkt-3.jpg"
+          alt="Gemüseabteilung in einem Migros Supermarkt"
           priority
           objectFit="cover"
           width={1504}
           height={800}
         />
       </PageSection>
+
       <PageSection>
-        <UnorderedList
-          title="Kurz und knackig"
-          items={['Atomic Design', 'Voll automatisierte Abläufe', 'Hervorragende Dokumentation']}
-        />
-      </PageSection>
-      <PageSection>
-        <Grid cols={2}>
-          <Image
-            className="rounded"
-            src="/images/projekte/supply-chain/boxen-scan.jpg"
-            alt="Ein Gebinde im Lager wird mit der neuen Supply Chain App auf einem Smartphone gescannt."
-            priority
-            objectFit="cover"
-            width={720}
-            height={383}
-          />
-          <Image
-            className="rounded"
-            src="/images/projekte/supply-chain/converter.jpg"
-            alt="Ein Gebinde wird auf einem Laufband verarbeitet."
-            priority
-            objectFit="cover"
-            width={720}
-            height={383}
-          />
-        </Grid>
         <Heading3>Atomic Design</Heading3>
         <Copy>
           Die Shared Components sind an das Atomic Design angelehnt. Sie werden in drei Hierarchiestufen (Atome, Moleküle und
@@ -134,6 +113,13 @@ const SharedComponents: NextPage<Props> = ({ quote, contact }) => (
       <PageSection>
         <Contact contact={contact} />
       </PageSection>
+      <PageSection title="Weitere Erfolgsgeschichten">
+        <Grid cols={3}>
+          {teasers.map((teaser) => (
+            <ImageCard key={teaser.title} {...teaser} />
+          ))}
+        </Grid>
+      </PageSection>
     </main>
   </div>
 );
@@ -141,6 +127,8 @@ const SharedComponents: NextPage<Props> = ({ quote, contact }) => (
 export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
+      teasers: getRandomTeasers(3, Teasers.filialfinder.title),
+
       contact: Employees.thilo,
       quote: Quotes['coco-msrc'],
     },

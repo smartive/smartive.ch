@@ -9,16 +9,6 @@ export type Package = {
 };
 
 export default {
-  speedboat: {
-    label: '4 Wochen',
-    title: 'Speedboat',
-    content:
-      'Lancier in kurzer Zeit dein MVP (Minimum Viable Product) und teste anhand messbarer Ziele, wie dein Produkt ankommt.',
-    link: {
-      label: 'Zeig mir mehr!',
-      href: '/angebot/speedboat',
-    },
-  },
   'ideation-sprint': {
     label: '2–5 Tage',
     title: 'Ideation Sprint',
@@ -27,6 +17,16 @@ export default {
     link: {
       label: 'Wie geht das?',
       href: '/angebot/ideation-sprint',
+    },
+  },
+  speedboat: {
+    label: '4 Wochen',
+    title: 'Speedboat',
+    content:
+      'Lancier in kurzer Zeit dein MVP (Minimum Viable Product) und teste anhand messbarer Ziele, wie dein Produkt ankommt.',
+    link: {
+      label: 'Zeig mir mehr!',
+      href: '/angebot/speedboat',
     },
   },
   'scale-up': {
@@ -46,6 +46,16 @@ export default {
     link: {
       label: 'Weitere Infos',
       href: '/angebot/solution-review',
+    },
+  },
+  mentoring: {
+    label: 'Laufend',
+    title: 'Mentoring',
+    content:
+      'Tausche dich in regelmässigen Jour fixes mit unseren Digital Strategists über dein Produkt und deine Strategie aus.',
+    link: {
+      label: 'Mehr zum Mentoring',
+      href: '/angebot/mentoring',
     },
   },
 } as Record<string, Package>;

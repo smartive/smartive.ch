@@ -19,11 +19,11 @@ import { GridSlider } from '../../layouts/grid-slider';
 
 type Props = {
   contact: Employee;
-  packages: Package[];
+  chunks: Package[][];
   quote: Quote;
 };
 
-const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
+const Angebot: NextPage<Props> = ({ chunks, quote, contact }) => {
   return (
     <div>
       <PageHeader
@@ -75,20 +75,22 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
             wenn es noch nicht alles kann.
           </Copy>
           <Copy>Vielleicht ist eines der folgenden Angebot was für dich?</Copy>
-          <GridSlider>
-            {packages.map(({ label, ...paeckli }) => (
-              <ContentCard
-                {...paeckli}
-                key={paeckli.title}
-                label={
-                  <>
-                    <Clock className="h-4 w-4 mr-2 inline" />
-                    {label}
-                  </>
-                }
-              />
-            ))}
-          </GridSlider>
+          {chunks.map((chunk, index) => (
+            <GridSlider key={index}>
+              {chunk.map(({ label, ...paeckli }) => (
+                <ContentCard
+                  {...paeckli}
+                  key={paeckli.title}
+                  label={
+                    <>
+                      <Clock className="h-4 w-4 mr-2 inline" />
+                      {label}
+                    </>
+                  }
+                />
+              ))}
+            </GridSlider>
+          ))}
         </PageSection>
         <PageSection>
           <Contact contact={contact} />
@@ -99,11 +101,13 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const packages = [Packages['ideation-sprint'], Packages['speedboat'], Packages['scale-up'], Packages['solution-review']];
+  const packages = Object.values(Packages);
+  const chunk = (arr: any[], size: number) =>
+    Array.from({ length: Math.ceil(arr.length / size) }, (_, i) => arr.slice(i * size, i * size + size));
 
   return {
     props: {
-      packages,
+      chunks: chunk(packages, 4),
       quote: Quotes['benj-scrum'],
       contact: Employees.joshua,
     },
