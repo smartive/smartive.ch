@@ -21,12 +21,13 @@ const Team: NextPage<Props> = ({ posts }) => {
   return (
     <div>
       <PageHeader
-        markdownTitle="Sed posuere _consectetur_ est at."
-        description="Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        markdownTitle="Code and Culture: Einblicke von unserem Team"
+        description="Wenn wir schreiben, schreiben wir meist Code. Hier schreiben wir für einmal über alles, was dahinter steckt – über unsere Firmenkultur und wie wir uns organisieren, welche Ansätze und Technologien bei uns gerade hoch im Kurs sind und wie wir persönliche und technische Herausforderungen meistern. Wirf einen Blick hinter die Kulissen!"
       >
         <Copy>
-          Maecenas faucibus mollis interdum. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet,
-          consectetur adipiscing elit.
+          Wenn wir schreiben, schreiben wir meist Code. Hier schreiben wir für einmal über alles, was dahinter steckt – über
+          unsere Firmenkultur und wie wir uns organisieren, welche Ansätze und Technologien bei uns gerade hoch im Kurs sind
+          und wie wir persönliche und technische Herausforderungen meistern. Wirf einen Blick hinter die Kulissen!
         </Copy>
       </PageHeader>
 
