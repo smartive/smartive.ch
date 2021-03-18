@@ -106,7 +106,7 @@ export const Footer: FC = () => (
             Facebook
           </Link>
         </div>
-        <NewsletterSubscription className="w-full" button="Newsletter jetzt abonnieren" />
+        <NewsletterSubscription className="w-full" />
         <SwissMadeSoftwareLogo />
       </Label>
     </div>

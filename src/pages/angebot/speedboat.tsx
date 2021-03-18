@@ -10,14 +10,13 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Heading2 } from '../../elements/heading-2';
 import { Clock } from '../../elements/icons';
 import { Label } from '../../elements/label';
-import { GridSlider } from '../../layouts/grid-slider';
-import { getRandomTeasers } from '../../utils/teasers';
-import Teasers from '../../data/teasers.json';
 import { Grid } from '../../layouts/grid';
+import { GridSlider } from '../../layouts/grid-slider';
 
 type Props = {
   contact: Employee;
