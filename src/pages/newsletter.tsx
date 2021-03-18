@@ -16,7 +16,7 @@ const Newsletter = () => {
           Projekte, digitale Trends und das smartive-Team.
         </Copy>
         <div className="sm:w-80">
-          <NewsletterSubscription />
+          <NewsletterSubscription button="Abonnieren" />
         </div>
       </PageHeader>
 

@@ -8,9 +8,14 @@ import { Tooltip } from '../elements/tooltip';
 type Props = {
   className?: string;
   label?: string;
+  button?: string;
 };
 
-export const NewsletterSubscription: FC<Props> = ({ className = '', label = '' }) => {
+export const NewsletterSubscription: FC<Props> = ({
+  className = '',
+  label = '',
+  button = 'Newsletter jetzt abonnieren',
+}) => {
   const [email, setEmail] = useState('');
   const [notification, setNotification] = useState('');
 
@@ -66,7 +71,7 @@ export const NewsletterSubscription: FC<Props> = ({ className = '', label = '' }
                 </Tooltip>
               </Label>
               <Button type="submit" disabled={status === 'sending'}>
-                <Label>{status === 'sending' ? '...' : 'Newsletter jetzt abonnieren'}</Label>
+                <Label>{status === 'sending' ? '...' : button}</Label>
               </Button>
             </form>
           </div>
