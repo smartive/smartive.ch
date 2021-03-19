@@ -49,7 +49,7 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages }
     <main>
       <PageSection>
         <Image
-          className="rounded"
+          className="rounded bg-mint-200"
           src="/images/projekte/subsidia/pwa-etikett-scan.png"
           alt="Verkäuferin scannt Etikett eines Kleidungsstücks mit dem Smartphone"
           priority
@@ -97,7 +97,7 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages }
         </Copy>
         <Grid cols={2}>
           <Image
-            className="rounded"
+            className="rounded bg-mint-200"
             src="/images/projekte/subsidia/subsidia-pos-screen.png"
             alt="Eine Hand die ein Smartphone mit der Subsidia Kassen-App hält"
             priority
@@ -106,7 +106,7 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages }
             height={383}
           />
           <Image
-            className="rounded"
+            className="rounded bg-mint-200"
             src="/images/projekte/subsidia/verkauf-an-stationaerer-kasse.png"
             alt="Verkaufsberater an einer stationären Kasse hinter einem Bildschirm"
             priority

@@ -1,8 +1,10 @@
+import dynamic from 'next/dynamic';
 import React, { FC } from 'react';
 import { Heading2 } from '../elements/heading-2';
 import { BrandColor, mapColorToBG } from '../utils/colors';
 import { Blob, PositionX, PositionY } from './blob';
-import { NewsletterSubscription } from './newsletter-subscription';
+
+const NewsletterSubscription = dynamic(() => import('./newsletter-subscription'), { ssr: false });
 
 type Props = {
   className?: string;

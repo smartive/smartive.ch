@@ -47,7 +47,7 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers }) => {
         <PageSection>
           <Grid cols={2}>
             <Image
-              className="rounded"
+              className="rounded bg-mint-200"
               src="/images/projekte/fil/supermarkt-aussen.jpg"
               alt="Migros Supermarkt auf dem Land von aussen"
               priority
@@ -56,7 +56,7 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers }) => {
               height={383}
             />
             <Image
-              className="rounded"
+              className="rounded bg-mint-200"
               src="/images/projekte/fil/migros-take-away.jpg"
               alt="Ein Migros Take-Away Stand"
               priority
@@ -88,7 +88,7 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers }) => {
 
         <PageSection>
           <Image
-            className="rounded"
+            className="rounded bg-mint-200"
             src="/images/projekte/fil/migros-filiale-zuerich-airport.jpg"
             alt="Migros Filiale am Flughafen Zürich"
             priority

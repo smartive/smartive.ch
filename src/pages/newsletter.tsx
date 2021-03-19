@@ -1,10 +1,12 @@
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import React from 'react';
-import { NewsletterSubscription } from '../components/newsletter-subscription';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { Copy } from '../elements/copy';
 import { Grid } from '../layouts/grid';
+
+const NewsletterSubscription = dynamic(() => import('../components/newsletter-subscription'), { ssr: false });
 
 const Newsletter = () => {
   return (
@@ -23,7 +25,7 @@ const Newsletter = () => {
       <main>
         <PageSection>
           <Image
-            className="rounded"
+            className="rounded bg-mint-200"
             src="/images/mood/YB_06742.jpg"
             alt="smartive Team beim Mittagessen an einem Holztisch"
             priority
@@ -33,7 +35,7 @@ const Newsletter = () => {
           />
           <Grid cols={2}>
             <Image
-              className="rounded"
+              className="rounded bg-mint-200"
               src="/images/mood/code-retreat-terrasse.jpg"
               alt="smartive Team sitzt auf einer Bank mit blauem Himmel und Thunersee im Hintergrund"
               objectFit="cover"
@@ -42,16 +44,18 @@ const Newsletter = () => {
             />
             <div className="hidden md:block md:col-start-2 md:row-span-2 relative">
               <Image
-                className="rounded"
+                className="rounded bg-mint-200"
                 src="/images/mood/code-retreat-lunch.jpg"
                 alt="smartive Team am Mittagstisch beim Essen"
                 objectFit="cover"
-                layout="fill"
+                layout="responsive"
+                width={720}
+                height={1064}
               />
             </div>
             <div className="block md:hidden">
               <Image
-                className="rounded"
+                className="rounded bg-mint-200"
                 src="/images/mood/YB_06742.jpg"
                 alt="smartive Team am Mittagstisch beim Essen"
                 objectFit="cover"
@@ -60,7 +64,7 @@ const Newsletter = () => {
               />
             </div>
             <Image
-              className="rounded"
+              className="rounded bg-mint-200"
               src="/images/mood/robert-dife.jpg"
               alt="smartive Mitarbeiter hält einen Vortrag vor mehreren Leuten"
               objectFit="cover"

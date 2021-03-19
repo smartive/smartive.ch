@@ -11,11 +11,7 @@ type Props = {
   button?: string;
 };
 
-export const NewsletterSubscription: FC<Props> = ({
-  className = '',
-  label = '',
-  button = 'Newsletter jetzt abonnieren',
-}) => {
+const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button = 'Newsletter jetzt abonnieren' }) => {
   const [email, setEmail] = useState('');
   const [notification, setNotification] = useState('');
 
@@ -80,3 +76,5 @@ export const NewsletterSubscription: FC<Props> = ({
     />
   );
 };
+
+export default NewsletterSubscription;

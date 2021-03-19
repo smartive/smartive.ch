@@ -44,7 +44,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers }) => (
     <main>
       <PageSection>
         <Image
-          className="rounded"
+          className="rounded bg-mint-200"
           src="/images/projekte/supply-chain/man_mit_heber.jpg"
           alt="Ein Mann transportiert Boxen in einem Lager"
           priority
@@ -87,7 +87,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers }) => (
 
         <Grid cols={2}>
           <Image
-            className="rounded"
+            className="rounded bg-mint-200"
             src="/images/projekte/supply-chain/boxen-scan.jpg"
             alt="Ein Gebinde im Lager wird mit der neuen Supply Chain App auf einem Smartphone gescannt."
             priority
@@ -96,7 +96,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers }) => (
             height={383}
           />
           <Image
-            className="rounded"
+            className="rounded bg-mint-200"
             src="/images/projekte/supply-chain/converter.jpg"
             alt="Ein Gebinde wird auf einem Laufband verarbeitet."
             priority
@@ -106,7 +106,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers }) => (
           />
         </Grid>
         <Image
-          className="rounded"
+          className="rounded bg-mint-200"
           src="/images/projekte/supply-chain/gebaeude.jpg"
           alt="Migros Logistik Zentrum"
           priority

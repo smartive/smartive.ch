@@ -49,7 +49,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
         <PageSection>
           <Grid cols={2}>
             <Image
-              className="rounded"
+              className="rounded bg-mint-200"
               src="/images/projekte/migusto/maarten-van-den-heuvel-EzH46XCDQRY-unsplash.jpg"
               alt="Person schneidet Gemüse aus der Vogelperspektive"
               priority
@@ -58,7 +58,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
               height={383}
             />
             <Image
-              className="rounded"
+              className="rounded bg-mint-200"
               src="/images/projekte/migusto/jimmy-dean-my1mDMraGf0-unsplash.jpg"
               alt="Eine Frau und ein Mann beim gemeinsamen Kochen"
               priority
@@ -98,7 +98,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
         </PageSection>
         <PageSection>
           <Image
-            className="rounded"
+            className="rounded bg-mint-200"
             src="/images/projekte/migusto/stefan-c-asafti-x5jilo3ck3o-unsplash.jpg"
             alt="Drei Pizzen in einem Backofen"
             priority
@@ -156,7 +156,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
         <PageSection>
           <Grid cols={2}>
             <Image
-              className="rounded"
+              className="rounded bg-mint-200"
               src="/images/projekte/migusto/anna-auza-wqrX5t1wBG0-unsplash.jpg"
               alt="Frischer Bärlauch auf einem Schneidebrett"
               priority
@@ -166,7 +166,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
               height={383}
             />
             <Image
-              className="rounded"
+              className="rounded bg-mint-200"
               src="/images/projekte/migusto/megumi-nachev-qkQR-OrvZic-unsplash.jpg"
               alt="Ein Kuheuter auf einer grünen Wiese"
               priority

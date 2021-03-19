@@ -44,7 +44,7 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers }) => (
       <PageSection>
         <Grid cols={2}>
           <Image
-            className="rounded"
+            className="rounded bg-mint-200"
             src="/images/projekte/dimmi/jowa-stgaller-brot-mitarbeitende-header.jpg"
             alt="Mitarbeiterin von Jowa zeigt ein Brot"
             priority
@@ -53,7 +53,7 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers }) => (
             height={383}
           />
           <Image
-            className="rounded"
+            className="rounded bg-mint-200"
             src="/images/projekte/dimmi/melectronics-beratung-staubsauger-0.jpg"
             alt="melectronics bei der Beratung zum Staubsaugerkauf"
             priority
@@ -92,7 +92,7 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers }) => (
       </PageSection>
       <PageSection>
         <Image
-          className="rounded"
+          className="rounded bg-mint-200"
           src="/images/projekte/dimmi/midor-mitarbeiterin-im-schutzanzug-haelt-guetzli.png"
           alt="Midor Mitarbeiterin im Schutzanzug hält Guetzli"
           priority

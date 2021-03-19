@@ -43,7 +43,7 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
         <PageSection>
           <Grid cols={2}>
             <Image
-              className="rounded"
+              className="rounded bg-mint-200"
               src="/images/projekte/cosmo/austin-distel-jpHw8ndwJ_Q-unsplash.jpg"
               alt="Zwei Personen unterhalten sich auf einem Sofa über etwas am Laptop"
               priority
@@ -52,7 +52,7 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
               height={383}
             />
             <Image
-              className="rounded"
+              className="rounded bg-mint-200"
               src="/images/projekte/cosmo/christian-regg-o7LDdRDIYiY-unsplash.jpg"
               alt="Gasthaus Äscher im Alpstein, Appenzell"
               priority

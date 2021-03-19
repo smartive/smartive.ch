@@ -44,7 +44,7 @@ const SharedComponents: NextPage<Props> = ({ quote, contact, teasers }) => (
     <main>
       <PageSection>
         <Image
-          className="rounded"
+          className="rounded bg-mint-200"
           src="/images/projekte/msrc/supermarkt-3.jpg"
           alt="Gemüseabteilung in einem Migros Supermarkt"
           priority

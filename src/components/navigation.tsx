@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m as motion } from 'framer-motion';
 import { useRouter } from 'next/dist/client/router';
 import React, { FC, useRef, useState } from 'react';
 import { Heading2 } from '../elements/heading-2';

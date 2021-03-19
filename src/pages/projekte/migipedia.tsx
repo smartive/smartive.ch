@@ -47,7 +47,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
         <PageSection>
           <Grid cols={2}>
             <Image
-              className="rounded"
+              className="rounded bg-mint-200"
               src="/images/projekte/migipedia/RGB_04_kitchen_012.jpg"
               alt="Frau in orangem Pullover isst Joghurt"
               priority
@@ -56,7 +56,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
               height={383}
             />
             <Image
-              className="rounded"
+              className="rounded bg-mint-200"
               src="/images/projekte/migipedia/RGB_01_diskutieren_007.jpg"
               alt="Eine Frau und ein Mann betrachten etwas auf einem Smartphone"
               priority
@@ -88,7 +88,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
         </PageSection>
         <PageSection>
           <Image
-            className="rounded"
+            className="rounded bg-mint-200"
             src="/images/projekte/migipedia/RGB_05_couch_010.jpg"
             alt="Eine Frau sitzt mit ihrem Sohn im Wohnzimmer. Sie sortieren Migros Mania Sammelelemente."
             priority

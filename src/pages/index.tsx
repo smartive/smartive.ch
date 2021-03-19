@@ -47,11 +47,12 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
       <main>
         <PageSection>
           <Image
-            className="rounded"
+            className="rounded bg-mint-200"
             src="/images/mood/YB_07015.jpg"
             alt="Drei smartive Mitarbeiter beim Gespräch vor einem Computerbildschirm"
             priority
             objectFit="cover"
+            layout="responsive"
             width={1504}
             height={800}
           />

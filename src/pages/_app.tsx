@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, LazyMotion, m as motion } from 'framer-motion';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
@@ -6,6 +6,8 @@ import React from 'react';
 import { Navigation } from '../components/navigation';
 import { Footer } from '../compositions/footer';
 import '../styles/globals.css';
+
+const loadFramerMotionFeatures = () => import('../utils/framer-motion-features').then((res) => res.default);
 
 export default function App({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter();
@@ -18,17 +20,19 @@ export default function App({ Component, pageProps }: AppProps) {
         />
       </Head>
       <Navigation />
-      <AnimatePresence>
-        <motion.div
-          className="lg:container lg:mx-auto px-4 pt-8"
-          key={pathname}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <Component {...pageProps} />
-        </motion.div>
-      </AnimatePresence>
+      <LazyMotion strict features={loadFramerMotionFeatures}>
+        <AnimatePresence>
+          <motion.div
+            className="lg:container lg:mx-auto px-4 pt-8"
+            key={pathname}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <Component {...pageProps} />
+          </motion.div>
+        </AnimatePresence>
+      </LazyMotion>
       <Footer />
     </div>
   );

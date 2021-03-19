@@ -51,7 +51,7 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
         <PageSection>
           <Grid cols={2}>
             <Image
-              className="rounded"
+              className="rounded bg-mint-200"
               src="/images/projekte/ofpg-kig/ben-wicks-iDCtsz-INHI-unsplash.jpg"
               alt="Kinderfüsse in Gummistiefeln"
               priority
@@ -60,7 +60,7 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
               height={383}
             />
             <Image
-              className="rounded"
+              className="rounded bg-mint-200"
               src="/images/projekte/ofpg-kig/dylan-gillis-KdeqA3aTnBY-unsplash.jpg"
               alt="Leute sitzen an einem Tisch und besprechen sich"
               priority

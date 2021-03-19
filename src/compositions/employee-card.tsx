@@ -15,25 +15,16 @@ export const EmployeeCard: FC<Props> = ({
 }) => (
   <div className={`flex flex-col bg-white-100 rounded overflow-hidden ${className}`}>
     <div className="hidden lg:block w-full">
-      <Image
-        className="bg-mint-200"
-        src={image || getFallbackImage()}
-        alt=""
-        layout="responsive"
-        objectFit="cover"
-        width="463"
-        height="640"
-      />
+      <Image className="bg-mint-200" src={image || getFallbackImage()} alt="" objectFit="cover" width="463" height="640" />
     </div>
     <div className="block lg:hidden w-full">
       <Image
         className="bg-mint-200"
         src={portrait || getFallbackImage()}
         alt=""
-        layout="responsive"
         objectFit="cover"
-        width="343"
-        height="216"
+        width="480"
+        height="300"
       />
     </div>
     <div className="flex flex-col flex-1 p-8 font-sans font-normal text-xxs lg:text-sm">

@@ -51,9 +51,9 @@ export const ImageCard: FC<Props> = ({
       >
         <div className={`relative w-full ${ImageSizes[variant]}`}>
           {isExternalUrl(image.src) ? (
-            <img className="object-cover h-full w-full" src={image.src} alt={image.alt} loading="lazy" />
+            <img className="object-cover h-full w-full bg-mint-200" src={image.src} alt={image.alt} loading="lazy" />
           ) : (
-            <Image src={image.src} alt={image.alt} objectFit="cover" layout="fill" />
+            <Image className="bg-mint-200" src={image.src} alt={image.alt} objectFit="cover" height={480} width={720} />
           )}
         </div>
         <div

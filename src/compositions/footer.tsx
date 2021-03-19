@@ -1,8 +1,10 @@
+import dynamic from 'next/dynamic';
 import React, { FC } from 'react';
-import { NewsletterSubscription } from '../components/newsletter-subscription';
 import { ButtonLink } from '../elements/button';
 import { Label } from '../elements/label';
 import { Link, LinkVariants } from '../elements/link';
+
+const NewsletterSubscription = dynamic(() => import('../components/newsletter-subscription'), { ssr: false });
 
 const Address = {
   name: 'smartive AG',
