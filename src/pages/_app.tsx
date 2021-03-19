@@ -19,8 +19,8 @@ export default function App({ Component, pageProps }: AppProps) {
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover"
         />
       </Head>
-      <Navigation />
       <LazyMotion strict features={loadFramerMotionFeatures}>
+        <Navigation />
         <AnimatePresence>
           <motion.div
             className="lg:container lg:mx-auto px-4 pt-8"
@@ -32,8 +32,8 @@ export default function App({ Component, pageProps }: AppProps) {
             <Component {...pageProps} />
           </motion.div>
         </AnimatePresence>
+        <Footer />
       </LazyMotion>
-      <Footer />
     </div>
   );
 }
