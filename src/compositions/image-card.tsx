@@ -44,7 +44,7 @@ export const ImageCard: FC<Props> = ({
 
   return (
     <Link href={link.href}>
-      <div
+      <a
         className={`relative grid w-full ${
           variant === ImageCardVariants.Wide ? 'md:grid-cols-3' : 'grid-rows-[auto,1fr]'
         } cursor-pointer border-transparent bg-white-100 rounded overflow-hidden card-shadow transform transition-transform active:scale-[.99] ${className}`}
@@ -78,7 +78,7 @@ export const ImageCard: FC<Props> = ({
             className={awardClassName}
           />
         )}
-      </div>
+      </a>
     </Link>
   );
 };

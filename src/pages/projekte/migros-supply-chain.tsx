@@ -68,6 +68,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers }) => (
               'Auslieferung neuer Features erfolgt schnell, einfach und unabhängig von Herstellern.',
               'Durch Automatisierung der Prozesse ist die Datenqualität höher, was weitere Optimierung der Prozesse ermöglicht.',
             ]}
+            markerColor="cornflower"
           />
         </Keyfigure>
       </PageSection>

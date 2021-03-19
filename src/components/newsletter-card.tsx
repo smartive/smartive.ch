@@ -20,7 +20,7 @@ export const NewsletterCard: FC<Props> = ({ className = '', blobs = [], backgrou
       Wir schreiben nicht nur super Code sondern auch gute Newsletter.
     </Heading2>
     <NewsletterSubscription
-      label="Newsletter abonnieren"
+      label="Newsletter"
       className="text-left z-10 overflow-hidden sm:overflow-visible"
       button="Jetzt abonnieren"
     />

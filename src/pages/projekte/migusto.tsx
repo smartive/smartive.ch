@@ -78,6 +78,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
                 'Zentrale Rezept-API für Migusto, Famigros und iMpuls',
                 'Hohe Performance und komplexe Abfragen dank GraphQL',
               ]}
+              markerColor="mint"
             />
           </Keyfigure>
         </PageSection>

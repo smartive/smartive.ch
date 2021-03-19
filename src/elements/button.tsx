@@ -4,7 +4,7 @@ import React, { ButtonHTMLAttributes, DetailedHTMLProps, FC, HTMLAttributes } fr
 type Props = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>;
 
 const buttonStyle =
-  'rounded bg-black border-2 border-black ring-inset focus:outline-none text-white-100 p-3 transform transition-transform duration-150 hover:scale-105 active:scale-[.99]';
+  'rounded bg-black border-2 border-black focus:outline-none focus:ring-1 focus:ring-mint-200 text-white-100 p-3 transform transition-transform duration-150 hover:scale-105 active:scale-[.99]';
 
 export const Button: FC<Props> = ({ className = '', ...props }) => (
   <button className={`${buttonStyle} ${className}`} {...props} />

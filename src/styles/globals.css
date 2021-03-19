@@ -64,10 +64,8 @@
   @apply text-mint-500;
 }
 
-:focus {
-  @apply outline-none;
-  @apply ring-4;
-  @apply ring-mint-200;
+:focus-visible {
+  outline: 3px solid theme('colors.mint.200');
 }
 
 footer {

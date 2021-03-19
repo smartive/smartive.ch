@@ -80,6 +80,7 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
                 'Elasticsearch für eine schnelle, fehlertolerante und standortbezogene Suche',
                 'Hohe Datenqualität dank Publikations-Workflow',
               ]}
+              markerColor="apricot"
             />
           </Keyfigure>
         </PageSection>

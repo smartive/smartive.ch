@@ -16,7 +16,7 @@ export type ContentCardProps = {
 
 export const ContentCard: FC<ContentCardProps> = ({ title, label, content, link, background, blobs = [] }) => (
   <Link href={link.href}>
-    <div
+    <a
       className={`relative grid ${
         label ? 'grid-rows-[auto,1fr,auto]' : 'grid-rows-[1fr,auto]'
       } w-full h-full p-8 gap-8 cursor-pointer rounded overflow-hidden card-shadow-${getContrastColor(
@@ -36,6 +36,6 @@ export const ContentCard: FC<ContentCardProps> = ({ title, label, content, link,
       {blobs.map(({ color, positionX, positionY }, index) => (
         <Blob key={index} positionX={positionX} positionY={positionY} color={color} />
       ))}
-    </div>
+    </a>
   </Link>
 );

@@ -19,11 +19,11 @@ import { BlobVariations } from '../../utils/blob-variations';
 
 type Props = {
   contact: Employee;
-  chunks: Package[][];
+  packages: Package[];
   quote: Quote;
 };
 
-const Angebot: NextPage<Props> = ({ chunks, quote, contact }) => {
+const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
   return (
     <div>
       <PageHeader
@@ -65,22 +65,20 @@ const Angebot: NextPage<Props> = ({ chunks, quote, contact }) => {
             wenn es noch nicht alles kann.
           </Copy>
           <Copy>Vielleicht ist eines der folgenden Angebot was für dich?</Copy>
-          {chunks.map((chunk, index) => (
-            <GridSlider key={index}>
-              {chunk.map(({ label, ...paeckli }) => (
-                <ContentCard
-                  {...paeckli}
-                  key={paeckli.title}
-                  label={
-                    <>
-                      <Clock className="h-4 w-4 mr-2 inline" />
-                      {label}
-                    </>
-                  }
-                />
-              ))}
-            </GridSlider>
-          ))}
+          <GridSlider>
+            {packages.map(({ label, ...paeckli }) => (
+              <ContentCard
+                {...paeckli}
+                key={paeckli.title}
+                label={
+                  <>
+                    <Clock className="h-4 w-4 mr-2 inline" />
+                    {label}
+                  </>
+                }
+              />
+            ))}
+          </GridSlider>
         </PageSection>
         <PageSection>
           <Contact contact={contact} />
@@ -92,12 +90,10 @@ const Angebot: NextPage<Props> = ({ chunks, quote, contact }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const packages = Object.values(Packages);
-  const chunk = (arr: any[], size: number) =>
-    Array.from({ length: Math.ceil(arr.length / size) }, (_, i) => arr.slice(i * size, i * size + size));
 
   return {
     props: {
-      chunks: chunk(packages, 4),
+      packages,
       quote: Quotes['benj-scrum'],
       contact: Employees.joshua,
     },

@@ -82,6 +82,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
                 '60% mehr Bewertungen im Vergleich zum Vorjahr',
                 'Reduzierung der Betriebskosten um über 90% durch die Ablösung der bisherigen SaaS-Lösung',
               ]}
+              markerColor="apricot"
             />
           </Keyfigure>
         </PageSection>

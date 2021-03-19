@@ -76,6 +76,7 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers }) => (
               'Hohe Performance dank Optimistic Updates und Elasticsearch',
               'Automatisierte Deployments auf alle Zielplattformen',
             ]}
+            markerColor="apricot"
           />
         </Keyfigure>
       </PageSection>

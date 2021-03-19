@@ -81,6 +81,7 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers }) => {
                 'Über 33 Filtermöglichkeiten in 3 Sprachen',
                 '5 angebundene APIs',
               ]}
+              markerColor="cornflower"
             />
           </Keyfigure>
         </PageSection>

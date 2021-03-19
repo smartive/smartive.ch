@@ -19,7 +19,7 @@ export enum PageHeaderVariants {
 
 const HeaderSpacing = {
   [PageHeaderVariants.Simple]: 'my-12 lg:my-48',
-  [PageHeaderVariants.Card]: 'my-12 lg:my-24',
+  [PageHeaderVariants.Card]: 'my-4 lg:my-8',
 } as const;
 
 type PageHeaderProps = {
