@@ -20,8 +20,8 @@ const colorMap: Record<BrandColor, Options> = {
   },
 };
 
-export const getContrastColor = (background: BrandColor) => {
-  const possibleColors = ['apricot', 'mint', 'cornflower'].filter((color) => color !== background);
+export const getContrastColor = (background: BrandColor): BrandColor => {
+  const possibleColors = (['apricot', 'mint', 'cornflower'] as const).filter((color) => color !== background);
   return possibleColors[Math.round(Math.random())];
 };
 

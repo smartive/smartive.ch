@@ -10,7 +10,7 @@ import { BrandColor, mapColorToBG } from '../utils/colors';
 import { highlight, purify } from '../utils/markdown';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
-const OG_IMAGE_SERVICE_URL = process.env.NEXT_PUBLIC_OG_IMAGE_SERVICE_URL;
+const OG_IMAGE_SERVICE_URL = `${SITE_URL}/api/og-image`;
 
 export enum PageHeaderVariants {
   Simple,
@@ -81,7 +81,7 @@ export const PageHeader: FC<PageHeaderProps> = ({
 }) => {
   const { asPath } = useRouter();
   const pageUrl = `${SITE_URL}${asPath}`;
-  const imageUrl = `${OG_IMAGE_SERVICE_URL}/${encodeURIComponent(markdownTitle)}.png?md=1&fontSize=5rem`;
+  const imageUrl = `${OG_IMAGE_SERVICE_URL}/${encodeURIComponent(markdownTitle)}?md=1&fontSize=5rem&fileType=png`;
 
   const title = purify(markdownTitle);
   const display = purify(markdownTitle, /[*`]/g); // only remove * and ` but keep _

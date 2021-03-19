@@ -6,6 +6,7 @@ module.exports = {
     'react/display-name': 0,
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-var-requires': 'warn',
     // '@typescript-eslint/no-non-null-assertion': 'off',
     // '@typescript-eslint/no-use-before-define': 'off',
     // 'react-hooks/rules-of-hooks': 'error',

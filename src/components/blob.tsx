@@ -1,6 +1,7 @@
 import { canvasPath } from 'blobs/v2/animate';
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { BrandColor, mapColorToHex } from '../utils/colors';
+import { randomNumberInRange } from '../utils/random';
 
 export enum PositionX {
   left = 'left-0',
@@ -94,10 +95,4 @@ export const Blob: FC<Props> = ({ positionX, positionY, color, className = '' })
   }, [size]);
 
   return <canvas ref={canvasRef} className={`absolute z-0 rounded ${positionX} ${positionY} ${className}`}></canvas>;
-};
-
-const randomNumberInRange = (min: number, max: number) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min);
 };
