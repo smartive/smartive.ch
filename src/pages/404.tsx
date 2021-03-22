@@ -1,8 +1,16 @@
+import { usePlausible } from 'next-plausible';
 import Image from 'next/image';
+import { useEffect } from 'react';
 import { LinkList } from '../compositions/link-list';
 import { Heading3 } from '../elements/heading-3';
 
 export default function Custom404() {
+  const plausible = usePlausible();
+
+  useEffect(() => {
+    plausible('404', { props: { path: document?.location.pathname } });
+  }, []);
+
   return (
     <div className="grid grid-flow-row justify-items-center my-32">
       <div className="relative hidden md:block h-120 w-full">
