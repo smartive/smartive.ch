@@ -13,7 +13,7 @@ export const Contact: FC<Props> = ({
   children = (
     <>
       Fragen oder Interesse? <br />
-      {contact.firstname} hilft dir gerne weiter.
+      {contact.firstname} hilft dir gern weiter.
     </>
   ),
 }) => {

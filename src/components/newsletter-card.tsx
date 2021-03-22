@@ -19,7 +19,7 @@ export const NewsletterCard: FC<Props> = ({ className = '', blobs = [], backgrou
     )} p-8 lg:p-32 lg:text-sm ${className}`}
   >
     <Heading2 as="p" className="z-10">
-      Wir schreiben nicht nur super Code sondern auch gute Newsletter.
+      Wir schreiben nicht nur Code, sondern auch E-Mails. Auch dir, wenn du willst.
     </Heading2>
     <NewsletterSubscription
       label="Newsletter"

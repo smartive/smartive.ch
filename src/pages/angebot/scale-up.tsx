@@ -27,7 +27,7 @@ const ScaleUp: NextPage<Props> = ({ contact, teasers }) => {
     <div>
       <PageHeader
         markdownTitle="Scale Up"
-        description="Baue deinen MVP entlang der messbaren Ziele aus und erweitere den Umfang deines Produkts."
+        description="Bau dein MVP entlang der messbaren Ziele aus und erweitere den Umfang deines Produkts."
         variant={PageHeaderVariants.Card}
         background={Packages['scale-up'].background}
         blobs={BlobVariations.cornflower[3]}
@@ -36,7 +36,7 @@ const ScaleUp: NextPage<Props> = ({ contact, teasers }) => {
           <Clock className="h-6 w-6 mr-2 inline" />
           2-3 Monate
         </Label>
-        <Copy>Baue deinen MVP entlang der messbaren Ziele aus und erweitere den Umfang deines Produkts.</Copy>
+        <Copy>Bau dein MVP entlang der messbaren Ziele aus und erweitere den Umfang deines Produkts.</Copy>
       </PageHeader>
 
       <main>
@@ -44,9 +44,9 @@ const ScaleUp: NextPage<Props> = ({ contact, teasers }) => {
           <Heading2>Was ist heisst Scale Up?</Heading2>
           <Copy>
             Du hast dein Produkt als MVP am Markt. Du möchtest es entweder verbessern oder weiterentwickeln. Die angestrebten
-            Ziele und sind definiert und werden gemessen. Anhand dieser Ziele legen wir gemeinsam deine nächsten
-            Zwischenziele fest und arbeiten auf diese hin. Die Umsetzung erfolgt in agilen zweiwöchigen Sprints, wobei du
-            laufend den Fortschritt siehst.
+            Ziele sind definiert und werden gemessen. Anhand dieser Ziele legen wir gemeinsam deine nächsten Zwischenziele
+            fest und arbeiten auf diese hin. Die Umsetzung erfolgt in agilen zweiwöchigen Sprints, wobei du laufend den
+            Fortschritt siehst.
           </Copy>
           <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
             <UnorderedList

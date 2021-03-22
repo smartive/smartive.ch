@@ -1,17 +1,16 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
+import { Keyfigure } from '../../components/keyfigure';
 import { ImageCard } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { TextBlock } from '../../compositions/text-block';
 import { UnorderedList } from '../../compositions/unordered-list';
 import { Teaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Copy } from '../../elements/copy';
 import { Heading3 } from '../../elements/heading-3';
 import { Grid } from '../../layouts/grid';
-
-import Teasers from '../../data/teasers.json';
-import { Keyfigure } from '../../components/keyfigure';
 
 type Props = {
   teasers: Teaser[];

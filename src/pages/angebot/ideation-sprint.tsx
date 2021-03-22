@@ -28,7 +28,7 @@ const IdeationSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
     <div>
       <PageHeader
         markdownTitle="Ideation Sprint"
-        description="Gewinne‌ ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌ ‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generiere‌ ‌daraus‌
+        description="Gewinn ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌ ‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generiere‌ ‌daraus‌
           ‌funktionsfähige‌ ‌Ideen.‌ ‌Erhalte‌ ‌einen‌ ‌ersten‌ ‌visuellen‌ ‌Prototypen‌ ‌und‌ ‌hole‌ ‌Feedback‌ ‌deiner‌
           ‌Kunden‌ ‌dazu‌ ‌ab.‌"
         variant={PageHeaderVariants.Card}
@@ -40,8 +40,8 @@ const IdeationSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
           2–5 Tage
         </Label>
         <Copy>
-          ‌Gewinne‌ ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌ ‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generiere‌ ‌daraus‌
-          ‌funktionsfähige‌ ‌Ideen.‌ ‌Erhalte‌ ‌einen‌ ‌ersten‌ ‌visuellen‌ ‌Prototypen‌ ‌und‌ ‌hole‌ ‌Feedback‌ ‌deiner‌
+          ‌Gewinn‌ ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generier ‌daraus‌
+          ‌funktionsfähige‌ ‌Ideen.‌ ‌Erhalte‌ ‌einen‌ ‌ersten‌ ‌visuellen‌ ‌Prototypen‌ ‌und‌ ‌hol‌ ‌Feedback‌ ‌deiner‌
           ‌Kunden‌ ‌dazu‌ ‌ab.‌
         </Copy>
       </PageHeader>
@@ -51,11 +51,11 @@ const IdeationSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
           <Heading2>Was ist ein Ideation Sprint?</Heading2>
           <Copy>
             Du hast eine Marktlücke oder die Chance für einen Innovationssprung deines digitalen Produkts erkannt. Du bist
-            dir aber nicht sicher, wie du diese Herausforderung angehen sollst. In einem Ideation Workshop zerlegen wir
-            gemeinsam mit Fachexperten das Problem in seine Einzelteile und entwickeln daraus eine Lösung. Dabei setzen wir
-            auf modernste Methoden wie Design Sprints oder Lightning Decision Jams. Je nach Komplexität der Herausforderung
-            entwickeln wir einen visuellen, klickbaren Prototypen und führen bereits ein erstes Testing mit deinen
-            po­ten­zi­ellen Nutzern durch.
+            dir aber nicht sicher, wie du die Herausforderung angehen sollst. In einem Ideation Workshop zerlegen wir
+            gemeinsam mit Fachexpert*innen das Problem in seine Einzelteile und entwickeln daraus eine Lösung. Dabei setzen
+            wir auf modernste Methoden wie Design Sprints oder Lightning Decision Jams. Je nach Komplexität der
+            Herausforderung entwickeln wir einen visuellen, klickbaren Prototypen und führen bereits ein erstes Testing mit
+            deinen po­ten­zi­ellen Nutzern durch.
           </Copy>
           <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
             <UnorderedList
@@ -79,7 +79,7 @@ const IdeationSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
         <PageSection>
           <Contact contact={contact}>
             Fragen zum Ablauf des Ideation Sprints?
-            <br /> {contact.firstname} hilft gerne!
+            <br /> {contact.firstname} hat Antworten!
           </Contact>
         </PageSection>
         <PageSection>
@@ -93,7 +93,7 @@ const IdeationSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
               </GridSlider>
             </>
           )}
-          <Heading2>Und damit könnte es nach deinem Ideation Sprint weiter gehen:</Heading2>
+          <Heading2>Und damit könnte es nach deinem Ideation Sprint weitergehen:</Heading2>
           <GridSlider>
             {packages.map((paeckli) => (
               <ContentCard

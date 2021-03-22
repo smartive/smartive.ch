@@ -58,7 +58,7 @@ export default {
     label: 'Laufend',
     title: 'Mentoring',
     content:
-      'Tausche dich in regelmässigen Jour fixes mit unseren Digital Strategists über dein Produkt und deine Strategie aus.',
+      'Tausch dich in regelmässigen Jour fixes mit unseren Digital Strategists über dein Produkt und deine Strategie aus.',
     link: {
       label: 'Mehr zum Mentoring',
       href: '/angebot/mentoring',

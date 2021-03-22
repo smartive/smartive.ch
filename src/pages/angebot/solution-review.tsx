@@ -49,7 +49,7 @@ const SolutionReview: NextPage<Props> = ({ contact, teasers, packages }) => {
             Du hast ein digitales Produkt am Markt. Es geht nicht voran oder du bist dir nicht sicher, ob die Lösung hält,
             was sie verspricht. Du möchtest das Produkt verbessern oder weiterentwickeln, bist dir aber nicht darüber im
             Klaren, welches die nächsten Schritte sind. Bei einem Solution Review analysieren wir deine bestehende Lösung und
-            liefern dir unsere Erkenntnisse, Risiken und Empfehlungen.
+            liefern dir unsere Erkenntnisse, Risikoanalysen und Empfehlungen.
           </Copy>
           <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
             <UnorderedList
@@ -77,7 +77,7 @@ const SolutionReview: NextPage<Props> = ({ contact, teasers, packages }) => {
         <PageSection>
           {teasers.length > 0 && (
             <>
-              <Heading2>Diese Projekte haben mit einem Ideation Sprint gestartet:</Heading2>
+              <Heading2>Diese Projekte haben mit einem Solution Review gestartet:</Heading2>
               <GridSlider>
                 {teasers.map((teaser) => (
                   <ImageCard key={teaser.title} {...teaser} />
@@ -85,7 +85,7 @@ const SolutionReview: NextPage<Props> = ({ contact, teasers, packages }) => {
               </GridSlider>
             </>
           )}
-          <Heading2>Und damit könnte es nach deinem Ideation Sprint weiter gehen:</Heading2>
+          <Heading2>Und damit könnte es nach deinem Solution Review weiter gehen:</Heading2>
           <GridSlider>
             {packages.map((paeckli) => (
               <ContentCard

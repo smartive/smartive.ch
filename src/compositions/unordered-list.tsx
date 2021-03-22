@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Heading2 } from '../elements/heading-2';
 import { Label } from '../elements/label';
 import { BrandColor, mapColorToText } from '../utils/colors';
 
 type Props = {
   title?: string;
-  items: string[];
+  items: ReactNode[];
   markerColor?: BrandColor;
 };
 
