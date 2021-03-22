@@ -24,7 +24,7 @@ export type Props = {
   label: string | ReactNode;
   title: string;
   description?: string;
-  link: { label: string; href: Url | string };
+  link: { label: string; href: Url | string; newTab?: boolean };
   awards?: Award[];
   variant?: ImageCardVariants;
   className?: string;
@@ -45,6 +45,7 @@ export const ImageCard: FC<Props> = ({
   return (
     <Link href={link.href}>
       <a
+        {...(link.newTab ? { target: '_blank', rel: 'noreferrer' } : {})}
         className={`relative grid w-full ${
           variant === ImageCardVariants.Wide ? 'md:grid-cols-3' : 'grid-rows-[auto,1fr]'
         } cursor-pointer border-transparent bg-white-100 rounded overflow-hidden card-shadow transform transition-transform active:scale-[.99] ${className}`}

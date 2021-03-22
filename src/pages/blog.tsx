@@ -50,6 +50,7 @@ const Team: NextPage<Props> = ({ posts }) => {
                   link={{
                     label: `weiterlesen${externalOrigin ? ` auf ${externalOrigin}` : ''}`,
                     href: link,
+                    newTab: true,
                   }}
                   image={{ src: thumbnail, alt: '' }}
                 />
