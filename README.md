@@ -83,4 +83,4 @@ chore: Changes to the build process or auxiliary tools and libraries such as doc
 
 ## Architecture
 
-Berufsbildner is a React app with server-side rendering provided by Next.js.
+This is a React app with server-side rendering provided by Next.js.
