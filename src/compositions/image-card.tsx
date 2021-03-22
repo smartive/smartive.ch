@@ -14,9 +14,9 @@ export enum ImageCardVariants {
 }
 
 const ImageSizes = {
-  [ImageCardVariants.Small]: 'h-60',
-  [ImageCardVariants.Big]: 'h-120',
-  [ImageCardVariants.Wide]: 'h-60 md:h-full',
+  [ImageCardVariants.Small]: 'max-h-60',
+  [ImageCardVariants.Big]: 'max-h-120',
+  [ImageCardVariants.Wide]: 'max-h-60 md:max-h-full',
 } as const;
 
 export type Props = {
@@ -49,7 +49,7 @@ export const ImageCard: FC<Props> = ({
           variant === ImageCardVariants.Wide ? 'md:grid-cols-3' : 'grid-rows-[auto,1fr]'
         } cursor-pointer border-transparent bg-white-100 rounded overflow-hidden card-shadow transform transition-transform active:scale-[.99] ${className}`}
       >
-        <div className={`relative w-full ${ImageSizes[variant]}`}>
+        <div className={`relative w-full overflow-hidden ${ImageSizes[variant]}`}>
           {isExternalUrl(image.src) ? (
             <img className="object-cover h-full w-full bg-mint-200" src={image.src} alt={image.alt} loading="lazy" />
           ) : (

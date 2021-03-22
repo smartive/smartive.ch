@@ -50,7 +50,10 @@ type LinkButtonProps = {
 };
 
 export const LinkButton: FC<LinkButtonProps> = ({ children, onClick, variant = LinkVariants.Default, className = '' }) => (
-  <button onClick={onClick} className={`${getVariantStyles()[variant]} transition-colors duration-150 ${className}`}>
+  <button
+    onClick={onClick}
+    className={`${getVariantStyles()[variant]} transition-colors duration-150 focus:outline-none ${className}`}
+  >
     {children}
   </button>
 );
