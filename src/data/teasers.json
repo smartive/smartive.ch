@@ -68,8 +68,8 @@
     }
   },
   "filialfinder": {
-    "label": "Migros",
-    "title": "Filialfinder",
+    "label": "Migros Filialfinder",
+    "title": "Eine ausgeklügelte, hochperformante Filial-Suche",
     "link": { "label": "Projekt anschauen", "href": "/projekte/migros-filialfinder" },
     "image": {
       "src": "/images/projekte/fil/migros-filiale-zuerich-airport.jpg",
