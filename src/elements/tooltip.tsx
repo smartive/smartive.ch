@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m as motion } from 'framer-motion';
 import React, { FC, ReactElement } from 'react';
 import { Arrow, useLayer } from 'react-laag';
 

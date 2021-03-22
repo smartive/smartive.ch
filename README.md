@@ -51,7 +51,8 @@ These checks are also run on every merge request, and each of these must pass fo
 
 ### Conventions
 
-#### Four Eye Principle
+#### Four Eye Principle
+
 The default `master` branch is protected and nobody can commit to it. Every feature or bugfix is done in a separate Merge Request, which needs to pass the automated tests and needs to be reviewed by another developer.
 
 **NO SELF-MERGES 😜**
