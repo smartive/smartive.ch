@@ -1,6 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
-import { Keyfigure } from '../../components/keyfigure';
+import { ImagePosition, Keyfigure } from '../../components/keyfigure';
 import { ImageCard } from '../../compositions/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
@@ -20,18 +20,22 @@ const Agile: NextPage<Props> = ({ teasers }) => (
   <div>
     <PageHeader markdownTitle="Was ist dieses _Scrum_?">
       <Copy>Unsere bevorzugte Spielart von agiler Entwicklung. Der Rahmen, der Scrum vorgibt:</Copy>
-      <Image
-        src="/images/illus/scrum.png"
-        layout="responsive"
-        height="908"
-        width="3018"
-        objectFit="contain"
-        alt="Scrum Prozess mit Iterationen"
-      />
     </PageHeader>
     <main>
       <PageSection>
-        <Keyfigure>
+        <Keyfigure
+          image={
+            <Image
+              src="/images/illus/scrum.svg"
+              height="480"
+              width="480"
+              objectFit="contain"
+              priority
+              alt="Scrum Prozess mit Iterationen"
+            />
+          }
+          imagePosition={ImagePosition.after}
+        >
           <UnorderedList
             title="Was braucht's für Scrum?"
             items={[
@@ -41,6 +45,7 @@ const Agile: NextPage<Props> = ({ teasers }) => (
               'Am Ende des Sprints präsentieren wir die abgeschlossenen Stories – laufend und interaktiv. Eine der wichtigsten Regeln der agilen Entwicklung ist nämlich, stets ein lauffähiges Produkt zu haben.',
               'Zusätzlich blicken wir gemeinsam auf den Sprint zurück: Was ist gut gelaufen, wie können wir die Zusammenarbeit verbessern?',
             ]}
+            markerColor="apricot"
           />
         </Keyfigure>
 

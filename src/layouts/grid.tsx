@@ -12,7 +12,9 @@ type Props = {
 };
 
 export const Grid: FC<Props> = ({ cols, children, className = '' }) => (
-  <div className={`grid ${AvailableColumnLayouts[cols]} grid-flow-row my-8 xl:my-16 gap-8 xl:gap-16 ${className}`}>
+  <div
+    className={`grid ${AvailableColumnLayouts[cols]} grid-flow-row auto-rows-fr my-8 xl:my-16 gap-8 xl:gap-16 ${className}`}
+  >
     {children}
   </div>
 );
