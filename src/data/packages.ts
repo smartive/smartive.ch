@@ -47,7 +47,7 @@ export default {
     label: '2–5 Tage',
     title: 'Solution Review',
     content:
-      'Erhalte eine objektive Einschätzung der Chancen und Risiken deines digitalen Produkts sowie einen klaren Massnahmenplan, was du verbessern kannst.',
+      'Erhalte eine objektive Einschätzung der Chancen und Risiken deines digitalen Produkts sowie einen klaren Massnahmenplan mit Verbesserungsvorschlägen.',
     link: {
       label: 'Weitere Infos',
       href: '/angebot/solution-review',

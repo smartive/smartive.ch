@@ -27,12 +27,12 @@ const textBlocks = [
   {
     title: 'Code Retreat',
     content:
-      'Einmal im Jahr ziehen wir uns ein paar Tage zurück, um uns mit Themen auseinanderzusetzen, die uns am Herzen liegen – von AI bis Bierbrauen, von Supernova bis Design Sprint, von technisch über alltäglich bis wissenschaftlich. Der Code Retreat bietet Raum für Diskussionen und zum Zusammensein ausserhalb des Büros.',
+      'Einmal im Jahr ziehen wir uns ein paar Tage zurück, um uns mit Themen auseinanderzusetzen, die uns am Herzen liegen – von AI bis Bierbrauen, von Supernova bis Design Sprint, von technisch über alltäglich bis hin zu wissenschaftlich. Der Code Retreat bietet Raum für Diskussionen und ermöglicht das Zusammensein ausserhalb des Büros.',
   },
   {
     title: 'Lohn & Bonus',
     content:
-      'Wir verhandeln keine Löhne, sondern setzen auf ein transparentes, faires Lohnsystem: Lohn = Basislohn + Ausbildung + Erfahrung + Firmentreue. Dazu geht mindestens ein Drittel des Gewinns zu gleichen Teilen an alle Mitarbeitenden.',
+      'Wir verhandeln keine Löhne, sondern setzen auf ein transparentes, faires Lohnsystem: Lohn = Basislohn + Ausbildung + Erfahrung + Firmentreue. Dazu kommt mindestens ein Drittel des Gewinns zu gleichen Teilen allen Mitarbeitenden zugute.',
   },
   {
     title: 'Organisiert auf Augenhöhe',
@@ -164,16 +164,16 @@ const Agentur: NextPage<Props> = ({ quote }) => {
 
           <Grid cols={2}>
             <TextBlock title="Bald eine Dekade" number={10}>
-              smartive wurde 2012 gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, wo wir uns alle
+              smartive wurde 2012 gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, an dem wir uns alle
               einbringen und so arbeiten, wie es uns entspricht.
             </TextBlock>
             <TextBlock title="Zwölf Teilhaber*innen" number={12}>
-              Darauf sind wir stolz: Zwölf unserer {Object.values(Employees).length} Mitarbeiter*innen besitzen
-              smartive-Aktien. Es gibt keine externen Aktionär*innen oder Stakeholder.
+              Darauf sind wir stolz: Zwölf unserer {Object.values(Employees).length} Mitarbeitenden besitzen smartive-Aktien.
+              Es gibt keine externen Aktionär*innen oder Stakeholder.
             </TextBlock>
             <TextBlock title="Anderthalb Dutzend" number={Object.values(Employees).length}>
-              Heute kommen {Object.values(Employees).length} Mitarbeiter*innen in Zürich zusammen und bringen ihre
-              Fähigkeiten und ihre Art ein – in Software-Entwicklung, Projektleitung, Design und User Experience.
+              Heute kommen {Object.values(Employees).length} Mitarbeitende in Zürich zusammen und bringen ihre Fähigkeiten
+              und ihre Persönlichkeit ein – in Software-Entwicklung, Projektleitung, Design und User Experience.
             </TextBlock>
             <TextBlock title="Erfolgreiche Projekte: dreistellig" number={300} highlightNumber>
               In den letzten Jahren haben wir über 300 Projekte erfolgreich gemeistert. Sowohl in Zusammenarbeit mit{' '}

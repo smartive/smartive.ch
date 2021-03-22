@@ -27,8 +27,8 @@ const SolutionReview: NextPage<Props> = ({ contact, teasers, packages }) => {
   return (
     <div>
       <PageHeader
-        markdownTitle="Solution Review"
-        description="Erhalte eine objektive Einschätzung der Chancen und Risiken deines digitalen Produkts sowie einen klaren Massnahmenplan, was du verbessern kannst."
+        markdownTitle={Packages['solution-review'].title}
+        description={Packages['solution-review'].content}
         variant={PageHeaderVariants.Card}
         background={Packages['solution-review'].background}
         blobs={BlobVariations.mint[1]}

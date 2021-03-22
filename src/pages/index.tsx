@@ -94,7 +94,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
         <PageSection title="Wir unterstützen dich, egal wie weit du schon bist.">
           <Copy>
             In welcher Phase steckt dein Projekt? Mit unserer langjährigen Expertise unterstützen wir dich von der Idee bis
-            über den Golive hinaus.
+            über den Go-live hinaus.
           </Copy>
           <GridSlider>
             {packages.map(({ label, ...paeckli }) => (

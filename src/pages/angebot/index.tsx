@@ -36,7 +36,7 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
         </Copy>
         <Copy>
           Wir sind überzeugt, dass die besten Resultate gemeinsam in einem iterativen Vorgehen entstehen. Was wir darunter
-          verstehen, liest du unten. Oder du wirfst einen Blick auf <Link href="/projekte">die Projekte</Link>, die wir
+          verstehen, erfährst du unten. Oder du wirfst einen Blick auf <Link href="/projekte">die Projekte</Link>, die wir
           umgesetzt haben.
         </Copy>
       </PageHeader>
@@ -46,7 +46,7 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
           <Copy>
             Wir arbeiten agil. Klingt gut, hat aber auch gute Gründe: Wir möchten nicht die Katze im Sack verkaufen. Und wir
             möchten etwas schaffen, das dich, deine Kund*innen und uns überzeugt. Mit Scrum stellen wir sicher, dass dein
-            Projekt fortlaufend evaluiert wird und du in die Entwicklung mit einbezogen bist.
+            Projekt fortlaufend evaluiert wird und du in die Entwicklung miteinbezogen bist.
           </Copy>
           <LinkList
             links={[
@@ -60,9 +60,9 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
         </PageSection>
         <PageSection title="Etwas für jede Projektphase.">
           <Copy>
-            Wichtig ist: Wir versuchen mit dir gemeinsam dein Produkt so schnell wie möglich an deine Nutzer zu bringen. Denn
-            wir glauben, dass ein Produkt in den Händen der Nutzer mehr Wert bringt als ein Produkt in der Schublade, auch
-            wenn es noch nicht alles kann.
+            Das Wichtigste zuerst: Unser Ziel ist es, dein Produkt zusammen mit dir so schnell wie möglich an deine Nutzer zu
+            bringen. Denn wir glauben, dass ein Produkt in den Händen der Nutzer mehr Wert bringt als ein Produkt in der
+            Schublade, auch wenn es noch nicht alles kann.
           </Copy>
           <Copy>Vielleicht ist eines der folgenden Angebot was für dich?</Copy>
           <GridSlider>
