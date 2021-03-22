@@ -5,6 +5,7 @@ import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ImageCard } from '../../compositions/image-card';
+import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { TextBlock } from '../../compositions/text-block';
@@ -41,6 +42,15 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
           Ansprüche der User an die Plattform haben sich in dieser Zeit immer wieder verändert. Der Migipedia-Relaunch von
           2020 trägt dem einmal mehr Rechnung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor.
         </Copy>
+        <LinkList
+          links={[
+            { label: 'Zu Migipedia', href: 'https://migipedia.migros.ch/de' },
+            {
+              label: 'Zur Masterkandidatur',
+              href: 'https://www.netzwoche.ch/news/2021-03-17/master-kandidat-migros-community',
+            },
+          ]}
+        />
       </PageHeader>
 
       <main>

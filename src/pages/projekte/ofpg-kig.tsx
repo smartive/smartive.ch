@@ -5,6 +5,7 @@ import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ImageCard } from '../../compositions/image-card';
+import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { TextBlock } from '../../compositions/text-block';
@@ -45,6 +46,12 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
           das Widget kann überall eingebunden eingebunden werden. Angebote von Kantonen, Gemeinden und Organisationen werden
           neu mit einem zentralen Tool einheitlich verwaltet.
         </Copy>
+        <LinkList
+          links={[
+            { label: 'Zur Angebotssuche', href: 'https://ofpg.ch/notfall-hilfe-finden' },
+            { label: 'Zur Website', href: 'https://ofpg.ch/' },
+          ]}
+        />
       </PageHeader>
 
       <main>

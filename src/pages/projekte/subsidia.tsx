@@ -5,6 +5,7 @@ import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ContentCard } from '../../compositions/content-card';
 import { ImageCard } from '../../compositions/image-card';
+import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { TextBlock } from '../../compositions/text-block';
@@ -44,6 +45,7 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages }
         dabei die Kassen-App, die auf jedem Smartphone läuft. Wir begleiten Subsidia seit den Anfängen, egal ob bei der
         Architekturwahl für die Apps, Setup der Cloud-Umgebung mit Google oder sogar beim Teamaufbau.
       </Copy>
+      <LinkList links={[{ label: 'Zur Website', href: 'https://subsidia.ch/' }]} />
     </PageHeader>
 
     <main>

@@ -4,6 +4,7 @@ import React from 'react';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ImageCard } from '../../compositions/image-card';
+import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { TextBlock } from '../../compositions/text-block';
@@ -39,6 +40,7 @@ const SharedComponents: NextPage<Props> = ({ quote, contact, teasers }) => (
         Einzelne Module werden in einer gemeinsamen Registry abgelegt und können so einfach wiederverwendet werden und bieten
         dennoch ein einheitliches Benutzererlebnis.
       </Copy>
+      <LinkList links={[{ label: 'Zur Website', href: 'https://migros.ch' }]} />
     </PageHeader>
 
     <main>

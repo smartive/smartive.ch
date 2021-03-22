@@ -5,6 +5,7 @@ import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ImageCard } from '../../compositions/image-card';
+import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { TextBlock } from '../../compositions/text-block';
@@ -43,6 +44,13 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
           In Echtzeit (und verdammt schnell 🚀) liefert die GraphQL-Schnittstelle Rezeptdaten aus. Aber nicht nur das, dank
           einer intelligenten Suche ist sie auch das Rückgrat der Migusto-Suchfunktion.
         </Copy>
+        <LinkList
+          links={[
+            { label: 'Zu Migusto', href: 'https://migusto.migros.ch/de.html' },
+            { label: 'Zu Famigros', href: 'https://famigros.migros.ch/de' },
+            { label: 'Zu iMpuls', href: 'https://www.migros-impuls.ch/de' },
+          ]}
+        />
       </PageHeader>
 
       <main>

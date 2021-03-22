@@ -5,6 +5,7 @@ import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ImageCard } from '../../compositions/image-card';
+import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { UnorderedList } from '../../compositions/unordered-list';
@@ -41,6 +42,7 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers }) => {
           Fragen, die wir wohl alle kennen. Abhilfe schafft der Filialfinder der Migros. Egal ob am Smartphone oder an einem
           grösseren Bildschirm — der Filialfinder weiss, wann welche Filiale geöffnet hat und welches Angebot sie führt.
         </Copy>
+        <LinkList links={[{ label: 'Zum Filialfinder', href: 'https://filialen.migros.ch/de' }]} />
       </PageHeader>
 
       <main>

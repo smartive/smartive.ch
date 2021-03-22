@@ -4,6 +4,7 @@ import React from 'react';
 import { Testimonial } from '../../components/testimonial';
 import { Contact } from '../../compositions/contact';
 import { ImageCard } from '../../compositions/image-card';
+import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { Employee } from '../../data/employees';
@@ -37,6 +38,7 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
           zu überführen, hat zu einer Webapplikation geführt, welche mittlerweile das Herzstück der Firma bildet - alle Daten
           werden zentral und einheitlich verwaltet.
         </Copy>
+        <LinkList links={[{ label: 'Zur Website', href: 'https://www.cosmopolitan.ch/de/' }]} />
       </PageHeader>
 
       <main>
