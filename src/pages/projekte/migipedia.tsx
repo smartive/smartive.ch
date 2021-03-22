@@ -76,9 +76,9 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
               title="Migipedia auf einen Blick"
               items={[
                 'Auf elf digitalen Touchpoints präsent',
-                '120 000 aktiven Nutzer*innen',
-                '300 000 Bewertungen verfasst',
-                '105 Mio. Mal Bewertungen abgerufen in einem Jahr',
+                '120ʼ000 aktive Nutzer*innen',
+                '300ʼ000 Bewertungen verfasst',
+                '105 Mio. Bewertungen abgerufen in einem Jahr',
                 '60% mehr Bewertungen im Vergleich zum Vorjahr',
                 'Reduzierung der Betriebskosten um über 90% durch die Ablösung der bisherigen SaaS-Lösung',
               ]}
