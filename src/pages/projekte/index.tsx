@@ -72,7 +72,7 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers })
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const teasers = Object.values(Teasers).filter(
-    ({ title }) => !['Der User im Mittelpunkt — seit 10 Jahren', 'Der mobile Einzalhandel'].includes(title)
+    ({ title }) => ![Teasers.migipedia.title, Teasers.subsidia.title].includes(title)
   );
 
   return {
