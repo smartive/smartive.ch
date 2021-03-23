@@ -10,7 +10,7 @@
 
 ## Contributing
 
-Some of the most important information if you are about to contribute.
+Some of the most important information if you are about to contribute. Enjoy.
 
 ### Atomic Design
 
