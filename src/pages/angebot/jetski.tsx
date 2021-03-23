@@ -81,7 +81,7 @@ const Jetski: NextPage<Props> = ({ contact, teasers, packages }) => {
         <PageSection>
           {teasers.length > 0 && (
             <>
-              <Heading2>Diese Projekte haben mit einem Ideation Sprint gestartet:</Heading2>
+              <Heading2>Diese Projekte haben mit einem Jetski gestartet:</Heading2>
               <GridSlider>
                 {teasers.map((teaser) => (
                   <ImageCard key={teaser.title} {...teaser} />

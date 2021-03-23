@@ -64,7 +64,7 @@ Since we're using an automated release tool (see Releases & Deployment) our Merg
 ```
 type(SCOPE): MESSAGE.
 
-eg. feat(GFCH-123): Add Profile Image Upload for Users.
+eg. feat(SMRTVCH-123): Add Profile Image Upload for Users.
 ```
 
 For simplicity we use the ticket number as a scope, otherwise we skip it (`feat: Message.`).

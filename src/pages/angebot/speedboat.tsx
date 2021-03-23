@@ -78,13 +78,13 @@ const Speedboat: NextPage<Props> = ({ contact, packages, teasers }) => {
           <Contact contact={contact} />
         </PageSection>
         <PageSection>
-          <Heading2>Diese Projekte haben mit einem Ideation Sprint gestartet:</Heading2>
+          <Heading2>Diese Projekte haben mit einem Speedboat gestartet:</Heading2>
           <Grid cols={3}>
             {teasers.map((teaser) => (
               <ImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
-          <Heading2>Und damit könnte es nach deinem Ideation Sprint weiter gehen:</Heading2>
+          <Heading2>Und damit könnte es nach deinem Speedboat weiter gehen:</Heading2>
           <GridSlider>
             {packages.map((paeckli) => (
               <ContentCard
@@ -106,7 +106,7 @@ const Speedboat: NextPage<Props> = ({ contact, packages, teasers }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const packages = [Packages.mentoring, Packages['scale-up'], Packages['ideation-sprint']];
+  const packages = [Packages.mentoring, Packages['scale-up']];
 
   return {
     props: {
