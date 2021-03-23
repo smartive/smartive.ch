@@ -22,34 +22,34 @@ const Mvp: NextPage<Props> = ({ teasers, packages }) => (
   <Page>
     <PageHeader markdownTitle="So weisst du, dass die _Richtung_ stimmt.">
       <Copy>
-        Ganz am Anfang definieren wir gemeinsam den Umfang des <strong>Earliest Testable Product</strong>, die erste
+        Ganz am Anfang definieren wir gemeinsam den Umfang des <strong>Earliest Testable Products</strong>, die erste
         funktionsfähige Version der App. Diese sieht noch nicht schön aus, sondern soll beweisen, dass sie den gewünschten
-        Effekt erzielt. Wir testen sie idealerweise bereits mit deinen Endnutzer*innen.
+        Effekt erzielt. Idealerweise testen wir sie bereits mit deinen Endnutzer*innen.
       </Copy>
       <Copy>
-        Feedback deiner User und im Austausch mit dir gewonnene Erkenntnise fliessen in die Planung mit ein. Daraus wächst in
-        den nächsten Sprints ein <strong>Earliest Usable Product</strong>: In diesem Stadium bietet es deinen Nutzerinnen
-        bereits einen Mehrwert.
+        Das Feedback deiner User und die gewonnenen Erkenntnisse fliessen in die Planung mit ein. Daraus wächst in den
+        nächsten Sprints ein <strong>Earliest Usable Product</strong>, das deinen Nutzer*innen bereits einen Mehrwert bietet.
       </Copy>
       <Copy>
-        Auf dieser Basis arbeiten wir gemeinsam weiter bis zum <strong>Earliest Lovable Product</strong> – also bis dahin, wo
-        du live gehen kannst. 🎉
+        Auf dieser Basis arbeiten wir gemeinsam auf das <strong>Earliest Lovable Product</strong> hin, mit dem du
+        schliesslich live gehen kannst. 🎉
       </Copy>
     </PageHeader>
     <main>
       <PageSection>
         <Grid cols={3}>
           <TextBlock title="Earliest Testable Product">
-            Diese Version lässt du auf die ganz Neugierigen los. Ihr gesamtes Problem löst die App zwar noch nicht, aber das
-            Potenzial ist klar und sie generiert Feedback.
+            Diese Version lässt du von den ganz neugierigen Nutzer*innen testen. Die App löst das Problem zwar noch nicht bis
+            ins Detail, aber wir erhalten wertvolles Feedback für die folgenden Schritte und erkennen, wo das grösste
+            Potential steckt.
           </TextBlock>
           <TextBlock title="Earliest Usable Product">
-            Mit dieser Version können deine Early Adopters bereits etwas anfangen. Sie sieht noch nicht schön aus, aber der
-            Mehrwert ist offensichtlich.
+            Mit dieser Version können deine Early Adopters bereits etwas anfangen. Sie sieht noch nicht schön aus, generiert
+            aber einen offensichtlichen Mehrwert.
           </TextBlock>
           <TextBlock title="Earliest Lovable Product">
             Deine Nutzer*innen lieben es. Sie erzählen ihren Freund*innen davon und sind bereit, dafür zu zahlen. Du hast ein
-            marktfähiges Produkt, bereit für den Go-live.
+            marktfähiges Produkt, das bereit ist für den Go-live.
           </TextBlock>
         </Grid>
       </PageSection>

@@ -30,7 +30,7 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages }) => {
     <Page>
       <PageHeader
         markdownTitle="Mentoring"
-        description="Profitier von einem erfahrenen Team und erhalte fortlaufend objektive Einschätzungen und Vorschläge für dein Projekt. Tausch dich in regelmässigen Jour fixes mit unseren Digital Strategists über dein Produkt und deine Strategie aus. Deine Ideen werden konstruktiv gechallenged. So kannst du dein Vorgehen festigen und gewinnst Sicherheit, dass du auf dem richtigen Weg bist."
+        description="Profitier von einem erfahrenen Team und erhalte fortlaufend objektive Einschätzungen und Vorschläge für dein Projekt. Tausch dich in regelmässigen Jour fixes mit unseren Digital Strategists über dein Produkt und deine Strategie aus. Durch unser konstruktives Feeback kannst du dein Vorgehen festigen und gewinnst Sicherheit, dass du auf dem richtigen Weg bist."
         variant={PageHeaderVariants.Card}
         background={Packages['mentoring'].background}
         blobs={BlobVariations.apricot[1]}
@@ -41,9 +41,9 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages }) => {
         </Label>
         <Copy>
           Profitier von einem erfahrenen Team und erhalte fortlaufend objektive Einschätzungen und Vorschläge für dein
-          Projekt. Tausch dich in regelmässigen Jour fixes mit unseren Digital Strategists über dein Produkt und deine
-          Strategie aus. Deine Ideen werden konstruktiv gechallenged. So kannst du dein Vorgehen festigen und gewinnst
-          Sicherheit, dass du auf dem richtigen Weg bist.
+          Projekt. Tausch dich in regelmässigen Jour fixes mit unseren Digital Strategists über dein Produkt aus und erhalte
+          konstruktives Feeback. So kannst du dein Vorgehen festigen und gewinnst Sicherheit, dass du auf dem richtigen Weg
+          bist.
         </Copy>
       </PageHeader>
 
@@ -51,12 +51,12 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages }) => {
         <PageSection>
           <Heading2>Was beinhaltet das Mentoring?</Heading2>
           <Copy>
-            Du möchtest ein digitales Produkt schaffen oder ein bestehendes weiterentwickeln, bist aber nicht immer ganz
-            sicher, ob du auf dem richtigen Weg bist? Dir fehlt die Erfahrung im Aufbau oder der Entwicklung eines Produkts?
-            Dann raten wir dir zu einem Mentoring.
+            Du möchtest ein digitales Produkt schaffen oder ein bestehendes weiterentwickeln, bist aber nicht ganz sicher, ob
+            du auf dem richtigen Weg bist? Dir fehlt die Erfahrung im Aufbau oder der Entwicklung eines Produkts? Dann raten
+            wir dir zu einem Mentoring.
           </Copy>
           <Copy>
-            Den thematischen Fokus legen wir gemeinsam fest. Von Strategie über User Experience, agiles Projektmanagement,
+            Den thematischen Fokus legen wir gemeinsam fest. Von Strategie über User Experience, agiles Projektmanagement und
             Entwicklung bis hin zu Cloud Deployments kann das alles sein. In den regelmässigen Gesprächen erhältst du
             objektives Feedback zu deinem Vorgehen und kannst Pitfalls frühzeitig erkennen.
           </Copy>
@@ -66,8 +66,8 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages }) => {
               items={[
                 'Du profitierst von der langjährigen Expertise unserer Digital Strategists.',
                 <>
-                  Wir erlauben dir ein persönliches{' '}
-                  <Link href="https://de.wikipedia.org/wiki/Quietscheentchen-Debugging">Rubber Ducking</Link>, wir antworten
+                  Wir lassen dir den Raum, deine Fragen selbst einzukreisen (
+                  <Link href="https://de.wikipedia.org/wiki/Quietscheentchen-Debugging">Rubber Ducking</Link>), wir antworten
                   aber auch.
                 </>,
                 'Du gewinnst Sicherheit in deinem Vorgehen.',

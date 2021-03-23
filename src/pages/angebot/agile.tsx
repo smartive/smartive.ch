@@ -10,7 +10,6 @@ import { UnorderedList } from '../../compositions/unordered-list';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Copy } from '../../identity/copy';
-import { Heading3 } from '../../identity/heading-3';
 import { Page } from '../../layouts/page';
 
 type Props = {
@@ -20,7 +19,7 @@ type Props = {
 const Agile: NextPage<Props> = ({ teasers }) => (
   <Page>
     <PageHeader markdownTitle="Was ist dieses _Scrum_?">
-      <Copy>Unsere bevorzugte Spielart von agiler Entwicklung. Der Rahmen, der Scrum vorgibt:</Copy>
+      <Copy>Scrum ist unsere bevorzugte Spielart von agiler Entwicklung und gibt den folgenden Rahmen vor:</Copy>
     </PageHeader>
     <main>
       <PageSection>
@@ -50,28 +49,25 @@ const Agile: NextPage<Props> = ({ teasers }) => (
           />
         </Keyfigure>
 
-        <Grid cols={3}>
+        <Grid cols={2}>
           <TextBlock title="Product Owner">
-            Das bist du. Oder jemand aus deinem Team. Wichtig ist, dass die Person Entscheidungen treffen kann und will. Der
+            Das bist du oder jemand aus deinem Team. Wichtig ist, dass die Person Entscheidungen treffen kann und will. Der
             Product Owner priorisiert die Aufgaben und Anforderungen und vertritt das Produkt gegenüber sämtlichen
             Stakeholdern – inklusive uns.
           </TextBlock>
-          <div>
-            <Heading3>Product Owner Assistant und Scrum Master</Heading3>
-            <Copy>
-              <strong>Product Owner Assistant</strong> ist jemand aus unserem Team. Die Aufgabe: Ansprechperson für sämtliche
-              Stakeholder und Moderator*in zwischen Entwicklungsteam und Product Owner.
-            </Copy>
-            <Copy>
-              Der <strong>Scrum Master</strong> sorgt dafür, dass das Team effizient arbeiten kann. Er schafft Probleme und
-              Hindernisse aller Art aus dem Weg. Fehlen wichtige Personen im Prozess, sorgt der Scrum Master dafür, dass sie
-              fortan auch am Tisch sitzen. Ist jemand im Team blockiert, hilft er, die Blockade zu lösen.
-            </Copy>
-          </div>
+          <TextBlock title="Product Owner Assistant">
+            Product Owner Assistant ist jemand aus unserem Team. Nebst Moderator*in zwischen Entwicklungsteam und Product
+            Owner ist er/sie auch Ansprechsperson für sämtliche Stakeholders.
+          </TextBlock>
+          <TextBlock title="Scrum Master">
+            Der Scrum Master sorgt dafür, dass das Team effizient arbeiten kann. Er schafft Probleme und Hindernisse aller
+            Art aus dem Weg. Fehlen wichtige Personen im Prozess, sorgt der Scrum Master dafür, dass sie fortan auch am Tisch
+            sitzen. Ist jemand im Team blockiert, hilft er, die Blockade zu lösen.
+          </TextBlock>
           <TextBlock title="Umsetzungsteam">
-            War da nicht noch… Ah, genau: Das Team. Es wird von smartive gestellt und ist interdisziplinär aufgestellt:
-            Design, Entwicklung und Testing. Das Team bringt sämtliches benötigtes Knowhow für die erfolgreiche Durchführung
-            des Projekts mit.
+            War da nicht noch… Ah, genau! Das Umsetzungsteam wird von smartive gestellt und ist interdisziplinär aufgestellt:
+            Design, Entwicklung und Testing. Es bringt sämtliches benötigtes Knowhow für die erfolgreiche Durchführung des
+            Projekts mit.
           </TextBlock>
         </Grid>
       </PageSection>

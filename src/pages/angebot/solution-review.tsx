@@ -50,7 +50,7 @@ const SolutionReview: NextPage<Props> = ({ contact, teasers, packages }) => {
             Du hast ein digitales Produkt am Markt. Es geht nicht voran oder du bist dir nicht sicher, ob die Lösung hält,
             was sie verspricht. Du möchtest das Produkt verbessern oder weiterentwickeln, bist dir aber nicht darüber im
             Klaren, welches die nächsten Schritte sind. Bei einem Solution Review analysieren wir deine bestehende Lösung und
-            liefern dir unsere Erkenntnisse, Risikoanalysen und Empfehlungen.
+            liefern dir unsere Erkenntnisse, eine Risikoanalyse und Empfehlungen.
           </Copy>
           <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
             <UnorderedList
