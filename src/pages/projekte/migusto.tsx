@@ -96,7 +96,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
             Die Rezepte-API aggregiert Inhalte verschiedener Herkunft und stellt sie Plattformen mit unterschiedlichen
             Anforderungen zur Verfügung. Regelmässig werden die Rezepte aus dem Redaktionssystem importiert und der Suchindex
             optimiert. Die Rezepte werden live mit Community-Daten (Bewertungen, Kommentaren und Fragen) von{' '}
-            <Link href="https://reactions.dev">Reactions</Link> angereichert:
+            <Link href="https://reactions.dev">Reactions</Link> angereichert:{' '}
             <em>Schmeckt toll, aber noch besser mit etwas Chili.</em>
           </Copy>
           <Copy>
