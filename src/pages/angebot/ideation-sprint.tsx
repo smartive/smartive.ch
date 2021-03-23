@@ -71,8 +71,8 @@ const IdeationSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
             <UnorderedList
               title="Das brauchen wir von dir"
               items={[
-                'Du hast 2 - 3 Tage Zeit, um mit uns an den Workshops zusammenzuarbeiten.',
-                'Du kennst dich in deinem “Problem Space” aus und kannst diesen verständlich erklären.',
+                'Du hast 2-3 Tage Zeit, um mit uns an den Workshops zusammenzuarbeiten.',
+                'Du kennst dich in deinem «Problem Space» aus und kannst diesen verständlich erklären.',
               ]}
             />
           </div>

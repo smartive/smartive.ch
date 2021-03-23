@@ -35,7 +35,7 @@ But also apply some common sense and pragmatism. 😌
 
 ### Next.js
 
-[Next.js](https://www.typescriptlang.org/) is used as a framework, especially for server-side rendering (SSR) and static site generation (SSG). Start a development server with `npm run develop`. 🚀
+[Next.js](https://www.nextjs.org/) is used as a framework, especially for server-side rendering (SSR) and static site generation (SSG). Start a development server with `npm run develop`. 🚀
 
 ### Code Quality
 
