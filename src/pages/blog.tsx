@@ -11,7 +11,7 @@ import { LinkedInArticle } from '../data/linkedin-articles';
 import LinkedInArticles from '../data/linkedin-articles.json';
 import { Copy } from '../identity/copy';
 import { Calendar } from '../identity/icons';
-import Page from '../layouts/page';
+import { Page } from '../layouts/page';
 import { BlobVariations } from '../utils/blob-variations';
 
 type Props = {

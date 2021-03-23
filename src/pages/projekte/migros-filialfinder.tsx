@@ -18,7 +18,7 @@ import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Copy } from '../../identity/copy';
 import { Heading3 } from '../../identity/heading-3';
-import Page from '../../layouts/page';
+import { Page } from '../../layouts/page';
 import { BlobVariations } from '../../utils/blob-variations';
 import { getRandomTeasers } from '../../utils/teasers';
 

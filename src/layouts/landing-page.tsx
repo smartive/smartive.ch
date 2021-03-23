@@ -3,7 +3,7 @@ import { useRouter } from 'next/dist/client/router';
 import React, { FC } from 'react';
 import LogoHeader from '../components/logo-header';
 
-const LandingPage: FC = ({ children }) => {
+export const LandingPage: FC = ({ children }) => {
   const { pathname } = useRouter();
 
   return (
@@ -23,5 +23,3 @@ const LandingPage: FC = ({ children }) => {
     </div>
   );
 };
-
-export default LandingPage;

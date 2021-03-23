@@ -15,7 +15,7 @@ import Quotes from '../../data/quotes.json';
 import { Link } from '../../elements/link';
 import { Copy } from '../../identity/copy';
 import { Clock } from '../../identity/icons';
-import Page from '../../layouts/page';
+import { Page } from '../../layouts/page';
 import { BlobVariations } from '../../utils/blob-variations';
 
 type Props = {

@@ -16,7 +16,7 @@ import { Link } from '../../elements/link';
 import { Copy } from '../../identity/copy';
 import { Heading2 } from '../../identity/heading-2';
 import { Clock } from '../../identity/icons';
-import Page from '../../layouts/page';
+import { Page } from '../../layouts/page';
 import { BlobVariations } from '../../utils/blob-variations';
 
 type Props = {

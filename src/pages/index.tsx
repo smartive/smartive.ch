@@ -20,7 +20,7 @@ import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
 import { Copy } from '../identity/copy';
 import { Clock } from '../identity/icons';
-import Page from '../layouts/page';
+import { Page } from '../layouts/page';
 import { BlobVariations } from '../utils/blob-variations';
 
 type Props = {

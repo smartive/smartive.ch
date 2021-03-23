@@ -11,7 +11,7 @@ import Employees from '../data/employees.json';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
 import { Copy } from '../identity/copy';
-import Page from '../layouts/page';
+import { Page } from '../layouts/page';
 import { BlobVariations } from '../utils/blob-variations';
 
 type Props = {

@@ -3,7 +3,7 @@ import { useRouter } from 'next/dist/client/router';
 import React, { FC } from 'react';
 import { Navigation } from '../components/navigation';
 
-const Page: FC = ({ children }) => {
+export const Page: FC = ({ children }) => {
   const { pathname } = useRouter();
 
   return (
@@ -23,5 +23,3 @@ const Page: FC = ({ children }) => {
     </div>
   );
 };
-
-export default Page;

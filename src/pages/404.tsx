@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 import { LinkList } from '../compositions/link-list';
 import { Heading3 } from '../identity/heading-3';
-import Page from '../layouts/page';
+import { Page } from '../layouts/page';
 
 export default function Custom404() {
   const plausible = usePlausible();

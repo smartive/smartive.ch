@@ -5,7 +5,7 @@ import { Grid } from '../compositions/grid';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { Copy } from '../identity/copy';
-import Page from '../layouts/page';
+import { Page } from '../layouts/page';
 
 const NewsletterSubscription = dynamic(() => import('../components/newsletter-subscription'), { ssr: false });
 

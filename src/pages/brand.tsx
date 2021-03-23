@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { PageHeader } from '../compositions/page-header';
 import { Copy } from '../identity/copy';
-import LandingPage from '../layouts/landing-page';
+import { LandingPage } from '../layouts/landing-page';
 
 const Brand: FC = () => (
   <LandingPage>
