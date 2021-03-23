@@ -60,7 +60,7 @@ export const Navigation: FC = () => {
 
       {/* Mobile Navigation */}
       <motion.div
-        className={`fixed inset-0 grid place-items-center text-center place-content-center overflow-hidden z-40 bg-mint-500 ${
+        className={`fixed inset-0 h-screen grid place-items-center text-center place-content-center overflow-hidden z-40 bg-mint-500 ${
           mobileNavOpen ? 'visible' : 'invisible'
         }`}
         ref={mobileNavRef}
