@@ -17,6 +17,7 @@ export type ContentCardProps = {
 export const ContentCard: FC<ContentCardProps> = ({ title, label, content, link, background, blobs = [] }) => (
   <Link href={link.href}>
     <a
+      {...(link.newTab ? { target: '_blank', rel: 'noreferrer' } : {})}
       className={`relative grid ${
         label ? 'grid-rows-[auto,1fr,auto]' : 'grid-rows-[1fr,auto]'
       } w-full h-full p-8 gap-8 cursor-pointer rounded overflow-hidden card-shadow-${getContrastColor(

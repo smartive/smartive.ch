@@ -75,13 +75,13 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
             />
             <ContentCard
               label="WHOOP WHOOP! 📣🥳"
-              title="Migipedia ist Masterkandidat der Best of Swiss Web Awards!"
-              content="Zum 10 jährigen Jubiläum von Migipedia haben wir die Migros Community komplett überarbeitet. Und nun stehen wir mit Migipedia auf der Shortlist für Best of Swiss Web! Wir sind mega happy und freuen uns auf die Award-Night."
+              title="Migipedia ist Masterkandidat für Best of Swiss Web 2021!"
+              content="Zum 10 jährigen Jubiläum von Migipedia haben wir die Migros Community komplett überarbeitet. Und nun ist “unser” Migipedia Masterkandidat für Best of Swiss Web 2021! Wir sind mega happy und freuen uns auf die Award-Night."
               background="cornflower"
               link={{
                 newTab: true,
                 label: 'Zur Master Nomination',
-                href: 'https://www.bestofswissweb.swiss/de/hall-of-fame/master/2021/',
+                href: 'https://www.netzwoche.ch/news/2021-03-17/master-kandidat-migros-community',
               }}
             />
           </GridSlider>
