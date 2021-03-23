@@ -16,7 +16,19 @@ function getCss(theme: BrandColor, fontSize: string) {
   const background = mapColorToHex(theme);
 
   return `
-    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital@1&family=Inter:wght@600&display=block');
+    @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        src: url(${process.env.NEXT_PUBLIC_SITE_URL}/fonts/inter-v3-latin-600.woff2) format('woff2');
+    }
+
+    @font-face {
+        font-family: 'IBM Plex Serif';
+        font-style: italic;
+        font-weight: 400;
+        src: url(${process.env.NEXT_PUBLIC_SITE_URL}/fonts/ibm-plex-serif-v9-latin-italic.woff2) format('woff2');
+    }
 
     body {
         overflow: hidden;
