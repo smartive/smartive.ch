@@ -1,10 +1,11 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { Contact } from '../../components/contact';
+import { ImageCard } from '../../components/image-card';
 import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
-import { Contact } from '../../compositions/contact';
-import { ImageCard } from '../../compositions/image-card';
+import { Grid } from '../../compositions/grid';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { UnorderedList } from '../../compositions/unordered-list';
@@ -14,9 +15,9 @@ import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Award, Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { Copy } from '../../elements/copy';
-import { Heading3 } from '../../elements/heading-3';
-import { Grid } from '../../layouts/grid';
+import { Copy } from '../../identity/copy';
+import { Heading3 } from '../../identity/heading-3';
+import Page from '../../layouts/page';
 import { BlobVariations } from '../../utils/blob-variations';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -28,7 +29,7 @@ type Props = {
 };
 
 const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers }) => (
-  <div>
+  <Page>
     <PageHeader
       awards={awards}
       markdownTitle="_Digitalisierung_ der Lieferkette."
@@ -149,7 +150,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers }) => (
         </Grid>
       </PageSection>
     </main>
-  </div>
+  </Page>
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {

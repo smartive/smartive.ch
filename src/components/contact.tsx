@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { LinkList } from './link-list';
 import { Employee } from '../data/employees';
-import { Heading2 } from '../elements/heading-2';
 import { Portrait, PortraitVariant } from '../elements/portrait';
+import { Heading2 } from '../identity/heading-2';
+import { LinkList } from '../compositions/link-list';
 
 type Props = {
   contact: Employee;

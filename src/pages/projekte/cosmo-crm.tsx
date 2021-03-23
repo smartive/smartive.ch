@@ -1,9 +1,10 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { Contact } from '../../components/contact';
+import { ImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
-import { Contact } from '../../compositions/contact';
-import { ImageCard } from '../../compositions/image-card';
+import { Grid } from '../../compositions/grid';
 import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
@@ -13,9 +14,9 @@ import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { Copy } from '../../elements/copy';
-import { Heading3 } from '../../elements/heading-3';
-import { Grid } from '../../layouts/grid';
+import { Copy } from '../../identity/copy';
+import { Heading3 } from '../../identity/heading-3';
+import Page from '../../layouts/page';
 import { BlobVariations } from '../../utils/blob-variations';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -27,7 +28,7 @@ type Props = {
 
 const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
   return (
-    <div>
+    <Page>
       <PageHeader
         markdownTitle="Digitale Geschäftsprozesse als _Herzstück_."
         description="Für die Cosmopolitan Vermögensverwaltungs AG konzipierten wir ein CRM System, welches die spezifischen Geschäftsprozesse genau abbildet. Der Wunsch, die Daten von einigen Excel Files in eine ausgereifte Datenstruktur zu überführen, hat zu einer Webapplikation geführt, welche mittlerweile das Herzstück der Firma bildet - alle Daten werden zentral und einheitlich verwaltet."
@@ -100,7 +101,7 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
           </Grid>
         </PageSection>
       </main>
-    </div>
+    </Page>
   );
 };
 

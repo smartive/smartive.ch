@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
-import { Heading2 } from '../elements/heading-2';
 import { Label } from '../elements/label';
+import { Heading2 } from '../identity/heading-2';
 import { BrandColor, mapColorToText } from '../utils/colors';
 
 type Props = {

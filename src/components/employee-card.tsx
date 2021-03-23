@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import React, { FC } from 'react';
 import { Employee } from '../data/employees';
-import { Heading3 } from '../elements/heading-3';
 import { Link, LinkVariants } from '../elements/link';
+import { Heading3 } from '../identity/heading-3';
 
 type Props = {
   employee: Employee;

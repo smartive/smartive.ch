@@ -1,4 +1,4 @@
-import { PositionX, PositionY } from '../components/blob';
+import { PositionX, PositionY } from '../elements/blob';
 import { BrandColor } from './colors';
 
 export type BlobType = {

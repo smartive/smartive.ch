@@ -4,7 +4,7 @@ import React, { FC, ReactNode } from 'react';
 import { Url } from 'url';
 import { AwardTags } from '../components/award-tags';
 import { Award } from '../data/teaser';
-import { Heading3 } from '../elements/heading-3';
+import { Heading3 } from '../identity/heading-3';
 import { isExternalUrl } from '../utils/url';
 
 export enum ImageCardVariants {

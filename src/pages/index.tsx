@@ -1,12 +1,13 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { CustomersList } from '../components/customers-list';
+import { Contact } from '../components/contact';
+import { ContentCard } from '../components/content-card';
+import { CustomerList } from '../components/customer-list';
+import { ImageCard } from '../components/image-card';
 import { NewsletterCard } from '../components/newsletter-card';
 import { Testimonial } from '../components/testimonial';
-import { Contact } from '../compositions/contact';
-import { ContentCard } from '../compositions/content-card';
-import { ImageCard } from '../compositions/image-card';
+import { GridSlider } from '../compositions/grid-slider';
 import { LinkList } from '../compositions/link-list';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
@@ -17,9 +18,9 @@ import Employees from '../data/employees.json';
 import Packages, { Package } from '../data/packages';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
-import { Copy } from '../elements/copy';
-import { Clock } from '../elements/icons';
-import { GridSlider } from '../layouts/grid-slider';
+import { Copy } from '../identity/copy';
+import { Clock } from '../identity/icons';
+import Page from '../layouts/page';
 import { BlobVariations } from '../utils/blob-variations';
 
 type Props = {
@@ -31,7 +32,7 @@ type Props = {
 
 const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
   return (
-    <div>
+    <Page>
       <PageHeader
         markdownTitle="Wir erschaffen _digitale_ Produkte. Zusammen mit dir."
         description="Wir sind smartive — eine dynamische, innovative Schweizer Webentwicklungsagentur. Die Realisierung zeitgemässer Weblösungen gehört genauso zu unserer Passion, wie die konstruktive Zusammenarbeit mit unseren Kundinnen und Kunden."
@@ -86,7 +87,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
           </GridSlider>
         </PageSection>
         <PageSection title="Weiter gebracht haben wir unter anderem schon">
-          <CustomersList customers={customers} />
+          <CustomerList customers={customers} />
         </PageSection>
         <PageSection>
           <Testimonial quote={quote} blobs={BlobVariations.apricot[0]} />
@@ -118,7 +119,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
           <Contact contact={contact} />
         </PageSection>
       </main>
-    </div>
+    </Page>
   );
 };
 

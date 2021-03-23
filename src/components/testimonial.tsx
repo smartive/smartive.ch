@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { Quote } from '../data/quotes';
-import { Heading2 } from '../elements/heading-2';
+import { Blob } from '../elements/blob';
 import { Portrait, PortraitVariant } from '../elements/portrait';
+import { Heading2 } from '../identity/heading-2';
 import { BlobType } from '../utils/blob-variations';
 import { BrandColor, mapColorToBG } from '../utils/colors';
 import { highlight } from '../utils/markdown';
-import { Blob } from './blob';
 
 type Props = {
   className?: string;

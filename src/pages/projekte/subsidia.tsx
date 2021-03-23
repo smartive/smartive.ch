@@ -1,14 +1,16 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { Contact } from '../../components/contact';
+import { ContentCard } from '../../components/content-card';
+import { ImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
-import { Contact } from '../../compositions/contact';
-import { ContentCard } from '../../compositions/content-card';
-import { ImageCard } from '../../compositions/image-card';
+import { TextBlock } from '../../components/text-block';
+import { Grid } from '../../compositions/grid';
+import { GridSlider } from '../../compositions/grid-slider';
 import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
-import { TextBlock } from '../../compositions/text-block';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
@@ -16,10 +18,9 @@ import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Award, Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { Copy } from '../../elements/copy';
-import { Clock } from '../../elements/icons';
-import { Grid } from '../../layouts/grid';
-import { GridSlider } from '../../layouts/grid-slider';
+import { Copy } from '../../identity/copy';
+import { Clock } from '../../identity/icons';
+import Page from '../../layouts/page';
 import { BlobVariations } from '../../utils/blob-variations';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -32,7 +33,7 @@ type Props = {
 };
 
 const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages }) => (
-  <div>
+  <Page>
     <PageHeader
       awards={awards}
       markdownTitle="Subsidia macht den Einzelhandel der Modebranche _mobil_."
@@ -158,7 +159,7 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages }
         </Grid>
       </PageSection>
     </main>
-  </div>
+  </Page>
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {

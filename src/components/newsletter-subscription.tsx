@@ -1,9 +1,9 @@
 import React, { FC, FormEvent, useState } from 'react';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import { Button } from '../elements/button';
-import { Input } from '../elements/input';
 import { Label } from '../elements/label';
 import { Tooltip } from '../elements/tooltip';
+import { Input } from '../identity/input';
 
 type Props = {
   className?: string;

@@ -1,10 +1,11 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { Contact } from '../../components/contact';
+import { ImageCard } from '../../components/image-card';
 import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
-import { Contact } from '../../compositions/contact';
-import { ImageCard } from '../../compositions/image-card';
+import { Grid } from '../../compositions/grid';
 import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
@@ -15,9 +16,9 @@ import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { Copy } from '../../elements/copy';
-import { Heading3 } from '../../elements/heading-3';
-import { Grid } from '../../layouts/grid';
+import { Copy } from '../../identity/copy';
+import { Heading3 } from '../../identity/heading-3';
+import Page from '../../layouts/page';
 import { BlobVariations } from '../../utils/blob-variations';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -29,7 +30,7 @@ type Props = {
 
 const Filialfinder: NextPage<Props> = ({ quote, contact, teasers }) => {
   return (
-    <div>
+    <Page>
       <PageHeader
         markdownTitle="Auf der Suche nach der nächsten _Migros-Filiale_."
         description="Noch kurz in die Migros. Oh, ist sie überhaupt noch offen? Und bekomme ich da überhaupt frischen Fisch? Oder, aus aktuellen, epidemiologischen Gründen: Wann sind am wenigsten Leute in meiner Migros-Filiale?"
@@ -137,7 +138,7 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers }) => {
           </Grid>
         </PageSection>
       </main>
-    </div>
+    </Page>
   );
 };
 

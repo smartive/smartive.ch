@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Heading2 } from '../elements/heading-2';
+import { Heading2 } from '../identity/heading-2';
 
 type Props = {
   title?: string;

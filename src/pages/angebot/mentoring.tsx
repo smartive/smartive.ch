@@ -1,8 +1,9 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { Contact } from '../../compositions/contact';
-import { ContentCard } from '../../compositions/content-card';
-import { ImageCard } from '../../compositions/image-card';
+import { Contact } from '../../components/contact';
+import { ContentCard } from '../../components/content-card';
+import { ImageCard } from '../../components/image-card';
+import { GridSlider } from '../../compositions/grid-slider';
 import { PageHeader, PageHeaderVariants } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { UnorderedList } from '../../compositions/unordered-list';
@@ -10,12 +11,12 @@ import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
-import { Copy } from '../../elements/copy';
-import { Heading2 } from '../../elements/heading-2';
-import { Clock } from '../../elements/icons';
 import { Label } from '../../elements/label';
 import { Link } from '../../elements/link';
-import { GridSlider } from '../../layouts/grid-slider';
+import { Copy } from '../../identity/copy';
+import { Heading2 } from '../../identity/heading-2';
+import { Clock } from '../../identity/icons';
+import Page from '../../layouts/page';
 import { BlobVariations } from '../../utils/blob-variations';
 
 type Props = {
@@ -26,7 +27,7 @@ type Props = {
 
 const Mentoring: NextPage<Props> = ({ contact, teasers, packages }) => {
   return (
-    <div>
+    <Page>
       <PageHeader
         markdownTitle="Mentoring"
         description="Profitier von einem erfahrenen Team und erhalte fortlaufend objektive Einschätzungen und Vorschläge für dein Projekt. Tausch dich in regelmässigen Jour fixes mit unseren Digital Strategists über dein Produkt und deine Strategie aus. Deine Ideen werden konstruktiv gechallenged. So kannst du dein Vorgehen festigen und gewinnst Sicherheit, dass du auf dem richtigen Weg bist."
@@ -107,7 +108,7 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages }) => {
           </GridSlider>
         </PageSection>
       </main>
-    </div>
+    </Page>
   );
 };
 

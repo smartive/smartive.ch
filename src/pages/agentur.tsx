@@ -2,15 +2,16 @@ import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import { Testimonial } from '../components/testimonial';
+import { TextBlock } from '../components/text-block';
+import { Grid } from '../compositions/grid';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
-import { TextBlock } from '../compositions/text-block';
 import Employees from '../data/employees.json';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
-import { Copy } from '../elements/copy';
 import { Link } from '../elements/link';
-import { Grid } from '../layouts/grid';
+import { Copy } from '../identity/copy';
+import Page from '../layouts/page';
 import { BlobVariations } from '../utils/blob-variations';
 
 const textBlocks = [
@@ -52,7 +53,7 @@ type Props = {
 
 const Agentur: NextPage<Props> = ({ quote }) => {
   return (
-    <div>
+    <Page>
       <PageHeader
         markdownTitle="Wir sind _smartive_. Wir stehen für digitale Lösungen und eine bizli andere Firmenkultur."
         description="Wir wollen einen Ort schaffen, an dem wir nicht nur arbeiten, sondern auch Freundschaft und Freiheit leben. Mit Platz für verschiedene Persönlichkeiten, Interessen und Entwicklung. Dies ermöglicht uns die volle Entfaltung unseres Potenzials."
@@ -187,7 +188,7 @@ const Agentur: NextPage<Props> = ({ quote }) => {
           </Grid>
         </PageSection>
       </main>
-    </div>
+    </Page>
   );
 };
 

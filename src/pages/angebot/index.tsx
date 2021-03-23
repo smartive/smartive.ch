@@ -1,8 +1,9 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
+import { Contact } from '../../components/contact';
+import { ContentCard } from '../../components/content-card';
 import { Testimonial } from '../../components/testimonial';
-import { Contact } from '../../compositions/contact';
-import { ContentCard } from '../../compositions/content-card';
+import { GridSlider } from '../../compositions/grid-slider';
 import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
@@ -11,10 +12,10 @@ import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Copy } from '../../elements/copy';
-import { Clock } from '../../elements/icons';
 import { Link } from '../../elements/link';
-import { GridSlider } from '../../layouts/grid-slider';
+import { Copy } from '../../identity/copy';
+import { Clock } from '../../identity/icons';
+import Page from '../../layouts/page';
 import { BlobVariations } from '../../utils/blob-variations';
 
 type Props = {
@@ -25,7 +26,7 @@ type Props = {
 
 const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
   return (
-    <div>
+    <Page>
       <PageHeader
         markdownTitle="Gemeinsam zu deinem _digitalen_ Produkt."
         description="Wir beraten, konzipieren und entwickeln. Unser Markenzeichen sind massgeschneiderte digitale Produkte. Unsere Kunden reichen vom Startup bis zur grössten Arbeitgeberin der Schweiz."
@@ -84,7 +85,7 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
           <Contact contact={contact} />
         </PageSection>
       </main>
-    </div>
+    </Page>
   );
 };
 

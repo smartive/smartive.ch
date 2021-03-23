@@ -1,14 +1,15 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { Contact } from '../../components/contact';
+import { ImageCard } from '../../components/image-card';
 import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
-import { Contact } from '../../compositions/contact';
-import { ImageCard } from '../../compositions/image-card';
+import { TextBlock } from '../../components/text-block';
+import { Grid } from '../../compositions/grid';
 import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
-import { TextBlock } from '../../compositions/text-block';
 import { UnorderedList } from '../../compositions/unordered-list';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
@@ -16,9 +17,9 @@ import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Award, Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { Copy } from '../../elements/copy';
 import { Link } from '../../elements/link';
-import { Grid } from '../../layouts/grid';
+import { Copy } from '../../identity/copy';
+import Page from '../../layouts/page';
 import { BlobVariations } from '../../utils/blob-variations';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -31,7 +32,7 @@ type Props = {
 
 const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
   return (
-    <div>
+    <Page>
       <PageHeader
         markdownTitle="Migipedia – _10 Jahre_ User im Mittelpunkt."
         description="Migipedia.ch ist seit 10 Jahren fester Bestandteil des digitalen Marketings der Migros und schafft Werte für Kundinnen und Kunden sowie fürs Unternehmen. Gemeinsam mit der Migros entwickelten wir eine komplett neue Lösung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor."
@@ -153,7 +154,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
           </Grid>
         </PageSection>
       </main>
-    </div>
+    </Page>
   );
 };
 

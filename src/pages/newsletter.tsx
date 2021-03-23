@@ -1,16 +1,17 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import React from 'react';
+import { Grid } from '../compositions/grid';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
-import { Copy } from '../elements/copy';
-import { Grid } from '../layouts/grid';
+import { Copy } from '../identity/copy';
+import Page from '../layouts/page';
 
 const NewsletterSubscription = dynamic(() => import('../components/newsletter-subscription'), { ssr: false });
 
 const Newsletter = () => {
   return (
-    <div>
+    <Page>
       <PageHeader markdownTitle="Neugierig, was bei uns läuft?">
         <Copy>
           Du willst wissen, woran wir gerade arbeiten und was hinter den Kulissen passiert? Toll! Genau dafür haben wir einen
@@ -74,7 +75,7 @@ const Newsletter = () => {
           </Grid>
         </PageSection>
       </main>
-    </div>
+    </Page>
   );
 };
 

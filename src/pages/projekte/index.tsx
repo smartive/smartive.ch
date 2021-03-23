@@ -1,9 +1,11 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { CustomersList } from '../../components/customers-list';
+import { Contact } from '../../components/contact';
+import { CustomerList } from '../../components/customer-list';
+import { ImageCard, ImageCardVariants } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
-import { Contact } from '../../compositions/contact';
-import { ImageCard, ImageCardVariants } from '../../compositions/image-card';
+import { Grid } from '../../compositions/grid';
+import { GridSlider } from '../../compositions/grid-slider';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { Customer } from '../../data/customers';
@@ -14,9 +16,8 @@ import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { Copy } from '../../elements/copy';
-import { Grid } from '../../layouts/grid';
-import { GridSlider } from '../../layouts/grid-slider';
+import { Copy } from '../../identity/copy';
+import Page from '../../layouts/page';
 import { BlobVariations } from '../../utils/blob-variations';
 
 type Props = {
@@ -29,7 +30,7 @@ type Props = {
 
 const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers }) => {
   return (
-    <div>
+    <Page>
       <PageHeader
         markdownTitle="Von der _Idee_ bis zum Go-live."
         description="Webapps, APIs und DevOps, für Grossunternehmen und Start-ups: Seit 2012 haben wir Brandneues auf die Beine gestellt, bestehende Lösungen analysiert und Projekte über viele Jahre begleitet und weiterentwickelt. Immer agil, massgeschneidert und mit Leidenschaft. Und wiederholt ausgezeichnet."
@@ -39,7 +40,7 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers })
           gestellt, bestehende Lösungen analysiert und Projekte über viele Jahre begleitet und weiterentwickelt. Immer agil,
           massgeschneidert und mit Leidenschaft. Und wiederholt ausgezeichnet.
         </Copy>
-        <CustomersList customers={customers} />
+        <CustomerList customers={customers} />
       </PageHeader>
 
       <main>
@@ -65,7 +66,7 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers })
           <Contact contact={contact} />
         </PageSection>
       </main>
-    </div>
+    </Page>
   );
 };
 

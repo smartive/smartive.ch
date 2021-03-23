@@ -1,16 +1,17 @@
 import { GetStaticProps, NextPage } from 'next';
+import { ContentCard } from '../../components/content-card';
+import { ImageCard } from '../../components/image-card';
+import { TextBlock } from '../../components/text-block';
+import { Grid } from '../../compositions/grid';
+import { GridSlider } from '../../compositions/grid-slider';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
-import { TextBlock } from '../../compositions/text-block';
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
-import { Copy } from '../../elements/copy';
-import { Grid } from '../../layouts/grid';
-import { GridSlider } from '../../layouts/grid-slider';
 import Teasers from '../../data/teasers.json';
-import { ContentCard } from '../../compositions/content-card';
-import { Clock } from '../../elements/icons';
-import { ImageCard } from '../../compositions/image-card';
+import { Copy } from '../../identity/copy';
+import { Clock } from '../../identity/icons';
+import Page from '../../layouts/page';
 
 type Props = {
   teasers: Teaser[];
@@ -18,7 +19,7 @@ type Props = {
 };
 
 const Mvp: NextPage<Props> = ({ teasers, packages }) => (
-  <div>
+  <Page>
     <PageHeader markdownTitle="So weisst du, dass die _Richtung_ stimmt.">
       <Copy>
         Ganz am Anfang definieren wir gemeinsam den Umfang des <strong>Earliest Testable Product</strong>, die erste
@@ -76,7 +77,7 @@ const Mvp: NextPage<Props> = ({ teasers, packages }) => (
         </Grid>
       </PageSection>
     </main>
-  </div>
+  </Page>
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {

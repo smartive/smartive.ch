@@ -1,16 +1,17 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
+import { Contact } from '../components/contact';
+import { EmployeeCard } from '../components/employee-card';
 import { Testimonial } from '../components/testimonial';
-import { Contact } from '../compositions/contact';
-import { EmployeeCard } from '../compositions/employee-card';
+import { Grid } from '../compositions/grid';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { Employee } from '../data/employees';
 import Employees from '../data/employees.json';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
-import { Copy } from '../elements/copy';
-import { Grid } from '../layouts/grid';
+import { Copy } from '../identity/copy';
+import Page from '../layouts/page';
 import { BlobVariations } from '../utils/blob-variations';
 
 type Props = {
@@ -21,7 +22,7 @@ type Props = {
 
 const Team: NextPage<Props> = ({ employees, contact, quote }) => {
   return (
-    <div>
+    <Page>
       <PageHeader
         markdownTitle="Wir konzipieren und kompostieren, entwickeln und verwickeln, beraten und bräteln, _gemeinsam_."
         description={`${employees.length} Menschen, eine Idee: Zusammen Herausforderungen stemmen und digitale Produkte schaffen, die herausragen. Und eine ungezwungene Atmosphäre: Wir pflegen die Freundschaft. Wir entscheiden zusammen. Wir geben allen das Vertrauen und die Freiheit, sich auf ihre Art einzubringen.`}
@@ -54,7 +55,7 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
           <Contact contact={contact} />
         </PageSection>
       </main>
-    </div>
+    </Page>
   );
 };
 

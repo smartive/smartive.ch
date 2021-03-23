@@ -2,15 +2,16 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/de';
 import { GetStaticProps, NextPage } from 'next';
 import React, { Fragment } from 'react';
-import { ContentCard } from '../compositions/content-card';
-import { ImageCard, ImageCardVariants } from '../compositions/image-card';
+import { ContentCard } from '../components/content-card';
+import { ImageCard, ImageCardVariants } from '../components/image-card';
+import { Grid } from '../compositions/grid';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { LinkedInArticle } from '../data/linkedin-articles';
 import LinkedInArticles from '../data/linkedin-articles.json';
-import { Copy } from '../elements/copy';
-import { Calendar } from '../elements/icons';
-import { Grid } from '../layouts/grid';
+import { Copy } from '../identity/copy';
+import { Calendar } from '../identity/icons';
+import Page from '../layouts/page';
 import { BlobVariations } from '../utils/blob-variations';
 
 type Props = {
@@ -19,7 +20,7 @@ type Props = {
 
 const Team: NextPage<Props> = ({ posts }) => {
   return (
-    <div>
+    <Page>
       <PageHeader
         markdownTitle="Code and Culture: Einblicke von unserem Team"
         description="Wenn wir schreiben, schreiben wir meist Code. Hier schreiben wir für einmal über alles, was dahinter steckt – über unsere Firmenkultur und wie wir uns organisieren, welche Ansätze und Technologien bei uns gerade hoch im Kurs sind und wie wir persönliche und technische Herausforderungen meistern. Wirf einen Blick hinter die Kulissen!"
@@ -67,7 +68,7 @@ const Team: NextPage<Props> = ({ posts }) => {
           </Grid>
         </PageSection>
       </main>
-    </div>
+    </Page>
   );
 };
 

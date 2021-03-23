@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { Url } from 'url';
-import { Copy } from '../elements/copy';
-import { Heading3 } from '../elements/heading-3';
 import { Link } from '../elements/link';
+import { Copy } from '../identity/copy';
+import { Heading3 } from '../identity/heading-3';
 
 type Props = {
   title: string;

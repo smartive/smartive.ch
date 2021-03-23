@@ -7,7 +7,7 @@ type Props = {
   customers: Customer[];
 };
 
-export const CustomersList: FC<Props> = ({ customers }) => {
+export const CustomerList: FC<Props> = ({ customers }) => {
   const plausible = usePlausible();
 
   return (

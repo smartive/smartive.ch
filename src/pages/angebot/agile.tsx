@@ -1,23 +1,24 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
+import { ImageCard } from '../../components/image-card';
 import { ImagePosition, Keyfigure } from '../../components/keyfigure';
-import { ImageCard } from '../../compositions/image-card';
+import { TextBlock } from '../../components/text-block';
+import { Grid } from '../../compositions/grid';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
-import { TextBlock } from '../../compositions/text-block';
 import { UnorderedList } from '../../compositions/unordered-list';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { Copy } from '../../elements/copy';
-import { Heading3 } from '../../elements/heading-3';
-import { Grid } from '../../layouts/grid';
+import { Copy } from '../../identity/copy';
+import { Heading3 } from '../../identity/heading-3';
+import Page from '../../layouts/page';
 
 type Props = {
   teasers: Teaser[];
 };
 
 const Agile: NextPage<Props> = ({ teasers }) => (
-  <div>
+  <Page>
     <PageHeader markdownTitle="Was ist dieses _Scrum_?">
       <Copy>Unsere bevorzugte Spielart von agiler Entwicklung. Der Rahmen, der Scrum vorgibt:</Copy>
     </PageHeader>
@@ -82,7 +83,7 @@ const Agile: NextPage<Props> = ({ teasers }) => (
         </Grid>
       </PageSection>
     </main>
-  </div>
+  </Page>
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {

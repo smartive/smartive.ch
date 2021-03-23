@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Decoration } from '../elements/decoration';
+import { Decoration } from '../identity/decoration';
 
 /**
  * Removes Markdown characters from string.

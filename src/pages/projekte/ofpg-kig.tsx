@@ -1,14 +1,15 @@
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+import { Contact } from '../../components/contact';
+import { ImageCard } from '../../components/image-card';
 import { Keyfigure } from '../../components/keyfigure';
 import { Testimonial } from '../../components/testimonial';
-import { Contact } from '../../compositions/contact';
-import { ImageCard } from '../../compositions/image-card';
+import { TextBlock } from '../../components/text-block';
+import { Grid } from '../../compositions/grid';
 import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
-import { TextBlock } from '../../compositions/text-block';
 import { UnorderedList } from '../../compositions/unordered-list';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
@@ -16,10 +17,10 @@ import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { Copy } from '../../elements/copy';
-import { Heading3 } from '../../elements/heading-3';
 import { Link } from '../../elements/link';
-import { Grid } from '../../layouts/grid';
+import { Copy } from '../../identity/copy';
+import { Heading3 } from '../../identity/heading-3';
+import Page from '../../layouts/page';
 import { BlobVariations } from '../../utils/blob-variations';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -31,7 +32,7 @@ type Props = {
 
 const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
   return (
-    <div>
+    <Page>
       <PageHeader
         markdownTitle="Aus über 1ʼ700 Angeboten die richtige _Hilfe_ finden."
         description="Das Ostschweizer Forum für Psychische Gesundheit hat ein grosses Netzwerk an Anbietern für Unterstützungsangebote im Bereich Gesundheit und Soziales. Bisher gab es keinen einfachen Zugang zu diesen Angeboten. Hier schufen wir Abhilfe mit einem zentralen Tool zur Verwaltung und einem Widget für den Zugriff."
@@ -163,7 +164,7 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
           </Grid>
         </PageSection>
       </main>
-    </div>
+    </Page>
   );
 };
 

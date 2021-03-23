@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React, { FC, ReactNode } from 'react';
 import { Url } from 'url';
-import { Blob, PositionX, PositionY } from '../components/blob';
-import { Heading3 } from '../elements/heading-3';
+import { Blob, PositionX, PositionY } from '../elements/blob';
+import { Heading3 } from '../identity/heading-3';
 import { BrandColor, getContrastColor, mapColorToBG } from '../utils/colors';
 
 export type ContentCardProps = {
