@@ -11,7 +11,7 @@ type Props = {
   button?: string;
 };
 
-const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button = 'Newsletter jetzt abonnieren' }) => {
+const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button = 'Jetzt abonnieren' }) => {
   const [email, setEmail] = useState('');
   const mailchimpPrevState = useRef('');
   const [notification, setNotification] = useState('');
@@ -55,7 +55,7 @@ const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button 
         return (
           <div className={className}>
             <form
-              className="grid grid-flow-row lg:grid-flow-col gap-2 lg:place-items-end"
+              className="grid grid-flow-row xl:grid-flow-col gap-2 xl:place-items-end"
               onSubmit={(event) => handleSubmit(event, subscribe)}
             >
               <Label as="label" className="grid grid-flow-row">
@@ -71,7 +71,7 @@ const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button 
                   />
                 </Tooltip>
               </Label>
-              <Button type="submit" disabled={status === 'sending'}>
+              <Button type="submit" disabled={status === 'sending'} className="xl:min-w-[16rem]">
                 <span className="font-sans font-bold text-sm xl:text-base">{status === 'sending' ? '...' : button}</span>
               </Button>
             </form>

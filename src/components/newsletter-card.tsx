@@ -21,11 +21,7 @@ export const NewsletterCard: FC<Props> = ({ className = '', blobs = [], backgrou
     <Heading2 as="p" className="z-10">
       Wir schreiben nicht nur Code, sondern auch E-Mails. Auch dir, wenn du willst.
     </Heading2>
-    <NewsletterSubscription
-      label="Newsletter"
-      className="text-left z-10 overflow-hidden sm:overflow-visible"
-      button="Jetzt abonnieren"
-    />
+    <NewsletterSubscription label="Newsletter" className="text-left z-10 overflow-hidden sm:overflow-visible" />
     {blobs.map(({ color, positionX, positionY }, index) => (
       <Blob key={index} positionX={positionX} positionY={positionY} color={color} />
     ))}
