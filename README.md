@@ -3,10 +3,9 @@
 ## Setup
 
 1. `npm ci`
-2. `cp .env.dist .env`
-3. `npm run develop`
-4. ???
-5. Profit!
+2. `npm run develop`
+3. ???
+4. Profit!
 
 ## Contributing
 
