@@ -17,7 +17,7 @@ const Address = {
 } as const;
 
 export const Footer: FC = () => (
-  <footer className="bg-apricot-500">
+  <footer className="bg-cornflower-500">
     <div className="container mx-auto px-4 pt-24 xl:pt-32 pb-8 h-full">
       <Label as="div" className="hidden lg:grid grid-cols-4 grid-flow-row items-end justify-items-center">
         <address
