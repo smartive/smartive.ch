@@ -37,7 +37,7 @@ export const Tooltip: FC<Props> = ({ children, text, isOpen }) => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="bg-mint-500 py-2 px-4 rounded"
+              className="bg-mint-500 py-2 px-4 mr-6 border border-black rounded z-30"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
@@ -45,7 +45,7 @@ export const Tooltip: FC<Props> = ({ children, text, isOpen }) => {
               {...layerProps}
             >
               {text}
-              <Arrow {...arrowProps} backgroundColor="#7DDDD1" />
+              <Arrow {...arrowProps} backgroundColor="#7DDDD1" borderColor="#252525" borderWidth={1} />
             </motion.div>
           )}
         </AnimatePresence>

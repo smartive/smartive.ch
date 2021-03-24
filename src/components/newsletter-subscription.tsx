@@ -1,4 +1,4 @@
-import React, { FC, FormEvent, useState } from 'react';
+import React, { FC, FormEvent, useRef, useState } from 'react';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import { Button } from '../elements/button';
 import { Label } from '../elements/label';
@@ -13,6 +13,7 @@ type Props = {
 
 const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button = 'Newsletter jetzt abonnieren' }) => {
   const [email, setEmail] = useState('');
+  const mailchimpPrevState = useRef('');
   const [notification, setNotification] = useState('');
 
   const handleChange = (event) => {
@@ -29,22 +30,26 @@ const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button 
     <MailchimpSubscribe
       url={process.env.NEXT_PUBLIC_MAILCHIMP_NEWSLETTER}
       render={({ subscribe, status, message }) => {
-        switch (status) {
-          case 'success':
-            setNotification('Danke für dein Interesse! Du solltest eine E-Mail von uns bekomment haben.');
-            setEmail('');
-            break;
-          case 'error':
-            setNotification(
-              message.includes('already subscribed')
-                ? 'Du bekommst unseren Newsletter bereits!'
-                : message.includes('address is invalid')
-                ? 'Diese E-Mail-Addresse sieht leider nicht ganz richtig aus.'
-                : 'Uups, etwas ist schief gelaufen. Sorry.'
-            );
-            break;
-          default:
-            break;
+        if (mailchimpPrevState.current !== status) {
+          switch (status) {
+            case 'success':
+              setNotification('Danke für dein Interesse! Du solltest eine E-Mail von uns bekomment haben.');
+              setEmail('');
+              break;
+            case 'error':
+              setNotification(
+                message.includes('already subscribed')
+                  ? 'Du bekommst unseren Newsletter bereits!'
+                  : message.includes('address is invalid')
+                  ? 'Diese E-Mail-Addresse sieht leider nicht ganz richtig aus.'
+                  : 'Uups, etwas ist schief gelaufen. Sorry.'
+              );
+              break;
+            default:
+              break;
+          }
+
+          mailchimpPrevState.current = status;
         }
 
         return (
