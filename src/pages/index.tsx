@@ -6,6 +6,7 @@ import { ContentCard } from '../components/content-card';
 import { CustomerList } from '../components/customer-list';
 import { ImageCard } from '../components/image-card';
 import { NewsletterCard } from '../components/newsletter-card';
+import { PackageList } from '../compositions/package-list';
 import { Testimonial } from '../components/testimonial';
 import { GridSlider } from '../compositions/grid-slider';
 import { LinkList } from '../compositions/link-list';
@@ -19,7 +20,6 @@ import Packages, { Package } from '../data/packages';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
 import { Copy } from '../identity/copy';
-import { Clock } from '../identity/icons';
 import { Page } from '../layouts/page';
 import { BlobVariations } from '../utils/blob-variations';
 
@@ -97,20 +97,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
             In welcher Phase steckt dein Projekt? Mit unserer langjährigen Expertise unterstützen wir dich von der Idee bis
             über den Go-live hinaus.
           </Copy>
-          <GridSlider>
-            {packages.map(({ label, ...paeckli }) => (
-              <ContentCard
-                {...paeckli}
-                key={paeckli.title}
-                label={
-                  <>
-                    <Clock className="h-4 w-4 mr-2 inline" />
-                    {label}
-                  </>
-                }
-              />
-            ))}
-          </GridSlider>
+          <PackageList packages={packages} />
         </PageSection>
         <PageSection>
           <NewsletterCard background="cornflower" blobs={BlobVariations.cornflower[2]} />

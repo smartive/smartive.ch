@@ -2,12 +2,11 @@ import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import { Contact } from '../../components/contact';
-import { ContentCard } from '../../components/content-card';
 import { ImageCard } from '../../components/image-card';
+import { PackageList } from '../../compositions/package-list';
 import { Testimonial } from '../../components/testimonial';
 import { TextBlock } from '../../components/text-block';
 import { Grid } from '../../compositions/grid';
-import { GridSlider } from '../../compositions/grid-slider';
 import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
@@ -19,7 +18,6 @@ import Quotes from '../../data/quotes.json';
 import { Award, Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Copy } from '../../identity/copy';
-import { Clock } from '../../identity/icons';
 import { Page } from '../../layouts/page';
 import { BlobVariations } from '../../utils/blob-variations';
 import { getRandomTeasers } from '../../utils/teasers';
@@ -136,20 +134,7 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages }
         </Contact>
       </PageSection>
       <PageSection title="Du willst mehr wissen? Das haben wir mit Subsidia gemacht:">
-        <GridSlider>
-          {packages.map((paeckli) => (
-            <ContentCard
-              key={paeckli.title}
-              {...paeckli}
-              label={
-                <>
-                  <Clock className="h-4 w-4 mr-2 inline" />
-                  {paeckli.label}
-                </>
-              }
-            />
-          ))}
-        </GridSlider>
+        <PackageList packages={packages} />
       </PageSection>
       <PageSection title="Weitere Erfolgsgeschichten">
         <Grid cols={3}>

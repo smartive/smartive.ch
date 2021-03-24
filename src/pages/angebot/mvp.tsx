@@ -1,16 +1,15 @@
 import { GetStaticProps, NextPage } from 'next';
-import { ContentCard } from '../../components/content-card';
+import React from 'react';
 import { ImageCard } from '../../components/image-card';
+import { PackageList } from '../../compositions/package-list';
 import { TextBlock } from '../../components/text-block';
 import { Grid } from '../../compositions/grid';
-import { GridSlider } from '../../compositions/grid-slider';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Copy } from '../../identity/copy';
-import { Clock } from '../../identity/icons';
 import { Page } from '../../layouts/page';
 
 type Props = {
@@ -47,20 +46,7 @@ const Mvp: NextPage<Props> = ({ teasers, packages }) => (
         </Grid>
       </PageSection>
       <PageSection title="Mit diesen Angeboten kommst du zu deinem Earliest Lovable Product">
-        <GridSlider>
-          {packages.map(({ label, ...paeckli }) => (
-            <ContentCard
-              {...paeckli}
-              key={paeckli.title}
-              label={
-                <>
-                  <Clock className="h-4 w-4 mr-2 inline" />
-                  {label}
-                </>
-              }
-            />
-          ))}
-        </GridSlider>
+        <PackageList packages={packages} />
       </PageSection>
       <PageSection title="Diesen Projekten haben wir so zum Erfolg verholfen">
         <Grid cols={3}>

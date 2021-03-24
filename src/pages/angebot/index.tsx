@@ -1,9 +1,8 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
-import { ContentCard } from '../../components/content-card';
+import { PackageList } from '../../compositions/package-list';
 import { Testimonial } from '../../components/testimonial';
-import { GridSlider } from '../../compositions/grid-slider';
 import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
@@ -14,7 +13,6 @@ import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Link } from '../../elements/link';
 import { Copy } from '../../identity/copy';
-import { Clock } from '../../identity/icons';
 import { Page } from '../../layouts/page';
 import { BlobVariations } from '../../utils/blob-variations';
 
@@ -62,20 +60,7 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
             der Schublade, auch wenn es noch nicht alles kann.
           </Copy>
           <Copy>Vielleicht ist eins der folgenden Angebote etwas für dich?</Copy>
-          <GridSlider>
-            {packages.map(({ label, ...paeckli }) => (
-              <ContentCard
-                {...paeckli}
-                key={paeckli.title}
-                label={
-                  <>
-                    <Clock className="h-4 w-4 mr-2 inline" />
-                    {label}
-                  </>
-                }
-              />
-            ))}
-          </GridSlider>
+          <PackageList packages={packages} />
         </PageSection>
         <PageSection>
           <Contact contact={contact} />

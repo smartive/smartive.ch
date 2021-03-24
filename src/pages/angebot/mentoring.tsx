@@ -1,8 +1,8 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
-import { ContentCard } from '../../components/content-card';
 import { ImageCard } from '../../components/image-card';
+import { PackageList } from '../../compositions/package-list';
 import { GridSlider } from '../../compositions/grid-slider';
 import { PageHeader, PageHeaderVariants } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
@@ -92,20 +92,7 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages }) => {
             </>
           )}
           <Heading2>Kannst du gut parallel zum Mentoring machen:</Heading2>
-          <GridSlider>
-            {packages.map((paeckli) => (
-              <ContentCard
-                key={paeckli.title}
-                {...paeckli}
-                label={
-                  <>
-                    <Clock className="h-4 w-4 mr-2 inline" />
-                    {paeckli.label}
-                  </>
-                }
-              />
-            ))}
-          </GridSlider>
+          <PackageList packages={packages} />
         </PageSection>
       </main>
     </Page>
