@@ -40,12 +40,9 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
             {employees.slice(0, Math.floor(employees.length / 2)).map((employee) => (
               <EmployeeCard key={employee.email} employee={employee} />
             ))}
-            <Testimonial
-              className="col-start-1 md:col-span-2 lg:col-span-3"
-              background="mint"
-              blobs={BlobVariations.mint[0]}
-              quote={quote}
-            />
+          </Grid>
+          <Testimonial background="mint" blobs={BlobVariations.mint[0]} quote={quote} />
+          <Grid cols={3}>
             {employees.slice(Math.floor(employees.length / 2)).map((employee) => (
               <EmployeeCard key={employee.email} employee={employee} />
             ))}
