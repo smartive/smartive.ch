@@ -42,8 +42,8 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
           Sie ist nun die zentrale Anlaufstellt für alle Migros-Rezepte und wird von Migusto, Famigros und iMpuls benutzt.
         </Copy>
         <Copy>
-          In Echtzeit (und verdammt schnell 🚀) liefert die GraphQL-Schnittstelle Rezeptdaten aus. Aber nicht nur das, dank
-          einer intelligenten Suche ist sie auch das Rückgrat der Migusto-Suchfunktion.
+          In Echtzeit (und rasant 🚀) liefert die GraphQL-Schnittstelle Rezeptdaten aus. Aber nicht nur das, dank einer
+          intelligenten Suche ist sie auch das Rückgrat der Migusto-Suchfunktion.
         </Copy>
         <LinkList
           links={[
@@ -116,7 +116,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
             height={800}
           />
         </PageSection>
-        <PageSection title="Schnell zum richtigen Rezept.">
+        <PageSection title="Sofort das richtige Rezept">
           <Copy>
             Die Migusto-Webseite ist auf eine blitzschnelle Suche angewiesen. Die Rezepte-API bietet Volltextsuche in einer
             grossen Anzahl von Rezepten, kombinierbar mit Filterung nach Kategorien wie z.B. &ldquo;vegan&rdquo; und

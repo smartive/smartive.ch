@@ -63,7 +63,12 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers })
           </Grid>
         </PageSection>
         <PageSection>
-          <Contact contact={contact} />
+          <Contact contact={contact}>
+            <>
+              Du hast eine Idee? <br />
+              Besprich sie mit {contact.firstname}!
+            </>
+          </Contact>
         </PageSection>
       </main>
     </Page>

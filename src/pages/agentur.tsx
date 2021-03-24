@@ -170,7 +170,7 @@ const Agentur: NextPage<Props> = ({ quote }) => {
             </TextBlock>
             <TextBlock title="Zwölf Teilhaber*innen" number={12}>
               Darauf sind wir stolz: Zwölf unserer {Object.values(Employees).length} Mitarbeitenden besitzen smartive-Aktien.
-              Es gibt keine externen Aktionär*innen oder Stakeholder.
+              Es gibt keine externen Aktionärinnen oder Stakeholder.
             </TextBlock>
             <TextBlock title="Anderthalb Dutzend" number={Object.values(Employees).length}>
               Heute kommen {Object.values(Employees).length} Mitarbeitende in Zürich zusammen und bringen ihre Fähigkeiten

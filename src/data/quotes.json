@@ -10,23 +10,24 @@
     "credit": "Setareh Gharibi, HackZurich and Digital Festival Enthusiast"
   },
   "marc-frontify": {
-    "text": "Die Zusammenarbeit mit smartive zeichnet insbesondere Einfachheit, Flexibilität und die enorme digitale Expertise aus. Der Dialog und die Kundenbedürfnisse stehen klar im Fokus.",
+    "text": "Die Zusammenarbeit mit smartive zeichnet sich durch einen Dialog auf Augenhöhe und die enorme digitale Expertise aus.",
     "portrait": "/images/portraits/marc-frontify.jpg",
     "credit": "Marc Oertle, Head of Engineering bei Frontify"
   },
   "benj-scrum": {
-    "text": "Mit der agilen Vorgehensweise können wir komplexe Projekte mit minimalem Overhead durchführen. Offenheit und Transparenz werden gefördert.",
+    "excerpt": "Minimaler Overhead",
+    "text": "Die agile Vorgehensweise lässt uns komplexe Projekte mit minimalem Overhead durchführen und fördert Offenheit und Transparenz",
     "portrait": "/images/employees/portraits/benjamin.jpg",
     "credit": "Benjamin, Unser Scrum Master"
   },
   "diego-subsidia": {
-    "text": "Expertise und Erfahrung von smartive sind aussergewöhnlich. Wir sind glücklich, dass wir nun auch bei der Umsetzung auf smartive zählen können.",
+    "text": "Die Erfahrung von smartive ist aussergewöhnlich. Wir sind glücklich, bei der Umsetzung auf smartive zählen zu können.",
     "portrait": "/images/portraits/diego-goldener.jpg",
     "credit": "Diego Goldener, CEO Subsidia"
   },
   "philipp-migipedia": {
     "excerpt": "Die _Community_ ist so aktiv wie nie zuvor",
-    "text": "Der Einsatz einer für uns massgeschneiderten, modernen und performanten Technologie ist sozusagen das Lebenselixier und vielleicht der wichtigste Grund dafür, dass die Community heute so aktiv ist wie nie zuvor.",
+    "text": "Der Einsatz einer massgeschneiderten, performanten Technologie ist sozusagen das Lebenselixier der Migros-Community.",
     "portrait": "/images/portraits/philipp-buehler.jpg",
     "credit": "Philipp Bühler, Senior Product Owner Migipedia & Brand"
   },
@@ -34,34 +35,34 @@
     "portrait": "/images/portraits/daniel-schoenmann.jpg",
     "excerpt": "Getestet, Entwickelt und die Ziele _schnell_ erreicht",
     "credit": "Daniel Schönmann, Shared Information Services, Migros-Genossenschafts-Bund",
-    "text": "Innerhalb kürzester Zeit konnten wir durch den PWA Ansatz einen PoC beim Lieferanten testen und die Entwicklung des MVP starten. Die PWA läuft sehr schnell, stabil und ist auf allen Geräten verfügbar und die gesteckten Effizienzziele wurden bereits erreicht."
+    "text": "Innert kürzester Zeit konnten wir durch den PWA-Ansatz einen PoC testen und die Entwicklung des MVP starten. Die gesteckten Effizienzziele wurden bereits erreicht."
   },
   "desiree-migusto": {
     "portrait": "/images/portraits/desiree-poffet.jpg",
     "credit": "Désirée Poffet, Projektleiterin Digital Platforms & Product Owner migusto.ch",
     "excerpt": "Basis für _flexible und nachhaltige_ Rezepte",
-    "text": "Die Rezept-API bildet die Basis für eine flexible sowie nachhaltige Nutzung der Rezept-Daten. Die performante API ermöglicht eine plattformunabhängige Nutzung der Rezepte und bietet dem Benutzer eine State-of-the-Art Suche an. Im Backend steht ein Playground für laufende Analysen und Optimierungen des Algorithmus der Volltextsuche zur Verfügung."
+    "text": "Die Rezepte-API legt die Basis für eine flexible und nachhaltige Nutzung der Rezept-Daten. Sie ermöglicht eine plattformunabhängige Nutzung und eine State-of-the-Art Suche."
   },
   "coco-partner": {
     "portrait": "/images/portraits/coco-petit.jpg",
-    "excerpt": "ein Partner auf Augenhöhe",
-    "text": "Wer nicht nur eine Umsetzungs-Agentur sucht, sondern einen Partner auf Augenhöhe, der dich challenged und doch alles möglich macht, der ist bei smartive goldrichtig.",
+    "excerpt": "Ein Partner auf Augenhöhe",
+    "text": "Wer nicht nur eine Umsetzungs-Agentur sucht, sondern einen Partner auf Augenhöhe, der kritisch nachfragt und doch alles möglich macht, ist bei smartive goldrichtig.",
     "credit": "Corinne Petit, Agile Coach & Technical Product Owner beim Migros-Genossenschafts-Bund"
   },
   "fabrina-kig": {
     "portrait": "/images/portraits/fabrina-cerf.jpg",
-    "excerpt": "Moderne Weblösung",
-    "text": "Das Projekt stösst auf sehr positives Feedback und grosses Interesse bei anderen Kantonen und Organisationen. Durch die Erfahrung und Kompetenz von smartive konnten wir dieses Projekt als moderne Weblösung realisieren.",
+    "excerpt": "Moderne Weblösung, die ankommt",
+    "text": "Die moderne Weblösung von smartive stösst auf sehr positives Feedback und grosses Interesse bei anderen Kantonen und Organisationen.",
     "credit": "Fabrina Cerf, Fachstelle Psychische Gesundheit, Kanton St.Gallen"
   },
   "coco-fil": {
     "portrait": "/images/portraits/coco-petit.jpg",
-    "text": "Schnell, Service orientiert und professionell – und vor allem hat die Zusammenarbeit auch immer Spass gemacht!",
+    "text": "smartive ist Schnell, serviceorientiert und professionell – und vor allem hat die Zusammenarbeit auch immer Spass gemacht!",
     "credit": "Corinne Petit, Agile Coach & Technical Product Owner beim Migros-Genossenschafts-Bund"
   },
   "danijela-dimmi": {
     "portrait": "/images/portraits/danijela-nikolic.jpg",
-    "text": "Die angenehme Zusammenarbeit und offene Kommunikation ermöglichte es, dieses komplexe Projekt in der kurzen Zeit umzusetzen.",
+    "text": "Die angenehme Zusammenarbeit und offene Kommunikation ermöglichte es, dieses komplexe Projekt in kurzer Zeit umzusetzen.",
     "credit": "Danijela Nikolic, Migros-Genossenschafts-Bund (MGB)"
   },
   "stefan-cosmo": {
@@ -71,12 +72,12 @@
   },
   "coco-msrc": {
     "portrait": "/images/portraits/coco-petit.jpg",
-    "text": "Der Code den smartive schreibt, ist sauber und von sehr hoher Qualität. Das wird mir immer wieder bestätigt.",
+    "text": "Der Code, den smartive schreibt, ist sauber und von sehr hoher Qualität. Das wird mir immer wieder bestätigt.",
     "credit": "Corinne Petit, Agile Coach & Technical Product Owner beim Migros-Genossenschafts-Bund"
   },
   "dominique-kultur": {
     "portrait": "/images/employees/portraits/dominique.jpg",
-    "text": "Was ist zentral für eine gesunde Kultur? Probleme auf den Tisch zu bringen und sie zu lösen — mit der Unterstützung von allen.",
+    "text": "Was ist zentral für eine gesunde Kultur? Probleme auf den Tisch bringen und sie lösen — mit der Unterstützung von allen.",
     "credit": "Dominique, einer von uns"
   }
 }

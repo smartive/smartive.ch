@@ -10,6 +10,7 @@ import { UnorderedList } from '../../compositions/unordered-list';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Copy } from '../../identity/copy';
+import { Heading3 } from '../../identity/heading-3';
 import { Page } from '../../layouts/page';
 
 type Props = {
@@ -19,9 +20,24 @@ type Props = {
 const Agile: NextPage<Props> = ({ teasers }) => (
   <Page>
     <PageHeader markdownTitle="Was ist dieses _Scrum_?">
-      <Copy>Scrum ist unsere bevorzugte Spielart von agiler Entwicklung und gibt den folgenden Rahmen vor:</Copy>
+      <Copy>
+        Scrum ist unsere bevorzugte Spielart von agiler Entwicklung. Scrum gibt einen Rahmen für die Zusammenarbeit vor, der
+        so viel absteckt wie nötig und so viel Freiraum lässt wie möglich.
+      </Copy>
     </PageHeader>
+
     <main>
+      <Heading3>Scrum-Bausteine: Sprints & User Stories</Heading3>
+      <Copy>
+        <strong>Sprints</strong> dauern zwei Wochen. Eine Iteration umfasst ein Meeting zum Planen, die Umsetzung der
+        definierten Anforderungen und ein Meeting zum Zurückschauen, woran sich gleich wieder die Planung des nächsten
+        Sprints anschliesst.
+      </Copy>
+      <Copy>
+        Die Basis für Planung und Umsetzung sind <strong>User Stories</strong>. Darin sind die Anforderungen aus der Sicht
+        eines Benutzers fixiert.
+      </Copy>
+
       <PageSection>
         <Keyfigure
           image={
@@ -37,13 +53,11 @@ const Agile: NextPage<Props> = ({ teasers }) => (
           imagePosition={ImagePosition.after}
         >
           <UnorderedList
-            title="Was braucht's für Scrum?"
+            title="Ablauf eines Sprints"
             items={[
-              'Wir arbeiten in zweiwöchigen Iterationen (Sprints).',
-              'Anforderungen werden als User Stories fixiert.',
-              'Vor jedem Sprint wird der Inhalt und Umfang geplant: Das Team schätzt gemeinsam die Komplexität der einzelnen User Stories und du setzt fest, was in welcher Reihenfolge umgesetzt werden soll.',
-              'Am Ende des Sprints präsentieren wir die abgeschlossenen Stories – laufend und interaktiv. Eine der wichtigsten Regeln der agilen Entwicklung ist nämlich, stets ein lauffähiges Produkt zu haben.',
-              'Zusätzlich blicken wir gemeinsam auf den Sprint zurück: Was ist gut gelaufen, wie können wir die Zusammenarbeit verbessern?',
+              'Vor dem Sprint planen wir gemeinsam Inhalt und Umfang: Das Team schätzt die Komplexität der User Stories und du setzt fest, was umgesetzt werden soll.',
+              'Während der Umsetzung diskutiert das Team abgeschlossene und anstehende Aufgaben am Daily. Das Scrum Board bildet den Fortschritt ab.',
+              'Am Ende des Sprints präsentieren wir die abgeschlossenen Stories – als lauffähiges, interaktives Produkt. Gemeinsam blicken wir auf den Sprint zurück: Was ist gut gelaufen, wie können wir die Zusammenarbeit verbessern?',
             ]}
             markerColor="apricot"
           />
@@ -53,11 +67,11 @@ const Agile: NextPage<Props> = ({ teasers }) => (
           <TextBlock title="Product Owner">
             Das bist du oder jemand aus deinem Team. Wichtig ist, dass die Person Entscheidungen treffen kann und will. Der
             Product Owner priorisiert die Aufgaben und Anforderungen und vertritt das Produkt gegenüber sämtlichen
-            Stakeholdern – inklusive uns.
+            Stakeholder*innen – inklusive uns.
           </TextBlock>
           <TextBlock title="Product Owner Assistant">
             Product Owner Assistant ist jemand aus unserem Team. Nebst Moderator*in zwischen Entwicklungsteam und Product
-            Owner ist er/sie auch Ansprechsperson für sämtliche Stakeholders.
+            Owner ist er/sie auch Ansprechsperson für sämtliche Stakeholder*innen.
           </TextBlock>
           <TextBlock title="Scrum Master">
             Der Scrum Master sorgt dafür, dass das Team effizient arbeiten kann. Er schafft Probleme und Hindernisse aller

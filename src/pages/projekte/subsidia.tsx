@@ -132,7 +132,7 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages }
       <PageSection>
         <Contact contact={contact}>
           Auch heute unterstützt {contact.firstname} Subsidia noch.
-          <br /> Du willst mehr wissen? Melde dich bei ihm.
+          <br /> Interessiert? Er gibt gern Auskunft!
         </Contact>
       </PageSection>
       <PageSection title="Du willst mehr wissen? Das haben wir mit Subsidia gemacht:">

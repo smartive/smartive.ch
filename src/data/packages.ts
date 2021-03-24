@@ -14,8 +14,7 @@ export default {
   'ideation-sprint': {
     label: '2–5 Tage',
     title: 'Ideation Sprint',
-    content:
-      'Gewinn ein besseres Verständnis für die Bedürfnisse deiner Nutzer und zieh daraus praktikable Ideen. Erhalte einen ersten visuellen Prototypen und hol Feedback deiner Kunden ein.',
+    content: 'Gewinn ein besseres Verständnis für die Bedürfnisse deiner Nutzer und zieh daraus umsetzbare Ideen.',
     link: {
       label: 'Wie geht das?',
       href: '/angebot/ideation-sprint',
@@ -47,7 +46,7 @@ export default {
     label: '2–5 Tage',
     title: 'Solution Review',
     content:
-      'Erhalte eine objektive Einschätzung der Chancen und Risiken deines digitalen Produkts sowie einen klaren Massnahmenplan mit Verbesserungsvorschlägen.',
+      'Erhalte eine objektive Einschätzung der Chancen und Risiken deines digitalen Produkts sowie einen klaren Massnahmenplan.',
     link: {
       label: 'Weitere Infos',
       href: '/angebot/solution-review',

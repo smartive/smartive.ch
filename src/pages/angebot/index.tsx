@@ -33,17 +33,13 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
       >
         <Copy>
           Wir beraten, konzipieren und entwickeln. Unser Markenzeichen sind massgeschneiderte digitale Produkte. Unsere
-          Kunden reichen vom Startup bis zur grössten Arbeitgeberin der Schweiz.
-        </Copy>
-        <Copy>
-          Wir sind überzeugt, dass die besten Resultate gemeinsam in einem iterativen Vorgehen entstehen. Was wir darunter
-          verstehen, erfährst du unten. Oder du wirfst einen Blick auf <Link href="/projekte">die Projekte</Link>, die wir
-          umgesetzt haben.
+          Kunden reichen vom Startup bis zur grössten Arbeitgeberin der Schweiz. Mehr dazu? Wirf einen Blick auf{' '}
+          <Link href="/projekte">die Projekte</Link>, die wir umgesetzt haben.
         </Copy>
       </PageHeader>
 
       <main>
-        <PageSection title="Wir arbeiten agil.">
+        <PageSection title="Unser Vorgehen">
           <Copy>
             Wir arbeiten agil. Klingt gut, hat aber auch gute Gründe: Wir möchten nicht die Katze im Sack verkaufen. Und wir
             möchten etwas schaffen, das dich, deine Kund*innen und uns überzeugt. Mit Scrum stellen wir sicher, dass dein
@@ -61,11 +57,11 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
         </PageSection>
         <PageSection title="Etwas für jede Projektphase.">
           <Copy>
-            Das Wichtigste zuerst: Unser Ziel ist es, dein Produkt zusammen mit dir so schnell wie möglich an deine Nutzer zu
-            bringen. Denn wir glauben, dass ein Produkt in den Händen der Nutzer mehr Wert bringt als ein Produkt in der
-            Schublade, auch wenn es noch nicht alles kann.
+            Das Wichtigste zuerst: Unser Ziel ist es, dein Produkt zusammen mit dir so schnell wie möglich zu deinen Nutzern
+            zu bringen. Denn wir glauben, dass ein Produkt in den Händen der Nutzerinnen mehr Wert bringt als ein Produkt in
+            der Schublade, auch wenn es noch nicht alles kann.
           </Copy>
-          <Copy>Vielleicht ist eines der folgenden Angebot was für dich?</Copy>
+          <Copy>Vielleicht ist eins der folgenden Angebote etwas für dich?</Copy>
           <GridSlider>
             {packages.map(({ label, ...paeckli }) => (
               <ContentCard

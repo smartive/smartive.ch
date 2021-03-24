@@ -24,7 +24,7 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
   return (
     <Page>
       <PageHeader
-        markdownTitle="Wir konzipieren und kompostieren, entwickeln und verwickeln, beraten und bräteln, _gemeinsam_."
+        markdownTitle="_Gemeinsam_ smart: Unser Team"
         description={`${employees.length} Menschen, eine Idee: Zusammen Herausforderungen stemmen und digitale Produkte schaffen, die herausragen. Und eine ungezwungene Atmosphäre: Wir pflegen die Freundschaft. Wir entscheiden zusammen. Wir geben allen das Vertrauen und die Freiheit, sich auf ihre Art einzubringen.`}
       >
         <Copy>
@@ -52,7 +52,12 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
           </Grid>
         </PageSection>
         <PageSection>
-          <Contact contact={contact} />
+          <Contact contact={contact}>
+            <>
+              Du vermisst dein Foto auf dieser Seite? <br />
+              Nimm Kontakt mit {contact.firstname} auf.
+            </>
+          </Contact>
         </PageSection>
       </main>
     </Page>

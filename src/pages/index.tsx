@@ -116,7 +116,12 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
           <NewsletterCard background="cornflower" blobs={BlobVariations.cornflower[2]} />
         </PageSection>
         <PageSection>
-          <Contact contact={contact} />
+          <Contact contact={contact}>
+            <>
+              Alles unklar? <br />
+              Frag {contact.firstname}.
+            </>
+          </Contact>
         </PageSection>
       </main>
     </Page>
