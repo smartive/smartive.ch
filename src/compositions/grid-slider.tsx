@@ -4,7 +4,7 @@ type Props = { children: ReactNode };
 
 const getGridLayout = (childrenCount: number) => {
   if (childrenCount >= 4) {
-    return 'lg:grid-cols-[repeat(4,1fr)]';
+    return 'lg:grid-cols-[repeat(2,1fr)] xl:grid-cols-[repeat(4,1fr)]';
   }
 
   if (childrenCount === 3) {

@@ -67,7 +67,7 @@ const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button 
                 </Tooltip>
               </Label>
               <Button type="submit" disabled={status === 'sending'}>
-                <Label>{status === 'sending' ? '...' : button}</Label>
+                <span className="font-sans font-bold text-sm xl:text-base">{status === 'sending' ? '...' : button}</span>
               </Button>
             </form>
           </div>

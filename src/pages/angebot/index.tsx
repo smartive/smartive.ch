@@ -1,9 +1,9 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
-import { PackageList } from '../../compositions/package-list';
 import { Testimonial } from '../../components/testimonial';
 import { LinkList } from '../../compositions/link-list';
+import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
 import { PageSection } from '../../compositions/page-section';
 import { Employee } from '../../data/employees';
@@ -55,11 +55,10 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
         </PageSection>
         <PageSection title="Etwas für jede Projektphase.">
           <Copy>
-            Das Wichtigste zuerst: Unser Ziel ist es, dein Produkt zusammen mit dir so schnell wie möglich zu deinen Nutzern
-            zu bringen. Denn wir glauben, dass ein Produkt in den Händen der Nutzerinnen mehr Wert bringt als ein Produkt in
-            der Schublade, auch wenn es noch nicht alles kann.
+            Wir sind davon überzeugt, dass ein Produkt in den Händen der Nutzer*innen mehr wert ist als eines, das nie das
+            Tageslicht erblickt. Unser Ziel besteht darin, dein Produkt so schnell wie möglich auf den Markt zu bringen.
           </Copy>
-          <Copy>Vielleicht ist eins der folgenden Angebote etwas für dich?</Copy>
+          <Copy>Klingt gut? Gerne unterstützen wie dich mit den folgenden Angeboten:</Copy>
           <PackageList packages={packages} />
         </PageSection>
         <PageSection>

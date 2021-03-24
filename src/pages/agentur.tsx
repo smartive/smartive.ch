@@ -83,9 +83,7 @@ const Agentur: NextPage<Props> = ({ quote }) => {
                 src="/images/mood/YB_06742.jpg"
                 alt="smartive Team am Mittagstisch beim Essen"
                 objectFit="cover"
-                layout="responsive"
-                width={720}
-                height={944}
+                layout="fill"
               />
             </div>
             <div className="block md:hidden">
@@ -124,17 +122,14 @@ const Agentur: NextPage<Props> = ({ quote }) => {
               width={720}
               height={380}
             />
-            <div className="md:row-span-3 relative">
-              <Image
-                className="rounded bg-mint-200"
-                src="/images/mood/aescher-gruppenbild.jpg"
-                alt="smartive Team bei einer Wanderung mit dem Gasthaus Aescher-Wildkirchli im Hintergrund"
-                objectFit="cover"
-                layout="responsive"
-                width={720}
-                height={1388}
-              />
-            </div>
+            <Image
+              className="rounded bg-mint-200"
+              src="/images/mood/aescher-gruppenbild.jpg"
+              alt="smartive Team bei einer Wanderung mit dem Gasthaus Aescher-Wildkirchli im Hintergrund"
+              objectFit="cover"
+              width={720}
+              height={380}
+            />
             <Image
               className="rounded bg-mint-200"
               src="/images/mood/code-retreat-terrasse.jpg"
