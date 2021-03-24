@@ -71,7 +71,7 @@ const ScaleUp: NextPage<Props> = ({ contact, teasers }) => {
           <Contact contact={contact} />
         </PageSection>
         <PageSection>
-          <Heading2>Diese Projekte haben mit einem Scale Up gestartet:</Heading2>
+          <Heading2>Skaliert haben wir unter anderem schon:</Heading2>
           <Grid cols={3}>
             {teasers.map((teaser) => (
               <ImageCard key={teaser.title} {...teaser} />

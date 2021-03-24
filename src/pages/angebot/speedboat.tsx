@@ -78,7 +78,7 @@ const Speedboat: NextPage<Props> = ({ contact, packages, teasers }) => {
           <Contact contact={contact} />
         </PageSection>
         <PageSection>
-          <Heading2>Diese Projekte haben mit einem Speedboat gestartet:</Heading2>
+          <Heading2>Diese Projekte sind mit einem Speedboat durchgestartet:</Heading2>
           <Grid cols={3}>
             {teasers.map((teaser) => (
               <ImageCard key={teaser.title} {...teaser} />
