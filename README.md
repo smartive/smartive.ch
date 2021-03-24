@@ -52,7 +52,7 @@ These checks are also run on every merge request, and each of these must pass fo
 
 #### Four Eye Principle
 
-The default `master` branch is protected and nobody can commit to it. Every feature or bugfix is done in a separate Merge Request, which needs to pass the automated tests and needs to be reviewed by another developer.
+The default `main` branch is protected and nobody can commit to it. Every feature or bugfix is done in a separate Merge Request, which needs to pass the automated tests and needs to be reviewed by another developer.
 
 **NO SELF-MERGES 😜**
 
@@ -83,3 +83,13 @@ chore: Changes to the build process or auxiliary tools and libraries such as doc
 ## Architecture
 
 This is a React app with server-side rendering provided by Next.js.
+
+## Deployment Model
+
+We follow loosely the Gitlab Flow. All our Merge Requests are merged against our default branch `main` and are automatically deployed to our [preproduction](https://preproduction.smartive.ch) system on Vercel. The `production` branch represents the live [production](https://smartive.ch) system and is also deployed to Vercel.
+
+So the flow looks something like this:
+
+1. Create Merge Request (Preview System is automatically created by Vercel)
+2. Merge against `main` (deployed to preproduction)
+3. Create Merge Request from `main → production` to deploy to production
