@@ -96,7 +96,7 @@ const mapMediumPosts = (posts: MediumPost[]): BlogPost[] =>
     return {
       link,
       thumbnail,
-      title: decodeURI(title),
+      title: decodeURI(title).replace(/&amp;/g, '&'),
       id: guid,
       description: desc.replace('<h4>', '').replace('</h4>', ''),
       date: pubDate,
