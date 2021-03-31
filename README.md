@@ -86,10 +86,4 @@ This is a React app with server-side rendering provided by Next.js.
 
 ## Deployment Model
 
-We follow loosely the Gitlab Flow. All our Merge Requests are merged against our default branch `main` and are automatically deployed to our [preproduction](https://preproduction.smartive.ch) system on Vercel. The `production` branch represents the live [production](https://smartive.ch) system and is also deployed to Vercel.
-
-So the flow looks something like this:
-
-1. Create Merge Request (Preview System is automatically created by Vercel)
-2. Merge against `main` (deployed to preproduction)
-3. Create Merge Request from `main → production` to deploy to production
+~We follow loosely the Gitlab Flow.~ All our Merge Requests are merged against our default branch `main` and are automatically deployed to our [production](https://smartive.ch) system on Vercel.
