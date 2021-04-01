@@ -13,12 +13,26 @@ export const EmployeeCard: FC<Props> = ({
   employee: { firstname, lastname, job, bio, image, portrait, links },
   className = '',
 }) => (
-  <div className={`flex flex-col bg-white-100 rounded overflow-hidden ${className}`}>
+  <div
+    className={`flex flex-col bg-white-100 rounded overflow-hidden ${className}`}
+    itemScope
+    itemProp="employee"
+    itemType="http://schema.org/Person"
+  >
     <div className="hidden lg:block w-full">
-      <Image className="bg-mint-200" src={image || getFallbackImage()} alt="" objectFit="cover" width="463" height="640" />
+      <Image
+        itemProp="image"
+        className="bg-mint-200"
+        src={image || getFallbackImage()}
+        alt=""
+        objectFit="cover"
+        width="463"
+        height="640"
+      />
     </div>
     <div className="block lg:hidden w-full">
       <Image
+        itemProp="image"
         className="bg-mint-200"
         src={portrait || getFallbackImage()}
         alt=""
@@ -28,17 +42,23 @@ export const EmployeeCard: FC<Props> = ({
       />
     </div>
     <div className="flex flex-col flex-1 p-8 font-sans font-normal text-xxs lg:text-sm">
-      <p className="mb-6">{job}</p>
-      <Heading3 as="p">
+      <p className="mb-6" itemProp="jobTitle">
+        {job}
+      </p>
+      <Heading3 itemProp="name">
         {firstname} {lastname}
       </Heading3>
       <p>{bio}</p>
       <div className="flex flex-1 content-end flex-row flex-wrap mt-6">
-        {links.map(({ label, url }) => (
-          <Link className="mr-4 last:mr-0" key={url} href={url} variant={LinkVariants.Default}>
-            {label}
-          </Link>
-        ))}
+        {links.map(({ label, url }) => {
+          const itemProp = url.match(/^mailto:.+$/i) ? 'email' : 'sameAs';
+
+          return (
+            <Link itemProp={itemProp} className="mr-4 last:mr-0" key={url} href={url} variant={LinkVariants.Default}>
+              {label}
+            </Link>
+          );
+        })}
       </div>
     </div>
   </div>
