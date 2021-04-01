@@ -30,13 +30,15 @@ export const Link: FC<Props> = ({
   newTab = false,
   active = false,
   onClick,
+  href,
   ...props
 }) => (
-  <NextLink passHref {...props}>
+  <NextLink passHref href={href}>
     <a
       className={`${getVariantStyles(active)[variant]} ${className} transition-colors duration-150`}
       {...(newTab ? { target: '_blank', rel: 'noreferrer' } : {})}
       onClick={onClick}
+      {...props}
     >
       {children}
     </a>
