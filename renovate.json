@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["gitlab>smartive/internal-it/renovate"],
+  "packageRules": [
+    {
+      "packagePatterns": ["^@types[/]"],
+      "groupName": "typescript typings"
+    }
+  ]
+}
