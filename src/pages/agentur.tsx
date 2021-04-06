@@ -159,11 +159,11 @@ const Agentur: NextPage<Props> = ({ quote }) => {
           </Grid>
 
           <Grid cols={2}>
-            <TextBlock title="Bald eine Dekade" number={10}>
+            <TextBlock title="Fast eine Dekade" number={9}>
               smartive wurde 2012 gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, an dem wir uns alle
               einbringen und so arbeiten, wie es uns entspricht.
             </TextBlock>
-            <TextBlock title="Zwölf Teilhaber*innen" number={12}>
+            <TextBlock title="Zwölf Teilhaber*innen" number={12} highlightNumber>
               Darauf sind wir stolz: Zwölf unserer {Object.values(Employees).length} Mitarbeitenden besitzen smartive-Aktien.
               Es gibt keine externen Aktionärinnen oder Stakeholder.
             </TextBlock>
@@ -171,7 +171,7 @@ const Agentur: NextPage<Props> = ({ quote }) => {
               Heute kommen {Object.values(Employees).length} Mitarbeitende in Zürich zusammen und bringen ihre Fähigkeiten
               und ihre Persönlichkeit ein – in Software-Entwicklung, Projektleitung, Design und User Experience.
             </TextBlock>
-            <TextBlock title="Erfolgreiche Projekte: dreistellig" number={300} highlightNumber>
+            <TextBlock title="Erfolgreiche Projekte: dreistellig" number={300}>
               In den letzten Jahren haben wir über 300 Projekte erfolgreich gemeistert. Sowohl in Zusammenarbeit mit{' '}
               <Link href="/projekte/subsidia">Start-Ups</Link> als auch mit der{' '}
               <Link href="/projekte/migipedia/">grössten Arbeitgeberin der Schweiz</Link>.
