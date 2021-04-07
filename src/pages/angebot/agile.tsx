@@ -19,7 +19,10 @@ type Props = {
 
 const Agile: NextPage<Props> = ({ teasers }) => (
   <Page>
-    <PageHeader markdownTitle="Was ist dieses _Scrum_?">
+    <PageHeader
+      markdownTitle="Was ist dieses _Scrum_?"
+      description="Scrum ist unsere bevorzugte Spielart von agiler Entwicklung. Scrum gibt einen Rahmen für die Zusammenarbeit vor, der so viel absteckt wie nötig und so viel Freiraum lässt wie möglich."
+    >
       <Copy>
         Scrum ist unsere bevorzugte Spielart von agiler Entwicklung. Scrum gibt einen Rahmen für die Zusammenarbeit vor, der
         so viel absteckt wie nötig und so viel Freiraum lässt wie möglich.
