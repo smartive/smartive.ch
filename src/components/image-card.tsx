@@ -4,6 +4,7 @@ import React, { FC, ReactNode } from 'react';
 import { Url } from 'url';
 import { AwardTags } from '../components/award-tags';
 import { Award } from '../data/teaser';
+import { Heading2 } from '../identity/heading-2';
 import { Heading3 } from '../identity/heading-3';
 import { isExternalUrl } from '../utils/url';
 
@@ -64,7 +65,7 @@ export const ImageCard: FC<Props> = ({
         >
           <p className="inline-flex items-center mb-4">{label}</p>
           <div>
-            <Heading3 as="p">{title}</Heading3>
+            {variant === ImageCardVariants.Wide ? <Heading2 as="p">{title}</Heading2> : <Heading3 as="p">{title}</Heading3>}
             {description && <p className="mb-4">{description}</p>}
           </div>
           <div>
