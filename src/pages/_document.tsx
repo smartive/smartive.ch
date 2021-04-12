@@ -5,7 +5,7 @@ export const GoogleFontUrl = 'https://fonts.googleapis.com/css2?family=IBM+Plex+
 export default class CustomDocument extends Document {
   render() {
     return (
-      <Html lang="de">
+      <Html lang="de" id="top">
         <Head>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href={`${GoogleFontUrl}&display=swap`} rel="stylesheet" />

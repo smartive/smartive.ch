@@ -1,8 +1,10 @@
+import { m as motion, useViewportScroll } from 'framer-motion';
 import dynamic from 'next/dynamic';
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { ButtonLink } from '../elements/button';
 import { Label } from '../elements/label';
 import { Link, LinkVariants } from '../elements/link';
+import { ArrowUp } from '../identity/icons';
 
 const NewsletterSubscription = dynamic(() => import('../components/newsletter-subscription'), { ssr: false });
 
@@ -62,6 +64,7 @@ export const Footer: FC = () => (
           </Link>
         </div>
         <SwissMadeSoftwareLogo />
+        <BackToTop />
       </Label>
 
       <Label as="div" className="relative grid lg:hidden grid-flow-row place-items-center gap-8 max-w-[20rem] mx-auto">
@@ -110,14 +113,52 @@ export const Footer: FC = () => (
         </div>
         <NewsletterSubscription className="w-full" />
         <SwissMadeSoftwareLogo />
+        <BackToTop />
       </Label>
     </div>
   </footer>
 );
 
+const BackToTop = () => {
+  const { scrollYProgress } = useViewportScroll();
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(
+    () =>
+      scrollYProgress.onChange((e) => {
+        const unsubscribe = setAnimate(e === 1);
+        return unsubscribe;
+      }),
+    []
+  );
+
+  return (
+    <a
+      title="Zurück nach oben"
+      aria-hidden
+      className="grid grid-flow-col place-items-center gap-2 lg:col-start-4 lg:place-self-end mt-8 text-sm"
+      href="#top"
+    >
+      Beam me up Scotty!
+      <motion.div
+        className="inline-block"
+        animate={
+          animate
+            ? {
+                translateY: [0, -15, 0, -8, 0, -5, 0],
+              }
+            : {}
+        }
+      >
+        <ArrowUp className="h-6 w-6" />
+      </motion.div>
+    </a>
+  );
+};
+
 const SwissMadeSoftwareLogo = () => (
   <svg
-    className="lg:col-span-4 text-center mt-8 lg:mt-32 text-black"
+    className="lg:place-self-start mt-8 lg:mt-32 text-black"
     width="244"
     height="25"
     viewBox="0 0 244 25"
