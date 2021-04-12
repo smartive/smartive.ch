@@ -5,13 +5,13 @@ import { Grid } from '../compositions/grid';
 import { PageHeader } from '../compositions/page-header';
 import { PageSection } from '../compositions/page-section';
 import { Copy } from '../identity/copy';
-import { Page } from '../layouts/page';
+import { LandingPage } from '../layouts/landing-page';
 
 const NewsletterSubscription = dynamic(() => import('../components/newsletter-subscription'), { ssr: false });
 
 const Newsletter = () => {
   return (
-    <Page>
+    <LandingPage>
       <PageHeader markdownTitle="Neugierig, was bei uns läuft?">
         <Copy>
           Du willst wissen, woran wir gerade arbeiten und was hinter den Kulissen passiert? Toll! Genau dafür haben wir einen
@@ -75,7 +75,7 @@ const Newsletter = () => {
           </Grid>
         </PageSection>
       </main>
-    </Page>
+    </LandingPage>
   );
 };
 
