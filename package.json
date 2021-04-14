@@ -11,6 +11,7 @@
     "lint": "eslint \"src/**/*.{ts,tsx}\""
   },
   "dependencies": {
+    "@sanity/client": "^2.8.0",
     "autoprefixer": "10.2.5",
     "blobs": "2.2.0",
     "body-scroll-lock": "3.1.5",
