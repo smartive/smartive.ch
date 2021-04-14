@@ -30,3 +30,21 @@ export const ArrowUp: FC<Props> = ({ className = '' }) => (
     />
   </svg>
 );
+
+export const Heart: FC<Props> = ({ className = '' }) => (
+  <svg className={className} width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M11.934 0C10.434 0 9.13398 0.8 8.33398 2C7.53398 0.8 6.23398 0 4.73398 0C2.33398 0 0.333984 2 0.333984 4.4C0.333984 8.8 8.33398 15.3 8.33398 15.3C8.33398 15.3 16.334 8.8 16.334 4.4C16.334 2 14.334 0 11.934 0Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
+export const Cross: FC<Props> = ({ className = '' }) => (
+  <svg className={className} width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M12.8664 0.900024L8.66641 5.20002L4.46641 0.900024L1.56641 3.80002L5.86641 8.00002L1.56641 12.2L4.46641 15.1L8.66641 10.8L12.8664 15.1L15.7664 12.2L11.4664 8.00002L15.7664 3.80002L12.8664 0.900024Z"
+      fill="currentColor"
+    />
+  </svg>
+);
