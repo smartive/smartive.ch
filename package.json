@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@smartive/prettier-config": "3.0.0",
-    "@types/marked": "0.7.3",
+    "@types/marked": "2.0.2",
     "@types/node": "14.14.37",
     "@types/puppeteer": "5.4.3",
     "@types/puppeteer-core": "5.4.0",
