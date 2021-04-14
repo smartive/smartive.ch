@@ -1,6 +1,6 @@
 include:
   - project: 'smartive/ci-templates'
-    ref: v3.1.2
+    ref: v4.0.0
     file: '/all-templates.yml'
   - project: 'smartive/ci-templates'
     ref: 4.x
