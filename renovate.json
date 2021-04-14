@@ -5,6 +5,10 @@
     {
       "packagePatterns": ["^@types[/]"],
       "groupName": "typescript typings"
+    },
+    {
+      "packagepatterns": ["^eslint*", "prettier"],
+      "groupName": "linting"
     }
   ]
 }
