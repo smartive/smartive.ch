@@ -4,6 +4,7 @@ import React, { FC, useRef, useState } from 'react';
 import { Label } from '../elements/label';
 import { Link, LinkButton, LinkVariants } from '../elements/link';
 import { Heading2 } from '../identity/heading-2';
+import { Logo } from '../identity/logo';
 import { useLockBodyScroll } from '../utils/use-body-scroll-lock';
 
 const Main = [
@@ -27,9 +28,9 @@ export const Navigation: FC = () => {
 
   return (
     <nav className="grid grid-flow-col content-start lg:container lg:mx-auto px-4 pt-8 font-sans font-bold text-xs">
-      <div className="z-50">
+      <div className="z-50 flex items-center">
         <Link variant={LinkVariants.Navigation} href="/" onClick={() => setMobileNavOpen(false)}>
-          smartive
+          <Logo className="h-[21px] w-auto py-[4px]" />
         </Link>
       </div>
       <ul className="hidden lg:grid grid-flow-col gap-8">
