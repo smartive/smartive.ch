@@ -25,6 +25,7 @@ import { BlobVariations } from '../utils/blob-variations';
 import { ContentCard2 } from '../components/content-card-2';
 import StoryblokService from '../utils/storyblok-service';
 import { CustomerList2 } from '../components/customer-list-2';
+import { FreeText } from '../components/free-text';
 
 type Props = {
   contact: Employee;
@@ -37,6 +38,7 @@ type Props = {
 const Home: NextPage<Props> = ({ storyblokContent, contact, customers, quote, packages }) => {
   const [contentOfStory, setContentOfStory] = useState(storyblokContent.data.story.content);
 
+  console.log(contentOfStory);
   useEffect(() => {
     StoryblokService.initEditor(contentOfStory, setContentOfStory);
   }, []);
@@ -96,9 +98,15 @@ const Home: NextPage<Props> = ({ storyblokContent, contact, customers, quote, pa
           </GridSlider>
         </PageSection>
 
+        {/* This should solved with dynamic componentes */}
         <PageSection title="Storyblok stuff packages">
           {contentOfStory.body.map((cos) => (
             <ContentCard2 key={cos._uid} blok={cos} />
+          ))}
+        </PageSection>
+        <PageSection title="Storyblok stuff free text">
+          {contentOfStory.body.map((cos) => (
+            <FreeText key={cos._uid} blok={cos} />
           ))}
         </PageSection>
         <PageSection title="Storyblok stuff customers">

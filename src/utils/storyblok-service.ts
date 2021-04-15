@@ -41,7 +41,6 @@ class StoryblokService {
 
   // initialize the connection between Storyblok & Next.js in Visual Editor
   initEditor(contentOfStory, setContentOfStory) {
-    console.log('hello', window.storyblok);
     if (window.storyblok) {
       window.storyblok.init();
 

@@ -7,7 +7,6 @@ type Props = {
 
 export const CustomerList2: FC<Props> = ({ blok }) => {
   if (blok.component !== 'customer-list') return null;
-  console.log(blok.customers);
 
   return (
     <SbEditable content={blok}>
