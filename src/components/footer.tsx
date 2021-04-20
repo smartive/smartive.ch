@@ -1,10 +1,7 @@
+import { ArrowUp, ButtonLink, Label, Link, LinkVariants } from '@smartive/guetzli';
 import { m as motion, useViewportScroll } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import React, { FC, useEffect, useState } from 'react';
-import { ButtonLink } from '../elements/button';
-import { Label } from '../elements/label';
-import { Link, LinkVariants } from '../elements/link';
-import { ArrowUp } from '../identity/icons';
 
 const NewsletterSubscription = dynamic(() => import('../components/newsletter-subscription'), { ssr: false });
 
@@ -82,9 +79,11 @@ export const Footer: FC = () => (
             <span itemProp="addressLocality">{Address.locality}</span>
           </div>
           <span className="my-4">
-            <ButtonLink href={`tel:${Address.telephone}`} itemProp="telephone">
-              {Address.telephone}
-            </ButtonLink>
+            <Link>
+              <ButtonLink href={`tel:${Address.telephone}`} itemProp="telephone">
+                {Address.telephone}
+              </ButtonLink>
+            </Link>
           </span>
           <span className="mb-4">
             <ButtonLink href={`mailto:${Address.email}`} itemProp="email">

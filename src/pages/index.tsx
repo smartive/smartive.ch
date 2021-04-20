@@ -1,17 +1,15 @@
+import { BlobVariations, ContentCard, Copy, GridSlider, LinkList, PageSection } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
+import NextLink from 'next/link';
 import React from 'react';
 import { Contact } from '../components/contact';
-import { ContentCard } from '../components/content-card';
 import { CustomerList } from '../components/customer-list';
 import { ImageCard } from '../components/image-card';
 import { NewsletterCard } from '../components/newsletter-card';
-import { PackageList } from '../compositions/package-list';
 import { Testimonial } from '../components/testimonial';
-import { GridSlider } from '../compositions/grid-slider';
-import { LinkList } from '../compositions/link-list';
+import { PackageList } from '../compositions/package-list';
 import { PageHeader } from '../compositions/page-header';
-import { PageSection } from '../compositions/page-section';
 import { Customer } from '../data/customers';
 import Customers from '../data/customers.json';
 import { Employee } from '../data/employees';
@@ -19,9 +17,7 @@ import Employees from '../data/employees.json';
 import Packages, { Package } from '../data/packages';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
-import { Copy } from '../identity/copy';
 import { Page } from '../layouts/page';
-import { BlobVariations } from '../utils/blob-variations';
 
 type Props = {
   contact: Employee;
@@ -38,6 +34,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
         description="Wir sind smartive — eine dynamische, innovative Schweizer Webentwicklungsagentur. Die Realisierung zeitgemässer Weblösungen gehört genauso zu unserer Passion, wie die konstruktive Zusammenarbeit mit unseren Kundinnen und Kunden."
       >
         <LinkList
+          linkWrapper={NextLink}
           links={[
             { label: 'Wie machen wir das?', href: '/angebot' },
             { label: 'Projekte anschauen', href: '/projekte' },

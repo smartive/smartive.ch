@@ -1,19 +1,22 @@
+import {
+  Copy,
+  Cross,
+  Decoration,
+  DescriptionList,
+  Grid,
+  Heading2,
+  Heading3,
+  Heart,
+  IconList,
+  Keyfigure,
+  Link,
+  PageSection,
+  UnorderedList,
+} from '@smartive/guetzli';
 import Image from 'next/image';
+import NextLink from 'next/link';
 import React from 'react';
-
-import { Keyfigure } from '../../components/keyfigure';
-import { DescriptionList } from '../../compositions/description-list';
-import { Grid } from '../../compositions/grid';
-import { IconList } from '../../compositions/icon-list';
 import { PageHeader } from '../../compositions/page-header';
-import { PageSection } from '../../compositions/page-section';
-import { UnorderedList } from '../../compositions/unordered-list';
-import { Link } from '../../elements/link';
-import { Copy } from '../../identity/copy';
-import { Decoration } from '../../identity/decoration';
-import { Heading2 } from '../../identity/heading-2';
-import { Heading3 } from '../../identity/heading-3';
-import { Cross, Heart } from '../../identity/icons';
 import { LandingPage } from '../../layouts/landing-page';
 
 const Sprache = () => (
@@ -77,7 +80,11 @@ const Sprache = () => (
           <div className="mt-4 lg:mt-8">
             <Heading3>Du willst einen Blogpost schreiben?</Heading3>
             <Copy>
-              Guck dich mal bei den <Link href="schreibtipps">Schreibtipps</Link> um!
+              Guck dich mal bei den{' '}
+              <NextLink href="schreibtipps" passHref>
+                <Link>Schreibtipps</Link>
+              </NextLink>{' '}
+              um!
             </Copy>
           </div>
         </Keyfigure>
@@ -206,7 +213,10 @@ const Sprache = () => (
               term: (
                 <>
                   Lass die Füllwörter weg. Verliert der Satz dadurch etwas? Tipp:{' '}
-                  <Link href="https://web.archive.org/web/20210126114619/http://www.schreiblabor.com/fuellwoerter-test/">
+                  <Link
+                    href="https://web.archive.org/web/20210126114619/http://www.schreiblabor.com/fuellwoerter-test/"
+                    newTab
+                  >
                     Füllwörter-Test
                   </Link>
                 </>
@@ -335,7 +345,9 @@ const Sprache = () => (
                 <>
                   Überleg dir, ob sich alle angesprochen fühlen, die du ansprechen willst. Es gibt viele Möglichkeiten, die
                   sich auch problemlos kombinieren lassen. Sieh z.B.{' '}
-                  <Link href="https://www.genderleicht.de/">Genderleicht</Link>
+                  <Link href="https://www.genderleicht.de/" newTab>
+                    Genderleicht
+                  </Link>
                 </>
               ),
               description: <IconList items={['Nutzer*innen', 'Mitarbeitende']} icon={Heart} iconColor="mint" />,
@@ -356,8 +368,11 @@ const Sprache = () => (
         <DescriptionList
           items={[
             <>
-              Lass ein <Link href="https://wortliga.de/textanalyse/">Textanalyse-Tool</Link> drüberlaufen (prüft auf Kürze,
-              direkte Sprache, Abwechslung).
+              Lass ein{' '}
+              <Link href="https://wortliga.de/textanalyse/" newTab>
+                Textanalyse-Tool
+              </Link>{' '}
+              drüberlaufen (prüft auf Kürze, direkte Sprache, Abwechslung).
             </>,
             'Frag einen Lieblingsmensch, falls in der Zielgruppe oder genug flexibel im Chöpfli.',
             'Frag das Lingologie-Department.',

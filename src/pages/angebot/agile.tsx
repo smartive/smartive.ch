@@ -1,16 +1,11 @@
+import { Copy, Grid, Heading3, ImagePosition, Keyfigure, PageSection, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
+import React from 'react';
 import { ImageCard } from '../../components/image-card';
-import { ImagePosition, Keyfigure } from '../../components/keyfigure';
-import { TextBlock } from '../../components/text-block';
-import { Grid } from '../../compositions/grid';
 import { PageHeader } from '../../compositions/page-header';
-import { PageSection } from '../../compositions/page-section';
-import { UnorderedList } from '../../compositions/unordered-list';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { Copy } from '../../identity/copy';
-import { Heading3 } from '../../identity/heading-3';
 import { Page } from '../../layouts/page';
 
 type Props = {

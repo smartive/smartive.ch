@@ -1,11 +1,9 @@
+import { Heading2, Label, Link, LinkButton, LinkVariants, Logo } from '@smartive/guetzli';
 import { AnimatePresence, m as motion } from 'framer-motion';
 import { useRouter } from 'next/dist/client/router';
 import React, { FC, useRef, useState } from 'react';
-import { Label } from '../elements/label';
-import { Link, LinkButton, LinkVariants } from '../elements/link';
-import { Heading2 } from '../identity/heading-2';
-import { Logo } from '../identity/logo';
 import { useLockBodyScroll } from '../utils/use-body-scroll-lock';
+import NextLink from 'next/link';
 
 const Main = [
   { label: 'Angebot', link: '/angebot' },
@@ -29,24 +27,30 @@ export const Navigation: FC = () => {
   return (
     <nav className="grid grid-flow-col content-start lg:container lg:mx-auto px-4 pt-8 font-sans font-bold text-xs">
       <div className="z-50 flex items-center">
-        <Link variant={LinkVariants.Navigation} href="/" onClick={() => setMobileNavOpen(false)}>
-          <Logo className="h-[21px] w-auto py-[4px]" />
-        </Link>
+        <NextLink href="/" passHref>
+          <Link variant={LinkVariants.Navigation} onClick={() => setMobileNavOpen(false)}>
+            <Logo className="h-[21px] w-auto py-[4px]" />
+          </Link>
+        </NextLink>
       </div>
       <ul className="hidden lg:grid grid-flow-col gap-8">
         {Main.map(({ label, link }) => (
           <li key={label}>
-            <Link variant={LinkVariants.Navigation} href={link} active={pathname.includes(link)}>
-              {label}
-            </Link>
+            <NextLink href={link} passHref>
+              <Link variant={LinkVariants.Navigation} active={pathname.includes(link)}>
+                {label}
+              </Link>
+            </NextLink>
           </li>
         ))}
       </ul>
       <div className="hidden lg:block text-right">
         {Meta.map(({ label, link }) => (
-          <Link key={label} variant={LinkVariants.Navigation} className="mr-8 last:mr-0" href={link}>
-            {label}
-          </Link>
+          <NextLink key={label} href={link} passHref>
+            <Link variant={LinkVariants.Navigation} className="mr-8 last:mr-0">
+              {label}
+            </Link>
+          </NextLink>
         ))}
       </div>
       <div className="text-right z-50 lg:hidden">
@@ -80,22 +84,25 @@ export const Navigation: FC = () => {
             >
               {Main.map(({ label, link }) => (
                 <Heading2 key={label} as="li" noSpacing>
-                  <Link
-                    variant={LinkVariants.Navigation}
-                    href={link}
-                    onClick={() => setMobileNavOpen(false)}
-                    active={pathname.includes(link)}
-                  >
-                    {label}
-                  </Link>
+                  <NextLink href={link} passHref>
+                    <Link
+                      variant={LinkVariants.Navigation}
+                      onClick={() => setMobileNavOpen(false)}
+                      active={pathname.includes(link)}
+                    >
+                      {label}
+                    </Link>
+                  </NextLink>
                 </Heading2>
               ))}
               <br />
               {Meta.map(({ label, link }) => (
                 <Label key={label} as="li">
-                  <Link variant={LinkVariants.Navigation} href={link} onClick={() => setMobileNavOpen(false)}>
-                    {label}
-                  </Link>
+                  <NextLink href={link} passHref>
+                    <Link variant={LinkVariants.Navigation} onClick={() => setMobileNavOpen(false)}>
+                      {label}
+                    </Link>
+                  </NextLink>
                 </Label>
               ))}
             </motion.ul>

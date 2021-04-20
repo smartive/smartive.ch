@@ -1,4 +1,4 @@
-import { BrandColor } from '../colors';
+import { BrandColor } from '@smartive/guetzli';
 
 export type FileType = 'png' | 'jpeg';
 

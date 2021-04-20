@@ -1,5 +1,5 @@
+import { BrandColor } from '@smartive/guetzli';
 import { NextApiRequest } from 'next';
-import { BrandColor } from '../colors';
 import { ParsedRequest } from './types';
 
 const themes: BrandColor[] = ['apricot', 'mint', 'cornflower'];

@@ -2,10 +2,9 @@
 
 ## Setup
 
-1. `npm ci`
-2. `npm run develop`
-3. ???
-4. Profit!
+1. `nvm use 14`
+2. `npm ci`
+3. `npm run develop`
 
 ## Contributing
 

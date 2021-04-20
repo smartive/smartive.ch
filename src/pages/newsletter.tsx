@@ -1,10 +1,8 @@
+import { Copy, Grid, PageSection } from '@smartive/guetzli';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import React from 'react';
-import { Grid } from '../compositions/grid';
 import { PageHeader } from '../compositions/page-header';
-import { PageSection } from '../compositions/page-section';
-import { Copy } from '../identity/copy';
 import { LandingPage } from '../layouts/landing-page';
 
 const NewsletterSubscription = dynamic(() => import('../components/newsletter-subscription'), { ssr: false });

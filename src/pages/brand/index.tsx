@@ -1,21 +1,25 @@
+import {
+  Blob,
+  BlobVariations,
+  BrandColor,
+  Button,
+  Copy,
+  Decoration,
+  Grid,
+  Heading1,
+  Heading2,
+  Heading3,
+  Link,
+  LinkList,
+  Logo,
+  mapColorToBG,
+  mapColorToLightBG,
+  PageHeader,
+  PageSection,
+} from '@smartive/guetzli';
+import NextLink from 'next/link';
 import React, { FC } from 'react';
-
-import { Grid } from '../../compositions/grid';
-import { LinkList } from '../../compositions/link-list';
-import { PageHeader } from '../../compositions/page-header';
-import { PageSection } from '../../compositions/page-section';
-import { Blob } from '../../elements/blob';
-import { Button } from '../../elements/button';
-import { Link } from '../../elements/link';
-import { Copy } from '../../identity/copy';
-import { Decoration } from '../../identity/decoration';
-import { Heading1 } from '../../identity/heading-1';
-import { Heading2 } from '../../identity/heading-2';
-import { Heading3 } from '../../identity/heading-3';
-import { Logo } from '../../identity/logo';
 import { LandingPage } from '../../layouts/landing-page';
-import { BlobVariations } from '../../utils/blob-variations';
-import { BrandColor, mapColorToBG, mapColorToLightBG } from '../../utils/colors';
 
 const slackTheme = '#F8F7F5, #001F2E, #6986E8, #252525, #F8935A, #252525, #7DDDD1, #F8935A, #F8F7F5, #252525';
 
@@ -23,6 +27,7 @@ const Brand: FC = () => (
   <LandingPage>
     <PageHeader markdownTitle="Eine kleine _Guideline_ für unseren Brand.">
       <LinkList
+        linkWrapper={NextLink}
         links={[
           { label: 'Sprachliche Guidelines', href: 'brand/sprache' },
           { label: 'Schreibtipps für Blogposts', href: 'brand/schreibtipps' },
@@ -185,7 +190,10 @@ const Brand: FC = () => (
           <Copy>
             Leads und Copytext sind straightforward in Inter Regular. Bold und Kursiv bitte nicht inflationär verwenden.
             Inhaltlich immer auf den Punkt gebracht. Hyperlinks innerhalb vom Copytext sind auch einfach:{' '}
-            <Link href="https://en.wikipedia.org/wiki/Underscore">Underline</Link> und fertig.
+            <Link href="https://en.wikipedia.org/wiki/Underscore" newTab>
+              Underline
+            </Link>{' '}
+            und fertig.
           </Copy>
         </div>
         <div className="bg-apricot-500 p-8 lg:p-16 flex flex-col justify-center">

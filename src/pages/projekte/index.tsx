@@ -1,13 +1,11 @@
+import { BlobVariations, Copy, Grid, GridSlider, ImageCardVariants, PageSection } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { CustomerList } from '../../components/customer-list';
-import { ImageCard, ImageCardVariants } from '../../components/image-card';
+import { ImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
-import { Grid } from '../../compositions/grid';
-import { GridSlider } from '../../compositions/grid-slider';
 import { PageHeader } from '../../compositions/page-header';
-import { PageSection } from '../../compositions/page-section';
 import { Customer } from '../../data/customers';
 import Customers from '../../data/customers.json';
 import { Employee } from '../../data/employees';
@@ -16,9 +14,7 @@ import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { Copy } from '../../identity/copy';
 import { Page } from '../../layouts/page';
-import { BlobVariations } from '../../utils/blob-variations';
 
 type Props = {
   customers: Customer[];

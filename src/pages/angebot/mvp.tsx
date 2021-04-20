@@ -1,15 +1,12 @@
+import { Copy, Grid, PageSection, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { ImageCard } from '../../components/image-card';
 import { PackageList } from '../../compositions/package-list';
-import { TextBlock } from '../../components/text-block';
-import { Grid } from '../../compositions/grid';
 import { PageHeader } from '../../compositions/page-header';
-import { PageSection } from '../../compositions/page-section';
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { Copy } from '../../identity/copy';
 import { Page } from '../../layouts/page';
 
 type Props = {

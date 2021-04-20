@@ -1,7 +1,7 @@
+import { Heading3, LinkList } from '@smartive/guetzli';
 import { usePlausible } from 'next-plausible';
+import NextLink from 'next/link';
 import { useEffect } from 'react';
-import { LinkList } from '../compositions/link-list';
-import { Heading3 } from '../identity/heading-3';
 import { Page } from '../layouts/page';
 
 const broccoli = `<svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 800 300" style="white-space: pre; height: 100%; width: 100%">
@@ -71,6 +71,7 @@ export default function Custom404() {
         </Heading3>
         <Heading3 as="p">Du könntest stattdessen:</Heading3>
         <LinkList
+          linkWrapper={NextLink}
           links={[
             { label: 'Unsere Projekte ansehen', href: '/projekte' },
             { label: 'In unserem Blog stöbern ', href: '/blog' },

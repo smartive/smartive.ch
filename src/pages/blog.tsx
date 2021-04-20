@@ -1,18 +1,21 @@
+import {
+  BlobVariations,
+  Calendar,
+  ContentCard,
+  Copy,
+  Grid,
+  ImageCard,
+  ImageCardVariants,
+  PageSection,
+} from '@smartive/guetzli';
 import dayjs from 'dayjs';
 import 'dayjs/locale/de';
 import { GetStaticProps, NextPage } from 'next';
 import React, { Fragment } from 'react';
-import { ContentCard } from '../components/content-card';
-import { ImageCard, ImageCardVariants } from '../components/image-card';
-import { Grid } from '../compositions/grid';
 import { PageHeader } from '../compositions/page-header';
-import { PageSection } from '../compositions/page-section';
 import { LinkedInArticle } from '../data/linkedin-articles';
 import LinkedInArticles from '../data/linkedin-articles.json';
-import { Copy } from '../identity/copy';
-import { Calendar } from '../identity/icons';
 import { Page } from '../layouts/page';
-import { BlobVariations } from '../utils/blob-variations';
 
 type Props = {
   posts: BlogPost[];

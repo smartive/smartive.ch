@@ -1,3 +1,5 @@
+@import '@smartive/guetzli/styles/guetzli.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,57 +8,6 @@
   html {
     -webkit-tap-highlight-color: transparent;
     scroll-behavior: smooth;
-  }
-}
-
-@layer utilities {
-  .writing-vertical {
-    writing-mode: vertical-rl;
-  }
-
-  .fancy-text {
-    background-clip: text;
-    -webkit-background-clip: text;
-    background-size: contain;
-    background-image: url('/images/text-background.svg');
-    color: transparent;
-  }
-
-  .card-shadow,
-  .card-shadow-mint,
-  .card-shadow-cornflower,
-  .card-shadow-apricot {
-    @apply transition-shadow duration-150;
-  }
-  li:nth-of-type(n) > .card-shadow,
-  .card-shadow:nth-of-type(n),
-  .card-shadow-mint {
-    box-shadow: theme('colors.mint.500') 0 0;
-  }
-  li:nth-of-type(n) > .card-shadow:hover,
-  .card-shadow:nth-of-type(n):hover,
-  .card-shadow-mint:hover {
-    box-shadow: theme('colors.mint.500') 0.5rem 0.5rem;
-  }
-  li:nth-of-type(2n) > .card-shadow,
-  .card-shadow:nth-of-type(2n),
-  .card-shadow-cornflower {
-    box-shadow: theme('colors.cornflower.500') 0 0;
-  }
-  li:nth-of-type(2n) > .card-shadow:hover,
-  .card-shadow:nth-of-type(2n):hover,
-  .card-shadow-cornflower:hover {
-    box-shadow: theme('colors.cornflower.500') 0.5rem 0.5rem;
-  }
-  li:nth-of-type(3n) > .card-shadow,
-  .card-shadow:nth-of-type(3n),
-  .card-shadow-apricot {
-    box-shadow: theme('colors.apricot.500') 0 0;
-  }
-  li:nth-of-type(3n) > .card-shadow:hover,
-  .card-shadow:nth-of-type(3n):hover,
-  .card-shadow-apricot:hover {
-    box-shadow: theme('colors.apricot.500') 0.5rem 0.5rem;
   }
 }
 

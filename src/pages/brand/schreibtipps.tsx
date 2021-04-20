@@ -1,15 +1,8 @@
+import { Copy, Explainer, Grid, Heading2, Heading3, Keyfigure, Link, PageSection } from '@smartive/guetzli';
 import Image from 'next/image';
+import NextLink from 'next/link';
 import React from 'react';
-
-import { Keyfigure } from '../../components/keyfigure';
-import { Grid } from '../../compositions/grid';
 import { PageHeader } from '../../compositions/page-header';
-import { PageSection } from '../../compositions/page-section';
-import { Explainer } from '../../elements/explainer';
-import { Link } from '../../elements/link';
-import { Copy } from '../../identity/copy';
-import { Heading2 } from '../../identity/heading-2';
-import { Heading3 } from '../../identity/heading-3';
 import { LandingPage } from '../../layouts/landing-page';
 
 const Tipps = () => (
@@ -17,7 +10,9 @@ const Tipps = () => (
     <PageHeader markdownTitle="Du willst einen _Blogpost_ schreiben?">
       <Copy>Cool! Hier findest du ein paar Tipps.</Copy>
       <Copy>
-        <Link href="sprache">Zurück zu den allgemeinen Sprach-Guidelines</Link>
+        <NextLink href="sprache" passHref>
+          <Link>Zurück zu den allgemeinen Sprach-Guidelines</Link>
+        </NextLink>
       </Copy>
     </PageHeader>
 
@@ -155,7 +150,10 @@ const Tipps = () => (
           <div className="bg-cornflower-500 rounded px-16 py-12">
             <Copy>
               Weniger ist mehr. Wücki. (Weitere tolle Tipps und fancy Facts in den{' '}
-              <Link href="sprache">Sprach-Guidelines</Link>)
+              <NextLink href="sprache" passHref>
+                <Link>Sprach-Guidelines</Link>
+              </NextLink>
+              )
             </Copy>
             <ul className="list-disc text-xs lg:text-base">
               <li>Kürzen ist Kunst. Auch du kannst Kunst: Fehlt dem Satz etwas ohne dieses Wort?</li>

@@ -1,9 +1,14 @@
+import {
+  BlobType,
+  BlobVariations,
+  BrandColor,
+  mapColorToHex,
+  PositionX,
+  PositionY,
+  randomNumberInRange,
+} from '@smartive/guetzli';
 import { svg } from 'blobs/v2';
 import marked from 'marked';
-import { PositionX, PositionY } from '../../elements/blob';
-import { BlobType, BlobVariations } from '../blob-variations';
-import { BrandColor, mapColorToHex } from '../colors';
-import { randomNumberInRange } from '../random';
 import { sanitizeHtml } from './sanitizer';
 import { ParsedRequest } from './types';
 

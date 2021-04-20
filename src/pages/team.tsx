@@ -1,18 +1,15 @@
+import { BlobVariations, Copy, Grid, PageSection } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../components/contact';
 import { EmployeeCard } from '../components/employee-card';
 import { Testimonial } from '../components/testimonial';
-import { Grid } from '../compositions/grid';
 import { PageHeader } from '../compositions/page-header';
-import { PageSection } from '../compositions/page-section';
 import { Employee } from '../data/employees';
 import Employees from '../data/employees.json';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
-import { Copy } from '../identity/copy';
 import { Page } from '../layouts/page';
-import { BlobVariations } from '../utils/blob-variations';
 
 type Props = {
   contact: Employee;

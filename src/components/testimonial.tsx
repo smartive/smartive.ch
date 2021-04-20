@@ -1,11 +1,7 @@
+import { Blob, BlobType, BrandColor, Heading2, highlight, mapColorToBG } from '@smartive/guetzli';
 import React, { FC } from 'react';
 import { Quote } from '../data/quotes';
-import { Blob } from '../elements/blob';
 import { Portrait, PortraitVariant } from '../elements/portrait';
-import { Heading2 } from '../identity/heading-2';
-import { BlobType } from '../utils/blob-variations';
-import { BrandColor, mapColorToBG } from '../utils/colors';
-import { highlight } from '../utils/markdown';
 
 type Props = {
   className?: string;

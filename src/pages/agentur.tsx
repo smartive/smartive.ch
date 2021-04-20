@@ -1,18 +1,14 @@
+import { BlobVariations, Copy, Grid, Link, PageSection, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
+import NextLink from 'next/link';
 import React from 'react';
 import { Testimonial } from '../components/testimonial';
-import { TextBlock } from '../components/text-block';
-import { Grid } from '../compositions/grid';
 import { PageHeader } from '../compositions/page-header';
-import { PageSection } from '../compositions/page-section';
 import Employees from '../data/employees.json';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
-import { Link } from '../elements/link';
-import { Copy } from '../identity/copy';
 import { Page } from '../layouts/page';
-import { BlobVariations } from '../utils/blob-variations';
 
 const textBlocks = [
   {
@@ -173,8 +169,14 @@ const Agentur: NextPage<Props> = ({ quote }) => {
             </TextBlock>
             <TextBlock title="Erfolgreiche Projekte: dreistellig" number={300}>
               In den letzten Jahren haben wir über 300 Projekte erfolgreich gemeistert. Sowohl in Zusammenarbeit mit{' '}
-              <Link href="/projekte/subsidia">Start-Ups</Link> als auch mit der{' '}
-              <Link href="/projekte/migipedia/">grössten Arbeitgeberin der Schweiz</Link>.
+              <NextLink href="/projekte/subsidia" passHref>
+                <Link>Start-Ups</Link>
+              </NextLink>{' '}
+              als auch mit der{' '}
+              <NextLink href="/projekte/migipedia/" passHref>
+                <Link>grössten Arbeitgeberin der Schweiz</Link>
+              </NextLink>
+              .
             </TextBlock>
             <TextBlock title="Aufsteiger des Jahres" number={20}>
               Unsere Projekte werden regelmässig ausgezeichnet. Bei den Best of Swiss Web Awards rangieren wir in den Top 20

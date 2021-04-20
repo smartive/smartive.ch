@@ -1,8 +1,6 @@
+import { Blob, BrandColor, Heading2, mapColorToBG, PositionX, PositionY } from '@smartive/guetzli';
 import dynamic from 'next/dynamic';
 import React, { FC } from 'react';
-import { Blob, PositionX, PositionY } from '../elements/blob';
-import { Heading2 } from '../identity/heading-2';
-import { BrandColor, mapColorToBG } from '../utils/colors';
 
 const NewsletterSubscription = dynamic(() => import('./newsletter-subscription'), { ssr: false });
 

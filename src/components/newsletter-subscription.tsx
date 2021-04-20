@@ -1,9 +1,6 @@
 import React, { FC, FormEvent, useRef, useState } from 'react';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
-import { Button } from '../elements/button';
-import { Label } from '../elements/label';
-import { Tooltip } from '../elements/tooltip';
-import { Input } from '../identity/input';
+import { Input, Tooltip, Label, Button } from '@smartive/guetzli';
 
 type Props = {
   className?: string;

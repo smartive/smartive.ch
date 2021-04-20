@@ -1,23 +1,18 @@
+import { BlobVariations, Copy, Grid, Heading3, LinkList, PageSection } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { ImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
-import { Grid } from '../../compositions/grid';
-import { LinkList } from '../../compositions/link-list';
 import { PageHeader } from '../../compositions/page-header';
-import { PageSection } from '../../compositions/page-section';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { Copy } from '../../identity/copy';
-import { Heading3 } from '../../identity/heading-3';
 import { Page } from '../../layouts/page';
-import { BlobVariations } from '../../utils/blob-variations';
 import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {

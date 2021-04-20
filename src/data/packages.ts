@@ -1,12 +1,11 @@
+import { BrandColor } from '@smartive/guetzli';
 import { ReactNode } from 'react';
-import { Url } from 'url';
-import { BrandColor } from '../utils/colors';
 
 export type Package = {
   label: string | ReactNode;
   title: string;
   content: string;
-  link: { label: string; href: Url | string };
+  link: { label: string; href: string };
   background: BrandColor;
 };
 

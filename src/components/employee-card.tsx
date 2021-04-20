@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import React, { FC } from 'react';
 import { Employee } from '../data/employees';
-import { Link, LinkVariants } from '../elements/link';
-import { Heading3 } from '../identity/heading-3';
+import { Heading3, Link, LinkVariants } from '@smartive/guetzli';
 
 type Props = {
   employee: Employee;
