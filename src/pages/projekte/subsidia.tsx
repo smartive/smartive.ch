@@ -28,7 +28,7 @@ type Props = {
 const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages }) => (
   <Page>
     <PageHeader
-      awards={awards}
+      tags={awards}
       markdownTitle="Subsidia macht den Einzelhandel der Modebranche _mobil_."
       description="Subsidia digitalisiert mit innovativen und modernen Apps den Einzelhandel in der Modebranche. Die wichtigste App ist
       dabei die Kassen-App, die auf jedem Smartphone läuft. Wir begleiten Subsidia seit den Anfängen, egal ob bei der

@@ -12,7 +12,7 @@
     "analyze-bundle": "ANALYZE=true npm run build"
   },
   "dependencies": {
-    "@smartive/guetzli": "^1.2.0",
+    "@smartive/guetzli": "1.2.1",
     "autoprefixer": "10.2.5",
     "blobs": "2.2.0",
     "body-scroll-lock": "3.1.5",

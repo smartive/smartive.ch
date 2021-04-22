@@ -25,7 +25,7 @@ type Props = {
 const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers }) => (
   <Page>
     <PageHeader
-      awards={awards}
+      tags={awards}
       markdownTitle="_Digitalisierung_ der Lieferkette."
       description="Als grösste Detailhändlerin der Schweiz ist die Migros auf reibungslose Prozesse in der Lieferkette angewiesen. Bestellungen bei externen Zulieferern sollen möglichst effizient abgewickelt und in die eigene Warenbewirtschaftung eingepflegt werden können."
     >

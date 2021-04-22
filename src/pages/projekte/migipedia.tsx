@@ -38,7 +38,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
       <PageHeader
         markdownTitle="Migipedia – _10 Jahre_ User im Mittelpunkt."
         description="Migipedia.ch ist seit 10 Jahren fester Bestandteil des digitalen Marketings der Migros und schafft Werte für Kundinnen und Kunden sowie fürs Unternehmen. Gemeinsam mit der Migros entwickelten wir eine komplett neue Lösung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor."
-        awards={awards}
+        tags={awards}
       >
         <Copy>
           Seit 2010 ist die Migros-Community online, seit 2014 begleitet smartive die Migros bei der Weiterentwicklung. Die
