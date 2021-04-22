@@ -21,7 +21,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io https://smartive.us1.list-manage.com; img-src 'self' data: https://*.medium.com https://*.licdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src 'none'; object-src 'none'; connect-src 'self' https://plausible.io https://formspree.io"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io https://smartive.us1.list-manage.com https://vitals.vercel-insights.com; img-src 'self' data: https://*.medium.com https://*.licdn.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src 'none'; object-src 'none'; connect-src 'self' https://plausible.io https://formspree.io https://vitals.vercel-insights.com"
         },
         {
           "key": "Permissions-Policy",
