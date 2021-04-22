@@ -38,7 +38,7 @@ const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button 
                 message.includes('already subscribed')
                   ? 'Du bekommst unseren Newsletter bereits!'
                   : message.includes('address is invalid')
-                  ? 'Diese E-Mail-Addresse sieht leider nicht ganz richtig aus.'
+                  ? 'Echt? Sieht nicht wie eine E-Mail-Adresse aus.'
                   : 'Uups, etwas ist schief gelaufen. Sorry.'
               );
               break;
