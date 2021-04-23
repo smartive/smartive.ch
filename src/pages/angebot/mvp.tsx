@@ -1,7 +1,7 @@
 import { Copy, Grid, PageSection, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { ImageCard } from '../../components/image-card';
+import { NextImageCard } from '../../components/image-card';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
 import Packages, { Package } from '../../data/packages';
@@ -48,7 +48,7 @@ const Mvp: NextPage<Props> = ({ teasers, packages }) => (
       <PageSection title="Diesen Projekten haben wir so zum Erfolg verholfen">
         <Grid cols={3}>
           {teasers.map((teaser) => (
-            <ImageCard key={teaser.title} {...teaser} />
+            <NextImageCard key={teaser.title} {...teaser} />
           ))}
         </Grid>
       </PageSection>

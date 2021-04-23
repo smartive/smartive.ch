@@ -12,7 +12,7 @@ import {
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
-import { ImageCard } from '../../components/image-card';
+import { NextImageCard } from '../../components/image-card';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee } from '../../data/employees';
@@ -92,7 +92,7 @@ const IdeationSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
               <Heading2>Diese Projekte haben mit einem Ideation Sprint gestartet:</Heading2>
               <GridSlider>
                 {teasers.map((teaser) => (
-                  <ImageCard key={teaser.title} {...teaser} />
+                  <NextImageCard key={teaser.title} {...teaser} />
                 ))}
               </GridSlider>
             </>

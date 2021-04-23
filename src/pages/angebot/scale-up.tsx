@@ -12,7 +12,7 @@ import {
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
-import { ImageCard } from '../../components/image-card';
+import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
@@ -77,7 +77,7 @@ const ScaleUp: NextPage<Props> = ({ contact, teasers }) => {
           <Heading2>Skaliert haben wir unter anderem schon:</Heading2>
           <Grid cols={3}>
             {teasers.map((teaser) => (
-              <ImageCard key={teaser.title} {...teaser} />
+              <NextImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
         </PageSection>

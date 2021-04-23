@@ -1,11 +1,12 @@
-import { BlobVariations, ContentCard, Copy, GridSlider, LinkList, PageSection } from '@smartive/guetzli';
+import { BlobVariations, Copy, GridSlider, LinkList, PageSection } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import React from 'react';
 import { Contact } from '../components/contact';
+import { NextContentCard } from '../components/content-card';
 import { CustomerList } from '../components/customer-list';
-import { ImageCard } from '../components/image-card';
+import { NextImageCard } from '../components/image-card';
 import { NewsletterCard } from '../components/newsletter-card';
 import { Testimonial } from '../components/testimonial';
 import { PackageList } from '../compositions/package-list';
@@ -55,13 +56,13 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
             height={800}
           />
           <GridSlider>
-            <ImageCard
+            <NextImageCard
               label="Projekt — Migipedia"
               title="Der User im Mittelpunkt – seit 10 Jahren"
               link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
               image={{ src: '/images/projekte/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
             />
-            <ImageCard
+            <NextImageCard
               label="Projekt — Subsidia"
               title="Digitalisierung der Lifestyle-Branche."
               link={{ label: 'Mehr erfahren', href: '/projekte/subsidia' }}
@@ -70,7 +71,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
                 alt: 'Verkäuferin scannt Etikett eines Kleidungsstücks mit dem Smartphone',
               }}
             />
-            <ContentCard
+            <NextContentCard
               label="WHOOP WHOOP! 📣🥳"
               title="Migipedia ist Masterkandidat für Best of Swiss Web 2021!"
               content="Zum 10 jährigen Jubiläum von Migipedia haben wir die Migros Community komplett überarbeitet. Und nun ist “unser” Migipedia Masterkandidat für Best of Swiss Web 2021! Wir sind mega happy und freuen uns auf die Award-Night."

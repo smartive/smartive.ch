@@ -3,7 +3,7 @@ import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { CustomerList } from '../../components/customer-list';
-import { ImageCard } from '../../components/image-card';
+import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import { Customer } from '../../data/customers';
@@ -43,18 +43,18 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers })
           <CustomerList customers={customers} />
           <Grid cols={2}>
             {main.map((teaser) => (
-              <ImageCard key={teaser.title} {...teaser} variant={ImageCardVariants.Big} />
+              <NextImageCard key={teaser.title} {...teaser} variant={ImageCardVariants.Big} />
             ))}
           </Grid>
           <GridSlider>
             {teasers.slice(0, 3).map((teaser) => (
-              <ImageCard key={teaser.title} {...teaser} />
+              <NextImageCard key={teaser.title} {...teaser} />
             ))}
           </GridSlider>
           <Testimonial quote={quote} background="apricot" blobs={BlobVariations.apricot[1]} />
           <Grid cols={3}>
             {teasers.slice(3, teasers.length).map((teaser) => (
-              <ImageCard key={teaser.title} {...teaser} />
+              <NextImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
         </PageSection>

@@ -3,7 +3,7 @@ import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import { Contact } from '../../components/contact';
-import { ImageCard } from '../../components/image-card';
+import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
@@ -134,7 +134,7 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages }
       <PageSection title="Weitere Erfolgsgeschichten">
         <Grid cols={3}>
           {teasers.map((teaser) => (
-            <ImageCard key={teaser.title} {...teaser} />
+            <NextImageCard key={teaser.title} {...teaser} />
           ))}
         </Grid>
       </PageSection>

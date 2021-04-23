@@ -2,7 +2,7 @@ import { Copy, Grid, Heading3, ImagePosition, Keyfigure, PageSection, TextBlock,
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-import { ImageCard } from '../../components/image-card';
+import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
@@ -86,7 +86,7 @@ const Agile: NextPage<Props> = ({ teasers }) => (
       <PageSection title="Diese Projekte haben wir agil umgsetzt">
         <Grid cols={3}>
           {teasers.map((teaser) => (
-            <ImageCard key={teaser.title} {...teaser} />
+            <NextImageCard key={teaser.title} {...teaser} />
           ))}
         </Grid>
       </PageSection>

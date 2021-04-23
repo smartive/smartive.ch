@@ -12,7 +12,7 @@ import {
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
-import { ImageCard } from '../../components/image-card';
+import { NextImageCard } from '../../components/image-card';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee } from '../../data/employees';
@@ -83,7 +83,7 @@ const Speedboat: NextPage<Props> = ({ contact, packages, teasers }) => {
           <Heading2>Diese Projekte sind mit einem Speedboat durchgestartet:</Heading2>
           <Grid cols={3}>
             {teasers.map((teaser) => (
-              <ImageCard key={teaser.title} {...teaser} />
+              <NextImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
           <Heading2>Und damit könnte es nach deinem Speedboat weiter gehen:</Heading2>

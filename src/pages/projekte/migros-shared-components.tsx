@@ -3,7 +3,7 @@ import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import { Contact } from '../../components/contact';
-import { ImageCard } from '../../components/image-card';
+import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee } from '../../data/employees';
@@ -103,7 +103,7 @@ const SharedComponents: NextPage<Props> = ({ quote, contact, teasers }) => (
       <PageSection title="Weitere Erfolgsgeschichten">
         <Grid cols={3}>
           {teasers.map((teaser) => (
-            <ImageCard key={teaser.title} {...teaser} />
+            <NextImageCard key={teaser.title} {...teaser} />
           ))}
         </Grid>
       </PageSection>
