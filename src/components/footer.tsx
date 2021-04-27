@@ -79,11 +79,9 @@ export const Footer: FC = () => (
             <span itemProp="addressLocality">{Address.locality}</span>
           </div>
           <span className="my-4">
-            <Link>
-              <ButtonLink href={`tel:${Address.telephone}`} itemProp="telephone">
-                {Address.telephone}
-              </ButtonLink>
-            </Link>
+            <ButtonLink href={`tel:${Address.telephone}`} itemProp="telephone">
+              {Address.telephone}
+            </ButtonLink>
           </span>
           <span className="mb-4">
             <ButtonLink href={`mailto:${Address.email}`} itemProp="email">
