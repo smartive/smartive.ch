@@ -11,6 +11,14 @@
     "name": "Subsidia",
     "logo": "/images/logos/subsidia.svg"
   },
+  "gvg": {
+    "name": "Gebäudeversicherung Graubünden",
+    "logo": "/images/logos/gvg.svg"
+  },
+  "kanton-sg": {
+    "name": "Kanton St. Gallen",
+    "logo": "/images/logos/kanton-sg.svg"
+  },
   "sge": {
     "name": "Switzerland Global Enterprise",
     "logo": "/images/logos/sge.svg"
@@ -22,5 +30,21 @@
   "uni-sg": {
     "name": "Universität St. Gallen",
     "logo": "/images/logos/uni-sg.svg"
+  },
+  "bundesarchiv": {
+    "name": "Schweizerisches Bundesarchiv",
+    "logo": "/images/logos/bundesarchiv.svg"
+  },
+  "migusto": {
+    "name": "Migusto",
+    "logo": "/images/logos/migusto.svg"
+  },
+  "tages-anzeiger": {
+    "name": "Tages-Anzeiger",
+    "logo": "/images/logos/tages-anzeiger.svg"
+  },
+  "berufsbildner": {
+    "name": "berufsbildner.ch",
+    "logo": "/images/logos/berufsbildner.svg"
   }
 }
