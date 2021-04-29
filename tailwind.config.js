@@ -6,5 +6,5 @@ module.exports = guetzliConfig.tailwindConfig({
     extend: {},
   },
   variants: {},
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 });

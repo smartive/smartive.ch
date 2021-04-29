@@ -8,20 +8,22 @@ import {
   ImageCardVariants,
   PageSection,
 } from '@smartive/guetzli';
+import { PostsOrPages } from '@tryghost/content-api';
 import dayjs from 'dayjs';
 import 'dayjs/locale/de';
 import { GetStaticProps, NextPage } from 'next';
 import React, { Fragment } from 'react';
-import { PageHeader } from '../compositions/page-header';
-import { LinkedInArticle } from '../data/linkedin-articles';
-import LinkedInArticles from '../data/linkedin-articles.json';
-import { Page } from '../layouts/page';
+import { PageHeader } from '../../compositions/page-header';
+import { LinkedInArticle } from '../../data/linkedin-articles';
+import LinkedInArticles from '../../data/linkedin-articles.json';
+import { Page } from '../../layouts/page';
+import { getGhostClient } from '../../utils/ghost';
 
 type Props = {
   posts: BlogPost[];
 };
 
-const Team: NextPage<Props> = ({ posts }) => {
+const Blog: NextPage<Props> = ({ posts }) => {
   return (
     <Page>
       <PageHeader
@@ -52,9 +54,9 @@ const Team: NextPage<Props> = ({ posts }) => {
                   title={title}
                   description={index === 0 ? description : ''}
                   link={{
-                    label: `weiterlesen${externalOrigin ? ` auf ${externalOrigin}` : ''}`,
+                    label: `weiterlesen${externalOrigin && externalOrigin !== 'Ghost' ? ` auf ${externalOrigin}` : ''}`,
                     href: link,
-                    newTab: true,
+                    newTab: externalOrigin !== 'Ghost',
                   }}
                   image={{ src: thumbnail, alt: '' }}
                 />
@@ -80,11 +82,24 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const mediumResponse = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/smartive');
   const mediumPosts: MediumPosts = mediumResponse.ok ? await mediumResponse.json() : [];
 
+  const ghostPostsSingleLanguage = await getGhostClient().posts.browse({
+    filter: 'visibility:public+canonical_url:null',
+    order: 'published_at DESC',
+    limit: 'all',
+  });
+  const ghostPostsMultiLanguage = await getGhostClient().posts.browse({
+    filter: 'visibility:public+canonical_url:-null+tag:German',
+    order: 'published_at DESC',
+    limit: 'all',
+  });
+
   return {
     props: {
       posts: [
         ...mapMediumPosts(mediumPosts.items),
         ...mapLinkedInPosts(LinkedInArticles),
+        ...mapGhostPosts(ghostPostsSingleLanguage),
+        ...mapGhostPosts(ghostPostsMultiLanguage),
       ].sort(({ date: first }, { date: second }) => (dayjs(first).isAfter(dayjs(second)) ? -1 : 1)),
     },
     revalidate: 300,
@@ -120,7 +135,19 @@ const mapLinkedInPosts = (posts: LinkedInArticle[]): BlogPost[] =>
     externalOrigin: 'LinkedIn',
   }));
 
-export default Team;
+const mapGhostPosts = (posts: PostsOrPages): BlogPost[] =>
+  posts.map(({ id, title, slug, excerpt, published_at, feature_image }) => ({
+    id,
+    title,
+    link: `/blog/${slug}`,
+    thumbnail: feature_image,
+    description: excerpt,
+    date: published_at,
+    dateDisplay: dayjs(published_at).format('MMMM YYYY'),
+    externalOrigin: 'Ghost',
+  }));
+
+export default Blog;
 
 type BlogPost = {
   id: string;
@@ -130,7 +157,7 @@ type BlogPost = {
   dateDisplay: string;
   link: string;
   thumbnail: string;
-  externalOrigin?: 'Medium' | 'LinkedIn';
+  externalOrigin?: 'Medium' | 'LinkedIn' | 'Ghost';
 };
 
 type MediumFeed = {
