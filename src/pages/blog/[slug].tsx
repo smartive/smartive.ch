@@ -19,7 +19,7 @@ const BlogPost: NextPage<Props> = ({ post }) => {
 
   return (
     <Page>
-      <PageHeader markdownTitle={post.title}>
+      <PageHeader markdownTitle={post.title} description={post.excerpt}>
         <div className="grid md:grid-cols-[66%,auto] gap-4">
           {post.feature_image && (
             <img src={post.feature_image} loading="eager" aria-hidden className="w-full h-full rounded object-cover" />
