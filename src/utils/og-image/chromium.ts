@@ -13,9 +13,18 @@ async function getPage(isDev: boolean) {
   return _page;
 }
 
-export async function getScreenshot(html: string, type: FileType, isDev: boolean) {
+interface GetScreenshotOptions {
+  html: string;
+  type: FileType;
+  isDev: boolean;
+  size: {
+    width: number;
+    height: number;
+  };
+}
+export async function getScreenshot({ html, type, isDev, size }: GetScreenshotOptions) {
   const page = await getPage(isDev);
-  await page.setViewport({ width: 2048, height: 1170 });
+  await page.setViewport(size);
   await page.setContent(html);
   const file = await page.screenshot({ type });
   return file;

@@ -9,6 +9,6 @@ export interface ParsedRequest {
   theme: BrandColor;
   md: boolean;
   fontSize: string;
-  widths: string[];
-  heights: string[];
+  width: number;
+  height: number;
 }

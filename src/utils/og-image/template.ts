@@ -40,12 +40,12 @@ function getCss(theme: BrandColor, fontSize: string) {
         background: ${background};
         height: 100vh;
         display: flex;
-        align: left;
+        text-align: left;
         align-items: center;
         justify-content: center;
     }
 
-    body div {
+    .text {
         z-index: 10;
         padding: 8rem;
     }
@@ -64,31 +64,37 @@ function getCss(theme: BrandColor, fontSize: string) {
         font-style: italic;
         font-weight: 400;
     }
+
+    .blobs {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+    }
 `;
 }
 
-const getBlobProps = () => ({
+const getBlobProps = (size: number) => ({
   seed: Math.random(),
   extraPoints: randomNumberInRange(5, 10),
   randomness: randomNumberInRange(7, 10),
-  size: 700,
+  size,
 });
 
 const getBlobStyle = ({ color, positionX, positionY }: BlobType) => `
     position: absolute;
-    z-index: 0;
-    ${positionY === PositionY.top ? 'top' : 'bottom'}: -${randomNumberInRange(25, 30)}%;
-    ${positionX === PositionX.right ? 'right' : 'left'}: -${randomNumberInRange(15, 20)}%;
+    ${positionY === PositionY.top ? 'top' : 'bottom'}: -${randomNumberInRange(10, 20)}%;
+    ${positionX === PositionX.right ? 'right' : 'left'}: -${randomNumberInRange(10, 20)}%;
     color: ${mapColorToHex(color)};
 `;
 
-const getRandomBlobs = (theme: BrandColor) => {
+const getRandomBlobs = (theme: BrandColor, size: number) => {
   const variations = BlobVariations[theme][randomNumberInRange(0, 2)] || BlobVariations[theme][0];
   return variations
     .map(
       (type) => `
         <div style="${getBlobStyle(type)}">
-            ${svg(getBlobProps(), { fill: 'currentColor' })}
+            ${svg(getBlobProps(size), { fill: 'currentColor' })}
         </div>
     `
     )
@@ -96,7 +102,9 @@ const getRandomBlobs = (theme: BrandColor) => {
 };
 
 export function getHtml(parsedReq: ParsedRequest) {
-  const { text, theme, md, fontSize } = parsedReq;
+  const { text, theme, md, fontSize, width, height } = parsedReq;
+  const blobSize = (width + height) / 4.5;
+
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -106,10 +114,12 @@ export function getHtml(parsedReq: ParsedRequest) {
         ${getCss(theme, fontSize)}
     </style>
     <body>
-        <div>
+        <div class="text">
             ${emojify(md ? marked(text) : sanitizeHtml(text))}
         </div>
-        ${getRandomBlobs(theme)}
+        <div class="blobs">
+            ${getRandomBlobs(theme, blobSize)}
+        </div>
     </body>
 </html>`;
 }

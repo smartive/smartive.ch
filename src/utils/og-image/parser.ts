@@ -5,7 +5,7 @@ import { ParsedRequest } from './types';
 const themes: BrandColor[] = ['apricot', 'mint', 'cornflower'];
 
 export function parseRequest(req: NextApiRequest) {
-  const { text, fontSize, widths, heights, theme, md, fileType, debug } = req.query || {};
+  const { text, fontSize, width, height, theme, md, fileType, debug } = req.query || {};
 
   if (Array.isArray(text)) {
     throw new Error('Expected a single text');
@@ -15,6 +15,12 @@ export function parseRequest(req: NextApiRequest) {
   }
   if (Array.isArray(theme)) {
     throw new Error('Expected a single theme');
+  }
+  if (Array.isArray(width)) {
+    throw new Error('Expected a single width');
+  }
+  if (Array.isArray(height)) {
+    throw new Error('Expected a single height');
   }
 
   const validatedTheme =
@@ -29,19 +35,9 @@ export function parseRequest(req: NextApiRequest) {
     theme: validatedTheme,
     md: md === '1' || md === 'true',
     fontSize: fontSize || '96px',
-    widths: getArray(widths),
-    heights: getArray(heights),
+    width: parseInt(width) || 2048,
+    height: parseInt(height) || 1170,
   };
 
   return parsedRequest;
-}
-
-function getArray(stringOrArray: string[] | string | undefined): string[] {
-  if (typeof stringOrArray === 'undefined') {
-    return [];
-  } else if (Array.isArray(stringOrArray)) {
-    return stringOrArray;
-  } else {
-    return [stringOrArray];
-  }
 }
