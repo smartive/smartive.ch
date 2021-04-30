@@ -1,8 +1,7 @@
+import { Heading2, LinkList } from '@smartive/guetzli';
 import React, { FC } from 'react';
 import { Employee } from '../data/employees';
 import { Portrait, PortraitVariant } from '../elements/portrait';
-import { Heading2 } from '@smartive/guetzli';
-import { LinkList } from '@smartive/guetzli';
 
 type Props = {
   contact: Employee;

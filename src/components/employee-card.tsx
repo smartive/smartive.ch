@@ -1,17 +1,14 @@
+import { Heading3, Link, LinkVariants } from '@smartive/guetzli';
 import Image from 'next/image';
 import React, { FC } from 'react';
 import { Employee } from '../data/employees';
-import { Heading3, Link, LinkVariants } from '@smartive/guetzli';
 
 type Props = {
   employee: Employee;
   className?: string;
 };
 
-export const EmployeeCard: FC<Props> = ({
-  employee: { firstname, lastname, job, bio, image, portrait, links },
-  className = '',
-}) => (
+export const EmployeeCard: FC<Props> = ({ employee: { firstname, lastname, job, bio, image, links }, className = '' }) => (
   <div
     className={`flex flex-col bg-white-100 rounded overflow-hidden ${className}`}
     itemScope
@@ -33,7 +30,7 @@ export const EmployeeCard: FC<Props> = ({
       <Image
         itemProp="image"
         className="bg-mint-200"
-        src={portrait || getFallbackImage()}
+        src={image ? image.replace('.jpg', '_closeup.jpg') : getFallbackImage()}
         alt=""
         objectFit="cover"
         width="480"
