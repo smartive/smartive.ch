@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
 import { Footer } from '../components/footer';
+import { useKube } from '../components/kube';
 import '../styles/globals.css';
 
 const loadFramerMotionFeatures = () => import('../utils/framer-motion-features').then((res) => res.default);
@@ -12,6 +13,8 @@ const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 const PLAUSIBLE_ENABLED = process.env.NEXT_PUBLIC_PLAUSIBLE_ENABLED === 'true';
 
 export default function App({ Component, pageProps }: AppProps) {
+  useKube();
+
   return (
     <PlausibleProvider domain={PLAUSIBLE_DOMAIN} enabled={PLAUSIBLE_ENABLED}>
       <div className="min-h-screen grid grid-rows-[auto,1fr,auto]">
