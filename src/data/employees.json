@@ -359,30 +359,6 @@
       }
     ]
   },
-  "dominik": {
-    "firstname": "Dominik",
-    "lastname": "Friederich",
-    "portrait": "/images/employees/portraits/dominik.jpg",
-    "image": "/images/employees/dominik.jpg",
-    "tel": "+41 44 552 55 99",
-    "email": "dominik@smartive.ch",
-    "job": "Software Engineer",
-    "bio": "Hätte gerne mehr Stunden pro Tag, immer in Bewegung, Chillizüchter, Bierbrauer, Kletterfanatiker & angehender Routenbauer",
-    "links": [
-      {
-        "label": "dominik@smartive.ch",
-        "url": "mailto:dominik@smartive.ch"
-      },
-      {
-        "label": "LinkedIn",
-        "url": "https://www.linkedin.com/in/dominik-friederich-a844a7187/"
-      },
-      {
-        "label": "GitHub",
-        "url": "https://github.com/dominikfriederich"
-      }
-    ]
-  },
   "nadia": {
     "firstname": "Nadia",
     "lastname": "Posch",
