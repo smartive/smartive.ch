@@ -219,19 +219,19 @@
     "tel": "+41 44 552 55 99",
     "email": "mirco@smartive.ch",
     "job": "Software Engineer",
-    "bio": "Entdeckt von St. Gallen aus die Welt, Hobbyfotograf, sportbegeistert drinnen und draussen, isst und kocht gerne leckeres Essen, schätzt ein gutes Buch, schaut zu viele Filme & Serien",
+    "bio": "Entdeckt von St. Gallen aus die Welt, sportbegeistert drinnen und draussen, isst und kocht gerne leckeres Essen, Hobbyfotograf / -filmer, schätzt ein gutes Buch, schaut zu viele Filme & Serien",
     "links": [
       {
         "label": "mirco@smartive.ch",
         "url": "mailto:mirco@smartive.ch"
       },
       {
-        "label": "Twitter",
-        "url": "https://twitter.com/mircostraessle"
-      },
-      {
         "label": "GitHub",
         "url": "https://github.com/mircostraessle"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/mirco-str%C3%A4ssle-22740a20a/"
       }
     ]
   },
