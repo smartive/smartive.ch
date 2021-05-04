@@ -418,5 +418,29 @@
         "url": "https://www.linkedin.com/in/sabrina-oertle-60a70a8b/"
       }
     ]
+  },
+  "alex": {
+    "firstname": "Alex",
+    "lastname": "Mäder",
+    "portrait": "",
+    "image": "",
+    "tel": "+41 79 653 69 09",
+    "email": "alex@smartive.ch",
+    "job": "Intern",
+    "bio": "Pfadfinder, Volleyballer, Feinschmecker, Rapperswiler, Drilling, Wanderer, Wissbegieriger, Dungeons and Dragons Abenteurer, Katzenstreichler und Hängebauchschweinflüsterer",
+    "links": [
+      {
+        "label": "alex@smartive.ch",
+        "url": "mailto:alex@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/alexemanuelmaeder"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Halunks"
+      }
+    ]
   }
 }
