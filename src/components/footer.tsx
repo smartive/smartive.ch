@@ -1,7 +1,9 @@
 import { ArrowUp, ButtonLink, Label, Link, LinkVariants } from '@smartive/guetzli';
 import { m as motion, useViewportScroll } from 'framer-motion';
+import { usePlausible } from 'next-plausible';
 import dynamic from 'next/dynamic';
 import React, { FC, useEffect, useState } from 'react';
+import { PlausibleEvents } from '../utils/tracking';
 
 const NewsletterSubscription = dynamic(() => import('../components/newsletter-subscription'), { ssr: false });
 
@@ -15,106 +17,169 @@ const Address = {
   email: 'hello@smartive.ch',
 } as const;
 
-export const Footer: FC = () => (
-  <footer className="bg-cornflower-500">
-    <div className="container mx-auto px-4 pt-24 xl:pt-32 pb-8 h-full">
-      <Label as="div" className="hidden lg:grid grid-cols-4 grid-flow-row items-end justify-items-center">
-        <address
-          className="not-italic grid grid-flow-row place-self-start"
-          itemScope
-          itemType="http://schema.org/Organization"
-        >
-          <span itemProp="name">{Address.name}</span>
-          <div itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
-            <span itemProp="streetAddress">{Address.street}</span>
-            <br />
-            <span itemProp="addressCountry">{Address.country}</span>-<span itemProp="postalCode">{Address.postalCode}</span>
-            &nbsp;
-            <span itemProp="addressLocality">{Address.locality}</span>
-          </div>
-          <span>
-            <Link variant={LinkVariants.Navigation} href={`tel:${Address.telephone}`} itemProp="telephone">
-              {Address.telephone}
+export const Footer: FC = () => {
+  const plausible = usePlausible<PlausibleEvents>();
+
+  return (
+    <footer className="bg-cornflower-500">
+      <div className="container mx-auto px-4 pt-24 xl:pt-32 pb-8 h-full">
+        <Label as="div" className="hidden lg:grid grid-cols-4 grid-flow-row items-end justify-items-center">
+          <address
+            className="not-italic grid grid-flow-row place-self-start"
+            itemScope
+            itemType="http://schema.org/Organization"
+          >
+            <span itemProp="name">{Address.name}</span>
+            <div itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
+              <span itemProp="streetAddress">{Address.street}</span>
+              <br />
+              <span itemProp="addressCountry">{Address.country}</span>-
+              <span itemProp="postalCode">{Address.postalCode}</span>
+              &nbsp;
+              <span itemProp="addressLocality">{Address.locality}</span>
+            </div>
+            <span>
+              <Link
+                variant={LinkVariants.Navigation}
+                href={`tel:${Address.telephone}`}
+                itemProp="telephone"
+                onClick={() => {
+                  plausible('Contact Click', {
+                    props: {
+                      value: Address.telephone,
+                      url: window?.location.toString(),
+                      component: 'footer',
+                      device: 'mobile',
+                    },
+                  });
+                }}
+              >
+                {Address.telephone}
+              </Link>
+            </span>
+            <span>
+              <Link
+                variant={LinkVariants.Navigation}
+                href={`mailto:${Address.email}`}
+                itemProp="email"
+                onClick={() => {
+                  plausible('Contact Click', {
+                    props: {
+                      value: Address.email,
+                      url: window?.location.toString(),
+                      component: 'footer',
+                      device: 'desktop',
+                    },
+                  });
+                }}
+              >
+                {Address.email}
+              </Link>
+            </span>
+          </address>
+
+          <NewsletterSubscription className="col-span-2 place-items-center" label="Newsletter" />
+
+          <div className="grid grid-flow-row place-self-end justify-items-start">
+            <Link variant={LinkVariants.Navigation} href="https://www.linkedin.com/company/smartive-ag/" newTab>
+              LinkedIn
             </Link>
-          </span>
-          <span>
-            <Link variant={LinkVariants.Navigation} href={`mailto:${Address.email}`} itemProp="email">
-              {Address.email}
+            <Link variant={LinkVariants.Navigation} href="https://www.instagram.com/smartive_ch/" newTab>
+              Instagram
             </Link>
-          </span>
-        </address>
-
-        <NewsletterSubscription className="col-span-2 place-items-center" label="Newsletter" />
-
-        <div className="grid grid-flow-row place-self-end justify-items-start">
-          <Link variant={LinkVariants.Navigation} href="https://www.linkedin.com/company/smartive-ag/" newTab>
-            LinkedIn
-          </Link>
-          <Link variant={LinkVariants.Navigation} href="https://www.instagram.com/smartive_ch/" newTab>
-            Instagram
-          </Link>
-          <Link variant={LinkVariants.Navigation} href="https://twitter.com/smartive_ch" newTab>
-            Twitter
-          </Link>
-          <Link variant={LinkVariants.Navigation} href="https://facebook.com/smartive.ch" newTab>
-            Facebook
-          </Link>
-        </div>
-        <SwissMadeSoftwareLogo />
-        <BackToTop />
-      </Label>
-
-      <Label as="div" className="relative grid lg:hidden grid-flow-row place-items-center gap-8 max-w-[20rem] mx-auto">
-        <address
-          className="not-italic grid grid-flow-row text-center w-full"
-          itemScope
-          itemType="http://schema.org/Organization"
-        >
-          <span itemProp="name">{Address.name}</span>
-          <div className="mb-4" itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
-            <span itemProp="streetAddress">{Address.street}</span>
-            <br />
-            <span itemProp="addressCountry">{Address.country}</span>-<span itemProp="postalCode">{Address.postalCode}</span>
-            &nbsp;
-            <span itemProp="addressLocality">{Address.locality}</span>
+            <Link variant={LinkVariants.Navigation} href="https://twitter.com/smartive_ch" newTab>
+              Twitter
+            </Link>
+            <Link variant={LinkVariants.Navigation} href="https://facebook.com/smartive.ch" newTab>
+              Facebook
+            </Link>
           </div>
-          <span className="my-4">
-            <ButtonLink href={`tel:${Address.telephone}`} itemProp="telephone">
-              {Address.telephone}
-            </ButtonLink>
-          </span>
-          <span className="mb-4">
-            <ButtonLink href={`mailto:${Address.email}`} itemProp="email">
-              {Address.email}
-            </ButtonLink>
-          </span>
-          <span>
-            <ButtonLink href="https://www.google.com/maps/dir//smartive+AG,+Pfingstweidstrasse+60,+8005+Z%C3%BCrich" newTab>
-              Anfahrtsplan
-            </ButtonLink>
-          </span>
-        </address>
-        <div className="grid grid-flow-row place-items-center">
-          <Link variant={LinkVariants.Navigation} href="https://www.linkedin.com/company/smartive-ag/" newTab>
-            LinkedIn
-          </Link>
-          <Link variant={LinkVariants.Navigation} href="https://www.instagram.com/smartive_ch/" newTab>
-            Instagram
-          </Link>
-          <Link variant={LinkVariants.Navigation} href="https://twitter.com/smartive_ch" newTab>
-            Twitter
-          </Link>
-          <Link variant={LinkVariants.Navigation} href="https://facebook.com/smartive.ch" newTab>
-            Facebook
-          </Link>
-        </div>
-        <NewsletterSubscription className="w-full" />
-        <SwissMadeSoftwareLogo />
-        <BackToTop />
-      </Label>
-    </div>
-  </footer>
-);
+          <SwissMadeSoftwareLogo />
+          <BackToTop />
+        </Label>
+
+        <Label as="div" className="relative grid lg:hidden grid-flow-row place-items-center gap-8 max-w-[20rem] mx-auto">
+          <address
+            className="not-italic grid grid-flow-row text-center w-full"
+            itemScope
+            itemType="http://schema.org/Organization"
+          >
+            <span itemProp="name">{Address.name}</span>
+            <div className="mb-4" itemProp="address" itemScope itemType="http://schema.org/PostalAddress">
+              <span itemProp="streetAddress">{Address.street}</span>
+              <br />
+              <span itemProp="addressCountry">{Address.country}</span>-
+              <span itemProp="postalCode">{Address.postalCode}</span>
+              &nbsp;
+              <span itemProp="addressLocality">{Address.locality}</span>
+            </div>
+            <span className="my-4">
+              <ButtonLink
+                href={`tel:${Address.telephone}`}
+                itemProp="telephone"
+                onClick={() => {
+                  plausible('Contact Click', {
+                    props: {
+                      value: Address.telephone,
+                      url: window?.location.toString(),
+                      component: 'footer',
+                      device: 'mobile',
+                    },
+                  });
+                }}
+              >
+                {Address.telephone}
+              </ButtonLink>
+            </span>
+            <span className="mb-4">
+              <ButtonLink
+                href={`mailto:${Address.email}`}
+                itemProp="email"
+                onClick={() => {
+                  plausible('Contact Click', {
+                    props: {
+                      value: Address.email,
+                      url: window?.location.toString(),
+                      component: 'footer',
+                      device: 'mobile',
+                    },
+                  });
+                }}
+              >
+                {Address.email}
+              </ButtonLink>
+            </span>
+            <span>
+              <ButtonLink
+                href="https://www.google.com/maps/dir//smartive+AG,+Pfingstweidstrasse+60,+8005+Z%C3%BCrich"
+                newTab
+              >
+                Anfahrtsplan
+              </ButtonLink>
+            </span>
+          </address>
+          <div className="grid grid-flow-row place-items-center">
+            <Link variant={LinkVariants.Navigation} href="https://www.linkedin.com/company/smartive-ag/" newTab>
+              LinkedIn
+            </Link>
+            <Link variant={LinkVariants.Navigation} href="https://www.instagram.com/smartive_ch/" newTab>
+              Instagram
+            </Link>
+            <Link variant={LinkVariants.Navigation} href="https://twitter.com/smartive_ch" newTab>
+              Twitter
+            </Link>
+            <Link variant={LinkVariants.Navigation} href="https://facebook.com/smartive.ch" newTab>
+              Facebook
+            </Link>
+          </div>
+          <NewsletterSubscription className="w-full" />
+          <SwissMadeSoftwareLogo />
+          <BackToTop />
+        </Label>
+      </div>
+    </footer>
+  );
+};
 
 const BackToTop = () => {
   const { scrollYProgress } = useViewportScroll();

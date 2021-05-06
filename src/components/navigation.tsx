@@ -4,6 +4,8 @@ import { useRouter } from 'next/dist/client/router';
 import React, { FC, useRef, useState } from 'react';
 import { useLockBodyScroll } from '../utils/use-body-scroll-lock';
 import NextLink from 'next/link';
+import { usePlausible } from 'next-plausible';
+import { PlausibleEvents } from '../utils/tracking';
 
 const Main = [
   { label: 'Angebot', link: '/angebot' },
@@ -23,6 +25,8 @@ export const Navigation: FC = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const mobileNavRef = useRef(null);
   useLockBodyScroll(mobileNavOpen, mobileNavRef);
+
+  const plausible = usePlausible<PlausibleEvents>();
 
   return (
     <nav className="grid grid-flow-col content-start lg:container lg:mx-auto px-4 pt-8 font-sans font-bold text-xs">
@@ -47,7 +51,20 @@ export const Navigation: FC = () => {
       <div className="hidden lg:block text-right">
         {Meta.map(({ label, link }) => (
           <NextLink key={label} href={link} passHref>
-            <Link variant={LinkVariants.Navigation} className="mr-8 last:mr-0">
+            <Link
+              variant={LinkVariants.Navigation}
+              className="mr-8 last:mr-0"
+              onClick={() => {
+                plausible('Contact Click', {
+                  props: {
+                    value: label,
+                    url: window?.location.toString(),
+                    component: 'navigation',
+                    device: 'desktop',
+                  },
+                });
+              }}
+            >
               {label}
             </Link>
           </NextLink>
@@ -99,7 +116,21 @@ export const Navigation: FC = () => {
               {Meta.map(({ label, link }) => (
                 <Label key={label} as="li">
                   <NextLink href={link} passHref>
-                    <Link variant={LinkVariants.Navigation} onClick={() => setMobileNavOpen(false)}>
+                    <Link
+                      variant={LinkVariants.Navigation}
+                      onClick={() => {
+                        setMobileNavOpen(false);
+
+                        plausible('Contact Click', {
+                          props: {
+                            value: label,
+                            url: window?.location.toString(),
+                            component: 'navigation',
+                            device: 'mobile',
+                          },
+                        });
+                      }}
+                    >
                       {label}
                     </Link>
                   </NextLink>
