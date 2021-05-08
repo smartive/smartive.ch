@@ -27,7 +27,7 @@ const Blog: NextPage<Props> = ({ posts }) => {
   return (
     <Page>
       <PageHeader
-        markdownTitle="Code and Culture: Einblicke von unserem Team"
+        markdownTitle="Code and Culture: _Einblicke_ von unserem Team"
         description="Wenn wir schreiben, schreiben wir meist Code. Hier schreiben wir für einmal über alles, was dahinter steckt – über unsere Firmenkultur und wie wir uns organisieren, welche Ansätze und Technologien bei uns gerade hoch im Kurs sind und wie wir persönliche und technische Herausforderungen meistern. Wirf einen Blick hinter die Kulissen!"
       >
         <Copy>
