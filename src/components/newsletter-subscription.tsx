@@ -59,7 +59,6 @@ const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button 
                 {label}
                 <Tooltip text={notification} isOpen={!!notification}>
                   <Input
-                    id="newsletter-email"
                     disabled={status === 'sending'}
                     placeholder="E-Mail-Adresse"
                     value={email}
