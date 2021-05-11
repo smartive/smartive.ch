@@ -71,7 +71,8 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const packages = Object.values(Packages);
+  const hiddenPackages = ['Jetski'];
+  const packages = Object.values(Packages).filter(({ title }) => !hiddenPackages.includes(title));
 
   return {
     props: {
