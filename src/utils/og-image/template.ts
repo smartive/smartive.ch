@@ -71,6 +71,14 @@ function getCss(theme: BrandColor, fontSize: string) {
         width: 100%;
         z-index: 0;
     }
+
+    /* Required for emojis to be sized according to the text (https://github.com/twitter/twemoji#inline-styles) */
+    img.emoji {
+        height: 1em;
+        width: 1em;
+        margin: 0 .05em 0 .1em;
+        vertical-align: -0.1em;
+     }
 `;
 }
 
