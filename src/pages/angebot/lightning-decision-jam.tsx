@@ -13,11 +13,14 @@ import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
+import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
+import { Quote } from '../../data/quotes';
+import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
 import { Page } from '../../layouts/page';
 
@@ -25,9 +28,10 @@ type Props = {
   contact: Employee;
   packages: Package[];
   teasers: Teaser[];
+  quote: Quote;
 };
 
-const LightningDecisionJam: NextPage<Props> = ({ contact, packages, teasers }) => {
+const LightningDecisionJam: NextPage<Props> = ({ contact, packages, teasers, quote }) => {
   return (
     <Page>
       <PageHeader
@@ -79,6 +83,9 @@ const LightningDecisionJam: NextPage<Props> = ({ contact, packages, teasers }) =
           </div>
         </PageSection>
         <PageSection>
+          <Testimonial background="mint" blobs={BlobVariations.mint[2]} quote={quote} />
+        </PageSection>
+        <PageSection>
           <Contact contact={contact}>
             Fragen zum Ablauf des Lightning Decision Jam?
             <br /> {contact.firstname} weiss Bescheid!
@@ -109,6 +116,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       packages,
+      quote: Quotes['markus-bin'],
       teasers: [],
       contact: Employees.robert,
     },
