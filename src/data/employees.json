@@ -362,8 +362,8 @@
   "nadia": {
     "firstname": "Nadia",
     "lastname": "Posch",
-    "portrait": "",
-    "image": "",
+    "portrait": "/images/employees/portraits/nadia.jpg",
+    "image": "/images/employees/nadia.jpg",
     "tel": "+41 44 552 55 99",
     "email": "nadia@smartive.ch",
     "job": "Software Engineer",
@@ -382,8 +382,8 @@
   "damian": {
     "firstname": "Damian",
     "lastname": "Caduff",
-    "portrait": "",
-    "image": "",
+    "portrait": "/images/employees/portraits/damian.jpg",
+    "image": "/images/employees/damian.jpg",
     "tel": "+41 44 552 55 99",
     "email": "damian@smartive.ch",
     "job": "Interaction Designer",
@@ -402,8 +402,8 @@
   "sabrina": {
     "firstname": "Sabrina",
     "lastname": "Oertle",
-    "portrait": "",
-    "image": "",
+    "portrait": "/images/employees/portraits/sabrina.jpg",
+    "image": "/images/employees/sabrina.jpg",
     "tel": "+41 44 552 55 99",
     "email": "sabrina@smartive.ch",
     "job": "Interaction Designer",
@@ -422,8 +422,8 @@
   "alex": {
     "firstname": "Alex",
     "lastname": "Mäder",
-    "portrait": "",
-    "image": "",
+    "portrait": "/images/employees/portraits/alex.jpg",
+    "image": "/images/employees/alex.jpg",
     "tel": "+41 79 653 69 09",
     "email": "alex@smartive.ch",
     "job": "Intern",
