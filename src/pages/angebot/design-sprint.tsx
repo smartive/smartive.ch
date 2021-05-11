@@ -27,21 +27,20 @@ type Props = {
   teasers: Teaser[];
 };
 
-const IdeationSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
+const DesignSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
   return (
     <Page>
       <PageHeader
-        markdownTitle="Ideation Sprint"
+        markdownTitle="Design Sprint"
         description="Gewinn ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌ ‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generiere‌ ‌daraus‌
           ‌funktionsfähige‌ ‌Ideen.‌ ‌Erhalte‌ ‌einen‌ ‌ersten‌ ‌visuellen‌ ‌Prototypen‌ ‌und‌ ‌hole‌ ‌Feedback‌ ‌deiner‌
           ‌Kunden‌ ‌dazu‌ ‌ab.‌"
         variant={PageHeaderVariants.Card}
-        background={Packages['ideation-sprint'].background}
+        background={Packages['design-sprint'].background}
         blobs={BlobVariations.apricot[2]}
       >
         <Label className="inline-flex flex-row items-center mb-8">
-          <Clock className="h-6 w-6 mr-2 inline" />
-          2–5 Tage
+          <Clock className="h-6 w-6 mr-2 inline" />1 Woche
         </Label>
         <Copy>
           ‌Gewinn‌ ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generier ‌daraus‌
@@ -52,14 +51,13 @@ const IdeationSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
 
       <main>
         <PageSection>
-          <Heading2>Was ist ein Ideation Sprint?</Heading2>
+          <Heading2>Was ist ein Design Sprint?</Heading2>
           <Copy>
             Du hast eine Marktlücke oder die Chance für einen Innovationssprung deines digitalen Produkts erkannt. Du bist
-            dir aber nicht sicher, wie du die Herausforderung angehen sollst. In einem Ideation Workshop zerlegen wir
-            gemeinsam mit Fachexpert*innen das Problem in seine Einzelteile und entwickeln daraus eine Lösung. Dabei setzen
-            wir auf modernste Methoden wie Design Sprints oder Lightning Decision Jams. Je nach Komplexität der
-            Herausforderung entwickeln wir einen visuellen, klickbaren Prototypen und führen bereits ein erstes Testing mit
-            deinen po­ten­zi­ellen Nutzern durch.
+            dir aber nicht sicher, wie du die Herausforderung angehen sollst. In einem Workshop zerlegen wir gemeinsam mit
+            Fachexpert*innen das Problem in seine Einzelteile und entwickeln daraus eine Lösung. Wir entwickeln einen
+            visuellen, klickbaren Prototypen und führen bereits ein erstes Testing mit deinen po­ten­zi­ellen Nutzer*innen
+            durch.
           </Copy>
           <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
             <UnorderedList
@@ -68,13 +66,13 @@ const IdeationSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
                 'Du profitierst von einem agilen, hochqualifizierten Team.',
                 'In wenigen Tagen wird eine konkrete und lösungsorientierte Idee für deine Herausforderung entwickelt.',
                 'Du erhältst Rückmeldungen deiner Nutzer und weisst, ob deine Idee standhält.',
-                'Bei komplexeren Ideen hast du einen visuellen und klickbaren Prototypen, der bereits mit deiner Zielgruppe getestet wurde.',
+                'Du erhältst einen visuellen und klickbaren Prototypen, der bereits mit deiner Zielgruppe getestet wurde.',
               ]}
             />
             <UnorderedList
               title="Das brauchen wir von dir"
               items={[
-                'Du hast 2-3 Tage Zeit, um mit uns an den Workshops zusammenzuarbeiten.',
+                'Du hast 2 Tage Zeit, um mit uns an den Workshops zusammenzuarbeiten.',
                 'Du kennst dich in deinem «Problem Space» aus und kannst diesen verständlich erklären.',
               ]}
             />
@@ -82,14 +80,14 @@ const IdeationSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
         </PageSection>
         <PageSection>
           <Contact contact={contact}>
-            Fragen zum Ablauf des Ideation Sprints?
+            Fragen zum Ablauf des Design Sprints?
             <br /> {contact.firstname} hat Antworten!
           </Contact>
         </PageSection>
         <PageSection>
           {teasers.length > 0 && (
             <>
-              <Heading2>Diese Projekte haben mit einem Ideation Sprint gestartet:</Heading2>
+              <Heading2>Diese Projekte haben mit einem Design Sprint gestartet:</Heading2>
               <GridSlider>
                 {teasers.map((teaser) => (
                   <NextImageCard key={teaser.title} {...teaser} />
@@ -97,7 +95,7 @@ const IdeationSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
               </GridSlider>
             </>
           )}
-          <Heading2>Und damit könnte es nach deinem Ideation Sprint weitergehen:</Heading2>
+          <Heading2>Und damit könnte es nach deinem Design Sprint weitergehen:</Heading2>
           <PackageList packages={packages} />
         </PageSection>
       </main>
@@ -117,4 +115,4 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-export default IdeationSprint;
+export default DesignSprint;

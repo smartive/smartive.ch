@@ -10,15 +10,25 @@ export type Package = {
 };
 
 export default {
-  'ideation-sprint': {
-    label: '2–5 Tage',
-    title: 'Ideation Sprint',
+  'design-sprint': {
+    label: '1 Woche',
+    title: 'Design Sprint',
     content: 'Gewinn ein besseres Verständnis für die Bedürfnisse deiner Nutzer und zieh daraus umsetzbare Ideen.',
     link: {
       label: 'Wie geht das?',
-      href: '/angebot/ideation-sprint',
+      href: '/angebot/design-sprint',
     },
     background: 'apricot',
+  },
+  ldj: {
+    label: '1 Tag',
+    title: 'Lightning Decision Jam',
+    content: 'Der Lightning Decision Jam ist die schnellste Möglichkeit, damit du trotz lauter Bäumen den Wald siehst.',
+    link: {
+      label: 'Lightning was?',
+      href: '/angebot/lightning-decision-jam',
+    },
+    background: 'cornflower',
   },
   speedboat: {
     label: '4 Wochen',
@@ -26,10 +36,21 @@ export default {
     content:
       'Lancier in kurzer Zeit dein MVP (Minimum Viable Product) und teste anhand messbarer Ziele, wie dein Produkt ankommt.',
     link: {
-      label: 'Zeig mir mehr!',
+      label: 'Lass uns loslegen!',
       href: '/angebot/speedboat',
     },
     background: 'mint',
+  },
+  jetski: {
+    label: '3 Wochen',
+    title: 'Jetski',
+    content:
+      'Lancier in kurzer Zeit dein MVP (Minimum Viable Product) und teste anhand messbarer Ziele, wie dein Produkt ankommt.',
+    link: {
+      label: 'Zeig mir mehr!',
+      href: '/angebot/jetski',
+    },
+    background: 'cornflower',
   },
   'scale-up': {
     label: '2–3 Monate',

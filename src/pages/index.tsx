@@ -114,7 +114,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const packages = [Packages['ideation-sprint'], Packages['speedboat'], Packages['scale-up'], Packages['solution-review']];
+  const packages = [Packages['design-sprint'], Packages['speedboat'], Packages['scale-up'], Packages['solution-review']];
 
   return {
     props: {

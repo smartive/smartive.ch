@@ -98,7 +98,7 @@ const SolutionReview: NextPage<Props> = ({ contact, teasers, packages }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const packages = [Packages.speedboat, Packages.mentoring, Packages['ideation-sprint']];
+  const packages = [Packages.speedboat, Packages.mentoring, Packages['design-sprint']];
 
   return {
     props: {

@@ -44,6 +44,7 @@
     { "source": "/cases/online-hilfe-finden", "destination": "/projekte/ofpg-kig" },
     { "source": "/cases/subsidia-kasse", "destination": "/projekte/subsidia" },
     { "source": "/google-search-appliance", "destination": "/projekte" },
-    { "source": "/kontakt", "destination": "/agentur" }
+    { "source": "/kontakt", "destination": "/agentur" },
+    { "source": "/angebot/ideation-sprint", "destination": "/angebot/design-sprint" }
   ]
 }

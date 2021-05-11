@@ -105,7 +105,7 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const packages = [Packages.speedboat, Packages['scale-up'], Packages['ideation-sprint']];
+  const packages = [Packages.speedboat, Packages['scale-up'], Packages['design-sprint']];
 
   return {
     props: {
