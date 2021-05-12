@@ -46,8 +46,8 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
           <LinkList
             linkWrapper={NextLink}
             links={[
-              { label: 'Was, MVP?', href: '/angebot/mvp' },
-              { label: 'Wie bitte, Scrum?', href: '/angebot/agile' },
+              { label: 'Was, MVP?', href: '/was-ist/mvp' },
+              { label: 'Wie bitte, Scrum?', href: '/was-ist/agile' },
             ]}
           />
         </PageSection>

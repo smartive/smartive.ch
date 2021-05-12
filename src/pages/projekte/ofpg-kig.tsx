@@ -100,7 +100,7 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
             <div>
               <Heading3>Schritt für Schritt vorwärts</Heading3>
               <Copy>
-                Auch bei diesem Projekt sind wir iterativ vorgegangen — mit <Link href="/angebot/agile">Scrum</Link>.
+                Auch bei diesem Projekt sind wir iterativ vorgegangen — mit <Link href="/was-ist/agile">Scrum</Link>.
                 Regelmässig wurden neue Features getestet und evaluiert. Das erlaubte dem Kanton und uns, auf neue oder sich
                 ändernde Anforderungen einzugehen und diesen gerecht zu werden.
               </Copy>

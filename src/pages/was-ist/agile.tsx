@@ -2,6 +2,7 @@ import { Copy, Grid, Heading3, ImagePosition, Keyfigure, PageSection, TextBlock,
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
+
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { Teaser } from '../../data/teaser';
@@ -15,7 +16,8 @@ type Props = {
 const Agile: NextPage<Props> = ({ teasers }) => (
   <Page>
     <PageHeader
-      markdownTitle="Was ist dieses _Scrum_?"
+      markdownTitle="_Scrum_ und _agile_ oder: Ein flexibler Plan"
+      pageTitle="Was ist eigentlich Scrum?"
       description="Scrum ist unsere bevorzugte Spielart von agiler Entwicklung. Scrum gibt einen Rahmen für die Zusammenarbeit vor, der so viel absteckt wie nötig und so viel Freiraum lässt wie möglich."
     >
       <Copy>
@@ -26,15 +28,28 @@ const Agile: NextPage<Props> = ({ teasers }) => (
 
     <main>
       <Heading3>Scrum-Bausteine: Sprints & User Stories</Heading3>
-      <Copy>
-        <strong>Sprints</strong> dauern zwei Wochen. Eine Iteration umfasst ein Meeting zum Planen, die Umsetzung der
-        definierten Anforderungen und ein Meeting zum Zurückschauen, woran sich gleich wieder die Planung des nächsten
-        Sprints anschliesst.
-      </Copy>
-      <Copy>
-        Die Basis für Planung und Umsetzung sind <strong>User Stories</strong>. Darin sind die Anforderungen aus der Sicht
-        eines Benutzers fixiert.
-      </Copy>
+      <Grid cols={2}>
+        <div>
+          <Copy>
+            <strong>Sprints</strong> dauern zwei Wochen. Ein Sprint ist nichts anderes als eine <strong>Iteration</strong>.
+          </Copy>
+          <Copy>
+            Jeder Sprint umfasst ein Meeting zum Planen, die Umsetzung der definierten Anforderungen und ein Meeting, bei dem
+            auf das Erreichte zurückgeschaut wird. An dieses schliesst sich gleich wieder die Planung des nächsten Sprints
+            an.
+          </Copy>
+        </div>
+        <div>
+          <Copy>
+            Die Basis für Planung und Umsetzung sind <strong>User Stories</strong>. Darin sind die Anforderungen aus
+            Benutzersicht fixiert («Als Besucher*in will ich einen Anmeldebutton, um mich einzuloggen.»)
+          </Copy>
+          <Copy>
+            Vor der Umsetzung schätzt das Team die Komplexität jeder Story (<strong>Estimation</strong>). Dies bildet die
+            Basis für die Sprintplanung.
+          </Copy>
+        </div>
+      </Grid>
 
       <PageSection>
         <Keyfigure
@@ -63,8 +78,8 @@ const Agile: NextPage<Props> = ({ teasers }) => (
 
         <Grid cols={2}>
           <TextBlock title="Product Owner">
-            Das bist du oder jemand aus deinem Team. Wichtig ist, dass die Person Entscheidungen treffen kann und will. Der
-            Product Owner priorisiert die Aufgaben und Anforderungen und vertritt das Produkt gegenüber sämtlichen
+            Das bist du oder jemand aus deinem Team. Wichtig ist, dass die Person Entscheidungen treffen kann und will.
+            Der/die Product Owner*in priorisiert die Aufgaben und Anforderungen und vertritt das Produkt gegenüber sämtlichen
             Stakeholder*innen – inklusive uns.
           </TextBlock>
           <TextBlock title="Product Owner Assistant">
@@ -72,14 +87,25 @@ const Agile: NextPage<Props> = ({ teasers }) => (
             Owner ist er/sie auch Ansprechsperson für sämtliche Stakeholder*innen.
           </TextBlock>
           <TextBlock title="Scrum Master">
-            Der Scrum Master sorgt dafür, dass das Team effizient arbeiten kann. Er schafft Probleme und Hindernisse aller
-            Art aus dem Weg. Fehlen wichtige Personen im Prozess, sorgt der Scrum Master dafür, dass sie fortan auch am Tisch
-            sitzen. Ist jemand im Team blockiert, hilft er, die Blockade zu lösen.
+            Der Scrum Master oder die Scrum Masterin sorgt dafür, dass alle im Team effizient arbeiten können. Zu den
+            Aufgaben gehört, Blockaden und Hindernisse aller Art aus dem Weg zu schaffen, im Team und nach aussen zu
+            vermitteln sowie dafür zu sorgen, dass alle wichtigen Personen am Tisch sitzen.
           </TextBlock>
           <TextBlock title="Umsetzungsteam">
             War da nicht noch… Ah, genau! Das Umsetzungsteam wird von smartive gestellt und ist interdisziplinär aufgestellt:
             Design, Entwicklung und Testing. Es bringt sämtliches benötigtes Knowhow für die erfolgreiche Durchführung des
             Projekts mit.
+          </TextBlock>
+          <TextBlock title="Story Points & Estimation">
+            Story Points bezeichnen die Komplexität jeder Story (und nicht die benötigte Zeit). Die{' '}
+            <strong>Estimation</strong> wird meist in Form eines <strong>Planungspokers</strong> durchgeführt: Alle erhalten
+            ein Kartenset mit den Werten 1 – 2 – 3 – 5 – 8 – … (Fibonacci-Reihe) und zeigen gleichzeitig ihre Schätzung. Bei
+            abweichenden Werten wird diskutiert.
+          </TextBlock>
+          <TextBlock title="Product Backlog">
+            Im Backlog warten Stories auf ihre Umsetzung. Hier wird alles abgelegt, was gemacht werden sollte (oder könnte),
+            aber nicht im nächsten Sprint. Es ist sinnvoll, regelmässig ein <strong>Backlog Refinement</strong>{' '}
+            durchzuführen, um unvollständige oder nicht mehr aktuelle Stories anzupassen oder auszusortieren.
           </TextBlock>
         </Grid>
       </PageSection>

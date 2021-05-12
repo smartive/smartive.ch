@@ -8,14 +8,15 @@ const OG_IMAGE_SERVICE_URL = `${SITE_URL}/api/og-image`;
 
 type PageHeaderProps = PageHeaderComponentProps & {
   description?: string;
+  pageTitle?: string;
 };
 
-export const PageHeader: FC<PageHeaderProps> = ({ description, ...props }) => {
+export const PageHeader: FC<PageHeaderProps> = ({ description, pageTitle, ...props }) => {
   const { asPath } = useRouter();
   const pageUrl = `${SITE_URL}${asPath}`;
   const imageUrl = `${OG_IMAGE_SERVICE_URL}/${encodeURIComponent(props.markdownTitle)}?md=1&fontSize=5rem&fileType=png`;
 
-  const title = purify(props.markdownTitle);
+  const title = pageTitle || purify(props.markdownTitle);
 
   return (
     <>

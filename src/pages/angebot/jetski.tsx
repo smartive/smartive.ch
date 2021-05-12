@@ -5,6 +5,7 @@ import {
   GridSlider,
   Heading2,
   Label,
+  Link,
   PageHeaderVariants,
   PageSection,
   UnorderedList,
@@ -20,6 +21,7 @@ import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
 import { Page } from '../../layouts/page';
+import NextLink from 'next/link';
 
 type Props = {
   contact: Employee;
@@ -50,10 +52,21 @@ const Jetski: NextPage<Props> = ({ contact, teasers, packages }) => {
           <Heading2>Was ist ein Jetski?</Heading2>
           <Copy>
             Du hast eine Idee. Dir ist schon recht klar, wie das Produkt aussehen und funktionieren könnte. Nun willst du
-            wissen, ob es trägt. In einer agilen Umsetzung mit Lean UX Ansätzen entwickeln wir dein MVP kollaborativ in drei
-            Wochen. Die definierten Ziele und Kennzahlen (Key Performance Indicators oder kurz KPI) bleiben dabei laufend im
-            Auge. Mit modernen Tracking-Methoden werden diese KPI nach der Lancierung gemessen und ausgewertet. So weisst du
-            stets, welche Hypothesen korrekt waren und welche überarbeitet werden müssen.
+            wissen, ob es trägt. In einer{' '}
+            <NextLink href="/was-ist/agile" passHref>
+              <Link>agilen</Link>
+            </NextLink>{' '}
+            Umsetzung mit{' '}
+            <NextLink href="/was-ist/lean-ux" passHref>
+              <Link>Lean UX</Link>
+            </NextLink>
+            -Ansätzen entwickeln wir dein{' '}
+            <NextLink href="/was-ist/mvp" passHref>
+              <Link>MVP</Link>
+            </NextLink>{' '}
+            kollaborativ in drei Wochen. Die definierten Ziele und Kennzahlen (Key Performance Indicators oder kurz KPI)
+            bleiben dabei laufend im Auge. Mit modernen Tracking-Methoden werden diese KPI nach der Lancierung gemessen und
+            ausgewertet. So weisst du stets, welche Hypothesen korrekt waren und welche überarbeitet werden müssen.
           </Copy>
           <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
             <UnorderedList

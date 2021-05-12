@@ -16,7 +16,10 @@ type Props = {
 
 const Mvp: NextPage<Props> = ({ teasers, packages }) => (
   <Page>
-    <PageHeader markdownTitle="So weisst du, dass die _Richtung_ stimmt.">
+    <PageHeader
+      markdownTitle="Minimum Viable Product (MVP): Damit du weisst, dass die _Richtung_ stimmt."
+      pageTitle="Was ist eigentlich ein MVP?"
+    >
       <Copy>
         Damit der Weg zum Go-live nicht zu einer Reise mit ungewissem Ausgang wird, planen wir drei Checkpoints ein: Ganz am
         Anfang definieren wir gemeinsam den Umfang des <strong>Earliest Testable Products</strong>. Das testen wir mit deinen
