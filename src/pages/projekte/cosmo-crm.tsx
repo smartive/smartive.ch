@@ -1,9 +1,19 @@
-import { BlobVariations, Copy, Grid, Heading3, LinkList, PageSection } from '@smartive/guetzli';
+import {
+  BlobVariations,
+  Copy,
+  Grid,
+  ImageCard,
+  Keyfigure,
+  LinkList,
+  PageSection,
+  Screenshot,
+  TextBlock,
+  UnorderedList,
+} from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
 import { Contact } from '../../components/contact';
-import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee } from '../../data/employees';
@@ -29,10 +39,9 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
         description="Für die Cosmopolitan Vermögensverwaltungs AG konzipierten wir ein CRM System, welches die spezifischen Geschäftsprozesse genau abbildet. Der Wunsch, die Daten von einigen Excel Files in eine ausgereifte Datenstruktur zu überführen, hat zu einer Webapplikation geführt, welche mittlerweile das Herzstück der Firma bildet - alle Daten werden zentral und einheitlich verwaltet."
       >
         <Copy>
-          Für die Cosmopolitan Vermögensverwaltungs AG konzipierten wir ein CRM System, welches die spezifischen
-          Geschäftsprozesse genau abbildet. Der Wunsch, die Daten von einigen Excel Files in eine ausgereifte Datenstruktur
-          zu überführen, hat zu einer Webapplikation geführt, welche mittlerweile das Herzstück der Firma bildet - alle Daten
-          werden zentral und einheitlich verwaltet.
+          Digitalisierung im Herzen. Aber was heisst das? Für Cosmopolitan bedeutet es ein CRM, das sich genau auf ihre
+          Arbeitsweise anpasst – und nicht umgekehrt. Intelligente Abläufe für die Datenerfassung, automatisierte Reportings
+          für die schnelle Auswertung von Anlagen, ein simples Warnsystem für auffällige Daten und noch vieles mehr.
         </Copy>
         <LinkList links={[{ label: 'Zur Website', href: 'https://www.cosmopolitan.ch/de/' }]} />
       </PageHeader>
@@ -40,24 +49,42 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
       <main>
         <PageSection>
           <Grid cols={2}>
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/projekte/cosmo/austin-distel-jpHw8ndwJ_Q-unsplash.jpg"
-              alt="Zwei Personen unterhalten sich auf einem Sofa über etwas am Laptop"
-              priority
-              objectFit="cover"
-              width={720}
-              height={383}
+            <div>
+              <Screenshot width="100%" height="427" imageUrl="/images/projekte/cosmo/screenshot.png" />
+            </div>
+            <UnorderedList
+              title="Kurz &amp; knackig"
+              items={[
+                'Ein massgeschneidertes, fachspezifisches CRM',
+                'Alle wichtigen Geschäftsprozesse und Anlagestrategien sind digital abgebildet',
+                'Entscheidende KPIs werden sichtbar, so z.B. das Investitionsvolumen pro Strategie',
+                'Automatisierte Datenprüfung und Compliance Checks',
+                'Warnsystem bei schlechter Datenqualität',
+              ]}
             />
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/projekte/cosmo/christian-regg-o7LDdRDIYiY-unsplash.jpg"
-              alt="Gasthaus Äscher im Alpstein, Appenzell"
-              priority
-              objectFit="cover"
-              width={720}
-              height={383}
-            />
+          </Grid>
+        </PageSection>
+
+        <PageSection>
+          <Grid cols={2}>
+            <TextBlock title="Die Herausforderung">
+              Die Cosmopolitan Vermögensverwaltungs AG verwaltet nicht nur Vermögen, sondern auch eine Unmenge von Daten.
+              Diese sollen zentral abgelegt werden, um die Pflege zu vereinfachen und Prozesse automatisieren zu können.
+              Leider gibt es kein Standard-Produkt, welches den Anforderungen entspricht. Ideal ist also ein{' '}
+              <abbr className="cursor-help" title="Customer Relationship Management Software">
+                CRM
+              </abbr>
+              , das die Geschäftsprozesse von Cosmopolitan perfekt widerspigelt.
+            </TextBlock>
+            <TextBlock title="Unsere Lösung">
+              Das zentrale CRM trägt zur Steigerung der Datenqualität bei – automatisierte Reportings und Prozesse werden
+              plötzlich möglich. Wir haben die Anforderungen mittels Requirements Engineering minutiös aufgenommen und den
+              Kunden in den iterativen Prozess eingebunden. So haben wir eine Software-Lösung erschaffen, die sich den
+              Business-Anforderungen anpasst–und nicht umgekehrt.
+              <br />
+              Wir betreiben die Lösung seit fast 10 Jahren stabil und zuverlässig. Wenn sich die Business Anforderungen
+              anpassen, folgen bald auch die Anpassungen an der Software.
+            </TextBlock>
           </Grid>
         </PageSection>
 
@@ -66,32 +93,20 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
         </PageSection>
 
         <PageSection>
-          <Heading3>Digitale Transformation</Heading3>
-          <Copy>
-            Dank des professionellen Requirement Engineerings wurden die Bedürfnisse und Anforderungen der Benutzer von
-            Anfang an in die Konzeption miteinbezogen. Das agile Vorgehen und der modulare Aufbau des CRM haben dazu
-            beigetragen, das System zielgerichtet auf die Bedürfnisse des Kunden anzupassen. So kann die Applikation stetig
-            weiterentwickelt und verbessert werden, zum Beispiel durch die Anbindung des E-Bankings zur Datensynchronisation.
-            Dies hilft die Prozesse noch weiter zu automatisieren und zu vereinfachen.
-          </Copy>
+          <TextBlock title="Durchstarten mit Cosmopolitan 🚀">
+            Cosmpolitan hat nun ein intuitives, performantes und übersichtliches CRM. Und nicht nur das: Es ist auch perfekt
+            auf ihre Prozesse abgestimmt. Mit intelligenten Flows stellt unser System eine fehlerfreie und schnelle Erfassung
+            von Daten sicher. Die automatisierten Reportings sparen dem Team von Comspolitan enorm viel Recherchearbeit.
+          </TextBlock>
         </PageSection>
 
-        <PageSection>
-          <div>
-            <Heading3>State-of-the-Art Architektur</Heading3>
-            <Copy>
-              Durch eine stabile Architektur ist die Skalier-, und Verfügbarkeit der Applikation gewährleistet und einfach
-              erweiterbar. Zusätzliche Drittsysteme können problemlos in die Anwendung eingebunden werden.
-            </Copy>
-          </div>
-        </PageSection>
         <PageSection>
           <Contact contact={contact} />
         </PageSection>
         <PageSection title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
             {teasers.map((teaser) => (
-              <NextImageCard key={teaser.title} {...teaser} />
+              <ImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
         </PageSection>
