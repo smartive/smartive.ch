@@ -113,12 +113,7 @@ const Kubernetes = () => (
           . Die gesammelten Daten werden in einem Grafana- Dashboard visualisiert. Dazu gibt’s Alerts für alle gängigen
           Messaging-Systeme.
         </Copy>
-        <div className="lg:hidden">
-          <Screenshot imageUrl="/images/was-ist/grafana.png" width="100%" height="47vw" />
-        </div>
-        <div className="hidden lg:block w-[990px]">
-          <Screenshot imageUrl="/images/was-ist/grafana.png" width="990" height="482" />
-        </div>
+        <Screenshot image={{ url: '/images/was-ist/grafana.png', originalWidth: 1919, originalHeight: 933 }} />
       </PageSection>
 
       <PageSection title="Und susch?">

@@ -50,7 +50,9 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
         <PageSection>
           <Grid cols={2}>
             <div>
-              <Screenshot width="100%" height="427" imageUrl="/images/projekte/cosmo/screenshot.png" />
+              <Screenshot
+                image={{ url: '/images/projekte/cosmo/screenshot.png', originalHeight: 790, originalWidth: 1334 }}
+              />
             </div>
             <UnorderedList
               title="Kurz &amp; knackig"
