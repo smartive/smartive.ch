@@ -7,7 +7,7 @@
       "groupName": "typescript typings"
     },
     {
-      "packagepatterns": ["^eslint*", "prettier"],
+      "packagePatterns": ["^eslint*", "prettier"],
       "groupName": "linting"
     }
   ]
