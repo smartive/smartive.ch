@@ -17,7 +17,7 @@ export const Testimonial: FC<Props> = ({
   background = 'apricot',
 }) => (
   <div
-    className={`relative grid grid-flow-row place-items-center text-center w-full rounded ${mapColorToBG(
+    className={`relative grid grid-flow-row place-items-center text-center w-full overflow-hidden rounded ${mapColorToBG(
       background
     )} p-8 lg:p-32 font-sans font-normal text-xxs mb-4 lg:text-sm ${className}`}
   >

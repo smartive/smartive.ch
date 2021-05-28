@@ -84,15 +84,15 @@ function getCss(theme: BrandColor, fontSize: string) {
 
 const getBlobProps = (size: number) => ({
   seed: Math.random(),
-  extraPoints: randomNumberInRange(5, 10),
-  randomness: randomNumberInRange(7, 10),
+  extraPoints: randomNumberInRange(3, 6),
+  randomness: randomNumberInRange(3, 6),
   size,
 });
 
 const getBlobStyle = ({ color, positionX, positionY }: BlobType) => `
     position: absolute;
-    ${positionY === PositionY.top ? 'top' : 'bottom'}: -${randomNumberInRange(10, 20)}%;
-    ${positionX === PositionX.right ? 'right' : 'left'}: -${randomNumberInRange(10, 20)}%;
+    ${positionY === PositionY.top ? 'top' : 'bottom'}: -${randomNumberInRange(20, 30)}%;
+    ${positionX === PositionX.right ? 'right' : 'left'}: -${randomNumberInRange(20, 30)}%;
     color: ${mapColorToHex(color)};
 `;
 
@@ -111,7 +111,7 @@ const getRandomBlobs = (theme: BrandColor, size: number) => {
 
 export function getHtml(parsedReq: ParsedRequest) {
   const { text, theme, md, fontSize, width, height } = parsedReq;
-  const blobSize = (width + height) / 4.5;
+  const blobSize = (width + height) / 2.5;
 
   return `<!DOCTYPE html>
 <html>
