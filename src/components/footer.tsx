@@ -195,11 +195,17 @@ const BackToTop = () => {
   );
 
   return (
-    <a
+    <button
       title="Zurück nach oben"
       aria-hidden
-      className="grid grid-flow-col place-items-center gap-2 lg:col-start-4 lg:place-self-end mt-8 text-sm"
-      href="#top"
+      className="grid grid-flow-col place-items-center gap-2 lg:col-start-4 lg:place-self-end mt-8 text-sm font-bold focus:outline-none focus:ring-[3px] focus:ring-mint-200"
+      onClick={() =>
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth',
+        })
+      }
     >
       Beam me up Scotty!
       <motion.div
@@ -214,7 +220,7 @@ const BackToTop = () => {
       >
         <ArrowUp className="h-6 w-6" />
       </motion.div>
-    </a>
+    </button>
   );
 };
 
