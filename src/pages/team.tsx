@@ -1,6 +1,7 @@
 import { BlobVariations, Copy, Grid, PageSection } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
+import { Contact } from '../components/contact';
 import { EmployeeCard } from '../components/employee-card';
 import { Testimonial } from '../components/testimonial';
 import { PageHeader } from '../compositions/page-header';
@@ -11,11 +12,12 @@ import Quotes from '../data/quotes.json';
 import { Page } from '../layouts/page';
 
 type Props = {
+  contact: Employee;
   employees: Employee[];
   quote: Quote;
 };
 
-const Team: NextPage<Props> = ({ employees, quote }) => {
+const Team: NextPage<Props> = ({ employees, contact, quote }) => {
   return (
     <Page>
       <PageHeader
@@ -43,6 +45,15 @@ const Team: NextPage<Props> = ({ employees, quote }) => {
             ))}
           </Grid>
         </PageSection>
+        <PageSection>
+          <Contact contact={contact}>
+            <>
+              New Work / Advice Process / Lohnformel 🤔 <br />
+              Alles nur ein dicker Nebel? <br />
+              {contact.firstname} ist dein Leuchtturm.
+            </>
+          </Contact>
+        </PageSection>
       </main>
     </Page>
   );
@@ -56,6 +67,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       employees,
+      contact: Employees.moreno,
       quote: Quotes['thilo-newwork'],
     },
   };
