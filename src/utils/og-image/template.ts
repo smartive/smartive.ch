@@ -40,7 +40,7 @@ function getCss(theme: BrandColor, fontSize: string) {
         background: ${background};
         height: 100vh;
         display: flex;
-        text-align: left;
+        text-align: center;
         align-items: center;
         justify-content: center;
     }
