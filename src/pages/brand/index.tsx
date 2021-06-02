@@ -2,7 +2,6 @@ import {
   Blob,
   BlobVariations,
   BrandColor,
-  Button,
   Copy,
   Decoration,
   Grid,
@@ -19,9 +18,8 @@ import {
 } from '@smartive/guetzli';
 import NextLink from 'next/link';
 import React, { FC } from 'react';
+import { SlackTheme } from '../../components/slack-theme';
 import { LandingPage } from '../../layouts/landing-page';
-
-const slackTheme = '#F8F7F5, #001F2E, #6986E8, #252525, #F8935A, #252525, #7DDDD1, #F8935A, #F8F7F5, #252525';
 
 const Brand: FC = () => (
   <LandingPage>
@@ -112,10 +110,7 @@ const Brand: FC = () => (
       </Copy>
       <Heading3>Slack Theme</Heading3>
       <div className="mb-8 flex items-center ">
-        <div className="bg-white-100 rounded text-xs select-all p-4 mr-2 flex items-center">{slackTheme}</div>
-        <Button type="button" onClick={() => navigator.clipboard.writeText(slackTheme)}>
-          Kopieren
-        </Button>
+        <SlackTheme />
       </div>
       <ul className="grid xl:grid-cols-2 gap-8">
         <ColorBox
@@ -269,20 +264,22 @@ type ColorValue = {
 };
 const ColorValues: FC<{ values: ColorValue[]; color: BrandColorOrTint }> = ({ values, color }) => (
   <table className="grid grid-cols-2 gap-x-12 gap-y-4">
-    {values.map(({ label, content }) => (
-      <tr key={label} className="flex flex-col">
-        <th className="text-xxs md:text-xs mb-1">{label}</th>
-        <td>
-          <span
-            className={`select-all text-sm md:text-base sm:bg-white-200 ${
-              color === 'gray' ? 'bg-white-200' : color === 'darkness' ? 'bg-apricot-800' : mapColorToLightBG(color)
-            } whitespace-nowrap px-[6px] py-[2px] rounded-[4px]`}
-          >
-            {content}
-          </span>
-        </td>
-      </tr>
-    ))}
+    <tbody>
+      {values.map(({ label, content }) => (
+        <tr key={label} className="flex flex-col">
+          <th className="text-xxs md:text-xs mb-1">{label}</th>
+          <td>
+            <span
+              className={`select-all text-sm md:text-base sm:bg-white-200 ${
+                color === 'gray' ? 'bg-white-200' : color === 'darkness' ? 'bg-apricot-800' : mapColorToLightBG(color)
+              } whitespace-nowrap px-[6px] py-[2px] rounded-[4px]`}
+            >
+              {content}
+            </span>
+          </td>
+        </tr>
+      ))}
+    </tbody>
   </table>
 );
 
