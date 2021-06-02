@@ -1,28 +1,52 @@
 include:
+  - template: 'Workflows/MergeRequest-Pipelines.gitlab-ci.yml'
   - project: 'smartive/ci-templates'
     ref: v4.0.0
     file: '/all-templates.yml'
-  - project: 'smartive/ci-templates'
-    ref: 4.x
-    file: '/renovate/default-trigger.yml'
 
 stages:
   - test
+  - deploy
 
 .default_template:
   extends: .base
-  image: node
-  before_script:
-    - npm ci
+  image: node:14-alpine
 
 .test_template:
   extends: .default_template
   stage: test
-  except:
-    - tags
+  before_script:
+    - npm ci
+
+.deploy_template:
+  extends: .default_template
+  stage: deploy
+  before_script:
+    - npm i -g vercel
 
 lint:
   extends: .test_template
   script:
     - npm run lint
     - npm run check
+
+test build:
+  extends: .test_template
+  script:
+    - npm run build
+  rules:
+    - if: '$CI_COMMIT_BRANCH =~ /^renovate\//'
+
+deploy preview:
+  extends: .deploy_template
+  script:
+    - vercel --token $VERCEL_TOKEN --confirm --scope smartive
+  rules:
+    - if: '$CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH && $CI_COMMIT_BRANCH !~ /^renovate\//'
+
+deploy production:
+  extends: .deploy_template
+  script:
+    - vercel --token $VERCEL_TOKEN --confirm --scope smartive --prod
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
