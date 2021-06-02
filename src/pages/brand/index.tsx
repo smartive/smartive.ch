@@ -93,7 +93,7 @@ const Brand: FC = () => (
         <div className="bg-black grid place-items-center col-span-2 sm:col-span-1">
           <Logo inverted className="h-8 lg:h-16 w-auto" />
         </div>
-        <div className="bg-apricot-500 grid place-items-center col-span-2 text-white relative">
+        <div className="bg-apricot-500 grid place-items-center col-span-2 text-white relative overflow-hidden">
           {BlobVariations.apricot[2].map(({ positionX, positionY, color }, i) => (
             <Blob key={i} positionX={positionX} positionY={positionY} color={color} />
           ))}
