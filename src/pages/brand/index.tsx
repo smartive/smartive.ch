@@ -263,24 +263,20 @@ type ColorValue = {
   content: string;
 };
 const ColorValues: FC<{ values: ColorValue[]; color: BrandColorOrTint }> = ({ values, color }) => (
-  <table className="grid grid-cols-2 gap-x-12 gap-y-4">
-    <tbody>
-      {values.map(({ label, content }) => (
-        <tr key={label} className="flex flex-col">
-          <th className="text-xxs md:text-xs mb-1">{label}</th>
-          <td>
-            <span
-              className={`select-all text-sm md:text-base sm:bg-white-200 ${
-                color === 'gray' ? 'bg-white-200' : color === 'darkness' ? 'bg-apricot-800' : mapColorToLightBG(color)
-              } whitespace-nowrap px-[6px] py-[2px] rounded-[4px]`}
-            >
-              {content}
-            </span>
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </table>
+  <dl className="grid grid-cols-2 gap-x-12 gap-y-4">
+    {values.map(({ label, content }) => (
+      <div key={label} className="flex flex-col">
+        <dt className="text-xxs md:text-xs mb-1 font-bold">{label}</dt>
+        <dd
+          className={`select-all text-sm md:text-base sm:bg-white-200 ${
+            color === 'gray' ? 'bg-white-200' : color === 'darkness' ? 'bg-apricot-800' : mapColorToLightBG(color)
+          } whitespace-nowrap px-[6px] py-[2px] rounded-[4px]`}
+        >
+          {content}
+        </dd>
+      </div>
+    ))}
+  </dl>
 );
 
 export default Brand;
