@@ -84,5 +84,10 @@
     "portrait": "/images/portraits/markus-froehlich.jpg",
     "text": "Wir fühlen uns beim Team von smartive gut aufgehoben. Die grosse Fachkompetenz und den lösungsorientierten Arbeitsstil schätzen wir sehr.",
     "credit": "Markus Fröhlich, Verlagsleiter bin Genossenschaft"
+  },
+  "lauro-kasparund": {
+    "portrait": "/images/portraits/lauro-boeni.jpg",
+    "text": "Das Mentoring erlaubt es uns, einerseits vom fundierten Wissen und den vielfältigen Erfahrungen des smartive Teams zu profitieren und gleichzeitig bei uns intern im Team das notwendige Know-How nachhaltig aufzubauen und zu vertiefen.",
+    "credit": "Lauro Böni, Co-Founder Kasparund AG"
   }
 }

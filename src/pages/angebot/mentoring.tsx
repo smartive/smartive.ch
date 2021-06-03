@@ -14,11 +14,14 @@ import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
+import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
+import { Quote } from '../../data/quotes';
+import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
 import { Page } from '../../layouts/page';
 
@@ -26,9 +29,10 @@ type Props = {
   contact: Employee;
   packages: Package[];
   teasers: Teaser[];
+  quote: Quote;
 };
 
-const Mentoring: NextPage<Props> = ({ contact, teasers, packages }) => {
+const Mentoring: NextPage<Props> = ({ contact, teasers, packages, quote }) => {
   return (
     <Page>
       <PageHeader
@@ -83,6 +87,9 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages }) => {
           </div>
         </PageSection>
         <PageSection>
+          <Testimonial background="mint" blobs={BlobVariations.mint[2]} quote={quote} />
+        </PageSection>
+        <PageSection>
           <Contact contact={contact} />
         </PageSection>
         <PageSection>
@@ -110,6 +117,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       packages,
+      quote: Quotes['lauro-kasparund'],
       teasers: [],
       contact: Employees.joshua,
     },
