@@ -35,14 +35,14 @@ test build:
   script:
     - npm run build
   rules:
-    - if: '$CI_COMMIT_BRANCH =~ /^renovate\//'
+    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^renovate\//'
 
 deploy preview:
   extends: .deploy_template
   script:
     - vercel --token $VERCEL_TOKEN --confirm --scope smartive
   rules:
-    - if: '$CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH && $CI_COMMIT_BRANCH !~ /^renovate\//'
+    - if: '$CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME !~ /^renovate\//'
 
 deploy production:
   extends: .deploy_template
