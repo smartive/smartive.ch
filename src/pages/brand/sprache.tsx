@@ -95,8 +95,7 @@ const Sprache = () => (
         <DescriptionList
           items={[
             {
-              term:
-                'Überleg dir, an wen sich der Text richtet. Wie würdest du mit dieser Person reden, wenn sie vor dir steht?',
+              term: 'Überleg dir, an wen sich der Text richtet. Wie würdest du mit dieser Person reden, wenn sie vor dir steht?',
             },
             {
               term: (
@@ -202,12 +201,10 @@ const Sprache = () => (
         <DescriptionList
           items={[
             {
-              term:
-                'Überleg dir, nach welcher Information die Leserin sucht. Auf welche Frage will sie eine Antwort? Das gehört nach oben.',
+              term: 'Überleg dir, nach welcher Information die Leserin sucht. Auf welche Frage will sie eine Antwort? Das gehört nach oben.',
             },
             {
-              term:
-                '25-Wörter-Satz und 15-Zeilen-Absatz sind wie streitende Kinder: Sie müssen getrennt werden (sagen jedenfalls Doppelpunkt, Komma, Punkt und Gedankenstrich).',
+              term: '25-Wörter-Satz und 15-Zeilen-Absatz sind wie streitende Kinder: Sie müssen getrennt werden (sagen jedenfalls Doppelpunkt, Komma, Punkt und Gedankenstrich).',
             },
             {
               term: (
@@ -288,8 +285,7 @@ const Sprache = () => (
         <DescriptionList
           items={[
             {
-              term:
-                'Kombinier verschiedene Formen wie Bilder, Blocktext, Aufzählungen, Zitate, Grafiken. Du kannst auch wichtige Stichwörter fett hervorheben (sparsam).',
+              term: 'Kombinier verschiedene Formen wie Bilder, Blocktext, Aufzählungen, Zitate, Grafiken. Du kannst auch wichtige Stichwörter fett hervorheben (sparsam).',
             },
             {
               term: 'Vermeide mehr als 2 Wiederholungen im gleichen Absatz.',
