@@ -9,6 +9,11 @@
     {
       "packagePatterns": ["^eslint*", "prettier"],
       "groupName": "linting"
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "gitLabAutomerge": false
     }
   ]
 }
