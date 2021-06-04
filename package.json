@@ -15,7 +15,7 @@
     "@smartive/guetzli": "1.9.0",
     "@tailwindcss/typography": "0.4.1",
     "@tryghost/content-api": "1.5.6",
-    "autoprefixer": "10.2.5",
+    "autoprefixer": "10.2.6",
     "blobs": "2.2.0",
     "body-scroll-lock": "3.1.5",
     "chrome-aws-lambda": "8.0.2",
