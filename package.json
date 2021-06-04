@@ -22,7 +22,7 @@
     "dayjs": "1.10.5",
     "framer-motion": "4.1.11",
     "marked": "0.8.2",
-    "next": "10.2.0",
+    "next": "10.2.3",
     "next-plausible": "1.6.1",
     "postcss": "8.2.10",
     "puppeteer-core": "8.0.0",
@@ -33,7 +33,7 @@
     "twemoji": "13.0.2"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "10.1.3",
+    "@next/bundle-analyzer": "10.2.3",
     "@smartive/eslint-config": "2.0.0",
     "@smartive/prettier-config": "3.0.0",
     "@types/marked": "2.0.2",
