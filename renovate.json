@@ -11,7 +11,7 @@
       "groupName": "linting"
     },
     {
-      "matchUpdateTypes": ["major"],
+      "updateTypes": ["major"],
       "automerge": false,
       "gitLabAutomerge": false
     }
