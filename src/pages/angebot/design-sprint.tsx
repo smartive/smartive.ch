@@ -1,5 +1,7 @@
 import {
   BlobVariations,
+  Button,
+  Card,
   Clock,
   Copy,
   GridSlider,
@@ -10,7 +12,8 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
+import dynamic from 'next/dynamic';
+import React, { FC, useState } from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { PackageList } from '../../compositions/package-list';
@@ -21,6 +24,11 @@ import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
 import { Page } from '../../layouts/page';
 
+const DesignSprintQuiz = dynamic(() => import('../../components/design-sprint-quiz').then((mod) => mod.DesignSprintQuiz), {
+  ssr: false,
+  loading: () => <QuizPlaceholder disabled />,
+});
+
 type Props = {
   contact: Employee;
   packages: Package[];
@@ -28,6 +36,8 @@ type Props = {
 };
 
 const DesignSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
+  const [showQuiz, setShowQuiz] = useState(false);
+
   return (
     <Page>
       <PageHeader
@@ -78,6 +88,7 @@ const DesignSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
             />
           </div>
         </PageSection>
+        <PageSection>{showQuiz ? <DesignSprintQuiz /> : <QuizPlaceholder onClick={() => setShowQuiz(true)} />}</PageSection>
         <PageSection>
           <Contact contact={contact}>
             Fragen zum Ablauf des Design Sprints?
@@ -116,3 +127,18 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 export default DesignSprint;
+
+const QuizPlaceholder: FC<{ onClick?(): void; disabled?: boolean }> = ({ onClick, disabled = false }) => (
+  <Card background="cornflower">
+    <div className="md:w-1/2 mx-auto p-16">
+      <Heading2 className="max-w-prose">Du bist interessiert?</Heading2>
+      <Copy>
+        Wir mögen Design Sprints und sprechen gerne mit dir darüber. Ein paar Infos helfen uns dabei, uns optimal
+        vorzubereiten.
+      </Copy>
+      <Button onClick={onClick} disabled={disabled} className="w-full">
+        Let&apos;s chat!
+      </Button>
+    </div>
+  </Card>
+);
