@@ -95,8 +95,8 @@ export const InteractiveQuiz: FC<Props> = ({ machine }) => {
         <div className="md:w-1/2 mx-auto p-16">
           <Heading2>Technologie, gäll? 🤬</Heading2>
           <Copy>
-            Entweder will unser CRM gerade nicht, oder wir haben einen Mist programmiert. Auf jeden Fall funktioniert das
-            Formular gerade nicht.
+            Entweder will unser CRM gerade nicht oder wir haben Mist programmiert. Auf jeden Fall funktioniert das Formular
+            im Moment nicht.
           </Copy>
           <Copy>Umso schöner wäre es, wenn du von dir aus mit uns Kontakt aufnimmst.</Copy>
           <Copy>
@@ -116,7 +116,7 @@ export const InteractiveQuiz: FC<Props> = ({ machine }) => {
           <>
             <div className="mb-8" />
 
-            <Heading2 className="max-w-prose">So erreich wir dich.</Heading2>
+            <Heading2 className="max-w-prose">So erreichen wir dich.</Heading2>
             <Copy>Darauf hast du wohl nur gewartet. Jetzt hätten wir natürlich gerne deine Kontaktdaten.</Copy>
             <ContactForm onContinue={({ name, email, phone }) => send({ type: 'ADD_CONTACT', name, email, phone })} />
           </>

@@ -52,7 +52,7 @@ export const machine = createMachine<Context, QuizEvent, State>({
     existing: {
       meta: {
         title: 'Existiert dein Produkt bereits?',
-        copy: 'Möchtest du dein Produkt weiterbringen? Oder existiert es als Idee die du konkret angehen möchtest?',
+        copy: 'Möchtest du dein bestehendes Produkt weiterbringen? Oder geht es um eine konkrete Idee, die du angehen möchtest?',
         form: {
           type: FormType.Stack,
           options: [
@@ -96,13 +96,13 @@ export const machine = createMachine<Context, QuizEvent, State>({
     },
     segmentation: {
       meta: {
-        title: 'Welche Art von Kunden suchst du?',
-        copy: 'Sprichst du direkt Konsumenten (B2C) oder Unternehmen (B2B) an?',
+        title: 'Welche Art von Kund*innen suchst du?',
+        copy: 'Sprichst du Konsument*innen (B2C) oder Unternehmen (B2B) an?',
         form: {
           type: FormType.Stack,
           options: [
-            { element: OptionType.Continue, value: 'B2C', text: 'B2C Kunden' },
-            { element: OptionType.Continue, value: 'B2B', text: 'B2B Kunden' },
+            { element: OptionType.Continue, value: 'B2C', text: 'Konsument*innen' },
+            { element: OptionType.Continue, value: 'B2B', text: 'Unternehmen' },
           ],
         },
       },
@@ -124,7 +124,7 @@ export const machine = createMachine<Context, QuizEvent, State>({
     },
     b2c_target_group: {
       meta: {
-        title: 'Beschreib doch bitte kurz deine Traumkunden.',
+        title: 'Beschreib doch bitte kurz deinen Traumkunden.',
         form: {
           type: FormType.Text,
           options: [
@@ -150,7 +150,7 @@ export const machine = createMachine<Context, QuizEvent, State>({
             { element: OptionType.Continue, value: 'small', text: 'Kleine Unternehmen (10–49 Beschäftigte)' },
             { element: OptionType.Continue, value: 'medium', text: 'Mittlere Unternehmen (50–249 Beschäftigte)' },
             { element: OptionType.Continue, value: 'corporate', text: 'Grosse Unternehmen (250 und mehr Beschäftigte)' },
-            { element: OptionType.InlineSkip, text: 'Weiss ich nicht so genaaaau' },
+            { element: OptionType.InlineSkip, text: 'Hm. Gute Frage. Weiss ich nicht sooo genaaau...' },
           ],
         },
       },
@@ -162,8 +162,8 @@ export const machine = createMachine<Context, QuizEvent, State>({
     },
     problem_solving: {
       meta: {
-        title: 'Wunderbar. Weiter gehts mit deinem Produkt.',
-        copy: 'Kannst du uns in wenigen Sätzen erklären, welches Problem das Produkt für dich als Nutzer löst?',
+        title: 'Wunderbar. Weiter geht‘s mit deinem Produkt.',
+        copy: 'Kannst du uns in wenigen Sätzen erklären, welches Problem das Produkt für dich als Nutzer*in löst?',
         form: {
           type: FormType.Text,
           options: [
@@ -182,7 +182,7 @@ export const machine = createMachine<Context, QuizEvent, State>({
     challenges: {
       meta: {
         title: 'Herausforderungen für dein Produkt',
-        copy: `Du hast sicher schon über mögliche Herausforderungen für dein Produkt nachgedacht, oder sogar schon Erfahrungen gemacht. Was siehst du als die grössten Herausforderungen?`,
+        copy: `Du hast sicher schon über mögliche Herausforderungen für dein Produkt nachgedacht oder sogar schon Erfahrungen gemacht. Was siehst du als die grössten Herausforderungen?`,
         form: {
           type: FormType.Text,
           options: [
@@ -250,7 +250,7 @@ export const machine = createMachine<Context, QuizEvent, State>({
     inspiration: {
       meta: {
         title: 'Quelle der Inspiration',
-        copy: `Gibt es andere Apps oder Unternehmen die dich inspirieren? Das muss nicht mal etwas in deiner Branche sein. Es kann eine weitverbreitete App sein bei der du findest “doch, das finde ich cool”.`,
+        copy: `Gibt es andere Apps oder Unternehmen, die dich inspirieren? Das muss nicht mal in deiner Branche sein. Es kann z.B. eine weitverbreitete App sein, bei der du findest “doch, das finde ich cool”.`,
         form: {
           type: FormType.Text,
           options: [
@@ -273,7 +273,7 @@ export const machine = createMachine<Context, QuizEvent, State>({
     about_you: {
       meta: {
         title: 'So, und nun zu dir!',
-        copy: 'Beschreib doch bitte dich und dein Unternehmen in 2–3 Sätzen.',
+        copy: 'Beschreib dich und dein Unternehmen in 2–3 Sätzen.',
         form: {
           type: FormType.Text,
           options: [
