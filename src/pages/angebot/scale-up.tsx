@@ -45,7 +45,7 @@ const ScaleUp: NextPage<Props> = ({ contact, teasers }) => {
 
       <main>
         <PageSection>
-          <Heading2>Was ist heisst Scale Up?</Heading2>
+          <Heading2>Was ist Scale Up?</Heading2>
           <Copy>
             Du hast dein Produkt als MVP am Markt. Du möchtest es entweder verbessern oder weiterentwickeln. Die angestrebten
             Ziele sind definiert und werden gemessen. Anhand dieser Ziele legen wir gemeinsam deine nächsten Zwischenziele
