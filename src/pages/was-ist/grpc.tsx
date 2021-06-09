@@ -28,7 +28,7 @@ const GRPC = () => (
           damit, dass der Client-Service zum Datenaustausch ohne Zusatzaufwand generiert werden kann.
         </Copy>
         <Heading3>Highlights:</Heading3>
-        <Copy>
+        <Copy as="div">
           <UnorderedList
             items={[
               <>
@@ -93,6 +93,8 @@ const GRPC = () => (
             <Link>GraphQL</Link>
           </NextLink>{' '}
           mit einem etwas anderen Ansatz:
+        </Copy>
+        <Copy as="div">
           <UnorderedList
             items={[
               'Die Logik wird im Server programmiert, der Service zur Datenübertragung im Client wird daraus generiert – natürlich mit Types.',

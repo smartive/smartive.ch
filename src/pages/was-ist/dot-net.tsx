@@ -25,7 +25,7 @@ const DotNet = () => (
           von Haus aus mitliefert, aber gleichzeitig einfach zu handhaben ist. Dazu hat Microsoft in Performance und
           Developer Experience investiert.
         </Copy>
-        <Copy>
+        <Copy as="div">
           Die Einsatzgebiete von .NET sind so breit wie die Plattform selbst:
           <UnorderedList
             items={[
@@ -38,7 +38,7 @@ const DotNet = () => (
       </PageSection>
 
       <PageSection title="HTML-legende C#-Frameworksau">
-        <Copy>
+        <Copy as="div">
           .NET bietet einen riesigen Umfang von Werkzeugen zur Erstellung von digitalen Produkten:
           <UnorderedList
             items={[

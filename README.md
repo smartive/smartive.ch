@@ -47,6 +47,12 @@ We use a set of tools for a reasonably high code quality.
 
 These checks are also run on every merge request, and each of these must pass for the MR to be mergable.
 
+### Integration Tests
+
+We render all our pages automatically with [Playwright](https://playwright.dev/) to check for errors.
+
+To run the tests locally make sure the development build is running with `npm run develop` and then start the tests with `npm run test`;
+
 ### Conventions
 
 #### Four Eye Principle

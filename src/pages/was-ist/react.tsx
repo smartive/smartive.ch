@@ -38,7 +38,7 @@ const WasIstReact = () => (
         <Grid cols={2}>
           <div className="bg-cornflower-500 rounded p-8 lg:p-12" id="typescript">
             <TextBlock title="TypeScript">
-              <Copy>
+              <Copy as="span" className="inline-block">
                 <Link href="https://www.typescriptlang.org/" newTab>
                   TypeScript
                 </Link>{' '}
@@ -50,7 +50,7 @@ const WasIstReact = () => (
                 </Explainer>
                 ).
               </Copy>
-              <Copy>
+              <Copy as="span" className="inline-block">
                 Eine definierte Datenstruktur ist wie ein zahmes Känguru: Keine Boxhiebe, aber alles im Beutel. Das gibt
                 Sicherheit. Das Resultat sind weniger Bugs und eine stabile Basis, die auch grosse Projekte langfristig
                 wartbar macht.
@@ -59,7 +59,7 @@ const WasIstReact = () => (
           </div>
           <div className="bg-mint-500 rounded p-8 lg:p-12" id="next">
             <TextBlock title="Next.js">
-              <Copy>
+              <Copy as="span" className="inline-block">
                 Mit React generieren wir Komponenten, also Teile einer Seite. Für einen ganzen Webauftritt mit vielen Seiten
                 gibt es{' '}
                 <Link href="https://nextjs.org/" newTab>
@@ -67,13 +67,13 @@ const WasIstReact = () => (
                 </Link>
                 .
               </Copy>
-              <Copy>
+              <Copy as="span" className="inline-block">
                 Next.js ergänzt React um Cleverness auf der Server-Seite – Vorgenerierte Seiten, ad hoc generierte und nur
                 bei Änderung neu generierte sind damit ein Leichtes. Auf dieser Basis lässt sich wunderbar eine Plattform wie{' '}
                 <Link href="/projekte/migipedia">Migipedia</Link> mit einer Mischung aus statischen, dynamischen und
                 personalisierten Inhalten bauen.
               </Copy>
-              <Copy>
+              <Copy as="span" className="inline-block">
                 <Link href="https://nextjs.org/showcase" newTab>
                   Wo Next.js überall drinsteckt
                 </Link>
@@ -84,11 +84,11 @@ const WasIstReact = () => (
         <Grid cols={2}>
           <div className="bg-apricot-500 rounded p-8 lg:p-12" id="xstate">
             <TextBlock title="XState">
-              <Copy>
+              <Copy as="span" className="inline-block">
                 Viele mögliche Interaktionen bedeutet auch viele mögliche Zustände – etwa bei einem Verkaufsvorgang: Hat die
                 Benutzerin schon ein Konto? Mit Adresse? Was ist im Warenkorb? In welchem Schritt ist der Bezahlvorgang?
               </Copy>
-              <Copy>
+              <Copy as="span" className="inline-block">
                 Hinter{' '}
                 <Link href="https://xstate.js.org/docs/" newTab>
                   XState
@@ -98,7 +98,7 @@ const WasIstReact = () => (
                 Benutzer*innen nicht in einer Sackgasse, sondern bewegen sich auf definierten Pfaden durch eine digitale
                 Landschaft. Das schafft die Basis die für kritische Anwendungen wie z.B. ein Kassensystem.
               </Copy>
-              <Copy>
+              <Copy as="span" className="inline-block">
                 Robert hat auf unserem Blog ausführlich erklärt,{' '}
                 <Link href="https://blog.smartive.ch/what-state-machines-are-and-why-we-use-them-5ea55183be09">
                   was es mit State Machines und XState genau auf sich hat
@@ -109,15 +109,15 @@ const WasIstReact = () => (
           </div>
           <div className="bg-cornflower-500 rounded p-8 lg:p-12" id="tailwind">
             <TextBlock title="Tailwind">
-              <Copy>
+              <Copy as="span" className="inline-block">
                 An CSS kommt im Web niemand vorbei. Layout, Farben, Schriften, Spacing – kurz: Das Erscheinungsbild jeder
                 Website ist in Stylesheets festgelegt.
               </Copy>
-              <Copy>
+              <Copy as="span" className="inline-block">
                 CSS ist mittlerweile sehr umfangreich und bietet ausufernde Möglichkeiten. Das führt natürlich zu einer
                 gewissen Komplexität, was wiederum eine Suche nach dem besten Ansatz zur Folge hat, um CSS zu bändigen.
               </Copy>
-              <Copy>
+              <Copy as="span" className="inline-block">
                 Der beste Anwärter auf den heiligen Gral ist unseres Erachtens{' '}
                 <Link href="https://tailwindcss.com/" newTab>
                   Tailwind

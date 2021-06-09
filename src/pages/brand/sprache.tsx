@@ -81,7 +81,7 @@ const Sprache = () => (
             <Heading3>Du willst einen Blogpost schreiben?</Heading3>
             <Copy>
               Guck dich mal bei den{' '}
-              <NextLink href="schreibtipps" passHref>
+              <NextLink href="/brand/schreibtipps" passHref>
                 <Link>Schreibtipps</Link>
               </NextLink>{' '}
               um!

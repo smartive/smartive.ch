@@ -13,8 +13,8 @@ stages:
   image: node:14-alpine
 
 .test_template:
-  extends: .default_template
   stage: test
+  image: mcr.microsoft.com/playwright:focal
   before_script:
     - npm ci
 
@@ -24,11 +24,12 @@ stages:
   before_script:
     - npm i -g vercel
 
-lint:
+tests:
   extends: .test_template
   script:
     - npm run lint
     - npm run check
+    - npm run test:ci
 
 test build:
   extends: .test_template

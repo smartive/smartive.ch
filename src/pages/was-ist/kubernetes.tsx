@@ -59,7 +59,7 @@ const Kubernetes = () => (
         </Copy>
 
         <Heading3>Highlights:</Heading3>
-        <Copy>
+        <Copy as="div">
           <UnorderedList
             items={[
               <>
@@ -132,12 +132,12 @@ const Kubernetes = () => (
             Cloud-Provider diese Dienstleistung an.
           </TextBlock>
           <TextBlock title="Continuous Integration & Continuous Delivery (CI/CD)">
-            <Copy>
+            <Copy as="span" className="inline-block">
               Bei jeder Code-Änderung stellt eine Test-Pipieline sicher, dass sich keine Fehler eingeschlichen haben. Die
               Pipeline fügt den Code zusammen und lässt das Resultat probeweise laufen (
               <strong>Continuous Integration</strong>).
             </Copy>
-            <Copy>
+            <Copy as="span" className="inline-block">
               Durch möglichst kurz gehaltene Releasezyklen werden Fehler frühzeitig erkannt (
               <strong>Continuous Delivery</strong>). Die Deployment-Pipeline ist vollständig automatisierbar und garantiert,
               dass der Code zu jedem Zeitpunkt releast werden kann.

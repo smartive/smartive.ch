@@ -169,7 +169,7 @@ const Brand: FC = () => (
     <PageSection>
       <Heading2>Typografie</Heading2>
       <Copy>Nicht jede Headline braucht eine Auszeichnung.</Copy>
-      <Copy>
+      <Copy as="div">
         <LinkList
           links={[
             { label: 'Inter auf Google Fonts', href: 'https://fonts.google.com/specimen/Inter' },

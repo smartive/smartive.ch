@@ -36,7 +36,7 @@ const LeanUX = () => (
         </Copy>
         <Copy>
           Lean UX passt perfekt zur{' '}
-          <NextLink href="was-ist/agile" passHref>
+          <NextLink href="/was-ist/agile" passHref>
             <Link>agilen Arbeitsweise</Link>
           </NextLink>
           : Von dort übernehmen wir die Idee, in Iterationen vorzugehen. Wir brechen die grosse UX-Kiste in kleinere Teile
@@ -51,7 +51,7 @@ const LeanUX = () => (
           werden zuerst Anforderungen aufgenommen (Requirements), woraus ein umfassender Plan folgt, um eine optimale UX
           sicherzustellen. Bei Lean UX sieht das anders aus:
         </Copy>
-        <Copy>
+        <Copy as="div">
           <UnorderedList
             items={[
               <span key="first" className="font-normal">
@@ -67,7 +67,7 @@ const LeanUX = () => (
                 Um Annahmen zu testen, stellen wir <strong>Hypothesen</strong> auf: «Die Annahme ist bestätigt, wenn wir eine
                 Verbesserung der Quote vollständiger Anmeldungen um 20% erreichen.» Hypothesen müssen beweisbar sein. Sonst
                 produzieren wir ins Blaue hinaus. Ein{' '}
-                <NextLink href="was-ist/mvp">
+                <NextLink href="/was-ist/mvp">
                   <Link>MVP</Link>
                 </NextLink>{' '}
                 eignet sich sehr gut, um Hypothesen zu testen.

@@ -1,3 +1,4 @@
 {
-  "extends": ["@smartive/eslint-config/react"]
+  "extends": ["@smartive/eslint-config/react"],
+  "ignorePatterns": "test/**/*.js"
 }

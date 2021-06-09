@@ -10,7 +10,7 @@ const Tipps = () => (
     <PageHeader markdownTitle="Du willst einen _Blogpost_ schreiben?">
       <Copy>Cool! Hier findest du ein paar Tipps.</Copy>
       <Copy>
-        <NextLink href="sprache" passHref>
+        <NextLink href="/brand/sprache" passHref>
           <Link>Zurück zu den allgemeinen Sprach-Guidelines</Link>
         </NextLink>
       </Copy>
@@ -150,7 +150,7 @@ const Tipps = () => (
           <div className="bg-cornflower-500 rounded px-16 py-12">
             <Copy>
               Weniger ist mehr. Wücki. (Weitere tolle Tipps und fancy Facts in den{' '}
-              <NextLink href="sprache" passHref>
+              <NextLink href="/brand/sprache" passHref>
                 <Link>Sprach-Guidelines</Link>
               </NextLink>
               )
