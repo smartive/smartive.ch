@@ -13,6 +13,7 @@ stages:
   image: node:14-alpine
 
 .test_template:
+  extends: .default_template
   stage: test
   image: mcr.microsoft.com/playwright:focal
   before_script:
