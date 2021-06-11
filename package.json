@@ -28,7 +28,7 @@
     "marked": "2.0.7",
     "next": "10.2.3",
     "next-plausible": "1.6.1",
-    "postcss": "8.3.1",
+    "postcss": "8.3.2",
     "puppeteer-core": "10.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
