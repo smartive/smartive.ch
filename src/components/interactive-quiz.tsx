@@ -12,7 +12,8 @@ import {
   Tooltip,
 } from '@smartive/guetzli';
 import { useMachine } from '@xstate/react';
-import { Children, cloneElement, FC, PropsWithChildren, ReactElement, useMemo, useRef, useState } from 'react';
+import { AnimatePresence, AnimateSharedLayout, domMax, LazyMotion, m as motion } from 'framer-motion';
+import React, { Children, cloneElement, FC, PropsWithChildren, ReactElement, useMemo, useRef, useState } from 'react';
 import { StateMachine } from 'xstate';
 import type { QuizEvent } from '../machines/interactive-quiz';
 
@@ -92,7 +93,7 @@ export const InteractiveQuiz: FC<Props> = ({ machine }) => {
   if (state.matches('error'))
     return (
       <Card background="mint">
-        <div className="md:w-1/2 mx-auto p-16">
+        <div className="md:w-2/3 lg:w-1/2 mx-auto md:p-16">
           <Heading2>Technologie, gäll? 🤬</Heading2>
           <Copy>
             Entweder will unser CRM gerade nicht oder wir haben Mist programmiert. Auf jeden Fall funktioniert das Formular
@@ -110,49 +111,67 @@ export const InteractiveQuiz: FC<Props> = ({ machine }) => {
     );
 
   return (
-    <Card background="cornflower">
-      <form onSubmit={(e) => e.preventDefault()} className="md:w-1/2 mx-auto p-16">
-        {state.matches('contact') ? (
-          <>
-            <div className="mb-8" />
+    <LazyMotion strict features={domMax}>
+      <AnimateSharedLayout>
+        <motion.div layout transition={{ duration: 0.15 }} className="content">
+          <Card background="cornflower">
+            <form onSubmit={(e) => e.preventDefault()} className="md:w-2/3 lg:w-1/2 mx-auto md:p-16">
+              <AnimatePresence exitBeforeEnter>
+                <motion.div
+                  key={state.value.toString()}
+                  initial={{ opacity: 0, x: state.event.type === 'BACK' ? -100 : 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2, delay: 0.15 }}
+                >
+                  {state.matches('contact') ? (
+                    <>
+                      <div className="mb-8" />
 
-            <Heading2 className="max-w-prose">So erreichen wir dich.</Heading2>
-            <Copy>Darauf hast du wohl nur gewartet. Jetzt hätten wir natürlich gerne deine Kontaktdaten.</Copy>
-            <ContactForm onContinue={({ name, email, phone }) => send({ type: 'ADD_CONTACT', name, email, phone })} />
-          </>
-        ) : state.matches('callback') ? (
-          <>
-            <div className="mb-8" />
-            <Heading2 className="max-w-prose">{getMeta('title')}</Heading2>
-            {getMeta('copy') && <Copy>{getMeta('copy')}</Copy>}
-            <Copy>
-              {state.meta[machine.id].responsible.firstname} würde sich gerne mit dir zum Thema{' '}
-              {state.meta[machine.id].topic} austauschen. Mit dem Button unten kannst du direkt einen Termin buchen. Und wenn
-              nicht, wird sich {state.meta[machine.id].responsible.firstname} bald bei dir melden.
-            </Copy>
-            <ButtonLink newTab className="text-center" href={state.meta[machine.id].calendar_link}>
-              Jetzt Termin buchen
-            </ButtonLink>
-          </>
-        ) : (
-          <>
-            {!state.matches('existing') && (
-              <LinkButton onClick={() => send('BACK')} className="mb-8 block mt-8">
-                Zurück
-              </LinkButton>
-            )}
-            <div className="mb-8" />
-            <Heading2 className="max-w-prose">{title}</Heading2>
-            {getMeta('copy') && <Copy>{copy}</Copy>}
-            {form?.type === 'stack' ? (
-              <Stack>{form?.options.map(({ element, ...option }) => Options[element](option))}</Stack>
-            ) : form?.type === 'text' ? (
-              form?.options.map(({ element, ...option }) => Options[element](option))
-            ) : null}
-          </>
-        )}
-      </form>
-    </Card>
+                      <Heading2 className="max-w-prose">So erreichen wir dich.</Heading2>
+                      <Copy>Darauf hast du wohl nur gewartet. Jetzt hätten wir natürlich gerne deine Kontaktdaten.</Copy>
+                      <ContactForm
+                        onContinue={({ name, email, phone }) => send({ type: 'ADD_CONTACT', name, email, phone })}
+                      />
+                    </>
+                  ) : state.matches('callback') ? (
+                    <>
+                      <div className="mb-8" />
+                      <Heading2 className="max-w-prose">{getMeta('title')}</Heading2>
+                      {getMeta('copy') && <Copy>{getMeta('copy')}</Copy>}
+                      <Copy>
+                        {state.meta[machine.id].responsible.firstname} würde sich gerne mit dir zum Thema{' '}
+                        {state.meta[machine.id].topic} austauschen. Mit dem Button unten kannst du direkt einen Termin
+                        buchen. Und wenn nicht, wird sich {state.meta[machine.id].responsible.firstname} bald bei dir melden.
+                      </Copy>
+                      <ButtonLink newTab className="text-center" href={state.meta[machine.id].calendar_link}>
+                        Jetzt Termin buchen
+                      </ButtonLink>
+                    </>
+                  ) : (
+                    <>
+                      {!state.matches('existing') && (
+                        <LinkButton onClick={() => send('BACK')} className="mb-8 block mt-8">
+                          Zurück
+                        </LinkButton>
+                      )}
+                      <div className="mb-8" />
+                      <Heading2 className="max-w-prose">{title}</Heading2>
+                      {getMeta('copy') && <Copy>{copy}</Copy>}
+                      {form?.type === 'stack' ? (
+                        <Stack>{form?.options.map(({ element, ...option }) => Options[element](option))}</Stack>
+                      ) : form?.type === 'text' ? (
+                        form?.options.map(({ element, ...option }) => Options[element](option))
+                      ) : null}
+                    </>
+                  )}
+                </motion.div>
+              </AnimatePresence>
+            </form>
+          </Card>
+        </motion.div>
+      </AnimateSharedLayout>
+    </LazyMotion>
   );
 };
 

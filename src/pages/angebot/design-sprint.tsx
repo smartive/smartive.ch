@@ -130,7 +130,7 @@ export default DesignSprint;
 
 const QuizPlaceholder: FC<{ onClick?(): void; disabled?: boolean }> = ({ onClick, disabled = false }) => (
   <Card background="cornflower">
-    <div className="md:w-1/2 mx-auto p-16">
+    <div className="md:w-2/3 lg:w-1/2 mx-auto md:p-16">
       <Heading2 className="max-w-prose">Du bist interessiert?</Heading2>
       <Copy>
         Wir mögen Design Sprints und sprechen gerne mit dir darüber. Ein paar Infos helfen uns dabei, uns optimal
