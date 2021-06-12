@@ -48,7 +48,7 @@
     "@types/react": "17.0.11",
     "@types/tryghost__content-api": "1.3.6",
     "eslint": "7.28.0",
-    "next-sitemap": "1.6.108",
+    "next-sitemap": "1.6.111",
     "playwright": "1.12.2",
     "postcss-import": "14.0.2",
     "prettier": "2.3.1",
