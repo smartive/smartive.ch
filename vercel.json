@@ -45,6 +45,7 @@
     { "source": "/cases/subsidia-kasse", "destination": "/projekte/subsidia" },
     { "source": "/google-search-appliance", "destination": "/projekte" },
     { "source": "/kontakt", "destination": "/agentur" },
-    { "source": "/angebot/ideation-sprint", "destination": "/angebot/design-sprint" }
+    { "source": "/angebot/ideation-sprint", "destination": "/angebot/design-sprint" },
+    { "source": "/roles", "destination": "https://smr.tv/roles" }
   ]
 }
