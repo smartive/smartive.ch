@@ -26,7 +26,7 @@
     "dayjs": "1.10.5",
     "framer-motion": "4.1.17",
     "marked": "2.1.0",
-    "next": "10.2.3",
+    "next": "11.0.0",
     "next-plausible": "1.6.1",
     "postcss": "8.3.4",
     "puppeteer-core": "10.0.0",
@@ -38,7 +38,7 @@
     "xstate": "4.20.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "10.2.3",
+    "@next/bundle-analyzer": "11.0.0",
     "@smartive/eslint-config": "2.0.0",
     "@smartive/prettier-config": "3.0.0",
     "@types/marked": "2.0.3",
