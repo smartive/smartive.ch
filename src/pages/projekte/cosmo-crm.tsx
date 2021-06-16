@@ -3,7 +3,6 @@ import {
   Copy,
   Grid,
   ImageCard,
-  Keyfigure,
   LinkList,
   PageSection,
   Screenshot,
@@ -11,7 +10,6 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { Testimonial } from '../../components/testimonial';

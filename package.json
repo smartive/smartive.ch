@@ -8,7 +8,7 @@
     "postbuild": "next-sitemap --config next-sitemap.js",
     "start": "next start",
     "check": "prettier --check src",
-    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "lint": "next lint",
     "analyze-bundle": "ANALYZE=true npm run build",
     "test": "node test/check-page-errors.js",
     "test:ci": "next dev & node test/check-page-errors.js"
@@ -49,6 +49,7 @@
     "@types/tryghost__content-api": "1.3.6",
     "eslint": "7.28.0",
     "next-sitemap": "1.6.116",
+    "eslint-config-next": "11.0.0",
     "playwright": "1.12.2",
     "postcss-import": "14.0.2",
     "prettier": "2.3.1",

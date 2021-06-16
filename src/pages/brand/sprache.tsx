@@ -22,7 +22,7 @@ import { LandingPage } from '../../layouts/landing-page';
 const Sprache = () => (
   <LandingPage>
     <PageHeader markdownTitle="Sprachlicher Auftritt: Den _richtigen Ton_ treffen">
-      <Image src="/images/brand/smarta-welcome.png" height="450" width="900" objectFit="contain" />
+      <Image src="/images/brand/smarta-welcome.png" alt="" height="450" width="900" objectFit="contain" />
     </PageHeader>
 
     <main>
@@ -64,7 +64,7 @@ const Sprache = () => (
 
       <PageSection>
         <div className="flex space-x-8 items-center justify-center">
-          <Image src="/images/brand/smarta-loves.png" height="300" width="300" objectFit="contain" />
+          <Image src="/images/brand/smarta-loves.png" alt="" height="300" width="300" objectFit="contain" />
           <Heading2>
             <span className="text-cornflower-500">Funktioniert im Web</span>
             <br />

@@ -60,7 +60,15 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers }) => (
       </PageSection>
       <PageSection>
         <Keyfigure
-          image={<Image src="/images/projekte/dimmi/smartive-phone.png" height="566" width="275" objectFit="contain" />}
+          image={
+            <Image
+              src="/images/projekte/dimmi/smartive-phone.png"
+              alt="Mobile User Interface"
+              height="566"
+              width="275"
+              objectFit="contain"
+            />
+          }
         >
           <UnorderedList
             title="Was bringts"

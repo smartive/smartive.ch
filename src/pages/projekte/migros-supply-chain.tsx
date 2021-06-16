@@ -52,7 +52,13 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers }) => (
         <Keyfigure
           background="apricot"
           image={
-            <Image src="/images/projekte/supply-chain/smartive-phone.png" height="566" width="275" objectFit="contain" />
+            <Image
+              src="/images/projekte/supply-chain/smartive-phone.png"
+              alt="Mobile User Interface"
+              height="566"
+              width="275"
+              objectFit="contain"
+            />
           }
         >
           <UnorderedList

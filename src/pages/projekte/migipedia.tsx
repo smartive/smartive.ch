@@ -82,7 +82,13 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
         <PageSection>
           <Keyfigure
             image={
-              <Image src="/images/projekte/migipedia/smartive-phone.png" height="566" width="275" objectFit="contain" />
+              <Image
+                src="/images/projekte/migipedia/smartive-phone.png"
+                alt="Mobile User Interface"
+                height="566"
+                width="275"
+                objectFit="contain"
+              />
             }
           >
             <UnorderedList

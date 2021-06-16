@@ -42,7 +42,7 @@ const Tipps = () => (
       <PageSection>
         <Keyfigure
           background="cornflower"
-          image={<Image src="/images/brand/smarta-approves.png" height="400" width="400" objectFit="contain" />}
+          image={<Image src="/images/brand/smarta-approves.png" alt="" height="400" width="400" objectFit="contain" />}
         >
           <Heading3>Lesen im Web heisst scannen. Da hilft ein klarer Aufbau und visuelle Anker.</Heading3>
           <div>

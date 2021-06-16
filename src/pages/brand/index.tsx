@@ -219,7 +219,7 @@ const Brand: FC = () => (
       </Copy>
       <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 relative gap-4 sm:gap-6">
         {Array.from({ length: 12 }, (_, i) => (
-          <img key={i} src={`images/brand/avatars/avatar${i + 1}.png`} className="rounded" />
+          <img key={i} src={`images/brand/avatars/avatar${i + 1}.png`} alt="" className="rounded" />
         ))}
       </div>
     </PageSection>

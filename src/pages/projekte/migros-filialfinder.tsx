@@ -66,7 +66,13 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers }) => {
           <Keyfigure
             background="apricot"
             image={
-              <Image src="/images/projekte/fil/filialfinder-frontend.png" height="1000" width="703" objectFit="contain" />
+              <Image
+                src="/images/projekte/fil/filialfinder-frontend.png"
+                alt="User Interface"
+                height="1000"
+                width="703"
+                objectFit="contain"
+              />
             }
           >
             <UnorderedList

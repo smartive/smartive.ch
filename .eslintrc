@@ -1,4 +1,10 @@
 {
-  "extends": ["@smartive/eslint-config/react"],
-  "ignorePatterns": "test/**/*.js"
+  "extends": ["@smartive/eslint-config/react", "next"],
+  "ignorePatterns": "test/**/*.js",
+  "rules": {
+    "react-hooks/exhaustive-deps": "off",
+    "react/display-name": "off",
+    "@next/next/google-font-display": "off",
+    "@next/next/no-img-element": "off"
+  }
 }
