@@ -13,7 +13,7 @@ const Identity: FC = () => (
     <PageSection>
       <Heading2>Mission</Heading2>
       <Copy>
-        Smartive ist der Ort, wo wir in Freundschaft und Freiheit webbasierte Lösungen entwickeln, die unsere Kunden
+        smartive ist der Ort, wo wir in Freundschaft und Freiheit webbasierte Lösungen entwickeln, die unsere Kunden
         weiterbringen und uns stolz machen.
       </Copy>
     </PageSection>
