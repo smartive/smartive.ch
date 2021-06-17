@@ -29,6 +29,7 @@ const Brand: FC = () => (
         links={[
           { label: 'Sprachliche Guidelines', href: 'brand/sprache' },
           { label: 'Schreibtipps für Blogposts', href: 'brand/schreibtipps' },
+          { label: 'Die Brand Identity', href: 'brand/identity' },
         ]}
       />
     </PageHeader>
