@@ -10,6 +10,17 @@ export type Package = {
 };
 
 export default {
+  feasibility: {
+    label: '2 Tage',
+    title: 'Feasibility Workshop',
+    content:
+      'Steck den Rahmen für dein MVP ab und schaff Klarheit, was die technischen, wirtschaftlichen und zeitlichen Bedingungen sind.',
+    link: {
+      label: 'Was, wie?',
+      href: '/angebot/feasibility-workshop',
+    },
+    background: 'mint',
+  },
   'design-sprint': {
     label: '1 Woche',
     title: 'Design Sprint',
