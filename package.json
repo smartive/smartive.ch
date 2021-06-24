@@ -27,7 +27,7 @@
     "dayjs": "1.10.5",
     "framer-motion": "4.1.17",
     "marked": "2.1.2",
-    "next": "11.0.0",
+    "next": "11.0.1",
     "next-plausible": "1.7.0",
     "plaiceholder": "^2.0.1",
     "postcss": "8.3.5",
@@ -41,7 +41,7 @@
     "xstate": "4.20.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "11.0.0",
+    "@next/bundle-analyzer": "11.0.1",
     "@smartive/eslint-config": "2.0.0",
     "@smartive/prettier-config": "3.0.0",
     "@types/marked": "2.0.3",
