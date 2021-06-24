@@ -73,13 +73,13 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers })
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const teasers = Object.values(Teasers).filter(
-    ({ title }) => ![Teasers.migipedia.title, Teasers.subsidia.title].includes(title)
+    ({ title }) => ![Teasers.migipedia.title, Teasers.spilo.title].includes(title)
   );
 
   return {
     props: {
       teasers,
-      main: [Teasers.migipedia, Teasers.subsidia],
+      main: [Teasers.migipedia, Teasers.spilo],
       customers: Object.values(Customers),
       quote: Quotes['setareh-dife'],
       contact: Employees.joshua,

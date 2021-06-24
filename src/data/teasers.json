@@ -59,7 +59,7 @@
     }
   },
   "ofpg": {
-    "label": "Kanton St. Gallen",
+    "label": "Kanton St.Gallen",
     "title": "Online Hilfe finden",
     "link": { "label": "Projekt anschauen", "href": "/projekte/ofpg-kig" },
     "image": {
@@ -101,6 +101,15 @@
     "image": {
       "src": "/images/projekte/msrc/supermarkt-3.jpg",
       "alt": "Gemüseabteilung in einem Migros Supermarkt"
+    }
+  },
+  "spilo": {
+    "label": "Kanton St.Gallen",
+    "title": "Mit Kindern Spielplätze entdecken",
+    "link": { "label": "Projekt anschauen", "href": "/projekte/spilo" },
+    "image": {
+      "src": "/images/projekte/spilo/bambi-corro-fn3puWB0pHY-unsplash.jpg",
+      "alt": "Kind rennt auf einem Spielplatz"
     }
   }
 }
