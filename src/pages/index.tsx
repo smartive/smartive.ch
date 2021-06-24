@@ -1,6 +1,5 @@
 import { BlobVariations, Copy, GridSlider, LinkList, PageSection } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
 import NextLink from 'next/link';
 import React from 'react';
 import { Contact } from '../components/contact';
@@ -13,21 +12,30 @@ import { PackageList } from '../compositions/package-list';
 import { PageHeader } from '../compositions/page-header';
 import { Customer } from '../data/customers';
 import Customers from '../data/customers.json';
-import { Employee } from '../data/employees';
+import { Employee, transformEmployee } from '../data/employees';
 import Employees from '../data/employees.json';
 import Packages, { Package } from '../data/packages';
-import { Quote } from '../data/quotes';
+import { Quote, transformQuote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
+import { PlaceholderImage } from '../elements/placeholder-image';
 import { Page } from '../layouts/page';
+import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
+
+const STATIC_IMAGES = {
+  main: '/images/mood/YB_07015.jpg',
+  migipedia: '/images/projekte/migipedia/RGB_02_snack_001.jpg',
+  subsidia: '/images/projekte/subsidia/pwa-etikett-scan.png',
+} as const;
 
 type Props = {
+  images: PlaceholderImages<typeof STATIC_IMAGES>;
   contact: Employee;
   customers: Customer[];
   quote: Quote;
   packages: Package[];
 };
 
-const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
+const Home: NextPage<Props> = ({ contact, customers, quote, packages, images }) => {
   return (
     <Page>
       <PageHeader
@@ -45,9 +53,8 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
 
       <main>
         <PageSection>
-          <Image
-            className="rounded bg-mint-200"
-            src="/images/mood/YB_07015.jpg"
+          <PlaceholderImage
+            image={images.main}
             alt="Drei smartive Mitarbeiter beim Gespräch vor einem Computerbildschirm"
             priority
             objectFit="cover"
@@ -60,16 +67,15 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
               label="Projekt — Migipedia"
               title="Der User im Mittelpunkt – seit 10 Jahren"
               link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
-              image={{ src: '/images/projekte/migipedia/RGB_02_snack_001.jpg', alt: 'Frau sitzt mit Handy am Boden' }}
+              image={images.migipedia}
+              imageAlt="Frau sitzt mit Handy am Boden"
             />
             <NextImageCard
               label="Projekt — Subsidia"
               title="Digitalisierung der Lifestyle-Branche."
               link={{ label: 'Mehr erfahren', href: '/projekte/subsidia' }}
-              image={{
-                src: '/images/projekte/subsidia/pwa-etikett-scan.png',
-                alt: 'Verkäuferin scannt Etikett eines Kleidungsstücks mit dem Smartphone',
-              }}
+              image={images.subsidia}
+              imageAlt="Verkäuferin scannt Etikett eines Kleidungsstücks mit dem Smartphone"
             />
             <NextContentCard
               label="WHOOP WHOOP! 📣🥳"
@@ -115,13 +121,15 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const packages = [Packages['design-sprint'], Packages['speedboat'], Packages['scale-up'], Packages['solution-review']];
+  const images = await getPlaceholders(STATIC_IMAGES);
 
   return {
     props: {
+      images,
       packages,
-      contact: Employees.peter,
+      quote: await transformQuote(Quotes['marc-frontify']),
+      contact: await transformEmployee(Employees.peter),
       customers: Object.values(Customers),
-      quote: Quotes['marc-frontify'],
     },
   };
 };

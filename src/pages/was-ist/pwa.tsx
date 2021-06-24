@@ -1,10 +1,9 @@
 import { Copy, Explainer, Grid, PageSection, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
-import { Teaser } from '../../data/teaser';
+import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 
@@ -107,9 +106,12 @@ const PWA: NextPage<Props> = ({ teasers }) => (
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const teasers = await Promise.all(
+    [Teasers.subsidia, Teasers['supply-chain']].map(async (teaser) => await transformTeaser(teaser))
+  );
   return {
     props: {
-      teasers: [Teasers.subsidia, Teasers['supply-chain']],
+      teasers,
     },
   };
 };

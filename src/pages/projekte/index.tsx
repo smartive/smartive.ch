@@ -8,11 +8,11 @@ import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import { Customer } from '../../data/customers';
 import Customers from '../../data/customers.json';
-import { Employee } from '../../data/employees';
+import { Employee, transformEmployee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import { Quote } from '../../data/quotes';
+import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser } from '../../data/teaser';
+import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 
@@ -72,17 +72,19 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers })
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const teasers = Object.values(Teasers).filter(
-    ({ title }) => ![Teasers.migipedia.title, Teasers.spilo.title].includes(title)
+  const teasers = await Promise.all(
+    Object.values(Teasers)
+      .filter(({ title }) => ![Teasers.migipedia.title, Teasers.spilo.title].includes(title))
+      .map(async (teaser) => await transformTeaser(teaser))
   );
 
   return {
     props: {
       teasers,
-      main: [Teasers.migipedia, Teasers.spilo],
+      main: [await transformTeaser(Teasers.migipedia), await transformTeaser(Teasers.spilo)],
       customers: Object.values(Customers),
-      quote: Quotes['setareh-dife'],
-      contact: Employees.joshua,
+      quote: await transformQuote(Quotes['setareh-dife']),
+      contact: await transformEmployee(Employees.joshua),
     },
   };
 };

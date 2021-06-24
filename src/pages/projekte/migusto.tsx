@@ -11,28 +11,38 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
+import { Employee, transformEmployee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import { Quote } from '../../data/quotes';
+import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser } from '../../data/teaser';
+import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
+import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
+const STATIC_IMAGES = {
+  gemuese: '/images/projekte/migusto/maarten-van-den-heuvel-EzH46XCDQRY-unsplash.jpg',
+  kochen: '/images/projekte/migusto/jimmy-dean-my1mDMraGf0-unsplash.jpg',
+  pizza: '/images/projekte/migusto/stefan-c-asafti-x5jilo3ck3o-unsplash.jpg',
+  kraeuter: '/images/projekte/migusto/anna-auza-wqrX5t1wBG0-unsplash.jpg',
+  kuh: '/images/projekte/migusto/megumi-nachev-qkQR-OrvZic-unsplash.jpg',
+} as const;
+
 type Props = {
+  images: PlaceholderImages<typeof STATIC_IMAGES>;
   quote: Quote;
   contact: Employee;
   teasers: Teaser[];
 };
 
-const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
+const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
   return (
     <Page>
       <PageHeader
@@ -59,18 +69,16 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
       <main>
         <PageSection>
           <Grid cols={2}>
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/projekte/migusto/maarten-van-den-heuvel-EzH46XCDQRY-unsplash.jpg"
+            <PlaceholderImage
+              image={images.gemuese}
               alt="Person schneidet Gemüse aus der Vogelperspektive"
               priority
               objectFit="cover"
               width={720}
               height={383}
             />
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/projekte/migusto/jimmy-dean-my1mDMraGf0-unsplash.jpg"
+            <PlaceholderImage
+              image={images.kochen}
               alt="Eine Frau und ein Mann beim gemeinsamen Kochen"
               priority
               objectFit="cover"
@@ -108,9 +116,8 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
           </Copy>
         </PageSection>
         <PageSection>
-          <Image
-            className="rounded bg-mint-200"
-            src="/images/projekte/migusto/stefan-c-asafti-x5jilo3ck3o-unsplash.jpg"
+          <PlaceholderImage
+            image={images.pizza}
             alt="Drei Pizzen in einem Backofen"
             priority
             objectFit="cover"
@@ -166,9 +173,8 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
         </PageSection>
         <PageSection>
           <Grid cols={2}>
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/projekte/migusto/anna-auza-wqrX5t1wBG0-unsplash.jpg"
+            <PlaceholderImage
+              image={images.kraeuter}
               alt="Frischer Bärlauch auf einem Schneidebrett"
               priority
               objectPosition="center center"
@@ -176,9 +182,8 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
               width={720}
               height={383}
             />
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/projekte/migusto/megumi-nachev-qkQR-OrvZic-unsplash.jpg"
+            <PlaceholderImage
+              image={images.kuh}
               alt="Ein Kuheuter auf einer grünen Wiese"
               priority
               objectPosition="center top"
@@ -205,12 +210,17 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const images = await getPlaceholders(STATIC_IMAGES);
+  const teasers = await Promise.all(
+    getRandomTeasers(3, Teasers.migusto.title).map(async (teaser) => await transformTeaser(teaser))
+  );
   return {
     props: {
-      teasers: getRandomTeasers(3, Teasers.migusto.title),
-      quote: Quotes['desiree-migusto'],
-      contact: Employees.thilo,
+      images,
+      teasers,
+      quote: await transformQuote(Quotes['desiree-migusto']),
+      contact: await transformEmployee(Employees.thilo),
     },
   };
 };

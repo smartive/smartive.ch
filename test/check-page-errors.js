@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ignoreListRoutes = ['/404', '/_document', '/_app', '/api/', '/blog/[slug]'];
-const ignoreListErrors = ['card-shadow-'];
+const ignoreListErrors = ['card-shadow-', 'is smaller than 40x40'];
 
 const getAllRoutes = (dirPath = './src/pages', arrayOfFiles = []) => {
   files = fs.readdirSync(dirPath);

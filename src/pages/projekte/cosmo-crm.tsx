@@ -14,11 +14,11 @@ import React from 'react';
 import { Contact } from '../../components/contact';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
+import { Employee, transformEmployee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import { Quote } from '../../data/quotes';
+import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser } from '../../data/teaser';
+import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 import { getRandomTeasers } from '../../utils/teasers';
@@ -115,12 +115,15 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const teasers = await Promise.all(
+    getRandomTeasers(3, Teasers.cosmo.title).map(async (teaser) => await transformTeaser(teaser))
+  );
   return {
     props: {
-      teasers: getRandomTeasers(3, Teasers.cosmo.title),
-      quote: Quotes['stefan-cosmo'],
-      contact: Employees.peter,
+      teasers,
+      quote: await transformQuote(Quotes['stefan-cosmo']),
+      contact: await transformEmployee(Employees.peter),
     },
   };
 };

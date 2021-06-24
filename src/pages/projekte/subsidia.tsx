@@ -1,23 +1,31 @@
 import { BlobVariations, Copy, Grid, LinkList, PageSection, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
+import { Employee, transformEmployee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
-import { Quote } from '../../data/quotes';
+import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Award, Teaser } from '../../data/teaser';
+import { Award, Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
+import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
+const STATIC_IMAGES = {
+  scan: '/images/projekte/subsidia/pwa-etikett-scan.png',
+  screen: '/images/projekte/subsidia/subsidia-pos-screen.png',
+  kasse: '/images/projekte/subsidia/verkauf-an-stationaerer-kasse.png',
+} as const;
+
 type Props = {
+  images: PlaceholderImages<typeof STATIC_IMAGES>;
   quote: Quote;
   contact: Employee;
   awards: Award[];
@@ -25,7 +33,7 @@ type Props = {
   packages: Package[];
 };
 
-const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages }) => (
+const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages, images }) => (
   <Page>
     <PageHeader
       tags={awards}
@@ -44,9 +52,8 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages }
 
     <main>
       <PageSection>
-        <Image
-          className="rounded bg-mint-200"
-          src="/images/projekte/subsidia/pwa-etikett-scan.png"
+        <PlaceholderImage
+          image={images.scan}
           alt="Verkäuferin scannt Etikett eines Kleidungsstücks mit dem Smartphone"
           priority
           objectFit="cover"
@@ -92,18 +99,16 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages }
           dem Browser umgesetzt werden. Das Resultat: Schneller und günstiger entwickelt sowie einfacher wartbar.
         </Copy>
         <Grid cols={2}>
-          <Image
-            className="rounded bg-mint-200"
-            src="/images/projekte/subsidia/subsidia-pos-screen.png"
+          <PlaceholderImage
+            image={images.screen}
             alt="Eine Hand die ein Smartphone mit der Subsidia Kassen-App hält"
             priority
             objectFit="cover"
             width={720}
             height={383}
           />
-          <Image
-            className="rounded bg-mint-200"
-            src="/images/projekte/subsidia/verkauf-an-stationaerer-kasse.png"
+          <PlaceholderImage
+            image={images.kasse}
             alt="Verkaufsberater an einer stationären Kasse hinter einem Bildschirm"
             priority
             objectFit="cover"
@@ -143,14 +148,18 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages }
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const images = await getPlaceholders(STATIC_IMAGES);
   const packages = [Packages['design-sprint'], Packages['speedboat'], Packages['scale-up'], Packages['solution-review']];
-
+  const teasers = await Promise.all(
+    getRandomTeasers(3, Teasers.subsidia.title).map(async (teaser) => await transformTeaser(teaser))
+  );
   return {
     props: {
+      images,
       packages,
-      teasers: getRandomTeasers(3, Teasers.subsidia.title),
-      contact: Employees.dominique,
-      quote: Quotes['diego-subsidia'],
+      teasers,
+      contact: await transformEmployee(Employees.dominique),
+      quote: await transformQuote(Quotes['diego-subsidia']),
       awards: Teasers.subsidia.awards,
     },
   };

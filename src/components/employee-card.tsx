@@ -1,8 +1,8 @@
 import { Heading3, Link, LinkVariants } from '@smartive/guetzli';
 import { usePlausible } from 'next-plausible';
-import Image from 'next/image';
 import React, { FC } from 'react';
 import { Employee } from '../data/employees';
+import { PlaceholderImage } from '../elements/placeholder-image';
 import { PlausibleEvents } from '../utils/tracking';
 
 type Props = {
@@ -10,7 +10,10 @@ type Props = {
   className?: string;
 };
 
-export const EmployeeCard: FC<Props> = ({ employee: { firstname, lastname, job, bio, image, links }, className = '' }) => {
+export const EmployeeCard: FC<Props> = ({
+  employee: { firstname, lastname, job, bio, links, image, closeup },
+  className = '',
+}) => {
   const plausible = usePlausible<PlausibleEvents>();
 
   return (
@@ -21,10 +24,10 @@ export const EmployeeCard: FC<Props> = ({ employee: { firstname, lastname, job, 
       itemType="http://schema.org/Person"
     >
       <div className="hidden lg:block w-full">
-        <Image
-          itemProp="image"
-          className="bg-mint-200"
-          src={image || getFallbackImage()}
+        <PlaceholderImage
+          itemProp="PlaceholderImage"
+          image={image}
+          rounded="none"
           alt=""
           objectFit="cover"
           width="463"
@@ -32,10 +35,10 @@ export const EmployeeCard: FC<Props> = ({ employee: { firstname, lastname, job, 
         />
       </div>
       <div className="block lg:hidden w-full">
-        <Image
+        <PlaceholderImage
           itemProp="image"
-          className="bg-mint-200"
-          src={image ? image.replace('.jpg', '_closeup.jpg') : getFallbackImage()}
+          image={closeup}
+          rounded="none"
           alt=""
           objectFit="cover"
           width="480"
@@ -81,6 +84,3 @@ export const EmployeeCard: FC<Props> = ({ employee: { firstname, lastname, job, 
     </div>
   );
 };
-
-const getFallbackImage = () =>
-  `/images/portrait-fallback-${['apricot', 'mint', 'cornflower'][Math.floor(Math.random() * 3)]}.svg`;

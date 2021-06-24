@@ -1,27 +1,36 @@
 import { BlobVariations, Copy, Grid, Heading3, Keyfigure, LinkList, PageSection, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
+import { Employee, transformEmployee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import { Quote } from '../../data/quotes';
+import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser } from '../../data/teaser';
+import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
+import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
+const STATIC_IMAGES = {
+  supermarkt: '/images/projekte/fil/supermarkt-aussen.jpg',
+  takeaway: '/images/projekte/fil/migros-take-away.jpg',
+  filialfinder: '/images/projekte/fil/filialfinder-frontend.png',
+  flughafen: '/images/projekte/fil/migros-filiale-zuerich-airport.jpg',
+} as const;
+
 type Props = {
+  images: PlaceholderImages<typeof STATIC_IMAGES>;
   quote: Quote;
   contact: Employee;
   teasers: Teaser[];
 };
 
-const Filialfinder: NextPage<Props> = ({ quote, contact, teasers }) => {
+const Filialfinder: NextPage<Props> = ({ quote, contact, teasers, images }) => {
   return (
     <Page>
       <PageHeader
@@ -42,18 +51,16 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers }) => {
       <main>
         <PageSection>
           <Grid cols={2}>
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/projekte/fil/supermarkt-aussen.jpg"
+            <PlaceholderImage
+              image={images.supermarkt}
               alt="Migros Supermarkt auf dem Land von aussen"
               priority
               objectFit="cover"
               width={720}
               height={383}
             />
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/projekte/fil/migros-take-away.jpg"
+            <PlaceholderImage
+              image={images.takeaway}
               alt="Ein Migros Take-Away Stand"
               priority
               objectFit="cover"
@@ -66,8 +73,8 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers }) => {
           <Keyfigure
             background="apricot"
             image={
-              <Image
-                src="/images/projekte/fil/filialfinder-frontend.png"
+              <PlaceholderImage
+                image={images.filialfinder}
                 alt="User Interface"
                 height="1000"
                 width="703"
@@ -89,9 +96,8 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers }) => {
         </PageSection>
 
         <PageSection>
-          <Image
-            className="rounded bg-mint-200"
-            src="/images/projekte/fil/migros-filiale-zuerich-airport.jpg"
+          <PlaceholderImage
+            image={images.flughafen}
             alt="Migros Filiale am Flughafen Zürich"
             priority
             objectFit="cover"
@@ -141,12 +147,17 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const images = await getPlaceholders(STATIC_IMAGES);
+  const teasers = await Promise.all(
+    getRandomTeasers(3, Teasers.filialfinder.title).map(async (teaser) => await transformTeaser(teaser))
+  );
   return {
     props: {
-      teasers: getRandomTeasers(3, Teasers.filialfinder.title),
-      quote: Quotes['coco-fil'],
-      contact: Employees.moreno,
+      images,
+      teasers,
+      quote: await transformQuote(Quotes['coco-fil']),
+      contact: await transformEmployee(Employees.moreno),
     },
   };
 };

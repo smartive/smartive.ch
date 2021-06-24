@@ -1,13 +1,26 @@
 import { Copy, Grid, PageSection } from '@smartive/guetzli';
+import { GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
 import React from 'react';
 import { PageHeader } from '../compositions/page-header';
+import { PlaceholderImage } from '../elements/placeholder-image';
 import { LandingPage } from '../layouts/landing-page';
+import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
 
 const NewsletterSubscription = dynamic(() => import('../components/newsletter-subscription'), { ssr: false });
 
-const Newsletter = () => {
+const STATIC_IMAGES = {
+  mittag: '/images/mood/YB_06742.jpg',
+  terrasse: '/images/mood/code-retreat-terrasse.jpg',
+  coderetreat: '/images/mood/code-retreat-lunch.jpg',
+  dife: '/images/mood/robert-dife.jpg',
+} as const;
+
+type Props = {
+  images: PlaceholderImages<typeof STATIC_IMAGES>;
+};
+
+const Newsletter: NextPage<Props> = ({ images }) => {
   return (
     <LandingPage>
       <PageHeader markdownTitle="Neugierig, was bei uns läuft?">
@@ -23,9 +36,8 @@ const Newsletter = () => {
 
       <main>
         <PageSection>
-          <Image
-            className="rounded bg-mint-200"
-            src="/images/mood/YB_06742.jpg"
+          <PlaceholderImage
+            image={images.mittag}
             alt="smartive Team beim Mittagessen an einem Holztisch"
             priority
             objectFit="cover"
@@ -33,18 +45,16 @@ const Newsletter = () => {
             height={800}
           />
           <Grid cols={2}>
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/mood/code-retreat-terrasse.jpg"
+            <PlaceholderImage
+              image={images.terrasse}
               alt="smartive Team sitzt auf einer Bank mit blauem Himmel und Thunersee im Hintergrund"
               objectFit="cover"
               width={720}
               height={500}
             />
             <div className="hidden md:block md:col-start-2 md:row-span-2 relative">
-              <Image
-                className="rounded bg-mint-200"
-                src="/images/mood/code-retreat-lunch.jpg"
+              <PlaceholderImage
+                image={images.coderetreat}
                 alt="smartive Team am Mittagstisch beim Essen"
                 objectFit="cover"
                 layout="responsive"
@@ -53,18 +63,16 @@ const Newsletter = () => {
               />
             </div>
             <div className="block md:hidden">
-              <Image
-                className="rounded bg-mint-200"
-                src="/images/mood/YB_06742.jpg"
+              <PlaceholderImage
+                image={images.mittag}
                 alt="smartive Team am Mittagstisch beim Essen"
                 objectFit="cover"
                 width={720}
                 height={500}
               />
             </div>
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/mood/robert-dife.jpg"
+            <PlaceholderImage
+              image={images.dife}
               alt="smartive Mitarbeiter hält einen Vortrag vor mehreren Leuten"
               objectFit="cover"
               width={720}
@@ -75,6 +83,15 @@ const Newsletter = () => {
       </main>
     </LandingPage>
   );
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const images = await getPlaceholders(STATIC_IMAGES);
+  return {
+    props: {
+      images,
+    },
+  };
 };
 
 export default Newsletter;

@@ -5,7 +5,7 @@ import { NextImageCard } from '../../components/image-card';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
 import Packages, { Package } from '../../data/packages';
-import { Teaser } from '../../data/teaser';
+import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 
@@ -61,8 +61,9 @@ const Mvp: NextPage<Props> = ({ teasers, packages }) => (
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const packages = [Packages['design-sprint'], Packages['speedboat']];
-  const teasers = [Teasers.subsidia, Teasers['supply-chain'], Teasers.ofpg];
-
+  const teasers = await Promise.all(
+    [Teasers.subsidia, Teasers['supply-chain'], Teasers.ofpg].map(async (teaser) => await transformTeaser(teaser))
+  );
   return {
     props: {
       teasers,

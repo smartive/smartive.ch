@@ -11,27 +11,34 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
 import NextLink from 'next/link';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
+import { Employee, transformEmployee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import { Quote } from '../../data/quotes';
+import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser } from '../../data/teaser';
+import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
+import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
+
+const STATIC_IMAGES = {
+  rennen: '/images/projekte/spilo/bambi-corro-fn3puWB0pHY-unsplash.jpg',
+  klettern: '/images/projekte/spilo/rashid-sadykov-JUPKydbR6q0-unsplash.jpg',
+} as const;
 
 type Props = {
+  images: PlaceholderImages<typeof STATIC_IMAGES>;
   quote: Quote;
   contact: Employee;
   teasers: Teaser[];
 };
 
-const Spilo: NextPage<Props> = ({ quote, contact, teasers }) => (
+const Spilo: NextPage<Props> = ({ contact, teasers, images }) => (
   <Page>
     <PageHeader markdownTitle="Mit Kindern _Spielplätze_ entdecken." description="">
       <Copy>
@@ -46,18 +53,16 @@ const Spilo: NextPage<Props> = ({ quote, contact, teasers }) => (
     <main>
       <PageSection>
         <Grid cols={2}>
-          <Image
-            className="rounded bg-mint-200"
-            src="/images/projekte/spilo/bambi-corro-fn3puWB0pHY-unsplash.jpg"
+          <PlaceholderImage
+            image={images.rennen}
             alt="Kind rennt auf einem Spielplatz"
             priority
             objectFit="cover"
             width={720}
             height={383}
           />
-          <Image
-            className="rounded bg-mint-200"
-            src="/images/projekte/spilo/rashid-sadykov-JUPKydbR6q0-unsplash.jpg"
+          <PlaceholderImage
+            image={images.klettern}
             alt="Kind klettert auf einem Spielplatz"
             priority
             objectFit="cover"
@@ -142,14 +147,19 @@ const Spilo: NextPage<Props> = ({ quote, contact, teasers }) => (
   </Page>
 );
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const images = await getPlaceholders(STATIC_IMAGES);
+  const teasers = await Promise.all(
+    [Teasers.ofpg, Teasers.filialfinder, Teasers['supply-chain']].map(async (teaser) => await transformTeaser(teaser))
+  );
   return {
     props: {
-      teasers: [Teasers.ofpg, Teasers.filialfinder, Teasers['supply-chain']],
-      contact: Employees.peter,
+      images,
+      teasers,
+      contact: await transformEmployee(Employees.peter),
       // TODO: Add real quote
       quote: {
-        ...Quotes['fabrina-kig'],
+        ...(await transformQuote(Quotes['fabrina-kig'])),
         excerpt: 'Bubi spielen, Bubi xund',
         text: 'Super diese smartive, die liefern die Beratung sogar nach Hause! Ohne Lieferkosten! Impfall!',
       },

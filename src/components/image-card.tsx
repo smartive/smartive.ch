@@ -1,15 +1,16 @@
 import { ImageCard, ImageCardProps } from '@smartive/guetzli';
-import Image from 'next/image';
 import NextLink from 'next/link';
 import React, { FC } from 'react';
+import { PlaceholderImage } from '../elements/placeholder-image';
+import { ImageWithPlaceholder } from '../utils/image-placeholders';
 
-type Props = ImageCardProps & { image: { src: string; alt?: string } };
+type Props = ImageCardProps & { image: ImageWithPlaceholder; imageAlt?: string };
 
-export const NextImageCard: FC<Props> = ({ image, ...props }) => (
+export const NextImageCard: FC<Props> = ({ image, imageAlt, ...props }) => (
   <NextLink href={props.link.href} passHref>
     <ImageCard
       {...props}
-      image={<Image className="bg-mint-200" src={image.src} alt={image.alt} objectFit="cover" height={480} width={720} />}
+      image={<PlaceholderImage image={image} alt={imageAlt} rounded="none" objectFit="cover" height={480} width={720} />}
     />
   </NextLink>
 );

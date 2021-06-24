@@ -1,14 +1,15 @@
 import { BlobVariations, Copy, Grid, Link, PageSection, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
 import NextLink from 'next/link';
 import React from 'react';
 import { Testimonial } from '../components/testimonial';
 import { PageHeader } from '../compositions/page-header';
 import Employees from '../data/employees.json';
-import { Quote } from '../data/quotes';
+import { Quote, transformQuote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
+import { PlaceholderImage } from '../elements/placeholder-image';
 import { Page } from '../layouts/page';
+import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
 
 const textBlocks = [
   {
@@ -43,11 +44,23 @@ const textBlocks = [
   },
 ];
 
+const STATIC_IMAGES = {
+  dife: '/images/mood/dominique-lab-finger.jpg',
+  mittag: '/images/mood/YB_06742.jpg',
+  vortrag: '/images/mood/robert-dife-close-up.jpg',
+  coderetreat: '/images/mood/code-retreat-hackday.jpg',
+  aescher: '/images/mood/aescher-gruppenbild.jpg',
+  terrasse: '/images/mood/code-retreat-terrasse.jpg',
+  fussball: '/images/mood/code-retreat-fussball.jpg',
+  essen: '/images/mood/code-retreat-lunch.jpg',
+} as const;
+
 type Props = {
+  images: PlaceholderImages<typeof STATIC_IMAGES>;
   quote: Quote;
 };
 
-const Agentur: NextPage<Props> = ({ quote }) => {
+const Agentur: NextPage<Props> = ({ quote, images }) => {
   return (
     <Page>
       <PageHeader
@@ -65,36 +78,32 @@ const Agentur: NextPage<Props> = ({ quote }) => {
       <main>
         <PageSection>
           <Grid cols={2}>
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/mood/dominique-lab-finger.jpg"
+            <PlaceholderImage
+              image={images.dife}
               alt="smartive Mitarbeiter mit einem Schild auf dem smartive beworben wird"
               objectFit="cover"
               width={720}
               height={380}
             />
             <div className="hidden md:block md:col-start-2 md:row-span-2 relative">
-              <Image
-                className="rounded bg-mint-200"
-                src="/images/mood/YB_06742.jpg"
+              <PlaceholderImage
+                image={images.mittag}
                 alt="smartive Team am Mittagstisch beim Essen"
                 objectFit="cover"
                 layout="fill"
               />
             </div>
             <div className="block md:hidden">
-              <Image
-                className="rounded bg-mint-200"
-                src="/images/mood/YB_06742.jpg"
+              <PlaceholderImage
+                image={images.mittag}
                 alt="smartive Team am Mittagstisch beim Essen"
                 objectFit="cover"
                 width={720}
                 height={500}
               />
             </div>
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/mood/robert-dife-close-up.jpg"
+            <PlaceholderImage
+              image={images.vortrag}
               alt="smartive Mitarbeiter hält einen Vortrag vor mehreren Leuten"
               objectFit="cover"
               width={720}
@@ -110,42 +119,37 @@ const Agentur: NextPage<Props> = ({ quote }) => {
           </Grid>
           <Testimonial background="cornflower" blobs={BlobVariations.cornflower[0]} quote={quote} />
           <Grid cols={2}>
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/mood/code-retreat-hackday.jpg"
+            <PlaceholderImage
+              image={images.coderetreat}
               alt="smartive Team am arbeiten an einem Tisch im freien mit dem Valle Verzasca im Hintergrund"
               objectFit="cover"
               width={720}
               height={380}
             />
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/mood/aescher-gruppenbild.jpg"
+            <PlaceholderImage
+              image={images.aescher}
               alt="smartive Team bei einer Wanderung mit dem Gasthaus Aescher-Wildkirchli im Hintergrund"
               objectFit="cover"
               width={720}
               height={380}
             />
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/mood/code-retreat-terrasse.jpg"
+            <PlaceholderImage
+              image={images.terrasse}
               alt="smartive Team sitzt auf einer Bank mit blauem Himmel und Thunersee im Hintergrund"
               objectFit="cover"
               width={720}
               height={500}
             />
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/mood/code-retreat-fussball.jpg"
+            <PlaceholderImage
+              image={images.fussball}
               alt="smartive Team beim Fussballspielen auf einer grünen Wiese"
               objectFit="cover"
               width={720}
               height={380}
             />
             <div className="md:col-span-2">
-              <Image
-                className="rounded bg-mint-200"
-                src="/images/mood/code-retreat-lunch.jpg"
+              <PlaceholderImage
+                image={images.essen}
                 alt="smartive Team beim Mittagessen im Freien"
                 objectFit="cover"
                 width={1504}
@@ -189,10 +193,12 @@ const Agentur: NextPage<Props> = ({ quote }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const images = await getPlaceholders(STATIC_IMAGES);
   return {
     props: {
-      quote: Quotes['dominique-kultur'],
+      images,
+      quote: await transformQuote(Quotes['dominique-kultur']),
     },
   };
 };

@@ -31,3 +31,12 @@ footer {
     margin-right: -50%;
   }
 }
+
+@layer utilities {
+  .rounded-clip {
+    clip-path: inset(0 0 0 0 round 1rem);
+  }
+  .rounded-full-clip {
+    clip-path: circle(50%);
+  }
+}

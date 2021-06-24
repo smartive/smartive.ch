@@ -11,28 +11,35 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
+import { Employee, transformEmployee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import { Quote } from '../../data/quotes';
+import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser } from '../../data/teaser';
+import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
+import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
+const STATIC_IMAGES = {
+  gummistiefel: '/images/projekte/ofpg-kig/ben-wicks-iDCtsz-INHI-unsplash.jpg',
+  tisch: '/images/projekte/ofpg-kig/dylan-gillis-KdeqA3aTnBY-unsplash.jpg',
+} as const;
+
 type Props = {
+  images: PlaceholderImages<typeof STATIC_IMAGES>;
   quote: Quote;
   contact: Employee;
   teasers: Teaser[];
 };
 
-const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
+const OfpgKig: NextPage<Props> = ({ quote, contact, teasers, images }) => {
   return (
     <Page>
       <PageHeader
@@ -60,18 +67,16 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
       <main>
         <PageSection>
           <Grid cols={2}>
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/projekte/ofpg-kig/ben-wicks-iDCtsz-INHI-unsplash.jpg"
+            <PlaceholderImage
+              image={images.gummistiefel}
               alt="Kinderfüsse in Gummistiefeln"
               priority
               objectFit="cover"
               width={720}
               height={383}
             />
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/projekte/ofpg-kig/dylan-gillis-KdeqA3aTnBY-unsplash.jpg"
+            <PlaceholderImage
+              image={images.tisch}
               alt="Leute sitzen an einem Tisch und besprechen sich"
               priority
               objectFit="cover"
@@ -170,12 +175,17 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const images = await getPlaceholders(STATIC_IMAGES);
+  const teasers = await Promise.all(
+    getRandomTeasers(3, Teasers.ofpg.title).map(async (teaser) => await transformTeaser(teaser))
+  );
   return {
     props: {
-      teasers: getRandomTeasers(3, Teasers.ofpg.title),
-      quote: Quotes['fabrina-kig'],
-      contact: Employees.marco,
+      images,
+      teasers,
+      quote: await transformQuote(Quotes['fabrina-kig']),
+      contact: await transformEmployee(Employees.marco),
     },
   };
 };

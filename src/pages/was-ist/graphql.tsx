@@ -2,10 +2,9 @@ import { Copy, Explainer, Grid, Heading2, Keyfigure, Link, PageSection, TextBloc
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import React from 'react';
-
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
-import { Teaser } from '../../data/teaser';
+import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 
@@ -125,9 +124,12 @@ const GQL: NextPage<Props> = ({ teasers }) => (
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const teasers = await Promise.all(
+    [Teasers.migusto, Teasers.migipedia].map(async (teaser) => await transformTeaser(teaser))
+  );
   return {
     props: {
-      teasers: [Teasers.migusto, Teasers.migipedia],
+      teasers,
     },
   };
 };

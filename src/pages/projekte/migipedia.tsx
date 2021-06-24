@@ -10,29 +10,38 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
+import { Employee, transformEmployee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import { Quote } from '../../data/quotes';
+import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Award, Teaser } from '../../data/teaser';
+import { Award, Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
+import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
+const STATIC_IMAGES = {
+  kitchen: '/images/projekte/migipedia/RGB_04_kitchen_012.jpg',
+  diskutieren: '/images/projekte/migipedia/RGB_01_diskutieren_007.jpg',
+  phone: '/images/projekte/migipedia/smartive-phone.png',
+  couch: '/images/projekte/migipedia/RGB_05_couch_010.jpg',
+} as const;
+
 type Props = {
+  images: PlaceholderImages<typeof STATIC_IMAGES>;
   quote: Quote;
   contact: Employee;
   teasers: Teaser[];
   awards: Award[];
 };
 
-const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
+const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images }) => {
   return (
     <Page>
       <PageHeader
@@ -59,18 +68,16 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
       <main>
         <PageSection>
           <Grid cols={2}>
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/projekte/migipedia/RGB_04_kitchen_012.jpg"
+            <PlaceholderImage
+              image={images.kitchen}
               alt="Frau in orangem Pullover isst Joghurt"
               priority
               objectFit="cover"
               width={720}
               height={383}
             />
-            <Image
-              className="rounded bg-mint-200"
-              src="/images/projekte/migipedia/RGB_01_diskutieren_007.jpg"
+            <PlaceholderImage
+              image={images.diskutieren}
               alt="Eine Frau und ein Mann betrachten etwas auf einem Smartphone"
               priority
               objectFit="cover"
@@ -82,8 +89,8 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
         <PageSection>
           <Keyfigure
             image={
-              <Image
-                src="/images/projekte/migipedia/smartive-phone.png"
+              <PlaceholderImage
+                image={images.phone}
                 alt="Mobile User Interface"
                 height="566"
                 width="275"
@@ -106,9 +113,8 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
           </Keyfigure>
         </PageSection>
         <PageSection>
-          <Image
-            className="rounded bg-mint-200"
-            src="/images/projekte/migipedia/RGB_05_couch_010.jpg"
+          <PlaceholderImage
+            image={images.couch}
             alt="Eine Frau sitzt mit ihrem Sohn im Wohnzimmer. Sie sortieren Migros Mania Sammelelemente."
             priority
             objectFit="cover"
@@ -167,11 +173,16 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const images = await getPlaceholders(STATIC_IMAGES);
+  const teasers = await Promise.all(
+    getRandomTeasers(3, Teasers.migipedia.title).map(async (teaser) => await transformTeaser(teaser))
+  );
   return {
     props: {
-      teasers: getRandomTeasers(3, Teasers.migipedia.title),
-      quote: Quotes['philipp-migipedia'],
-      contact: Employees.thomas,
+      images,
+      teasers,
+      quote: await transformQuote(Quotes['philipp-migipedia']),
+      contact: await transformEmployee(Employees.thomas),
       awards: Teasers.migipedia.awards,
     },
   };

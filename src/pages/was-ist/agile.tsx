@@ -2,10 +2,9 @@ import { Copy, Grid, Heading3, ImagePosition, Keyfigure, PageSection, TextBlock,
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
-
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
-import { Teaser } from '../../data/teaser';
+import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 
@@ -121,9 +120,12 @@ const Agile: NextPage<Props> = ({ teasers }) => (
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const teasers = await Promise.all(
+    [Teasers.migipedia, Teasers.subsidia, Teasers.ofpg].map(async (teaser) => await transformTeaser(teaser))
+  );
   return {
     props: {
-      teasers: [Teasers.migipedia, Teasers.subsidia, Teasers.ofpg],
+      teasers,
     },
   };
 };

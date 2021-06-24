@@ -1,27 +1,36 @@
 import { BlobVariations, Copy, Grid, Heading3, Keyfigure, PageSection, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
+import { Employee, transformEmployee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import { Quote } from '../../data/quotes';
+import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser } from '../../data/teaser';
+import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
+import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
+const STATIC_IMAGES = {
+  brot: '/images/projekte/dimmi/jowa-stgaller-brot-mitarbeitende-header.jpg',
+  staubsauger: '/images/projekte/dimmi/melectronics-beratung-staubsauger-0.jpg',
+  phone: '/images/projekte/dimmi/smartive-phone.png',
+  guetzli: '/images/projekte/dimmi/midor-mitarbeiterin-im-schutzanzug-haelt-guetzli.png',
+} as const;
+
 type Props = {
+  images: PlaceholderImages<typeof STATIC_IMAGES>;
   quote: Quote;
   contact: Employee;
   teasers: Teaser[];
 };
 
-const Dimmi: NextPage<Props> = ({ quote, contact, teasers }) => (
+const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
   <Page>
     <PageHeader
       markdownTitle="Ein _Social Network_ für die interne Kommunikation."
@@ -38,18 +47,16 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers }) => (
     <main>
       <PageSection>
         <Grid cols={2}>
-          <Image
-            className="rounded bg-mint-200"
-            src="/images/projekte/dimmi/jowa-stgaller-brot-mitarbeitende-header.jpg"
+          <PlaceholderImage
+            image={images.brot}
             alt="Mitarbeiterin von Jowa zeigt ein Brot"
             priority
             objectFit="cover"
             width={720}
             height={383}
           />
-          <Image
-            className="rounded bg-mint-200"
-            src="/images/projekte/dimmi/melectronics-beratung-staubsauger-0.jpg"
+          <PlaceholderImage
+            image={images.staubsauger}
             alt="melectronics bei der Beratung zum Staubsaugerkauf"
             priority
             objectFit="cover"
@@ -61,8 +68,8 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers }) => (
       <PageSection>
         <Keyfigure
           image={
-            <Image
-              src="/images/projekte/dimmi/smartive-phone.png"
+            <PlaceholderImage
+              image={images.phone}
               alt="Mobile User Interface"
               height="566"
               width="275"
@@ -94,9 +101,8 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers }) => (
         </Copy>
       </PageSection>
       <PageSection>
-        <Image
-          className="rounded bg-mint-200"
-          src="/images/projekte/dimmi/midor-mitarbeiterin-im-schutzanzug-haelt-guetzli.png"
+        <PlaceholderImage
+          image={images.guetzli}
           alt="Midor Mitarbeiterin im Schutzanzug hält Guetzli"
           priority
           objectFit="cover"
@@ -156,12 +162,17 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers }) => (
   </Page>
 );
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const images = await getPlaceholders(STATIC_IMAGES);
+  const teasers = await Promise.all(
+    getRandomTeasers(3, Teasers.dimmi.title).map(async (teaser) => await transformTeaser(teaser))
+  );
   return {
     props: {
-      teasers: getRandomTeasers(3, Teasers.dimmi.title),
-      contact: Employees.robert,
-      quote: Quotes['danijela-dimmi'],
+      images,
+      teasers,
+      contact: await transformEmployee(Employees.robert),
+      quote: await transformQuote(Quotes['danijela-dimmi']),
     },
   };
 };
