@@ -1,10 +1,11 @@
 import { Copy, Grid, Heading2, Heading3, PageHeader, PageSection } from '@smartive/guetzli';
-import React, { FC } from 'react';
+import { NextPage } from 'next';
+import React from 'react';
 import { LandingPage } from '../../layouts/landing-page';
 
-const Identity: FC = () => (
+const Identity: NextPage = () => (
   <LandingPage>
-    <PageHeader markdownTitle="Unsere Brand _Identity_."></PageHeader>
+    <PageHeader markdownTitle="Unsere Brand _Identity_." />
 
     <PageSection>
       <Heading2>Vision</Heading2>
