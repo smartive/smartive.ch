@@ -1,17 +1,18 @@
-import { PageSection, GridSlider, Copy, Heading2, Link, Heading3, Grid, ImagePosition } from '@smartive/guetzli';
+import { ButtonLink, Copy, Grid, GridSlider, Heading2, Heading3, Link, LinkList, PageSection } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
-import { PageHeader } from '../compositions/page-header';
-import { LandingPage } from '../layouts/landing-page';
 import NextLink from 'next/link';
-import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
-import { PlaceholderImage } from '../elements/placeholder-image';
+import React from 'react';
 import { NextContentCard } from '../components/content-card';
+import { PageHeader } from '../compositions/page-header';
+import { PlaceholderImage } from '../elements/placeholder-image';
+import { LandingPage } from '../layouts/landing-page';
+import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
 
 const STATIC_IMAGES = {
   boats: '/images/welcome/boats.jpg',
   pool: '/images/welcome/pool.jpg',
   fire: '/images/welcome/fire.jpg',
+  aescher: '/images/welcome/aescher.jpg',
 };
 
 type Props = {
@@ -25,23 +26,27 @@ const Welcome: NextPage<Props> = ({ images }) => (
         und auf deinen neuen Arbeitsplatz gelegt, sondern stellen dir alles was du brauchst digital zur Verfügung. Macht noch
         Sinn, so als Digital Agentur. Haha. Egal. Wichtig ist, dass du endlich da bist. Wir konntens kaum erwarten.
       </Copy>
+
+      <LinkList links={[{ label: 'Google Account einrichten', href: `https://accounts.google.com/signin` }]} />
     </PageHeader>
 
     <PageSection>
       <Grid cols={2}>
-        <PlaceholderImage image={images.boats} alt="yolo" objectFit="cover" width={720} height={380} />
+        <PlaceholderImage
+          image={images.boats}
+          alt="smartive Team auf einem Weidling (Boot) auf dem Rhein"
+          objectFit="cover"
+          width={720}
+          height={380}
+        />
+
         <div className="hidden md:block md:col-start-2 md:row-span-2 relative">
-          <PlaceholderImage
-            image={images.fire}
-            alt="smartive Team am Mittagstisch beim Essen"
-            objectFit="cover"
-            layout="fill"
-          />
+          <PlaceholderImage image={images.aescher} alt="smartive Team vor dem Aescher" objectFit="cover" layout="fill" />
         </div>
         <div className="block md:hidden">
           <PlaceholderImage
-            image={images.fire}
-            alt="smartive Team am Mittagstisch beim Essen"
+            image={images.aescher}
+            alt="smartive Team vor dem Aescher"
             objectFit="cover"
             width={720}
             height={500}
@@ -49,7 +54,7 @@ const Welcome: NextPage<Props> = ({ images }) => (
         </div>
         <PlaceholderImage
           image={images.pool}
-          alt="smartive Mitarbeiter hält einen Vortrag vor mehreren Leuten"
+          alt="Drei smartive Mitarbeitende mit Bier im Pool bei der Aussicht über das Verzascatal"
           objectFit="cover"
           width={720}
           height={500}
@@ -104,7 +109,7 @@ const Welcome: NextPage<Props> = ({ images }) => (
           background="apricot"
           label="Notion 🏠"
           title="Das Zuhause aller unserer Infos"
-          content="Alles was du sonst noch benötigen könnst, findest du in Notion. Wir helfen dir aber natürlich auch so gerne weiter. Trau dich zu fragen. 😊"
+          content="Alles was du sonst noch benötigen könntest, findest du in Notion. Wir helfen dir aber natürlich auch so gerne weiter. Trau dich zu fragen. 😊"
           link={{ label: 'Zu Notion', href: 'https://www.notion.so/smartive/smartive-2162e1ba518e410db64cfe86bd600d2b' }}
         />
         <NextContentCard
