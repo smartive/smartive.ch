@@ -1,4 +1,4 @@
-import { ButtonLink, Copy, Grid, GridSlider, Heading2, Heading3, Link, LinkList, PageSection } from '@smartive/guetzli';
+import { Copy, Grid, GridSlider, Heading2, Heading3, Link, LinkList, PageSection } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import React from 'react';

@@ -8,7 +8,7 @@
     "postbuild": "next-sitemap --config next-sitemap.js",
     "start": "next start",
     "check": "prettier --check src",
-    "lint": "next lint",
+    "lint": "next lint --dir src",
     "analyze-bundle": "ANALYZE=true npm run build",
     "test": "node test/check-page-errors.js",
     "test:ci": "next dev & node test/check-page-errors.js"
