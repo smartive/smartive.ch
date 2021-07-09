@@ -1,4 +1,50 @@
 {
+  "mauro": {
+    "firstname": "Mauro",
+    "lastname": "Marcacci Rossi",
+    "portrait": "",
+    "image": "",
+    "closeup": "",
+    "tel": "+41 44 552 55 99",
+    "email": "mauro@smartive.ch",
+    "job": "Software Engineer",
+    "bio": "Tessiner aus Bern, arbeitet gerne an kleinen Projekten, um neue und interessante Technologien zu entdecken, spielt gerne Schach, Games, Tischspiele und Volleyball, findet aussergewöhnliche Gedanken lustig",
+    "links": [
+      {
+        "label": "mauro@smartive.ch",
+        "url": "mailto:mauro@smartive.ch"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Urogna"
+      }
+    ]
+  },
+  "celine": {
+    "firstname": "Céline",
+    "lastname": "Salzmann",
+    "portrait": "",
+    "image": "",
+    "closeup": "",
+    "tel": "+41 44 552 55 99",
+    "email": "celine@smartive.ch",
+    "job": "Intern",
+    "bio": "Startet den Tag gerne mit Yoga, ist absolut kein Morgenmensch, liebt aber schöne Sonnenaufgänge. Liebt die Berge von nah und fern, ist digital und analog sozial unterwegs, verbindet gerne Umweltthemen mit Informatik",
+    "links": [
+      {
+        "label": "celine@smartive.ch",
+        "url": "mailto:celine@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/c%C3%A9line-salzmann-827044216/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/celine-s"
+      }
+    ]
+  },
   "marco": {
     "firstname": "Marco",
     "lastname": "Bohler",

@@ -18,6 +18,8 @@ type Props = {
 };
 
 const Team: NextPage<Props> = ({ employees, contact, quote }) => {
+  const halfEmpl = Math.round(employees.length / 2 / 6) * 6;
+
   return (
     <Page>
       <PageHeader
@@ -34,13 +36,13 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
       <main>
         <PageSection>
           <Grid cols={3}>
-            {employees.slice(0, Math.floor(employees.length / 2)).map((employee) => (
+            {employees.slice(0, halfEmpl).map((employee) => (
               <EmployeeCard key={employee.email} employee={employee} />
             ))}
           </Grid>
           <Testimonial background="mint" blobs={BlobVariations.mint[0]} quote={quote} />
           <Grid cols={3}>
-            {employees.slice(Math.floor(employees.length / 2)).map((employee) => (
+            {employees.slice(halfEmpl).map((employee) => (
               <EmployeeCard key={employee.email} employee={employee} />
             ))}
           </Grid>
