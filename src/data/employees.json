@@ -1,10 +1,10 @@
 {
   "mauro": {
     "firstname": "Mauro",
-    "lastname": "Marcacci Rossi",
-    "portrait": "",
-    "image": "",
-    "closeup": "",
+    "lastname": "Quarta",
+    "portrait": "/images/employees/portraits/mauro.jpg",
+    "image": "/images/employees/mauro.jpg",
+    "closeup": "/images/employees/mauro_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "mauro@smartive.ch",
     "job": "Software Engineer",
