@@ -14,7 +14,7 @@
     "test:ci": "next dev & node test/check-page-errors.js"
   },
   "dependencies": {
-    "@notionhq/client": "0.2.1",
+    "@notionhq/client": "0.2.2",
     "@smartive/guetzli": "1.10.0",
     "@tailwindcss/typography": "0.4.1",
     "@tryghost/content-api": "1.5.10",
