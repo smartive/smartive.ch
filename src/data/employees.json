@@ -488,7 +488,7 @@
     "portrait": "/images/employees/portraits/alex.jpg",
     "image": "/images/employees/alex.jpg",
     "closeup": "/images/employees/alex_closeup.jpg",
-    "tel": "+41 79 653 69 09",
+    "tel": "+41 44 552 55 99",
     "email": "alex@smartive.ch",
     "job": "Intern",
     "bio": "Pfadfinder, Volleyballer, Feinschmecker, Rapperswiler, Drilling, Wanderer, Wissbegieriger, Dungeons and Dragons Abenteurer, Katzenstreichler und Hängebauchschweinflüsterer",
@@ -504,6 +504,31 @@
       {
         "label": "GitHub",
         "url": "https://github.com/Halunks"
+      }
+    ]
+  },
+  "matthias": {
+    "firstname": "Matthias",
+    "lastname": "Loser",
+    "portrait": "/images/employees/portraits/matthias.jpg",
+    "image": "/images/employees/matthias.jpg",
+    "closeup": "/images/employees/matthias_closeup.jpg",
+    "tel": "+41 44 552 55 99",
+    "email": "matthias@smartive.ch",
+    "job": "Intern",
+    "bio": "Hobby-Koch, Handlanger auf Baustellen, Cheeseburger-Rezept-Tüftler, Scramblerfahrer im Sommer, Hobby-Töpferer bei regnerischem Wetter, erkundet Nationalparke in Amerika in seinen Ferien",
+    "links": [
+      {
+        "label": "matthias@smartive.ch",
+        "url": "mailto:matthias@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/matthias-loser-487a441b1/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/mlsr714"
       }
     ]
   }
