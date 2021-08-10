@@ -23,9 +23,9 @@
   "celine": {
     "firstname": "Céline",
     "lastname": "Salzmann",
-    "portrait": "",
-    "image": "",
-    "closeup": "",
+    "portrait": "/images/employees/portraits/celine.jpg",
+    "image": "/images/employees/celine.jpg",
+    "closeup": "/images/employees/celine_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "celine@smartive.ch",
     "job": "Intern",
