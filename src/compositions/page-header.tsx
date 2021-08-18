@@ -4,7 +4,7 @@ import Head from 'next/head';
 import React, { FC } from 'react';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
-const OG_IMAGE_SERVICE_URL = `${SITE_URL}/api/og-image`;
+const OG_IMAGE_SERVICE_URL = `${process.env.NEXT_PUBLIC_OG_IMAGE_SERVICE_URL}/api/og-image`;
 
 type PageHeaderProps = PageHeaderComponentProps & {
   description?: string;
