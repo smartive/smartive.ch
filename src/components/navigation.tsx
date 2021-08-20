@@ -13,6 +13,7 @@ const Main = [
   { label: 'Team', link: '/team' },
   { label: 'Agentur', link: '/agentur' },
   { label: 'Blog', link: '/blog' },
+  { label: 'Jobs', link: '/jobs' },
 ] as const;
 
 const Meta = [

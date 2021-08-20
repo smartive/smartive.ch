@@ -78,14 +78,13 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages, images }) 
               imageAlt="Verkäuferin scannt Etikett eines Kleidungsstücks mit dem Smartphone"
             />
             <NextContentCard
-              label="WHOOP WHOOP! 📣🥳"
-              title="Migipedia ist Masterkandidat für Best of Swiss Web 2021!"
-              content="Zum 10 jährigen Jubiläum von Migipedia haben wir die Migros Community komplett überarbeitet. Und nun ist “unser” Migipedia Masterkandidat für Best of Swiss Web 2021! Wir sind mega happy und freuen uns auf die Award-Night."
+              label="Bist du's?"
+              title="Wir suchen eine*n Projektleiter*in"
+              content="Du hast einen Hintergrund in der Software-Entwicklung und möchtest als Projektleiter*in Teil der smartive Kultur werden? Wir freuen uns auf deine Bewerbung!"
               background="cornflower"
               link={{
-                newTab: true,
-                label: 'Zur Master Nomination',
-                href: 'https://www.netzwoche.ch/news/2021-03-17/master-kandidat-migros-community',
+                label: 'Zur Stellenausschreibung',
+                href: '/jobs/projektleiter-in',
               }}
             />
           </GridSlider>

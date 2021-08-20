@@ -2,6 +2,7 @@ import { BlobVariations, Copy, Grid, Link, PageSection, TextBlock } from '@smart
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import React from 'react';
+import { NextContentCard } from '../components/content-card';
 import { Testimonial } from '../components/testimonial';
 import { PageHeader } from '../compositions/page-header';
 import Employees from '../data/employees.json';
@@ -171,6 +172,16 @@ const Agentur: NextPage<Props> = ({ quote, images }) => {
               Heute kommen {Object.values(Employees).length} Mitarbeitende in Zürich zusammen und bringen ihre Fähigkeiten
               und ihre Persönlichkeit ein – in Software-Entwicklung, Projektleitung, Design und User Experience.
             </TextBlock>
+            <NextContentCard
+              label="Bist du's?"
+              title="Wir suchen eine*n Projektleiter*in"
+              content="Du hast einen Hintergrund in der Software-Entwicklung und möchtest als Projektleiter*in Teil der smartive Kultur werden? Wir freuen uns auf deine Bewerbung!"
+              background="apricot"
+              link={{
+                label: 'Zur Stellenausschreibung',
+                href: '/jobs/projektleiter-in',
+              }}
+            />
             <TextBlock title="Erfolgreiche Projekte: dreistellig" number={300}>
               In den letzten Jahren haben wir über 300 Projekte erfolgreich gemeistert. Sowohl in Zusammenarbeit mit{' '}
               <NextLink href="/projekte/subsidia" passHref>
