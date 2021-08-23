@@ -58,7 +58,7 @@ const Blog: NextPage<Props> = ({ posts }) => {
                     href: link,
                     newTab: externalOrigin !== 'Ghost',
                   }}
-                  image={{ src: thumbnail, alt: '' }}
+                  image={{ src: thumbnail || '', alt: '' }}
                 />
                 {index === 4 && (
                   <ContentCard

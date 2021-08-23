@@ -40,3 +40,8 @@ footer {
     clip-path: circle(50%);
   }
 }
+
+/* blog: github gists */
+.prose .gist tbody tr {
+  border-bottom-width: 0;
+}
