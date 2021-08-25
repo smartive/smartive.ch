@@ -11,7 +11,7 @@ export const Page: FC = ({ children }) => {
       <Navigation />
       <AnimatePresence>
         <motion.div
-          className="lg:container lg:mx-auto px-4 pt-8"
+          className="lg:container lg:mx-auto px-4 pt-8 max-w-[100vw]"
           key={pathname}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
