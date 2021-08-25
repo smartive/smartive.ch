@@ -16,6 +16,8 @@ import React, { Fragment } from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { LinkedInArticle } from '../../data/linkedin-articles';
 import LinkedInArticles from '../../data/linkedin-articles.json';
+import { MediumArticle } from '../../data/medium-articles';
+import MediumArticles from '../../data/medium-articles.json';
 import { Page } from '../../layouts/page';
 import { getGhostClient } from '../../utils/ghost';
 
@@ -79,8 +81,6 @@ const Blog: NextPage<Props> = ({ posts }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   dayjs.locale('de');
-  const mediumResponse = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/smartive');
-  const mediumPosts: MediumPosts = mediumResponse.ok ? await mediumResponse.json() : [];
 
   const ghostPostsSingleLanguage = await getGhostClient().posts.browse({
     filter: 'visibility:public+canonical_url:null',
@@ -96,7 +96,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       posts: [
-        ...mapMediumPosts(mediumPosts.items),
+        ...mapMediumPosts(MediumArticles),
         ...mapLinkedInPosts(LinkedInArticles),
         ...mapGhostPosts(ghostPostsSingleLanguage),
         ...mapGhostPosts(ghostPostsMultiLanguage),
@@ -106,7 +106,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-const mapMediumPosts = (posts: MediumPost[]): BlogPost[] =>
+const mapMediumPosts = (posts: MediumArticle[]): BlogPost[] =>
   posts.map(({ guid, title, description, link, pubDate, thumbnail }) => {
     const matches = description.match(/<h4>[^<>]*<\/h4>/g);
     const desc = matches?.length > 0 ? matches[0] : '';
@@ -158,31 +158,4 @@ type BlogPost = {
   link: string;
   thumbnail: string;
   externalOrigin?: 'Medium' | 'LinkedIn' | 'Ghost';
-};
-
-type MediumFeed = {
-  url: string;
-  title: string;
-  link: string;
-  author: string;
-  description: string;
-  image: string;
-};
-
-type MediumPost = {
-  title: string;
-  pubDate: string;
-  link: string;
-  guid: string;
-  author: string;
-  thumbnail: string;
-  description: string;
-  content: string;
-  categories: string[];
-};
-
-type MediumPosts = {
-  status: string;
-  feed: MediumFeed;
-  items: MediumPost[];
 };
