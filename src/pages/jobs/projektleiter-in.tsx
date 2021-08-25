@@ -22,7 +22,7 @@ type Props = {
 const Projektleiter: NextPage<Props> = ({ contact, images }) => (
   <Page>
     <PageHeader
-      markdownTitle="Projektleiter:in bei smartive"
+      markdownTitle="Projektleiter*in bei smartive"
       pageTitle="Stellenausschreibung Projektleiter*in bei smartive"
       description="Hey, schön bist Du hier! Wir sind smartive, eine Webagentur in Zürich mit einer bizli anderen Firmenkultur.
       Bei uns stehen die Entwicklung digitaler Produkte und das Wohl der Mitarbeitenden im Zentrum. Zusammen wollen wir eine
