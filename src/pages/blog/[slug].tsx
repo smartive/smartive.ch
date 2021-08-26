@@ -19,67 +19,76 @@ const BlogPost: NextPage<Props> = ({ post }) => {
 
   return (
     <Page>
-      <PageHeader markdownTitle={post.title} description={post.excerpt}>
-        <div className="grid md:grid-cols-[66%,auto] gap-4">
-          {post.feature_image && (
-            <img
-              src={post.feature_image}
-              alt=""
-              loading="eager"
-              aria-hidden
-              className="w-full h-full rounded object-cover"
-            />
-          )}
-          <div className="grid place-items-center text-center gap-4 p-8 rounded bg-white-100">
-            <Portrait
-              image={new URL(
-                `${post.primary_author.profile_image.startsWith('http') ? '' : 'https://'}${
-                  post.primary_author.profile_image
-                }`
-              ).toString()}
-              alt=""
-              variant={PortraitVariant.Small}
-            />
-            <Heading3 as="p">von {post.primary_author.name}</Heading3>
-            <div className="grid grid-cols-[1rem,auto] gap-2 justify-items-center place-items-center">
-              <Calendar className="w-4 h-4" />
-              <span>{dayjs(post.published_at).format('MMMM YYYY')}</span>
-              <Clock className="w-4 h-4" />
-              <span>~{post.reading_time} Minuten</span>
-            </div>
-            <div className="grid grid-flow-row xl:grid-flow-col gap-4 mt-4">
-              <Tooltip text="Kopiert!" isOpen={copyTooltipOpen}>
-                <Button
-                  onClick={() => {
-                    copyToClipboard(window.location.href);
-                    setCopyTooltipOpen(true);
-                    setTimeout(() => {
-                      setCopyTooltipOpen(false);
-                    }, 1500);
-                  }}
-                >
-                  <Share className="inline-block" /> Link kopieren
-                </Button>
-              </Tooltip>
-              {post.canonical_url && (
-                <ButtonLink href={post.canonical_url}>
-                  <Switch className="inline-block" />{' '}
-                  {post.tags.some((tag) => tag.name === 'German') ? 'Read in English' : 'Auf Deutsch lesen'}
-                </ButtonLink>
-              )}
+      <div itemScope itemType="https://schema.org/BlogPosting">
+        <meta itemProp="headline" content={post.title} />
+        <meta itemProp="abstract" content={post.excerpt} />
+        <PageHeader markdownTitle={post.title} description={post.excerpt}>
+          <div className="grid md:grid-cols-[66%,auto] gap-4">
+            {post.feature_image && (
+              <img
+                src={post.feature_image}
+                alt=""
+                loading="eager"
+                aria-hidden
+                className="w-full h-full rounded object-cover"
+                itemProp="image"
+              />
+            )}
+            <div className="grid place-items-center text-center gap-4 p-8 rounded bg-white-100">
+              <Portrait
+                image={new URL(
+                  `${post.primary_author.profile_image.startsWith('http') ? '' : 'https://'}${
+                    post.primary_author.profile_image
+                  }`
+                ).toString()}
+                alt=""
+                variant={PortraitVariant.Small}
+              />
+              <Heading3 as="p">
+                von <span itemProp="author">{post.primary_author.name}</span>
+              </Heading3>
+              <div className="grid grid-cols-[1rem,auto] gap-2 justify-items-center place-items-center">
+                <Calendar className="w-4 h-4" />
+                <meta itemProp="dateCreated datePublished pubDate" content={dayjs(post.published_at).format('YYYY-MM-DD')} />
+                <span>{dayjs(post.published_at).format('MMMM YYYY')}</span>
+                <Clock className="w-4 h-4" />
+                <span>~{post.reading_time} Minuten</span>
+              </div>
+              <div className="grid grid-flow-row xl:grid-flow-col gap-4 mt-4">
+                <Tooltip text="Kopiert!" isOpen={copyTooltipOpen}>
+                  <Button
+                    onClick={() => {
+                      copyToClipboard(window.location.href);
+                      setCopyTooltipOpen(true);
+                      setTimeout(() => {
+                        setCopyTooltipOpen(false);
+                      }, 1500);
+                    }}
+                  >
+                    <Share className="inline-block" /> Link kopieren
+                  </Button>
+                </Tooltip>
+                {post.canonical_url && (
+                  <ButtonLink href={post.canonical_url}>
+                    <Switch className="inline-block" />{' '}
+                    {post.tags.some((tag) => tag.name === 'German') ? 'Read in English' : 'Auf Deutsch lesen'}
+                  </ButtonLink>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </PageHeader>
+        </PageHeader>
 
-      <main>
-        <PageSection>
-          <article
-            className="prose prose-sm md:prose lg:prose-xl xl:prose-2xl"
-            dangerouslySetInnerHTML={{ __html: post.html }}
-          />
-        </PageSection>
-      </main>
+        <main>
+          <PageSection>
+            <article
+              className="prose prose-sm md:prose lg:prose-xl xl:prose-2xl"
+              itemProp="articleBody text"
+              dangerouslySetInnerHTML={{ __html: post.html }}
+            />
+          </PageSection>
+        </main>
+      </div>
     </Page>
   );
 };

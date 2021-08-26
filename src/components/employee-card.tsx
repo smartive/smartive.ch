@@ -24,15 +24,7 @@ export const EmployeeCard: FC<Props> = ({
       itemType="http://schema.org/Person"
     >
       <div className="hidden lg:block w-full">
-        <PlaceholderImage
-          itemProp="PlaceholderImage"
-          image={image}
-          rounded="none"
-          alt=""
-          objectFit="cover"
-          width="463"
-          height="640"
-        />
+        <PlaceholderImage image={image} rounded="none" alt="" objectFit="cover" width="463" height="640" />
       </div>
       <div className="block lg:hidden w-full">
         <PlaceholderImage

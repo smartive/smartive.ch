@@ -39,7 +39,19 @@ const Blog: NextPage<Props> = ({ posts }) => {
         </Copy>
       </PageHeader>
 
-      <main>
+      <main itemScope itemType="https://schema.org/Blog">
+        <meta itemProp="headline" content="Code and Culture: Einblicke von unserem Team" />
+        <meta
+          itemProp="abstract"
+          content="Wenn wir schreiben, schreiben wir meist Code. Hier schreiben wir für einmal über alles, was dahinter steckt – über unsere Firmenkultur und wie wir uns organisieren, welche Ansätze und Technologien bei uns gerade hoch im Kurs sind und wie wir persönliche und technische Herausforderungen meistern. Wirf einen Blick hinter die Kulissen!"
+        />
+        {posts.map(({ id, title, description, link }) => (
+          <div itemProp="blogPost" itemScope itemType="https://schema.org/BlogPosting" key={`blog-post-meta-${id}`}>
+            <meta itemProp="url" content={link} />
+            <meta itemProp="headline" content={title} />
+            <meta itemProp="abstract" content={description} />
+          </div>
+        ))}
         <PageSection>
           <Grid cols={3}>
             {posts.map(({ id, title, description, dateDisplay, link, thumbnail, externalOrigin }, index) => (
