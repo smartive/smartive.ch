@@ -18,7 +18,7 @@
     "@smartive/guetzli": "1.11.0",
     "@tailwindcss/typography": "0.4.1",
     "@tryghost/content-api": "1.5.13",
-    "@xstate/fsm": "1.6.1",
+    "@xstate/fsm": "1.6.2",
     "@xstate/react": "1.6.1",
     "autoprefixer": "10.3.4",
     "blobs": "2.2.0",
