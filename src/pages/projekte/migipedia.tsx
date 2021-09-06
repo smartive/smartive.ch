@@ -125,7 +125,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
         <PageSection>
           <Grid cols={2}>
             <TextBlock title="Die Herausforderung">
-              Migipedia.ch verbindet Nutzen für Nutzer*innen mit Mehwert für die Migros. Sie ist seit zehn Jahren fester
+              Migipedia.ch verbindet Nutzen für Nutzer*innen mit Mehrwert für die Migros. Sie ist seit zehn Jahren fester
               Bestandteil des digitalen Marketings der Migros. Die Community soll attraktiver werden und zu mehr
               User-Interaktionen führen. Sie soll nicht mehr nur auf Migipedia leben, sondern auf vielen weiteren digitalen
               Touchpoints präsent sein.
@@ -149,10 +149,11 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
               Community-Lösung.
             </TextBlock>
             <TextBlock title="Eine App im Web">
-              Was, wenn Migipedia eine App wäre? Beinah 80% der Nutzer*innen besuchen Migipedia mit einem Smartphone. Mit dem
-              Relaunch von 2020 geht Migipedia einen Schritt weiter als datensparenden Bildgrössen und grosse Touchflächen:
-              Aus Apps bekannte UX-Konzepte wie Slider, Client-Side Transition mit Prefethcing und Micro-Interactions machen
-              Migipedia zu einer App im Web. Persönlichen Empfehlungen durch Recommender runden das Erlebnis ab.
+              Was, wenn Migipedia eine App wäre? Beinahe 80% der Nutzer*innen besuchen Migipedia mit einem Smartphone. Mit
+              dem Relaunch von 2020 geht Migipedia einen Schritt weiter als datensparenden Bildgrössen und grosse
+              Touchflächen: Aus Apps bekannte UX-Konzepte wie Slider, Client-Side Transition mit Prefethcing und
+              Micro-Interactions machen Migipedia zu einer App im Web. Persönlichen Empfehlungen durch Recommender runden das
+              Erlebnis ab.
             </TextBlock>
           </Grid>
         </PageSection>
