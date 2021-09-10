@@ -51,6 +51,6 @@
     "playwright": "1.14.1",
     "postcss-import": "14.0.2",
     "prettier": "2.4.0",
-    "typescript": "4.4.2"
+    "typescript": "4.4.3"
   }
 }
