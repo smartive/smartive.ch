@@ -22,7 +22,7 @@
     "@xstate/react": "1.6.1",
     "autoprefixer": "10.3.4",
     "blobs": "2.2.0",
-    "dayjs": "1.10.6",
+    "dayjs": "1.10.7",
     "framer-motion": "4.1.17",
     "next": "11.1.2",
     "next-plausible": "2.1.1",
