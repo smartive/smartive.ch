@@ -13,17 +13,21 @@ import {
   Logo,
   mapColorToBG,
   mapColorToLightBG,
-  PageHeader,
   PageSection,
 } from '@smartive/guetzli';
 import NextLink from 'next/link';
 import React, { FC } from 'react';
 import { SlackTheme } from '../../components/slack-theme';
+import { PageHeader } from '../../compositions/page-header';
 import { LandingPage } from '../../layouts/landing-page';
 
 const Brand: FC = () => (
   <LandingPage>
-    <PageHeader markdownTitle="Eine kleine _Guideline_ für unseren Brand.">
+    <PageHeader
+      markdownTitle="Eine kleine _Guideline_ für unseren Brand."
+      description="Die Brand Identity trägt unsere Werte und Persönlichkeit nach aussen. Sie besteht nebst unserem Namen und dem
+        individuellen Auftreten aus dem visuellen Erscheinungsbild und dem sprachlichen Auftritt."
+    >
       <LinkList
         linkWrapper={NextLink}
         links={[

@@ -1,6 +1,7 @@
-import { Copy, Grid, Heading2, Heading3, PageHeader, PageSection } from '@smartive/guetzli';
+import { Copy, Grid, Heading2, Heading3, PageSection } from '@smartive/guetzli';
 import { NextPage } from 'next';
 import React from 'react';
+import { PageHeader } from '../../compositions/page-header';
 import { LandingPage } from '../../layouts/landing-page';
 
 const Identity: NextPage = () => (
