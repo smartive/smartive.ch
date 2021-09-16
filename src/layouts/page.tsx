@@ -42,6 +42,7 @@ export const Page: FC = ({ children }) => {
             },
           })
         }
+        onHomeLinkContextMenu={() => (window.location.href = '/brand')}
       />
       <AnimatePresence>
         <motion.div

@@ -38,7 +38,7 @@ const Brand: FC = () => (
       <Copy>
         Die Brand Identity trägt unsere Werte und Persönlichkeit nach aussen. Sie besteht nebst unserem Namen und dem
         individuellen Auftreten aus dem visuellen Erscheinungsbild und dem sprachlichen Auftritt. Sie widerspiegelt unsere
-        Werte:
+        Persönlichkeit:
       </Copy>
       <Grid cols={3}>
         <div>
