@@ -31,42 +31,19 @@ const Identity: NextPage = () => (
       <Heading2>Werte</Heading2>
       <Grid cols={3}>
         <div>
-          <Heading3>Lust</Heading3>
-          <Copy>
-            Wir sind Tekkies aus Leidenschaft. Wir lieben es, uns individuell zu entwickeln und gegenseitig herauszufordern.
-            Gemeinsam schaffen wir Neues, das unsere Kunden überrascht und uns stolz macht.
-          </Copy>
+          <Copy>Uns ist das Wohlbefinden der Mitarbeitenden wichtiger als Profit.</Copy>
         </div>
         <div>
-          <Heading3>Freundschaft</Heading3>
-          <Copy>
-            Wir sind Freunde. Chefgehabe ist uns so fremd wie komplexe Hierarchien und Gärtchendenken. Herausforderungen
-            werden gemeinsam angegangen, Probleme offen angesprochen und gelöst, wie unter guten Freunden. Wer Hilfe braucht,
-            wird unterstützt. Wer bei uns ist, ist smartive.
-          </Copy>
+          <Copy>Wir vertrauen uns, weil alle nach der besten Lösung streben.</Copy>
         </div>
         <div>
-          <Heading3>Ehrgeiz</Heading3>
-          <Copy>
-            Unser geballtes Know-how ist unser Kapital, unser Output unsere Visitenkarte. Wir graben uns tief in
-            Problemstellungen hinein und unterscheiden uns bezüglich Qualität stark vom Branchenstandard. Wir liefern –
-            termingerecht und sauber.
-          </Copy>
+          <Copy>Wir lernen stetig Neues und fragen uns laufend, wie wir unsere Arbeit noch besser machen können.</Copy>
         </div>
         <div>
-          <Heading3>Mut</Heading3>
-          <Copy>
-            Wir suchen täglich nach dem Anderen, Revolutionären und Besseren. Das braucht Sachverständnis und Mut, neue Wege
-            zu beschreiten. Diesen Mut bringen wir und unsere Kunden auf.
-          </Copy>
+          <Copy>Wir fragen aktiv um Rat und nehmen uns Zeit, weiterzuhelfen.</Copy>
         </div>
         <div>
-          <Heading3>Freiheit</Heading3>
-          <Copy>
-            Freiheit ist der Ursprung unserer Firma. Wir bringen uns ein und gestalten smartive aktiv. Es gibt Platz für
-            verschiedene Persönlichkeiten, Interessen und Entwicklung. Dies ermöglicht uns die volle Entfaltung unseres
-            Potenzials. Wir beschützen und bewahren unsere Freiheit und stellen sie über monetäre Ziele.
-          </Copy>
+          <Copy>Wir geben allen die Freiheit, sich zu entfalten und fördern individuelle Fähigkeiten.</Copy>
         </div>
       </Grid>
     </PageSection>
