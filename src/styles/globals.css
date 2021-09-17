@@ -39,9 +39,23 @@ footer {
   .rounded-full-clip {
     clip-path: circle(50%);
   }
+  .break-words-clean {
+    @apply break-words;
+    word-break: break-word;
+  }
 }
 
 /* blog: github gists */
 .prose .gist tbody tr {
   border-bottom-width: 0;
+}
+
+/* sustainability: chartcss */
+@keyframes revealing-rows {
+  0% {
+    transform: scaleX(0);
+  }
+  15% {
+    transform: scaleX(1);
+  }
 }

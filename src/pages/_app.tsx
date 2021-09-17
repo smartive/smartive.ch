@@ -6,6 +6,7 @@ import React from 'react';
 import { Footer } from '../components/footer';
 import { useKube } from '../components/kube';
 import '../styles/globals.css';
+import 'charts.css/dist/charts.min.css';
 
 const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 const PLAUSIBLE_ENABLED = process.env.NEXT_PUBLIC_PLAUSIBLE_ENABLED === 'true';

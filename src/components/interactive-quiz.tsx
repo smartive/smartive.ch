@@ -236,7 +236,7 @@ const ContactForm: FC<{
       <Label as="label">
         Telefon
         <Tooltip
-          text="Telefon wirkt vielliecht etwas Oldschool, ist aber doch noch nützlich."
+          text="Telefon wirkt vielleicht etwas Oldschool, ist aber doch noch nützlich."
           isOpen={phone === '' && error}
         >
           <Input
