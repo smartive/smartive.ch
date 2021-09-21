@@ -27,7 +27,16 @@ export const Portrait: FC<Props> = ({ image, alt, variant, className = '' }) =>
       width={variant}
     />
   ) : (
-    <img src={image} alt={alt} height={variant} width={variant} loading="lazy" className={`rounded-full ${className}`} />
+    <img
+      src={image}
+      alt={alt}
+      height={variant}
+      width={variant}
+      loading="lazy"
+      className={`rounded-full object-cover ${
+        variant === PortraitVariant.Big ? 'w-[208px] h-[208px]' : 'w-[128px] h-[128px]'
+      } ${className}`}
+    />
   );
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
