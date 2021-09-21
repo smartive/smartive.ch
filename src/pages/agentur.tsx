@@ -193,8 +193,8 @@ const Agentur: NextPage<Props> = ({ quote, images }) => {
               </NextLink>
               .
             </TextBlock>
-            <TextBlock title="Aufsteiger des Jahres" number={20}>
-              Unsere Projekte werden regelmässig ausgezeichnet. Bei den Best of Swiss Web Awards rangieren wir in den Top 20
+            <TextBlock title="Aufsteiger des Jahres" number={10}>
+              Unsere Projekte werden regelmässig ausgezeichnet. Bei den Best of Swiss Web Awards rangieren wir in den Top 10
               der vergangenen 5 Jahre.
             </TextBlock>
           </Grid>
