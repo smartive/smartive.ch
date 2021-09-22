@@ -46,11 +46,11 @@ const Scope3: NextPage<Props> = ({
       <Heading3>Vergleich der Kategorien aus Scope 3</Heading3>
       <div className="max-w-[800px]">
         <table
-          className="charts-css bar show-heading show-labels show-primary-axis show-data-axes show-4-secondary-axes data-spacing-6"
+          className="charts-css bar show-heading show-labels show-primary-axis show-data-axes show-4-secondary-axes data-spacing-6 max-w-[800px]"
           style={
             {
+              // has to be defined directly in order to overrule Charts.css
               height: '400px',
-              'max-width': '800px',
               '--color': 'rgba(125, 221, 209)',
             } as CSSProperties
           }
@@ -66,8 +66,9 @@ const Scope3: NextPage<Props> = ({
                   environmentalImpact / TIMES_OR_DIVIDE_BY_1000 <= 1
                     ? (environmentalImpact / TIMES_OR_DIVIDE_BY_1000).toFixed(1)
                     : numberFormat.format(Math.round(environmentalImpact / TIMES_OR_DIVIDE_BY_1000));
+
                 return (
-                  <tr className="max-w-64 h-64 b-24" key={ghgCategory}>
+                  <tr className="max-w-64 b-24" key={ghgCategory}>
                     <th
                       className="inline-block text-lg"
                       scope="column"
@@ -124,6 +125,7 @@ const Scope3: NextPage<Props> = ({
                 <sub>2</sub>
               </>
             );
+
           return (
             <NextBisectCard
               key={ghgCategory}

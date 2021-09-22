@@ -58,14 +58,26 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
           links={[
             { label: 'Zu Migipedia', href: 'https://migipedia.migros.ch/de' },
             {
-              label: 'Zur Masterkandidatur',
-              href: 'https://www.netzwoche.ch/news/2021-03-17/master-kandidat-migros-community',
+              label: 'Zum Jury-Urteil: Gold für Usability',
+              href: 'https://www.netzwoche.ch/news/2021-09-06/gold-fuer-migros-community-in-der-kategorie-usability',
             },
           ]}
         />
       </PageHeader>
 
       <main>
+        <PageSection>
+          <div className="relative w-full h-0 pb-[56.25%] rounded overflow-hidden">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/b9q9176Vy0s"
+              className="absolute top-0 left-0 w-full h-full"
+              title="10 Jahre Migipedia"
+              frameBorder="0"
+              allowFullScreen
+            />
+          </div>
+        </PageSection>
+
         <PageSection>
           <Grid cols={2}>
             <PlaceholderImage
@@ -151,7 +163,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
             <TextBlock title="Eine App im Web">
               Was, wenn Migipedia eine App wäre? Beinahe 80% der Nutzer*innen besuchen Migipedia mit einem Smartphone. Mit
               dem Relaunch von 2020 geht Migipedia einen Schritt weiter als datensparenden Bildgrössen und grosse
-              Touchflächen: Aus Apps bekannte UX-Konzepte wie Slider, Client-Side Transition mit Prefethcing und
+              Touchflächen: Aus Apps bekannte UX-Konzepte wie Slider, Client-Side Transition mit Prefetching und
               Micro-Interactions machen Migipedia zu einer App im Web. Persönlichen Empfehlungen durch Recommender runden das
               Erlebnis ab.
             </TextBlock>

@@ -82,11 +82,11 @@ const Sustainabilty: NextPage<Props> = ({ comparisonTexts, allYearsTotalEmission
           <Heading3>Unser Ausstoss über die Jahre</Heading3>
           <div className="max-w-[800px]">
             <table
-              className="charts-css bar show-heading show-labels show-primary-axis data-spacing-6"
+              className="charts-css bar show-heading show-labels show-primary-axis data-spacing-6 max-w-[800px]"
               style={
                 {
+                  // has to be defined directly in order to overrule Charts.css
                   height: '200px',
-                  'max-width': '800px',
                   '--color-1': 'rgba(248, 147, 90)',
                   '--color-2': 'rgba(125, 221, 209)',
                   '--color-3': 'rgba(105, 134, 232)',
@@ -98,7 +98,7 @@ const Sustainabilty: NextPage<Props> = ({ comparisonTexts, allYearsTotalEmission
                   const totalEmissionenCalculated = totalEmission / maxYear;
                   const totalEmissionNum = Math.round(totalEmission / TIMES_OR_DIVIDE_BY_1000);
                   return (
-                    <tr className="h-64" key={year}>
+                    <tr key={year}>
                       <td
                         style={
                           {
@@ -176,7 +176,7 @@ const Sustainabilty: NextPage<Props> = ({ comparisonTexts, allYearsTotalEmission
           </Grid>
         </PageSection>
         <PageSection>
-          <Heading2>Was verursacht bei uns Emissionen? Prozentuale Anteile:</Heading2>
+          <Heading2>Was verursacht bei uns Emissionen?</Heading2>
           <Grid cols={3}>
             <TextBlock title="Virtuelle Server" number={20} unit="% 🖥">
               Virtuelle Server für interne Projekte und verkaufte Software machen ca. 20% unseres CO<sub>2</sub> Ausstosses
