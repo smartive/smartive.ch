@@ -1,14 +1,4 @@
-import {
-  ButtonLink,
-  ButtonVariants,
-  Copy,
-  Grid,
-  Heading2,
-  Heading3,
-  PageHeader,
-  PageSection,
-  TextBlock,
-} from '@smartive/guetzli';
+import { ButtonLink, ButtonVariants, Copy, Grid, Heading2, Heading3, PageSection, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React, { CSSProperties, useEffect, useState } from 'react';
 import { NextBisectCard } from '../../components/bisect-card';
@@ -29,6 +19,7 @@ import '../_app';
 import Employees from '../../data/employees.json';
 import { brandColor } from '../../utils/color';
 import type JSConfetti from 'js-confetti';
+import { PageHeader } from '../../compositions/page-header';
 
 type Props = {
   comparisonTexts: ComparisonTexts;
@@ -47,7 +38,11 @@ const Sustainabilty: NextPage<Props> = ({ comparisonTexts, allYearsTotalEmission
 
   return (
     <LandingPage>
-      <PageHeader markdownTitle="Nachhaltigkeit: Was unser Wirken in der Umwelt bewirkt">
+      <PageHeader
+        markdownTitle="Nachhaltigkeit: Was unser Wirken in der Umwelt bewirkt"
+        description="Wir möchten nicht nur unsere Kund*innen mit nachhaltigen digitalen Produkten beglücken, sondern auch unseren
+          Ressourcenverbrauch so ausrichten, dass die Umwelt sich freut."
+      >
         <Copy>
           Wir möchten nicht nur unsere Kund*innen mit nachhaltigen digitalen Produkten beglücken, sondern auch unseren
           Ressourcenverbrauch so ausrichten, dass die Umwelt sich freut. Deshalb haben wir einen Prozess angestossen, um die

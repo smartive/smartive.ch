@@ -1,13 +1,4 @@
-import {
-  Calendar,
-  Copy,
-  Heading2,
-  ImageCard,
-  ImageCardVariants,
-  LinkList,
-  PageHeader,
-  PageSection,
-} from '@smartive/guetzli';
+import { Calendar, Copy, Heading2, ImageCard, ImageCardVariants, LinkList, PageSection } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { getNotionScopes, Scopes } from '../../data/sustainability/notion-scopes';
@@ -16,6 +7,7 @@ import { ScopeNames, sortScope } from '../../utils/sustainability';
 import '../_app';
 import NextLink from 'next/link';
 import { Categories, getNotionCategories } from '../../data/sustainability/notion-categories';
+import { PageHeader } from '../../compositions/page-header';
 
 type Props = {
   scopes: Scopes[];
@@ -25,7 +17,11 @@ type Props = {
 const Sustainabilty: NextPage<Props> = ({ scopes, categories }) => {
   return (
     <LandingPage>
-      <PageHeader markdownTitle="Wie messen wir unseren Fussabdruck?">
+      <PageHeader
+        markdownTitle="Wie messen wir unseren Fussabdruck?"
+        pageTitle="Nachhaltigkeit: Wie messen wir unseren Fussabdruck?"
+        description="Du möchtest wissen, welche Normen und Standards wir zur Messung unseres Fussabdrucks benutzen und was das bedeutet? Dann bist du hier richtig."
+      >
         <Copy>
           Du möchtest wissen, welche Normen und Standards wir benutzen und was das bedeutet? Dann bist du hier richtig.
         </Copy>

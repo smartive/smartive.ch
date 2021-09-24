@@ -1,4 +1,4 @@
-import { Heading3, Copy, Grid, PageHeader, LinkList } from '@smartive/guetzli';
+import { Heading3, Copy, Grid, LinkList } from '@smartive/guetzli';
 import { NextPage, GetStaticPaths, GetStaticProps } from 'next';
 import React, { CSSProperties } from 'react';
 import { NextBisectCard } from '../../../components/bisect-card';
@@ -18,6 +18,7 @@ import {
   TIMES_OR_DIVIDE_BY_1000,
 } from '../../../utils/sustainability';
 import NextLink from 'next/link';
+import { PageHeader } from '../../../compositions/page-header';
 
 type Props = {
   links: { label: string; href: string }[];
@@ -38,7 +39,10 @@ const Scope3: NextPage<Props> = ({
 }) => {
   return (
     <LandingPage>
-      <PageHeader markdownTitle={`${getScope3(calculatedScopes)[0].title} im Jahr ${year}`}>
+      <PageHeader
+        markdownTitle={`${getScope3(calculatedScopes)[0].title} im Jahr ${year}`}
+        pageTitle={`Nachhaltigkeit: ${getScope3(calculatedScopes)[0].title} im Jahr ${year}`}
+      >
         <Copy>{getScope3(calculatedScopes)[0].description}</Copy>
         <Copy> Scope 3 besteht aus 15 Unterkategorien.</Copy>
         <LinkList linkWrapper={NextLink} links={links} />

@@ -1,4 +1,4 @@
-import { Copy, Explainer, Grid, Heading3, LinkList, PageHeader, PageSection, TextBlock } from '@smartive/guetzli';
+import { Copy, Explainer, Grid, Heading3, LinkList, PageSection, TextBlock } from '@smartive/guetzli';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { NextBisectCard } from '../../../components/bisect-card';
 import { getNotionBusinessTravel } from '../../../data/sustainability/notion-business-travel';
@@ -24,6 +24,7 @@ import React from 'react';
 import NextLink from 'next/link';
 import { Categories, getNotionCategories } from '../../../data/sustainability/notion-categories';
 import { brandColor } from '../../../utils/color';
+import { PageHeader } from '../../../compositions/page-header';
 
 type Props = {
   year: number;
@@ -71,7 +72,10 @@ const individualComparisonOfTheYear = {
 const YearOverview: NextPage<Props> = ({ year: currentYear, calculatedScopes, links, totalEmission, scope3, category1 }) => {
   return (
     <LandingPage>
-      <PageHeader markdownTitle={`Emissionen im Jahr _${currentYear}_.`}>
+      <PageHeader
+        markdownTitle={`Emissionen im Jahr _${currentYear}_.`}
+        pageTitle={`Nachhaltigkeit: Emissionen im Jahr _${currentYear}_.`}
+      >
         <Copy>Du möchtest Genaueres wissen? Wo wie was? Das findest du hier.</Copy>
         <LinkList linkWrapper={NextLink} links={links} />
       </PageHeader>
