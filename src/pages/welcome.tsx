@@ -82,15 +82,15 @@ const Welcome: NextPage<Props> = ({ images }) => (
       <Copy>
         Zu wissen wie die Leute heissen ist sicher schon mal ein guter Schritt. Aber du fragst dich vielliecht an wen du dich
         wenden kannst, wenn du Fragen zum Thema{' '}
-        <NextLink href="https://smartive-roles.vercel.app/events/chief_s&b_officer" passHref>
+        <NextLink href="https://smarties.app/roles/smartive-and-beer" passHref>
           <Link newTab>Bier 🍻</Link>
         </NextLink>{' '}
         hast (ja, wirklich…). Oder wie genau dieses{' '}
-        <NextLink href="https://smartive-roles.vercel.app/operations/scrum_master" passHref>
+        <NextLink href="https://smarties.app/roles/scrum-master" passHref>
           <Link newTab>Scrum</Link>
         </NextLink>{' '}
         denn funktioniert. Diese Infos findest du in den{' '}
-        <NextLink href="https://smartive-roles.vercel.app/" passHref>
+        <NextLink href="https://smarties.app/roles" passHref>
           <Link>smartive Roles</Link>
         </NextLink>
         .
