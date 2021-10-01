@@ -80,7 +80,7 @@ const Welcome: NextPage<Props> = ({ images }) => (
         schafft Abhilfe. Da findest du alle smarties mit Foto und ein paar kurzweiligen Facts.
       </Copy>
       <Copy>
-        Zu wissen wie die Leute heissen ist sicher schon mal ein guter Schritt. Aber du fragst dich vielliecht an wen du dich
+        Zu wissen wie die Leute heissen ist sicher schon mal ein guter Schritt. Aber du fragst dich vielleicht an wen du dich
         wenden kannst, wenn du Fragen zum Thema{' '}
         <NextLink href="https://smarties.app/roles/smartive-and-beer" passHref>
           <Link newTab>Bier 🍻</Link>
