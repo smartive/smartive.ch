@@ -531,5 +531,30 @@
         "url": "https://github.com/mlsr714"
       }
     ]
+  },
+  "kevin": {
+    "firstname": "Kevin",
+    "lastname": "Walker",
+    "portrait": "/images/employees/portraits/kevin.jpg",
+    "image": "/images/employees/kevin.jpg",
+    "closeup": "/images/employees/kevin_closeup.jpg",
+    "tel": "+41 44 552 55 99",
+    "email": "kevin@smartive.ch",
+    "job": "Software Engineer",
+    "bio": "Besitzt mehr Velos als Schuhe, Gleitschirm-Neuling, mag harte Gitarrenklänge, kann kaum einen Tag ruhig sitzen, fühlt sich in den Bergen am wohlsten, weder Frühaufsteher noch Morgenmoffel",
+    "links": [
+      {
+        "label": "kevin@smartive.ch",
+        "url": "mailto:kevin@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/kevin-walkeezy/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Walkeezy"
+      }
+    ]
   }
 }
