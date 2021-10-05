@@ -1,4 +1,3 @@
-import { AnimatePresence, m as motion } from 'framer-motion';
 import { useRouter } from 'next/dist/client/router';
 import React, { FC } from 'react';
 import { Logo, Navigation } from '@smartive/guetzli';
@@ -31,7 +30,7 @@ export const Page: FC = ({ children }) => {
         metaLinks={Meta}
         currentPathname={pathname}
         home={<Logo className="h-[21px] w-auto py-[4px]" />}
-        linkWrapper={NextLink}
+        linkWrapper={(props) => <NextLink prefetch={false} {...props} />}
         onMetaLinkClick={(value: string) =>
           plausible('Contact Click', {
             props: {
@@ -44,17 +43,9 @@ export const Page: FC = ({ children }) => {
         }
         onHomeLinkContextMenu={() => (window.location.href = '/brand')}
       />
-      <AnimatePresence>
-        <motion.div
-          className="lg:container lg:mx-auto px-4 pt-8 max-w-[100vw]"
-          key={pathname}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          {children}
-        </motion.div>
-      </AnimatePresence>
+      <div id="pageContent" className="lg:container lg:mx-auto px-4 pt-8 max-w-[100vw]">
+        {children}
+      </div>
     </div>
   );
 };

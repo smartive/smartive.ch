@@ -17,6 +17,10 @@ html {
   outline: 3px solid theme('colors.mint.200');
 }
 
+#pageContent {
+  opacity: 0;
+}
+
 footer {
   @apply relative;
 }

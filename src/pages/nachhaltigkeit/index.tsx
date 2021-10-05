@@ -1,25 +1,26 @@
 import { ButtonLink, ButtonVariants, Copy, Grid, Heading2, Heading3, PageSection, TextBlock } from '@smartive/guetzli';
+import 'charts.css/dist/charts.min.css';
+import type JSConfetti from 'js-confetti';
 import { GetStaticProps, NextPage } from 'next';
 import React, { CSSProperties, useEffect, useState } from 'react';
 import { NextBisectCard } from '../../components/bisect-card';
+import { PageHeader } from '../../compositions/page-header';
+import Employees from '../../data/employees.json';
 import { getNotionBusinessTravel } from '../../data/sustainability/notion-business-travel';
 import { ComparisonTexts, getNotionComparisons } from '../../data/sustainability/notion-comparisons';
 import { getNotionEmployees } from '../../data/sustainability/notion-employees';
 import { getNotionExpenses } from '../../data/sustainability/notion-expenses';
 import { getNotionSustainabilityData } from '../../data/sustainability/notion-sustainability-data';
 import { LandingPage } from '../../layouts/landing-page';
+import { brandColor } from '../../utils/color';
 import {
   ALL_YEARS,
+  FTE,
   numberFormat,
   reduceByEnvironmentalImpact,
   TIMES_OR_DIVIDE_BY_1000,
-  FTE,
 } from '../../utils/sustainability';
 import '../_app';
-import Employees from '../../data/employees.json';
-import { brandColor } from '../../utils/color';
-import type JSConfetti from 'js-confetti';
-import { PageHeader } from '../../compositions/page-header';
 
 type Props = {
   comparisonTexts: ComparisonTexts;

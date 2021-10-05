@@ -1,6 +1,6 @@
+import { Button, Input, Label, Tooltip } from '@smartive/guetzli';
 import React, { FC, FormEvent, useRef, useState } from 'react';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
-import { Input, Tooltip, Label, Button } from '@smartive/guetzli';
 
 type Props = {
   className?: string;
@@ -8,7 +8,7 @@ type Props = {
   button?: string;
 };
 
-const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button = 'Jetzt abonnieren' }) => {
+export const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button = 'Jetzt abonnieren' }) => {
   const [email, setEmail] = useState('');
   const mailchimpPrevState = useRef('');
   const [notification, setNotification] = useState('');
@@ -77,5 +77,3 @@ const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button 
     />
   );
 };
-
-export default NewsletterSubscription;

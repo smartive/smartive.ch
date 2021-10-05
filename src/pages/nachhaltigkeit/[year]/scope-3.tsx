@@ -1,24 +1,25 @@
-import { Heading3, Copy, Grid, LinkList } from '@smartive/guetzli';
-import { NextPage, GetStaticPaths, GetStaticProps } from 'next';
+import { Copy, Grid, Heading3, LinkList } from '@smartive/guetzli';
+import 'charts.css/dist/charts.min.css';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import NextLink from 'next/link';
 import React, { CSSProperties } from 'react';
 import { NextBisectCard } from '../../../components/bisect-card';
+import { PageHeader } from '../../../compositions/page-header';
 import { getNotionBusinessTravel } from '../../../data/sustainability/notion-business-travel';
 import { Categories, getNotionCategories } from '../../../data/sustainability/notion-categories';
 import { getNotionEmployees } from '../../../data/sustainability/notion-employees';
 import { getNotionExpenses } from '../../../data/sustainability/notion-expenses';
-import { Scopes, getNotionScopes } from '../../../data/sustainability/notion-scopes';
+import { getNotionScopes, Scopes } from '../../../data/sustainability/notion-scopes';
 import { getNotionSustainabilityData } from '../../../data/sustainability/notion-sustainability-data';
 import { LandingPage } from '../../../layouts/landing-page';
 import {
-  reduceByEnvironmentalImpact,
-  numberFormat,
   ALL_YEARS,
   calculatedScopesFunction,
   getScope3,
+  numberFormat,
+  reduceByEnvironmentalImpact,
   TIMES_OR_DIVIDE_BY_1000,
 } from '../../../utils/sustainability';
-import NextLink from 'next/link';
-import { PageHeader } from '../../../compositions/page-header';
 
 type Props = {
   links: { label: string; href: string }[];

@@ -7,7 +7,10 @@ import { PlaceholderImage } from '../elements/placeholder-image';
 import { LandingPage } from '../layouts/landing-page';
 import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
 
-const NewsletterSubscription = dynamic(() => import('../components/newsletter-subscription'), { ssr: false });
+const NewsletterSubscription = dynamic(
+  () => import('../components/newsletter-subscription').then((module) => module.NewsletterSubscription),
+  { ssr: false }
+);
 
 const STATIC_IMAGES = {
   mittag: '/images/mood/YB_06742.jpg',

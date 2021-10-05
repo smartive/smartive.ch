@@ -1,11 +1,15 @@
-import { ArrowUp, ButtonLink, Label, Link, LinkVariants } from '@smartive/guetzli';
-import { m as motion, useViewportScroll } from 'framer-motion';
+import { ButtonLink, Label, Link, LinkVariants } from '@smartive/guetzli';
 import { usePlausible } from 'next-plausible';
 import dynamic from 'next/dynamic';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { PlausibleEvents } from '../utils/tracking';
 
-const NewsletterSubscription = dynamic(() => import('../components/newsletter-subscription'), { ssr: false });
+const NewsletterSubscription = dynamic(
+  () => import('../components/newsletter-subscription').then((module) => module.NewsletterSubscription),
+  { ssr: false }
+);
+const BackToTop = dynamic(() => import('../components/back-to-top').then((module) => module.BackToTop), { ssr: false });
 
 const Address = {
   name: 'smartive AG',
@@ -18,10 +22,11 @@ const Address = {
 } as const;
 
 export const Footer: FC = () => {
+  const { ref, inView } = useInView({ triggerOnce: true });
   const plausible = usePlausible<PlausibleEvents>();
 
   return (
-    <footer className="bg-cornflower-500">
+    <footer ref={ref} className="bg-cornflower-500">
       <div className="container mx-auto px-4 pt-24 xl:pt-32 pb-8 h-full">
         <Label as="div" className="hidden lg:grid grid-cols-4 grid-flow-row items-end justify-items-center">
           <address
@@ -78,7 +83,7 @@ export const Footer: FC = () => {
             </span>
           </address>
 
-          <NewsletterSubscription className="col-span-2 place-items-center" label="Newsletter" />
+          {inView && <NewsletterSubscription className="col-span-2 place-items-center" label="Newsletter" />}
 
           <div className="grid grid-flow-row place-self-end justify-items-start">
             <Link variant={LinkVariants.Navigation} href="https://www.linkedin.com/company/smartive-ag/" newTab>
@@ -95,7 +100,7 @@ export const Footer: FC = () => {
             </Link>
           </div>
           <SwissMadeSoftwareLogo />
-          <BackToTop />
+          {inView && <BackToTop />}
         </Label>
 
         <Label as="div" className="relative grid lg:hidden grid-flow-row place-items-center gap-8 max-w-[20rem] mx-auto">
@@ -172,55 +177,12 @@ export const Footer: FC = () => {
               Facebook
             </Link>
           </div>
-          <NewsletterSubscription className="w-full" />
+          {inView && <NewsletterSubscription className="w-full" />}
           <SwissMadeSoftwareLogo />
-          <BackToTop />
+          {inView && <BackToTop />}
         </Label>
       </div>
     </footer>
-  );
-};
-
-const BackToTop = () => {
-  const { scrollYProgress } = useViewportScroll();
-  const [animate, setAnimate] = useState(false);
-
-  useEffect(
-    () =>
-      scrollYProgress.onChange((e) => {
-        const unsubscribe = setAnimate(e === 1);
-        return unsubscribe;
-      }),
-    []
-  );
-
-  return (
-    <button
-      title="Zurück nach oben"
-      aria-hidden
-      className="grid grid-flow-col place-items-center gap-2 lg:col-start-4 lg:place-self-end mt-8 text-sm font-bold focus:outline-none focus:ring-[3px] focus:ring-mint-200"
-      onClick={() =>
-        window.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: 'smooth',
-        })
-      }
-    >
-      Beam me up Scotty!
-      <motion.div
-        className="inline-block"
-        animate={
-          animate
-            ? {
-                translateY: [0, -15, 0, -8, 0, -5, 0],
-              }
-            : {}
-        }
-      >
-        <ArrowUp className="h-6 w-6" />
-      </motion.div>
-    </button>
   );
 };
 
