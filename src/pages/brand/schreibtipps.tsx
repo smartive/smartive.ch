@@ -7,7 +7,7 @@ import { LandingPage } from '../../layouts/landing-page';
 
 const Tipps = () => (
   <LandingPage>
-    <PageHeader markdownTitle="Du willst einen _Blogpost_ schreiben?">
+    <PageHeader markdownTitle="Du willst einen _Blogpost_ schreiben?" description="Cool! Hier findest du ein paar Tipps.">
       <Copy>Cool! Hier findest du ein paar Tipps.</Copy>
       <Copy>
         <NextLink href="/brand/sprache" passHref>

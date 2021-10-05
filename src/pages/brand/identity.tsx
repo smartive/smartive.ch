@@ -6,7 +6,7 @@ import { LandingPage } from '../../layouts/landing-page';
 
 const Identity: NextPage = () => (
   <LandingPage>
-    <PageHeader markdownTitle="Unsere Brand _Identity_." />
+    <PageHeader markdownTitle="Unsere Brand _Identity_." description="Die Markenidentität von smartive." />
 
     <PageSection>
       <Heading2>Vision</Heading2>

@@ -6,7 +6,11 @@ import { Page } from '../../layouts/page';
 
 const Kubernetes = () => (
   <Page>
-    <PageHeader markdownTitle="_Kubernetes_: Deployments unter Kontrolle" pageTitle="Was ist eigentlich Kubernetes?">
+    <PageHeader
+      markdownTitle="_Kubernetes_: Deployments unter Kontrolle"
+      pageTitle="Was ist eigentlich Kubernetes?"
+      description="Heute kümmern sich grosse Firmen wie Google oder Amazon um den Betrieb von Webapplikationen. Wir wiederum kontrollieren mit Tools wie Kubernetes, wie das Setup aussieht."
+    >
       <Copy>
         Wenn dein Produkt fertig ist, muss es auf einem Computer gestartet werden, der es übers Internet zur Verfügung stellt
         (<strong>Deployment</strong> bzw. <strong>Release</strong>). Früher war das ein Server, den man selbst aufsetzte und

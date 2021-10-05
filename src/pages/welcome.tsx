@@ -20,7 +20,10 @@ type Props = {
 };
 const Welcome: NextPage<Props> = ({ images }) => (
   <LandingPage>
-    <PageHeader markdownTitle="Smart Move™">
+    <PageHeader
+      markdownTitle="Smart Move™"
+      description="Hoi! Schön bisch da 🤗 Da wir Bäume 🌳 eigentlich ganz gut mögen, haben wir dir kein 500-Seiten-Dossier ausgedruckt und auf deinen neuen Arbeitsplatz gelegt, sondern stellen dir alles was du brauchst digital zur Verfügung."
+    >
       <Copy>
         Hoi! Schön bisch da 🤗 Da wir Bäume 🌳 eigentlich ganz gut mögen, haben wir dir kein 500-Seiten-Dossier ausgedruckt
         und auf deinen neuen Arbeitsplatz gelegt, sondern stellen dir alles was du brauchst digital zur Verfügung. Macht noch

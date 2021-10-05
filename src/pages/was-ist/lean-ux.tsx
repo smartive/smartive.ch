@@ -7,7 +7,11 @@ import { Page } from '../../layouts/page';
 
 const LeanUX = () => (
   <Page>
-    <PageHeader markdownTitle="_Lean UX_: Das Nutzungserlebnis hat Priorität." pageTitle="Was ist eigentlich Lean UX?">
+    <PageHeader
+      markdownTitle="_Lean UX_: Das Nutzungserlebnis hat Priorität."
+      pageTitle="Was ist eigentlich Lean UX?"
+      description="User Experience (UX) ist englisch für: Wer dein Produkt nutzt, soll es lieben."
+    >
       <Copy>
         User Experience (UX) ist englisch für: Wer dein Produkt nutzt, soll es lieben. Dabei geht es um alle Aspekte der
         Benutzung, unter anderem Aussehen, Funktionalität, Interaktions- und Informationsdesign. Stellt sich die Frage: Wie

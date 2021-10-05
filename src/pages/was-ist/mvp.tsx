@@ -19,6 +19,7 @@ const Mvp: NextPage<Props> = ({ teasers, packages }) => (
     <PageHeader
       markdownTitle="Minimum Viable Product (MVP): Damit du weisst, dass die _Richtung_ stimmt."
       pageTitle="Was ist eigentlich ein MVP?"
+      description="Ganz am Anfang definieren wir gemeinsam den Umfang des Earliest Testable Products. Das testen wir mit deinen User*innen. Die Erkenntnisse fliessen ins Earliest Usable Product ein. Von da arbeiten wir auf das Earliest Lovable Product hin, mit dem du schliesslich live gehen kannst."
     >
       <Copy>
         Damit der Weg zum Go-live nicht zu einer Reise mit ungewissem Ausgang wird, planen wir drei Checkpoints ein: Ganz am

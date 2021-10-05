@@ -14,7 +14,11 @@ type Props = {
 
 const GQL: NextPage<Props> = ({ teasers }) => (
   <Page>
-    <PageHeader markdownTitle="Mit _GraphQL_ den Überblick über die Daten behalten" pageTitle="Was ist eigentlich GraphQL?">
+    <PageHeader
+      markdownTitle="Mit _GraphQL_ den Überblick über die Daten behalten"
+      pageTitle="Was ist eigentlich GraphQL?"
+      description="Mit GraphQL wird bei jeder Abfrage spezifiziert, welche Daten benötigt werden; so kann der Datenaustausch unter einer Adresse gebündelt werden, ohne an Übersichtlichkeit zu verlieren."
+    >
       <Copy>
         Daten werden über <Explainer title="Application Programming Interfaces, Schnittstellen">APIs</Explainer> abgefragt
         und verändert. Der bekannteste Ansatz dafür ist REST: Jede <Explainer title="«Paket von Daten»">Ressource</Explainer>{' '}

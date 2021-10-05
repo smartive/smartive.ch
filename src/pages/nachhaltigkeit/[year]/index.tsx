@@ -75,6 +75,7 @@ const YearOverview: NextPage<Props> = ({ year: currentYear, calculatedScopes, li
       <PageHeader
         markdownTitle={`Emissionen im Jahr _${currentYear}_.`}
         pageTitle={`Nachhaltigkeit: Emissionen im Jahr _${currentYear}_.`}
+        description={`Genaue Infos zu unseren Emissionen im ${currentYear}`}
       >
         <Copy>Du möchtest Genaueres wissen? Wo wie was? Das findest du hier.</Copy>
         <LinkList linkWrapper={NextLink} links={links} />

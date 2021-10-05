@@ -9,6 +9,7 @@ const HeadlessCMS = () => (
     <PageHeader
       markdownTitle="Inhalte einfach pflegen mit einem _Headless CMS_"
       pageTitle="Was ist eigentlich ein Headless CMS?"
+      description="Ein Headless CMS übernimmt nur die Inhaltsverwaltung – die Darstellung ist davon unabhängig."
     ></PageHeader>
 
     <main>

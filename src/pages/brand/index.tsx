@@ -184,7 +184,7 @@ const Brand: FC = () => (
       </Copy>
       <div className="grid grid-rows-2 rounded overflow-hidden">
         <div className="bg-white-100 p-8 lg:p-16">
-          <Heading1>
+          <Heading1 as="p">
             Wir schreiben Headlines in Inter Semi Bold und <Decoration>Auszeichnungen</Decoration> mit IBM Plex Serif kursiv.
           </Heading1>
           <Copy>
@@ -198,7 +198,9 @@ const Brand: FC = () => (
         </div>
         <div className="bg-apricot-500 p-8 lg:p-16 flex flex-col justify-center">
           <div>
-            <Heading1 className="text-center">Auf Patterns und farbigen Flächen schreiben wir auch schwarz.</Heading1>
+            <Heading1 as="p" className="text-center">
+              Auf Patterns und farbigen Flächen schreiben wir auch schwarz.
+            </Heading1>
             <div className="flex justify-center">
               <Copy>Und bitte ganz wenig Copytext.</Copy>
             </div>

@@ -6,7 +6,11 @@ import { Page } from '../../layouts/page';
 
 const DotNet = () => (
   <Page>
-    <PageHeader markdownTitle="_.NET_ kann alles und schnell" pageTitle="Was ist eigentlich .NET?">
+    <PageHeader
+      markdownTitle="_.NET_ kann alles und schnell"
+      pageTitle="Was ist eigentlich .NET?"
+      description=".NET ist die Softwareplattform von Microsoft."
+    >
       <Copy>
         <Explainer title="sprich «Dot Net»; bis 2020: .NET Core">.NET</Explainer> ist die Softwareplattform von Microsoft.
         Sie hat eine lange Geschichte hinter sich und ist im Jahre 2016 in der jetzigen Form vereinheitlicht worden. Diese

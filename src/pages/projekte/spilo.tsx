@@ -40,7 +40,10 @@ type Props = {
 
 const Spilo: NextPage<Props> = ({ contact, teasers, images }) => (
   <Page>
-    <PageHeader markdownTitle="Mit Kindern _Spielplätze_ entdecken." description="">
+    <PageHeader
+      markdownTitle="Mit Kindern _Spielplätze_ entdecken."
+      description="Für dann, wenn du einen Spielplatz brauchst, aber keinen kennst. Dafür gibts SPILO - den Spielplatz-Finder."
+    >
       <Copy>
         <em>Spielpi!</em> verlangt dein Kind. Du kennst dich in der Umgebung aber gerade nicht aus. Deinem Kind ist das egal.{' '}
         <em>SPIELPI!!!</em> Diskussion beendet, der nächste Programmpunkt ist gesetzt. Du weisst aus Erfahrung, was sonst

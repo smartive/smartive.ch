@@ -43,6 +43,7 @@ const Scope3: NextPage<Props> = ({
       <PageHeader
         markdownTitle={`${getScope3(calculatedScopes)[0].title} im Jahr ${year}`}
         pageTitle={`Nachhaltigkeit: ${getScope3(calculatedScopes)[0].title} im Jahr ${year}`}
+        description="Scope 3 beinhaltet alle indirekten Emissionen."
       >
         <Copy>{getScope3(calculatedScopes)[0].description}</Copy>
         <Copy> Scope 3 besteht aus 15 Unterkategorien.</Copy>

@@ -13,7 +13,11 @@ type Props = {
 
 const PWA: NextPage<Props> = ({ teasers }) => (
   <Page>
-    <PageHeader markdownTitle="PWA: Das Beste von _Web und App_" pageTitle="Was ist eigentlich eine PWA?">
+    <PageHeader
+      markdownTitle="PWA: Das Beste von _Web und App_"
+      pageTitle="Was ist eigentlich eine PWA?"
+      description="Aufgebaut ist eine PWA wie eine Website (mit HTML, CSS und Javascript), sie fühlt sich aber an wie eine App – inklusive Zugriff auf die Smartphone-Kamera oder Peripheriegeräte."
+    >
       <Copy>
         In <strong>Progressive Web App</strong> ist Web und App drin, und noch ein bisschen mehr: Aufgebaut ist eine PWA wie
         eine Website (mit HTML, CSS und Javascript), sie fühlt sich aber an wie eine App – inklusive Zugriff auf die

@@ -7,7 +7,11 @@ import { Page } from '../../layouts/page';
 
 const GRPC = () => (
   <Page>
-    <PageHeader markdownTitle="_gRPC_ bringt Tempo in die API" pageTitle="Was ist eigentlich gRPC?">
+    <PageHeader
+      markdownTitle="_gRPC_ bringt Tempo in die API"
+      pageTitle="Was ist eigentlich gRPC?"
+      description="gRPC ist eine Alternative zu REST oder GraphQL, die sich anbietet, wenn Performance entscheidend ist."
+    >
       <Copy>
         Im Web schieben wir Daten in diversen Formaten hin und her. Die meisten sind textbasiert, z.B. XML oder JSON.{' '}
         <Explainer title="Remote Procedure Call">gRPC</Explainer> von Google setzt auf einen anderen Weg: Es codiert

@@ -21,7 +21,10 @@ const managementLinks = [
 
 const WasIst = () => (
   <Page>
-    <PageHeader markdownTitle="Was ist eigentlich …?">
+    <PageHeader
+      markdownTitle="Was ist eigentlich …?"
+      description="Unser Fachgebiet sind digitale Produkte. Wir wissen eine Menge über «AgileReactKubernetesMVP». Und wir wollen deinem Burgerbratbüro nicht einfach ein sehr teures digitales Brötchen zu verkaufen, sondern ein Produkt, das wir mit dir zusammen entwickeln."
+    >
       <Copy>
         Bist du Profi im Burgerbraten, Bogenschiessen, Bäumefällen oder einer anderen analogen Angelegenheit? Cool!
       </Copy>
