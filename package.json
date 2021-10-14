@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "11.1.2",
-    "@smartive/eslint-config": "2.0.0",
+    "@smartive/eslint-config": "2.1.0",
     "@smartive/prettier-config": "3.0.0",
     "@types/node": "14.17.27",
     "@types/puppeteer": "5.4.4",
