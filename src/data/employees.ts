@@ -9,6 +9,7 @@ export type Employee = {
   closeup: ImageWithPlaceholder;
   tel: string;
   email: string;
+  bookingLink: string;
   job: string;
   bio: string;
   links: { label: string; url: string }[];

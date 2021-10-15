@@ -18,7 +18,7 @@ export const Contact: FC<Props> = ({
     </>
   ),
 }) => {
-  const { firstname, lastname, portrait, tel, email } = contact;
+  const { firstname, lastname, portrait, tel, email, bookingLink } = contact;
   const plausible = usePlausible<PlausibleEvents>();
 
   const track = (value: string) => {
@@ -45,9 +45,10 @@ export const Contact: FC<Props> = ({
         <div className="grid place-items-center lg:place-items-start">
           <LinkList
             links={[
+              bookingLink && { label: 'Termin buchen', href: `${bookingLink}`, onClick: () => track(bookingLink) },
               { label: email, href: `mailto:${email}`, onClick: () => track(email) },
               { label: tel, href: `tel:${tel}`, onClick: () => track(tel) },
-            ]}
+            ].filter(Boolean)}
           />
         </div>
       </div>

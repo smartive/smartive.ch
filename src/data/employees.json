@@ -7,6 +7,7 @@
     "closeup": "/images/employees/mauro_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "mauro@smartive.ch",
+    "bookingLink": "",
     "job": "Software Engineer",
     "bio": "Tessiner aus Bern, arbeitet gerne an kleinen Projekten, um neue und interessante Technologien zu entdecken, spielt gerne Schach, Games, Tischspiele und Volleyball, findet aussergewöhnliche Gedanken lustig",
     "links": [
@@ -28,6 +29,7 @@
     "closeup": "/images/employees/celine_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "celine@smartive.ch",
+    "bookingLink": "",
     "job": "Intern",
     "bio": "Startet den Tag gerne mit Yoga, ist absolut kein Morgenmensch, liebt aber schöne Sonnenaufgänge. Liebt die Berge von nah und fern, ist digital und analog sozial unterwegs, verbindet gerne Umweltthemen mit Informatik",
     "links": [
@@ -53,6 +55,7 @@
     "closeup": "/images/employees/marco_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "marco@smartive.ch",
+    "bookingLink": "",
     "job": "Software Engineer",
     "bio": "Begeisterter Web-Developer, liebt das Ausprobieren neuer Technologien, Reisevogel, isst die Bratwurst ohne Senf, Kung-Fu-Padawan, Freund der Championship League, Serienverrückter",
     "links": [
@@ -82,6 +85,7 @@
     "closeup": "/images/employees/peter_closeup.jpg",
     "tel": "+41 44 552 55 97",
     "email": "peter@smartive.ch",
+    "bookingLink": "",
     "job": "Digital Strategist",
     "bio": "Web Passionist, mag Herausforderungen und innovative Projekte, liebt Openairs, TV-Serien-Junkie, Appenzeller und Hobby-Walliser, Co-Organisator des Webnesday in St.Gallen",
     "links": [
@@ -111,6 +115,7 @@
     "closeup": "/images/employees/thilo_closeup.jpg",
     "tel": "+41 44 552 55 96",
     "email": "thilo@smartive.ch",
+    "bookingLink": "",
     "job": "Digital Strategist",
     "bio": "Ex-Luzerner, kulturinteressierter Weltenbummler, liebt knifflige Fragestellungen, Big Data und Statistical Learning, Naturliebhaber, Tennisamateur, Schönwetterjogger",
     "links": [
@@ -140,6 +145,7 @@
     "closeup": "/images/employees/moreno_closeup.jpg",
     "tel": "+41 44 552 55 95",
     "email": "moreno@smartive.ch",
+    "bookingLink": "",
     "job": "Digital Strategist",
     "bio": "Exil-Bündner, Technologiefreak, Filme- und Serienliebhaber, Nachtmensch, hat ein Faible für komplexe Systemarchitekturen, Kaffeegeniesser, hebt gerne Gewichte, Bücherwurm, liebt Reisen in ferne Länder, politikinteressiert",
     "links": [
@@ -165,6 +171,7 @@
     "closeup": "/images/employees/christoph_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "christoph@smartive.ch",
+    "bookingLink": "",
     "job": "Software Engineer",
     "bio": "Entdecker, Tech-Evangelist, Tüftler, Snowboarder, Entwickler von Extensions und Frameworks, technologieverliebter Framework-Narr, passionierter Bier-Liebhaber, Kung-Fu Kanone, heilender Diener des Pelor",
     "links": [
@@ -190,6 +197,7 @@
     "closeup": "/images/employees/dominique_closeup.jpg",
     "tel": "+41 44 552 55 94",
     "email": "dominique@smartive.ch",
+    "bookingLink": "",
     "job": "Software Engineer",
     "bio": "Webtechnologie Fanatiker, Limmatstädter, Stadtclubanhänger, Sportler, Bartträger, Wanderer, Reisender, veganer Feinschmecker",
     "links": [
@@ -219,6 +227,7 @@
     "closeup": "/images/employees/nicola_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "nicola@smartive.ch",
+    "bookingLink": "",
     "job": "Software Engineer",
     "bio": "Tessiner mit Berner Akzent, Psychologie- und Selbstentwicklungsnerd, Entrepreneur, trägt seinen Bart mit Stolz, programmiert im Bus und im Schlaf, träumt davon, mal wieder zehn Tage meditieren zu gehen",
     "links": [
@@ -244,6 +253,7 @@
     "closeup": "/images/employees/robert_closeup.jpg",
     "tel": "+41 44 552 55 93",
     "email": "robert@smartive.ch",
+    "bookingLink": "",
     "job": "Digital Strategist",
     "bio": "Ostschweizer mit Leidenschaft für Fussball, designaffin, nie ohne Bart, Weinliebhaber, leichte Tendenz zu Football Manager-Sucht, kocht gerne indisch, baut seit neustem Duplotürme und Brio-Bahnanlagen.",
     "links": [
@@ -273,6 +283,7 @@
     "closeup": "/images/employees/mirco_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "mirco@smartive.ch",
+    "bookingLink": "",
     "job": "Software Engineer",
     "bio": "Entdeckt von St. Gallen aus die Welt, sportbegeistert drinnen und draussen, isst und kocht gerne leckeres Essen, Hobbyfotograf / -filmer, schätzt ein gutes Buch, schaut zu viele Filme & Serien",
     "links": [
@@ -298,6 +309,7 @@
     "closeup": "/images/employees/thomas_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "thomas@smartive.ch",
+    "bookingLink": "",
     "job": "Digital Strategist",
     "bio": "Begeisterter Mountainbiker und Snowboarder aus Luzern, kocht liebend gerne Japanisch und Indisch, entdeckt gerade das Legospielen mit seinen Göttibuben neu",
     "links": [
@@ -323,6 +335,7 @@
     "closeup": "/images/employees/joshua_closeup.jpg",
     "tel": "+41 44 552 55 92",
     "email": "joshua@smartive.ch",
+    "bookingLink": "https://smr.tv/meet-josh",
     "job": "Digital Strategist",
     "bio": "Sänger, Gitarrist, Tontechniker, Software- und Devops Engineer aus St.Gallen. Entdeckt seit kurzem die Nachbarschaft mit dem Kinderwagen neu",
     "links": [
@@ -352,6 +365,7 @@
     "closeup": "/images/employees/kim_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "kim@smartive.ch",
+    "bookingLink": "",
     "job": "Software Engineer",
     "bio": "Sprachnerd und Rheinliebhaber aus Schaffhausen. Mag Skandinavien, Grammatiken und bahnt sich einen Weg durch den Code-Garten",
     "links": [
@@ -377,6 +391,7 @@
     "closeup": "/images/employees/anna_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "anna@smartive.ch",
+    "bookingLink": "",
     "job": "Software Engineer",
     "bio": "Zürcherin mit einem Koffer in Berlin, jazztreue Tanzverbissene, Bouldern an den Küsten Mallorcas stillt Abenteuerhunger, Programmieren wird geliebtes Kletterexperiment",
     "links": [
@@ -402,6 +417,7 @@
     "closeup": "/images/employees/benjamin_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "benjamin@smartive.ch",
+    "bookingLink": "",
     "job": "Software Engineer",
     "bio": "Taucht gerne im Meer, badet gerne in Seen und Flüssen, isst gerne abwechslungsreich und geniesst den dazu passenden Wein",
     "links": [
@@ -427,6 +443,7 @@
     "closeup": "/images/employees/nadia_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "nadia@smartive.ch",
+    "bookingLink": "",
     "job": "Software Engineer",
     "bio": "Wissensdurstiger Freigeist mit einem Flair für Informatik und Design, Hobbyphilosophin und Fitnessenthusiastin, die sich eine Welt ohne Musik und gutes Essen nicht vorstellen kann",
     "links": [
@@ -452,6 +469,7 @@
     "closeup": "/images/employees/damian_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "damian@smartive.ch",
+    "bookingLink": "",
     "job": "Designer",
     "bio": "Churer mit nur zweieinhalb Gesichtsausdrücken, liebt prozedurales Design, hat viel zu viel Hintergrundwissen über Filme & Videospiele, sagt jedem Hund «Hoi», hört gerne zu, weibelt für mehr Entwickler-Denken bei Designern",
     "links": [
@@ -477,6 +495,7 @@
     "closeup": "/images/employees/sabrina_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "sabrina@smartive.ch",
+    "bookingLink": "",
     "job": "Interaction Designer",
     "bio": "Sieht den Pflanzen gerne beim Wachsen zu, hasst heisse Sommertage, mag Strategiespiele, Hobbyveganer, liebt Schnee, Eis und Pingus, lernt gern Neues, interessiert sich für Neuropsychologie",
     "links": [
@@ -498,6 +517,7 @@
     "closeup": "/images/employees/alex_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "alex@smartive.ch",
+    "bookingLink": "",
     "job": "Intern",
     "bio": "Pfadfinder, Volleyballer, Feinschmecker, Rapperswiler, Drilling, Wanderer, Wissbegieriger, Dungeons and Dragons Abenteurer, Katzenstreichler und Hängebauchschweinflüsterer",
     "links": [
@@ -523,6 +543,7 @@
     "closeup": "/images/employees/matthias_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "matthias@smartive.ch",
+    "bookingLink": "",
     "job": "Intern",
     "bio": "Hobby-Koch, Handlanger auf Baustellen, Cheeseburger-Rezept-Tüftler, Scramblerfahrer im Sommer, Hobby-Töpferer bei regnerischem Wetter, erkundet Nationalparke in Amerika in seinen Ferien",
     "links": [
@@ -548,6 +569,7 @@
     "closeup": "/images/employees/kevin_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "kevin@smartive.ch",
+    "bookingLink": "",
     "job": "Software Engineer",
     "bio": "Besitzt mehr Velos als Schuhe, Gleitschirm-Neuling, mag harte Gitarrenklänge, kann kaum einen Tag ruhig sitzen, fühlt sich in den Bergen am wohlsten, weder Frühaufsteher noch Morgenmuffel",
     "links": [
