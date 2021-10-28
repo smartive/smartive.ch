@@ -1,5 +1,6 @@
 import { BlobVariations, Copy, Grid, Link, PageSection, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
+import { usePlausible } from 'next-plausible';
 import NextLink from 'next/link';
 import React from 'react';
 import { NextContentCard } from '../components/content-card';
@@ -11,6 +12,7 @@ import Quotes from '../data/quotes.json';
 import { PlaceholderImage } from '../elements/placeholder-image';
 import { Page } from '../layouts/page';
 import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
+import { PlausibleEvents } from '../utils/tracking';
 
 const textBlocks = [
   {
@@ -62,6 +64,8 @@ type Props = {
 };
 
 const Agentur: NextPage<Props> = ({ quote, images }) => {
+  const plausible = usePlausible<PlausibleEvents>();
+
   return (
     <Page>
       <PageHeader
@@ -174,13 +178,23 @@ const Agentur: NextPage<Props> = ({ quote, images }) => {
             </TextBlock>
             <NextContentCard
               label="Bist du's?"
-              title="Wir suchen eine*n Projektleiter*in"
-              content="Du hast einen Hintergrund in der Software-Entwicklung und möchtest als Projektleiter*in Teil der smartive Kultur werden? Wir freuen uns auf deine Bewerbung!"
-              background="apricot"
+              title="Projektleiter*in"
+              content="Für dich ist das Internet kein #neuland, sondern du hast Erfahrung mit der Software-Entwicklung, egal ob als Projektleiter*in oder als Entwickler*in. Du liebst es, mit Menschen zu kommunizieren, egal ob Kund*innen oder Team-Mitglieder, und weisst, wie du deine Botschaft rüberbringst."
+              background="mint"
               link={{
-                label: 'Zur Stellenausschreibung',
-                href: '/jobs/projektleiter-in',
+                label: 'Bewirb dich jetzt!',
+                href: 'https://smartive.join.com/jobs/3181748-projektleiter-in-bei-smartive',
+                newTab: true,
               }}
+              onClick={() =>
+                plausible('Job Click', {
+                  props: {
+                    extUrl: 'https://smartive.join.com/jobs/3181748-projektleiter-in-bei-smartive',
+                    currentUrl: window?.location.toString(),
+                    title: 'Projektleiter*in',
+                  },
+                })
+              }
             />
             <TextBlock title="Erfolgreiche Projekte: dreistellig" number={300}>
               In den letzten Jahren haben wir über 300 Projekte erfolgreich gemeistert. Sowohl in Zusammenarbeit mit{' '}

@@ -12,4 +12,9 @@ export type PlausibleEvents = {
     component: 'navigation' | 'footer' | 'contact-box' | 'employee-card';
     device: 'mobile' | 'desktop';
   };
+  'Job Click': {
+    extUrl: string;
+    currentUrl: string;
+    title: string;
+  };
 };

@@ -47,6 +47,13 @@
     { "source": "/kontakt", "destination": "/agentur" },
     { "source": "/angebot/ideation-sprint", "destination": "/angebot/design-sprint" },
     { "source": "/roles", "destination": "https://smr.tv/roles" },
-    { "source": "/jobs/projektleiter", "destination": "/jobs/projektleiter-in" }
+    {
+      "source": "/jobs/projektleiter",
+      "destination": "https://smartive.join.com/jobs/3181748-projektleiter-in-bei-smartive"
+    },
+    {
+      "source": "/jobs/projektleiter-in",
+      "destination": "https://smartive.join.com/jobs/3181748-projektleiter-in-bei-smartive"
+    }
   ]
 }
