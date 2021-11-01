@@ -3,7 +3,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 module.exports = withBundleAnalyzer({
-  swcMinify: true,
   eslint: {
     // Don't run linting during build since on CI we manually run the lint command
     ignoreDuringBuilds: true,
