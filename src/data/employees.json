@@ -509,32 +509,6 @@
       }
     ]
   },
-  "alex": {
-    "firstname": "Alex",
-    "lastname": "Mäder",
-    "portrait": "/images/employees/portraits/alex.jpg",
-    "image": "/images/employees/alex.jpg",
-    "closeup": "/images/employees/alex_closeup.jpg",
-    "tel": "+41 44 552 55 99",
-    "email": "alex@smartive.ch",
-    "bookingLink": "",
-    "job": "Intern",
-    "bio": "Pfadfinder, Volleyballer, Feinschmecker, Rapperswiler, Drilling, Wanderer, Wissbegieriger, Dungeons and Dragons Abenteurer, Katzenstreichler und Hängebauchschweinflüsterer",
-    "links": [
-      {
-        "label": "alex@smartive.ch",
-        "url": "mailto:alex@smartive.ch"
-      },
-      {
-        "label": "LinkedIn",
-        "url": "https://www.linkedin.com/in/alexemanuelmaeder"
-      },
-      {
-        "label": "GitHub",
-        "url": "https://github.com/Halunks"
-      }
-    ]
-  },
   "matthias": {
     "firstname": "Matthias",
     "lastname": "Loser",
