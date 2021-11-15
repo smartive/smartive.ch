@@ -17,7 +17,7 @@
     "@notionhq/client": "0.3.3",
     "@smartive/guetzli": "1.12.1",
     "@tailwindcss/typography": "0.4.1",
-    "@tryghost/content-api": "1.5.14",
+    "@tryghost/content-api": "1.5.15",
     "@xstate/fsm": "1.6.2",
     "@xstate/react": "1.6.2",
     "autoprefixer": "10.4.0",
