@@ -11,6 +11,7 @@ const techLinks = [
   { label: 'gRPC', href: 'was-ist/grpc' },
   { label: '.NET', href: 'was-ist/dot-net' },
   { label: 'Progressive Web App (PWA)', href: 'was-ist/pwa' },
+  { label: 'Flutter', href: 'was-ist/flutter' },
 ];
 
 const managementLinks = [

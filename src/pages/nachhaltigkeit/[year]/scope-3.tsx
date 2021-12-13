@@ -90,7 +90,7 @@ const Scope3: NextPage<Props> = ({
                       style={
                         {
                           '--size': totalEmissionenCalculated,
-                          'transform-origin': 'left',
+                          transformOrigin: 'left',
                           animation: 'revealing-rows 8s linear infinite',
                         } as CSSProperties
                       }
