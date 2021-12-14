@@ -30,7 +30,7 @@ const getAllRoutes = (dirPath = './src/pages', arrayOfFiles = []) => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
   const routesToCheck = getAllRoutes();
-  const errorsAndWarnings = new Set();
+  const errorsAndWarnings = {};
   let routeIndex = 0;
 
   page.on('console', (msg) => {
@@ -39,7 +39,7 @@ const getAllRoutes = (dirPath = './src/pages', arrayOfFiles = []) => {
       (msg.type() === 'error' || msg.type() === 'warning') &&
       ignoreListErrors.every((ignore) => !msg.text().includes(ignore))
     ) {
-      errorsAndWarnings.add(`/${routesToCheck[routeIndex]}`);
+      errorsAndWarnings[`/${routesToCheck[routeIndex]}`] = msg.text();
     }
   });
 
@@ -68,8 +68,13 @@ const getAllRoutes = (dirPath = './src/pages', arrayOfFiles = []) => {
     await browser.close();
   }
 
-  if (errorsAndWarnings.size > 0) {
-    console.error(`Errors or warnings found in console on routes:\n${Array.from(errorsAndWarnings).join('\n')}\n`);
+  if (Object.keys(errorsAndWarnings).length > 0) {
+    console.error(
+      `Errors or warnings found in console on routes:\n${Object.keys(errorsAndWarnings).reduce(
+        (prev, curr) => `${prev}\n${curr}: ${errorsAndWarnings[curr]}`,
+        ''
+      )}\n`
+    );
     process.exitCode = 1;
   }
 })();
