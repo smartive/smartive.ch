@@ -44,30 +44,6 @@ const Jobs: NextPage<Props> = ({ contact, images }) => {
       <main>
         <PageSection>
           <Grid cols={2}>
-            <NextContentCard
-              label="Bist du's?"
-              title="Projektleiter*in"
-              content="Für dich ist das Internet kein #neuland, sondern du hast Erfahrung mit der Software-Entwicklung, egal ob als Projektleiter*in oder als Entwickler*in. Du liebst es, mit Menschen zu kommunizieren, egal ob Kund*innen oder Team-Mitglieder, und weisst, wie du deine Botschaft rüberbringst."
-              background="mint"
-              link={{
-                label: 'Bewirb dich jetzt!',
-                href: 'https://smartive.join.com/jobs/3181748-projektleiter-in-bei-smartive',
-                newTab: true,
-              }}
-              onClick={() =>
-                plausible('Job Click', {
-                  props: {
-                    extUrl: 'https://smartive.join.com/jobs/3181748-projektleiter-in-bei-smartive',
-                    currentUrl: window?.location.toString(),
-                    title: 'Projektleiter*in',
-                  },
-                })
-              }
-            />
-          </Grid>
-        </PageSection>
-        <PageSection>
-          <Grid cols={2}>
             <div className="hidden md:block md:row-span-2 relative">
               <PlaceholderImage
                 image={images.mittag}
