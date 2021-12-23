@@ -148,5 +148,15 @@
     },
     "image": "/images/projekte/bin-app/tablet.jpg",
     "imageAlt": "binApp Preview"
+  },
+  "optimatik": {
+    "label": "Optimatik AG",
+    "title": "SaaS aus der Cloud",
+    "link": {
+      "label": "Projekt anschauen",
+      "href": "/projekte/optimatik"
+    },
+    "image": "/images/projekte/optimatik/solar-energy.jpg",
+    "imageAlt": "Photovoltaik Anlage auf einem Feld."
   }
 }

@@ -89,5 +89,10 @@
     "portrait": "/images/portraits/lauro-boeni.jpg",
     "text": "Das Mentoring erlaubt es uns, einerseits vom fundierten Wissen und den vielfältigen Erfahrungen des smartive Teams zu profitieren und gleichzeitig bei uns intern im Team das notwendige Know-How nachhaltig aufzubauen und zu vertiefen.",
     "credit": "Lauro Böni, Co-Founder Kasparund AG"
+  },
+  "hans-optimatik": {
+    "portrait": "/images/portraits/hans-keller.png",
+    "text": "Unmittelbar nach dem Start des Projekts hatten wir mit smartive einen Partner, der mit hervorragender Erfahrung auf unsere Bedürfnisse eingegangen ist. Die Aufgaben konnten wir somit trotz engem Terminplan mühelos erledigen.",
+    "credit": "Hans Keller, Leiter Entwicklung & Technik Optimatik AG"
   }
 }

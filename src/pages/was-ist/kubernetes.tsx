@@ -1,10 +1,18 @@
 import { Copy, Explainer, Grid, Heading3, Link, PageSection, Screenshot, TextBlock, UnorderedList } from '@smartive/guetzli';
+import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
+import { NextImageCard } from '../../components/image-card';
 
 import { PageHeader } from '../../compositions/page-header';
+import { Teaser, transformTeaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 
-const Kubernetes = () => (
+type Props = {
+  teasers: Teaser[];
+};
+
+const Kubernetes: NextPage<Props> = ({ teasers }) => (
   <Page>
     <PageHeader
       markdownTitle="_Kubernetes_: Deployments unter Kontrolle"
@@ -99,6 +107,15 @@ const Kubernetes = () => (
         </Copy>
       </PageSection>
 
+      <PageSection title="Unsere Erfahrung">
+        <Copy>Wir haben Kubernetes schon bei mehreren Projekten eingesetzt, unter anderem:</Copy>
+        <Grid cols={3}>
+          {teasers.map((teaser) => (
+            <NextImageCard key={teaser.title} {...teaser} />
+          ))}
+        </Grid>
+      </PageSection>
+
       <PageSection title="Monitoring">
         <Copy>
           Ein gutes Monitoring setzt <strong>Observability</strong> voraus, also Verfahren, um einen Einblick in den
@@ -174,5 +191,16 @@ const Kubernetes = () => (
     </main>
   </Page>
 );
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const teasers = await Promise.all(
+    [Teasers['ofpg'], Teasers['kaspar'], Teasers['optimatik']].map(async (teaser) => await transformTeaser(teaser))
+  );
+  return {
+    props: {
+      teasers,
+    },
+  };
+};
 
 export default Kubernetes;
