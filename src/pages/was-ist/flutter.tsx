@@ -30,8 +30,7 @@ const PWA = () => (
           <Link href="https://developer.apple.com/swift/" newTab>
             Swift
           </Link>
-          . Heisst: wir machen die ganze Arbeit dann zwei Mal. Und brauchen doppelt so lange. Und brauchen 200% Batzeli 🙈 so
-          teuer. 🙈
+          . Heisst: wir machen die ganze Arbeit dann zwei Mal. Und brauchen doppelt so lange. Und brauchen 200% Batzeli 🙈
         </Copy>
         <Copy>
           Damit wir uns das sparen können, gibt es verschiedene Technologien, die Doppelspurigkeiten unnötig machen.{' '}
