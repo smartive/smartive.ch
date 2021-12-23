@@ -138,5 +138,15 @@
     },
     "image": "/images/projekte/kasparund/kaspar-card.png",
     "imageAlt": "Kasparund Beispiel Kreditkarte"
+  },
+  "binapp": {
+    "label": "bin-Eigenverlag",
+    "title": "Das Lehrbuch in der Tasche. Und digital",
+    "link": {
+      "label": "Projekt anschauen",
+      "href": "/projekte/bin-app"
+    },
+    "image": "/images/projekte/bin-app/tablet.jpg",
+    "imageAlt": "binApp Preview"
   }
 }
