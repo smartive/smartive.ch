@@ -20,7 +20,7 @@
     "@tryghost/content-api": "1.5.16",
     "@xstate/fsm": "1.6.2",
     "@xstate/react": "1.6.3",
-    "autoprefixer": "10.4.0",
+    "autoprefixer": "10.4.1",
     "blobs": "2.2.0",
     "body-scroll-lock": "3.1.5",
     "charts.css": "0.9.0",
