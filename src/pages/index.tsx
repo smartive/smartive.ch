@@ -1,6 +1,5 @@
 import { BlobVariations, Copy, GridSlider, LinkList, PageSection } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { usePlausible } from 'next-plausible';
 import NextLink from 'next/link';
 import React from 'react';
 import { Contact } from '../components/contact';
@@ -21,7 +20,6 @@ import Quotes from '../data/quotes.json';
 import { PlaceholderImage } from '../elements/placeholder-image';
 import { Page } from '../layouts/page';
 import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
-import { PlausibleEvents } from '../utils/tracking';
 
 const STATIC_IMAGES = {
   main: '/images/mood/YB_07015.jpg',
@@ -38,8 +36,6 @@ type Props = {
 };
 
 const Home: NextPage<Props> = ({ contact, customers, quote, packages, images }) => {
-  const plausible = usePlausible<PlausibleEvents>();
-
   return (
     <Page>
       <PageHeader

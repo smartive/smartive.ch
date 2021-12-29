@@ -1,20 +1,19 @@
-import {
-  Button,
-  ButtonLink,
-  Card,
-  Copy,
-  Heading2,
-  Input,
-  Label,
-  Link,
-  LinkButton,
-  Textarea,
-  Tooltip,
-} from '@smartive/guetzli';
+import { Button, Card, Copy, Heading2, Input, Label, Link, LinkButton, Textarea, Tooltip } from '@smartive/guetzli';
 import { useMachine } from '@xstate/react';
 import { AnimatePresence, domMax, LazyMotion, m as motion } from 'framer-motion';
-import React, { Children, cloneElement, FC, PropsWithChildren, ReactElement, useMemo, useRef, useState } from 'react';
-import { StateMachine } from 'xstate';
+import React, {
+  Children,
+  cloneElement,
+  FC,
+  PropsWithChildren,
+  ReactElement,
+  ReactNode,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
+import { State, StateMachine } from 'xstate';
+import { getMeta } from '../machines/get-meta';
 import type { QuizEvent } from '../machines/interactive-quiz';
 
 const Stack: FC = ({ children }) => (
@@ -27,9 +26,10 @@ const Stack: FC = ({ children }) => (
 
 type Props = {
   machine: StateMachine<unknown, unknown, QuizEvent>;
+  render: (state: State<unknown>, machine: StateMachine<unknown, unknown, QuizEvent>) => ReactNode;
 };
 
-export const InteractiveQuiz: FC<Props> = ({ machine }) => {
+export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
   const [state, send] = useMachine(machine);
   const ref = useRef(null);
 
@@ -84,11 +84,9 @@ export const InteractiveQuiz: FC<Props> = ({ machine }) => {
     []
   );
 
-  const getMeta = (field: string) => state.meta[`${machine.id}.${state.value}`]?.[field];
-
-  const title = getMeta('title');
-  const copy = getMeta('copy');
-  const form = getMeta('form');
+  const title = getMeta('title', { machine, state });
+  const copy = getMeta('copy', { machine, state });
+  const form = getMeta('form', { machine, state });
 
   if (state.matches('error'))
     return (
@@ -133,30 +131,18 @@ export const InteractiveQuiz: FC<Props> = ({ machine }) => {
                       onContinue={({ name, email, phone }) => send({ type: 'ADD_CONTACT', name, email, phone })}
                     />
                   </>
-                ) : state.matches('callback') ? (
-                  <>
-                    <div className="mb-8" />
-                    <Heading2 className="max-w-prose">{getMeta('title')}</Heading2>
-                    {getMeta('copy') && <Copy>{getMeta('copy')}</Copy>}
-                    <Copy>
-                      {state.meta[machine.id].responsible.firstname} würde sich gerne mit dir zum Thema{' '}
-                      {state.meta[machine.id].topic} austauschen. Mit dem Button unten kannst du direkt einen Termin buchen.
-                      Und wenn nicht, wird sich {state.meta[machine.id].responsible.firstname} bald bei dir melden.
-                    </Copy>
-                    <ButtonLink newTab className="text-center" href={state.meta[machine.id].calendar_link}>
-                      Jetzt Termin buchen
-                    </ButtonLink>
-                  </>
+                ) : state.done ? (
+                  render(state, machine)
                 ) : (
                   <>
-                    {!state.matches('existing') && (
+                    {!state.matches(machine.initial) && (
                       <LinkButton onClick={() => send('BACK')} className="mb-8 block mt-8">
                         Zurück
                       </LinkButton>
                     )}
                     <div className="mb-8" />
                     <Heading2 className="max-w-prose">{title}</Heading2>
-                    {getMeta('copy') && <Copy>{copy}</Copy>}
+                    {getMeta('copy', { machine, state }) && <Copy>{copy}</Copy>}
                     {form?.type === 'stack' ? (
                       <Stack>{form?.options.map(({ element, ...option }) => Options[element](option))}</Stack>
                     ) : form?.type === 'text' ? (

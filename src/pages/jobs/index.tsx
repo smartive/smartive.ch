@@ -1,16 +1,13 @@
 import { Copy, Grid, PageSection } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { usePlausible } from 'next-plausible';
 import React from 'react';
 import { Contact } from '../../components/contact';
-import { NextContentCard } from '../../components/content-card';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee, transformEmployee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
-import { PlausibleEvents } from '../../utils/tracking';
 
 const STATIC_IMAGES = {
   meeting: '/images/mood/gruppen-meeting.jpg',
@@ -24,8 +21,6 @@ type Props = {
 };
 
 const Jobs: NextPage<Props> = ({ contact, images }) => {
-  const plausible = usePlausible<PlausibleEvents>();
-
   return (
     <Page>
       <PageHeader

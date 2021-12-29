@@ -1,4 +1,4 @@
-import { Copy, Explainer, Link, PageSection } from '@smartive/guetzli';
+import { Copy, Link, PageSection } from '@smartive/guetzli';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';

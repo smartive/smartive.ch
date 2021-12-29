@@ -1,51 +1,17 @@
 import { BlobVariations, Copy, Grid, Link, PageSection, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { usePlausible } from 'next-plausible';
 import NextLink from 'next/link';
 import React from 'react';
-import { NextContentCard } from '../components/content-card';
-import { Testimonial } from '../components/testimonial';
-import { PageHeader } from '../compositions/page-header';
-import Employees from '../data/employees.json';
-import { Quote, transformQuote } from '../data/quotes';
-import Quotes from '../data/quotes.json';
-import { PlaceholderImage } from '../elements/placeholder-image';
-import { Page } from '../layouts/page';
-import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
-import { PlausibleEvents } from '../utils/tracking';
-
-const textBlocks = [
-  {
-    title: 'Advice Process',
-    content:
-      'Bei smartive können alle Entscheide treffen – zu jedem Thema. Vorausgesetzt, sie hören sich zuerst das Feedback der betroffenen Personen an und übernehmen die Verantwortung für die Entscheidung. Dafür nutzen wir den Advice Process.',
-  },
-  {
-    title: 'Weiterbildung',
-    content:
-      'Digitale Technologien sind unsere Leidenschaft. Darum stehen allen Mitarbeitenden jährlich 12.5 Tage oder 12’500 Fr. für Fortbildung zur freien Verfügung. Einmal im Monat lassen wir uns von einer Kollegin oder einem Kollegen etwas vorstellen – sei es ein neues Frontend-Framework oder Meditationstechniken.',
-  },
-  {
-    title: 'Code Retreat',
-    content:
-      'Einmal im Jahr ziehen wir uns ein paar Tage zurück, um uns mit Themen auseinanderzusetzen, die uns am Herzen liegen – von AI bis Bierbrauen, von Supernova bis Design Sprint, von technisch über alltäglich bis hin zu wissenschaftlich. Der Code Retreat bietet Raum für Diskussionen und ermöglicht das Zusammensein ausserhalb des Büros.',
-  },
-  {
-    title: 'Lohn & Bonus',
-    content:
-      'Wir verhandeln keine Löhne, sondern setzen auf ein transparentes, faires Lohnsystem: Lohn = Basislohn + Ausbildung + Erfahrung + Firmentreue. Dazu kommt mindestens ein Drittel des Gewinns zu gleichen Teilen allen Mitarbeitenden zugute.',
-  },
-  {
-    title: 'Organisiert auf Augenhöhe',
-    content:
-      'Wir pflegen eine Kommunikation auf Augenhöhe. Eine offene Feedback-Kultur schafft Raum für Innovation und Kreativität. ',
-  },
-  {
-    title: 'Vaterschaftsurlaub',
-    content:
-      'Zwei Wochen Vaterschaftsurlaub sind schön. Besser finden wir allerdings vier Wochen, wie es bei uns gehandhabt wird. ',
-  },
-];
+import { NextContentCard } from '../../components/content-card';
+import { Testimonial } from '../../components/testimonial';
+import { PageHeader } from '../../compositions/page-header';
+import TextBlocks from '../../data/benefits.json';
+import Employees from '../../data/employees.json';
+import { Quote, transformQuote } from '../../data/quotes';
+import Quotes from '../../data/quotes.json';
+import { PlaceholderImage } from '../../elements/placeholder-image';
+import { Page } from '../../layouts/page';
+import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 
 const STATIC_IMAGES = {
   dife: '/images/mood/dominique-lab-finger.jpg',
@@ -64,8 +30,6 @@ type Props = {
 };
 
 const Agentur: NextPage<Props> = ({ quote, images }) => {
-  const plausible = usePlausible<PlausibleEvents>();
-
   return (
     <Page>
       <PageHeader
@@ -116,7 +80,7 @@ const Agentur: NextPage<Props> = ({ quote, images }) => {
             />
           </Grid>
           <Grid cols={3}>
-            {textBlocks.map(({ title, content }) => (
+            {TextBlocks.map(({ title, content }) => (
               <TextBlock key={title} title={title}>
                 {content}
               </TextBlock>

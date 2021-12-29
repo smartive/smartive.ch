@@ -94,5 +94,11 @@
     "portrait": "/images/portraits/hans-keller.png",
     "text": "Unmittelbar nach dem Start des Projekts hatten wir mit smartive einen Partner, der mit hervorragender Erfahrung auf unsere Bedürfnisse eingegangen ist. Die Aufgaben konnten wir somit trotz engem Terminplan mühelos erledigen.",
     "credit": "Hans Keller, Leiter Entwicklung & Technik Optimatik AG"
+  },
+  "dominique-lohn": {
+    "portrait": "/images/employees/portraits/dominique.jpg",
+    "excerpt": "Du hast eine Idee? Dann machs!",
+    "text": "Nach (fast) 6 Jahren bin ich noch dabei, weil wir die Möglichkeit haben zu experimentieren und dann anzupassen, was nicht so funktioniert, wie gedacht. Vorallem aber weil jede*r einzelne etwas anreisen kann — ohne jegliche (unnötige!) Hierarchie und Vorgesetzte, die das absegnen müssen.",
+    "credit": "Dominique, schon echt lange dabei"
   }
 }

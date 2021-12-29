@@ -367,6 +367,6 @@ export const machine = createMachine<Context, QuizEvent, State>({
         onError: 'error',
       },
     },
-    callback: { meta: { title: 'Das klingt alles super interessant.' } },
+    callback: { type: 'final', meta: { title: 'Das klingt alles super interessant.' } },
   },
 });
