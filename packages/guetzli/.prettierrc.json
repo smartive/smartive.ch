@@ -1,0 +1,1 @@
+"@smartive/prettier-config"

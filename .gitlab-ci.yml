@@ -4,6 +4,10 @@ include:
     ref: v4.0.0
     file: "/all-templates.yml"
 
+stages:
+  - test
+  - release
+
 .default_template:
   extends: .base
   image: node:16-alpine
@@ -15,41 +19,27 @@ include:
   before_script:
     - npm ci
 
-.deploy_template:
-  extends: .default_template
-  stage: deploy
-  before_script:
-    - cd apps/website
-    - npm i -g vercel
-
 linting:
   extends: .test_template
   script:
     - npm run lint
+  only:
+    - merge_requests
 
 tests:
   extends: .test_template
   script:
     - cd apps/website
     - npm run test:ci
+  only:
+    - merge_requests
 
-test build:
-  extends: .test_template
+publish:
+  extends: .create-release
+  stage: release
+  before_script:
+    - npm ci
   script:
-    - npm run build
-  rules:
-    - if: '$CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^renovate\//'
-
-deploy preview:
-  extends: .deploy_template
-  script:
-    - vercel --token $VERCEL_TOKEN --confirm --scope smartive
-  rules:
-    - if: '$CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME !~ /^renovate\//'
-
-deploy production:
-  extends: .deploy_template
-  script:
-    - vercel --token $VERCEL_TOKEN --confirm --scope smartive --prod
-  rules:
-    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+    - npm run publish
+  only:
+    - master
