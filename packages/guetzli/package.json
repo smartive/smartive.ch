@@ -87,7 +87,7 @@
     "microbundle": "^0.13.0",
     "postcss": "^8.2.10",
     "postcss-import": "^14.0.1",
-    "prettier": "^2.2.1",
+    "prettier": "^2.5.1",
     "semantic-release": "^18.0.1",
     "tailwindcss": "^2.1.1",
     "typescript": "^4.1.4"

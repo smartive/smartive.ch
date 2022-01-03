@@ -17,11 +17,11 @@ import { Heading1, Copy, ... } from '@smartive/guetzli';
 These components require [TailwindCSS](https://tailwindcss.com/) to be installed in your project and your `tailwind.config.js` to be configured like so:
 
 ```js
-const guetzliConfig = require("@smartive/guetzli/config");
+const guetzliConfig = require('@smartive/guetzli/config');
 
 module.exports = guetzliConfig.tailwindConfig({
   // your project specific config
-  purge: ["./src/**/*.{js,ts,jsx,tsx}"],
+  purge: ['./src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {},
   },
@@ -33,7 +33,7 @@ module.exports = guetzliConfig.tailwindConfig({
 Additionally import the css from the package **at the top** of your tailwind-css file:
 
 ```css
-@import "@smartive/guetzli/styles/guetzli.css";
+@import '@smartive/guetzli/styles/guetzli.css';
 
 @tailwind base;
 @tailwind components;
@@ -49,11 +49,7 @@ npm install -D postcss-import
 ```js
 // postcss.config.js
 module.exports = {
-  plugins: [
-    require("postcss-import"),
-    require("tailwindcss"),
-    require("autoprefixer"),
-  ],
+  plugins: [require('postcss-import'), require('tailwindcss'), require('autoprefixer')],
 };
 ```
 
@@ -64,7 +60,7 @@ Some components (like `Tooltip`) use [Framer-Motion](https://www.framer.com/moti
 This means you need to manually load Framer-Motion Features in your Project-Root. This library only uses the `domAnimation` feature:
 
 ```ts
-import { LazyMotion, domAnimation } from "framer-motion";
+import { LazyMotion, domAnimation } from 'framer-motion';
 
 const App = ({ children }) => (
   <LazyMotion strict features={domAnimation}>
@@ -77,7 +73,7 @@ const App = ({ children }) => (
 
 ```sh
 npm ci
-npm run develop
+npm run storybook
 ```
 
 If new components are added make sure the component gets exported properly through the `index.ts` files in the respective folders. The `index.ts` files can be generated using:
