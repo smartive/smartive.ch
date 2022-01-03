@@ -1,12 +1,8 @@
 include:
-  - template: 'Workflows/MergeRequest-Pipelines.gitlab-ci.yml'
-  - project: 'smartive/ci-templates'
+  - template: "Workflows/MergeRequest-Pipelines.gitlab-ci.yml"
+  - project: "smartive/ci-templates"
     ref: v4.0.0
-    file: '/all-templates.yml'
-
-stages:
-  - test
-  - deploy
+    file: "/all-templates.yml"
 
 .default_template:
   extends: .base
@@ -23,13 +19,18 @@ stages:
   extends: .default_template
   stage: deploy
   before_script:
+    - cd apps/website
     - npm i -g vercel
+
+linting:
+  extends: .test_template
+  script:
+    - npm run lint
 
 tests:
   extends: .test_template
   script:
-    - npm run lint
-    - npm run check
+    - cd apps/website
     - npm run test:ci
 
 test build:
@@ -51,4 +52,4 @@ deploy production:
   script:
     - vercel --token $VERCEL_TOKEN --confirm --scope smartive --prod
   rules:
-    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"

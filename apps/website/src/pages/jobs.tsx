@@ -1,13 +1,13 @@
 import { Copy, Grid, PageSection } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { Contact } from '../../components/contact';
-import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
-import Employees from '../../data/employees.json';
-import { PlaceholderImage } from '../../elements/placeholder-image';
-import { Page } from '../../layouts/page';
-import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
+import { Contact } from '../components/contact';
+import { PageHeader } from '../compositions/page-header';
+import { Employee, transformEmployee } from '../data/employees';
+import Employees from '../data/employees.json';
+import { PlaceholderImage } from '../elements/placeholder-image';
+import { Page } from '../layouts/page';
+import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
 
 const STATIC_IMAGES = {
   meeting: '/images/mood/gruppen-meeting.jpg',
