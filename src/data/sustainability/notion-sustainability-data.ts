@@ -1,5 +1,7 @@
 import { Client } from '@notionhq/client';
-import { Filter } from '@notionhq/client/build/src/api-types';
+import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints';
+
+type Filter = Extract<QueryDatabaseParameters, { type: 'filter' }>;
 
 const NOTION_SUSTAINABILITY_DB_ID = '3e8b4f5b342f49b7a79ab2981255864d';
 

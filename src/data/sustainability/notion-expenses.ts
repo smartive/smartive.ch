@@ -1,5 +1,7 @@
 import { Client } from '@notionhq/client';
-import { Filter } from '@notionhq/client/build/src/api-types';
+import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints';
+
+type Filter = Extract<QueryDatabaseParameters, { type: 'filter' }>;
 
 const NOTION_EXPENSES_ID = 'dc4e4aa586be4caeb29d1222042a70f1';
 

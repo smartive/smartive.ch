@@ -1,7 +1,9 @@
 import { Client } from '@notionhq/client';
-import { Filter } from '@notionhq/client/build/src/api-types';
+import { QueryDatabaseParameters } from '@notionhq/client/build/src/api-endpoints';
 
 const NOTION_BUSINESS_TRAVEL_DB_ID = 'f5599a5e52ab413f9617737906bca81b';
+
+type Filter = Extract<QueryDatabaseParameters, { type: 'filter' }>;
 
 export const getNotionBusinessTravel = async (year?: number): Promise<BusinessTravels[]> => {
   const notion = new Client({ auth: process.env.NOTION_TOKEN });
