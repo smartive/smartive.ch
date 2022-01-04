@@ -1,7 +1,7 @@
 import React, { forwardRef, ReactNode } from 'react';
-import { PositionX, PositionY } from '../elements/blob';
-import { Heading3 } from '../identity/heading-3';
-import { BrandColor } from '../utils/colors';
+import { PositionX, PositionY } from '../foundation/blobs/blob';
+import { BrandColor } from '../foundation/colors/colors';
+import { Heading3 } from '../foundation/typography/heading-3';
 import { Card } from './card';
 
 export type ContentCardProps = {

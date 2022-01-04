@@ -3,6 +3,11 @@ import '../styles/tailwind.css';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
+  options: {
+    storySort: {
+      order: ['Guides', 'Foundation', ['Logo', 'Colors', 'Typography', 'Iconography', 'Layout'], 'Examples', 'Components'],
+    },
+  },
   controls: {
     matchers: {
       date: /Date$/,

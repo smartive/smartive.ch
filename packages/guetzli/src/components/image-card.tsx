@@ -1,7 +1,7 @@
 import React, { forwardRef, ReactNode } from 'react';
 import { Tag, Tags } from '../components/tags';
-import { Heading2 } from '../identity/heading-2';
-import { Heading3 } from '../identity/heading-3';
+import { Heading2 } from '../foundation/typography/heading-2';
+import { Heading3 } from '../foundation/typography/heading-3';
 
 export enum ImageCardVariants {
   Big = 'Big',

@@ -2,12 +2,12 @@ import { create } from '@storybook/theming';
 
 export default create({
   base: 'light',
-  brandTitle: 'smartive Guetzli',
-  brandUrl: 'https://smartive.ch',
+  brandTitle: 'smartive™ 🍪',
+  brandUrl: 'https://smartive.ch/brand',
 
-  appContentBg: '#F8F7F5',
-  appBg: 'white',
-  barBg: 'white',
+  appContentBg: 'white',
+  appBg: '#F8F7F5',
+  barBg: '#F8F7F5',
 
   colorPrimary: '#F8935A',
   colorSecondary: '#6986E8',

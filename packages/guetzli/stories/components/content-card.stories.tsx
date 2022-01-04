@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import { ContentCard, ContentCardProps } from '../../src/components/content-card';
-import { BlobVariations } from '../../src/utils/blob-variations';
+import { BlobVariations } from '../../src/foundation/blobs/blob-variations';
 
 export default {
   title: 'Components/Content-Card',

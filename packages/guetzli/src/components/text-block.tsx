@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react';
-import { Link } from '../elements/link';
-import { Copy } from '../identity/copy';
-import { Heading3 } from '../identity/heading-3';
+import { Copy } from '../foundation/typography/copy';
+import { Heading3 } from '../foundation/typography/heading-3';
+import { Link } from './link';
 
 export type TextBlockProps = {
   title: string;

@@ -27,8 +27,8 @@
   ],
   "scripts": {
     "build": "microbundle --no-compress --jsx React.createElement --jsxImportSource React && microbundle -i src/tailwind-config.ts -o dist/config.js --no-pkg-main -f umd",
-    "develop": "start-storybook -p 6006 --no-manager-cache",
-    "build-storybook": "build-storybook",
+    "develop": "start-storybook -p 6006 --no-manager-cache --static-dir public",
+    "build-storybook": "build-storybook --static-dir public",
     "generate-index-files": "cti create ./src --fileexcludes tailwind-config.ts --excludes types --withoutbackup",
     "lint": "prettier --check src && eslint src",
     "lint:fix": "prettier --write src && eslint src --fix",
@@ -72,6 +72,7 @@
     "@smartive/eslint-config": "^2.0.0",
     "@smartive/prettier-config": "^3.0.0",
     "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-docs": "^6.4.9",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
     "@storybook/addon-postcss": "^2.0.0",

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { Blob, PositionX, PositionY } from '../elements/blob';
-import { BrandColor, getContrastColor, mapColorToBG } from '../utils/colors';
+import { Blob, PositionX, PositionY } from '../foundation/blobs/blob';
+import { BrandColor, getContrastColor, mapColorToBG } from '../foundation/colors/colors';
 
 export type CardProps = {
   blobs?: { color: BrandColor; positionX: PositionX; positionY: PositionY }[];

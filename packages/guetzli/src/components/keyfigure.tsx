@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { BrandColor, mapColorToBG } from '../utils/colors';
+import { BrandColor, mapColorToBG } from '../foundation/colors/colors';
 
 export enum ImagePosition {
   before = 'before',
