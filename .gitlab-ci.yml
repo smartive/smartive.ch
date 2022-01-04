@@ -1,8 +1,8 @@
 include:
-  - template: "Workflows/MergeRequest-Pipelines.gitlab-ci.yml"
-  - project: "smartive/ci-templates"
+  - template: 'Workflows/MergeRequest-Pipelines.gitlab-ci.yml'
+  - project: 'smartive/ci-templates'
     ref: v4.0.0
-    file: "/all-templates.yml"
+    file: '/all-templates.yml'
 
 stages:
   - test
@@ -11,7 +11,7 @@ stages:
 
 .default_template:
   extends: .base
-  image: node:16
+  image: node:16-alpine
 
 .test_template:
   extends: .default_template
@@ -37,20 +37,9 @@ linting:
 tests:
   extends: .test_template
   script:
-    - cd apps/website
     - npm run test:ci
   only:
     - merge_requests
-
-publish:
-  extends: .default_template
-  stage: release
-  before_script:
-    - npm ci
-  script:
-    - npm run publish
-  only:
-    - main
 
 deploy preview:
   extends: .deploy_template
@@ -64,4 +53,4 @@ deploy production:
   script:
     - npm run deploy:production
   rules:
-    - if: "$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH"
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'

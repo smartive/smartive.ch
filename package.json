@@ -1,50 +1,60 @@
 {
-  "name": "turbo-smartive",
-  "version": "0.0.0",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
+  "name": "smartive-website-2021",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "develop": "turbo run develop --parallel",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "publish": "turbo run publish",
-    "deploy:preview": "turbo run deploy:preview",
-    "deploy:production": "turbo run deploy:production"
+    "develop": "next dev",
+    "build": "next build",
+    "postbuild": "next-sitemap --config next-sitemap.js",
+    "start": "next start",
+    "lint": "next lint --dir src && prettier --check src",
+    "analyze-bundle": "ANALYZE=true npm run build",
+    "test": "node test/check-page-errors.js",
+    "test:ci": "next dev & node test/check-page-errors.js",
+    "deploy:preview": "VERCEL_ORG_ID=$VERCEL_WEBSITE_ORG_ID VERCEL_PROJECT_ID=$VERCEL_WEBSITE_PROJECT_ID vercel --token $VERCEL_TOKEN --confirm --scope smartive",
+    "deploy:production": "VERCEL_ORG_ID=$VERCEL_WEBSITE_ORG_ID VERCEL_PROJECT_ID=$VERCEL_WEBSITE_PROJECT_ID vercel --token $VERCEL_TOKEN --confirm --scope smartive --prod"
+  },
+  "dependencies": {
+    "@notionhq/client": "0.4.11",
+    "@smartive/guetzli": "1.12.1",
+    "@tailwindcss/typography": "0.4.1",
+    "@tryghost/content-api": "1.5.16",
+    "@xstate/fsm": "1.6.3",
+    "@xstate/react": "1.6.3",
+    "autoprefixer": "10.4.1",
+    "blobs": "2.2.0",
+    "body-scroll-lock": "3.1.5",
+    "charts.css": "0.9.0",
+    "dayjs": "1.10.7",
+    "eslint-config-next": "12.0.7",
+    "framer-motion": "5.5.5",
+    "js-confetti": "0.10.2",
+    "motion": "10.4.0",
+    "next": "12.0.7",
+    "next-plausible": "3.1.4",
+    "plaiceholder": "2.2.0",
+    "postcss": "8.4.5",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-intersection-observer": "8.33.1",
+    "react-mailchimp-subscribe": "2.1.3",
+    "sharp": "0.29.3",
+    "tailwindcss": "2.2.19",
+    "xstate": "4.27.0"
   },
   "devDependencies": {
-    "prettier": "^2.5.1",
-    "turbo": "latest"
-  },
-  "turbo": {
-    "pipeline": {
-      "build": {
-        "dependsOn": [
-          "^build"
-        ],
-        "outputs": [
-          "dist/**",
-          ".next/**"
-        ]
-      },
-      "lint": {
-        "dependsOn": [
-          "build"
-        ],
-        "outputs": []
-      },
-      "publish": {
-        "dependsOn": [
-          "build"
-        ]
-      },
-      "deploy:preview": {},
-      "deploy:production": {},
-      "develop": {
-        "cache": false
-      }
-    }
+    "@next/bundle-analyzer": "12.0.7",
+    "@smartive/eslint-config": "3.0.1",
+    "@smartive/prettier-config": "3.0.0",
+    "@types/node": "14.18.4",
+    "@types/puppeteer": "5.4.4",
+    "@types/puppeteer-core": "5.4.0",
+    "@types/react": "17.0.38",
+    "@types/tryghost__content-api": "1.3.9",
+    "next-sitemap": "1.6.203",
+    "playwright": "1.17.1",
+    "postcss-import": "14.0.2",
+    "prettier": "2.5.1",
+    "typescript": "4.5.4"
   }
 }
