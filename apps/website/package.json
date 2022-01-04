@@ -10,7 +10,9 @@
     "lint": "next lint --dir src && prettier --check src",
     "analyze-bundle": "ANALYZE=true npm run build",
     "test": "node test/check-page-errors.js",
-    "test:ci": "next dev & node test/check-page-errors.js"
+    "test:ci": "next dev & node test/check-page-errors.js",
+    "deploy:preview": "VERCEL_ORG_ID=$VERCEL_WEBSITE_ORG_ID VERCEL_PROJECT_ID=$VERCEL_WEBSITE_PROJECT_ID vercel --token $VERCEL_TOKEN --confirm --scope smartive",
+    "deploy:production": "VERCEL_ORG_ID=$VERCEL_WEBSITE_ORG_ID VERCEL_PROJECT_ID=$VERCEL_WEBSITE_PROJECT_ID vercel --token $VERCEL_TOKEN --confirm --scope smartive --prod"
   },
   "dependencies": {
     "@notionhq/client": "0.4.11",

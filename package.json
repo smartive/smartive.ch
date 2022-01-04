@@ -10,7 +10,9 @@
     "develop": "turbo run develop --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "publish": "turbo run publish"
+    "publish": "turbo run publish",
+    "deploy:preview": "turbo run deploy:preview",
+    "deploy:production": "turbo run deploy:production"
   },
   "devDependencies": {
     "prettier": "^2.5.1",
@@ -38,6 +40,8 @@
           "build"
         ]
       },
+      "deploy:preview": {},
+      "deploy:production": {},
       "develop": {
         "cache": false
       }

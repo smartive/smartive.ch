@@ -32,7 +32,9 @@
     "generate-index-files": "cti create ./src --fileexcludes tailwind-config.ts --excludes types --withoutbackup",
     "lint": "prettier --check src && eslint src",
     "lint:fix": "prettier --write src && eslint src --fix",
-    "publish": "semantic-release --dry-run"
+    "publish": "semantic-release --dry-run",
+    "deploy:preview": "VERCEL_ORG_ID=$VERCEL_GUETZLI_ORG_ID VERCEL_PROJECT_ID=$VERCEL_GUETZLI_PROJECT_ID vercel --token $VERCEL_TOKEN --confirm --scope smartive",
+    "deploy:production": "VERCEL_ORG_ID=$VERCEL_GUETZLI_ORG_ID VERCEL_PROJECT_ID=$VERCEL_GUETZLI_PROJECT_ID vercel --token $VERCEL_TOKEN --confirm --scope smartive --prod"
   },
   "publishConfig": {
     "access": "public"
