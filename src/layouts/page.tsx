@@ -46,7 +46,7 @@ export const Page: FC = ({ children }) => {
           onHomeLinkContextMenu={() => (window.location.href = '/brand')}
         />
       </LazyMotion>
-      <div id="pageContent" className="lg:container lg:mx-auto px-4 pt-8 max-w-[100vw]">
+      <div id="pageContent" className="lg:container lg:mx-auto p-4 max-w-[100vw]">
         {children}
       </div>
     </div>

@@ -37,12 +37,6 @@ footer {
 }
 
 @layer utilities {
-  .rounded-clip {
-    clip-path: inset(0 0 0 0 round 1rem);
-  }
-  .rounded-full-clip {
-    clip-path: circle(50%);
-  }
   .break-words-clean {
     @apply break-words;
     word-break: break-word;
