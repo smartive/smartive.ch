@@ -38,21 +38,20 @@ export const EmployeeCard: FC<Props> = ({
         />
       </div>
       <div className="flex flex-col flex-1 p-8 font-sans font-normal text-xxs lg:text-sm">
-        <p className="mb-6" itemProp="jobTitle">
+        <p className="mb-2 lg:mb-6" itemProp="jobTitle">
           {job}
         </p>
-        <Heading3 itemProp="name">
+        <Heading3 className="text-base" itemProp="name">
           {firstname} {lastname}
         </Heading3>
         <p>{bio}</p>
-        <div className="flex flex-1 content-end flex-row flex-wrap mt-6">
+        <div className="flex flex-1 content-end flex-row flex-wrap mt-6 gap-x-4 gap-y-2">
           {links.map(({ label, url }) => {
             const itemProp = url.match(/^mailto:.+$/i) ? 'email' : 'sameAs';
 
             return (
               <Link
                 itemProp={itemProp}
-                className="mr-4 last:mr-0"
                 key={url}
                 href={url}
                 variant={LinkVariants.Default}
