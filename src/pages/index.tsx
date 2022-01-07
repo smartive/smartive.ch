@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, GridSlider, LinkList, PageSection } from '@smartive/guetzli';
+import { BlobVariations, Copy, GridSlider, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import React from 'react';
@@ -19,6 +19,7 @@ import { Quote, transformQuote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
 import { PlaceholderImage } from '../elements/placeholder-image';
 import { Page } from '../layouts/page';
+import { Section } from '../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
 
 const STATIC_IMAGES = {
@@ -52,7 +53,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages, images }) 
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <PlaceholderImage
             image={images.main}
             alt="Drei smartive Mitarbeiter beim Gespräch vor einem Computerbildschirm"
@@ -89,31 +90,31 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages, images }) 
               }}
             />
           </GridSlider>
-        </PageSection>
-        <PageSection title="Weiter gebracht haben wir unter anderem schon">
+        </Section>
+        <Section title="Weiter gebracht haben wir unter anderem schon">
           <CustomerList customers={customers} />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Testimonial quote={quote} blobs={BlobVariations.apricot[0]} />
-        </PageSection>
-        <PageSection title="Wir unterstützen dich, egal wie weit du schon bist.">
+        </Section>
+        <Section title="Wir unterstützen dich, egal wie weit du schon bist.">
           <Copy>
             In welcher Phase steckt dein Projekt? Mit unserer langjährigen Expertise unterstützen wir dich von der Idee bis
             über den Go-live hinaus.
           </Copy>
           <PackageList packages={packages} />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <NewsletterCard background="cornflower" blobs={BlobVariations.cornflower[2]} />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact}>
             <>
               Alles unklar? <br />
               Frag {contact.firstname}.
             </>
           </Contact>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

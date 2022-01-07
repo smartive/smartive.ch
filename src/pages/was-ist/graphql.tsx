@@ -1,4 +1,4 @@
-import { Copy, Explainer, Grid, Heading2, Keyfigure, PageSection, TextBlock, TextLink } from '@smartive/guetzli';
+import { Copy, Explainer, Grid, Heading2, Keyfigure, TextBlock, TextLink } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import React from 'react';
@@ -7,6 +7,7 @@ import { PageHeader } from '../../compositions/page-header';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 type Props = {
   teasers: Teaser[];
@@ -51,7 +52,7 @@ const GQL: NextPage<Props> = ({ teasers }) => (
         </Copy>
       </Keyfigure>
 
-      <PageSection title="GraphQL: Die maximal flexible API">
+      <Section title="GraphQL: Die maximal flexible API">
         <Copy>
           GraphQL ist geschaffen für flexiblen Datenaustausch – inklusive besserem Überblick, da alle Daten{' '}
           <Explainer title="zu jeder Eigenschaft ist hinterlegt, welchen Typs die Daten sind und ob zwingend oder optional">
@@ -89,9 +90,9 @@ const GQL: NextPage<Props> = ({ teasers }) => (
             konfrontiert sind.
           </TextBlock>
         </Grid>
-      </PageSection>
+      </Section>
 
-      <PageSection>
+      <Section>
         <Keyfigure background="cornflower">
           <Heading2>Caching? Klar doch!</Heading2>
           <Copy>
@@ -100,9 +101,9 @@ const GQL: NextPage<Props> = ({ teasers }) => (
             aktuellste Daten – zuverlässig und schnell.
           </Copy>
         </Keyfigure>
-      </PageSection>
+      </Section>
 
-      <PageSection title="Unsere Erfahrung">
+      <Section title="Unsere Erfahrung">
         <Copy>
           Unsere Community-Plattform <TextLink href="https://reactions.dev">Reactions</TextLink> setzt auf GraphQL. Beim
           Aufbau haben wir eine Menge Knowhow gesammelt – und darüber gebloggt:{' '}
@@ -114,15 +115,15 @@ const GQL: NextPage<Props> = ({ teasers }) => (
             GraphQL and Elasticsearch: A Love Letter
           </TextLink>
         </Copy>
-      </PageSection>
+      </Section>
 
-      <PageSection title="Hier steckt GraphQL drin">
+      <Section title="Hier steckt GraphQL drin">
         <Grid cols={2}>
           {teasers.map((teaser) => (
             <NextImageCard key={teaser.title} {...teaser} />
           ))}
         </Grid>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

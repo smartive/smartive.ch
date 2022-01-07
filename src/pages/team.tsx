@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, Grid, LinkList, PageSection } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import React from 'react';
@@ -11,6 +11,7 @@ import Employees from '../data/employees.json';
 import { Quote, transformQuote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
 import { Page } from '../layouts/page';
+import { Section } from '../layouts/section';
 
 type Props = {
   contact: Employee;
@@ -36,7 +37,7 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Grid cols={3}>
             {employees.slice(0, halfEmpl).map((employee) => (
               <EmployeeCard key={employee.email} employee={employee} />
@@ -48,8 +49,8 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
               <EmployeeCard key={employee.email} employee={employee} />
             ))}
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact}>
             <>
               New Work / Advice Process / Lohnformel 🤔 <br />
@@ -57,7 +58,7 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
               {contact.firstname} ist dein Leuchtturm.
             </>
           </Contact>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

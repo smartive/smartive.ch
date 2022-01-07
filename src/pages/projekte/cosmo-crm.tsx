@@ -1,14 +1,4 @@
-import {
-  BlobVariations,
-  Copy,
-  Grid,
-  ImageCard,
-  LinkList,
-  PageSection,
-  Screenshot,
-  TextBlock,
-  UnorderedList,
-} from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, ImageCard, LinkList, Screenshot, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
@@ -21,6 +11,7 @@ import Quotes from '../../data/quotes.json';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getRandomTeasers } from '../../utils/teasers';
 
 type Props = {
@@ -45,7 +36,7 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <div>
               <Screenshot
@@ -63,9 +54,9 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
               ]}
             />
           </Grid>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <TextBlock title="Die Herausforderung">
               Die Cosmopolitan Vermögensverwaltungs AG verwaltet nicht nur Vermögen, sondern auch eine Unmenge von Daten.
@@ -86,30 +77,30 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
               anpassen, folgen bald auch die Anpassungen an der Software.
             </TextBlock>
           </Grid>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Testimonial background="cornflower" blobs={BlobVariations.cornflower[4]} quote={quote} />
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <TextBlock title="Durchstarten mit Cosmopolitan 🚀">
             Cosmpolitan hat nun ein intuitives, performantes und übersichtliches CRM. Und nicht nur das: Es ist auch perfekt
             auf ihre Prozesse abgestimmt. Mit intelligenten Flows stellt unser System eine fehlerfreie und schnelle Erfassung
             von Daten sicher. Die automatisierten Reportings sparen dem Team von Comspolitan enorm viel Recherchearbeit.
           </TextBlock>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Contact contact={contact} />
-        </PageSection>
-        <PageSection title="Weitere Erfolgsgeschichten">
+        </Section>
+        <Section title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
             {teasers.map((teaser) => (
               <ImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

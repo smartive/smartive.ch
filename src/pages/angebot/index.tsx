@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, LinkList, PageSection, TextLink } from '@smartive/guetzli';
+import { BlobVariations, Copy, TextLink, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import React from 'react';
@@ -12,6 +12,7 @@ import Packages, { Package } from '../../data/packages';
 import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 type Props = {
   contact: Employee;
@@ -37,7 +38,7 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
       </PageHeader>
 
       <main>
-        <PageSection title="Unser Vorgehen">
+        <Section title="Unser Vorgehen">
           <Copy>
             Wir arbeiten agil. Klingt gut, hat aber auch gute Gründe: Wir möchten nicht die Katze im Sack verkaufen. Und wir
             möchten etwas schaffen, das dich, deine Kund*innen und uns überzeugt. Mit Scrum stellen wir sicher, dass dein
@@ -50,21 +51,21 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
               { label: 'Wie bitte, Scrum?', href: '/was-ist/agile' },
             ]}
           />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Testimonial quote={quote} background="cornflower" blobs={BlobVariations.cornflower[3]} />
-        </PageSection>
-        <PageSection title="Etwas für jede Projektphase.">
+        </Section>
+        <Section title="Etwas für jede Projektphase.">
           <Copy>
             Wir sind davon überzeugt, dass ein Produkt in den Händen der Nutzer*innen mehr wert ist als eines, das nie das
             Tageslicht erblickt. Unser Ziel besteht darin, dein Produkt so schnell wie möglich auf den Markt zu bringen.
           </Copy>
           <Copy>Klingt gut? Gerne unterstützen wie dich mit den folgenden Angeboten:</Copy>
           <PackageList packages={packages} />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact} />
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

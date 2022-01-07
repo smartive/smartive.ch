@@ -1,13 +1,14 @@
-import { Calendar, Copy, Heading2, ImageCard, ImageCardVariants, LinkList, PageSection } from '@smartive/guetzli';
+import { Calendar, Copy, Heading2, ImageCard, ImageCardVariants, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
+import NextLink from 'next/link';
 import React from 'react';
+import { PageHeader } from '../../compositions/page-header';
+import { Categories, getNotionCategories } from '../../data/sustainability/notion-categories';
 import { getNotionScopes, Scopes } from '../../data/sustainability/notion-scopes';
 import { LandingPage } from '../../layouts/landing-page';
+import { Section } from '../../layouts/section';
 import { ScopeNames, sortScope } from '../../utils/sustainability';
 import '../_app';
-import NextLink from 'next/link';
-import { Categories, getNotionCategories } from '../../data/sustainability/notion-categories';
-import { PageHeader } from '../../compositions/page-header';
 
 type Props = {
   scopes: Scopes[];
@@ -40,7 +41,7 @@ const Sustainabilty: NextPage<Props> = ({ scopes, categories }) => {
         <LinkList linkWrapper={NextLink} links={[{ label: 'Zurück zur Übersicht', href: '/nachhaltigkeit' }]} />
       </PageHeader>
       <main>
-        <PageSection>
+        <Section>
           <div id="ökobilanz">
             <Heading2>Ökobilanzierung</Heading2>
             <Copy>
@@ -74,8 +75,8 @@ const Sustainabilty: NextPage<Props> = ({ scopes, categories }) => {
             </ol>
             <br></br>
           </div>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <ImageCard
             className={'md:col-span-2 lg:col-span-3'}
             variant={ImageCardVariants.Wide}
@@ -95,8 +96,8 @@ const Sustainabilty: NextPage<Props> = ({ scopes, categories }) => {
             }}
             image={{ src: '/images/blog/linkedin/culture-day.jpg', alt: 'culture-day-2021' }}
           />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <div id="ghg">
             <Heading2>Greenhouse Gas Protocol</Heading2>
             <Copy>
@@ -130,7 +131,7 @@ const Sustainabilty: NextPage<Props> = ({ scopes, categories }) => {
               ))}
             </ul>
           </div>
-        </PageSection>
+        </Section>
       </main>
     </LandingPage>
   );

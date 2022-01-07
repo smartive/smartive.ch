@@ -12,7 +12,6 @@ import {
   Logo,
   mapColorToBG,
   mapColorToLightBG,
-  PageSection,
   TextLink,
 } from '@smartive/guetzli';
 import NextLink from 'next/link';
@@ -20,6 +19,7 @@ import React, { FC } from 'react';
 import { SlackTheme } from '../../components/slack-theme';
 import { PageHeader } from '../../compositions/page-header';
 import { LandingPage } from '../../layouts/landing-page';
+import { Section } from '../../layouts/section';
 
 const Brand: FC = () => (
   <LandingPage>
@@ -38,7 +38,7 @@ const Brand: FC = () => (
       />
     </PageHeader>
 
-    <PageSection>
+    <Section>
       <Copy>
         Die Brand Identity trägt unsere Werte und Persönlichkeit nach aussen. Sie besteht nebst unserem Namen und dem
         individuellen Auftreten aus dem visuellen Erscheinungsbild und dem sprachlichen Auftritt. Sie widerspiegelt unsere
@@ -67,9 +67,9 @@ const Brand: FC = () => (
           </Copy>
         </div>
       </Grid>
-    </PageSection>
+    </Section>
 
-    <PageSection>
+    <Section>
       <Heading2>Logo</Heading2>
       <Copy>
         Die Visual Identity arbeitet stark mit Farben und Mustern. Das Logo ist schlicht gehalten. Auf schwarzem Hintergrund
@@ -105,9 +105,9 @@ const Brand: FC = () => (
           <Logo className="h-8 sm:h-12 lg:h-24 w-auto z-10" />
         </div>
       </div>
-    </PageSection>
+    </Section>
 
-    <PageSection>
+    <Section>
       <Heading2>Farben</Heading2>
       <Copy>
         Es gibt keine Hauptfarbe – unsere Visual Identity lebt von der Kombination aus Apricot, Mint und Cornflower. Vollgas
@@ -169,9 +169,9 @@ const Brand: FC = () => (
           ]}
         />
       </ul>
-    </PageSection>
+    </Section>
 
-    <PageSection>
+    <Section>
       <Heading2>Typografie</Heading2>
       <Copy>Nicht jede Headline braucht eine Auszeichnung.</Copy>
       <Copy as="div">
@@ -207,9 +207,9 @@ const Brand: FC = () => (
           </div>
         </div>
       </div>
-    </PageSection>
+    </Section>
 
-    <PageSection>
+    <Section>
       <Heading2>Patterns & Blobs</Heading2>
       <Copy>
         Die Patterns und Blobs sind ein wichtiger Bestandteil unseres Brands – die Anwendung ist aber voll uncool. Sprich
@@ -229,7 +229,7 @@ const Brand: FC = () => (
           <img key={i} src={`images/brand/avatars/avatar${i + 1}.png`} alt="" className="rounded" />
         ))}
       </div>
-    </PageSection>
+    </Section>
   </LandingPage>
 );
 

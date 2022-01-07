@@ -8,7 +8,6 @@ import {
   Heading2,
   Label,
   PageHeaderVariants,
-  PageSection,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
@@ -23,6 +22,7 @@ import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 const DesignSprintQuiz = dynamic(() => import('../../components/design-sprint-quiz').then((mod) => mod.DesignSprintQuiz), {
   ssr: false,
@@ -60,7 +60,7 @@ const DesignSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Heading2>Was ist ein Design Sprint?</Heading2>
           <Copy>
             Du hast eine Marktlücke oder die Chance für einen Innovationssprung deines digitalen Produkts erkannt. Du bist
@@ -87,15 +87,15 @@ const DesignSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
               ]}
             />
           </div>
-        </PageSection>
-        <PageSection>{showQuiz ? <DesignSprintQuiz /> : <QuizPlaceholder onClick={() => setShowQuiz(true)} />}</PageSection>
-        <PageSection>
+        </Section>
+        <Section>{showQuiz ? <DesignSprintQuiz /> : <QuizPlaceholder onClick={() => setShowQuiz(true)} />}</Section>
+        <Section>
           <Contact contact={contact}>
             Fragen zum Ablauf des Design Sprints?
             <br /> {contact.firstname} hat Antworten!
           </Contact>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           {teasers.length > 0 && (
             <>
               <Heading2>Diese Projekte haben mit einem Design Sprint gestartet:</Heading2>
@@ -108,7 +108,7 @@ const DesignSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
           )}
           <Heading2>Und damit könnte es nach deinem Design Sprint weitergehen:</Heading2>
           <PackageList packages={packages} />
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

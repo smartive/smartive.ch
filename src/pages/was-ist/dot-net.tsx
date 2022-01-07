@@ -1,8 +1,8 @@
-import { Copy, Explainer, PageSection, UnorderedList } from '@smartive/guetzli';
+import { Copy, Explainer, UnorderedList } from '@smartive/guetzli';
 import React from 'react';
-
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 const DotNet = () => (
   <Page>
@@ -19,7 +19,7 @@ const DotNet = () => (
     </PageHeader>
 
     <main>
-      <PageSection title="Warum .NET?">
+      <Section title="Warum .NET?">
         <Copy>
           .NET steht unter anderem im Wettbewerb mit jüngeren Plattformen wie Node.js, ist aber vom Umfang her eher
           vergleichbar mit gut ausgebauten Plattformen wie Java. .NET ist attraktiv, da es eine breite Palette an{' '}
@@ -39,9 +39,9 @@ const DotNet = () => (
             ]}
           />
         </Copy>
-      </PageSection>
+      </Section>
 
-      <PageSection title="HTML-legende C#-Frameworksau">
+      <Section title="HTML-legende C#-Frameworksau">
         <Copy as="div">
           .NET bietet einen riesigen Umfang von Werkzeugen zur Erstellung von digitalen Produkten:
           <UnorderedList
@@ -53,7 +53,7 @@ const DotNet = () => (
             ]}
           />
         </Copy>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

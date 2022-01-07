@@ -1,30 +1,30 @@
-import { Copy, Explainer, Grid, Heading3, LinkList, PageSection, TextBlock } from '@smartive/guetzli';
+import { Copy, Explainer, Grid, Heading3, LinkList, TextBlock } from '@smartive/guetzli';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import NextLink from 'next/link';
+import React from 'react';
 import { NextBisectCard } from '../../../components/bisect-card';
+import { PageHeader } from '../../../compositions/page-header';
 import { getNotionBusinessTravel } from '../../../data/sustainability/notion-business-travel';
+import { Categories, getNotionCategories } from '../../../data/sustainability/notion-categories';
 import { getNotionEmployees } from '../../../data/sustainability/notion-employees';
 import { getNotionExpenses } from '../../../data/sustainability/notion-expenses';
+import { getNotionScopes, Scopes } from '../../../data/sustainability/notion-scopes';
 import { getNotionSustainabilityData } from '../../../data/sustainability/notion-sustainability-data';
 import { LandingPage } from '../../../layouts/landing-page';
-import '../../_app';
-
+import { Section } from '../../../layouts/section';
+import { brandColor } from '../../../utils/color';
 import {
   ALL_YEARS,
+  AVERAGE_SWISSPERSON_EMISSION,
   calculatedScopesFunction,
-  reduceByEnvironmentalImpact,
   getScope3,
   getScope3EnvironmentalImpact,
+  reduceByEnvironmentalImpact,
   ScopeNames,
   sortScope,
   TIMES_OR_DIVIDE_BY_1000,
-  AVERAGE_SWISSPERSON_EMISSION,
 } from '../../../utils/sustainability';
-import { getNotionScopes, Scopes } from '../../../data/sustainability/notion-scopes';
-import React from 'react';
-import NextLink from 'next/link';
-import { Categories, getNotionCategories } from '../../../data/sustainability/notion-categories';
-import { brandColor } from '../../../utils/color';
-import { PageHeader } from '../../../compositions/page-header';
+import '../../_app';
 
 type Props = {
   year: number;
@@ -80,7 +80,7 @@ const YearOverview: NextPage<Props> = ({ year: currentYear, calculatedScopes, li
         <Copy>Du möchtest Genaueres wissen? Wo wie was? Das findest du hier.</Copy>
         <LinkList linkWrapper={NextLink} links={links} />
       </PageHeader>
-      <PageSection>
+      <Section>
         <Heading3>Greenhouse Gas Protocol: Scopes </Heading3>
         <Grid cols={3}>
           {sortScope(calculatedScopes)
@@ -117,8 +117,8 @@ const YearOverview: NextPage<Props> = ({ year: currentYear, calculatedScopes, li
             }
           ></NextBisectCard>
         </Grid>
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Grid cols={2}>
           <TextBlock title="Schweizer*innen" number={Math.round(totalEmission / AVERAGE_SWISSPERSON_EMISSION)} unit="x 👨‍🌾👩‍🌾">
             {`Unser Emissionsausstoss im Jahr ${currentYear} entspricht dem Emissionsausstoss von ${Math.round(
@@ -152,7 +152,7 @@ const YearOverview: NextPage<Props> = ({ year: currentYear, calculatedScopes, li
             Emissionen wird für gekaufte Ware und Dienstleistungen ausgestossen.
           </TextBlock>
         </Grid>
-      </PageSection>
+      </Section>
     </LandingPage>
   );
 };

@@ -1,14 +1,4 @@
-import {
-  BlobVariations,
-  Clock,
-  Copy,
-  Grid,
-  Heading2,
-  Label,
-  PageHeaderVariants,
-  PageSection,
-  UnorderedList,
-} from '@smartive/guetzli';
+import { BlobVariations, Clock, Copy, Grid, Heading2, Label, PageHeaderVariants, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
@@ -20,6 +10,7 @@ import Packages from '../../data/packages';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 type Props = {
   contact: Employee;
@@ -44,7 +35,7 @@ const ScaleUp: NextPage<Props> = ({ contact, teasers }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Heading2>Was ist Scale Up?</Heading2>
           <Copy>
             Du hast dein Produkt als MVP am Markt. Du möchtest es entweder verbessern oder weiterentwickeln. Die angestrebten
@@ -69,18 +60,18 @@ const ScaleUp: NextPage<Props> = ({ contact, teasers }) => {
               ]}
             />
           </div>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact} />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Heading2>Skaliert haben wir unter anderem schon:</Heading2>
           <Grid cols={3}>
             {teasers.map((teaser) => (
               <NextImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

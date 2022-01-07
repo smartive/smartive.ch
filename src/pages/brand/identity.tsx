@@ -1,25 +1,26 @@
-import { Copy, Grid, Heading2, Heading3, PageSection } from '@smartive/guetzli';
+import { Copy, Grid, Heading2, Heading3 } from '@smartive/guetzli';
 import { NextPage } from 'next';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { LandingPage } from '../../layouts/landing-page';
+import { Section } from '../../layouts/section';
 
 const Identity: NextPage = () => (
   <LandingPage>
     <PageHeader markdownTitle="Unsere Brand _Identity_." description="Die Markenidentität von smartive." />
 
-    <PageSection>
+    <Section>
       <Heading2>Vision</Heading2>
       <Copy>Wir sind die gefragtesten Tekkies für webbasierte Herausforderungen in der Deutschschweiz.</Copy>
-    </PageSection>
-    <PageSection>
+    </Section>
+    <Section>
       <Heading2>Mission</Heading2>
       <Copy>
         smartive ist der Ort, wo wir in Freundschaft und Freiheit webbasierte Lösungen entwickeln, die unsere Kunden
         weiterbringen und uns stolz machen.
       </Copy>
-    </PageSection>
-    <PageSection>
+    </Section>
+    <Section>
       <Heading2>Kompetenz</Heading2>
       <Copy>
         „Smarties“ sind geradlinige Spezialisten für webbasierte Herausforderungen. Wir analysieren, beraten, konzipieren und
@@ -27,8 +28,8 @@ const Identity: NextPage = () => (
         Ansprechpartner, wenn es um massgeschneiderte digitale Produkte geht. Wir legen uns für Grossunternehmen genau so ins
         Zeug wie für Start-ups – Hauptsache, wir werden gefordert!
       </Copy>
-    </PageSection>
-    <PageSection>
+    </Section>
+    <Section>
       <Heading2>Werte</Heading2>
       <Grid cols={3}>
         <div>
@@ -47,8 +48,8 @@ const Identity: NextPage = () => (
           <Copy>Wir geben allen die Freiheit, sich zu entfalten und fördern individuelle Fähigkeiten.</Copy>
         </div>
       </Grid>
-    </PageSection>
-    <PageSection>
+    </Section>
+    <Section>
       <Heading2>Persönlichkeit</Heading2>
       <Grid cols={3}>
         <div>
@@ -73,15 +74,15 @@ const Identity: NextPage = () => (
           </Copy>
         </div>
       </Grid>
-    </PageSection>
-    <PageSection>
+    </Section>
+    <Section>
       <Heading2>Herkunft</Heading2>
       <Copy>
         Zwei Arbeitskollegen gründen ihr eigenes Unternehmen und schaffen einen Ort, an dem in Freundschaft und Freiheit so
         gearbeitet werden kann, wie sie es für ideal halten. Dass dem auch heute noch so ist, beweisen Beteiligungsstruktur,
         Mitspracherecht und ein sorgfältiger Umgang im Team. Eine Herkunft, die auch in Zukunft den Unterschied machen wird.
       </Copy>
-    </PageSection>
+    </Section>
   </LandingPage>
 );
 

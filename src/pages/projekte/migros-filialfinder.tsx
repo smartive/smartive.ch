@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, Grid, Heading3, Keyfigure, LinkList, PageSection, UnorderedList } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, Heading3, Keyfigure, LinkList, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
@@ -13,6 +13,7 @@ import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -49,7 +50,7 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers, images }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <PlaceholderImage
               image={images.supermarkt}
@@ -68,8 +69,8 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               height={383}
             />
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Keyfigure
             background="apricot"
             image={
@@ -93,9 +94,9 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               markerColor="cornflower"
             />
           </Keyfigure>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <PlaceholderImage
             image={images.flughafen}
             alt="Migros Filiale am Flughafen Zürich"
@@ -104,9 +105,9 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             width={1504}
             height={800}
           />
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Heading3>Aggregation und Vereinheitlichung im Backend</Heading3>
           <Copy>
             Um die Daten und Suchabfragen zu optimieren werden die Filialdaten über eine performante Web-Schnittstelle,
@@ -118,12 +119,12 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             effizient über eine JSON REST Schnittstelle ausgespielt werden. Um die Latenz der Schnittstelle zu verringern
             wird die API über Varnish gecached und ausgeliefert.
           </Copy>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Testimonial background="mint" blobs={BlobVariations.mint[1]} quote={quote} />
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <div>
             <Heading3>State-of-the-Art Architektur</Heading3>
             <Copy>
@@ -131,17 +132,17 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               erweiterbar. Zusätzliche Drittsysteme können problemlos in die Anwendung eingebunden werden.
             </Copy>
           </div>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact} />
-        </PageSection>
-        <PageSection title="Weitere Erfolgsgeschichten">
+        </Section>
+        <Section title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
             {teasers.map((teaser) => (
               <NextImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

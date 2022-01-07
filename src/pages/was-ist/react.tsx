@@ -1,8 +1,8 @@
-import { Copy, Explainer, Grid, PageSection, TextBlock, TextLink, UnorderedList } from '@smartive/guetzli';
+import { Copy, Explainer, Grid, TextLink, TextBlock, UnorderedList } from '@smartive/guetzli';
 import React from 'react';
-
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 const WasIstReact = () => (
   <Page>
@@ -23,7 +23,7 @@ const WasIstReact = () => (
     </PageHeader>
 
     <main>
-      <PageSection title="React plus X">
+      <Section title="React plus X">
         <Copy>
           React legt das Fundament für eine effiziente Entwicklung. Und es öffnet die Tür zu einem Dschungel von weiteren
           Libraries (wir nennen es Ökosystem), die darauf aufbauen oder sich sehr gut kombinieren lassen:
@@ -127,7 +127,7 @@ const WasIstReact = () => (
             </TextBlock>
           </div>
         </Grid>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

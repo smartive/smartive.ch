@@ -6,7 +6,6 @@ import {
   Heading2,
   Label,
   PageHeaderVariants,
-  PageSection,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
@@ -23,6 +22,7 @@ import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 type Props = {
   contact: Employee;
@@ -51,7 +51,7 @@ const LightningDecisionJam: NextPage<Props> = ({ contact, packages, teasers, quo
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Heading2>Was ist ein Lightning Decision Jam?</Heading2>
           <Copy>
             Alle wollen kreative Problemlösungen und klare Entscheidungen. Wahrscheinlich auch du. Typischerweise hat aber
@@ -81,17 +81,17 @@ const LightningDecisionJam: NextPage<Props> = ({ contact, packages, teasers, quo
               ]}
             />
           </div>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Testimonial background="mint" blobs={BlobVariations.mint[2]} quote={quote} />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact}>
             Fragen zum Ablauf des Lightning Decision Jam?
             <br /> {contact.firstname} weiss Bescheid!
           </Contact>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           {teasers.length > 0 && (
             <>
               <Heading2>Diese Projekte haben einen Lightning Decision Jam genutzt:</Heading2>
@@ -104,7 +104,7 @@ const LightningDecisionJam: NextPage<Props> = ({ contact, packages, teasers, quo
           )}
           <Heading2>Und damit könnte es nach deinem Lightning Decision Jam weitergehen:</Heading2>
           <PackageList packages={packages} />
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

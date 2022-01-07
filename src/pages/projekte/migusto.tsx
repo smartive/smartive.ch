@@ -5,7 +5,6 @@ import {
   Heading3,
   Keyfigure,
   LinkList,
-  PageSection,
   TextBlock,
   TextLink,
   UnorderedList,
@@ -24,6 +23,7 @@ import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -68,7 +68,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <PlaceholderImage
               image={images.gemuese}
@@ -87,8 +87,8 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               height={383}
             />
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Keyfigure>
             <UnorderedList
               title="Hauptzutaten der neuen API"
@@ -101,8 +101,8 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               markerColor="mint"
             />
           </Keyfigure>
-        </PageSection>
-        <PageSection title="Sofort die relevanten Rezepte auf dem Teller">
+        </Section>
+        <Section title="Sofort die relevanten Rezepte auf dem Teller">
           <Copy>
             Die Rezepte-API aggregiert Inhalte verschiedener Herkunft und stellt sie Plattformen mit unterschiedlichen
             Anforderungen zur Verfügung. Regelmässig werden die Rezepte aus dem Redaktionssystem importiert und der Suchindex
@@ -115,8 +115,8 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             GraphQL ist eine flexible, auf den Mandanten und den Kontext zugeschnittene Abfrage möglich: Nur die jeweils
             benötigten Felder werden abgefragt, seien es Bild und Titel oder alle Schritte und detaillierte Nährwertangaben.
           </Copy>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <PlaceholderImage
             image={images.pizza}
             alt="Drei Pizzen in einem Backofen"
@@ -125,8 +125,8 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             width={1504}
             height={800}
           />
-        </PageSection>
-        <PageSection title="Sofort das richtige Rezept">
+        </Section>
+        <Section title="Sofort das richtige Rezept">
           <Copy>
             Die Migusto-Webseite ist auf eine blitzschnelle Suche angewiesen. Die Rezepte-API bietet Volltextsuche in einer
             grossen Anzahl von Rezepten, kombinierbar mit Filterung nach Kategorien wie z.B. &ldquo;vegan&rdquo; und
@@ -139,8 +139,8 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             Auf der Suche nach Inspiration? Die Autocomplete-Funktion nimmt Tipparbeit ab und liefert Kochideen. Pizza…
             Margherita? Pizzabrot? Mit Crevetten?
           </Copy>
-        </PageSection>
-        <PageSection title="Atemberaubend schnell">
+        </Section>
+        <Section title="Atemberaubend schnell">
           <Grid cols={3}>
             <TextBlock title="rpm" number={20000}>
               Spitzenwerte der Rezepte-API
@@ -152,11 +152,11 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               Bessere Suchresultate
             </TextBlock>
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Testimonial background="apricot" blobs={BlobVariations.apricot[2]} quote={quote} />
-        </PageSection>
-        <PageSection title="Dank Big Data die richtigen Produkte im Einkaufswagen.">
+        </Section>
+        <Section title="Dank Big Data die richtigen Produkte im Einkaufswagen.">
           <Copy>
             Ein Rezept hat Zutaten, aber im Einkaufswagen landen Produkte. Hier schlägt die Rezepte-API die Brücke. Es werden
             passende Produkte angeführt, die direkt in die Einkaufsliste übernommen werden können. Ist eine Präferenz
@@ -171,8 +171,8 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             Persönliche Präferenzen wie vegane oder laktosefreie Ernährung werden ebenfalls, soweit bekannt, in die
             Gewichtung einbezogen.
           </Copy>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Grid cols={2}>
             <PlaceholderImage
               image={images.kraeuter}
@@ -193,19 +193,19 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               height={383}
             />
           </Grid>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Contact contact={contact} />
-        </PageSection>
+        </Section>
 
-        <PageSection title="Weitere Erfolgsgeschichten">
+        <Section title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
             {teasers.map((teaser) => (
               <NextImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

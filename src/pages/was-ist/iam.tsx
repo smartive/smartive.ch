@@ -1,7 +1,8 @@
-import { Copy, PageSection, TextLink, UnorderedList } from '@smartive/guetzli';
+import { Copy, TextLink, UnorderedList } from '@smartive/guetzli';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 const Iam = () => (
   <Page>
@@ -19,7 +20,7 @@ const Iam = () => (
     </PageHeader>
 
     <main>
-      <PageSection title="Das Rad nicht neu erfinden">
+      <Section title="Das Rad nicht neu erfinden">
         <Copy>
           In der IT gilt oft die Daumenregel: Pick 2 of 3. Aber ein eingekauftes IAM schlägt drei Fliegen mit einer Klappe:
           Schneller, sicherer und günstiger. Win-win-win!
@@ -31,9 +32,9 @@ const Iam = () => (
             'Nicht nochmals stolpern, wo schon andere gestoplert sind: du profitierst direkt vom Knowledge der Spezialist*innen von deinem IAM-Hersteller.',
           ]}
         ></UnorderedList>
-      </PageSection>
+      </Section>
 
-      <PageSection title="Die besten Räder auf der Strasse">
+      <Section title="Die besten Räder auf der Strasse">
         <Copy>
           IAM-Plattformen bieten fertige Code-Libraries, deren Einbindung ein Kinderspiel ist. Etablierte Standards wie{' '}
           <TextLink href="https://openid.net/connect/" newTab>
@@ -62,7 +63,7 @@ const Iam = () => (
           Eine günstigere Alternative. Bietet nicht den gleichen Funktionsumfang und nicht die gleiche komfortable Developer
           Experience, passt dafür auch in ein kleines Budget.
         </Copy>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

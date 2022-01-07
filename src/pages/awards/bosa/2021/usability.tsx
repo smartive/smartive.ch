@@ -1,20 +1,11 @@
-import {
-  BlobVariations,
-  Copy,
-  Grid,
-  Heading2,
-  Keyfigure,
-  PageSection,
-  TextBlock,
-  TextLink,
-  UnorderedList,
-} from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, Heading2, Keyfigure, TextLink, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Testimonial } from '../../../../components/testimonial';
 import { PageHeader } from '../../../../compositions/page-header';
 import { Quote, transformQuote } from '../../../../data/quotes';
 import { PlaceholderImage } from '../../../../elements/placeholder-image';
 import { LandingPage } from '../../../../layouts/landing-page';
+import { Section } from '../../../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../../../utils/image-placeholders';
 
 const STATIC_IMAGES = {
@@ -60,7 +51,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <PlaceholderImage
             image={images.diskutieren}
             alt="Eine Frau und ein Mann betrachten etwas auf einem Smartphone."
@@ -69,9 +60,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
             width={1504}
             height={800}
           />
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Heading2>Die Migros-Community</Heading2>
           <Copy>
             Migipedia.ch macht es Kundinnen und Kunden leicht, sich miteinander auszutauschen und mit der Migros in Kontakt
@@ -89,9 +80,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               ]}
             />
           </Copy>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Heading2>Die App im Web</Heading2>
           <Copy>
             Beinahe 80% der Nutzerinnen und Nutzer besuchen Migipedia mit einem Smartphone. Eine aktuelle Studie geht davon
@@ -113,9 +104,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               ]}
             />
           </Copy>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Keyfigure
             background="cornflower"
             image={
@@ -142,9 +133,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               />
             </Copy>
           </Keyfigure>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <PlaceholderImage
               image={images.bike}
@@ -161,9 +152,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               height={383}
             />
           </Grid>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Heading2>Heureka statt Heuhaufen</Heading2>
           <Copy>
             Hier für dich: alle Migros-Produkte. Und alle Meinungen, alle Fragen, alle Diskussionen dazu. Wenn du jetzt ein
@@ -189,13 +180,13 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
             Big Data machen auch Stöbern zum Vergnügen. Die eigenen Interessen werden berücksichtigt, sodass Sparfüchse und
             Bio-Tiger gleichsam auf ihre Kosten kommen.
           </Copy>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Testimonial background="mint" blobs={BlobVariations.mint[0]} quote={quote} />
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Heading2>Von Migipedia zur Migros-Community</Heading2>
           <Copy>
             Migipedia fügt sich nun noch besser ins Migros-Universum ein. Sieht aus wie die Migros, fühlt sich an wie die
@@ -230,9 +221,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               Im Schnitt wird aktuell alle 2.5 Minuten ein Produkt bewertet.
             </TextBlock>
           </Grid>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Heading2>Lädt, bevor du’s merkst</Heading2>
           <Copy>
             Usability beginnt bei der Performance. Erst wenn die Seite übertragen und geparst ist, erscheint etwas auf dem
@@ -250,9 +241,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
             bereits im Client vorhanden. Sie werden in die bestehende Seite eingefügt, ohne dass diverse Skripte und das
             Rendering von Grund auf neu ablaufen müssen.{' '}
           </Copy>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Keyfigure background="apricot">
             <Heading2>Jury-Hinweis</Heading2>
             <Copy>
@@ -262,7 +253,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               Live-Umgebung statt und sind für alle Kundinnen und Kunden sichtbar.
             </Copy>
           </Keyfigure>
-        </PageSection>
+        </Section>
       </main>
     </LandingPage>
   );

@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, Grid, LinkList, PageSection, TextBlock } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, LinkList, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
@@ -15,6 +15,7 @@ import { Award, Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -51,7 +52,7 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages, 
     </PageHeader>
 
     <main>
-      <PageSection>
+      <Section>
         <PlaceholderImage
           image={images.scan}
           alt="Verkäuferin scannt Etikett eines Kleidungsstücks mit dem Smartphone"
@@ -60,8 +61,8 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages, 
           width={1504}
           height={800}
         />
-      </PageSection>
-      <PageSection title="Auf einen Blick">
+      </Section>
+      <Section title="Auf einen Blick">
         <Grid cols={3}>
           <TextBlock title="POC in drei Wochen">
             Am Anfang war die Hypothese: wir können ein Kassensystem als WebApp entwickeln, weil PWA als Technologie schon
@@ -82,8 +83,8 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages, 
             glücklich.
           </TextBlock>
         </Grid>
-      </PageSection>
-      <PageSection title="Wie entwickelt man ein modernes Kassensystem?">
+      </Section>
+      <Section title="Wie entwickelt man ein modernes Kassensystem?">
         <Copy>
           Mit welchen Technolgien soll ein Kassen- und Warenwirtschaftssystem heute entwickelt werden? Welche Technologien
           bringen welche Chancen und Risiken mit sich? Wo soll der Code gehostet und wie sollen Deployments automatisiert
@@ -123,26 +124,26 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages, 
           Projektleiter über den Designer bis hin zum Entwickler wird die Kommunikation vereinfacht. Schnelles Vorwärtskommen
           ist garantiert.
         </TextBlock>
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Testimonial background="mint" blobs={BlobVariations.mint[2]} quote={quote} />
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Contact contact={contact}>
           Auch heute unterstützt {contact.firstname} Subsidia noch.
           <br /> Interessiert? Er gibt gern Auskunft!
         </Contact>
-      </PageSection>
-      <PageSection title="Du willst mehr wissen? Das haben wir mit Subsidia gemacht:">
+      </Section>
+      <Section title="Du willst mehr wissen? Das haben wir mit Subsidia gemacht:">
         <PackageList packages={packages} />
-      </PageSection>
-      <PageSection title="Weitere Erfolgsgeschichten">
+      </Section>
+      <Section title="Weitere Erfolgsgeschichten">
         <Grid cols={3}>
           {teasers.map((teaser) => (
             <NextImageCard key={teaser.title} {...teaser} />
           ))}
         </Grid>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

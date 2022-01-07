@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, Grid, LinkList, PageSection, TextBlock, TextLink } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, LinkList, TextBlock, TextLink } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
@@ -15,6 +15,7 @@ import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -49,7 +50,7 @@ const Kasparund: NextPage<Props> = ({ quote, contact, teasers, images, packages 
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <PlaceholderImage
               image={images.card}
@@ -68,8 +69,8 @@ const Kasparund: NextPage<Props> = ({ quote, contact, teasers, images, packages 
               height={711}
             />
           </Grid>
-        </PageSection>
-        <PageSection title="Und was haben wir dazu beigetragen?">
+        </Section>
+        <Section title="Und was haben wir dazu beigetragen?">
           <Grid cols={2}>
             <TextBlock title="Die Herausforderung">
               Kaspar&amp; hat ein eigenes Software-Entwicklungsteam. Die wissen auch, wie sie ihre Produktidee auf den Markt
@@ -88,11 +89,11 @@ const Kasparund: NextPage<Props> = ({ quote, contact, teasers, images, packages 
               Frage eine Antwort.
             </TextBlock>
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Testimonial background="mint" blobs={BlobVariations.mint[2]} quote={quote} />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Grid cols={3}>
             <TextBlock title="Postgres oder CockroachDB">
               Da bei PosgreSQL bereits Knowhow vorhanden war, fiel die Entscheidung schnell. Die enorme Skalierbarkeit von
@@ -110,24 +111,24 @@ const Kasparund: NextPage<Props> = ({ quote, contact, teasers, images, packages 
               <TextLink href="/was-ist/flutter">Flutter</TextLink> deshalb eindeutig die bessere Entscheidung.
             </TextBlock>
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact}>
             Auch heute unterstützt {contact.firstname} Kaspar& noch.
             <br /> Interessiert? Er gibt gern Auskunft!
           </Contact>
-        </PageSection>
+        </Section>
 
-        <PageSection title="Und hier noch der Link zum Päckli:">
+        <Section title="Und hier noch der Link zum Päckli:">
           <PackageList packages={packages} />
-        </PageSection>
-        <PageSection title="Weitere Erfolgsgeschichten">
+        </Section>
+        <Section title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
             {teasers.map((teaser) => (
               <NextImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

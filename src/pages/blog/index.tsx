@@ -1,13 +1,4 @@
-import {
-  BlobVariations,
-  Calendar,
-  ContentCard,
-  Copy,
-  Grid,
-  ImageCard,
-  ImageCardVariants,
-  PageSection,
-} from '@smartive/guetzli';
+import { BlobVariations, Calendar, ContentCard, Copy, Grid, ImageCard, ImageCardVariants } from '@smartive/guetzli';
 import { PostsOrPages } from '@tryghost/content-api';
 import dayjs from 'dayjs';
 import 'dayjs/locale/de';
@@ -19,6 +10,7 @@ import LinkedInArticles from '../../data/linkedin-articles.json';
 import { MediumArticle } from '../../data/medium-articles';
 import MediumArticles from '../../data/medium-articles.json';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getGhostClient } from '../../utils/ghost';
 
 type Props = {
@@ -52,7 +44,7 @@ const Blog: NextPage<Props> = ({ posts }) => {
             <meta itemProp="abstract" content={description} />
           </div>
         ))}
-        <PageSection>
+        <Section>
           <Grid cols={3}>
             {posts.map(({ id, title, description, dateDisplay, link, thumbnail, externalOrigin }, index) => (
               <Fragment key={id}>
@@ -85,7 +77,7 @@ const Blog: NextPage<Props> = ({ posts }) => {
               </Fragment>
             ))}
           </Grid>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

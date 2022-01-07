@@ -1,14 +1,4 @@
-import {
-  Copy,
-  Explainer,
-  Grid,
-  Heading3,
-  PageSection,
-  Screenshot,
-  TextBlock,
-  TextLink,
-  UnorderedList,
-} from '@smartive/guetzli';
+import { Copy, Explainer, Grid, Heading3, Screenshot, TextBlock, TextLink, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { NextImageCard } from '../../components/image-card';
@@ -16,6 +6,7 @@ import { PageHeader } from '../../compositions/page-header';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 type Props = {
   teasers: Teaser[];
@@ -39,7 +30,7 @@ const Kubernetes: NextPage<Props> = ({ teasers }) => (
     </PageHeader>
 
     <main>
-      <PageSection title="Docker: Überall dieselbe Umgebung dank Container.">
+      <Section title="Docker: Überall dieselbe Umgebung dank Container.">
         <Copy>
           Heute können auf jedem (Gross-)Rechner viele Installationen parallel laufen. Für die Abgrenzung sorgen{' '}
           <strong>Container</strong>. Container A und B laufen auf demselben Computer, wissen aber nichts voneinander und
@@ -61,9 +52,9 @@ const Kubernetes: NextPage<Props> = ({ teasers }) => (
           ausgeführt wird. Das Resultat sind identische Zustände in unterschiedlichen Umgebungen und keine Bugs wegen
           abweichender Version einer Komponente im Betriebssystem.
         </Copy>
-      </PageSection>
+      </Section>
 
-      <PageSection title="Infrastruktur definiert, Deployments stabil">
+      <Section title="Infrastruktur definiert, Deployments stabil">
         <Copy>
           Im Container können Webserver wie{' '}
           <TextLink href="https://nginx.org/en/" newTab>
@@ -114,18 +105,18 @@ const Kubernetes: NextPage<Props> = ({ teasers }) => (
             ]}
           />
         </Copy>
-      </PageSection>
+      </Section>
 
-      <PageSection title="Unsere Erfahrung">
+      <Section title="Unsere Erfahrung">
         <Copy>Wir haben Kubernetes schon bei mehreren Projekten eingesetzt, unter anderem:</Copy>
         <Grid cols={3}>
           {teasers.map((teaser) => (
             <NextImageCard key={teaser.title} {...teaser} />
           ))}
         </Grid>
-      </PageSection>
+      </Section>
 
-      <PageSection title="Monitoring">
+      <Section title="Monitoring">
         <Copy>
           Ein gutes Monitoring setzt <strong>Observability</strong> voraus, also Verfahren, um einen Einblick in den
           momentanen Zustand des Systems zu erhalten. Kubernetes hat dafür Mechanismen wie Readyness oder Liveness Probes.
@@ -144,9 +135,9 @@ const Kubernetes: NextPage<Props> = ({ teasers }) => (
           Messaging-Systeme.
         </Copy>
         <Screenshot image={{ url: '/images/was-ist/grafana.png', originalWidth: 1919, originalHeight: 933 }} />
-      </PageSection>
+      </Section>
 
-      <PageSection title="Und susch?">
+      <Section title="Und susch?">
         <Copy>
           Jargon ist das Salz in der Techniksuppe. Ein kleiner Überblick. Und wenn du dann immer noch nicht genug hast,
           können wir auch unseren Blogpost über Kubernetes und Kuby empfehlen:{' '}
@@ -196,7 +187,7 @@ const Kubernetes: NextPage<Props> = ({ teasers }) => (
             nachvollziehbar und erlaubt, sie jederzeit rückgängig zu machen.
           </TextBlock>
         </Grid>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

@@ -1,4 +1,4 @@
-import { Button, ChevronRight, Copy, Grid, Heading2, Heading3, PageSection, TextBlock } from '@smartive/guetzli';
+import { Button, ChevronRight, Copy, Grid, Heading2, Heading3, TextBlock } from '@smartive/guetzli';
 import 'charts.css/dist/charts.min.css';
 import type JSConfetti from 'js-confetti';
 import { GetStaticProps, NextPage } from 'next';
@@ -12,6 +12,7 @@ import { getNotionEmployees } from '../../data/sustainability/notion-employees';
 import { getNotionExpenses } from '../../data/sustainability/notion-expenses';
 import { getNotionSustainabilityData } from '../../data/sustainability/notion-sustainability-data';
 import { LandingPage } from '../../layouts/landing-page';
+import { Section } from '../../layouts/section';
 import { brandColor } from '../../utils/color';
 import {
   ALL_YEARS,
@@ -73,7 +74,7 @@ const Sustainabilty: NextPage<Props> = ({ comparisonTexts, allYearsTotalEmission
             Wie berechnen wir unseren Fussabdruck? <ChevronRight className="w-4 h-4" />
           </Button>
         </div>
-        <PageSection>
+        <Section>
           <Heading2>Sind wir auf dem richtigen Weg?</Heading2>
           <Heading3>Unser Ausstoss über die Jahre</Heading3>
           <div className="max-w-[800px]">
@@ -170,8 +171,8 @@ const Sustainabilty: NextPage<Props> = ({ comparisonTexts, allYearsTotalEmission
               content="Im 2021 möchten wir festlegen, welche Schritte wir in den kommenden Jahren unternehmen wollen."
             ></NextBisectCard>
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Heading2>Was verursacht bei uns Emissionen?</Heading2>
           <Grid cols={3}>
             <TextBlock title="Virtuelle Server" number={20} unit="% 🖥">
@@ -196,7 +197,7 @@ const Sustainabilty: NextPage<Props> = ({ comparisonTexts, allYearsTotalEmission
               Enstand im 2020 durch Kundenbesuche und Geschäftsreisen.
             </TextBlock>
           </Grid>
-        </PageSection>
+        </Section>
       </main>
     </LandingPage>
   );

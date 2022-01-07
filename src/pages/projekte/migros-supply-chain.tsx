@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, Grid, Heading3, Keyfigure, PageSection, UnorderedList } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, Heading3, Keyfigure, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
@@ -13,6 +13,7 @@ import { Award, Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -47,7 +48,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers, images 
     </PageHeader>
 
     <main>
-      <PageSection>
+      <Section>
         <PlaceholderImage
           image={images.heber}
           alt="Ein Mann transportiert Boxen in einem Lager"
@@ -56,8 +57,8 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers, images 
           width={1504}
           height={800}
         />
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Keyfigure
           background="apricot"
           image={
@@ -81,9 +82,9 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers, images 
             markerColor="cornflower"
           />
         </Keyfigure>
-      </PageSection>
+      </Section>
 
-      <PageSection title="Zweimal so schnell — und das zweimal.">
+      <Section title="Zweimal so schnell — und das zweimal.">
         <Copy>
           Das Herzstück ist eine Progressive Web App – kurz PWA. Mit der Smartphone-Kamera wird der weltweit eindeutige
           Barcode (GS1-128) einer Kiste gescannt, die auf dem Display gezeigten Waren eingefüllt und abgehakt. Die Zuordnung
@@ -121,8 +122,8 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers, images 
           width={1504}
           height={800}
         />
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Heading3>Mehr Überblick, weniger Doppelspurigkeit</Heading3>
         <Copy>
           Die Migros Supply Chain App vereinfacht nicht nur die Verknüpfung von Daten und Warenkisten, sondern sorgt auch für
@@ -138,23 +139,23 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers, images 
           erübrigt sich eine erneute Erfassung der gelieferten Ware beim Eingang. Es ist bereits klar, welche Pakete an
           welche Filialen gehen. Doppelte Arbeiten werden eliminiert.
         </Copy>
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Testimonial background="apricot" blobs={BlobVariations.apricot[0]} quote={quote} />
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Contact contact={contact}>
           {contact.firstname} weiss so einiges über Supply Chain.
           <br /> Melde dich bei ihm, falls du mehr wissen möchtest.
         </Contact>
-      </PageSection>
-      <PageSection title="Weitere Erfolgsgeschichten">
+      </Section>
+      <Section title="Weitere Erfolgsgeschichten">
         <Grid cols={3}>
           {teasers.map((teaser) => (
             <NextImageCard key={teaser.title} {...teaser} />
           ))}
         </Grid>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

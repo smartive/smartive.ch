@@ -6,7 +6,6 @@ import {
   Heading2,
   Label,
   PageHeaderVariants,
-  PageSection,
   TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
@@ -24,6 +23,7 @@ import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 type Props = {
   contact: Employee;
@@ -55,7 +55,7 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages, quote }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Heading2>Was beinhaltet das Mentoring?</Heading2>
           <Copy>
             Du möchtest ein digitales Produkt schaffen oder ein bestehendes weiterentwickeln, bist aber nicht ganz sicher, ob
@@ -85,14 +85,14 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages, quote }) => {
             />
             <UnorderedList title="Das brauchen wir von dir" items={['Einen regelmässigen Termin für einen Jour fixe.']} />
           </div>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Testimonial background="mint" blobs={BlobVariations.mint[2]} quote={quote} />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact} />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           {teasers.length > 0 && (
             <>
               <Heading2>Diese Projekte haben mit einem Mentoring gestartet:</Heading2>
@@ -105,7 +105,7 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages, quote }) => {
           )}
           <Heading2>Kannst du gut parallel zum Mentoring machen:</Heading2>
           <PackageList packages={packages} />
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

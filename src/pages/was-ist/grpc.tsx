@@ -1,9 +1,9 @@
-import { Copy, Explainer, Grid, Heading3, PageSection, TextBlock, TextLink, UnorderedList } from '@smartive/guetzli';
+import { Copy, Explainer, Grid, Heading3, TextBlock, TextLink, UnorderedList } from '@smartive/guetzli';
 import NextLink from 'next/link';
 import React from 'react';
-
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 const GRPC = () => (
   <Page>
@@ -21,7 +21,7 @@ const GRPC = () => (
     </PageHeader>
 
     <main>
-      <PageSection title="Warum gRPC?">
+      <Section title="Warum gRPC?">
         <Copy>
           gRPC ist eine Alternative zu REST oder{' '}
           <NextLink href="/was-ist/graphql" passHref>
@@ -59,9 +59,9 @@ const GRPC = () => (
             ]}
           />
         </Copy>
-      </PageSection>
+      </Section>
 
-      <PageSection title="Maximale Performance durch HTTP/2 und Protobuf">
+      <Section title="Maximale Performance durch HTTP/2 und Protobuf">
         <Copy>
           Performance hat oberste Priorität. Das wird vor allem durch zwei grundlegende Techniken ermöglicht, auf denen gRPC
           aufbaut:
@@ -87,9 +87,9 @@ const GRPC = () => (
             übertragen.
           </TextBlock>
         </Grid>
-      </PageSection>
+      </Section>
 
-      <PageSection title="Für Komfort ist gesorgt">
+      <Section title="Für Komfort ist gesorgt">
         <Copy>
           Nicht menschenlesbar klingt zuerst einmal ungewohnt – bei der Arbeit mit gRPC spielt das aber keine Rolle, da
           entsprechende Tools bereitstehen. Es bietet ähnliche Vorteile wie{' '}
@@ -107,7 +107,7 @@ const GRPC = () => (
             ]}
           />
         </Copy>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

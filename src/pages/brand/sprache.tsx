@@ -9,7 +9,6 @@ import {
   Heart,
   IconList,
   Keyfigure,
-  PageSection,
   TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
@@ -18,6 +17,7 @@ import NextLink from 'next/link';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { LandingPage } from '../../layouts/landing-page';
+import { Section } from '../../layouts/section';
 
 const Sprache = () => (
   <LandingPage>
@@ -29,7 +29,7 @@ const Sprache = () => (
     </PageHeader>
 
     <main>
-      <PageSection>
+      <Section>
         <Grid cols={2}>
           <div>
             <Heading2>Eine Sprache, die zu smartive passt</Heading2>
@@ -63,9 +63,9 @@ const Sprache = () => (
             />
           </div>
         </Grid>
-      </PageSection>
+      </Section>
 
-      <PageSection>
+      <Section>
         <div className="flex space-x-8 items-center justify-center">
           <Image src="/images/brand/smarta-loves.png" alt="" height="300" width="300" objectFit="contain" />
           <Heading2>
@@ -76,9 +76,9 @@ const Sprache = () => (
             <span className="text-mint-500">Smarta loves it.</span>
           </Heading2>
         </div>
-      </PageSection>
+      </Section>
 
-      <PageSection>
+      <Section>
         <Keyfigure background="apricot">
           <div className="mt-4 lg:mt-8">
             <Heading3>Du willst einen Blogpost schreiben?</Heading3>
@@ -91,9 +91,9 @@ const Sprache = () => (
             </Copy>
           </div>
         </Keyfigure>
-      </PageSection>
+      </Section>
 
-      <PageSection>
+      <Section>
         <Heading2 className="mt-16">Sprich die Leser*innen direkt an.</Heading2>
         <DescriptionList
           items={[
@@ -378,7 +378,7 @@ const Sprache = () => (
             "Wenn's etwas Zeit braucht, denk dran: Es lohnt sich. Smarta loves you! 🐄😘",
           ]}
         />
-      </PageSection>
+      </Section>
     </main>
   </LandingPage>
 );

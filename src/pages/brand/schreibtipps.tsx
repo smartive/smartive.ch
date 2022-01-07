@@ -1,9 +1,10 @@
-import { Copy, Explainer, Grid, Heading2, Heading3, Keyfigure, PageSection, TextLink } from '@smartive/guetzli';
+import { Copy, Explainer, Grid, Heading2, Heading3, Keyfigure, TextLink } from '@smartive/guetzli';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { LandingPage } from '../../layouts/landing-page';
+import { Section } from '../../layouts/section';
 
 const Tipps = () => (
   <LandingPage>
@@ -17,7 +18,7 @@ const Tipps = () => (
     </PageHeader>
 
     <main>
-      <PageSection title="Denk an die Nutzer*innen – also: die Leser*innen">
+      <Section title="Denk an die Nutzer*innen – also: die Leser*innen">
         <Copy>
           Welche Infos sucht die Person, die das liest? Was ist für sie relevant? Auf welche Frage will sie eine Antwort?
         </Copy>
@@ -37,9 +38,9 @@ const Tipps = () => (
           halten.
         </Copy>
         <Copy>Ein Stil nah an gesprocher Sprache ist eher ein Plus als ein Problem.</Copy>
-      </PageSection>
+      </Section>
 
-      <PageSection>
+      <Section>
         <Keyfigure
           background="cornflower"
           image={<Image src="/images/brand/smarta-approves.png" alt="" height="400" width="400" objectFit="contain" />}
@@ -61,9 +62,9 @@ const Tipps = () => (
             </Copy>
           </div>
         </Keyfigure>
-      </PageSection>
+      </Section>
 
-      <PageSection title="Hilfe! Wie schreibe ich einen Text?">
+      <Section title="Hilfe! Wie schreibe ich einen Text?">
         <Grid cols={2}>
           <div>
             <Heading3>Überleg dir vor dem Schreiben:</Heading3>
@@ -86,9 +87,9 @@ const Tipps = () => (
             </ol>
           </div>
         </Grid>
-      </PageSection>
+      </Section>
 
-      <PageSection title="Nützt’s nüt so schadt’s nüt: Try this!">
+      <Section title="Nützt’s nüt so schadt’s nüt: Try this!">
         <Grid cols={3}>
           <div>
             <Heading3>Erzähl eine Geschichte</Heading3>
@@ -133,9 +134,9 @@ const Tipps = () => (
             </ul>
           </div>
         </Grid>
-      </PageSection>
+      </Section>
 
-      <PageSection>
+      <Section>
         <Heading2>
           Überarbeiten: Leider <span className="line-through text-mint-500">geil</span> wichtig
         </Heading2>
@@ -213,7 +214,7 @@ const Tipps = () => (
             </ul>
           </div>
         </Grid>
-      </PageSection>
+      </Section>
     </main>
   </LandingPage>
 );

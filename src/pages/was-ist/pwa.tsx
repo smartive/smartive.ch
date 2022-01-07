@@ -1,4 +1,4 @@
-import { Copy, Explainer, Grid, PageSection, TextBlock, UnorderedList } from '@smartive/guetzli';
+import { Copy, Explainer, Grid, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { NextImageCard } from '../../components/image-card';
@@ -6,6 +6,7 @@ import { PageHeader } from '../../compositions/page-header';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 type Props = {
   teasers: Teaser[];
@@ -26,7 +27,7 @@ const PWA: NextPage<Props> = ({ teasers }) => (
     </PageHeader>
 
     <main>
-      <PageSection title="Die Vorgeschichte">
+      <Section title="Die Vorgeschichte">
         <Copy>
           Apps gibt es schon lange. Früher nannte man sie einfach Programme. Sie wurden auf dem eigenen Computer installiert
           und dann gestartet. Websites waren ein anderes Paar Schuhe – die Interaktivität beschränkte sich auf einfache
@@ -41,9 +42,9 @@ const PWA: NextPage<Props> = ({ teasers }) => (
           vorbehalten waren – Twitter im Browser und die Twitter-App auf dem Smartphone bieten Ähnliches an Funktionen und
           Nutzererlebnis.
         </Copy>
-      </PageSection>
+      </Section>
 
-      <PageSection title="Web-Technologien können das auch!">
+      <Section title="Web-Technologien können das auch!">
         <Copy>
           Die Unterschiede zwischen Apps, die nativ laufen und solchen, die im Browser laufen, wurden zunehmend verwischt. Es
           fehlt nur noch wenig, um eine Web App zu einer nativen App zu machen. Hier kommt der Teil ins Spiel, für den
@@ -70,9 +71,9 @@ const PWA: NextPage<Props> = ({ teasers }) => (
             'Offline-Nutzung',
           ]}
         />
-      </PageSection>
+      </Section>
 
-      <PageSection title="Deine Vorteile">
+      <Section title="Deine Vorteile">
         <Grid cols={3}>
           <TextBlock title="Abhängigkeiten vermeiden">
             Die Lösung basiert auf offenen Standards – So minimierst du die Gefahr, dir Altlasten aufzubürden.
@@ -85,9 +86,9 @@ const PWA: NextPage<Props> = ({ teasers }) => (
             App Store Policies.
           </TextBlock>
         </Grid>
-      </PageSection>
+      </Section>
 
-      <PageSection title="Mit heruntergelassenen Hosen">
+      <Section title="Mit heruntergelassenen Hosen">
         <Copy>
           Leider sind PWAs nicht durchwegs das Gelbe vom Ei. Es gibt einen grossen Nachteil im Vergleich zu nativen Apps.
           Dieser Nachteil heisst Apple. Nicht das Obst, die Firma. Apple wehrt sich vehement gegen die Etablierung von PWAs.
@@ -95,16 +96,16 @@ const PWA: NextPage<Props> = ({ teasers }) => (
           paar Wochen komplett gelöscht wird. Dessen sind wir uns bewusst. Wir setzen aber darauf, dass Apple in Zukunft
           nicht umhinkommt, mit diesen offenen Standards mitzuziehen.
         </Copy>
-      </PageSection>
+      </Section>
 
-      <PageSection title="Unsere Erfahrung">
+      <Section title="Unsere Erfahrung">
         <Copy>Wir haben schon mehrere Projekte als PWAs umgesetzt, unter anderem:</Copy>
         <Grid cols={2}>
           {teasers.map((teaser) => (
             <NextImageCard key={teaser.title} {...teaser} />
           ))}
         </Grid>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

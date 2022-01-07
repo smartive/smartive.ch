@@ -1,10 +1,11 @@
-import { Copy, Grid, PageSection } from '@smartive/guetzli';
+import { Copy, Grid } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import React from 'react';
 import { PageHeader } from '../compositions/page-header';
 import { PlaceholderImage } from '../elements/placeholder-image';
 import { LandingPage } from '../layouts/landing-page';
+import { Section } from '../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
 
 const NewsletterSubscription = dynamic(
@@ -38,7 +39,7 @@ const Newsletter: NextPage<Props> = ({ images }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <PlaceholderImage
             image={images.mittag}
             alt="smartive Team beim Mittagessen an einem Holztisch"
@@ -82,7 +83,7 @@ const Newsletter: NextPage<Props> = ({ images }) => {
               height={500}
             />
           </Grid>
-        </PageSection>
+        </Section>
       </main>
     </LandingPage>
   );

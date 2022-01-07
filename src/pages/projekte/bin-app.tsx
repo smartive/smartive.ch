@@ -5,7 +5,6 @@ import {
   Grid,
   Keyfigure,
   LinkList,
-  PageSection,
   TextBlock,
   TextLink,
   UnorderedList,
@@ -26,6 +25,7 @@ import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -59,7 +59,7 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <PlaceholderImage
             image={images.tablet}
             alt="Eine Person hält ein Tablet"
@@ -68,9 +68,9 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
             width={1504}
             height={800}
           />
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <TextBlock title="Die Herausforderung">
               Der bin-Eigenverlag war auf der Suche nach einem neuen Umsetzungspartner für die binApp. Gesucht war ein
@@ -85,8 +85,8 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
               solide Basis für die längerfristige Zusammenarbeit.
             </TextBlock>
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Keyfigure
             background="cornflower"
             image={
@@ -110,8 +110,8 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
               markerColor="apricot"
             />
           </Keyfigure>
-        </PageSection>
-        <PageSection title="Und was haben wir dazu beigetragen?">
+        </Section>
+        <Section title="Und was haben wir dazu beigetragen?">
           <Grid cols={2}>
             <TextBlock title="Das neue Backend">
               Nach dem <TextLink href="/angebot/solution-review">Solution-Review</TextLink> war klar, dass wir das
@@ -127,13 +127,13 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
               <TextLink href="/was-ist/flutter">Flutter</TextLink>.
             </TextBlock>
           </Grid>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Testimonial background="apricot" blobs={BlobVariations.apricot[0]} quote={quote} />
-        </PageSection>
+        </Section>
 
-        <PageSection title="Ein paar Insights">
+        <Section title="Ein paar Insights">
           <Grid cols={3}>
             <TextBlock title="Technology">
               Das neue Backend haben wir mit <TextLink href="/was-ist/dot-net">dotnet</TextLink> und einer
@@ -155,24 +155,24 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
               im Schnitt um Faktor 1000 (in Worten: tausend!) reduzieren.
             </TextBlock>
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact}>
             Auch heute unterstützt {contact.firstname} den bin-Eigenverlag noch. Interessiert?
             <br /> Buch dir einen Kennenlern-Termin.
           </Contact>
-        </PageSection>
+        </Section>
 
-        <PageSection title="Das haben wir mit dem bin-Eigenverlag gemacht:">
+        <Section title="Das haben wir mit dem bin-Eigenverlag gemacht:">
           <PackageList packages={packages} />
-        </PageSection>
-        <PageSection title="Weitere Erfolgsgeschichten">
+        </Section>
+        <Section title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
             {teasers.map((teaser) => (
               <NextImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

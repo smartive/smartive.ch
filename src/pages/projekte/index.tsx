@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, Grid, GridSlider, ImageCardVariants, PageSection } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, GridSlider, ImageCardVariants } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
@@ -15,6 +15,7 @@ import Quotes from '../../data/quotes.json';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 type Props = {
   customers: Customer[];
@@ -39,7 +40,7 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers })
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <CustomerList customers={customers} />
           <Grid cols={2}>
             {main.map((teaser) => (
@@ -57,15 +58,15 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers })
               <NextImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact}>
             <>
               Du hast eine Idee? <br />
               Besprich sie mit {contact.firstname}!
             </>
           </Contact>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

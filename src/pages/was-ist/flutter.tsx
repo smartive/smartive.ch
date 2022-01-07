@@ -1,7 +1,8 @@
-import { Copy, PageSection, TextLink } from '@smartive/guetzli';
+import { Copy, TextLink } from '@smartive/guetzli';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 const PWA = () => (
   <Page>
@@ -19,7 +20,7 @@ const PWA = () => (
     </PageHeader>
 
     <main>
-      <PageSection title="Alles zweimal machen">
+      <Section title="Alles zweimal machen">
         <Copy>
           Apps gibt es schon lange. Eigentlich müssen die für jedes Betriebssystem in einer eigenen Programmiersprache
           geschrieben werden. Für Android zum Beispiel mit{' '}
@@ -44,7 +45,7 @@ const PWA = () => (
           Die Auslieferung in die Appstores ist aber leider immer noch mit mehr Arbeit verbunden. Deshalb, Hand aufs Herz:
           Ist eine <TextLink href="/was-ist/pwa">PWA</TextLink> nicht doch die passendere Lösung?
         </Copy>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

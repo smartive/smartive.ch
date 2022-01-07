@@ -1,14 +1,4 @@
-import {
-  BlobVariations,
-  Clock,
-  Copy,
-  Grid,
-  Heading2,
-  Label,
-  PageHeaderVariants,
-  PageSection,
-  UnorderedList,
-} from '@smartive/guetzli';
+import { BlobVariations, Clock, Copy, Grid, Heading2, Label, PageHeaderVariants, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
@@ -21,6 +11,7 @@ import Packages, { Package } from '../../data/packages';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 type Props = {
   contact: Employee;
@@ -48,7 +39,7 @@ const Speedboat: NextPage<Props> = ({ contact, packages, teasers }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Heading2>Was ist ein Speedboat?</Heading2>
           <Copy>
             Du hast eine Idee. Dir ist schon recht klar, wie das Produkt aussehen und funktionieren könnte. Du willst wissen,
@@ -75,11 +66,11 @@ const Speedboat: NextPage<Props> = ({ contact, packages, teasers }) => {
               ]}
             />
           </div>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact} />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Heading2>Diese Projekte sind mit einem Speedboat durchgestartet:</Heading2>
           <Grid cols={3}>
             {teasers.map((teaser) => (
@@ -88,7 +79,7 @@ const Speedboat: NextPage<Props> = ({ contact, packages, teasers }) => {
           </Grid>
           <Heading2>Und damit könnte es nach deinem Speedboat weiter gehen:</Heading2>
           <PackageList packages={packages} />
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

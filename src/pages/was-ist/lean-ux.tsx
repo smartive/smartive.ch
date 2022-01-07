@@ -1,9 +1,9 @@
-import { Copy, Heading2, Keyfigure, PageSection, TextLink, UnorderedList } from '@smartive/guetzli';
+import { Copy, Heading2, Keyfigure, TextLink, UnorderedList } from '@smartive/guetzli';
 import NextLink from 'next/link';
 import React from 'react';
-
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 const LeanUX = () => (
   <Page>
@@ -33,7 +33,7 @@ const LeanUX = () => (
           niemand braucht.
         </Copy>
       </Keyfigure>
-      <PageSection title="Schneller zu besseren Ergebnissen">
+      <Section title="Schneller zu besseren Ergebnissen">
         <Copy>
           Du willst also ein Produkt, das deine Nutzer*innen lieben. Die schlechte Nachricht: UX ist eine ziemlich grosse
           Kiste. Die gute Nachricht: Können wir zusammen auspacken.
@@ -48,8 +48,8 @@ const LeanUX = () => (
           nicht auf dem Endresultat, sondern auf den Erkenntnissen, die wir im Prozess gewinnen. Wir fällen Entscheide, die
           wir jetzt umsetzen können, um etwas zu verändern.
         </Copy>
-      </PageSection>
-      <PageSection title="Klingt noch etwas abstrakt?">
+      </Section>
+      <Section title="Klingt noch etwas abstrakt?">
         <Copy>
           Etwas klarer wird’s vielleicht, wenn wir Lean UX mit der herkömmlichen Vorgehensweise vergleichen. Traditionell
           werden zuerst Anforderungen aufgenommen (Requirements), woraus ein umfassender Plan folgt, um eine optimale UX
@@ -85,7 +85,7 @@ const LeanUX = () => (
             ]}
           />
         </Copy>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

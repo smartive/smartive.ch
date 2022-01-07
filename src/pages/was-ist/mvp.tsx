@@ -1,4 +1,4 @@
-import { Copy, Grid, PageSection, TextBlock } from '@smartive/guetzli';
+import { Copy, Grid, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { NextImageCard } from '../../components/image-card';
@@ -8,6 +8,7 @@ import Packages, { Package } from '../../data/packages';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 type Props = {
   teasers: Teaser[];
@@ -29,7 +30,7 @@ const Mvp: NextPage<Props> = ({ teasers, packages }) => (
       </Copy>
     </PageHeader>
     <main>
-      <PageSection>
+      <Section>
         <Grid cols={3}>
           <TextBlock title="Earliest Testable Product">
             Die erste funktionsfähige Version der App hat zwar noch diverse vorstehende Ecken und ungeschliffene Kanten,
@@ -45,17 +46,17 @@ const Mvp: NextPage<Props> = ({ teasers, packages }) => (
             marktfähiges Produkt, das bereit ist für den Go-live.
           </TextBlock>
         </Grid>
-      </PageSection>
-      <PageSection title="Mit diesen Angeboten kommst du zu deinem Earliest Lovable Product">
+      </Section>
+      <Section title="Mit diesen Angeboten kommst du zu deinem Earliest Lovable Product">
         <PackageList packages={packages} />
-      </PageSection>
-      <PageSection title="Diesen Projekten haben wir so zum Erfolg verholfen">
+      </Section>
+      <Section title="Diesen Projekten haben wir so zum Erfolg verholfen">
         <Grid cols={3}>
           {teasers.map((teaser) => (
             <NextImageCard key={teaser.title} {...teaser} />
           ))}
         </Grid>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

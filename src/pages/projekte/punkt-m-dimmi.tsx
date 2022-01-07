@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, Grid, Heading3, Keyfigure, PageSection, UnorderedList } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, Heading3, Keyfigure, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
@@ -13,6 +13,7 @@ import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -45,7 +46,7 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
     </PageHeader>
 
     <main>
-      <PageSection>
+      <Section>
         <Grid cols={2}>
           <PlaceholderImage
             image={images.brot}
@@ -64,8 +65,8 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
             height={383}
           />
         </Grid>
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Keyfigure
           image={
             <PlaceholderImage
@@ -89,8 +90,8 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
             markerColor="apricot"
           />
         </Keyfigure>
-      </PageSection>
-      <PageSection title="Agiles Vorgehen führt zum Erfolg">
+      </Section>
+      <Section title="Agiles Vorgehen führt zum Erfolg">
         <Copy>... oder: Wie baut man ein Soziales Netzwerk in einem halben Jahr?</Copy>
         <Copy>
           Mittels iterativer Projektumsetzung wurden die Anforderungen in testbare und auf sich aufbauende Teilpakete
@@ -99,8 +100,8 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
           Fortschritt der Arbeiten mitverfolgen konnte. Durch gezielte Aktivierung und Darstellung pro Unternehmen ist eine
           phasenweise Live-Schaltung möglich.
         </Copy>
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <PlaceholderImage
           image={images.guetzli}
           alt="Midor Mitarbeiterin im Schutzanzug hält Guetzli"
@@ -109,8 +110,8 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
           width={1504}
           height={800}
         />
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Grid cols={2}>
           <div>
             <Heading3>iOS, Android und Web App mit gemeinsamer Code-Basis</Heading3>
@@ -135,11 +136,11 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
             </Copy>
           </div>
         </Grid>
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Testimonial background="mint" blobs={BlobVariations.mint[2]} quote={quote} />
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Heading3>Automatisierte Releases und Deployments</Heading3>
         <Copy>
           Seit längerem setzen wir auf automatisierte Releases und Deployments. Um diese Vorteile innerhalb der gesamten
@@ -147,17 +148,17 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
           nach einem neuen Release stehen die Apps auf iOS und Android zum Testen bereit. Dies garantiert schnellere
           Iterationen und eine hohe Qualität in der App-Entwicklung und verhindert manuelle Fehler beim deployen.
         </Copy>
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Contact contact={contact} />
-      </PageSection>
-      <PageSection title="Weitere Erfolgsgeschichten">
+      </Section>
+      <Section title="Weitere Erfolgsgeschichten">
         <Grid cols={3}>
           {teasers.map((teaser) => (
             <NextImageCard key={teaser.title} {...teaser} />
           ))}
         </Grid>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

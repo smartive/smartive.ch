@@ -6,7 +6,6 @@ import {
   Heading2,
   Label,
   PageHeaderVariants,
-  PageSection,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
@@ -20,6 +19,7 @@ import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 type Props = {
   contact: Employee;
@@ -47,7 +47,7 @@ const FeasibilityWorkshop: NextPage<Props> = ({ contact, teasers, packages }) =>
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Heading2>Was ist ein Feasibility Workshop?</Heading2>
           <Copy>
             Du möchtest ein digitales Produkt schaffen oder ein bestehendes weiterentwickeln. Mit einem Feasibility Workshop
@@ -72,15 +72,15 @@ const FeasibilityWorkshop: NextPage<Props> = ({ contact, teasers, packages }) =>
               ]}
             />
           </div>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact}>
             Ist ein Feasibility Workshop das Richtige für dich?
             <br />
             Dann ist {contact.firstname} der Richtige für dich!
           </Contact>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           {teasers.length > 0 && (
             <>
               <Heading2>Diese Projekte haben mit einem Feasibility Workshop gestartet:</Heading2>
@@ -93,7 +93,7 @@ const FeasibilityWorkshop: NextPage<Props> = ({ contact, teasers, packages }) =>
           )}
           <Heading2>Und damit könnte es nach dem Feasibility Workshop weiter gehen:</Heading2>
           <PackageList packages={packages} />
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

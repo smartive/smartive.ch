@@ -1,4 +1,4 @@
-import { Copy, Grid, Heading3, ImagePosition, Keyfigure, PageSection, TextBlock, UnorderedList } from '@smartive/guetzli';
+import { Copy, Grid, Heading3, ImagePosition, Keyfigure, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React from 'react';
@@ -7,6 +7,7 @@ import { PageHeader } from '../../compositions/page-header';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 type Props = {
   teasers: Teaser[];
@@ -50,7 +51,7 @@ const Agile: NextPage<Props> = ({ teasers }) => (
         </div>
       </Grid>
 
-      <PageSection>
+      <Section>
         <Keyfigure
           image={
             <Image
@@ -107,14 +108,14 @@ const Agile: NextPage<Props> = ({ teasers }) => (
             durchzuführen, um unvollständige oder nicht mehr aktuelle Stories anzupassen oder auszusortieren.
           </TextBlock>
         </Grid>
-      </PageSection>
-      <PageSection title="Diese Projekte haben wir agil umgsetzt">
+      </Section>
+      <Section title="Diese Projekte haben wir agil umgsetzt">
         <Grid cols={3}>
           {teasers.map((teaser) => (
             <NextImageCard key={teaser.title} {...teaser} />
           ))}
         </Grid>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

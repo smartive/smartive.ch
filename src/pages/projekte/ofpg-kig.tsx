@@ -5,7 +5,6 @@ import {
   Heading3,
   Keyfigure,
   LinkList,
-  PageSection,
   TextBlock,
   TextLink,
   UnorderedList,
@@ -24,6 +23,7 @@ import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -65,7 +65,7 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers, images }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <PlaceholderImage
               image={images.gummistiefel}
@@ -84,8 +84,8 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               height={383}
             />
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Keyfigure>
             <UnorderedList
               title="Auf einen Blick"
@@ -98,9 +98,9 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               markerColor="apricot"
             />
           </Keyfigure>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <div>
               <Heading3>Schritt für Schritt vorwärts</Heading3>
@@ -130,8 +130,8 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             </div>
           </Grid>
           <Testimonial background="cornflower" blobs={BlobVariations.cornflower[2]} quote={quote} />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Heading3>Schnelle und nutzerfreundliche Suche</Heading3>
           <Copy>
             Wir benutzen gerne Elasticsearch für Suchprojekte. Damit bekommen wir die schnellen Suchergebnisse schon mal
@@ -142,8 +142,8 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             Zusätzlich zur cleveren Volltextsuche und gängigen Filtern ist die Distanz zum Anbieter wichtig. Wenn wir den
             Standort der Nutzer*innen kennen, gewichten wir nahe gelegene Angebote höher.
           </Copy>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Grid cols={2}>
             <TextBlock title="Verteilte Daten, zentral verwaltet">
               Mehrere Kantone und Organisationen sind im Backend aktiv. Jeder Mandant pflegt seine eigenen Anbieter-Kreise,
@@ -158,18 +158,18 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               aufnehmen.
             </TextBlock>
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact} />
-        </PageSection>
+        </Section>
 
-        <PageSection title="Weitere Erfolgsgeschichten">
+        <Section title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
             {teasers.map((teaser) => (
               <NextImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

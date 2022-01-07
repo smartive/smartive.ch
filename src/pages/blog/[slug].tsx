@@ -1,4 +1,4 @@
-import { Button, Calendar, Clock, Heading3, PageSection, Share, Switch, Tooltip } from '@smartive/guetzli';
+import { Button, Calendar, Clock, Heading3, Share, Switch, Tooltip } from '@smartive/guetzli';
 import { PostOrPage } from '@tryghost/content-api';
 import dayjs from 'dayjs';
 import 'dayjs/locale/de';
@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { Portrait, PortraitVariant } from '../../elements/portrait';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getGhostClient } from '../../utils/ghost';
 
 type Props = {
@@ -81,13 +82,13 @@ const BlogPost: NextPage<Props> = ({ post }) => {
         </PageHeader>
 
         <main>
-          <PageSection>
+          <Section>
             <article
               className="prose prose-sm md:prose lg:prose-xl xl:prose-2xl"
               itemProp="articleBody text"
               dangerouslySetInnerHTML={{ __html: post.html }}
             />
-          </PageSection>
+          </Section>
         </main>
       </div>
     </Page>

@@ -3,7 +3,6 @@ import {
   Grid,
   Keyfigure,
   LinkList,
-  PageSection,
   Screenshot,
   ScreenshotVariant,
   TextBlock,
@@ -24,6 +23,7 @@ import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 
 const STATIC_IMAGES = {
@@ -54,7 +54,7 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images }) => (
     </PageHeader>
 
     <main>
-      <PageSection>
+      <Section>
         <Grid cols={2}>
           <PlaceholderImage
             image={images.rennen}
@@ -73,8 +73,8 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images }) => (
             height={383}
           />
         </Grid>
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Keyfigure
           background="mint"
           image={
@@ -96,8 +96,8 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images }) => (
             ]}
           />
         </Keyfigure>
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Grid cols={2}>
           <TextBlock title="Damit haben wir gestartet">
             Für die Entwicklung von Kindern und die Förderung der Koordinationsfähigkeit ist klettern, rennen und rumtoben
@@ -126,26 +126,26 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images }) => (
             entwickelt, die einfach zu benutzen ist.
           </TextBlock>
         </Grid>
-      </PageSection>
+      </Section>
 
-      {/* <PageSection>
+      {/* <Section>
         <Testimonial background="mint" blobs={BlobVariations.mint[1]} quote={quote} />
-      </PageSection> */}
+      </Section> */}
 
-      <PageSection>
+      <Section>
         <Contact contact={contact}>
           Sandkastenfreund gesucht?
           <br />
           {contact.firstname} nimmt sich gerne Zeit.
         </Contact>
-      </PageSection>
-      <PageSection title="Weitere Erfolgsgeschichten">
+      </Section>
+      <Section title="Weitere Erfolgsgeschichten">
         <Grid cols={3}>
           {teasers.map((teaser) => (
             <NextImageCard key={teaser.title} {...teaser} />
           ))}
         </Grid>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

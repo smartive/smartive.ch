@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, Grid, PageSection, TextBlock, TextLink } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, TextLink, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import React from 'react';
@@ -11,6 +11,7 @@ import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 
 const STATIC_IMAGES = {
@@ -45,7 +46,7 @@ const Agentur: NextPage<Props> = ({ quote, images }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <PlaceholderImage
               image={images.dife}
@@ -167,7 +168,7 @@ const Agentur: NextPage<Props> = ({ quote, images }) => {
               der vergangenen 5 Jahre.
             </TextBlock>
           </Grid>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

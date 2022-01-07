@@ -1,8 +1,9 @@
-import { Copy, Explainer, PageSection } from '@smartive/guetzli';
+import { Copy, Explainer } from '@smartive/guetzli';
 import React from 'react';
 
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 const HeadlessCMS = () => (
   <Page>
@@ -13,7 +14,7 @@ const HeadlessCMS = () => (
     ></PageHeader>
 
     <main>
-      <PageSection>
+      <Section>
         <Copy>
           Ein traditionelles <Explainer title="Content Management System">CMS</Explainer> kümmert sich einerseits um die
           Verwaltung der Inhalte und andererseits um die Generierung einzelner Ansichten. Klassische Beispiele sind Wordpress
@@ -31,7 +32,7 @@ const HeadlessCMS = () => (
           verbaut nichts: Es garantiert die nötige Flexibilität bei Daten, die auf mehreren Plattformen dargestellt werden.
           Es lässt alle Optionen offen – eine neue Plattform oder ein Relaunch greift einfach auf die bestehende API zu.
         </Copy>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

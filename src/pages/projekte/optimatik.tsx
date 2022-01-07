@@ -5,7 +5,6 @@ import {
   Grid,
   Keyfigure,
   LinkList,
-  PageSection,
   TextBlock,
   TextLink,
   UnorderedList,
@@ -24,6 +23,7 @@ import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -62,7 +62,7 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <PlaceholderImage
             image={images.solar}
             alt="Photovoltaik Anlage auf einem Feld"
@@ -71,9 +71,9 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             width={1500}
             height={1080}
           />
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <TextBlock title="Die Ausgangslage">
               Das Energie Business Portal der Optimatik AG gab es bis anhin als{' '}
@@ -90,9 +90,9 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               aufgesetzt und das Energie Business Portal mit automatisierten CI Pipelines auf den neuen Cluster deployt.
             </TextBlock>
           </Grid>
-        </PageSection>
+        </Section>
 
-        <PageSection></PageSection>
+        <Section></Section>
 
         <Keyfigure
           image={
@@ -118,7 +118,7 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
           />
         </Keyfigure>
 
-        <PageSection title="Unsere Schlüssel zum Erfolg">
+        <Section title="Unsere Schlüssel zum Erfolg">
           <Grid cols={3}>
             <TextBlock title="1. Keep it simple">
               Die Möglichkeiten des Betriebs in der Cloud sind endlos. Wir haben uns darauf konzentriert, die Lösung simpel
@@ -133,20 +133,20 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               automatisieren wir, wo immer möglich.
             </TextBlock>
           </Grid>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Testimonial background="mint" blobs={BlobVariations.mint[2]} quote={quote} />
-        </PageSection>
-        <PageSection title="Und warum ist SaaS jetzt besser als On-Premise?">
+        </Section>
+        <Section title="Und warum ist SaaS jetzt besser als On-Premise?">
           <Copy>
             Ein SaaS-Angebot aus der Cloud ist nicht per se besser als ein On-Premise-Betrieb. On-Premise-Lösungen sind aber
             aufwändiger aufzusetzen und komplexer in der Wartung. Deshalb kann ein Betrieb in der Cloud in aller Regel
             günstiger angeboten werden.
           </Copy>
-        </PageSection>
+        </Section>
 
-        <PageSection title="Und was braucht man alles dafür?">
+        <Section title="Und was braucht man alles dafür?">
           <Grid cols={3}>
             <TextBlock title="CI Pipelines">
               Damit wir die Software nicht manuell paketieren und ausliefern müssen, setzen wir wir auf automatisierte CI
@@ -176,22 +176,22 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               <TextLink href="https://smr.tv/meet-josh">deine Anfrage</TextLink>.
             </TextBlock>
           </Grid>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Contact contact={contact}>
             Du möchtest dein Produkt auch aus der Cloud anbieten?
             {contact.firstname} unterstützt dich dabei!
           </Contact>
-        </PageSection>
+        </Section>
 
-        <PageSection title="Weitere Erfolgsgeschichten">
+        <Section title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
             {teasers.map((teaser) => (
               <NextImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

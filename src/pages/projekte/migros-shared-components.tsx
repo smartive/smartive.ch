@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, Grid, Heading3, LinkList, PageSection, TextBlock } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, Heading3, LinkList, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
@@ -13,6 +13,7 @@ import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -45,7 +46,7 @@ const SharedComponents: NextPage<Props> = ({ quote, contact, teasers, images }) 
     </PageHeader>
 
     <main>
-      <PageSection>
+      <Section>
         <PlaceholderImage
           image={images.supermarkt}
           alt="Gemüseabteilung in einem Migros Supermarkt"
@@ -54,9 +55,9 @@ const SharedComponents: NextPage<Props> = ({ quote, contact, teasers, images }) 
           width={1504}
           height={800}
         />
-      </PageSection>
+      </Section>
 
-      <PageSection>
+      <Section>
         <Heading3>Atomic Design</Heading3>
         <Copy>
           Die Shared Components sind an das Atomic Design angelehnt. Sie werden in drei Hierarchiestufen (Atome, Moleküle und
@@ -68,11 +69,11 @@ const SharedComponents: NextPage<Props> = ({ quote, contact, teasers, images }) 
           Mit JavaScript und Benutzerkontext werden die Komponenten erweitert und als interaktive Widgets inklusive Single
           Sign-on zur Verfügung gestellt.
         </Copy>
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Testimonial background="apricot" blobs={BlobVariations.apricot[2]} quote={quote} />
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Grid cols={3}>
           <TextBlock title="Automatisiertes Testing">
             Die Module werden mit Jasmine, Chai und PhantomJS automatisiert und ausführlich getestet. Mittels Unit,
@@ -101,17 +102,17 @@ const SharedComponents: NextPage<Props> = ({ quote, contact, teasers, images }) 
             zur Vorschau zur Verfügung.
           </TextBlock>
         </Grid>
-      </PageSection>
-      <PageSection>
+      </Section>
+      <Section>
         <Contact contact={contact} />
-      </PageSection>
-      <PageSection title="Weitere Erfolgsgeschichten">
+      </Section>
+      <Section title="Weitere Erfolgsgeschichten">
         <Grid cols={3}>
           {teasers.map((teaser) => (
             <NextImageCard key={teaser.title} {...teaser} />
           ))}
         </Grid>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

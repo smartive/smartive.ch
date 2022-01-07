@@ -6,7 +6,6 @@ import {
   Heading2,
   Label,
   PageHeaderVariants,
-  PageSection,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
@@ -20,6 +19,7 @@ import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 type Props = {
   contact: Employee;
@@ -47,7 +47,7 @@ const SolutionReview: NextPage<Props> = ({ contact, teasers, packages }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Heading2>Was ist ein Solution Review?</Heading2>
           <Copy>
             Du hast ein digitales Produkt am Markt. Es geht nicht voran oder du bist dir nicht sicher, ob die Lösung hält,
@@ -74,11 +74,11 @@ const SolutionReview: NextPage<Props> = ({ contact, teasers, packages }) => {
               ]}
             />
           </div>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact} />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           {teasers.length > 0 && (
             <>
               <Heading2>Diese Projekte haben mit einem Solution Review gestartet:</Heading2>
@@ -91,7 +91,7 @@ const SolutionReview: NextPage<Props> = ({ contact, teasers, packages }) => {
           )}
           <Heading2>Und damit könnte es nach deinem Solution Review weiter gehen:</Heading2>
           <PackageList packages={packages} />
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

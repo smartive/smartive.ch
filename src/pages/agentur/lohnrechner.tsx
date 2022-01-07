@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, Grid, PageSection, TextBlock, TextLink } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, TextLink, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React, { FC } from 'react';
 import { State } from 'xstate';
@@ -9,6 +9,7 @@ import TextBlocks from '../../data/benefits.json';
 import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { Context, machine } from '../../machines/salary-calculator';
 
 type ReportProps = {
@@ -50,10 +51,10 @@ export const Lohnrechner: NextPage<PageProps> = ({ quote }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <InteractiveQuiz machine={machine} render={(state: State<Context>) => <Report salary={state.context.salary} />} />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Grid cols={3}>
             {textBlocks.map(({ title, content }) => (
               <TextBlock key={title} title={title}>
@@ -62,7 +63,7 @@ export const Lohnrechner: NextPage<PageProps> = ({ quote }) => {
             ))}
           </Grid>
           <Testimonial background="apricot" blobs={BlobVariations.apricot[1]} quote={quote} />
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

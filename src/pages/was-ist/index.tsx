@@ -1,7 +1,8 @@
-import { Button, ChevronRight, Copy, Heading2, PageSection } from '@smartive/guetzli';
+import { Button, ChevronRight, Copy, Heading2 } from '@smartive/guetzli';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 const techLinks = [
   { label: 'React', href: 'was-ist/react' },
@@ -38,7 +39,7 @@ const WasIst = () => (
     </PageHeader>
 
     <main>
-      <PageSection>
+      <Section>
         <Heading2>Technologie</Heading2>
         <div className="flex gap-x-8 gap-y-4 flex-wrap mb-16 lg:mb-24">
           {techLinks.map((link) => (
@@ -57,7 +58,7 @@ const WasIst = () => (
             </Button>
           ))}
         </div>
-      </PageSection>
+      </Section>
     </main>
   </Page>
 );

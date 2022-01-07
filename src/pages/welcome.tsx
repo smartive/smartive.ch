@@ -1,4 +1,4 @@
-import { Copy, Grid, GridSlider, Heading2, Heading3, LinkList, PageSection, TextLink } from '@smartive/guetzli';
+import { Copy, Grid, GridSlider, Heading2, Heading3, TextLink, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import React from 'react';
@@ -6,6 +6,7 @@ import { NextContentCard } from '../components/content-card';
 import { PageHeader } from '../compositions/page-header';
 import { PlaceholderImage } from '../elements/placeholder-image';
 import { LandingPage } from '../layouts/landing-page';
+import { Section } from '../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
 
 const STATIC_IMAGES = {
@@ -33,7 +34,7 @@ const Welcome: NextPage<Props> = ({ images }) => (
       <LinkList links={[{ label: 'Google Account einrichten', href: `https://accounts.google.com/signin` }]} />
     </PageHeader>
 
-    <PageSection>
+    <Section>
       <Grid cols={2}>
         <PlaceholderImage
           image={images.boats}
@@ -63,9 +64,9 @@ const Welcome: NextPage<Props> = ({ images }) => (
           height={500}
         />
       </Grid>
-    </PageSection>
+    </Section>
 
-    <PageSection>
+    <Section>
       <Heading2>Deine ersten, digitalen Schritte</Heading2>
       <Copy>
         Slack hast du wahrscheinlich schon. Aber es sieht noch nicht so nach smartive aus. Schau doch mal auf unserer{' '}
@@ -108,8 +109,8 @@ const Welcome: NextPage<Props> = ({ images }) => (
         Unbedingt! Sprich doch kurz Robert oder Moreno an, sie zeigen dir wo und wie du einen Merge Request für die Website
         eröffnen und dich selber hinzufügen kannst.
       </Copy>
-    </PageSection>
-    <PageSection>
+    </Section>
+    <Section>
       <Heading2>Du brauchst noch mehr Infos?</Heading2>
       <GridSlider>
         <NextContentCard
@@ -134,7 +135,7 @@ const Welcome: NextPage<Props> = ({ images }) => (
           link={{ label: 'Zu Harvest', href: 'https://smartive.harvestapp.com/' }}
         />
       </GridSlider>
-    </PageSection>
+    </Section>
   </LandingPage>
 );
 

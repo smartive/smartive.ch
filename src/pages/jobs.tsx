@@ -1,4 +1,4 @@
-import { Copy, Grid, PageSection } from '@smartive/guetzli';
+import { Copy, Grid } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../components/contact';
@@ -7,6 +7,7 @@ import { Employee, transformEmployee } from '../data/employees';
 import Employees from '../data/employees.json';
 import { PlaceholderImage } from '../elements/placeholder-image';
 import { Page } from '../layouts/page';
+import { Section } from '../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
 
 const STATIC_IMAGES = {
@@ -37,7 +38,7 @@ const Jobs: NextPage<Props> = ({ contact, images }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <div className="hidden md:block md:row-span-2 relative">
               <PlaceholderImage
@@ -71,15 +72,15 @@ const Jobs: NextPage<Props> = ({ contact, images }) => {
               height={500}
             />
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact}>
             <>
               Du denkst, du passt zu uns? <br />
               {contact.firstname} freut sich auf deine Nachricht.
             </>
           </Contact>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

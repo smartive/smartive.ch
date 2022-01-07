@@ -6,7 +6,6 @@ import {
   Heading2,
   Label,
   PageHeaderVariants,
-  PageSection,
   TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
@@ -22,6 +21,7 @@ import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 
 type Props = {
   contact: Employee;
@@ -48,7 +48,7 @@ const Jetski: NextPage<Props> = ({ contact, teasers, packages }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <Heading2>Was ist ein Jetski?</Heading2>
           <Copy>
             Du hast eine Idee. Dir ist schon recht klar, wie das Produkt aussehen und funktionieren könnte. Nun willst du
@@ -86,15 +86,15 @@ const Jetski: NextPage<Props> = ({ contact, teasers, packages }) => {
               ]}
             />
           </div>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact}>
             Ist ein Jetski das Richtige für dich?
             <br />
             {contact.firstname} bespricht das gerne mit dir!
           </Contact>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           {teasers.length > 0 && (
             <>
               <Heading2>Diese Projekte haben mit einem Jetski gestartet:</Heading2>
@@ -107,7 +107,7 @@ const Jetski: NextPage<Props> = ({ contact, teasers, packages }) => {
           )}
           <Heading2>Und damit könnte es nach dem Jetski weiter gehen:</Heading2>
           <PackageList packages={packages} />
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );

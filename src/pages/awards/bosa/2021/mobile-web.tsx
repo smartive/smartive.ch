@@ -5,18 +5,17 @@ import {
   Heading2,
   Heading3,
   Keyfigure,
-  PageSection,
   TextBlock,
   TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-
 import { Testimonial } from '../../../../components/testimonial';
 import { PageHeader } from '../../../../compositions/page-header';
 import { Quote, transformQuote } from '../../../../data/quotes';
 import { PlaceholderImage } from '../../../../elements/placeholder-image';
 import { LandingPage } from '../../../../layouts/landing-page';
+import { Section } from '../../../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../../../utils/image-placeholders';
 
 const STATIC_IMAGES = {
@@ -62,7 +61,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <PlaceholderImage
             image={images.snack}
             alt="Eine Frau sitzt mit dem Smartphone in der Hand auf einer Treppe und isst Popcorn."
@@ -71,9 +70,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
             width={1504}
             height={800}
           />
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Heading2>Eine App im Web</Heading2>
           <Copy>
             Beinahe 80% der Nutzerinnen und Nutzer besuchen Migipedia mit einem Smartphone. Eine aktuelle Studie geht davon
@@ -96,8 +95,8 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               ]}
             />
           </Copy>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Keyfigure
             background="mint"
             image={
@@ -124,9 +123,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               />
             </Copy>
           </Keyfigure>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <PlaceholderImage
               image={images.stairs}
@@ -145,9 +144,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               height={383}
             />
           </Grid>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Heading2>Hebt ab in Richtung App</Heading2>
           <Copy>
             Bilder, grossflächig und gestochen scharf. Personalisierte, überraschende Inhalte – relevant für jedes einzelne
@@ -178,13 +177,13 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
             den Browser hinauswächst. Momentan bietet die PWA bereits nützliche Shortcuts (Android) sowie Splash- und
             Offline-Screens zur Überbrückung von Wartezeiten, was zu einer flüssigeren Experience beiträgt.
           </Copy>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Testimonial background="cornflower" blobs={BlobVariations.cornflower[3]} quote={quote} />
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Heading2>Erfolgsfaktoren: Design, Personalisierung, Performance</Heading2>
           <Copy>
             Migipedia, die App im Web, kommt bei den Migros-Kundinnen und -Kunden an. Monatlich stossen rund 2000 neue
@@ -214,9 +213,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
             Community-Mitgliedern empfohlen. Je nach Login-Status kommen unterschiedliche Empfehlungen zum Einsatz. Diese
             Form der Personalisierung ist ein entscheidender Faktor für die Lebendigkeit der Community.
           </Copy>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <TextBlock title="neue Mitglieder pro Monat" number={2000}>
               Monatlich stossen rund 2000 neue Mitglieder zur Migros-Community hinzu.
@@ -238,9 +237,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               105 Mio. Mal wurden die 120 000 neuen Bewertungen im letzten Jahr abgerufen.
             </TextBlock>
           </Grid>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Keyfigure background="apricot">
             <Heading2>Jury-Hinweis</Heading2>
             <Copy>
@@ -250,7 +249,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               Live-Umgebung statt und sind für alle Kundinnen und Kunden sichtbar.
             </Copy>
           </Keyfigure>
-        </PageSection>
+        </Section>
       </main>
     </LandingPage>
   );

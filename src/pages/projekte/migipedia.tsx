@@ -1,14 +1,4 @@
-import {
-  BlobVariations,
-  Copy,
-  Grid,
-  Keyfigure,
-  LinkList,
-  PageSection,
-  TextBlock,
-  TextLink,
-  UnorderedList,
-} from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, Keyfigure, LinkList, TextBlock, TextLink, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
@@ -23,6 +13,7 @@ import { Award, Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
 import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
@@ -66,7 +57,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
       </PageHeader>
 
       <main>
-        <PageSection>
+        <Section>
           <div className="relative w-full h-0 pb-[56.25%] rounded overflow-hidden">
             <iframe
               src="https://www.youtube-nocookie.com/embed/b9q9176Vy0s"
@@ -76,9 +67,9 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
               allowFullScreen
             />
           </div>
-        </PageSection>
+        </Section>
 
-        <PageSection>
+        <Section>
           <Grid cols={2}>
             <PlaceholderImage
               image={images.kitchen}
@@ -97,8 +88,8 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
               height={383}
             />
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Keyfigure
             image={
               <PlaceholderImage
@@ -123,8 +114,8 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
               markerColor="apricot"
             />
           </Keyfigure>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <PlaceholderImage
             image={images.couch}
             alt="Eine Frau sitzt mit ihrem Sohn im Wohnzimmer. Sie sortieren Migros Mania Sammelelemente."
@@ -133,8 +124,8 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
             width={1504}
             height={800}
           />
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Grid cols={2}>
             <TextBlock title="Die Herausforderung">
               Migipedia.ch verbindet Nutzen für Nutzer*innen mit Mehrwert für die Migros. Sie ist seit zehn Jahren fester
@@ -150,8 +141,8 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
             </TextBlock>
           </Grid>
           <Testimonial background="apricot" blobs={BlobVariations.apricot[0]} quote={quote} />
-        </PageSection>
-        <PageSection title="Wie wir der Migros geholfen haben">
+        </Section>
+        <Section title="Wie wir der Migros geholfen haben">
           <Grid cols={2}>
             <TextBlock title="Von der Plattform zum Community-Service">
               Eine Frage zu einem Rezept auf Migusto stellen, einen Einkauf auf SportXX bewerten, eine Produktfrage in der
@@ -168,18 +159,18 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
               Erlebnis ab.
             </TextBlock>
           </Grid>
-        </PageSection>
-        <PageSection>
+        </Section>
+        <Section>
           <Contact contact={contact} />
-        </PageSection>
+        </Section>
 
-        <PageSection title="Weitere Erfolgsgeschichten">
+        <Section title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
             {teasers.map((teaser) => (
               <NextImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
-        </PageSection>
+        </Section>
       </main>
     </Page>
   );
