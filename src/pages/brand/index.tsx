@@ -8,12 +8,12 @@ import {
   Heading1,
   Heading2,
   Heading3,
-  Link,
   LinkList,
   Logo,
   mapColorToBG,
   mapColorToLightBG,
   PageSection,
+  TextLink,
 } from '@smartive/guetzli';
 import NextLink from 'next/link';
 import React, { FC } from 'react';
@@ -190,9 +190,9 @@ const Brand: FC = () => (
           <Copy>
             Leads und Copytext sind straightforward in Inter Regular. Bold und Kursiv bitte nicht inflationär verwenden.
             Inhaltlich immer auf den Punkt gebracht. Hyperlinks innerhalb vom Copytext sind auch einfach:{' '}
-            <Link href="https://en.wikipedia.org/wiki/Underscore" newTab>
+            <TextLink href="https://en.wikipedia.org/wiki/Underscore" newTab>
               Underline
-            </Link>{' '}
+            </TextLink>{' '}
             und fertig.
           </Copy>
         </div>
@@ -250,7 +250,7 @@ const ColorBox: FC<ColorBoxProps> = ({ color, name, values }) => (
     }`}
   >
     <div
-      className={`h-64 w-64 flex-shrink-0 hidden sm:block ${
+      className={`h-64 w-64 flex-0 hidden sm:block ${
         color === 'gray'
           ? 'bg-white-200 border-white-100 border-4 rounded-l'
           : color === 'darkness'

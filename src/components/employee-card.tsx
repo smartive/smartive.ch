@@ -1,4 +1,4 @@
-import { Heading3, Link, LinkVariants } from '@smartive/guetzli';
+import { Heading3, TextLink } from '@smartive/guetzli';
 import { usePlausible } from 'next-plausible';
 import React, { FC } from 'react';
 import { Employee } from '../data/employees';
@@ -50,11 +50,10 @@ export const EmployeeCard: FC<Props> = ({
             const itemProp = url.match(/^mailto:.+$/i) ? 'email' : 'sameAs';
 
             return (
-              <Link
-                itemProp={itemProp}
+              <TextLink
                 key={url}
+                itemProp={itemProp}
                 href={url}
-                variant={LinkVariants.Default}
                 onClick={() => {
                   plausible('Contact Click', {
                     props: {
@@ -67,7 +66,7 @@ export const EmployeeCard: FC<Props> = ({
                 }}
               >
                 {label}
-              </Link>
+              </TextLink>
             );
           })}
         </div>

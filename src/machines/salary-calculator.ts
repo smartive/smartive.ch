@@ -1,4 +1,4 @@
-import { createMachine, assign } from 'xstate';
+import { assign, createMachine } from 'xstate';
 import { FormType, OptionType, QuizEvent } from './interactive-quiz';
 
 export interface Context {

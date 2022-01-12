@@ -1,32 +1,16 @@
-import { Button, Card, Copy, Heading2, Input, Label, Link, LinkButton, Textarea, Tooltip } from '@smartive/guetzli';
+import { Button, Card, Copy, Heading2, Input, Label, Textarea, TextLink, Tooltip } from '@smartive/guetzli';
 import { useMachine } from '@xstate/react';
 import { AnimatePresence, domMax, LazyMotion, m as motion } from 'framer-motion';
-import React, {
-  Children,
-  cloneElement,
-  FC,
-  PropsWithChildren,
-  ReactElement,
-  ReactNode,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { FC, ReactNode, useMemo, useRef, useState } from 'react';
 import { State, StateMachine } from 'xstate';
 import { getMeta } from '../machines/get-meta';
 import type { QuizEvent } from '../machines/interactive-quiz';
 
-const Stack: FC = ({ children }) => (
-  <div className="flex flex-col">
-    {Children.map(children, (child: ReactElement<PropsWithChildren<{ className?: string }>>) =>
-      cloneElement(child, { className: `${child.props.className} mb-4` })
-    )}
-  </div>
-);
+const Stack: FC = ({ children }) => <div className="flex flex-col gap-4">{children}</div>;
 
 type Props = {
-  machine: StateMachine<unknown, unknown, QuizEvent>;
-  render: (state: State<unknown>, machine: StateMachine<unknown, unknown, QuizEvent>) => ReactNode;
+  machine: StateMachine<any, any, QuizEvent>;
+  render: (state: State<any>, machine: StateMachine<any, any, QuizEvent>) => ReactNode;
 };
 
 export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
@@ -35,9 +19,12 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
 
   const Options = useMemo(
     () => ({
-      continue: ({ value, text }) => {
+      continue: ({ value, text, width = 'auto' }) => {
         return (
           <Button
+            width={width === 'full' ? 'full' : 'auto'}
+            variant="solid"
+            as="button"
             key={text}
             onClick={() => {
               const input = value || ref.current?.value;
@@ -50,9 +37,11 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
       },
       skip: ({ text }) => {
         return (
-          <LinkButton key={text} onClick={() => send('SKIP')} className="ml-4">
-            {text}
-          </LinkButton>
+          <span className="ml-4" key={text}>
+            <TextLink as="button" key={text} onClick={() => send('SKIP')}>
+              {text}
+            </TextLink>
+          </span>
         );
       },
       input: ({ type, label, placeholder, required = false }) => {
@@ -74,9 +63,11 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
       'inline-skip': ({ text }) => {
         return (
           <div key={text} className="w-full text-center">
-            <LinkButton className="mx-auto" onClick={() => send('SKIP')}>
-              {text}
-            </LinkButton>
+            <span className="mx-auto">
+              <TextLink as="button" onClick={() => send('SKIP')}>
+                {text}
+              </TextLink>
+            </span>
           </div>
         );
       },
@@ -99,10 +90,15 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
           </Copy>
           <Copy>Umso schöner wäre es, wenn du von dir aus mit uns Kontakt aufnimmst.</Copy>
           <Copy>
-            <Link href={`tel:${state.meta[machine.id].responsible.tel}`} className="mr-8">
-              {state.meta[machine.id].responsible.tel}
-            </Link>
-            <Link href={`tel:${state.meta[machine.id].responsible.email}`}>{state.meta[machine.id].responsible.email}</Link>
+            <span className="mr-8">
+              <TextLink href={`tel:${state.meta[machine.id].responsible.tel}`}>
+                {state.meta[machine.id].responsible.tel}
+              </TextLink>
+            </span>
+
+            <TextLink href={`tel:${state.meta[machine.id].responsible.email}`}>
+              {state.meta[machine.id].responsible.email}
+            </TextLink>
           </Copy>
         </div>
       </Card>
@@ -136,15 +132,19 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
                 ) : (
                   <>
                     {!state.matches(machine.initial) && (
-                      <LinkButton onClick={() => send('BACK')} className="mb-8 block mt-8">
-                        Zurück
-                      </LinkButton>
+                      <span className="mb-8 block mt-8">
+                        <TextLink as="button" onClick={() => send('BACK')}>
+                          Zurück
+                        </TextLink>
+                      </span>
                     )}
                     <div className="mb-8" />
                     <Heading2 className="max-w-prose">{title}</Heading2>
                     {getMeta('copy', { machine, state }) && <Copy>{copy}</Copy>}
                     {form?.type === 'stack' ? (
-                      <Stack>{form?.options.map(({ element, ...option }) => Options[element](option))}</Stack>
+                      <Stack>
+                        {form?.options.map(({ element, ...option }) => Options[element]({ ...option, width: 'full' }))}
+                      </Stack>
                     ) : form?.type === 'text' ? (
                       form?.options.map(({ element, ...option }) => Options[element](option))
                     ) : null}
@@ -234,7 +234,9 @@ const ContactForm: FC<{
           />
         </Tooltip>
       </Label>
-      <Button onClick={submit}>Weiter</Button>
+      <Button as="button" type="submit" onClick={submit}>
+        Weiter
+      </Button>
     </Stack>
   );
 };

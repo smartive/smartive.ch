@@ -4,10 +4,10 @@ import {
   Grid,
   Heading3,
   Keyfigure,
-  Link,
   LinkList,
   PageSection,
   TextBlock,
+  TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
@@ -50,8 +50,9 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
         description="Für die neue Migusto-Plattform der Migros haben wir eine Rezepte-API entwickelt. Unsere Lösung bietet einen zentralen Zugriff auf die Migros Rezeptdatenbank mit Rezepten von Migusto, Famigros und iMpuls."
       >
         <Copy>
-          Für den neuen Auftritt von <Link href="https://migusto.ch">Migusto</Link> haben wir eine Rezepte-API entwickelt.
-          Sie ist nun die zentrale Anlaufstellt für alle Migros-Rezepte und wird von Migusto, Famigros und iMpuls benutzt.
+          Für den neuen Auftritt von <TextLink href="https://migusto.ch">Migusto</TextLink> haben wir eine Rezepte-API
+          entwickelt. Sie ist nun die zentrale Anlaufstellt für alle Migros-Rezepte und wird von Migusto, Famigros und iMpuls
+          benutzt.
         </Copy>
         <Copy>
           In Echtzeit (und rasant 🚀) liefert die GraphQL-Schnittstelle Rezeptdaten aus. Aber nicht nur das, dank einer
@@ -106,7 +107,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             Die Rezepte-API aggregiert Inhalte verschiedener Herkunft und stellt sie Plattformen mit unterschiedlichen
             Anforderungen zur Verfügung. Regelmässig werden die Rezepte aus dem Redaktionssystem importiert und der Suchindex
             optimiert. Die Rezepte werden live mit Community-Daten (Bewertungen, Kommentaren und Fragen) von{' '}
-            <Link href="https://reactions.dev">Reactions</Link> angereichert:{' '}
+            <TextLink href="https://reactions.dev">Reactions</TextLink> angereichert:{' '}
             <em>Schmeckt toll, aber noch besser mit etwas Chili.</em>
           </Copy>
           <Copy>

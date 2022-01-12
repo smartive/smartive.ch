@@ -1,4 +1,4 @@
-import { Copy, Link, PageSection, UnorderedList } from '@smartive/guetzli';
+import { Copy, PageSection, TextLink, UnorderedList } from '@smartive/guetzli';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
@@ -36,29 +36,29 @@ const Iam = () => (
       <PageSection title="Die besten Räder auf der Strasse">
         <Copy>
           IAM-Plattformen bieten fertige Code-Libraries, deren Einbindung ein Kinderspiel ist. Etablierte Standards wie{' '}
-          <Link href="https://openid.net/connect/" newTab>
+          <TextLink href="https://openid.net/connect/" newTab>
             OpenID Connect
-          </Link>{' '}
+          </TextLink>{' '}
           garantieren dabei ein gemeinsames Verständnis für den Austausch von Benutzerinformationen.
         </Copy>
         <Copy>
-          <Link href="https://www.zitadel.ch/" newTab>
+          <TextLink href="https://www.zitadel.ch/" newTab>
             Zitadel:
-          </Link>{' '}
+          </TextLink>{' '}
           Die Plattform aus der Schweiz kannst du als SaaS aus der Cloud beziehen oder in deinem eigenen Rechenzentrum
           betreiben. Dank der Einhaltung anerkannter Standards sehr einfach anzubinden, bietet Zitadel viele Features.
         </Copy>
         <Copy>
-          <Link href="https://auth0.com/" newTab>
+          <TextLink href="https://auth0.com/" newTab>
             Auth0:
-          </Link>{' '}
+          </TextLink>{' '}
           Die wohl bekannteste internationale IAM-Plattform. Eine On-Premise Lösung gibts hier nicht. Die Plattform ist aber
           ebenfalls extrem einfach anzubinden und der Funktionsumfang riesig.
         </Copy>
         <Copy>
-          <Link href="https://cloud.google.com/identity" newTab>
+          <TextLink href="https://cloud.google.com/identity" newTab>
             Google Identity:
-          </Link>{' '}
+          </TextLink>{' '}
           Eine günstigere Alternative. Bietet nicht den gleichen Funktionsumfang und nicht die gleiche komfortable Developer
           Experience, passt dafür auch in ein kleines Budget.
         </Copy>

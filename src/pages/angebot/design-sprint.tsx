@@ -42,7 +42,7 @@ const DesignSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
     <Page>
       <PageHeader
         markdownTitle="Design Sprint"
-        description="Gewinn ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌ ‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generiere‌ ‌daraus‌
+        description="Gewinn ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generiere‌ ‌daraus‌
           ‌funktionsfähige‌ ‌Ideen.‌ ‌Erhalte‌ ‌einen‌ ‌ersten‌ ‌visuellen‌ ‌Prototypen‌ ‌und‌ ‌hole‌ ‌Feedback‌ ‌deiner‌
           ‌Kunden‌ ‌dazu‌ ‌ab.‌"
         variant={PageHeaderVariants.Card}
@@ -136,9 +136,11 @@ const QuizPlaceholder: FC<{ onClick?(): void; disabled?: boolean }> = ({ onClick
         Wir mögen Design Sprints und sprechen gerne mit dir darüber. Ein paar Infos helfen uns dabei, uns optimal
         vorzubereiten.
       </Copy>
-      <Button onClick={onClick} disabled={disabled} className="w-full">
-        Let&apos;s chat!
-      </Button>
+      <span className="w-full">
+        <Button as="button" width="full" variant="solid" onClick={onClick} disabled={disabled}>
+          Let&apos;s chat!
+        </Button>
+      </span>
     </div>
   </Card>
 );

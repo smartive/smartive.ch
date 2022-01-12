@@ -1,10 +1,6 @@
 const guetzliConfig = require('@smartive/guetzli/config');
 
 module.exports = guetzliConfig.tailwindConfig({
-  purge: ['./src/**/*.{js,ts,jsx,tsx}'],
-  theme: {
-    extend: {},
-  },
-  variants: {},
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   plugins: [require('@tailwindcss/typography')],
 });

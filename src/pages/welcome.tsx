@@ -1,4 +1,4 @@
-import { Copy, Grid, GridSlider, Heading2, Heading3, Link, LinkList, PageSection } from '@smartive/guetzli';
+import { Copy, Grid, GridSlider, Heading2, Heading3, LinkList, PageSection, TextLink } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import React from 'react';
@@ -70,7 +70,7 @@ const Welcome: NextPage<Props> = ({ images }) => (
       <Copy>
         Slack hast du wahrscheinlich schon. Aber es sieht noch nicht so nach smartive aus. Schau doch mal auf unserer{' '}
         <NextLink href="/brand" passHref>
-          <Link>Brandseite</Link>
+          <TextLink href="/brand">Brandseite</TextLink>
         </NextLink>{' '}
         vorbei um dir dein Slack Theme zu ergattern. Und wenn du schon mal da bist, lies dir die Sachen doch rasch durch. 😇
       </Copy>
@@ -78,7 +78,7 @@ const Welcome: NextPage<Props> = ({ images }) => (
       <Copy>
         Erster Tag. So. viele. Namen. 😩 Unsere{' '}
         <NextLink href="/team" passHref>
-          <Link>Teamseite</Link>
+          <TextLink href="/team">Teamseite</TextLink>
         </NextLink>{' '}
         schafft Abhilfe. Da findest du alle smarties mit Foto und ein paar kurzweiligen Facts.
       </Copy>
@@ -86,15 +86,19 @@ const Welcome: NextPage<Props> = ({ images }) => (
         Zu wissen wie die Leute heissen ist sicher schon mal ein guter Schritt. Aber du fragst dich vielleicht an wen du dich
         wenden kannst, wenn du Fragen zum Thema{' '}
         <NextLink href="https://smarties.app/roles/smartive-and-beer" passHref>
-          <Link newTab>Bier 🍻</Link>
+          <TextLink href="https://smarties.app/roles/smartive-and-beer" newTab>
+            Bier 🍻
+          </TextLink>
         </NextLink>{' '}
         hast (ja, wirklich…). Oder wie genau dieses{' '}
         <NextLink href="https://smarties.app/roles/scrum-master" passHref>
-          <Link newTab>Scrum</Link>
+          <TextLink href="https://smarties.app/roles/scrum-master" newTab>
+            Scrum
+          </TextLink>
         </NextLink>{' '}
         denn funktioniert. Diese Infos findest du in den{' '}
         <NextLink href="https://smarties.app/roles" passHref>
-          <Link>smartive Roles</Link>
+          <TextLink href="https://smarties.app/roles">smartive Roles</TextLink>
         </NextLink>
         .
       </Copy>

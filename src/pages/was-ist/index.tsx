@@ -1,4 +1,4 @@
-import { ButtonLink, ButtonVariants, Copy, Heading2, PageSection } from '@smartive/guetzli';
+import { Button, ChevronRight, Copy, Heading2, PageSection } from '@smartive/guetzli';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
@@ -42,17 +42,19 @@ const WasIst = () => (
         <Heading2>Technologie</Heading2>
         <div className="flex gap-x-8 gap-y-4 flex-wrap mb-16 lg:mb-24">
           {techLinks.map((link) => (
-            <ButtonLink key={link.label} href={link.href} variant={ButtonVariants.Arrow}>
+            <Button as="a" key={link.label} href={link.href}>
               {link.label}
-            </ButtonLink>
+              <ChevronRight className="w-4 h-4" />
+            </Button>
           ))}
         </div>
         <Heading2>Projekt- & Prozessmanagement</Heading2>
         <div className="flex gap-x-8 gap-y-4 flex-wrap">
           {managementLinks.map((link) => (
-            <ButtonLink key={link.label} href={link.href} variant={ButtonVariants.Arrow}>
+            <Button as="a" key={link.label} href={link.href}>
               {link.label}
-            </ButtonLink>
+              <ChevronRight className="w-4 h-4" />
+            </Button>
           ))}
         </div>
       </PageSection>

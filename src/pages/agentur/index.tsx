@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, Grid, Link, PageSection, TextBlock } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, PageSection, TextBlock, TextLink } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import React from 'react';
@@ -154,11 +154,11 @@ const Agentur: NextPage<Props> = ({ quote, images }) => {
             <TextBlock title="Erfolgreiche Projekte: dreistellig" number={300}>
               In den letzten Jahren haben wir über 300 Projekte erfolgreich gemeistert. Sowohl in Zusammenarbeit mit{' '}
               <NextLink href="/projekte/subsidia" passHref>
-                <Link>Start-Ups</Link>
+                <TextLink href="/projekte/subsidia">Start-Ups</TextLink>
               </NextLink>{' '}
               als auch mit der{' '}
               <NextLink href="/projekte/migipedia/" passHref>
-                <Link>grössten Arbeitgeberin der Schweiz</Link>
+                <TextLink href="/projekte/migipedia/">grössten Arbeitgeberin der Schweiz</TextLink>
               </NextLink>
               .
             </TextBlock>

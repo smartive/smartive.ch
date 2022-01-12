@@ -1,4 +1,4 @@
-import { Copy, Explainer, Grid, Heading3, Link, PageSection, TextBlock, UnorderedList } from '@smartive/guetzli';
+import { Copy, Explainer, Grid, Heading3, PageSection, TextBlock, TextLink, UnorderedList } from '@smartive/guetzli';
 import NextLink from 'next/link';
 import React from 'react';
 
@@ -25,7 +25,7 @@ const GRPC = () => (
         <Copy>
           gRPC ist eine Alternative zu REST oder{' '}
           <NextLink href="/was-ist/graphql" passHref>
-            <Link>GraphQL</Link>
+            <TextLink href="/was-ist/graphql">GraphQL</TextLink>
           </NextLink>{' '}
           , die sich anbietet, wenn Performance entscheidend ist. Ein typisches Einsatzgebiet ist Kommunikation zwischen
           Microservices. Aber auch für eine API ist gRPC bestens geeignet, gerade bei vielen Clients. Hier punktet gRPC
@@ -69,20 +69,20 @@ const GRPC = () => (
         <Grid cols={2}>
           <TextBlock title="HTTP/2">
             gRPC nutzt die Vorteile von{' '}
-            <Link
+            <TextLink
               href="https://www.ionos.de/digitalguide/hosting/hosting-technik/so-optimiert-http2-das-world-wide-web/"
               newTab
             >
               HTTP/2
-            </Link>
+            </TextLink>
             , der Weiterentwicklung des Protokolls zur Datenübertragung im Web. Es erlaubt binär codierte Inhalte und
             vereinfacht die Bündelung von Datenpaketen. HTTP/2 ist in allen modernen Browsern bereits eingebaut.
           </TextBlock>
           <TextBlock title="Protobuf">
             gRPC setzt auf das binäre Datenformat Protobuf, mit vollem Namen{' '}
-            <Link href="https://developers.google.com/protocol-buffers/" newTab>
+            <TextLink href="https://developers.google.com/protocol-buffers/" newTab>
               Protocol Buffers
-            </Link>
+            </TextLink>
             . Binäre Daten sind verglichen mit durch Text strukturierten weniger umfangreich und deshalb schneller
             übertragen.
           </TextBlock>
@@ -94,7 +94,7 @@ const GRPC = () => (
           Nicht menschenlesbar klingt zuerst einmal ungewohnt – bei der Arbeit mit gRPC spielt das aber keine Rolle, da
           entsprechende Tools bereitstehen. Es bietet ähnliche Vorteile wie{' '}
           <NextLink href="/was-ist/graphql" passHref>
-            <Link>GraphQL</Link>
+            <TextLink href="/was-ist/graphql">GraphQL</TextLink>
           </NextLink>{' '}
           mit einem etwas anderen Ansatz:
         </Copy>

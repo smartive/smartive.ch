@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ignoreListRoutes = ['/404', '/_document', '/_app', '/api/', '/blog/[slug]'];
-const ignoreListErrors = ['card-shadow-', 'is smaller than 40x40', 'bg-', 'Fast Refresh', 'Image with src'];
+const ignoreListErrors = ['card-shadow-', 'is smaller than 40x40', 'bg-', 'Fast Refresh', 'Image with src', '403'];
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',
   'nachhaltigkeit/[year]/scope-3': 'nachhaltigkeit/2019/scope-3',
@@ -39,7 +39,7 @@ const getAllRoutes = (dirPath = './src/pages', arrayOfFiles = []) => {
       (msg.type() === 'error' || msg.type() === 'warning') &&
       ignoreListErrors.every((ignore) => !msg.text().includes(ignore))
     ) {
-      errorsAndWarnings[`/${routesToCheck[routeIndex]}`] = msg.text();
+      errorsAndWarnings[page.url()] = msg.text();
     }
   });
 
@@ -69,12 +69,8 @@ const getAllRoutes = (dirPath = './src/pages', arrayOfFiles = []) => {
   }
 
   if (Object.keys(errorsAndWarnings).length > 0) {
-    console.error(
-      `Errors or warnings found in console on routes:\n${Object.keys(errorsAndWarnings).reduce(
-        (prev, curr) => `${prev}\n${curr}: ${errorsAndWarnings[curr]}`,
-        ''
-      )}\n`
-    );
+    console.error('Errors or warnings found in console on routes');
+    console.table(errorsAndWarnings);
     process.exitCode = 1;
   }
 })();

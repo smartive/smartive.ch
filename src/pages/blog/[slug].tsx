@@ -1,4 +1,4 @@
-import { Button, ButtonLink, Calendar, Clock, Heading3, PageSection, Share, Switch, Tooltip } from '@smartive/guetzli';
+import { Button, Calendar, Clock, Heading3, PageSection, Share, Switch, Tooltip } from '@smartive/guetzli';
 import { PostOrPage } from '@tryghost/content-api';
 import dayjs from 'dayjs';
 import 'dayjs/locale/de';
@@ -57,6 +57,7 @@ const BlogPost: NextPage<Props> = ({ post }) => {
               <div className="grid grid-flow-row xl:grid-flow-col gap-4 mt-4">
                 <Tooltip text="Kopiert!" isOpen={copyTooltipOpen}>
                   <Button
+                    as="button"
                     onClick={() => {
                       copyToClipboard(window.location.href);
                       setCopyTooltipOpen(true);
@@ -69,10 +70,10 @@ const BlogPost: NextPage<Props> = ({ post }) => {
                   </Button>
                 </Tooltip>
                 {post.canonical_url && (
-                  <ButtonLink href={post.canonical_url}>
+                  <Button as="a" href={post.canonical_url}>
                     <Switch className="inline-block" />{' '}
                     {post.tags.some((tag) => tag.name === 'German') ? 'Read in English' : 'Auf Deutsch lesen'}
-                  </ButtonLink>
+                  </Button>
                 )}
               </div>
             </div>

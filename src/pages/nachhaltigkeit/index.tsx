@@ -1,4 +1,4 @@
-import { ButtonLink, ButtonVariants, Copy, Grid, Heading2, Heading3, PageSection, TextBlock } from '@smartive/guetzli';
+import { Button, ChevronRight, Copy, Grid, Heading2, Heading3, PageSection, TextBlock } from '@smartive/guetzli';
 import 'charts.css/dist/charts.min.css';
 import type JSConfetti from 'js-confetti';
 import { GetStaticProps, NextPage } from 'next';
@@ -69,9 +69,9 @@ const Sustainabilty: NextPage<Props> = ({ comparisonTexts, allYearsTotalEmission
           über geschäftliche Mobilität bis zum Kaffee, den wir trinken.
         </Copy>
         <div className="flex gap-x-8 gap-y-4 flex-wrap mb-16 lg:mb-24">
-          <ButtonLink key={'ökobilanz'} href={'/nachhaltigkeit/theorie'} variant={ButtonVariants.Arrow}>
-            {'Wie berechnen wir unseren Fussabdruck?'}
-          </ButtonLink>
+          <Button as="a" key={'ökobilanz'} href={'/nachhaltigkeit/theorie'}>
+            Wie berechnen wir unseren Fussabdruck? <ChevronRight className="w-4 h-4" />
+          </Button>
         </div>
         <PageSection>
           <Heading2>Sind wir auf dem richtigen Weg?</Heading2>
@@ -99,7 +99,7 @@ const Sustainabilty: NextPage<Props> = ({ comparisonTexts, allYearsTotalEmission
                         style={
                           {
                             '--size': totalEmissionenCalculated,
-                            'transform-origin': 'left',
+                            transformOrigin: 'left',
                             animation: 'revealing-rows 8s linear infinite',
                           } as CSSProperties
                         }

@@ -2,12 +2,12 @@ import {
   Copy,
   Grid,
   Keyfigure,
-  Link,
   LinkList,
   PageSection,
   Screenshot,
   ScreenshotVariant,
   TextBlock,
+  TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
@@ -108,20 +108,20 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images }) => (
           <TextBlock title="Das haben wir daraus gemacht">
             Eine schlanke und schnelle{' '}
             <NextLink href="/was-ist/pwa" passHref>
-              <Link>Progressive Web App</Link>
+              <TextLink href="/was-ist/pwa">Progressive Web App</TextLink>
             </NextLink>{' '}
             erlaubt es Nutzer*innen, Spielplätze und andere Abenteuer in der Nähe zu finden. Die Daten werden aus den
             verschiedenen Gemeinden zusammengetragen und zentral in einem{' '}
             <NextLink href="/was-ist/headless-cms" passHref>
-              <Link>Headless CMS</Link>
+              <TextLink href="/was-ist/headless-cms">Headless CMS</TextLink>
             </NextLink>{' '}
             gepflegt. In einem{' '}
             <NextLink href="/angebot/speedboat" passHref>
-              <Link>Speedboat</Link>
+              <TextLink href="/angebot/speedboat">Speedboat</TextLink>
             </NextLink>{' '}
             haben wir innert 30 Tagen aus einer Idee eine eigene Plattform mit einem eigenen Brand und einem guten{' '}
             <NextLink href="/was-ist/lean-ux" passHref>
-              <Link>UX-Konzept</Link>
+              <TextLink href="/was-ist/lean-ux">UX-Konzept</TextLink>
             </NextLink>{' '}
             entwickelt, die einfach zu benutzen ist.
           </TextBlock>

@@ -4,10 +4,10 @@ import {
   Explainer,
   Grid,
   Keyfigure,
-  Link,
   LinkList,
   PageSection,
   TextBlock,
+  TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
@@ -85,9 +85,9 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             </TextBlock>
             <TextBlock title="Unsere Lösung">
               Mit einem speziell auf die Optimatik AG zugeschnittenen Workshop konnten wir das Team innert zwei Tagen auf den
-              aktuellen Stand zum Thema Cloud Hosting mit <Link href="/was-ist/kubernetes/">Kubernetes</Link> bringen.
-              Anschliessend haben wir in enger Zusammenarbeit die neue Google Cloud basierte Infrastruktur aufgesetzt und das
-              Energie Business Portal mit automatisierten CI Pipelines auf den neuen Cluster deployt.
+              aktuellen Stand zum Thema Cloud Hosting mit <TextLink href="/was-ist/kubernetes/">Kubernetes</TextLink>{' '}
+              bringen. Anschliessend haben wir in enger Zusammenarbeit die neue Google Cloud basierte Infrastruktur
+              aufgesetzt und das Energie Business Portal mit automatisierten CI Pipelines auf den neuen Cluster deployt.
             </TextBlock>
           </Grid>
         </PageSection>
@@ -157,8 +157,8 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               unterschiedliche Technologien und vereinfacht den Betrieb erheblich.
             </TextBlock>
             <TextBlock title="Kubernetes">
-              Dank <Link href="/was-ist/kubernetes">Kubernetes</Link> erwachen die Docker Container zum Leben und können
-              untereinander kommunizieren. Kubernetes kümmert sich auch um den Neustart, falls mal was klemmt.
+              Dank <TextLink href="/was-ist/kubernetes">Kubernetes</TextLink> erwachen die Docker Container zum Leben und
+              können untereinander kommunizieren. Kubernetes kümmert sich auch um den Neustart, falls mal was klemmt.
             </TextBlock>
           </Grid>
           <Grid cols={3}>
@@ -172,7 +172,8 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             </TextBlock>
             <TextBlock title="Python, Angular und Co">
               Damit das Energie Business Portal der Optimatik AG zum Leben erwacht, brauchts noch einiges mehr. Wenn du gerne
-              mehr darüber wissen möchtest, freuen wir uns über <Link href="https://smr.tv/meet-josh">deine Anfrage</Link>.
+              mehr darüber wissen möchtest, freuen wir uns über{' '}
+              <TextLink href="https://smr.tv/meet-josh">deine Anfrage</TextLink>.
             </TextBlock>
           </Grid>
         </PageSection>

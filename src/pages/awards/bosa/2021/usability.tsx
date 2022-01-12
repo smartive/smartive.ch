@@ -4,13 +4,12 @@ import {
   Grid,
   Heading2,
   Keyfigure,
-  Link,
   PageSection,
   TextBlock,
+  TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-
 import { Testimonial } from '../../../../components/testimonial';
 import { PageHeader } from '../../../../compositions/page-header';
 import { Quote, transformQuote } from '../../../../data/quotes';
@@ -52,11 +51,11 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
         ]}
       >
         <Copy>
-          Seit 2010 stehen bei <Link href="https://migipedia.migros.ch/de">Migipedia</Link> – der Community der Migros –
-          Kundinnen und Kunden im Mittelpunkt. Die Ansprüche der Userinnen und User an die Plattform haben sich in dieser
-          Zeit immer wieder verändert. Mit dem Migipedia-Relaunch von 2020 unter dem Motto «Wenn Migipedia eine App wäre»
-          wird diesen Veränderungen einmal mehr Rechnung getragen. Mit Erfolg: Auch dank der App-artigen User Experience ist
-          die Community heute so lebendig wie nie zuvor.
+          Seit 2010 stehen bei <TextLink href="https://migipedia.migros.ch/de">Migipedia</TextLink> – der Community der
+          Migros – Kundinnen und Kunden im Mittelpunkt. Die Ansprüche der Userinnen und User an die Plattform haben sich in
+          dieser Zeit immer wieder verändert. Mit dem Migipedia-Relaunch von 2020 unter dem Motto «Wenn Migipedia eine App
+          wäre» wird diesen Veränderungen einmal mehr Rechnung getragen. Mit Erfolg: Auch dank der App-artigen User
+          Experience ist die Community heute so lebendig wie nie zuvor.
         </Copy>
       </PageHeader>
 

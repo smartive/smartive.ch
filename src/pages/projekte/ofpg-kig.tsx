@@ -4,10 +4,10 @@ import {
   Grid,
   Heading3,
   Keyfigure,
-  Link,
   LinkList,
   PageSection,
   TextBlock,
+  TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
@@ -105,7 +105,7 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             <div>
               <Heading3>Schritt für Schritt vorwärts</Heading3>
               <Copy>
-                Auch bei diesem Projekt sind wir iterativ vorgegangen — mit <Link href="/was-ist/agile">Scrum</Link>.
+                Auch bei diesem Projekt sind wir iterativ vorgegangen — mit <TextLink href="/was-ist/agile">Scrum</TextLink>.
                 Regelmässig wurden neue Features getestet und evaluiert. Das erlaubte dem Kanton und uns, auf neue oder sich
                 ändernde Anforderungen einzugehen und diesen gerecht zu werden.
               </Copy>

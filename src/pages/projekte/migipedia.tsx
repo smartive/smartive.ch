@@ -3,10 +3,10 @@ import {
   Copy,
   Grid,
   Keyfigure,
-  Link,
   LinkList,
   PageSection,
   TextBlock,
+  TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
@@ -157,7 +157,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
               Eine Frage zu einem Rezept auf Migusto stellen, einen Einkauf auf SportXX bewerten, eine Produktfrage in der
               Migros-App beantworten, an einem Produkttest auf Migros.ch teilnehmen und im Forum auf Migipedia mitdiskutieren
               – Die Migros-Community ist da, wo die User sind, auf elf unterschiedlichen digitalen Touchpoints der Migros.
-              Möglich macht diese Modularisierung <Link href="https://www.reactions.dev">Reactions</Link>, unsere
+              Möglich macht diese Modularisierung <TextLink href="https://www.reactions.dev">Reactions</TextLink>, unsere
               Community-Lösung.
             </TextBlock>
             <TextBlock title="Eine App im Web">

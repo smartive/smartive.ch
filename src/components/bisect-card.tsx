@@ -1,4 +1,4 @@
-import { BrandColor, Card, Heading3, Link } from '@smartive/guetzli';
+import { BrandColor, Card, Heading3, TextLink } from '@smartive/guetzli';
 import React, { FC, ReactNode } from 'react';
 
 type Props = {
@@ -54,8 +54,8 @@ export const NextBisectCard: FC<Props> = ({
   return link === undefined ? (
     card
   ) : (
-    <Link className="border-b-0" href={link.href}>
-      {card}
-    </Link>
+    <span className="border-b-0">
+      <TextLink href={link.href}>{card}</TextLink>
+    </span>
   );
 };

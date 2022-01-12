@@ -1,4 +1,4 @@
-import { ButtonLink, Label, Link, LinkVariants } from '@smartive/guetzli';
+import { Button, Label, NavItem } from '@smartive/guetzli';
 import { usePlausible } from 'next-plausible';
 import dynamic from 'next/dynamic';
 import React, { FC } from 'react';
@@ -44,8 +44,7 @@ export const Footer: FC = () => {
               <span itemProp="addressLocality">{Address.locality}</span>
             </div>
             <span>
-              <Link
-                variant={LinkVariants.Navigation}
+              <NavItem
                 href={`tel:${Address.telephone}`}
                 itemProp="telephone"
                 onClick={() => {
@@ -60,11 +59,10 @@ export const Footer: FC = () => {
                 }}
               >
                 {Address.telephone}
-              </Link>
+              </NavItem>
             </span>
             <span>
-              <Link
-                variant={LinkVariants.Navigation}
+              <NavItem
                 href={`mailto:${Address.email}`}
                 itemProp="email"
                 onClick={() => {
@@ -79,25 +77,25 @@ export const Footer: FC = () => {
                 }}
               >
                 {Address.email}
-              </Link>
+              </NavItem>
             </span>
           </address>
 
           {inView && <NewsletterSubscription className="col-span-2 place-items-center" label="Newsletter" />}
 
           <div className="grid grid-flow-row place-self-end justify-items-start">
-            <Link variant={LinkVariants.Navigation} href="https://www.linkedin.com/company/smartive-ag/" newTab>
+            <NavItem href="https://www.linkedin.com/company/smartive-ag/" newTab>
               LinkedIn
-            </Link>
-            <Link variant={LinkVariants.Navigation} href="https://www.instagram.com/smartive_ch/" newTab>
+            </NavItem>
+            <NavItem href="https://www.instagram.com/smartive_ch/" newTab>
               Instagram
-            </Link>
-            <Link variant={LinkVariants.Navigation} href="https://twitter.com/smartive_ch" newTab>
+            </NavItem>
+            <NavItem href="https://twitter.com/smartive_ch" newTab>
               Twitter
-            </Link>
-            <Link variant={LinkVariants.Navigation} href="https://facebook.com/smartive.ch" newTab>
+            </NavItem>
+            <NavItem href="https://facebook.com/smartive.ch" newTab>
               Facebook
-            </Link>
+            </NavItem>
           </div>
           <SwissMadeSoftwareLogo />
           {inView && <BackToTop />}
@@ -119,7 +117,9 @@ export const Footer: FC = () => {
               <span itemProp="addressLocality">{Address.locality}</span>
             </div>
             <span className="my-4">
-              <ButtonLink
+              <Button
+                width="full"
+                as="a"
                 href={`tel:${Address.telephone}`}
                 itemProp="telephone"
                 onClick={() => {
@@ -134,10 +134,12 @@ export const Footer: FC = () => {
                 }}
               >
                 {Address.telephone}
-              </ButtonLink>
+              </Button>
             </span>
             <span className="mb-4">
-              <ButtonLink
+              <Button
+                width="full"
+                as="a"
                 href={`mailto:${Address.email}`}
                 itemProp="email"
                 onClick={() => {
@@ -152,30 +154,32 @@ export const Footer: FC = () => {
                 }}
               >
                 {Address.email}
-              </ButtonLink>
+              </Button>
             </span>
             <span>
-              <ButtonLink
+              <Button
+                width="full"
+                as="a"
                 href="https://www.google.com/maps/dir//smartive+AG,+Pfingstweidstrasse+60,+8005+Z%C3%BCrich"
                 newTab
               >
                 Anfahrtsplan
-              </ButtonLink>
+              </Button>
             </span>
           </address>
           <div className="grid grid-flow-row place-items-center">
-            <Link variant={LinkVariants.Navigation} href="https://www.linkedin.com/company/smartive-ag/" newTab>
+            <NavItem href="https://www.linkedin.com/company/smartive-ag/" newTab>
               LinkedIn
-            </Link>
-            <Link variant={LinkVariants.Navigation} href="https://www.instagram.com/smartive_ch/" newTab>
+            </NavItem>
+            <NavItem href="https://www.instagram.com/smartive_ch/" newTab>
               Instagram
-            </Link>
-            <Link variant={LinkVariants.Navigation} href="https://twitter.com/smartive_ch" newTab>
+            </NavItem>
+            <NavItem href="https://twitter.com/smartive_ch" newTab>
               Twitter
-            </Link>
-            <Link variant={LinkVariants.Navigation} href="https://facebook.com/smartive.ch" newTab>
+            </NavItem>
+            <NavItem href="https://facebook.com/smartive.ch" newTab>
               Facebook
-            </Link>
+            </NavItem>
           </div>
           {inView && <NewsletterSubscription className="w-full" />}
           <SwissMadeSoftwareLogo />

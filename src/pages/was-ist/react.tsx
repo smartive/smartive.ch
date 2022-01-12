@@ -1,4 +1,4 @@
-import { Copy, Explainer, Grid, Link, PageSection, TextBlock, UnorderedList } from '@smartive/guetzli';
+import { Copy, Explainer, Grid, PageSection, TextBlock, TextLink, UnorderedList } from '@smartive/guetzli';
 import React from 'react';
 
 import { PageHeader } from '../../compositions/page-header';
@@ -39,9 +39,9 @@ const WasIstReact = () => (
           <div className="bg-cornflower-500 rounded p-8 lg:p-12" id="typescript">
             <TextBlock title="TypeScript">
               <Copy as="span" className="inline-block">
-                <Link href="https://www.typescriptlang.org/" newTab>
+                <TextLink href="https://www.typescriptlang.org/" newTab>
                   TypeScript
-                </Link>{' '}
+                </TextLink>{' '}
                 ist der neue beste Freund von Javascript. In Javascript ist alles möglich – auch Saltos mit blutiger Nase und
                 Knochenbrüchen. TypeScript beendet den Wildwuchs, indem es die Entwickler*innen zwingt, Implizites explizit
                 zu machen (
@@ -62,21 +62,21 @@ const WasIstReact = () => (
               <Copy as="span" className="inline-block">
                 Mit React generieren wir Komponenten, also Teile einer Seite. Für einen ganzen Webauftritt mit vielen Seiten
                 gibt es{' '}
-                <Link href="https://nextjs.org/" newTab>
+                <TextLink href="https://nextjs.org/" newTab>
                   Next.js
-                </Link>
+                </TextLink>
                 .
               </Copy>
               <Copy as="span" className="inline-block">
                 Next.js ergänzt React um Cleverness auf der Server-Seite – Vorgenerierte Seiten, ad hoc generierte und nur
                 bei Änderung neu generierte sind damit ein Leichtes. Auf dieser Basis lässt sich wunderbar eine Plattform wie{' '}
-                <Link href="/projekte/migipedia">Migipedia</Link> mit einer Mischung aus statischen, dynamischen und
+                <TextLink href="/projekte/migipedia">Migipedia</TextLink> mit einer Mischung aus statischen, dynamischen und
                 personalisierten Inhalten bauen.
               </Copy>
               <Copy as="span" className="inline-block">
-                <Link href="https://nextjs.org/showcase" newTab>
+                <TextLink href="https://nextjs.org/showcase" newTab>
                   Wo Next.js überall drinsteckt
-                </Link>
+                </TextLink>
               </Copy>
             </TextBlock>
           </div>
@@ -90,9 +90,9 @@ const WasIstReact = () => (
               </Copy>
               <Copy as="span" className="inline-block">
                 Hinter{' '}
-                <Link href="https://xstate.js.org/docs/" newTab>
+                <TextLink href="https://xstate.js.org/docs/" newTab>
                   XState
-                </Link>{' '}
+                </TextLink>{' '}
                 steckt ein Konzept aus der theoretischen Informatik: <strong>State Machines</strong> sind eine elegante
                 Lösung, um Zustände und Abhängigkeiten zu modellieren und zugehörige Daten zu verwalten. So landen
                 Benutzer*innen nicht in einer Sackgasse, sondern bewegen sich auf definierten Pfaden durch eine digitale
@@ -100,9 +100,9 @@ const WasIstReact = () => (
               </Copy>
               <Copy as="span" className="inline-block">
                 Robert hat auf unserem Blog ausführlich erklärt,{' '}
-                <Link href="https://blog.smartive.ch/what-state-machines-are-and-why-we-use-them-5ea55183be09">
+                <TextLink href="https://blog.smartive.ch/what-state-machines-are-and-why-we-use-them-5ea55183be09">
                   was es mit State Machines und XState genau auf sich hat
-                </Link>
+                </TextLink>
                 .
               </Copy>
             </TextBlock>
@@ -119,9 +119,9 @@ const WasIstReact = () => (
               </Copy>
               <Copy as="span" className="inline-block">
                 Der beste Anwärter auf den heiligen Gral ist unseres Erachtens{' '}
-                <Link href="https://tailwindcss.com/" newTab>
+                <TextLink href="https://tailwindcss.com/" newTab>
                   Tailwind
-                </Link>
+                </TextLink>
                 . Die Umsetzung von Designs beschleunigt es jedenfalls erheblich.
               </Copy>
             </TextBlock>

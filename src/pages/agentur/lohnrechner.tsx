@@ -1,15 +1,15 @@
-import { BlobVariations, Copy, Grid, Link, PageSection, TextBlock } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, PageSection, TextBlock, TextLink } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React, { FC } from 'react';
 import { State } from 'xstate';
 import { InteractiveQuiz } from '../../components/interactive-quiz';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
+import TextBlocks from '../../data/benefits.json';
 import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Page } from '../../layouts/page';
 import { Context, machine } from '../../machines/salary-calculator';
-import TextBlocks from '../../data/benefits.json';
 
 type ReportProps = {
   salary: number;
@@ -43,9 +43,9 @@ export const Lohnrechner: NextPage<PageProps> = ({ quote }) => {
       <PageHeader markdownTitle="Die Sache mit dem Lohn" description="Yolo">
         <Copy>
           Vielleicht hast du schon unseren{' '}
-          <Link href="/blog/die-sache-mit-dem-geld-den-lohn-auf-eine-formel-bringen">Blogpost</Link> über unser Lohnsystem
-          gelesen. Und alle unsere <Link href="/agentur">Benefits</Link> kennst du auch schon. Jetzt würdest du aber gerne
-          wissen, was du bei uns verdienst. Also dann lass uns das doch ausrechnen.
+          <TextLink href="/blog/die-sache-mit-dem-geld-den-lohn-auf-eine-formel-bringen">Blogpost</TextLink> über unser
+          Lohnsystem gelesen. Und alle unsere <TextLink href="/agentur">Benefits</TextLink> kennst du auch schon. Jetzt
+          würdest du aber gerne wissen, was du bei uns verdienst. Also dann lass uns das doch ausrechnen.
         </Copy>
       </PageHeader>
 

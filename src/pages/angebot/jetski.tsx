@@ -5,9 +5,9 @@ import {
   GridSlider,
   Heading2,
   Label,
-  Link,
   PageHeaderVariants,
   PageSection,
+  TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
@@ -54,15 +54,15 @@ const Jetski: NextPage<Props> = ({ contact, teasers, packages }) => {
             Du hast eine Idee. Dir ist schon recht klar, wie das Produkt aussehen und funktionieren könnte. Nun willst du
             wissen, ob es trägt. In einer{' '}
             <NextLink href="/was-ist/agile" passHref>
-              <Link>agilen</Link>
+              <TextLink href="/was-ist/agile">agilen</TextLink>
             </NextLink>{' '}
             Umsetzung mit{' '}
             <NextLink href="/was-ist/lean-ux" passHref>
-              <Link>Lean UX</Link>
+              <TextLink href="/was-ist/lean-ux">Lean UX</TextLink>
             </NextLink>
             -Ansätzen entwickeln wir dein{' '}
             <NextLink href="/was-ist/mvp" passHref>
-              <Link>MVP</Link>
+              <TextLink href="/was-ist/mvp">MVP</TextLink>
             </NextLink>{' '}
             kollaborativ in drei Wochen. Die definierten Ziele und Kennzahlen (Key Performance Indicators oder kurz KPI)
             behalten wir dabei laufend im Auge. Mit modernen Tracking-Methoden werden diese KPI nach der Lancierung gemessen

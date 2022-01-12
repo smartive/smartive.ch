@@ -1,8 +1,17 @@
-import { Copy, Explainer, Grid, Heading3, Link, PageSection, Screenshot, TextBlock, UnorderedList } from '@smartive/guetzli';
+import {
+  Copy,
+  Explainer,
+  Grid,
+  Heading3,
+  PageSection,
+  Screenshot,
+  TextBlock,
+  TextLink,
+  UnorderedList,
+} from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { NextImageCard } from '../../components/image-card';
-
 import { PageHeader } from '../../compositions/page-header';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
@@ -44,9 +53,9 @@ const Kubernetes: NextPage<Props> = ({ teasers }) => (
         </Copy>
         <Copy>
           Die bekannteste Technik für Container-Virtualisierung ist{' '}
-          <Link href="https://www.docker.com/" newTab>
+          <TextLink href="https://www.docker.com/" newTab>
             Docker
-          </Link>
+          </TextLink>
           . Ein Docker-Container abstrahiert die Hardware, so dass die Umgebung für die Software im Container immer genau
           gleich aussieht – egal, ob der Container auf dem Computer der Entwicklerin oder im Rechenzentrum von Google
           ausgeführt wird. Das Resultat sind identische Zustände in unterschiedlichen Umgebungen und keine Bugs wegen
@@ -57,13 +66,13 @@ const Kubernetes: NextPage<Props> = ({ teasers }) => (
       <PageSection title="Infrastruktur definiert, Deployments stabil">
         <Copy>
           Im Container können Webserver wie{' '}
-          <Link href="https://nginx.org/en/" newTab>
+          <TextLink href="https://nginx.org/en/" newTab>
             nginx
-          </Link>{' '}
+          </TextLink>{' '}
           und Laufzeitumgebungen wie{' '}
-          <Link href="https://nodejs.org/en/about/" newTab>
+          <TextLink href="https://nodejs.org/en/about/" newTab>
             Node.js
-          </Link>{' '}
+          </TextLink>{' '}
           installiert werden. Solche Basis-Installation liegen als wiederverwendbare <strong>Images</strong> vor. Kubernetes
           ist für die Automatisierung dieses Setups, das Starten und Stoppen von Containern verantwortlich. Damit ist die
           Infrastruktur von A bis Z kontrollierbar und beinhaltet keine Unbekannten. Stabile Deployments sind garantiert –
@@ -124,13 +133,13 @@ const Kubernetes: NextPage<Props> = ({ teasers }) => (
         </Copy>
         <Copy>
           Fürs Monitoring setzen wir auf Metrics Collection mit{' '}
-          <Link href="https://prometheus.io/docs/introduction/overview/" newTab>
+          <TextLink href="https://prometheus.io/docs/introduction/overview/" newTab>
             Prometheus
-          </Link>{' '}
+          </TextLink>{' '}
           und Log Collection mit{' '}
-          <Link href="https://www.fluentd.org/architecture" newTab>
+          <TextLink href="https://www.fluentd.org/architecture" newTab>
             FluentD
-          </Link>
+          </TextLink>
           . Die gesammelten Daten werden in einem Grafana- Dashboard visualisiert. Dazu gibt’s Alerts für alle gängigen
           Messaging-Systeme.
         </Copy>
@@ -141,9 +150,9 @@ const Kubernetes: NextPage<Props> = ({ teasers }) => (
         <Copy>
           Jargon ist das Salz in der Techniksuppe. Ein kleiner Überblick. Und wenn du dann immer noch nicht genug hast,
           können wir auch unseren Blogpost über Kubernetes und Kuby empfehlen:{' '}
-          <Link href="https://blog.smartive.ch/how-we-simplified-our-kubernetes-deployments-with-an-alternative-to-helm-aafedcfd4cce">
+          <TextLink href="https://blog.smartive.ch/how-we-simplified-our-kubernetes-deployments-with-an-alternative-to-helm-aafedcfd4cce">
             How we simplified our Kubernetes deployments with an alternative to Helm
-          </Link>
+          </TextLink>
         </Copy>
         <Grid cols={3}>
           <TextBlock title="Die Cloud">

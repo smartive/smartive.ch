@@ -1,4 +1,4 @@
-import { ButtonLink, Copy, Heading2 } from '@smartive/guetzli';
+import { Button, Copy, Heading2 } from '@smartive/guetzli';
 import React, { FC } from 'react';
 import { machine } from '../machines/design-sprint-machine';
 import { getMeta } from '../machines/get-meta';
@@ -21,9 +21,11 @@ const Result: FC<Props> = ({ title, copy, firstname, topic, calendarUrl }) => (
       {firstname} würde sich gerne mit dir zum Thema {topic} austauschen. Mit dem Button unten kannst du direkt einen Termin
       buchen. Und wenn nicht, wird sich {firstname} bald bei dir melden.
     </Copy>
-    <ButtonLink newTab className="text-center" href={calendarUrl}>
-      Jetzt Termin buchen
-    </ButtonLink>
+    <span className="text-center">
+      <Button as="a" newTab href={calendarUrl}>
+        Jetzt Termin buchen
+      </Button>
+    </span>
   </>
 );
 

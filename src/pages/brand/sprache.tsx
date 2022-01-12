@@ -9,8 +9,8 @@ import {
   Heart,
   IconList,
   Keyfigure,
-  Link,
   PageSection,
+  TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
 import Image from 'next/image';
@@ -85,7 +85,7 @@ const Sprache = () => (
             <Copy>
               Guck dich mal bei den{' '}
               <NextLink href="/brand/schreibtipps" passHref>
-                <Link>Schreibtipps</Link>
+                <TextLink href="/brand/schreibtipps">Schreibtipps</TextLink>
               </NextLink>{' '}
               um!
             </Copy>
@@ -213,12 +213,12 @@ const Sprache = () => (
               term: (
                 <>
                   Lass die Füllwörter weg. Verliert der Satz dadurch etwas? Tipp:{' '}
-                  <Link
+                  <TextLink
                     href="https://web.archive.org/web/20210126114619/http://www.schreiblabor.com/fuellwoerter-test/"
                     newTab
                   >
                     Füllwörter-Test
-                  </Link>
+                  </TextLink>
                 </>
               ),
               description: (
@@ -344,9 +344,9 @@ const Sprache = () => (
                 <>
                   Überleg dir, ob sich alle angesprochen fühlen, die du ansprechen willst. Es gibt viele Möglichkeiten, die
                   sich auch problemlos kombinieren lassen. Sieh z.B.{' '}
-                  <Link href="https://www.genderleicht.de/" newTab>
+                  <TextLink href="https://www.genderleicht.de/" newTab>
                     Genderleicht
-                  </Link>
+                  </TextLink>
                 </>
               ),
               description: <IconList items={['Nutzer*innen', 'Mitarbeitende']} icon={Heart} iconColor="mint" />,
@@ -368,9 +368,9 @@ const Sprache = () => (
           items={[
             <>
               Lass ein{' '}
-              <Link href="https://wortliga.de/textanalyse/" newTab>
+              <TextLink href="https://wortliga.de/textanalyse/" newTab>
                 Textanalyse-Tool
-              </Link>{' '}
+              </TextLink>{' '}
               drüberlaufen (prüft auf Kürze, direkte Sprache, Abwechslung).
             </>,
             'Frag einen Lieblingsmensch, falls in der Zielgruppe oder genug flexibel im Chöpfli.',

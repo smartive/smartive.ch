@@ -1,4 +1,4 @@
-import { Copy, Explainer, Grid, Heading2, Keyfigure, Link, PageSection, TextBlock } from '@smartive/guetzli';
+import { Copy, Explainer, Grid, Heading2, Keyfigure, PageSection, TextBlock, TextLink } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import React from 'react';
@@ -65,7 +65,7 @@ const GQL: NextPage<Props> = ({ teasers }) => (
           Daten und daraus resultierenden Bugs rumschlagen. Aus dem Schema lassen sich ganz einfach <strong>Types</strong>{' '}
           generieren, die in{' '}
           <NextLink href="/was-ist/react#typescript" passHref>
-            <Link>TypeScript</Link>
+            <TextLink href="/was-ist/react#typescript">TypeScript</TextLink>
           </NextLink>{' '}
           verwendet werden können. Das macht Entwickler*innen froh und das wiederum das Produkt besser.
         </Copy>
@@ -104,15 +104,15 @@ const GQL: NextPage<Props> = ({ teasers }) => (
 
       <PageSection title="Unsere Erfahrung">
         <Copy>
-          Unsere Community-Plattform <Link href="https://reactions.dev">Reactions</Link> setzt auf GraphQL. Beim Aufbau haben
-          wir eine Menge Knowhow gesammelt – und darüber gebloggt:{' '}
-          <Link href="https://blog.smartive.ch/building-enterprise-grade-apis-with-graphql-mysql-and-node-js-a411a5a612f1">
+          Unsere Community-Plattform <TextLink href="https://reactions.dev">Reactions</TextLink> setzt auf GraphQL. Beim
+          Aufbau haben wir eine Menge Knowhow gesammelt – und darüber gebloggt:{' '}
+          <TextLink href="https://blog.smartive.ch/building-enterprise-grade-apis-with-graphql-mysql-and-node-js-a411a5a612f1">
             Building Enterprise Grade APIs with GraphQL, MySQL and Node.js
-          </Link>
+          </TextLink>
           . Und auch in Kombination mit Elasticsearch haben wir GraphQL schon eingesetzt:{' '}
-          <Link href="https://blog.smartive.ch/graphql-and-elasticsearch-a-love-letter-9ed64d5c094">
+          <TextLink href="https://blog.smartive.ch/graphql-and-elasticsearch-a-love-letter-9ed64d5c094">
             GraphQL and Elasticsearch: A Love Letter
-          </Link>
+          </TextLink>
         </Copy>
       </PageSection>
 

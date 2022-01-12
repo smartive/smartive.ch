@@ -39,7 +39,7 @@ export const SlackTheme: FC = () => {
         {darkMode ? darkModeTheme : lightModeTheme}
       </div>
       <Tooltip text="WHOOP! 🥳" isOpen={isOpen}>
-        <Button type="button" onClick={copy}>
+        <Button as="button" onClick={copy}>
           Kopieren
         </Button>
       </Tooltip>

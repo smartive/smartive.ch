@@ -1,4 +1,4 @@
-import { Copy, Explainer, Grid, Heading2, Heading3, Keyfigure, Link, PageSection } from '@smartive/guetzli';
+import { Copy, Explainer, Grid, Heading2, Heading3, Keyfigure, PageSection, TextLink } from '@smartive/guetzli';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import React from 'react';
@@ -11,7 +11,7 @@ const Tipps = () => (
       <Copy>Cool! Hier findest du ein paar Tipps.</Copy>
       <Copy>
         <NextLink href="/brand/sprache" passHref>
-          <Link>Zurück zu den allgemeinen Sprach-Guidelines</Link>
+          <TextLink href="/brand/sprache">Zurück zu den allgemeinen Sprach-Guidelines</TextLink>
         </NextLink>
       </Copy>
     </PageHeader>
@@ -151,7 +151,7 @@ const Tipps = () => (
             <Copy>
               Weniger ist mehr. Wücki. (Weitere tolle Tipps und fancy Facts in den{' '}
               <NextLink href="/brand/sprache" passHref>
-                <Link>Sprach-Guidelines</Link>
+                <TextLink href="/brand/sprache">Sprach-Guidelines</TextLink>
               </NextLink>
               )
             </Copy>

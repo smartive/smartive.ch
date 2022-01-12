@@ -1,4 +1,4 @@
-import { Copy, Heading2, Keyfigure, Link, PageSection, UnorderedList } from '@smartive/guetzli';
+import { Copy, Heading2, Keyfigure, PageSection, TextLink, UnorderedList } from '@smartive/guetzli';
 import NextLink from 'next/link';
 import React from 'react';
 
@@ -41,7 +41,7 @@ const LeanUX = () => (
         <Copy>
           Lean UX passt perfekt zur{' '}
           <NextLink href="/was-ist/agile" passHref>
-            <Link>agilen Arbeitsweise</Link>
+            <TextLink href="/was-ist/agile">agilen Arbeitsweise</TextLink>
           </NextLink>
           : Von dort übernehmen wir die Idee, in Iterationen vorzugehen. Wir brechen die grosse UX-Kiste in kleinere Teile
           auf, die wir laufend evaluieren. Wir sammeln Daten und treffen darauf basierend Entscheidungen. Der Fokus liegt
@@ -72,7 +72,7 @@ const LeanUX = () => (
                 Verbesserung der Quote vollständiger Anmeldungen um 20% erreichen.» Hypothesen müssen beweisbar sein. Sonst
                 produzieren wir ins Blaue hinaus. Ein{' '}
                 <NextLink href="/was-ist/mvp">
-                  <Link>MVP</Link>
+                  <TextLink href="/was-ist/mvp">MVP</TextLink>
                 </NextLink>{' '}
                 eignet sich sehr gut, um Hypothesen zu testen.
               </span>,

@@ -64,8 +64,10 @@ export const NewsletterSubscription: FC<Props> = ({ className = '', label = '', 
                   />
                 </Tooltip>
               </Label>
-              <Button type="submit" disabled={status === 'sending'} className="xl:min-w-[16rem]">
-                <span className="font-sans font-bold text-sm xl:text-base">{status === 'sending' ? '...' : button}</span>
+              <Button as="button" type="submit" disabled={status === 'sending'}>
+                <span className="font-sans text-center font-bold text-sm xl:text-base w-full">
+                  {status === 'sending' ? '...' : button}
+                </span>
               </Button>
             </form>
           </div>

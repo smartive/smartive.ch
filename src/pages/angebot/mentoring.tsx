@@ -5,9 +5,9 @@ import {
   GridSlider,
   Heading2,
   Label,
-  Link,
   PageHeaderVariants,
   PageSection,
+  TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
@@ -74,9 +74,9 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages, quote }) => {
                 'Du profitierst von der langjährigen Expertise unserer Digital Strategists.',
                 <>
                   Wir lassen dir den Raum, deine Fragen selbst einzukreisen (
-                  <Link href="https://de.wikipedia.org/wiki/Quietscheentchen-Debugging" newTab>
+                  <TextLink href="https://de.wikipedia.org/wiki/Quietscheentchen-Debugging" newTab>
                     Rubber Ducking
-                  </Link>
+                  </TextLink>
                   ), wir antworten aber auch.
                 </>,
                 'Du gewinnst Sicherheit in deinem Vorgehen.',

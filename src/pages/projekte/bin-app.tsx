@@ -4,10 +4,10 @@ import {
   Explainer,
   Grid,
   Keyfigure,
-  Link,
   LinkList,
   PageSection,
   TextBlock,
+  TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
@@ -52,8 +52,8 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
         <Copy>
           Der bin-Eigenverlag stellt Lehrmittel für die Schweizer Schreiner-Ausbildung her. Diese Unterlagen gibts nicht nur
           in gedruckter Form, sondern auch in einer App. Auf der Suche nach einem geeigneten Partner für die
-          Weiterentwicklung haben wir einen <Link href="/angebot/solution-review">Solution-Review</Link> durchgeführt und das
-          Produkt anschliessend gemeinsam weiterentwickelt.
+          Weiterentwicklung haben wir einen <TextLink href="/angebot/solution-review">Solution-Review</TextLink> durchgeführt
+          und das Produkt anschliessend gemeinsam weiterentwickelt.
         </Copy>
         <LinkList links={[{ label: 'Zum bin-Eigenverlag', href: 'https://bin.ch/' }]} />
       </PageHeader>
@@ -80,9 +80,9 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
             </TextBlock>
             <TextBlock title="Unsere Lösung">
               Vor der Umsetzung kommt der Plan, und wer eine Übersicht hat, macht bessere Pläne. Also haben wir mit einem{' '}
-              <Link href="/angebot/solution-review">Solution-Review</Link> angefangen und die bestehende Lösung analysiert.
-              So konnte der bin-Eigenverlag einen Eindruck von unserer Arbeitsweise gewinnen und wir legten eine solide Basis
-              für die längerfristige Zusammenarbeit.
+              <TextLink href="/angebot/solution-review">Solution-Review</TextLink> angefangen und die bestehende Lösung
+              analysiert. So konnte der bin-Eigenverlag einen Eindruck von unserer Arbeitsweise gewinnen und wir legten eine
+              solide Basis für die längerfristige Zusammenarbeit.
             </TextBlock>
           </Grid>
         </PageSection>
@@ -114,15 +114,17 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
         <PageSection title="Und was haben wir dazu beigetragen?">
           <Grid cols={2}>
             <TextBlock title="Das neue Backend">
-              Nach dem <Link href="/angebot/solution-review">Solution-Review</Link> war klar, dass wir das existierende
-              Backend durch ein flexibleres System austauschen mussten. Dabei haben wir viel Wert darauf gelegt, dass nach
-              der Umstellung noch alle Daten vorhanden waren und die Anwender*innen wie gewohnt weiterarbeiten konnten.
+              Nach dem <TextLink href="/angebot/solution-review">Solution-Review</TextLink> war klar, dass wir das
+              existierende Backend durch ein flexibleres System austauschen mussten. Dabei haben wir viel Wert darauf gelegt,
+              dass nach der Umstellung noch alle Daten vorhanden waren und die Anwender*innen wie gewohnt weiterarbeiten
+              konnten.
             </TextBlock>
             <TextBlock title="Die Zukunftspläne">
               Seit dem Sommer 2021 läuft die binApp nun stabil mit dem neuen, selbstgebauten Backend. Die eigentliche App ist
               zwar noch mehr oder weniger dieselbe. Das neue Backend war nur der erste Schritt. Nachdem das Backend nun für
               alles* gerüstet ist, kommt die eigentliche App dran. (*genau, alles.) Sie kann nun durch eine
-              multi-Mandanten-fähige App abgelöst werden, neu gemacht mit <Link href="/was-ist/flutter">Flutter</Link>.
+              multi-Mandanten-fähige App abgelöst werden, neu gemacht mit{' '}
+              <TextLink href="/was-ist/flutter">Flutter</TextLink>.
             </TextBlock>
           </Grid>
         </PageSection>
@@ -134,15 +136,16 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
         <PageSection title="Ein paar Insights">
           <Grid cols={3}>
             <TextBlock title="Technology">
-              Das neue Backend haben wir mit <Link href="/was-ist/dot-net">dotnet</Link> und einer PostgreSQL-Datenbank
-              umgesetzt. Du willst mehr Details? Und du hast ein Telefon? ☎{' '}
-              <Link href="tel:+41 44 552 55 92">
+              Das neue Backend haben wir mit <TextLink href="/was-ist/dot-net">dotnet</TextLink> und einer
+              PostgreSQL-Datenbank umgesetzt. Du willst mehr Details? Und du hast ein Telefon? ☎{' '}
+              <TextLink href="tel:+41 44 552 55 92">
                 Call us <s>maybe</s> now!
-              </Link>
+              </TextLink>
             </TextBlock>
             <TextBlock title="Der Login">
-              Für die Benutzerverwaltung kommt die Schweizer IAM Plattform <Link href="https://zitadel.ch">ZITADEL</Link> zum
-              Einsatz. Wofür das gut ist? Mach dich schlau: <Link href="/was-ist/iam">IAM</Link>.
+              Für die Benutzerverwaltung kommt die Schweizer IAM Plattform{' '}
+              <TextLink href="https://zitadel.ch">ZITADEL</TextLink> zum Einsatz. Wofür das gut ist? Mach dich schlau:{' '}
+              <TextLink href="/was-ist/iam">IAM</TextLink>.
             </TextBlock>
             <TextBlock title="Douglas-Peucker 😍🥰">
               Dank des Douglas-Peucker Algorithmus konnten wir die Daten bei der{' '}
