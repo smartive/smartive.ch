@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@notionhq/client": "0.4.12",
-    "@smartive/guetzli": "2.2.0-next.9",
+    "@smartive/guetzli": "2.2.0",
     "@tryghost/content-api": "1.5.16",
     "@xstate/fsm": "1.6.3",
     "@xstate/react": "1.6.3",
