@@ -2,7 +2,7 @@ import {
   BlobVariations,
   Clock,
   Copy,
-  GridSlider,
+  Grid,
   Heading2,
   Label,
   PageHeaderVariants,
@@ -21,7 +21,8 @@ import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser } from '../../data/teaser';
+import { Teaser, transformTeaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
 
@@ -96,11 +97,11 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages, quote }) => {
           {teasers.length > 0 && (
             <>
               <Heading2>Diese Projekte haben mit einem Mentoring gestartet:</Heading2>
-              <GridSlider>
+              <Grid cols={3}>
                 {teasers.map((teaser) => (
                   <NextImageCard key={teaser.title} {...teaser} />
                 ))}
-              </GridSlider>
+              </Grid>
             </>
           )}
           <Heading2>Kannst du gut parallel zum Mentoring machen:</Heading2>
@@ -113,12 +114,15 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages, quote }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const packages = [Packages.speedboat, Packages['scale-up'], Packages['design-sprint']];
+  const teasers = await Promise.all(
+    [Teasers['zubi'], Teasers['kaspar']].map(async (teaser) => await transformTeaser(teaser))
+  );
 
   return {
     props: {
       packages,
       quote: await transformQuote(Quotes['lauro-kasparund']),
-      teasers: [],
+      teasers: teasers,
       contact: await transformEmployee(Employees.joshua),
     },
   };

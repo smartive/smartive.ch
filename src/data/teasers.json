@@ -158,5 +158,12 @@
     },
     "image": "/images/projekte/optimatik/solar-energy.jpg",
     "imageAlt": "Photovoltaik Anlage auf einem Feld."
+  },
+  "zubi": {
+    "label": "Zubi",
+    "title": "Omnichannel Schuh- und Outdoorgeschäft",
+    "link": { "label": "Projekt anschauen", "href": "/projekte/zubi" },
+    "image": "/images/projekte/zubi/zubi_lagerfeuer.png",
+    "imageAlt": "Frau an einer Grillstelle."
   }
 }

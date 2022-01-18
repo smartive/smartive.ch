@@ -100,5 +100,15 @@
     "excerpt": "Du hast eine Idee? Dann machs!",
     "text": "Nach (fast) 6 Jahren bin ich noch dabei, weil wir die Möglichkeit haben zu experimentieren und dann anzupassen, was nicht so funktioniert, wie gedacht. Vorallem aber weil jede*r einzelne etwas anreissen kann — ohne jegliche (unnötige!) Hierarchie und Vorgesetzte, die das absegnen müssen.",
     "credit": "Dominique, schon echt lange dabei"
+  },
+  "marco-zubi": {
+    "portrait": "/images/portraits/marco-boeni.jpg",
+    "text": "Der Agile-Workshop war für uns der ideale Kick-off für die Umstellung auf Scrum. Das Team von smartive hat uns auf eine sympathische und verständliche Art in die Prinzipien von Scrum eingeführt und diese gemeinsam mit uns für unseren Case operationalisiert. Die unkomplizierte und effiziente Zusammenarbeit trug massgeblich zum Projekterfolg bei.",
+    "credit": "Marco Böni, GL/CDO & Leiter E-Commerce Zubischuhe AG"
+  },
+  "niklas-zubi": {
+    "portrait": "/images/portraits/niklas-tidbury.jpg",
+    "text": "Die Landschaft der Cloud-Architekturen und Angebote kann schnell überfordernd wirken. Mit den kompetenten Topografen der technologischen Bergketten bei smartive wirken die grössten Hügel wieder klein, dank regelmässigem Mentoring und Austausch. ⛰",
+    "credit": "Niklas Tidbury, Team Lead Entwicklung Zubischuhe AG"
   }
 }

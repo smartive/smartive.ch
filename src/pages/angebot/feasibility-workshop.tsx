@@ -38,7 +38,8 @@ const FeasibilityWorkshop: NextPage<Props> = ({ contact, teasers, packages }) =>
         background="mint"
       >
         <Label className="inline-flex flex-row items-center mb-8">
-          <Clock className="h-6 w-6 mr-2 inline" />2 Tage
+          <Clock className="h-6 w-6 mr-2 inline" />
+          Ein Nachmittag
         </Label>
         <Copy>
           Steck den Rahmen für dein MVP ab und schaff Klarheit, was die technischen, wirtschaftlichen und zeitlichen

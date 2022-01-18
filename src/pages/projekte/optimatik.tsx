@@ -67,7 +67,7 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             image={images.solar}
             alt="Photovoltaik Anlage auf einem Feld"
             priority
-            objectFit="scale-down"
+            objectFit="cover"
             width={1500}
             height={1080}
           />

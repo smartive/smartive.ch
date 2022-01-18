@@ -11,7 +11,7 @@ export type Package = {
 
 export default {
   feasibility: {
-    label: '2 Tage',
+    label: 'Ein Nachmittag',
     title: 'Feasibility Workshop',
     content:
       'Steck den Rahmen für dein MVP ab und schaff Klarheit, was die technischen, wirtschaftlichen und zeitlichen Bedingungen sind.',
@@ -94,5 +94,16 @@ export default {
       href: '/angebot/mentoring',
     },
     background: 'apricot',
+  },
+  'agile-playday': {
+    label: 'Ein Nachmittag',
+    title: 'Agile Playday',
+    content:
+      'Du und dein Team lernt Scrum und agile Methoden auf eine verspielte und doch realitätsnahe Weise (besser) kennen.',
+    link: {
+      label: 'Mehr zum Agile Workshop',
+      href: '/angebot/agile-playday',
+    },
+    background: 'cornflower',
   },
 } as Record<string, Package>;
