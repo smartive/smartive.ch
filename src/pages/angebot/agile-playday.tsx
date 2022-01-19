@@ -43,7 +43,7 @@ const AgilePlayday: NextPage<Props> = ({ contact, teasers, packages, quote }) =>
     >
       <Label className="inline-flex flex-row items-center mb-8">
         <Clock className="h-6 w-6 mr-2 inline" />
-        Ein Nachnmittag
+        Ein Nachmittag
       </Label>
       <Copy>
         Du und dein Team lernt Scrum und agile Methoden auf eine verspielte und doch realitätsnahe Weise (besser) kennen. Ihr

@@ -29,7 +29,7 @@ const Iam = () => (
           items={[
             'Günstig gekauft statt teuer gebaut: eine eigene Benutzerverwaltung inklusive Login ist aufwändiger als man erst denkt.',
             'Muss gut gemacht sein: die heutigen Sicherheitsanforderungen werden oft unterschätzt. Das Internet ist für alle Menschen zugänglich.Da gibts leider auch welche, die dein Produkt nur zu gerne kaputt machen würden.',
-            'Nicht nochmals stolpern, wo schon andere gestoplert sind: du profitierst direkt vom Knowledge der Spezialist*innen von deinem IAM-Hersteller.',
+            'Nicht nochmals stolpern, wo schon andere gestolpert sind: du profitierst direkt vom Knowledge der Spezialist*innen von deinem IAM-Hersteller.',
           ]}
         ></UnorderedList>
       </Section>
