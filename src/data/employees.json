@@ -560,5 +560,27 @@
         "url": "https://github.com/Walkeezy"
       }
     ]
+  },
+  "jennifer": {
+    "firstname": "Jennifer",
+    "lastname": "Duarte",
+    "portrait": "",
+    "image": "",
+    "closeup": "",
+    "tel": "+41 44 552 55 99",
+    "email": "jennifer@smartive.ch",
+    "bookingLink": "",
+    "job": "Interaction Designer",
+    "bio": "Kommt aus Paris, wohnt in Zürich, ist aber Portugiesin. Wandersüchtig, Hobby-Bäckerin, Trüffel-Liebhaberin, in ständiger Schwiizerdütsch-Ausbildung. Interessiert sich für Selbstentwicklung und dafür, die Interaktion zwischen Mensch und Technologie zu verbessern.",
+    "links": [
+      {
+        "label": "jennifer@smartive.ch",
+        "url": "mailto:jennifer@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/jennifer-duarte-06a636179/"
+      }
+    ]
   }
 }
