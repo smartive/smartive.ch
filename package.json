@@ -15,7 +15,7 @@
     "deploy:production": "vercel --token $VERCEL_TOKEN --confirm --scope smartive --prod"
   },
   "dependencies": {
-    "@notionhq/client": "0.4.12",
+    "@notionhq/client": "0.4.13",
     "@smartive/guetzli": "2.2.0",
     "@tryghost/content-api": "1.5.17",
     "@xstate/fsm": "1.6.3",
