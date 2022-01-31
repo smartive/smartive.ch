@@ -9,7 +9,7 @@ import type { QuizEvent } from '../machines/interactive-quiz';
 const Stack: FC = ({ children }) => <div className="flex flex-col gap-4">{children}</div>;
 
 type Props = {
-  machine: StateMachine<any, any, QuizEvent>;
+  machine: StateMachine<any, any, any>;
   render: (state: State<any>, machine: StateMachine<any, any, QuizEvent>) => ReactNode;
 };
 
