@@ -6,11 +6,9 @@ import {
   Heading2,
   Label,
   PageHeaderVariants,
-  TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import NextLink from 'next/link';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
@@ -20,6 +18,7 @@ import { Employee, transformEmployee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
+import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
 
@@ -52,18 +51,9 @@ const Jetski: NextPage<Props> = ({ contact, teasers, packages }) => {
           <Heading2>Was ist ein Jetski?</Heading2>
           <Copy>
             Du hast eine Idee. Dir ist schon recht klar, wie das Produkt aussehen und funktionieren könnte. Nun willst du
-            wissen, ob es trägt. In einer{' '}
-            <NextLink href="/was-ist/agile" passHref>
-              <TextLink href="/was-ist/agile">agilen</TextLink>
-            </NextLink>{' '}
-            Umsetzung mit{' '}
-            <NextLink href="/was-ist/lean-ux" passHref>
-              <TextLink href="/was-ist/lean-ux">Lean UX</TextLink>
-            </NextLink>
-            -Ansätzen entwickeln wir dein{' '}
-            <NextLink href="/was-ist/mvp" passHref>
-              <TextLink href="/was-ist/mvp">MVP</TextLink>
-            </NextLink>{' '}
+            wissen, ob es trägt. In einer <Link href="/was-ist/agile">agilen</Link>
+            Umsetzung mit <Link href="/was-ist/lean-ux">Lean UX</Link>
+            -Ansätzen entwickeln wir dein <Link href="/was-ist/mvp">MVP</Link>
             kollaborativ in drei Wochen. Die definierten Ziele und Kennzahlen (Key Performance Indicators oder kurz KPI)
             behalten wir dabei laufend im Auge. Mit modernen Tracking-Methoden werden diese KPI nach der Lancierung gemessen
             und ausgewertet. So weisst du stets, welche Hypothesen korrekt waren und welche überarbeitet werden müssen.

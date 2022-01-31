@@ -1,8 +1,8 @@
-import { Copy, Explainer, Grid, Heading2, Heading3, Keyfigure, TextLink } from '@smartive/guetzli';
+import { Copy, Explainer, Grid, Heading2, Heading3, Keyfigure } from '@smartive/guetzli';
 import Image from 'next/image';
-import NextLink from 'next/link';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
+import { Link } from '../../elements/link';
 import { LandingPage } from '../../layouts/landing-page';
 import { Section } from '../../layouts/section';
 
@@ -11,9 +11,7 @@ const Tipps = () => (
     <PageHeader markdownTitle="Du willst einen _Blogpost_ schreiben?" description="Cool! Hier findest du ein paar Tipps.">
       <Copy>Cool! Hier findest du ein paar Tipps.</Copy>
       <Copy>
-        <NextLink href="/brand/sprache" passHref>
-          <TextLink href="/brand/sprache">Zurück zu den allgemeinen Sprach-Guidelines</TextLink>
-        </NextLink>
+        <Link href="/brand/sprache">Zurück zu den allgemeinen Sprach-Guidelines</Link>
       </Copy>
     </PageHeader>
 
@@ -151,10 +149,7 @@ const Tipps = () => (
           <div className="bg-cornflower-500 rounded px-16 py-12">
             <Copy>
               Weniger ist mehr. Wücki. (Weitere tolle Tipps und fancy Facts in den{' '}
-              <NextLink href="/brand/sprache" passHref>
-                <TextLink href="/brand/sprache">Sprach-Guidelines</TextLink>
-              </NextLink>
-              )
+              <Link href="/brand/sprache">Sprach-Guidelines</Link>)
             </Copy>
             <ul className="list-disc text-xs lg:text-base">
               <li>Kürzen ist Kunst. Auch du kannst Kunst: Fehlt dem Satz etwas ohne dieses Wort?</li>

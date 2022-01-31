@@ -1,9 +1,9 @@
-import { Copy, Grid, GridSlider, Heading2, Heading3, TextLink, LinkList } from '@smartive/guetzli';
+import { Copy, Grid, GridSlider, Heading2, Heading3, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import NextLink from 'next/link';
 import React from 'react';
 import { NextContentCard } from '../components/content-card';
 import { PageHeader } from '../compositions/page-header';
+import { Link } from '../elements/link';
 import { PlaceholderImage } from '../elements/placeholder-image';
 import { LandingPage } from '../layouts/landing-page';
 import { Section } from '../layouts/section';
@@ -70,38 +70,25 @@ const Welcome: NextPage<Props> = ({ images }) => (
       <Heading2>Deine ersten, digitalen Schritte</Heading2>
       <Copy>
         Slack hast du wahrscheinlich schon. Aber es sieht noch nicht so nach smartive aus. Schau doch mal auf unserer{' '}
-        <NextLink href="/brand" passHref>
-          <TextLink href="/brand">Brandseite</TextLink>
-        </NextLink>{' '}
+        <Link href="/brand">Brandseite</Link>
         vorbei um dir dein Slack Theme zu ergattern. Und wenn du schon mal da bist, lies dir die Sachen doch rasch durch. 😇
       </Copy>
       <Heading3>Love Thy Neighbor</Heading3>
       <Copy>
-        Erster Tag. So. viele. Namen. 😩 Unsere{' '}
-        <NextLink href="/team" passHref>
-          <TextLink href="/team">Teamseite</TextLink>
-        </NextLink>{' '}
-        schafft Abhilfe. Da findest du alle smarties mit Foto und ein paar kurzweiligen Facts.
+        Erster Tag. So. viele. Namen. 😩 Unsere <Link href="/team">Teamseite</Link> schafft Abhilfe. Da findest du alle
+        smarties mit Foto und ein paar kurzweiligen Facts.
       </Copy>
       <Copy>
         Zu wissen wie die Leute heissen ist sicher schon mal ein guter Schritt. Aber du fragst dich vielleicht an wen du dich
         wenden kannst, wenn du Fragen zum Thema{' '}
-        <NextLink href="https://smarties.app/roles/smartive-and-beer" passHref>
-          <TextLink href="https://smarties.app/roles/smartive-and-beer" newTab>
-            Bier 🍻
-          </TextLink>
-        </NextLink>{' '}
+        <Link href="https://smarties.app/roles/smartive-and-beer" newTab>
+          Bier 🍻
+        </Link>{' '}
         hast (ja, wirklich…). Oder wie genau dieses{' '}
-        <NextLink href="https://smarties.app/roles/scrum-master" passHref>
-          <TextLink href="https://smarties.app/roles/scrum-master" newTab>
-            Scrum
-          </TextLink>
-        </NextLink>{' '}
-        denn funktioniert. Diese Infos findest du in den{' '}
-        <NextLink href="https://smarties.app/roles" passHref>
-          <TextLink href="https://smarties.app/roles">smartive Roles</TextLink>
-        </NextLink>
-        .
+        <Link href="https://smarties.app/roles/scrum-master" newTab>
+          Scrum
+        </Link>{' '}
+        denn funktioniert. Diese Infos findest du in den <Link href="https://smarties.app/roles">smartive Roles</Link>.
       </Copy>
 
       <Heading3>Du willst auch auf diese Seite?</Heading3>

@@ -1,14 +1,4 @@
-import {
-  BlobVariations,
-  Copy,
-  Grid,
-  Heading3,
-  Keyfigure,
-  LinkList,
-  TextBlock,
-  TextLink,
-  UnorderedList,
-} from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, Heading3, Keyfigure, LinkList, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
@@ -21,6 +11,7 @@ import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
+import { Link } from '../../elements/link';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
@@ -105,7 +96,7 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             <div>
               <Heading3>Schritt für Schritt vorwärts</Heading3>
               <Copy>
-                Auch bei diesem Projekt sind wir iterativ vorgegangen — mit <TextLink href="/was-ist/agile">Scrum</TextLink>.
+                Auch bei diesem Projekt sind wir iterativ vorgegangen — mit <Link href="/was-ist/agile">Scrum</Link>.
                 Regelmässig wurden neue Features getestet und evaluiert. Das erlaubte dem Kanton und uns, auf neue oder sich
                 ändernde Anforderungen einzugehen und diesen gerecht zu werden.
               </Copy>

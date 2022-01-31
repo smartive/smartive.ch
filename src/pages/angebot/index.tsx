@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, TextLink, LinkList } from '@smartive/guetzli';
+import { BlobVariations, Copy, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import React from 'react';
@@ -11,6 +11,7 @@ import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
+import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
 
@@ -30,10 +31,7 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
         <Copy>
           Wir beraten, konzipieren und entwickeln. Unser Markenzeichen sind massgeschneiderte digitale Produkte. Unsere
           Kunden reichen vom Startup bis zur grössten Arbeitgeberin der Schweiz. Mehr dazu? Wirf einen Blick auf{' '}
-          <NextLink href="/projekte" passHref>
-            <TextLink href="/projekte">die Projekte</TextLink>
-          </NextLink>
-          , die wir umgesetzt haben.
+          <Link href="/projekte">die Projekte</Link>, die wir umgesetzt haben.
         </Copy>
       </PageHeader>
 

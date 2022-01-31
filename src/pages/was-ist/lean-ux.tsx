@@ -1,7 +1,7 @@
-import { Copy, Heading2, Keyfigure, TextLink, UnorderedList } from '@smartive/guetzli';
-import NextLink from 'next/link';
+import { Copy, Heading2, Keyfigure, UnorderedList } from '@smartive/guetzli';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
+import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
 
@@ -39,14 +39,11 @@ const LeanUX = () => (
           Kiste. Die gute Nachricht: Können wir zusammen auspacken.
         </Copy>
         <Copy>
-          Lean UX passt perfekt zur{' '}
-          <NextLink href="/was-ist/agile" passHref>
-            <TextLink href="/was-ist/agile">agilen Arbeitsweise</TextLink>
-          </NextLink>
-          : Von dort übernehmen wir die Idee, in Iterationen vorzugehen. Wir brechen die grosse UX-Kiste in kleinere Teile
-          auf, die wir laufend evaluieren. Wir sammeln Daten und treffen darauf basierend Entscheidungen. Der Fokus liegt
-          nicht auf dem Endresultat, sondern auf den Erkenntnissen, die wir im Prozess gewinnen. Wir fällen Entscheide, die
-          wir jetzt umsetzen können, um etwas zu verändern.
+          Lean UX passt perfekt zur <Link href="/was-ist/agile">agilen Arbeitsweise</Link>: Von dort übernehmen wir die Idee,
+          in Iterationen vorzugehen. Wir brechen die grosse UX-Kiste in kleinere Teile auf, die wir laufend evaluieren. Wir
+          sammeln Daten und treffen darauf basierend Entscheidungen. Der Fokus liegt nicht auf dem Endresultat, sondern auf
+          den Erkenntnissen, die wir im Prozess gewinnen. Wir fällen Entscheide, die wir jetzt umsetzen können, um etwas zu
+          verändern.
         </Copy>
       </Section>
       <Section title="Klingt noch etwas abstrakt?">
@@ -70,10 +67,7 @@ const LeanUX = () => (
               <span key="third" className="font-normal">
                 Um Annahmen zu testen, stellen wir <strong>Hypothesen</strong> auf: «Die Annahme ist bestätigt, wenn wir eine
                 Verbesserung der Quote vollständiger Anmeldungen um 20% erreichen.» Hypothesen müssen beweisbar sein. Sonst
-                produzieren wir ins Blaue hinaus. Ein{' '}
-                <NextLink href="/was-ist/mvp">
-                  <TextLink href="/was-ist/mvp">MVP</TextLink>
-                </NextLink>{' '}
+                produzieren wir ins Blaue hinaus. Ein <Link href="/was-ist/mvp">MVP</Link>
                 eignet sich sehr gut, um Hypothesen zu testen.
               </span>,
               <span key="fourth" className="font-normal">

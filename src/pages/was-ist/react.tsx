@@ -1,6 +1,7 @@
 import { Copy, Explainer, Grid, TextLink, TextBlock, UnorderedList } from '@smartive/guetzli';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
+import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
 
@@ -70,7 +71,7 @@ const WasIstReact = () => (
               <Copy as="span" className="inline-block">
                 Next.js ergänzt React um Cleverness auf der Server-Seite – Vorgenerierte Seiten, ad hoc generierte und nur
                 bei Änderung neu generierte sind damit ein Leichtes. Auf dieser Basis lässt sich wunderbar eine Plattform wie{' '}
-                <TextLink href="/projekte/migipedia">Migipedia</TextLink> mit einer Mischung aus statischen, dynamischen und
+                <Link href="/projekte/migipedia">Migipedia</Link> mit einer Mischung aus statischen, dynamischen und
                 personalisierten Inhalten bauen.
               </Copy>
               <Copy as="span" className="inline-block">

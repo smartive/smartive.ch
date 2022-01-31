@@ -21,6 +21,7 @@ import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
+import { Link } from '../../elements/link';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
@@ -85,9 +86,9 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             </TextBlock>
             <TextBlock title="Unsere Lösung">
               Mit einem speziell auf die Optimatik AG zugeschnittenen Workshop konnten wir das Team innert zwei Tagen auf den
-              aktuellen Stand zum Thema Cloud Hosting mit <TextLink href="/was-ist/kubernetes/">Kubernetes</TextLink>{' '}
-              bringen. Anschliessend haben wir in enger Zusammenarbeit die neue Google Cloud basierte Infrastruktur
-              aufgesetzt und das Energie Business Portal mit automatisierten CI Pipelines auf den neuen Cluster deployt.
+              aktuellen Stand zum Thema Cloud Hosting mit <Link href="/was-ist/kubernetes/">Kubernetes</Link> bringen.
+              Anschliessend haben wir in enger Zusammenarbeit die neue Google Cloud basierte Infrastruktur aufgesetzt und das
+              Energie Business Portal mit automatisierten CI Pipelines auf den neuen Cluster deployt.
             </TextBlock>
           </Grid>
         </Section>
@@ -157,8 +158,8 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               unterschiedliche Technologien und vereinfacht den Betrieb erheblich.
             </TextBlock>
             <TextBlock title="Kubernetes">
-              Dank <TextLink href="/was-ist/kubernetes">Kubernetes</TextLink> erwachen die Docker Container zum Leben und
-              können untereinander kommunizieren. Kubernetes kümmert sich auch um den Neustart, falls mal was klemmt.
+              Dank <Link href="/was-ist/kubernetes">Kubernetes</Link> erwachen die Docker Container zum Leben und können
+              untereinander kommunizieren. Kubernetes kümmert sich auch um den Neustart, falls mal was klemmt.
             </TextBlock>
           </Grid>
           <Grid cols={3}>

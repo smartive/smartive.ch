@@ -1,11 +1,11 @@
 import { Copy, Explainer, Grid, Heading2, Keyfigure, TextBlock, TextLink } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import NextLink from 'next/link';
 import React from 'react';
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
+import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
 
@@ -64,10 +64,7 @@ const GQL: NextPage<Props> = ({ teasers }) => (
           Das <strong>GraphQL-Schema</strong> ist der «Masterplan»: Es definiert die Datenstruktur und garantiert, dass die
           Daten in einer bestimmten Form ausgeliefert werden. Wer weiss, was zu erwarten ist, muss sich nicht mit fehlenden
           Daten und daraus resultierenden Bugs rumschlagen. Aus dem Schema lassen sich ganz einfach <strong>Types</strong>{' '}
-          generieren, die in{' '}
-          <NextLink href="/was-ist/react#typescript" passHref>
-            <TextLink href="/was-ist/react#typescript">TypeScript</TextLink>
-          </NextLink>{' '}
+          generieren, die in <Link href="/was-ist/react#typescript">TypeScript</Link>
           verwendet werden können. Das macht Entwickler*innen froh und das wiederum das Produkt besser.
         </Copy>
 

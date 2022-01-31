@@ -1,6 +1,7 @@
 import { Copy, TextLink } from '@smartive/guetzli';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
+import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
 
@@ -12,10 +13,10 @@ const PWA = () => (
       description="Flutter"
     >
       <Copy>
-        Eigentlich bevorzugen wir ja <TextLink href="/was-ist/pwa">PWAs</TextLink>. Wenn du aber unbedingt eine klassische
-        App im Appstore haben musst, hilft uns <strong>Flutter</strong>, deine App nur einmal zu programmieren und trotzdem
-        für <strong>Android</strong>, <strong>iOS</strong>, <strong>Windows</strong> und <strong>macOS</strong> in die
-        jeweiligen Appstores auszuliefern.
+        Eigentlich bevorzugen wir ja <Link href="/was-ist/pwa">PWAs</Link>. Wenn du aber unbedingt eine klassische App im
+        Appstore haben musst, hilft uns <strong>Flutter</strong>, deine App nur einmal zu programmieren und trotzdem für{' '}
+        <strong>Android</strong>, <strong>iOS</strong>, <strong>Windows</strong> und <strong>macOS</strong> in die jeweiligen
+        Appstores auszuliefern.
       </Copy>
     </PageHeader>
 
@@ -43,7 +44,7 @@ const PWA = () => (
         </Copy>
         <Copy>
           Die Auslieferung in die Appstores ist aber leider immer noch mit mehr Arbeit verbunden. Deshalb, Hand aufs Herz:
-          Ist eine <TextLink href="/was-ist/pwa">PWA</TextLink> nicht doch die passendere Lösung?
+          Ist eine <Link href="/was-ist/pwa">PWA</Link> nicht doch die passendere Lösung?
         </Copy>
       </Section>
     </main>

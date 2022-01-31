@@ -1,7 +1,7 @@
 import { Copy, Explainer, Grid, Heading3, TextBlock, TextLink, UnorderedList } from '@smartive/guetzli';
-import NextLink from 'next/link';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
+import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
 
@@ -23,13 +23,10 @@ const GRPC = () => (
     <main>
       <Section title="Warum gRPC?">
         <Copy>
-          gRPC ist eine Alternative zu REST oder{' '}
-          <NextLink href="/was-ist/graphql" passHref>
-            <TextLink href="/was-ist/graphql">GraphQL</TextLink>
-          </NextLink>{' '}
-          , die sich anbietet, wenn Performance entscheidend ist. Ein typisches Einsatzgebiet ist Kommunikation zwischen
-          Microservices. Aber auch für eine API ist gRPC bestens geeignet, gerade bei vielen Clients. Hier punktet gRPC
-          damit, dass der Client-Service zum Datenaustausch ohne Zusatzaufwand generiert werden kann.
+          gRPC ist eine Alternative zu REST oder <Link href="/was-ist/graphql">GraphQL</Link>, die sich anbietet, wenn
+          Performance entscheidend ist. Ein typisches Einsatzgebiet ist Kommunikation zwischen Microservices. Aber auch für
+          eine API ist gRPC bestens geeignet, gerade bei vielen Clients. Hier punktet gRPC damit, dass der Client-Service zum
+          Datenaustausch ohne Zusatzaufwand generiert werden kann.
         </Copy>
         <Heading3>Highlights:</Heading3>
         <Copy as="div">
@@ -92,10 +89,7 @@ const GRPC = () => (
       <Section title="Für Komfort ist gesorgt">
         <Copy>
           Nicht menschenlesbar klingt zuerst einmal ungewohnt – bei der Arbeit mit gRPC spielt das aber keine Rolle, da
-          entsprechende Tools bereitstehen. Es bietet ähnliche Vorteile wie{' '}
-          <NextLink href="/was-ist/graphql" passHref>
-            <TextLink href="/was-ist/graphql">GraphQL</TextLink>
-          </NextLink>{' '}
+          entsprechende Tools bereitstehen. Es bietet ähnliche Vorteile wie <Link href="/was-ist/graphql">GraphQL</Link>
           mit einem etwas anderen Ansatz:
         </Copy>
         <Copy as="div">

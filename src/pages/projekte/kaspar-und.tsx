@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, Grid, LinkList, TextBlock, TextLink } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, LinkList, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
@@ -13,6 +13,7 @@ import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
+import { Link } from '../../elements/link';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
@@ -42,9 +43,9 @@ const Kasparund: NextPage<Props> = ({ quote, contact, teasers, images, packages 
         <Copy>
           Das Startup aus der Ostschweiz macht das Anlegen für alle zugänglich. Mit ihrer App kannst du bereits ab einem
           Franken Geld investieren. Wir begleiten Kaspar&amp; seit den Anfängen und unterstützen das ETH Spin-off bei
-          technischen Fragen. Bei regelmässigen <TextLink href="/angebot/mentoring">Mentoring-Treffen</TextLink> diskutieren
-          wir von Software-Architektur über Infrastruktur bis hin zu Security über alles von Belang, damit bei Kaspar&amp;
-          die richtigen Entscheidungen für ein stabiles Produkt getroffen werden.
+          technischen Fragen. Bei regelmässigen <Link href="/angebot/mentoring">Mentoring-Treffen</Link> diskutieren wir von
+          Software-Architektur über Infrastruktur bis hin zu Security über alles von Belang, damit bei Kaspar&amp; die
+          richtigen Entscheidungen für ein stabiles Produkt getroffen werden.
         </Copy>
         <LinkList links={[{ label: 'Zu Kaspar&', href: 'https://kasparund.ch/' }]} />
       </PageHeader>
@@ -82,9 +83,9 @@ const Kasparund: NextPage<Props> = ({ quote, contact, teasers, images, packages 
             <TextBlock title="Unsere Lösung">
               Deshalb ist für Kaspar& unser Mentoring-Programm die richtige Lösung. Bei unseren regelmässigen
               Jourfix-Meetings diskutieren wir Fragen aller Art. Wir haben zum Beispiel über Fragen zum Betrieb mit{' '}
-              <TextLink href="/was-ist/kubernetes">Kubernetes</TextLink> gesprochen, was die Best-Practices von neueren
-              Technologien wie <TextLink href="/was-ist/grpc">gRPC</TextLink> sind oder was unserer Meinung nach bei{' '}
-              <TextLink href="/was-ist/agile">Scrum</TextLink> gut und eben nicht gut funktioniert. Da wir jederzeit unsere
+              <Link href="/was-ist/kubernetes">Kubernetes</Link> gesprochen, was die Best-Practices von neueren Technologien
+              wie <Link href="/was-ist/grpc">gRPC</Link> sind oder was unserer Meinung nach bei{' '}
+              <Link href="/was-ist/agile">Scrum</Link> gut und eben nicht gut funktioniert. Da wir jederzeit unsere
               Spezialist*innen für User Experience, DevOps und Software Entwicklung beiziehen können, finden wir auf jede
               Frage eine Antwort.
             </TextBlock>
@@ -102,13 +103,13 @@ const Kasparund: NextPage<Props> = ({ quote, contact, teasers, images, packages 
             </TextBlock>
             <TextBlock title="REST oder gRPC">
               Gestartet haben wir ausschliesslich mit REST-APIs. Mittlerweile kommen aber beide Technologien zum Einsatz:{' '}
-              <TextLink href="/was-ist/grpc">gRPC</TextLink> für die serverseitige Service-to-service-Kommunikation und REST
-              in Richtung Client.
+              <Link href="/was-ist/grpc">gRPC</Link> für die serverseitige Service-to-service-Kommunikation und REST in
+              Richtung Client.
             </TextBlock>
             <TextBlock title="Flutter oder PWA">
-              <TextLink href="/was-ist/pwa">PWAs</TextLink> haben gegenüber nativen Apps leider immernoch ein paar Nachteile
-              (looking at you, Apple). In diesem Projekt ist die App-Entwicklung mit{' '}
-              <TextLink href="/was-ist/flutter">Flutter</TextLink> deshalb eindeutig die bessere Entscheidung.
+              <Link href="/was-ist/pwa">PWAs</Link> haben gegenüber nativen Apps leider immernoch ein paar Nachteile (looking
+              at you, Apple). In diesem Projekt ist die App-Entwicklung mit <Link href="/was-ist/flutter">Flutter</Link>{' '}
+              deshalb eindeutig die bessere Entscheidung.
             </TextBlock>
           </Grid>
         </Section>

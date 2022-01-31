@@ -13,9 +13,9 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import Image from 'next/image';
-import NextLink from 'next/link';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
+import { Link } from '../../elements/link';
 import { LandingPage } from '../../layouts/landing-page';
 import { Section } from '../../layouts/section';
 
@@ -83,10 +83,7 @@ const Sprache = () => (
           <div className="mt-4 lg:mt-8">
             <Heading3>Du willst einen Blogpost schreiben?</Heading3>
             <Copy>
-              Guck dich mal bei den{' '}
-              <NextLink href="/brand/schreibtipps" passHref>
-                <TextLink href="/brand/schreibtipps">Schreibtipps</TextLink>
-              </NextLink>{' '}
+              Guck dich mal bei den <Link href="/brand/schreibtipps">Schreibtipps</Link>
               um!
             </Copy>
           </div>

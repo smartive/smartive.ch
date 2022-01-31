@@ -1,16 +1,5 @@
-import {
-  Copy,
-  Grid,
-  Keyfigure,
-  LinkList,
-  Screenshot,
-  ScreenshotVariant,
-  TextBlock,
-  TextLink,
-  UnorderedList,
-} from '@smartive/guetzli';
+import { Copy, Grid, Keyfigure, LinkList, Screenshot, ScreenshotVariant, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import NextLink from 'next/link';
 import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
@@ -21,6 +10,7 @@ import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser, transformTeaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
+import { Link } from '../../elements/link';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
@@ -106,23 +96,13 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images }) => (
             verschiedenen Angebote fehlte bisher, da die Daten verteilt und bei den Gemeinden angesiedelt sind.
           </TextBlock>
           <TextBlock title="Das haben wir daraus gemacht">
-            Eine schlanke und schnelle{' '}
-            <NextLink href="/was-ist/pwa" passHref>
-              <TextLink href="/was-ist/pwa">Progressive Web App</TextLink>
-            </NextLink>{' '}
+            Eine schlanke und schnelle <Link href="/was-ist/pwa">Progressive Web App</Link>
             erlaubt es Nutzer*innen, Spielplätze und andere Abenteuer in der Nähe zu finden. Die Daten werden aus den
             verschiedenen Gemeinden zusammengetragen und zentral in einem{' '}
-            <NextLink href="/was-ist/headless-cms" passHref>
-              <TextLink href="/was-ist/headless-cms">Headless CMS</TextLink>
-            </NextLink>{' '}
-            gepflegt. In einem{' '}
-            <NextLink href="/angebot/speedboat" passHref>
-              <TextLink href="/angebot/speedboat">Speedboat</TextLink>
-            </NextLink>{' '}
+            <Link href="/was-ist/headless-cms">Headless CMS</Link>
+            gepflegt. In einem <Link href="/angebot/speedboat">Speedboat</Link>
             haben wir innert 30 Tagen aus einer Idee eine eigene Plattform mit einem eigenen Brand und einem guten{' '}
-            <NextLink href="/was-ist/lean-ux" passHref>
-              <TextLink href="/was-ist/lean-ux">UX-Konzept</TextLink>
-            </NextLink>{' '}
+            <Link href="/was-ist/lean-ux">UX-Konzept</Link>
             entwickelt, die einfach zu benutzen ist.
           </TextBlock>
         </Grid>
