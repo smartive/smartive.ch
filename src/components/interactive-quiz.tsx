@@ -4,13 +4,12 @@ import { AnimatePresence, domMax, LazyMotion, m as motion } from 'framer-motion'
 import React, { FC, ReactNode, useMemo, useRef, useState } from 'react';
 import { State, StateMachine } from 'xstate';
 import { getMeta } from '../machines/get-meta';
-import type { QuizEvent } from '../machines/interactive-quiz';
 
 const Stack: FC = ({ children }) => <div className="flex flex-col gap-4">{children}</div>;
 
 type Props = {
   machine: StateMachine<any, any, any>;
-  render: (state: State<any>, machine: StateMachine<any, any, QuizEvent>) => ReactNode;
+  render: (state: State<any>, machine: StateMachine<any, any, any>) => ReactNode;
 };
 
 export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {

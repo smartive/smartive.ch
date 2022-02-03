@@ -19,7 +19,7 @@ const YEARLY_EXPERIENCE = 150;
 const MAX_EXPERIENCE_YEARS = 10;
 const MAX_EXPERIENCE_SALARY = YEARLY_EXPERIENCE * MAX_EXPERIENCE_YEARS;
 
-export const machine = createMachine<Context, QuizEvent, State>({
+export const machine = createMachine<any, any, any>({
   id: 'salary-calculator',
   initial: 'apprenticeship',
   context: { salary: BASE_SALARY },
