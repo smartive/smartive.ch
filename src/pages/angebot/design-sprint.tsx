@@ -11,8 +11,7 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import dynamic from 'next/dynamic';
-import React, { FC, useState } from 'react';
+import { FC } from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { PackageList } from '../../compositions/package-list';
@@ -24,11 +23,6 @@ import { Teaser } from '../../data/teaser';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
 
-const DesignSprintQuiz = dynamic(() => import('../../components/design-sprint-quiz').then((mod) => mod.DesignSprintQuiz), {
-  ssr: false,
-  loading: () => <QuizPlaceholder disabled />,
-});
-
 type Props = {
   contact: Employee;
   packages: Package[];
@@ -36,8 +30,6 @@ type Props = {
 };
 
 const DesignSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
-  const [showQuiz, setShowQuiz] = useState(false);
-
   return (
     <Page>
       <PageHeader
@@ -88,7 +80,6 @@ const DesignSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
             />
           </div>
         </Section>
-        <Section>{showQuiz ? <DesignSprintQuiz /> : <QuizPlaceholder onClick={() => setShowQuiz(true)} />}</Section>
         <Section>
           <Contact contact={contact}>
             Fragen zum Ablauf des Design Sprints?
