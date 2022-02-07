@@ -32,8 +32,8 @@ const Page: NextPage<Props> = ({ quote }) => {
           Migipedia, die plattformübergreifende Community der Migros, ist längst nicht nur eine Marketing-Spielerei, auf der
           Migros-Kinder Produkte bewerten, diskutieren und sich an Abstimmungen und Crowdsourcings beteiligen. Mit dem
           Zusammenspiel von personalisierten und verhaltensbasierten Kommunikationsmassnahmen, Word of Mouth und gezielter,
-          interner Stakeholder-Aktivierung schafft der Community Value Loop Werte. Von diesen profitieren nicht nur Kundinnen
-          und Kunden, sondern auch die Migros. Als Bottom-up-Initiative für noch mehr Kundenfokus wurde der Community Value
+          interner Stakeholder-Aktivierung schafft der Community Value Loop Werte. Von diesen profitieren nicht nur
+          Kund*innen, sondern auch die Migros. Als Bottom-up-Initiative für noch mehr Kundenfokus wurde der Community Value
           Loop 2021 lanciert.
         </Copy>
       </PageHeader>
@@ -66,10 +66,10 @@ const Page: NextPage<Props> = ({ quote }) => {
               Community zum Einsatz. Die Motivation der Community ist rein intrinsisch.
             </ListItem>
             <ListItem>
-              <strong className="font-bold">Profitieren:</strong> Von den Produkt-Bewertungen profitieren andere Kundinnen
-              und Kunden beim Treffen ihrer Kaufentscheidungen, sei dies auf Migipedia, dem Online-Produkt-Katalog der Migros
-              oder in den Onlineshops der Migros-Fachmärkte (melectronics, SportXX usw.). Zudem werden die Produktbewertungen
-              auch für Google Shopping-Ads verwendet – denn nicht immer startet die Customer Journey auf den Migros-eigenen
+              <strong className="font-bold">Profitieren:</strong> Von den Produkt-Bewertungen profitieren andere Kund*innen
+              beim Treffen ihrer Kaufentscheidungen, sei dies auf Migipedia, dem Online-Produkt-Katalog der Migros oder in
+              den Onlineshops der Migros-Fachmärkte (melectronics, SportXX usw.). Zudem werden die Produktbewertungen auch
+              für Google Shopping-Ads verwendet – denn nicht immer startet die Customer Journey auf den Migros-eigenen
               Touchpoints (Beispiel Mio Star V-Cleaner VAC8POWER:{' '}
               <TextLink href="https://www.google.com/search?q=Staubsauger+Migros+kaufen&rlz=1C1GCEB_enCH912CH912&biw=1920&bih=977&sxsrf=AOaemvILgl-fC8iRLxCCMAG7Gt6_VaR4dA:1641311197813&ei=3WvUYZX7MJuM9u8Po-2n8AY&ved=0ahUKEwjV3aTXuJj1AhUbhv0HHaP2CW4Q4dUDCA4&uact=5&oq=Staubsauger+Migros+kaufen&gs_lcp=Cgdnd3Mtd2l6EAMyBggAEAgQHjIGCAAQCBAeOgcIABBHELADOgcIABCwAxBDOgcIIxCwAhAnOgQIABANOggIABAIEAcQHkoECEEYAEoECEYYAFDeBlixDWCaEGgBcAJ4AIABZ4gB3QSSAQM2LjGYAQCgAQHIAQrAAQE&sclient=gws-wiz">
                 Google

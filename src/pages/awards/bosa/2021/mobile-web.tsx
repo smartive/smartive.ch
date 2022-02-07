@@ -186,10 +186,10 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
         <Section>
           <Heading2>Erfolgsfaktoren: Design, Personalisierung, Performance</Heading2>
           <Copy>
-            Migipedia, die App im Web, kommt bei den Migros-Kundinnen und -Kunden an. Monatlich stossen rund 2000 neue
-            Mitglieder zur Migros-Community hinzu. An manchen Tagen werden Migros-Produkte im Minutentakt bewertet und
-            beinahe 85% der Besucherinnen und Besucher geben bei der permanenten NPS-Befragung an, dass sie Migipedia
-            Freunden weiterempfehlen würden.
+            Migipedia, die App im Web, kommt bei den Migros-Kund*innen an. Monatlich stossen rund 2000 neue Mitglieder zur
+            Migros-Community hinzu. An manchen Tagen werden Migros-Produkte im Minutentakt bewertet und beinahe 85% der
+            Besucherinnen und Besucher geben bei der permanenten NPS-Befragung an, dass sie Migipedia Freunden
+            weiterempfehlen würden.
           </Copy>
           <Copy>
             Sich beim Relaunch der Migros-Community in den Bereichen Design, Personalisierung und Performance an einer
