@@ -45,6 +45,13 @@ deploy preview:
   extends: .deploy_template
   script:
     - npm run deploy:preview
+    - echo "PREVIEW_DEPLOYMENT_URL=$(cat deployment-url.txt)" >> deploy.env
+  artifacts:
+    reports:
+      dotenv: deploy.env
+  environment:
+    name: Preview $CI_COMMIT_REF_SLUG
+    url: $PREVIEW_DEPLOYMENT_URL
   rules:
     - if: '$CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME !~ /^renovate\//'
 
@@ -52,5 +59,8 @@ deploy production:
   extends: .deploy_template
   script:
     - npm run deploy:production
+  environment:
+    name: production
+    url: https://smartive.ch
   rules:
     - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
