@@ -43,10 +43,10 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
       >
         <Copy>
           Seit 2010 stehen bei <TextLink href="https://migipedia.migros.ch/de">Migipedia</TextLink> – der Community der
-          Migros – Kundinnen und Kunden im Mittelpunkt. Die Ansprüche der Userinnen und User an die Plattform haben sich in
-          dieser Zeit immer wieder verändert. Mit dem Migipedia-Relaunch von 2020 unter dem Motto «Wenn Migipedia eine App
-          wäre» wird diesen Veränderungen einmal mehr Rechnung getragen. Mit Erfolg: Auch dank der App-artigen User
-          Experience ist die Community heute so lebendig wie nie zuvor.
+          Migros – Kund*innen im Mittelpunkt. Die Ansprüche der Userinnen und User an die Plattform haben sich in dieser Zeit
+          immer wieder verändert. Mit dem Migipedia-Relaunch von 2020 unter dem Motto «Wenn Migipedia eine App wäre» wird
+          diesen Veränderungen einmal mehr Rechnung getragen. Mit Erfolg: Auch dank der App-artigen User Experience ist die
+          Community heute so lebendig wie nie zuvor.
         </Copy>
       </PageHeader>
 
@@ -65,9 +65,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
         <Section>
           <Heading2>Die Migros-Community</Heading2>
           <Copy>
-            Migipedia.ch macht es Kundinnen und Kunden leicht, sich miteinander auszutauschen und mit der Migros in Kontakt
-            zu treten. Die primäre Zielgruppe sind junge Familien und Digital Natives. Diese Zielgruppe möchte ein
-            ansprechendes, schnelles und unkompliziertes Nutzererlebnis, wie sie es von Apps kennt.
+            Migipedia.ch macht es Kund*innen leicht, sich miteinander auszutauschen und mit der Migros in Kontakt zu treten.
+            Die primäre Zielgruppe sind junge Familien und Digital Natives. Diese Zielgruppe möchte ein ansprechendes,
+            schnelles und unkompliziertes Nutzererlebnis, wie sie es von Apps kennt.
           </Copy>
           <Copy as="div">
             <UnorderedList
@@ -250,7 +250,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               Beste Experience: eigenen Community-Account erstellen und ihn mit Cumulus (falls vorhanden) verbinden.
               Alternativ ist ein Account mit Cumulus-Verknüpfung bei der BOSA-Einreichung in den juryrelevanten Informationen
               im Bereich Zugangsdaten hinterlegt. Allfällige Bewertungen und weitere Community-Interaktionen finden in der
-              Live-Umgebung statt und sind für alle Kundinnen und Kunden sichtbar.
+              Live-Umgebung statt und sind für alle Kund*innen sichtbar.
             </Copy>
           </Keyfigure>
         </Section>

@@ -52,9 +52,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
       >
         <Copy>
           Seit 2010 stehen bei <TextLink href="https://migipedia.migros.ch/de">Migipedia</TextLink> – der Community der
-          Migros – Kundinnen und Kunden im Mittelpunkt. Die Ansprüche der Userinnen und User an die Plattform haben sich in
-          dieser Zeit immer wieder verändert. Mit dem Migipedia-Relaunch von 2020 unter dem Motto «Wenn Migipedia eine App
-          wäre» wird diesen Veränderungen einmal mehr Rechnung getragen. Design inklusive Accessibility, Personalisierung und
+          Migros – Kund*innen im Mittelpunkt. Die Ansprüche der Userinnen und User an die Plattform haben sich in dieser Zeit
+          immer wieder verändert. Mit dem Migipedia-Relaunch von 2020 unter dem Motto «Wenn Migipedia eine App wäre» wird
+          diesen Veränderungen einmal mehr Rechnung getragen. Design inklusive Accessibility, Personalisierung und
           Performance schaffen eine App-ähnliche User-Experience und sorgen dafür, dass die Migros-Community heute so
           lebendig ist wie nie zuvor.
         </Copy>
@@ -193,9 +193,9 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
           </Copy>
           <Copy>
             Sich beim Relaunch der Migros-Community in den Bereichen Design, Personalisierung und Performance an einer
-            App-artigen Experience zu orientieren und Kundinnen und Kunden einmal mehr in den Mittelpunkt zu stellen, sind
-            die Erfolgsfaktoren der Community-Plattform. Sie tragen dazu bei, dass Kundinnen und Kunden heute häufiger denn
-            je mit Produkten interagieren und untereinander, aber auch mit der Migros selbst, in Dialog treten.
+            App-artigen Experience zu orientieren und Kund*innen einmal mehr in den Mittelpunkt zu stellen, sind die
+            Erfolgsfaktoren der Community-Plattform. Sie tragen dazu bei, dass Kund*innen heute häufiger denn je mit
+            Produkten interagieren und untereinander, aber auch mit der Migros selbst, in Dialog treten.
           </Copy>
 
           <Heading3>Persönliche Empfehlungen</Heading3>
@@ -246,7 +246,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               Beste Experience: eigenen Community-Account erstellen und ihn mit Cumulus (falls vorhanden) verbinden.
               Alternativ ist ein Account mit Cumulus-Verknüpfung bei der BOSA-Einreichung in den juryrelevanten Informationen
               im Bereich Zugangsdaten hinterlegt. Allfällige Bewertungen und weitere Community-Interaktionen finden in der
-              Live-Umgebung statt und sind für alle Kundinnen und Kunden sichtbar.
+              Live-Umgebung statt und sind für alle Kund*innen sichtbar.
             </Copy>
           </Keyfigure>
         </Section>

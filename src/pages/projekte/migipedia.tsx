@@ -37,7 +37,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
     <Page>
       <PageHeader
         markdownTitle="Migipedia – _10 Jahre_ User im Mittelpunkt."
-        description="Migipedia.ch ist seit 10 Jahren fester Bestandteil des digitalen Marketings der Migros und schafft Werte für Kundinnen und Kunden sowie fürs Unternehmen. Gemeinsam mit der Migros entwickelten wir eine komplett neue Lösung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor."
+        description="Migipedia.ch ist seit 10 Jahren fester Bestandteil des digitalen Marketings der Migros und schafft Werte für Kund*innen sowie fürs Unternehmen. Gemeinsam mit der Migros entwickelten wir eine komplett neue Lösung. Mit Erfolg: Die Community ist heute so lebendig wie nie zuvor."
         tags={awards}
       >
         <Copy>

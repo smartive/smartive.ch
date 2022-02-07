@@ -41,7 +41,7 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages, images }) 
     <Page>
       <PageHeader
         markdownTitle="Wir erschaffen _digitale_ Produkte. Zusammen mit dir."
-        description="Wir sind smartive — eine dynamische, innovative Schweizer Webentwicklungsagentur. Die Realisierung zeitgemässer Weblösungen gehört genauso zu unserer Passion, wie die konstruktive Zusammenarbeit mit unseren Kundinnen und Kunden."
+        description="Wir sind smartive — eine dynamische, innovative Schweizer Webentwicklungsagentur. Die Realisierung zeitgemässer Weblösungen gehört genauso zu unserer Passion, wie die konstruktive Zusammenarbeit mit unseren Kund*innen."
       >
         <LinkList
           linkWrapper={NextLink}
