@@ -18,6 +18,8 @@ const BlogPost: NextPage<Props> = ({ post }) => {
   dayjs.locale('de');
   const [copyTooltipOpen, setCopyTooltipOpen] = useState(false);
 
+  console.info(post);
+
   return (
     <Page>
       <div itemScope itemType="https://schema.org/BlogPosting">

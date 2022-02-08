@@ -57,3 +57,42 @@ footer {
     transform: scaleX(1);
   }
 }
+
+.kg-bookmark-card {
+  @apply bg-white-100 rounded transition-transform duration-150 hover:scale-[1.02] active:scale-[.99];
+}
+.kg-bookmark-card .kg-bookmark-container {
+  @apply flex flex-row no-underline justify-between;
+}
+
+.kg-bookmark-card .kg-bookmark-content {
+  @apply p-8;
+}
+
+.kg-bookmark-card .kg-bookmark-title {
+  @apply font-bold;
+}
+
+.kg-bookmark-card .kg-bookmark-metadata {
+  @apply flex flex-row items-center;
+}
+
+.kg-bookmark-card .kg-bookmark-icon {
+  @apply w-4 mr-4;
+}
+
+.kg-bookmark-card .kg-bookmark-author {
+  @apply text-sm;
+}
+
+.kg-bookmark-card .kg-bookmark-publisher {
+  @apply hidden;
+}
+
+.kg-bookmark-card .kg-bookmark-thumbnail {
+  @apply w-64 rounded-tr rounded-br flex relative flex-col justify-center;
+}
+
+.kg-bookmark-card .kg-bookmark-thumbnail img {
+  @apply w-full object-cover m-0;
+}
