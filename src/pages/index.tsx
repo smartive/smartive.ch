@@ -25,7 +25,7 @@ import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders'
 const STATIC_IMAGES = {
   main: '/images/mood/YB_07015.jpg',
   migipedia: '/images/projekte/migipedia/RGB_02_snack_001.jpg',
-  subsidia: '/images/projekte/subsidia/pwa-etikett-scan.png',
+  zubi: '/images/projekte/zubi/zubi_lagerfeuer.png',
 } as const;
 
 type Props = {
@@ -66,26 +66,26 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages, images }) 
           <GridSlider>
             <NextImageCard
               label="Projekt — Migipedia"
-              title="Der User im Mittelpunkt – seit 10 Jahren"
-              link={{ label: 'Projekt anschauen', href: '/projekte/migipedia' }}
+              title="Das ausgezeichnete Migipedia"
+              link={{ label: 'Zur Migros-Community', href: '/projekte/migipedia' }}
               image={images.migipedia}
               imageAlt="Frau sitzt mit Handy am Boden"
             />
             <NextImageCard
-              label="Projekt — Subsidia"
-              title="Digitalisierung der Lifestyle-Branche."
-              link={{ label: 'Mehr erfahren', href: '/projekte/subsidia' }}
-              image={images.subsidia}
-              imageAlt="Verkäuferin scannt Etikett eines Kleidungsstücks mit dem Smartphone"
+              label="Projekt — Zubi"
+              title="Die Schuhe mit smartive schnüren"
+              link={{ label: 'Mehr zu Zubi und smartive', href: '/projekte/zubi' }}
+              image={images.zubi}
+              imageAlt="Frau in Outdoor-Kleidung am Lagerfeuer"
             />
             <NextContentCard
-              label="Schatztruhe 💎"
-              title="Adventskalender"
-              content="Zum Advent öffnen wir unsere Schatztruhe. Hinter den 24 Türchen verraten unsere smarties ihre Lieblingstools."
+              label="Neues vom Blog"
+              title="Wie Thilo deine Suche optimiert"
+              content="In diesem Beitrag zeigt Thilo, wie wir reale Nutzerdaten verwenden um deine Suchmaschine mit quantitativen Analysen zu optimieren."
               background="mint"
               link={{
-                label: 'Zum Adventskalender',
-                href: 'https://advent.smartive.ch',
+                label: 'Den Blogpost lesen',
+                href: 'https://smartive.ch/blog/improve-your-full-text-search',
                 newTab: true,
               }}
             />

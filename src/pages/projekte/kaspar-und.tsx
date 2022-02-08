@@ -23,6 +23,7 @@ import { getRandomTeasers } from '../../utils/teasers';
 const STATIC_IMAGES = {
   app: '/images/projekte/kasparund/app.png',
   card: '/images/projekte/kasparund/card-upsidedown.svg',
+  mood: '/images/projekte/kasparund/KasparUND-Projektfoto.jpg',
 } as const;
 
 type Props = {
@@ -52,6 +53,15 @@ const Kasparund: NextPage<Props> = ({ quote, contact, teasers, images, packages 
 
       <main>
         <Section>
+          <PlaceholderImage
+            image={images.mood}
+            alt="Frau hält die Karte von Kaspar& in die Höhe"
+            priority
+            objectFit="cover"
+            width={1504}
+            height={800}
+          />
+
           <Grid cols={2}>
             <PlaceholderImage
               image={images.card}

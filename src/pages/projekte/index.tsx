@@ -75,14 +75,16 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers })
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const teasers = await Promise.all(
     Object.values(Teasers)
-      .filter(({ title }) => ![Teasers.migipedia.title, Teasers.spilo.title].includes(title))
+      .slice()
+      .reverse()
+      .filter(({ title }) => ![Teasers.migipedia.title, Teasers.kaspar.title].includes(title))
       .map(async (teaser) => await transformTeaser(teaser))
   );
 
   return {
     props: {
       teasers,
-      main: [await transformTeaser(Teasers.migipedia), await transformTeaser(Teasers.spilo)],
+      main: [await transformTeaser(Teasers.migipedia), await transformTeaser(Teasers.kaspar)],
       customers: Object.values(Customers),
       quote: await transformQuote(Quotes['setareh-dife']),
       contact: await transformEmployee(Employees.joshua),
