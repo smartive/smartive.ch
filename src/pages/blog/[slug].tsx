@@ -18,8 +18,6 @@ const BlogPost: NextPage<Props> = ({ post }) => {
   dayjs.locale('de');
   const [copyTooltipOpen, setCopyTooltipOpen] = useState(false);
 
-  console.info(post);
-
   return (
     <Page>
       <div itemScope itemType="https://schema.org/BlogPosting">
@@ -28,14 +26,17 @@ const BlogPost: NextPage<Props> = ({ post }) => {
         <PageHeader markdownTitle={post.title} description={post.excerpt}>
           <div className="grid md:grid-cols-[66%,auto] gap-4">
             {post.feature_image && (
-              <img
-                src={post.feature_image}
-                alt=""
-                loading="eager"
-                aria-hidden
-                className="w-full h-full rounded object-cover"
-                itemProp="image"
-              />
+              <div>
+                <img
+                  src={post.feature_image}
+                  alt=""
+                  loading="eager"
+                  aria-hidden
+                  className="w-full h-full rounded object-cover"
+                  itemProp="image"
+                />
+                {post.meta_description && <span className="text-black">{post.meta_description}</span>}
+              </div>
             )}
             <div className="grid place-items-center text-center gap-4 p-8 rounded bg-white-100">
               <Portrait
