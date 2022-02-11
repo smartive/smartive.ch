@@ -564,9 +564,9 @@
   "jennifer": {
     "firstname": "Jennifer",
     "lastname": "Duarte",
-    "portrait": "",
-    "image": "",
-    "closeup": "",
+    "portrait": "/images/employees/portraits/jennifer.jpg",
+    "image": "/images/employees/jennifer.jpg",
+    "closeup": "/images/employees/jennifer_closeup.jpg",
     "tel": "+41 44 552 55 99",
     "email": "jennifer@smartive.ch",
     "bookingLink": "",
