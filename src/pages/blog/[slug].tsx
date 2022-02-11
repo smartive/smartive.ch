@@ -39,15 +39,17 @@ const BlogPost: NextPage<Props> = ({ post }) => {
               </div>
             )}
             <div className="grid place-items-center text-center gap-4 p-8 rounded bg-white-100">
-              <Portrait
-                image={new URL(
-                  `${post.primary_author.profile_image.startsWith('http') ? '' : 'https://'}${
-                    post.primary_author.profile_image
-                  }`
-                ).toString()}
-                alt=""
-                variant={PortraitVariant.Small}
-              />
+              {post.primary_author.profile_image && (
+                <Portrait
+                  image={new URL(
+                    `${post.primary_author.profile_image.startsWith('http') ? '' : 'https://'}${
+                      post.primary_author.profile_image
+                    }`
+                  ).toString()}
+                  alt=""
+                  variant={PortraitVariant.Small}
+                />
+              )}
               <Heading3 as="p">
                 von <span itemProp="author">{post.primary_author.name}</span>
               </Heading3>
