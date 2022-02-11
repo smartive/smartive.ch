@@ -113,17 +113,20 @@
   },
   "bettina-bosw22-business": {
     "portrait": "/images/portraits/bettina-luginbuehl.jpg",
+    "excerpt": "Die Daily E-Mails sind wie Instagram.",
     "text": "Die Daily E-Mails sind wie Instagram. Kurz drüberscrollen und ich weiss was läuft. Spass bei Seite – die Kundenfeedbacks sind heute fester Bestandteil des Erfolgscontrollings in unseren Sortimenten.",
     "credit": "Bettina Luginbühl, Category-Managerin Beilagen"
   },
   "bettina-bosw22-innovation": {
     "portrait": "/images/portraits/bettina-luginbuehl.jpg",
+    "excerpt": "Ein Blick und ich weiss, was los ist.",
     "text": "Je länger wir die Daily E-Mails nutzen, desto wertvoller sind sie für mich und mein Team. Ein Blick drauf, runterscrollen und ich weiss, was in meinen Sortiment los ist. Kundenfeedbacks sind heute fester Bestandteil des Erfolgscontrollings in unserem Sortiment.",
     "credit": "Bettina Luginbühl, Category-Managerin Beilagen"
   },
   "bettina-bosw22-productivity": {
     "portrait": "/images/portraits/bettina-luginbuehl.jpg",
-    "text": "Anstatt Instagram checke ich morgens jetzt zuerst die Community Daily Mail. Spass bei Seite – Kundenfeedbacks täglich in dieser Form in der Mailbox zu finden, spart enorm viel Zeit. Deshalb sind Kundenfeedbacks fester Bestandteil des Erfolgscontrollings in unseren Sortimenten geworden.",
+    "excerpt": "Anstatt Instagram checke ich morgens jetzt zuerst die Community Daily Mail.",
+    "text": "Spass bei Seite – Kundenfeedbacks täglich in dieser Form in der Mailbox zu finden, spart enorm viel Zeit. Deshalb sind Kundenfeedbacks fester Bestandteil des Erfolgscontrollings in unseren Sortimenten geworden.",
     "credit": "Bettina Luginbühl, Category-Managerin Beilagen"
   }
 }
