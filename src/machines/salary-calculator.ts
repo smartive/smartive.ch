@@ -1,17 +1,13 @@
 import { assign, createMachine } from 'xstate';
-import { FormType, OptionType, QuizEvent } from './interactive-quiz';
+import { FormType, OptionType } from './interactive-quiz';
 
 export interface Context {
   salary: number;
 }
 
-type State = {
-  value: 'bachelor' | 'master' | 'apprenticeship' | 'professionalEducation' | 'experience' | 'report';
-  context: Context;
-};
-
 const BASE_SALARY = 5500;
 const APPRENTICESHIP_QUAL = 200;
+const FAMILY_ALLOWANCE = 300;
 const BACHELOR_QUAL = 750;
 const MASTER_QUAL = 250;
 const PROFESSIONAL_EDU_QUAL = 200;
@@ -157,10 +153,35 @@ export const machine = createMachine<any, any, any>({
       on: {
         BACK: 'professionalEducation',
         CONTINUE: {
-          target: 'report',
+          target: 'familyAllowance',
           actions: assign({
             salary: ({ salary }: Context, { value }) =>
-              salary + Math.min(parseInt(value, 10) * YEARLY_EXPERIENCE, MAX_EXPERIENCE_SALARY),
+              salary + Math.min(parseInt(value || 0, 10) * YEARLY_EXPERIENCE, MAX_EXPERIENCE_SALARY),
+          }),
+        },
+      },
+    },
+    familyAllowance: {
+      meta: {
+        title: 'Wie viele Kinder, die jünger als 6 Jahre sind, hast du?',
+        copy: 'Für jedes deiner Kinder geben wir dir pro Monat (ohne 13ter) CHF 300.- zusätzlich.',
+        form: {
+          type: FormType.Text,
+          options: [
+            { element: OptionType.Input, type: 'number', placeholder: 2, label: 'Anzahl Kinder' },
+            {
+              element: OptionType.Continue,
+              text: 'Zeig mir, wie viel ich bekomme',
+            },
+          ],
+        },
+      },
+      on: {
+        BACK: 'experience',
+        CONTINUE: {
+          target: 'report',
+          actions: assign({
+            salary: ({ salary }: Context, { value }) => salary + parseInt(value || 0, 10) * FAMILY_ALLOWANCE,
           }),
         },
       },
