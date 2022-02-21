@@ -13,9 +13,6 @@ export default class CustomDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <body className="bg-white-200 text-black">
-          {/* Needed as workaround until https://github.com/vercel/next.js/issues/18769 is resolved ¯\_(ツ)_/¯ */}
-          <script>0</script>
-
           <Main />
           <NextScript />
         </body>
