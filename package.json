@@ -19,7 +19,7 @@
     "@smartive/guetzli": "2.2.0",
     "@tryghost/content-api": "1.6.1",
     "@xstate/fsm": "1.6.5",
-    "@xstate/react": "2.0.0",
+    "@xstate/react": "2.0.1",
     "blobs": "2.2.0",
     "body-scroll-lock": "3.1.5",
     "charts.css": "0.9.0",
