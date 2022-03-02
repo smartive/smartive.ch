@@ -19,7 +19,7 @@ export const getNotionComparisons = async (): Promise<ComparisonTexts> => {
         {
           property: 'Name',
 
-          text: {
+          rich_text: {
             is_not_empty: true,
           },
         },
