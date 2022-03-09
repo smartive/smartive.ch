@@ -1,7 +1,5 @@
 import {
   BlobVariations,
-  Button,
-  Card,
   Clock,
   Copy,
   GridSlider,
@@ -11,7 +9,6 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { FC } from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { PackageList } from '../../compositions/package-list';

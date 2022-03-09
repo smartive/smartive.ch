@@ -11,7 +11,7 @@ module.exports = {
   siteUrl: 'https://smartive.ch',
   generateRobotsTxt: false,
   changefreq: 'weekly',
-  exclude: ['/newsletter', '/welcome'],
+  exclude: ['/newsletter', '/welcome', '/digital-garden', '/digital-garden/*'],
   // The default priority should be 0.5 (source: https://www.sitemaps.org/PROTOCOL.html)
   priority: 0.5,
   transform: async ({ changefreq, priority, autoLastmod }, loc) => ({

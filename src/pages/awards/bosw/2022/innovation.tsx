@@ -1,14 +1,4 @@
-import {
-  BlobVariations,
-  Copy,
-  Grid,
-  Heading2,
-  Heading3,
-  Keyfigure,
-  TextBlock,
-  TextLink,
-  UnorderedList,
-} from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, Heading2, Heading3, Keyfigure, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import React, { FC } from 'react';
