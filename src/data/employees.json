@@ -582,5 +582,31 @@
         "url": "https://www.linkedin.com/in/jennifer-duarte-06a636179/"
       }
     ]
+  },
+  "mike": {
+    "firstname": "Mike",
+    "lastname": "Schmid",
+    "portrait": "/images/employees/portraits/mike.jpg",
+    "image": "/images/employees/mike.jpg",
+    "closeup": "/images/employees/mike_closeup.jpg",
+    "tel": "+41 44 552 55 99",
+    "email": "mike@smartive.ch",
+    "bookingLink": "",
+    "job": "Software Engineer",
+    "bio": "Schwärmt für den einzig wahren Fussballclub spielt in FIFA aber Liverpool, eng befreundet mit Gandalf und englischem Bier, Profijasser – schaut aber lieber Raketenstarts statt Donnschtig-Jass.",
+    "links": [
+      {
+        "label": "mike@smartive.ch",
+        "url": "mailto:mike@smartive.ch"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/mike-schmid-963255185/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/mike-schmid"
+      }
+    ]
   }
 }
