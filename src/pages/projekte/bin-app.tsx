@@ -104,7 +104,7 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
               title="Kurz und knackig"
               items={[
                 "Über 5'000 User*innen",
-                'Verfügbar auf Android, iOS, macOS, Windows und Linux',
+                'Verfügbar auf Android, iOS, macOS und Windows',
                 'Komplett offlinefähig',
                 'Automatisierte Auslieferung in die App Stores',
               ]}
