@@ -35,7 +35,7 @@ const BlogPost: NextPage<Props> = ({ post }) => {
                   className="w-full h-full rounded object-cover"
                   itemProp="image"
                 />
-                {post.meta_description && <span className="text-black">{post.meta_description}</span>}
+                {post.meta_description && <span className="text-black hidden md:inline">{post.meta_description}</span>}
               </div>
             )}
             <div className="grid place-items-center text-center gap-4 p-8 rounded bg-white-100">
