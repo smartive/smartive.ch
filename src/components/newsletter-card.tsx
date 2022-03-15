@@ -19,7 +19,7 @@ export const NewsletterCard: FC<Props> = ({ blobs = [], background = 'apricot' }
     <Card background={background} blobs={blobs}>
       <div ref={ref} className="grid grid-flow-row place-items-center text-center lg:p-24 lg:text-sm">
         <Heading2 as="p">Wir schreiben nicht nur Code, sondern auch E-Mails. Auch dir, wenn du willst.</Heading2>
-        {inView && <NewsletterSubscription label="Newsletter" className="text-left overflow-hidden sm:overflow-visible" />}
+        {inView && <NewsletterSubscription label="Newsletter" />}
       </div>
     </Card>
   );

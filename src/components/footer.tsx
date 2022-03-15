@@ -81,7 +81,11 @@ export const Footer: FC = () => {
             </span>
           </address>
 
-          {inView && <NewsletterSubscription className="col-span-2 place-items-center" label="Newsletter" />}
+          {inView && (
+            <div className="col-span-2 place-items-center">
+              <NewsletterSubscription label="Newsletter" />
+            </div>
+          )}
 
           <div className="grid grid-flow-row place-self-end justify-items-start">
             <NavItem href="https://www.linkedin.com/company/smartive-ag/" newTab>
@@ -181,7 +185,11 @@ export const Footer: FC = () => {
               Facebook
             </NavItem>
           </div>
-          {inView && <NewsletterSubscription className="w-full" />}
+          {inView && (
+            <div className="w-full">
+              <NewsletterSubscription />
+            </div>
+          )}
           <SwissMadeSoftwareLogo />
           {inView && <BackToTop />}
         </Label>

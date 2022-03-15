@@ -3,12 +3,11 @@ import React, { FC, FormEvent, useRef, useState } from 'react';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 
 type Props = {
-  className?: string;
   label?: string;
   button?: string;
 };
 
-export const NewsletterSubscription: FC<Props> = ({ className = '', label = '', button = 'Jetzt abonnieren' }) => {
+export const NewsletterSubscription: FC<Props> = ({ label = '', button = 'Jetzt abonnieren' }) => {
   const [email, setEmail] = useState('');
   const mailchimpPrevState = useRef('');
 
@@ -47,7 +46,7 @@ export const NewsletterSubscription: FC<Props> = ({ className = '', label = '', 
         }
 
         return (
-          <div className={className}>
+          <div className="text-left overflow-hidden sm:overflow-visible">
             <form
               className="grid grid-flow-row xl:grid-flow-col gap-2 xl:place-items-end"
               onSubmit={(event) => handleSubmit(event, subscribe)}
@@ -64,8 +63,9 @@ export const NewsletterSubscription: FC<Props> = ({ className = '', label = '', 
                   />
                 </Tooltip>
               </Label>
+
               <Button as="button" type="submit" disabled={status === 'sending'}>
-                <span className="font-sans text-center font-bold text-sm xl:text-base w-full">
+                <span className="font-sans text-sm text-center font-bold w-full">
                   {status === 'sending' ? '...' : button}
                 </span>
               </Button>
