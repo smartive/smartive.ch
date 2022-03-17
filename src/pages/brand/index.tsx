@@ -215,7 +215,7 @@ const Brand: FC = () => (
         Die Patterns und Blobs sind ein wichtiger Bestandteil unseres Brands – die Anwendung ist aber voll uncool. Sprich
         dich doch mit Robert oder Damian ab.
       </Copy>
-      <Copy>
+      <Copy className="space-x-8">
         <a
           href="images/brand/avatars.zip"
           className="border-b-4 border-apricot-500 hover:border-black font-bold no-underline"
