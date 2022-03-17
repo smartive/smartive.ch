@@ -223,6 +223,13 @@ const Brand: FC = () => (
         >
           Download Avatar Set ZIP
         </a>
+        <a
+          href="images/brand/wallpapers.zip"
+          className="border-b-4 border-mint-500 hover:border-black font-bold no-underline"
+          download
+        >
+          Download Wallpaper Set (Desktop/Mobile) ZIP
+        </a>
       </Copy>
       <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 relative gap-4 sm:gap-6">
         {Array.from({ length: 12 }, (_, i) => (
