@@ -53,6 +53,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       seeds: response.results,
     },
+    revalidate: 60,
   };
 };
 

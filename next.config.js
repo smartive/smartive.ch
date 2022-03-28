@@ -8,6 +8,7 @@ module.exports = withBundleAnalyzer({
     ignoreDuringBuilds: true,
   },
   images: {
+    domains: ['images.unsplash.com', 's3.us-west-2.amazonaws.com'],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1536], // 1536px is our max container size
   },

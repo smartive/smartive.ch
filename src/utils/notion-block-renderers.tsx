@@ -1,7 +1,8 @@
 import { Copy, Heading1, Heading2, Heading3, Label } from '@smartive/guetzli';
+import Image from 'next/image';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/shadesOfPurple';
-import { ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Section } from '../layouts/section';
 import { Block, BlockType, BlockWithChildren } from './notion';
 
@@ -30,6 +31,30 @@ type AvailableRenderers = Exclude<
   | 'link_preview'
   | 'unsupported'
 >;
+
+const ImageBlock: FC<{ block: Block }> = ({ block }) => {
+  const { type } = block;
+  const value = block[type];
+
+  const caption = value.caption ? <Text text={value.caption} /> : null;
+  const alt = value.caption.reduce((acc, cur) => `${acc}${cur}`, '');
+
+  const { width, height } = value.meta;
+
+  return (
+    <figure className="w-full min-h-fit h-auto">
+      <Image
+        width={width}
+        height={height}
+        layout="responsive"
+        src={value.type === 'external' ? value.external.url : value.file.url}
+        alt={alt}
+      />
+
+      {caption && <figcaption>{caption}</figcaption>}
+    </figure>
+  );
+};
 
 export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
   paragraph: (block: Block) => {
@@ -205,22 +230,11 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
   },
   image: (block: Block) => {
     if ('image' in block) {
-      const { id, type } = block;
-      const value = block[type];
+      const { id } = block;
 
-      const caption = value.caption ? <Text text={value.caption} /> : null;
-      return (
-        <figure key={id}>
-          <img
-            src={value.type === 'external' ? value.external.url : value.file.url}
-            alt={value.caption.reduce((acc, cur) => {
-              return `${acc}${cur}`;
-            }, '')}
-          />
-          {caption && <figcaption>{caption}</figcaption>}
-        </figure>
-      );
+      return <ImageBlock key={id} block={block} />;
     }
+
     return null;
   },
 
