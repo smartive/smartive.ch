@@ -1,8 +1,9 @@
-import { Copy, Heading1, Heading2, Heading3, Label } from '@smartive/guetzli';
+import { Copy, Decoration, Heading1, Heading2, Heading3, Label } from '@smartive/guetzli';
 import Image from 'next/image';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/shadesOfPurple';
-import React, { FC, ReactNode } from 'react';
+import React, { FC, Fragment, ReactNode } from 'react';
+import { Link } from '../elements/link';
 import { Section } from '../layouts/section';
 import { Block, BlockType, BlockWithChildren } from './notion';
 
@@ -78,7 +79,7 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
 
       return (
         <Heading1 key={id}>
-          <Text text={value.rich_text} />
+          <Text text={value.rich_text} decorate />
         </Heading1>
       );
     }
@@ -180,7 +181,9 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
                 <rect x="10.5" y="10" width="12" height="12" rx="6" fill="currentColor" />
               </svg>
 
-              <Text text={item[item.type].rich_text} className="font-sans font-normal text-xs lg:text-base md:max-w-prose" />
+              <div className="font-sans font-normal text-base md:max-w-prose">
+                <Text text={item[item.type].rich_text} />
+              </div>
             </li>
           ))}
         </ul>
@@ -315,9 +318,10 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
 type TextProps = {
   text: Extract<Block, { type: 'paragraph' }>['paragraph']['rich_text'];
   className?: string;
+  decorate?: boolean;
 };
 
-const Text = ({ text, className = '' }: TextProps) => {
+const Text = ({ text, decorate = false, className = '' }: TextProps) => {
   if (!text) {
     return null;
   }
@@ -330,6 +334,15 @@ const Text = ({ text, className = '' }: TextProps) => {
             annotations: { bold, code, color, italic, strikethrough, underline },
             text,
           } = value;
+
+          if (!bold && !code && !italic && !strikethrough && !underline && !text.link) {
+            return <Fragment key={i}>{text.content}</Fragment>;
+          }
+
+          if (italic && decorate) {
+            return <Decoration>{text.content}</Decoration>;
+          }
+
           return (
             <span
               key={i}
@@ -343,7 +356,19 @@ const Text = ({ text, className = '' }: TextProps) => {
               ].join(' ')}
               style={color !== 'default' ? { color } : {}}
             >
-              {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
+              {text.link ? (
+                <Link
+                  href={
+                    text.link.url.startsWith('https://smartive.ch')
+                      ? text.link.url.replace('https://smartive.ch', '')
+                      : text.link.url
+                  }
+                >
+                  {text.content}
+                </Link>
+              ) : (
+                text.content
+              )}
             </span>
           );
         }
