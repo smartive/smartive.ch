@@ -6,7 +6,7 @@ import { Contact } from '../components/contact';
 import { EmployeeCard } from '../components/employee-card';
 import { Testimonial } from '../components/testimonial';
 import { PageHeader } from '../compositions/page-header';
-import { Employee, transformEmployee } from '../data/employees';
+import { Employee, getNotionEmployees, transformEmployee } from '../data/employees';
 import Employees from '../data/employees.json';
 import { Quote, transformQuote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
@@ -65,16 +65,15 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const employees = await Promise.all(Object.values(Employees).map(async (employee) => await transformEmployee(employee)));
+  const employees = await getNotionEmployees();
 
   return {
     props: {
-      employees: employees.sort(({ firstname: first }, { firstname: second }) =>
-        first < second ? -1 : first > second ? 1 : 0
-      ),
+      employees,
       contact: await transformEmployee(Employees.moreno),
       quote: await transformQuote(Quotes['thilo-newwork']),
     },
+    revalidate: 3600,
   };
 };
 

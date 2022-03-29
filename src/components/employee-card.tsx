@@ -11,9 +11,27 @@ type Props = {
 };
 
 export const EmployeeCard: FC<Props> = ({
-  employee: { firstname, lastname, job, bio, links, image, closeup },
+  employee: { firstname, lastname, job, bio, github, linkedin, twitter, email, image, closeup },
   className = '',
 }) => {
+  const links = [
+    email && {
+      label: email,
+      url: 'mailto:' + email,
+    },
+    linkedin && {
+      label: 'LinkedIn',
+      url: linkedin,
+    },
+    twitter && {
+      label: 'Twitter',
+      url: twitter,
+    },
+    github && {
+      label: 'GitHub',
+      url: github,
+    },
+  ].filter(Boolean);
   const plausible = usePlausible<PlausibleEvents>();
 
   return (
@@ -48,7 +66,6 @@ export const EmployeeCard: FC<Props> = ({
         <div className="flex flex-1 content-end flex-row flex-wrap mt-6 gap-x-4 gap-y-2">
           {links.map(({ label, url }) => {
             const itemProp = url.match(/^mailto:.+$/i) ? 'email' : 'sameAs';
-
             return (
               <TextLink
                 key={url}
