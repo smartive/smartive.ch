@@ -17,7 +17,7 @@ export const SeedPage: NextPage<Props> = ({ page, blocks = [] }) => {
 
   return (
     <Page>
-      <PageHeader markdownTitle={name} description="asdf"></PageHeader>
+      <PageHeader markdownTitle={name} />
 
       <main>
         {parsedBlocks.map((block) =>

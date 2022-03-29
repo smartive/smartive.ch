@@ -1,57 +1,93 @@
 import { Client } from '@notionhq/client';
-import { Copy, Heading2, TextLink } from '@smartive/guetzli';
+import { GetPageResponse, ListBlockChildrenResponse, QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
+import { BrandColor, ContentCard, Grid } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import Link from 'next/link';
+import { Fragment } from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
+import { getBlocks, getNotionClient } from '../../services/notion';
+import { getLexer } from '../../utils/notion';
+import { blockRenderers } from '../../utils/notion-block-renderers';
+
+const DIGITAL_GARDEN_PAGE_ID = '264d5bf5cd9b4e63b07a05bd2422da78';
 
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
 
 type Props = {
-  seeds: any[];
+  page: GetPageResponse;
+  blocks: ListBlockChildrenResponse['results'];
+  seeds: QueryDatabaseResponse['results'];
 };
-const DigitalGarden: NextPage<Props> = ({ seeds }) => {
+
+const DigitalGarden: NextPage<Props> = ({ page, blocks, seeds }) => {
+  const name =
+    'properties' in page &&
+    page.properties.title.type === 'title' &&
+    page.properties.title?.title.reduce((acc, cur) => `${acc}${cur.plain_text}`, '');
+
+  const iterator = blocks[Symbol.iterator]();
+  const { lex } = getLexer(iterator);
+  const parsedBlocks = lex();
+
   return (
     <Page>
-      <PageHeader markdownTitle="Digital Garden" description="Was ist das">
-        <Copy>yolo</Copy>
-      </PageHeader>
+      <PageHeader markdownTitle={name} />
 
       <main>
+        {parsedBlocks.map((block) =>
+          'type' in block && blockRenderers[block.type] ? blockRenderers[block.type](block) : null
+        )}
         <Section>
-          <Heading2>Liste</Heading2>
-          <ul>
+          <Grid cols={3}>
             {seeds.map((seed) => {
-              const slug = seed.properties.Slug.rich_text[0]?.text.content;
+              if ('properties' in seed) {
+                const slug =
+                  (seed.properties.Slug.type === 'rich_text' && seed.properties.Slug.rich_text[0]?.plain_text) || '';
 
-              return (
-                <li key={seed.id}>
-                  <Link href={`/digital-garden/${slug}`} passHref>
-                    <TextLink>
-                      {seed.properties.Name.title[0]?.text.content} ({slug})
-                    </TextLink>
-                  </Link>
-                </li>
-              );
+                const title =
+                  (seed.properties.Name.type === 'title' &&
+                    seed.properties.Name.title.reduce((acc, cur) => `${acc}${cur.plain_text}`, '')) ||
+                  '';
+                const colors = ['cornflower', 'mint', 'apricot'] as BrandColor[];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+
+                return (
+                  <Fragment key={seed.id}>
+                    <ContentCard
+                      title={title}
+                      link={{ label: 'Mehr dazu', href: `/digital-garden/${slug}` }}
+                      background={color}
+                    />
+                  </Fragment>
+                );
+              }
+
+              return null;
             })}
-          </ul>
+          </Grid>
         </Section>
       </main>
     </Page>
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const response = await notion.databases.query({
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const { results: seeds } = await notion.databases.query({
     database_id: 'e08c1a01295a4e99a3a93c675e9c8789',
   });
 
+  const page = await getNotionClient().pages.retrieve({ page_id: DIGITAL_GARDEN_PAGE_ID });
+
+  const blocks = await getBlocks(DIGITAL_GARDEN_PAGE_ID);
+
   return {
     props: {
-      seeds: response.results,
+      page,
+      blocks,
+      seeds,
     },
     revalidate: 60,
   };
