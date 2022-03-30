@@ -1,5 +1,5 @@
 import { Copy, Decoration, Heading1, Heading2, Heading3, Label } from '@smartive/guetzli';
-import Image from 'next/image';
+import Image, { ImageLoader } from 'next/image';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/shadesOfPurple';
 import React, { FC, Fragment, ReactNode } from 'react';

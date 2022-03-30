@@ -1,17 +1,11 @@
 import { getNotionClient } from '../services/notion';
 import { getPlaceholder, ImageWithPlaceholder } from '../utils/image-placeholders';
 
-const NOTION_EMPLOYEE_DB_ID = '7c40115e5a974b6db68e607a94b3a6ee';
+const NOTION_WEBPROFILE_DB_ID = 'a128e46920e94bb48fc2baa77e6bf8c7';
 
 export const getNotionEmployees = async (): Promise<Employee[]> => {
   const { results } = await getNotionClient().databases.query({
-    database_id: NOTION_EMPLOYEE_DB_ID,
-    filter: {
-      property: 'Status',
-      select: {
-        equals: 'Completed ✓',
-      },
-    },
+    database_id: NOTION_WEBPROFILE_DB_ID,
     sorts: [
       {
         property: 'Name',
@@ -19,9 +13,10 @@ export const getNotionEmployees = async (): Promise<Employee[]> => {
       },
     ],
   });
+
   return Promise.all(
-    (results as unknown as NotionEmployee[]).map(
-      async ({
+    (results as unknown as NotionEmployee[]).map(async (block) => {
+      const {
         id,
         properties: {
           Name,
@@ -37,28 +32,45 @@ export const getNotionEmployees = async (): Promise<Employee[]> => {
           Telefon,
           Booking,
         },
-      }) => {
-        const name = Name.title[0].plain_text.split(/\s+/);
-        return {
-          id,
-          name: Name.title[0].plain_text,
-          firstname: name[0],
-          lastname: name.pop(),
-          job: Jobbezeichnung.rich_text[0].plain_text,
-          bio: Summary.rich_text[0].plain_text,
-          email: Mail.email,
-          tel: Telefon.phone_number,
-          booking: Booking.url,
-          github: GitHub.url,
-          linkedin: LinkedIn.url,
-          twitter: Twitter.url,
-          image: await getPlaceholder(PhotoMain.files[0].file.url || getFallbackImage()),
-          closeup: await getPlaceholder(PhotoCloseup.files[0].file.url || getFallbackImage()),
-          portrait: await getPlaceholder(PhotoPortrait.files[0].file.url || getFallbackImage()),
-        };
-      }
-    )
+      } = block;
+
+      const name = Name.title[0].plain_text.split(/\s+/);
+
+      const mapped = {
+        id,
+        name: Name.title[0].plain_text,
+        firstname: name[0],
+        lastname: name.pop(),
+        job: Jobbezeichnung.rich_text[0].plain_text,
+        bio: Summary.rich_text[0].plain_text,
+        email: Mail.email,
+        tel: Telefon.phone_number,
+        booking: Booking.url,
+        github: GitHub.url,
+        linkedin: LinkedIn.url,
+        twitter: Twitter.url,
+        image: getNotionUrl(await getPlaceholder(PhotoMain.files[0].file.url || getFallbackImage()), block),
+        closeup: getNotionUrl(await getPlaceholder(PhotoCloseup.files[0].file.url || getFallbackImage()), block),
+        portrait: getNotionUrl(await getPlaceholder(PhotoPortrait.files[0].file.url || getFallbackImage()), block),
+      };
+
+      return mapped;
+    })
   );
+};
+
+const getNotionUrl = (image: ImageWithPlaceholder, block: NotionEmployee) => {
+  const { src } = image;
+  const table = 'block';
+
+  const proxyUrl = `https://www.notion.so/image/${encodeURIComponent(src)}`;
+
+  const url = new URL(proxyUrl);
+  url.searchParams.set('table', table);
+  url.searchParams.set('id', block.id);
+  url.searchParams.set('cache', 'v2');
+
+  return { ...image, src: url.toString() };
 };
 
 export type Employee = {
