@@ -1,6 +1,6 @@
 {
   "extends": ["@smartive/eslint-config/react", "next"],
-  "ignorePatterns": "test/**/*.js",
+  "ignorePatterns": ["test/**/*.js", "src/types/generated/**"],
   "rules": {
     "react-hooks/exhaustive-deps": "off",
     "react/display-name": "off",

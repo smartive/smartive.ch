@@ -9,16 +9,21 @@ const NewsletterSubscription = dynamic(
 );
 
 type Props = {
+  title?: string;
   background?: BrandColor;
   blobs?: { color: BrandColor; positionX: PositionX; positionY: PositionY }[];
 };
 
-export const NewsletterCard: FC<Props> = ({ blobs = [], background = 'apricot' }) => {
+export const NewsletterCard: FC<Props> = ({
+  blobs = [],
+  background = 'apricot',
+  title = 'Wir schreiben nicht nur Code, sondern auch E-Mails. Auch dir, wenn du willst.',
+}) => {
   const { ref, inView } = useInView({ triggerOnce: true });
   return (
     <Card background={background} blobs={blobs}>
       <div ref={ref} className="grid grid-flow-row place-items-center text-center lg:p-24 lg:text-sm">
-        <Heading2 as="p">Wir schreiben nicht nur Code, sondern auch E-Mails. Auch dir, wenn du willst.</Heading2>
+        <Heading2 as="p">{title}</Heading2>
         {inView && <NewsletterSubscription label="Newsletter" />}
       </div>
     </Card>

@@ -2,7 +2,7 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
-const ignoreListRoutes = ['/404', '/_document', '/_app', '/api/', '/blog/[slug]', '/digital-garden/[slug]'];
+const ignoreListRoutes = ['/404', '/_document', '/_app', '/api/', '/blog/[slug]', '/digital-garden/[slug]', '/index'];
 const ignoreListErrors = ['card-shadow-', 'is smaller than 40x40', 'bg-', 'Fast Refresh', 'Image with src', '403'];
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',

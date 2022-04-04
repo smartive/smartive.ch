@@ -1,15 +1,15 @@
 import { Button, Card, Copy, Heading2, Input, Label, Textarea, TextLink, Tooltip } from '@smartive/guetzli';
 import { useMachine } from '@xstate/react';
 import { AnimatePresence, domMax, LazyMotion, m as motion } from 'framer-motion';
-import React, { FC, ReactNode, useMemo, useRef, useState } from 'react';
-import { State, StateMachine } from 'xstate';
+import { FC, ReactNode, useMemo, useRef, useState } from 'react';
+import { StateMachine } from 'xstate';
 import { getMeta } from '../machines/get-meta';
 
 const Stack: FC = ({ children }) => <div className="flex flex-col gap-4">{children}</div>;
 
 type Props = {
   machine: StateMachine<any, any, any>;
-  render: (state: State<any>, machine: StateMachine<any, any, any>) => ReactNode;
+  render: (state: any, machine: any) => ReactNode;
 };
 
 export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
@@ -74,9 +74,9 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
     []
   );
 
-  const title = getMeta('title', { machine, state });
-  const copy = getMeta('copy', { machine, state });
-  const form = getMeta('form', { machine, state });
+  const title = getMeta('title', { machine, state } as any);
+  const copy = getMeta('copy', { machine, state } as any);
+  const form = getMeta('form', { machine, state } as any);
 
   if (state.matches('error'))
     return (
@@ -139,7 +139,7 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
                     )}
                     <div className="mb-8" />
                     <Heading2 className="max-w-prose">{title}</Heading2>
-                    {getMeta('copy', { machine, state }) && <Copy>{copy}</Copy>}
+                    {getMeta('copy', { machine, state } as any) && <Copy>{copy}</Copy>}
                     {form?.type === 'stack' ? (
                       <Stack>
                         {form?.options.map(({ element, ...option }) => Options[element]({ ...option, width: 'full' }))}

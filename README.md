@@ -53,6 +53,11 @@ We render all our pages automatically with [Playwright](https://playwright.dev/)
 
 To run the tests locally make sure the development build is running with `npm run develop` and then start the tests with `npm run test`;
 
+### PRISMIC CMS
+
+Prismic provides most of our page content and we use their graphql api to get it.
+For typesafety we can generate the types for our queries with `npm run prismic:generate`. Just make sure beforehand, that you have replaced `#INSERT_PRISMIC_TOKEN` inside `codegen.yml` with the valid prismic api token. The generated types can then be found at `src/types/generated/prismic.d.ts`.
+
 ### Conventions
 
 #### Four Eye Principle

@@ -1,0 +1,15 @@
+overwrite: true
+schema:
+  - https://smartive.prismic.io/graphql:
+      method: GET
+      headers:
+        Authorization: Token #INSERT_PRISMIC_TOKEN
+        prismic-ref: Ykq81xIAAC8Au-iH
+
+documents: 'src/**/*.ts'
+generates:
+  src/types/generated/prismic.d.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-graphql-files-modules'
