@@ -28,7 +28,9 @@ stages:
     - npm i -g vercel
 
 linting:
-  extends: .test_template
+  extends: .default_template
+  before_script:
+    - npm ci
   script:
     - npm run lint
   only:
