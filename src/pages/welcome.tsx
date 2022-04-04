@@ -88,13 +88,17 @@ const Welcome: NextPage<Props> = ({ images }) => (
         <Link href="https://smarties.app/roles/scrum-master" newTab>
           Scrum
         </Link>{' '}
-        denn funktioniert. Diese Infos findest du in den <Link href="https://smarties.app/roles">smartive Roles</Link>.
+        denn funktioniert. Diese Infos findest du in den{' '}
+        <Link href="https://smarties.app/roles" newTab>
+          smartive Roles
+        </Link>
+        .
       </Copy>
 
       <Heading3>Du willst auch auf diese Seite?</Heading3>
       <Copy>
-        Unbedingt! Sprich doch kurz Robert oder Moreno an, sie zeigen dir wo und wie du einen Merge Request für die Website
-        eröffnen und dich selber hinzufügen kannst.
+        Unbedingt! Sprich doch kurz Robert oder Kevin an, sie zeigen dir wo und wie du dein Profil erfassen musst, damit du
+        auf der Webseite auftauchst.
       </Copy>
     </Section>
     <Section>
