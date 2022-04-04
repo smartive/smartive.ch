@@ -59,7 +59,7 @@ export const getNotionEmployees = async (): Promise<Employee[]> => {
   );
 };
 
-const getNotionUrl = (image: ImageWithPlaceholder, block: NotionEmployee) => {
+export const getNotionUrl = (image: ImageWithPlaceholder, block: NotionEmployee) => {
   const { src } = image;
   const table = 'block';
 

@@ -1,8 +1,8 @@
 import { Client } from '@notionhq/client/build/src';
 import { ListBlockChildrenResponse } from '@notionhq/client/build/src/api-endpoints';
-import fetch, { BodyInit } from 'node-fetch';
-import { Block } from '../utils/notion';
 import sizeOf from 'image-size';
+import fetch from 'node-fetch';
+import { Block, BlockWithMeta } from '../utils/notion';
 
 export const getNotionClient = () =>
   new Client({
@@ -82,10 +82,14 @@ export async function getBlocks(id: string): Promise<ListBlockChildrenResponse['
           const dimensions = await read(response.body);
 
           if (dimensions !== null) {
-            (block as any).image.meta = {
+            (block as unknown as BlockWithMeta).image.meta = {
               width: dimensions.width,
               height: dimensions.height,
             };
+          }
+
+          if (block.image.type === 'file') {
+            block.image.file.url = getSignedUrl(block.image.file.url, block.id);
           }
         }
         enrichedResults.push(block);
@@ -102,3 +106,16 @@ export async function getBlocks(id: string): Promise<ListBlockChildrenResponse['
 
   return blocks;
 }
+
+const getSignedUrl = (src: string, id: string) => {
+  const table = 'block';
+
+  const proxyUrl = `https://www.notion.so/image/${encodeURIComponent(src)}`;
+
+  const url = new URL(proxyUrl);
+  url.searchParams.set('table', table);
+  url.searchParams.set('id', id);
+  url.searchParams.set('cache', 'v2');
+
+  return url.toString();
+};

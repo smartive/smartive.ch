@@ -10,6 +10,15 @@ export type BlockWithChildren = {
   children: Block[];
 };
 
+export type BlockWithMeta = Block<'image'> & {
+  image: {
+    meta: {
+      width: number;
+      height: number;
+    };
+  };
+};
+
 export const getPageTitle = (page: GetPageResponse): string => {
   if (!page) {
     return '';

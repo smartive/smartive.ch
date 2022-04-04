@@ -1,11 +1,15 @@
-import { Copy, Decoration, Heading1, Heading2, Heading3, Label } from '@smartive/guetzli';
-import Image, { ImageLoader } from 'next/image';
-import Highlight, { defaultProps, Language } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/shadesOfPurple';
-import React, { FC, Fragment, ReactNode } from 'react';
-import { Link } from '../elements/link';
+import { Copy, Heading1, Heading2, Heading3, Label } from '@smartive/guetzli';
+import { Language } from 'prism-react-renderer';
+import React, { ReactNode } from 'react';
+import { Accordion } from '../components/accordion';
+import { Callout } from '../components/callout';
+import { CodeSnippet } from '../components/code-snippet';
+import { Image } from '../components/image';
+import { NotionRichText } from '../components/notion-rich-text';
+import { OrderedList } from '../components/ordered-list';
+import { UnorderedList } from '../components/unordered-list';
 import { Section } from '../layouts/section';
-import { Block, BlockType, BlockWithChildren } from './notion';
+import { Block, BlockType, BlockWithChildren, BlockWithMeta } from './notion';
 
 type RenderFn = (block: Block) => ReactNode;
 
@@ -33,30 +37,6 @@ type AvailableRenderers = Exclude<
   | 'unsupported'
 >;
 
-const ImageBlock: FC<{ block: Block }> = ({ block }) => {
-  const { type } = block;
-  const value = block[type];
-
-  const caption = value.caption ? <Text text={value.caption} /> : null;
-  const alt = value.caption.reduce((acc, cur) => `${acc}${cur}`, '');
-
-  const { width, height } = value.meta;
-
-  return (
-    <figure className="w-full min-h-fit h-auto">
-      <Image
-        width={width}
-        height={height}
-        layout="responsive"
-        src={value.type === 'external' ? value.external.url : value.file.url}
-        alt={alt}
-      />
-
-      {caption && <figcaption>{caption}</figcaption>}
-    </figure>
-  );
-};
-
 export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
   paragraph: (block: Block) => {
     if ('paragraph' in block) {
@@ -65,7 +45,7 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
 
       return (
         <Copy key={id}>
-          <Text text={value.rich_text} />
+          <NotionRichText text={value.rich_text} />
         </Copy>
       );
     }
@@ -79,7 +59,7 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
 
       return (
         <Heading1 key={id}>
-          <Text text={value.rich_text} decorate />
+          <NotionRichText text={value.rich_text} decorate />
         </Heading1>
       );
     }
@@ -93,7 +73,7 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
 
       return (
         <Heading2 key={id}>
-          <Text text={value.rich_text} />
+          <NotionRichText text={value.rich_text} />
         </Heading2>
       );
     }
@@ -107,7 +87,7 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
 
       return (
         <Heading3 key={id}>
-          <Text text={value.rich_text} />
+          <NotionRichText text={value.rich_text} />
         </Heading3>
       );
     }
@@ -150,43 +130,29 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
   ordered_list: (block: Block) => {
     if ('type' in block) {
       const { id } = block;
+
       return (
-        <ol className="list-inside mb-8" key={id}>
-          {(block as any as BlockWithChildren).children.map((item) => (
-            <li className="list-decimal font-sans font-bold text-xs lg:text-base md:max-w-prose text-mint-500" key={item.id}>
-              <Text text={item[item.type].rich_text} className="text-black font-normal" />
-            </li>
+        <OrderedList key={id}>
+          {((block as unknown as BlockWithChildren).children as Block<'numbered_list_item'>[]).map((item) => (
+            <NotionRichText key={item.id} text={item[item.type].rich_text} className="text-black font-normal" />
           ))}
-        </ol>
+        </OrderedList>
       );
     }
+
     return null;
   },
 
   unordered_list: (block: Block) => {
     if ('type' in block) {
       const { id } = block;
-      return (
-        <ul className="list-inside list-none mb-8" key={id}>
-          {(block as any as BlockWithChildren).children.map((item) => (
-            <li className="grid grid-cols-[auto,1fr] mb-2" key={item.id}>
-              <svg
-                className={`mr-4 text-apricot-500`}
-                width="36"
-                height="36"
-                viewBox="0 0 33 32"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect x="10.5" y="10" width="12" height="12" rx="6" fill="currentColor" />
-              </svg>
 
-              <div className="font-sans font-normal text-base md:max-w-prose">
-                <Text text={item[item.type].rich_text} />
-              </div>
-            </li>
+      return (
+        <UnorderedList key={id}>
+          {((block as unknown as BlockWithChildren).children as Block<'bulleted_list_item'>[]).map((item) => (
+            <NotionRichText key={item.id} text={item[item.type].rich_text} className="text-black font-normal" />
           ))}
-        </ul>
+        </UnorderedList>
       );
     }
     return null;
@@ -205,7 +171,7 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
               id={id}
               defaultChecked={value.checked}
             />
-            <Text text={value.rich_text} />
+            <NotionRichText text={value.rich_text} />
           </Label>
         </div>
       );
@@ -219,23 +185,36 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
       const value = block[type];
 
       return (
-        <details key={id} className="font-sans font-normal text-xs lg:text-base md:max-w-prose mb-8">
-          <summary>
-            <Text text={value.rich_text} />
-          </summary>
-          {(block as any as BlockWithChildren).children?.map((child) =>
-            blockRenderers[child.type] ? blockRenderers[child.type](child) : null
+        <Accordion key={id} summary={<NotionRichText text={value.rich_text} />}>
+          {(block as unknown as BlockWithChildren).children.map((item) =>
+            blockRenderers[item.type] ? blockRenderers[item.type](item) : null
           )}
-        </details>
+        </Accordion>
       );
     }
     return null;
   },
-  image: (block: Block) => {
+  image: (block: BlockWithMeta) => {
     if ('image' in block) {
-      const { id } = block;
+      const { id, type } = block;
 
-      return <ImageBlock key={id} block={block} />;
+      const value = block[type];
+
+      const caption = value.caption ? <NotionRichText text={value.caption} /> : null;
+      const alt = value.caption.reduce((acc, cur) => `${acc}${cur}`, '');
+
+      const { width, height } = value.meta;
+
+      return (
+        <Image
+          key={id}
+          width={width}
+          height={height}
+          alt={alt}
+          caption={caption}
+          src={value.type === 'external' ? value.external.url : value.file.url}
+        />
+      );
     }
 
     return null;
@@ -253,12 +232,13 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
     if ('quote' in block) {
       const { id, type } = block;
       const value = block[type];
+
       return (
         <blockquote
           key={id}
           className="bg-white-100 font-sans font-normal text-xs lg:text-base md:max-w-prose mb-8 rounded p-8 whitespace-pre-line break-words"
         >
-          <Text text={value.rich_text} />
+          <NotionRichText text={value.rich_text} />
         </blockquote>
       );
     }
@@ -269,27 +249,9 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
       const { id, type } = block;
       const value = block[type];
 
-      return (
-        <Highlight
-          key={id}
-          {...defaultProps}
-          code={value.rich_text[0]?.plain_text}
-          language={block.code.language as Language}
-          theme={theme}
-        >
-          {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <pre className={[className, 'my-8 rounded p-4'].join(' ')} style={style}>
-              {tokens.map((line, i) => (
-                <div {...getLineProps({ line, key: i })} key={i}>
-                  {line.map((token, key) => (
-                    <span {...getTokenProps({ token, key })} key={key} />
-                  ))}
-                </div>
-              ))}
-            </pre>
-          )}
-        </Highlight>
-      );
+      const plainText = value.rich_text.reduce((acc, cur) => `${acc}${cur.plain_text}`, '');
+
+      return <CodeSnippet key={id} code={plainText} language={block.code.language as Language} />;
     }
     return null;
   },
@@ -301,80 +263,13 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
       const emoji = block.callout.icon.type === 'emoji' ? block.callout.icon.emoji : null;
 
       return (
-        <div
-          key={id}
-          className="bg-apricot-200 font-sans font-normal text-xs lg:text-base md:max-w-prose mb-8 rounded p-8 whitespace-pre-line break-words"
-        >
+        <Callout key={id} background={block.callout.color.replace('_background', '')}>
           {emoji && <span className="mr-4">{emoji}</span>}
 
-          <Text text={value.rich_text} />
-        </div>
+          <NotionRichText text={value.rich_text} />
+        </Callout>
       );
     }
     return null;
   },
-};
-
-type TextProps = {
-  text: Extract<Block, { type: 'paragraph' }>['paragraph']['rich_text'];
-  className?: string;
-  decorate?: boolean;
-};
-
-const Text = ({ text, decorate = false, className = '' }: TextProps) => {
-  if (!text) {
-    return null;
-  }
-
-  return (
-    <>
-      {text.map((value, i) => {
-        if ('text' in value) {
-          const {
-            annotations: { bold, code, color, italic, strikethrough, underline },
-            text,
-          } = value;
-
-          if (!bold && !code && !italic && !strikethrough && !underline && !text.link) {
-            return <Fragment key={i}>{text.content}</Fragment>;
-          }
-
-          if (italic && decorate) {
-            return <Decoration>{text.content}</Decoration>;
-          }
-
-          return (
-            <span
-              key={i}
-              className={[
-                className,
-                bold ? 'font-bold' : '',
-                code ? 'font-mono' : '',
-                italic ? 'italic' : '',
-                strikethrough ? 'line-through' : '',
-                underline ? 'underline' : '',
-              ].join(' ')}
-              style={color !== 'default' ? { color } : {}}
-            >
-              {text.link ? (
-                <Link
-                  href={
-                    text.link.url.startsWith('https://smartive.ch')
-                      ? text.link.url.replace('https://smartive.ch', '')
-                      : text.link.url
-                  }
-                >
-                  {text.content}
-                </Link>
-              ) : (
-                text.content
-              )}
-            </span>
-          );
-        }
-
-        return null;
-      })}
-    </>
-  );
 };
