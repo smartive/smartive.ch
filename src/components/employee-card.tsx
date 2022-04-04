@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const EmployeeCard: FC<Props> = ({
-  employee: { firstname, lastname, job, bio, github, linkedin, twitter, email, image, closeup },
+  employee: { name, job, bio, github, linkedin, twitter, email, image, closeup },
   className = '',
 }) => {
   const links = [
@@ -60,7 +60,7 @@ export const EmployeeCard: FC<Props> = ({
           {job}
         </p>
         <Heading3 className="text-base" itemProp="name">
-          {firstname} {lastname}
+          {name}
         </Heading3>
         <p>{bio}</p>
         <div className="flex flex-1 content-end flex-row flex-wrap mt-6 gap-x-4 gap-y-2">
