@@ -2,6 +2,8 @@
 
 ## Setup
 
+Make sure to create an `.env.local` file in the project root with all the secret env variables which can be found in 1PW under `smartive.ch Secret Env Vars`.
+
 1. `nvm use 14`
 2. `npm ci`
 3. `npm run develop`
