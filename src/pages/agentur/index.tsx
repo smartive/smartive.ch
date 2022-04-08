@@ -1,14 +1,12 @@
-import { BlobVariations, Copy, Grid, TextBlock } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, TextBlock, TextLink } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { NextContentCard } from '../../components/content-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import TextBlocks from '../../data/benefits.json';
-import Employees from '../../data/employees.json';
+import { Employee, getNotionEmployees } from '../../data/employees';
 import { Quote, transformQuote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Link } from '../../elements/link';
 import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
@@ -26,11 +24,14 @@ const STATIC_IMAGES = {
 } as const;
 
 type Props = {
+  employees: Employee[];
   images: PlaceholderImages<typeof STATIC_IMAGES>;
   quote: Quote;
 };
 
-const Agentur: NextPage<Props> = ({ quote, images }) => {
+const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
+  const teamSize = employees.length;
+
   return (
     <Page>
       <PageHeader
@@ -129,37 +130,31 @@ const Agentur: NextPage<Props> = ({ quote, images }) => {
           </Grid>
 
           <Grid cols={2}>
-            <TextBlock title="Fast eine Dekade" number={9}>
+            <TextBlock title="Eine Dekade 🤩" number={10}>
               smartive wurde 2012 gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, an dem wir uns alle
               einbringen und so arbeiten, wie es uns entspricht.
             </TextBlock>
-            <TextBlock title="Vierzehn Teilhaber*innen" number={14} highlightNumber>
-              Darauf sind wir stolz: Vierzehn unserer {Object.values(Employees).length} Mitarbeitenden besitzen
-              smartive-Aktien. Es gibt keine externen Aktionärinnen oder Stakeholder.
+            <TextBlock title="Vierzehn Teilhaber*innen" number={14}>
+              Darauf sind wir stolz: Vierzehn unserer {teamSize} Mitarbeitenden besitzen smartive-Aktien. Es gibt keine
+              externen Aktionärinnen oder Stakeholder.
             </TextBlock>
-            <TextBlock title="Persönlichkeiten" number={Object.values(Employees).length}>
-              Heute kommen {Object.values(Employees).length} Mitarbeitende in Zürich zusammen und bringen ihre Fähigkeiten
-              und ihre Persönlichkeit ein – in Software-Entwicklung, Projektleitung, Design und User Experience.
+            <TextBlock title="Ein Viertelhundert" number={teamSize}>
+              Heute kommen {teamSize} Mitarbeitende in Zürich zusammen und bringen ihre Fähigkeiten und ihre Persönlichkeit
+              ein – in Software-Entwicklung, Projektleitung, Design und User Experience.
             </TextBlock>
-            <NextContentCard
-              label="Schatztruhe 💎"
-              title="Adventskalender"
-              content="Zum Advent öffnen wir unsere Schatztruhe. Hinter den 24 Türchen verraten unsere smarties ihre Lieblingstools."
-              background="mint"
-              link={{
-                label: 'Zum Adventskalender',
-                href: 'https://advent.smartive.ch',
-                newTab: true,
-              }}
-            />
-            <TextBlock title="Erfolgreiche Projekte: dreistellig" number={300}>
-              In den letzten Jahren haben wir über 300 Projekte erfolgreich gemeistert. Sowohl in Zusammenarbeit mit{' '}
-              <Link href="/projekte/subsidia">Start-Ups</Link>
-              als auch mit der <Link href="/projekte/migipedia/">grössten Arbeitgeberin der Schweiz</Link>.
+            <TextBlock title="Ein Drittel" number={30} unit="%">
+              Was, 30% sind kein Drittel? Dann vielleicht so: Ein Drittel* des Gewinns wird ans Team als Bonus ausbezahlt
+              &ndash; mindestens.
             </TextBlock>
-            <TextBlock title="Aufsteiger des Jahres" number={10}>
-              Unsere Projekte werden regelmässig ausgezeichnet. Bei den Best of Swiss Web Awards rangieren wir in den Top 10
-              der vergangenen 5 Jahre.
+            <TextBlock title="Top 10 in fünf Jahren" number={10}>
+              Unsere Projekte werden regelmässig ausgezeichnet. Bei den{' '}
+              <TextLink href="https://www.netzwoche.ch/news/2021-09-15/die-ewige-bestenliste-2021" newTab>
+                Best of Swiss Web Awards
+              </TextLink>{' '}
+              rangieren wir in den Top 10 der vergangenen 5 Jahre.
+            </TextBlock>
+            <TextBlock title="Null Chefs" number={0}>
+              Wir leben nach New-Work-Prinzipien. Das heisst Selbstorganisation und keine Hierarchien oder Chefs.
             </TextBlock>
           </Grid>
         </Section>
@@ -170,8 +165,11 @@ const Agentur: NextPage<Props> = ({ quote, images }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const images = await getPlaceholders(STATIC_IMAGES);
+  const employees = await getNotionEmployees();
+
   return {
     props: {
+      employees,
       images,
       quote: await transformQuote(Quotes['dominique-kultur']),
     },
