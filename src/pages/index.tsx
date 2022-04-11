@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import { PrismicPage } from '../compositions/prismic-page';
 import { Page } from '../layouts/page';
-import { getPrismicClient, PRISMIC_PAGE_QUERY } from '../services/prismic';
+import { getPrismicClient, PrismicPreviewData, PRISMIC_PAGE_QUERY } from '../services/prismic';
 import { PageBodyPage_Header, PrismicPageQuery, PrismicPageQueryVariables } from '../types/generated/prismic';
 
 type Props = {
@@ -19,8 +19,8 @@ const Home: NextPage<Props> = ({ data }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const client = await getPrismicClient();
+export const getStaticProps: GetStaticProps<Props, undefined, PrismicPreviewData> = async ({ previewData }) => {
+  const client = await getPrismicClient(previewData?.ref);
   const data = await client.request<PrismicPageQuery, PrismicPageQueryVariables>(PRISMIC_PAGE_QUERY, {
     uid: 'landing-page',
   });
@@ -28,6 +28,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       data,
+      prismicPreview: !!previewData?.ref,
     },
   };
 };

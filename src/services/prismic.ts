@@ -2,7 +2,9 @@ import { gql, GraphQLClient } from 'graphql-request';
 
 let prismicClient: GraphQLClient | null = null;
 
-export const getPrismicClient = async () => {
+export type PrismicPreviewData = { ref?: string };
+
+export const getPrismicClient = async (previewRef?: string) => {
   if (!prismicClient) {
     // Prismic uses so called prismic refs for content versioning and idiotically requires us to provide a ref
     // which forces us to first request the current ref from their api to get the most current content
@@ -16,7 +18,7 @@ export const getPrismicClient = async () => {
 
     prismicClient = new GraphQLClient('https://smartive.cdn.prismic.io/graphql', {
       method: 'GET',
-      headers: { Authorization: `Token ${process.env.PRISMIC_TOKEN}`, 'prismic-ref': currentRef },
+      headers: { Authorization: `Token ${process.env.PRISMIC_TOKEN}`, 'prismic-ref': previewRef || currentRef },
       jsonSerializer: { stringify: JSON.stringify, parse: JSON.parse },
     });
   }

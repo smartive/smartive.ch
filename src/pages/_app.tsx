@@ -1,15 +1,23 @@
+import { animate } from 'motion';
 import PlausibleProvider from 'next-plausible';
 import type { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import React, { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { Footer } from '../components/footer';
 import { useKube } from '../components/kube';
 import '../styles/globals.css';
-import { animate } from 'motion';
-import { useRouter } from 'next/router';
 
 const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 const PLAUSIBLE_ENABLED = process.env.NEXT_PUBLIC_PLAUSIBLE_ENABLED === 'true';
+
+const PrismicPreviewBar = dynamic(
+  () => import('../components/prismic-preview-bar').then((module) => module.PrismicPreviewBar),
+  {
+    ssr: false,
+  }
+);
 
 export default function App({ Component, pageProps }: AppProps) {
   const { pathname } = useRouter();
@@ -33,6 +41,7 @@ export default function App({ Component, pageProps }: AppProps) {
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover"
           />
         </Head>
+        {!!pageProps?.prismicPreview && <PrismicPreviewBar />}
         <Component {...pageProps} />
         <Footer />
       </div>
