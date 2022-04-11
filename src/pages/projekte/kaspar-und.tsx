@@ -151,6 +151,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     getRandomTeasers(3, Teasers.kaspar.title).map(async (teaser) => await transformTeaser(teaser))
   );
   const packages = [Packages['mentoring']];
+
   return {
     props: {
       images,

@@ -77,14 +77,14 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     Object.values(Teasers)
       .slice()
       .reverse()
-      .filter(({ title }) => ![Teasers.migipedia.title, Teasers.kaspar.title].includes(title))
+      .filter(({ title }) => ![Teasers.kaspar.title, Teasers.frontify.title].includes(title))
       .map(async (teaser) => await transformTeaser(teaser))
   );
 
   return {
     props: {
       teasers,
-      main: [await transformTeaser(Teasers.migipedia), await transformTeaser(Teasers.kaspar)],
+      main: [await transformTeaser(Teasers.kaspar), await transformTeaser(Teasers.frontify)],
       customers: Object.values(Customers),
       quote: await transformQuote(Quotes['setareh-dife']),
       contact: await transformEmployee(Employees.joshua),

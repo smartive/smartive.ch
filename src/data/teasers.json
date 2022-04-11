@@ -1,24 +1,4 @@
 {
-  "migipedia": {
-    "label": "Migipedia",
-    "title": "Der User im Mittelpunkt — seit 10 Jahren",
-    "link": {
-      "label": "Projekt anschauen",
-      "href": "/projekte/migipedia"
-    },
-    "image": "/images/projekte/migipedia/RGB_02_snack_001.jpg",
-    "imageAlt": "Frau sitzt mit Handy am Boden",
-    "awards": [
-      {
-        "short": "BOSW19",
-        "full": "Best of Swiss Web 2019"
-      },
-      {
-        "short": "BOSW21",
-        "full": "Best of Swiss Web 2021"
-      }
-    ]
-  },
   "subsidia": {
     "label": "Subsidia",
     "title": "Der mobile Einzelhandel",
@@ -169,5 +149,32 @@
     "link": { "label": "Projekt anschauen", "href": "/projekte/zubi" },
     "image": "/images/projekte/zubi/zubi_lagerfeuer.png",
     "imageAlt": "Frau an einer Grillstelle."
+  },
+  "frontify": {
+    "label": "Frontify",
+    "title": "Ein Zuhause für Brands",
+    "link": { "label": "Projekt anschauen", "href": "/projekte/frontify" },
+    "image": "/images/projekte/frontify/210902_FRO2101_3625.jpg",
+    "imageAlt": "Style Guide von Frontify auf einem Bildschirm"
+  },
+  "migipedia": {
+    "label": "Migipedia",
+    "title": "Der User im Mittelpunkt — seit 10 Jahren",
+    "link": {
+      "label": "Projekt anschauen",
+      "href": "/projekte/migipedia"
+    },
+    "image": "/images/projekte/migipedia/RGB_02_snack_001.jpg",
+    "imageAlt": "Frau sitzt mit Handy am Boden",
+    "awards": [
+      {
+        "short": "BOSW19",
+        "full": "Best of Swiss Web 2019"
+      },
+      {
+        "short": "BOSW21",
+        "full": "Best of Swiss Web 2021"
+      }
+    ]
   }
 }
