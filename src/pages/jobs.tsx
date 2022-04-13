@@ -92,7 +92,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       images,
-      contact: await transformEmployee(Employees.nadia),
+      contact: await transformEmployee(Employees.robert),
     },
   };
 };
