@@ -1,6 +1,10 @@
-import { Children, FC } from 'react';
+import { Children, FC, ReactNode } from 'react';
 
-export const OrderedList: FC = ({ children }) => {
+type Props = {
+  children?: ReactNode;
+};
+
+export const OrderedList: FC<Props> = ({ children }) => {
   return (
     <ol className="list-inside mb-8">
       {Children.map(children, (child) => (

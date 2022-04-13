@@ -3,7 +3,7 @@ import { domAnimation, LazyMotion } from 'framer-motion';
 import { usePlausible } from 'next-plausible';
 import { useRouter } from 'next/dist/client/router';
 import NextLink from 'next/link';
-import React, { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { PlausibleEvents } from '../utils/tracking';
 
 const Main = [
@@ -20,7 +20,11 @@ const Meta = [
   { label: 'hello@smartive.ch', link: 'mailto:hello@smartive.ch' },
 ];
 
-export const Page: FC = ({ children }) => {
+type Props = {
+  children?: ReactNode;
+};
+
+export const Page: FC<Props> = ({ children }) => {
   const { pathname } = useRouter();
   const plausible = usePlausible<PlausibleEvents>();
 

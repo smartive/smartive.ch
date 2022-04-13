@@ -1,7 +1,7 @@
 import { BlobVariations, Copy, Grid, Heading2, Heading3, Keyfigure, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
-import React, { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { Testimonial } from '../../../../components/testimonial';
 import { PageHeader } from '../../../../compositions/page-header';
 import { Quote, transformQuote } from '../../../../data/quotes';
@@ -9,7 +9,11 @@ import Quotes from '../../../../data/quotes.json';
 import { LandingPage } from '../../../../layouts/landing-page';
 import { Section } from '../../../../layouts/section';
 
-const ListItem: FC = ({ children }) => (
+type ListItemProps = {
+  children?: ReactNode;
+};
+
+const ListItem: FC<ListItemProps> = ({ children }) => (
   <li className="font-sans font-normal text-xs lg:text-base md:max-w-prose my-4 lg:my-8">{children}</li>
 );
 

@@ -5,7 +5,7 @@ import { FC, ReactNode, useMemo, useRef, useState } from 'react';
 import { StateMachine } from 'xstate';
 import { getMeta } from '../machines/get-meta';
 
-const Stack: FC = ({ children }) => <div className="flex flex-col gap-4">{children}</div>;
+const Stack: FC<{ children?: ReactNode }> = ({ children }) => <div className="flex flex-col gap-4">{children}</div>;
 
 type Props = {
   machine: StateMachine<any, any, any>;

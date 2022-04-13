@@ -1,7 +1,11 @@
-import React, { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import LogoHeader from '../components/logo-header';
 
-export const LandingPage: FC = ({ children }) => {
+type Props = {
+  children?: ReactNode;
+};
+
+export const LandingPage: FC<Props> = ({ children }) => {
   return (
     <div>
       <LogoHeader />

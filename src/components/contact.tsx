@@ -1,12 +1,13 @@
 import { Heading2, LinkList } from '@smartive/guetzli';
 import { usePlausible } from 'next-plausible';
-import React, { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { Employee } from '../data/employees';
 import { Portrait, PortraitVariant } from '../elements/portrait';
 import { PlausibleEvents } from '../utils/tracking';
 
 type Props = {
   contact: Employee;
+  children?: ReactNode;
 };
 
 export const Contact: FC<Props> = ({

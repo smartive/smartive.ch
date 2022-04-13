@@ -1,6 +1,10 @@
-import { Children, FC } from 'react';
+import { Children, FC, ReactNode } from 'react';
 
-export const UnorderedList: FC = ({ children }) => {
+type Props = {
+  children?: ReactNode;
+};
+
+export const UnorderedList: FC<Props> = ({ children }) => {
   return (
     <ul className="list-inside list-none mb-8">
       {Children.map(children, (child) => (

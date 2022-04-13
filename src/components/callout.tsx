@@ -1,7 +1,8 @@
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 type Props = {
   background?: string;
+  children?: ReactNode;
 };
 
 const backgroundMap: Record<string, string> = {

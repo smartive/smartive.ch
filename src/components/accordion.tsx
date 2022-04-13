@@ -2,6 +2,7 @@ import { FC, ReactNode } from 'react';
 
 type Props = {
   summary: ReactNode;
+  children?: ReactNode;
 };
 
 export const Accordion: FC<Props> = ({ summary, children }) => {
