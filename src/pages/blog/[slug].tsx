@@ -4,8 +4,8 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/de';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import React, { useState } from 'react';
+import { Image } from '../../components/image';
 import { PageHeader } from '../../compositions/page-header';
-import { Portrait, PortraitVariant } from '../../elements/portrait';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
 import { getGhostClient } from '../../utils/ghost';
@@ -40,14 +40,17 @@ const BlogPost: NextPage<Props> = ({ post }) => {
             )}
             <div className="grid place-items-center text-center gap-4 p-8 rounded bg-white-100">
               {post.primary_author.profile_image && (
-                <Portrait
-                  image={new URL(
+                <Image
+                  src={new URL(
                     `${post.primary_author.profile_image.startsWith('http') ? '' : 'https://'}${
                       post.primary_author.profile_image
                     }`
                   ).toString()}
-                  alt=""
-                  variant={PortraitVariant.Small}
+                  alt={post.primary_author.name}
+                  width={128}
+                  height={128}
+                  rounded="full"
+                  objectFit="cover"
                 />
               )}
               <Heading3 as="p">

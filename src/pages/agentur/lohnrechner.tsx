@@ -6,7 +6,7 @@ import { InteractiveQuiz } from '../../components/interactive-quiz';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import TextBlocks from '../../data/benefits.json';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
@@ -73,7 +73,7 @@ export const Lohnrechner: NextPage<PageProps> = ({ quote }) => {
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
   return {
     props: {
-      quote: await transformQuote(Quotes['dominique-lohn']),
+      quote: Quotes['dominique-lohn'],
     },
   };
 };

@@ -6,9 +6,9 @@ import { Contact } from '../components/contact';
 import { EmployeeCard } from '../components/employee-card';
 import { Testimonial } from '../components/testimonial';
 import { PageHeader } from '../compositions/page-header';
-import { Employee, getNotionEmployees, transformEmployee } from '../data/employees';
+import { Employee, getNotionEmployees } from '../data/employees';
 import Employees from '../data/employees.json';
-import { Quote, transformQuote } from '../data/quotes';
+import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
 import { Page } from '../layouts/page';
 import { Section } from '../layouts/section';
@@ -70,8 +70,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       employees,
-      contact: await transformEmployee(Employees.moreno),
-      quote: await transformQuote(Quotes['thilo-newwork']),
+      contact: Employees.moreno,
+      quote: Quotes['thilo-newwork'],
     },
     revalidate: 3600,
   };

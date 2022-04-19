@@ -2,22 +2,21 @@ import { BlobVariations, Copy, Grid, LinkList, TextBlock } from '@smartive/guetz
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
+import { Image } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser, transformTeaser } from '../../data/teaser';
+import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Link } from '../../elements/link';
-import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
-import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
 const STATIC_IMAGES = {
@@ -27,7 +26,7 @@ const STATIC_IMAGES = {
 } as const;
 
 type Props = {
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
   quote: Quote;
   contact: Employee;
   teasers: Teaser[];
@@ -53,8 +52,8 @@ const Kasparund: NextPage<Props> = ({ quote, contact, teasers, images, packages 
 
       <main>
         <Section>
-          <PlaceholderImage
-            image={images.mood}
+          <Image
+            src={images.mood}
             alt="Frau hält die Karte von Kaspar& in die Höhe"
             priority
             objectFit="cover"
@@ -63,22 +62,15 @@ const Kasparund: NextPage<Props> = ({ quote, contact, teasers, images, packages 
           />
 
           <Grid cols={2}>
-            <PlaceholderImage
-              image={images.card}
+            <Image
+              src={images.card}
               alt="Kasparund Karte auf dem Kopf"
               priority
               objectFit="scale-down"
               width={420}
               height={260}
             />
-            <PlaceholderImage
-              image={images.app}
-              alt="Kasparund App Preview"
-              priority
-              objectFit="scale-down"
-              width={400}
-              height={711}
-            />
+            <Image src={images.app} alt="Kasparund App Preview" priority objectFit="scale-down" width={400} height={711} />
           </Grid>
         </Section>
         <Section title="Und was haben wir dazu beigetragen?">
@@ -146,18 +138,16 @@ const Kasparund: NextPage<Props> = ({ quote, contact, teasers, images, packages 
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
-  const teasers = await Promise.all(
-    getRandomTeasers(3, Teasers.kaspar.title).map(async (teaser) => await transformTeaser(teaser))
-  );
+  const images = STATIC_IMAGES;
+  const teasers = getRandomTeasers(3, Teasers.kaspar.title);
   const packages = [Packages['mentoring']];
 
   return {
     props: {
       images,
       teasers,
-      quote: await transformQuote(Quotes['lauro-kasparund']),
-      contact: await transformEmployee(Employees.joshua),
+      quote: Quotes['lauro-kasparund'],
+      contact: Employees.joshua,
       packages,
     },
   };

@@ -4,10 +4,10 @@ import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages from '../../data/packages';
-import { Teaser, transformTeaser } from '../../data/teaser';
+import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
@@ -80,8 +80,8 @@ const ScaleUp: NextPage<Props> = ({ contact, teasers }) => {
 export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
-      teasers: [await transformTeaser(Teasers.subsidia), await transformTeaser(Teasers['supply-chain'])],
-      contact: await transformEmployee(Employees.thilo),
+      teasers: [Teasers.subsidia, Teasers['supply-chain']],
+      contact: Employees.thilo,
     },
   };
 };

@@ -12,22 +12,21 @@ import {
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
+import { Image } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser, transformTeaser } from '../../data/teaser';
+import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Link } from '../../elements/link';
-import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
-import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
 const STATIC_IMAGES = {
@@ -36,7 +35,7 @@ const STATIC_IMAGES = {
 } as const;
 
 type Props = {
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
   quote: Quote;
   contact: Employee;
   teasers: Teaser[];
@@ -61,8 +60,8 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
 
       <main>
         <Section>
-          <PlaceholderImage
-            image={images.tablet}
+          <Image
+            src={images.tablet}
             alt="Eine Person hält ein Tablet"
             priority
             objectFit="cover"
@@ -91,13 +90,7 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
           <Keyfigure
             background="cornflower"
             image={
-              <PlaceholderImage
-                image={images.screenshot}
-                alt="Mobile User Interface"
-                height="2265"
-                width="1080"
-                objectFit="contain"
-              />
+              <Image src={images.screenshot} alt="Mobile User Interface" height="2265" width="1080" objectFit="contain" />
             }
           >
             <UnorderedList
@@ -178,18 +171,16 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
-  const teasers = await Promise.all(
-    getRandomTeasers(3, Teasers['binapp'].title).map(async (teaser) => await transformTeaser(teaser))
-  );
+  const images = STATIC_IMAGES;
+  const teasers = getRandomTeasers(3, Teasers['binapp'].title);
   const packages = [Packages['solution-review'], Packages['scale-up']];
   return {
     props: {
       packages,
       images,
       teasers,
-      quote: await transformQuote(Quotes['markus-bin']),
-      contact: await transformEmployee(Employees.joshua),
+      quote: Quotes['markus-bin'],
+      contact: Employees.joshua,
     },
   };
 };

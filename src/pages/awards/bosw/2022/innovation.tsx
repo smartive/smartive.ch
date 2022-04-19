@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { FC, ReactNode } from 'react';
 import { Testimonial } from '../../../../components/testimonial';
 import { PageHeader } from '../../../../compositions/page-header';
-import { Quote, transformQuote } from '../../../../data/quotes';
+import { Quote } from '../../../../data/quotes';
 import Quotes from '../../../../data/quotes.json';
 import { LandingPage } from '../../../../layouts/landing-page';
 import { Section } from '../../../../layouts/section';
@@ -253,7 +253,7 @@ const Page: NextPage<Props> = ({ quote }) => {
 export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
-      quote: await transformQuote(Quotes['bettina-bosw22-innovation']),
+      quote: Quotes['bettina-bosw22-innovation'],
     },
   };
 };

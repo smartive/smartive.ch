@@ -8,11 +8,11 @@ import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import { Customer } from '../../data/customers';
 import Customers from '../../data/customers.json';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser, transformTeaser } from '../../data/teaser';
+import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
@@ -73,21 +73,18 @@ const Projekte: NextPage<Props> = ({ customers, quote, contact, main, teasers })
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const teasers = await Promise.all(
-    Object.values(Teasers)
-      .slice()
-      .reverse()
-      .filter(({ title }) => ![Teasers.kaspar.title, Teasers.frontify.title].includes(title))
-      .map(async (teaser) => await transformTeaser(teaser))
-  );
+  const teasers = Object.values(Teasers)
+    .slice()
+    .reverse()
+    .filter(({ title }) => ![Teasers.kaspar.title, Teasers.frontify.title].includes(title));
 
   return {
     props: {
       teasers,
-      main: [await transformTeaser(Teasers.kaspar), await transformTeaser(Teasers.frontify)],
+      main: [Teasers.kaspar, Teasers.frontify],
       customers: Object.values(Customers),
-      quote: await transformQuote(Quotes['setareh-dife']),
-      contact: await transformEmployee(Employees.joshua),
+      quote: Quotes['setareh-dife'],
+      contact: Employees.joshua,
     },
   };
 };

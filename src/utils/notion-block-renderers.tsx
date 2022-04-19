@@ -210,6 +210,7 @@ export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
           key={id}
           width={width}
           height={height}
+          layout="responsive"
           alt={alt}
           caption={caption}
           src={value.type === 'external' ? value.external.url : value.file.url}

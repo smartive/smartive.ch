@@ -2,19 +2,18 @@ import { BlobVariations, Copy, Grid, Heading3, Keyfigure, UnorderedList } from '
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
+import { Image } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser, transformTeaser } from '../../data/teaser';
+import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
-import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
 const STATIC_IMAGES = {
@@ -25,7 +24,7 @@ const STATIC_IMAGES = {
 } as const;
 
 type Props = {
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
   quote: Quote;
   contact: Employee;
   teasers: Teaser[];
@@ -48,16 +47,16 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
     <main>
       <Section>
         <Grid cols={2}>
-          <PlaceholderImage
-            image={images.brot}
+          <Image
+            src={images.brot}
             alt="Mitarbeiterin von Jowa zeigt ein Brot"
             priority
             objectFit="cover"
             width={720}
             height={383}
           />
-          <PlaceholderImage
-            image={images.staubsauger}
+          <Image
+            src={images.staubsauger}
             alt="melectronics bei der Beratung zum Staubsaugerkauf"
             priority
             objectFit="cover"
@@ -68,15 +67,7 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
       </Section>
       <Section>
         <Keyfigure
-          image={
-            <PlaceholderImage
-              image={images.phone}
-              alt="Mobile User Interface"
-              height="566"
-              width="275"
-              objectFit="contain"
-            />
-          }
+          image={<Image src={images.phone} alt="Mobile User Interface" height="566" width="275" objectFit="contain" />}
         >
           <UnorderedList
             title="Was bringts"
@@ -102,8 +93,8 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
         </Copy>
       </Section>
       <Section>
-        <PlaceholderImage
-          image={images.guetzli}
+        <Image
+          src={images.guetzli}
           alt="Midor Mitarbeiterin im Schutzanzug hält Guetzli"
           priority
           objectFit="cover"
@@ -164,16 +155,14 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
-  const teasers = await Promise.all(
-    getRandomTeasers(3, Teasers.dimmi.title).map(async (teaser) => await transformTeaser(teaser))
-  );
+  const images = STATIC_IMAGES;
+  const teasers = getRandomTeasers(3, Teasers.dimmi.title);
   return {
     props: {
       images,
       teasers,
-      contact: await transformEmployee(Employees.robert),
-      quote: await transformQuote(Quotes['danijela-dimmi']),
+      contact: Employees.robert,
+      quote: Quotes['danijela-dimmi'],
     },
   };
 };

@@ -2,12 +2,11 @@ import { Copy, Grid, GridSlider, Heading2, Heading3, LinkList } from '@smartive/
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { NextContentCard } from '../components/content-card';
+import { Image } from '../components/image';
 import { PageHeader } from '../compositions/page-header';
 import { Link } from '../elements/link';
-import { PlaceholderImage } from '../elements/placeholder-image';
 import { LandingPage } from '../layouts/landing-page';
 import { Section } from '../layouts/section';
-import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
 
 const STATIC_IMAGES = {
   boats: '/images/welcome/boats.jpg',
@@ -17,7 +16,7 @@ const STATIC_IMAGES = {
 };
 
 type Props = {
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
 };
 const Welcome: NextPage<Props> = ({ images }) => (
   <LandingPage>
@@ -36,8 +35,8 @@ const Welcome: NextPage<Props> = ({ images }) => (
 
     <Section>
       <Grid cols={2}>
-        <PlaceholderImage
-          image={images.boats}
+        <Image
+          src={images.boats}
           alt="smartive Team auf einem Weidling (Boot) auf dem Rhein"
           objectFit="cover"
           width={720}
@@ -45,19 +44,13 @@ const Welcome: NextPage<Props> = ({ images }) => (
         />
 
         <div className="hidden md:block md:col-start-2 md:row-span-2 relative">
-          <PlaceholderImage image={images.aescher} alt="smartive Team vor dem Aescher" objectFit="cover" layout="fill" />
+          <Image src={images.aescher} alt="smartive Team vor dem Aescher" objectFit="cover" layout="fill" />
         </div>
         <div className="block md:hidden">
-          <PlaceholderImage
-            image={images.aescher}
-            alt="smartive Team vor dem Aescher"
-            objectFit="cover"
-            width={720}
-            height={500}
-          />
+          <Image src={images.aescher} alt="smartive Team vor dem Aescher" objectFit="cover" width={720} height={500} />
         </div>
-        <PlaceholderImage
-          image={images.pool}
+        <Image
+          src={images.pool}
           alt="Drei smartive Mitarbeitende mit Bier im Pool bei der Aussicht über das Verzascatal"
           objectFit="cover"
           width={720}
@@ -131,7 +124,7 @@ const Welcome: NextPage<Props> = ({ images }) => (
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
+  const images = STATIC_IMAGES;
 
   return { props: { images } };
 };

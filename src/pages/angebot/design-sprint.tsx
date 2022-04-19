@@ -13,7 +13,7 @@ import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
@@ -109,7 +109,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       packages,
       teasers: [],
-      contact: await transformEmployee(Employees.robert),
+      contact: Employees.robert,
     },
   };
 };

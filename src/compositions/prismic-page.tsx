@@ -1,8 +1,8 @@
 import { BlobVariations, BrandColor } from '@smartive/guetzli';
 import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
+import { Image } from '../components/image';
 import { Employee } from '../data/employees';
-import { PlaceholderImage } from '../elements/placeholder-image';
 import { Section } from '../layouts/section';
 import { PageBody, PageBodyPage_Header } from '../types/generated/prismic';
 import { PageHeader } from './page-header';
@@ -50,8 +50,8 @@ export const PrismicPage = ({ header, blocks }: Props) => (
           case 'PageBodyHero_image':
             return (
               <Section key={index}>
-                <PlaceholderImage
-                  image={{ src: block.primary.image.url, blurDataURL: '' }}
+                <Image
+                  src={block.primary.image.url}
                   alt={block.primary.image.alt}
                   priority
                   objectFit="cover"
@@ -73,7 +73,7 @@ export const PrismicPage = ({ header, blocks }: Props) => (
                         label={label}
                         title={title}
                         link={{ label: linklabel, href: link }}
-                        image={{ src: image.url, blurDataURL: '' }}
+                        image={image.url}
                         imageAlt={image.alt}
                       />
                     ) : (

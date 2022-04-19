@@ -1,16 +1,15 @@
 import { BlobVariations, Copy, Grid, TextBlock, TextLink } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
+import { Image } from '../../components/image';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import TextBlocks from '../../data/benefits.json';
 import { Employee, getNotionEmployees } from '../../data/employees';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
-import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 
 const STATIC_IMAGES = {
   dife: '/images/mood/dominique-lab-finger.jpg',
@@ -25,7 +24,7 @@ const STATIC_IMAGES = {
 
 type Props = {
   employees: Employee[];
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
   quote: Quote;
 };
 
@@ -49,32 +48,27 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
       <main>
         <Section>
           <Grid cols={2}>
-            <PlaceholderImage
-              image={images.dife}
+            <Image
+              src={images.dife}
               alt="smartive Mitarbeiter mit einem Schild auf dem smartive beworben wird"
               objectFit="cover"
               width={720}
               height={380}
             />
             <div className="hidden md:block md:col-start-2 md:row-span-2 relative">
-              <PlaceholderImage
-                image={images.mittag}
-                alt="smartive Team am Mittagstisch beim Essen"
-                objectFit="cover"
-                layout="fill"
-              />
+              <Image src={images.mittag} alt="smartive Team am Mittagstisch beim Essen" objectFit="cover" layout="fill" />
             </div>
             <div className="block md:hidden">
-              <PlaceholderImage
-                image={images.mittag}
+              <Image
+                src={images.mittag}
                 alt="smartive Team am Mittagstisch beim Essen"
                 objectFit="cover"
                 width={720}
                 height={500}
               />
             </div>
-            <PlaceholderImage
-              image={images.vortrag}
+            <Image
+              src={images.vortrag}
               alt="smartive Mitarbeiter hält einen Vortrag vor mehreren Leuten"
               objectFit="cover"
               width={720}
@@ -90,37 +84,37 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
           </Grid>
           <Testimonial background="cornflower" blobs={BlobVariations.cornflower[0]} quote={quote} />
           <Grid cols={2}>
-            <PlaceholderImage
-              image={images.coderetreat}
+            <Image
+              src={images.coderetreat}
               alt="smartive Team am arbeiten an einem Tisch im freien mit dem Valle Verzasca im Hintergrund"
               objectFit="cover"
               width={720}
               height={380}
             />
-            <PlaceholderImage
-              image={images.aescher}
+            <Image
+              src={images.aescher}
               alt="smartive Team bei einer Wanderung mit dem Gasthaus Aescher-Wildkirchli im Hintergrund"
               objectFit="cover"
               width={720}
               height={380}
             />
-            <PlaceholderImage
-              image={images.terrasse}
+            <Image
+              src={images.terrasse}
               alt="smartive Team sitzt auf einer Bank mit blauem Himmel und Thunersee im Hintergrund"
               objectFit="cover"
               width={720}
               height={500}
             />
-            <PlaceholderImage
-              image={images.fussball}
+            <Image
+              src={images.fussball}
               alt="smartive Team beim Fussballspielen auf einer grünen Wiese"
               objectFit="cover"
               width={720}
               height={380}
             />
             <div className="md:col-span-2">
-              <PlaceholderImage
-                image={images.essen}
+              <Image
+                src={images.essen}
                 alt="smartive Team beim Mittagessen im Freien"
                 objectFit="cover"
                 width={1504}
@@ -164,14 +158,14 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
+  const images = STATIC_IMAGES;
   const employees = await getNotionEmployees();
 
   return {
     props: {
       employees,
       images,
-      quote: await transformQuote(Quotes['dominique-kultur']),
+      quote: Quotes['dominique-kultur'],
     },
   };
 };

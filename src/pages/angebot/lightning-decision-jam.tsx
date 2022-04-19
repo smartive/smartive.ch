@@ -15,10 +15,10 @@ import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
 import { Page } from '../../layouts/page';
@@ -116,9 +116,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       packages,
-      quote: await transformQuote(Quotes['markus-bin']),
+      quote: Quotes['markus-bin'],
       teasers: [],
-      contact: await transformEmployee(Employees.robert),
+      contact: Employees.robert,
     },
   };
 };

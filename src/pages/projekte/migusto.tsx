@@ -12,19 +12,18 @@ import {
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
+import { Image } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser, transformTeaser } from '../../data/teaser';
+import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
-import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
 const STATIC_IMAGES = {
@@ -36,7 +35,7 @@ const STATIC_IMAGES = {
 } as const;
 
 type Props = {
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
   quote: Quote;
   contact: Employee;
   teasers: Teaser[];
@@ -70,16 +69,16 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
       <main>
         <Section>
           <Grid cols={2}>
-            <PlaceholderImage
-              image={images.gemuese}
+            <Image
+              src={images.gemuese}
               alt="Person schneidet Gemüse aus der Vogelperspektive"
               priority
               objectFit="cover"
               width={720}
               height={383}
             />
-            <PlaceholderImage
-              image={images.kochen}
+            <Image
+              src={images.kochen}
               alt="Eine Frau und ein Mann beim gemeinsamen Kochen"
               priority
               objectFit="cover"
@@ -117,8 +116,8 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
           </Copy>
         </Section>
         <Section>
-          <PlaceholderImage
-            image={images.pizza}
+          <Image
+            src={images.pizza}
             alt="Drei Pizzen in einem Backofen"
             priority
             objectFit="cover"
@@ -174,8 +173,8 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
         </Section>
         <Section>
           <Grid cols={2}>
-            <PlaceholderImage
-              image={images.kraeuter}
+            <Image
+              src={images.kraeuter}
               alt="Frischer Bärlauch auf einem Schneidebrett"
               priority
               objectPosition="center center"
@@ -183,8 +182,8 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               width={720}
               height={383}
             />
-            <PlaceholderImage
-              image={images.kuh}
+            <Image
+              src={images.kuh}
               alt="Ein Kuheuter auf einer grünen Wiese"
               priority
               objectPosition="center top"
@@ -212,16 +211,14 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
-  const teasers = await Promise.all(
-    getRandomTeasers(3, Teasers.migusto.title).map(async (teaser) => await transformTeaser(teaser))
-  );
+  const images = STATIC_IMAGES;
+  const teasers = getRandomTeasers(3, Teasers.migusto.title);
   return {
     props: {
       images,
       teasers,
-      quote: await transformQuote(Quotes['desiree-migusto']),
-      contact: await transformEmployee(Employees.thilo),
+      quote: Quotes['desiree-migusto'],
+      contact: Employees.thilo,
     },
   };
 };

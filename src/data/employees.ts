@@ -1,5 +1,4 @@
 import { getNotionClient } from '../services/notion';
-import { getPlaceholder, ImageWithPlaceholder } from '../utils/image-placeholders';
 
 const NOTION_WEBPROFILE_DB_ID = 'a128e46920e94bb48fc2baa77e6bf8c7';
 
@@ -49,9 +48,9 @@ export const getNotionEmployees = async (): Promise<Employee[]> => {
         github: GitHub.url,
         linkedin: LinkedIn.url,
         twitter: Twitter.url,
-        image: getNotionUrl(await getPlaceholder(PhotoMain.files[0].file.url || getFallbackImage()), block),
-        closeup: getNotionUrl(await getPlaceholder(PhotoCloseup.files[0].file.url || getFallbackImage()), block),
-        portrait: getNotionUrl(await getPlaceholder(PhotoPortrait.files[0].file.url || getFallbackImage()), block),
+        image: getNotionUrl(PhotoMain.files[0].file.url, block),
+        closeup: getNotionUrl(PhotoCloseup.files[0].file.url, block),
+        portrait: getNotionUrl(PhotoPortrait.files[0].file.url, block),
       };
 
       return mapped;
@@ -59,22 +58,21 @@ export const getNotionEmployees = async (): Promise<Employee[]> => {
   );
 };
 
-export const getNotionUrl = (image: ImageWithPlaceholder, block: NotionEmployee) => {
-  const { src } = image;
+export const getNotionUrl = (image: string, block: NotionEmployee) => {
   const table = 'block';
 
-  const proxyUrl = `https://www.notion.so/image/${encodeURIComponent(src)}`;
+  const proxyUrl = `https://www.notion.so/image/${encodeURIComponent(image)}`;
 
   const url = new URL(proxyUrl);
   url.searchParams.set('table', table);
   url.searchParams.set('id', block.id);
   url.searchParams.set('cache', 'v2');
 
-  return { ...image, src: url.toString() };
+  return url.toString();
 };
 
 export type Employee = {
-  name: string;
+  name?: string;
   firstname: string;
   lastname: string;
   job: string;
@@ -82,12 +80,12 @@ export type Employee = {
   email: string;
   tel: string;
   booking: string;
-  github: string;
-  linkedin: string;
-  twitter: string;
-  image: ImageWithPlaceholder;
-  closeup: ImageWithPlaceholder;
-  portrait: ImageWithPlaceholder;
+  github?: string;
+  linkedin?: string;
+  twitter?: string;
+  image: string;
+  closeup: string;
+  portrait: string;
 };
 
 interface Properties {
@@ -158,13 +156,3 @@ interface Name {
   type: string;
   title: Title[];
 }
-
-export const transformEmployee = async (employee): Promise<Employee> => ({
-  ...employee,
-  image: await getPlaceholder(employee.image || getFallbackImage()),
-  portrait: await getPlaceholder(employee.portrait || getFallbackImage()),
-  closeup: await getPlaceholder(employee.closeup || getFallbackImage()),
-});
-
-const getFallbackImage = () =>
-  `/images/portrait-fallback-${['apricot', 'mint', 'cornflower'][Math.floor(Math.random() * 3)]}.svg`;

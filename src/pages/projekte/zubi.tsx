@@ -2,20 +2,19 @@ import { BlobVariations, Copy, Grid, LinkList, PageSection, TextBlock, TextLink 
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
+import { Image } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser, transformTeaser } from '../../data/teaser';
+import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
-import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
 const STATIC_IMAGES = {
@@ -24,7 +23,7 @@ const STATIC_IMAGES = {
 } as const;
 
 type Props = {
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
   quote: Quote;
   contact: Employee;
   teasers: Teaser[];
@@ -50,16 +49,16 @@ const Zubi: NextPage<Props> = ({ quote, contact, teasers, images, packages }) =>
       <main>
         <PageSection>
           <Grid cols={2}>
-            <PlaceholderImage
-              image={images.fireplace}
+            <Image
+              src={images.fireplace}
               alt="Eine Frau an einer Feuerstelle."
               priority
               objectFit="cover"
               width={828}
               height={551}
             />
-            <PlaceholderImage
-              image={images.benj}
+            <Image
+              src={images.benj}
               alt="Ein junger Mann mit Outdoorbekleidung"
               priority
               objectFit="cover"
@@ -133,17 +132,15 @@ const Zubi: NextPage<Props> = ({ quote, contact, teasers, images, packages }) =>
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
-  const teasers = await Promise.all(
-    getRandomTeasers(3, Teasers['zubi'].title).map(async (teaser) => await transformTeaser(teaser))
-  );
+  const images = STATIC_IMAGES;
+  const teasers = getRandomTeasers(3, Teasers['zubi'].title);
   const packages = [Packages['mentoring'], Packages['agile-playday']];
   return {
     props: {
       images,
       teasers,
-      quote: await transformQuote(Quotes['niklas-zubi']),
-      contact: await transformEmployee(Employees.joshua),
+      quote: Quotes['niklas-zubi'],
+      contact: Employees.joshua,
       packages,
     },
   };

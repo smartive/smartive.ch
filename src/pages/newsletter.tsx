@@ -2,11 +2,10 @@ import { Copy, Grid } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import React from 'react';
+import { Image } from '../components/image';
 import { PageHeader } from '../compositions/page-header';
-import { PlaceholderImage } from '../elements/placeholder-image';
 import { LandingPage } from '../layouts/landing-page';
 import { Section } from '../layouts/section';
-import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
 
 const NewsletterSubscription = dynamic(
   () => import('../components/newsletter-subscription').then((module) => module.NewsletterSubscription),
@@ -21,7 +20,7 @@ const STATIC_IMAGES = {
 } as const;
 
 type Props = {
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
 };
 
 const Newsletter: NextPage<Props> = ({ images }) => {
@@ -40,8 +39,8 @@ const Newsletter: NextPage<Props> = ({ images }) => {
 
       <main>
         <Section>
-          <PlaceholderImage
-            image={images.mittag}
+          <Image
+            src={images.mittag}
             alt="smartive Team beim Mittagessen an einem Holztisch"
             priority
             objectFit="cover"
@@ -49,16 +48,16 @@ const Newsletter: NextPage<Props> = ({ images }) => {
             height={800}
           />
           <Grid cols={2}>
-            <PlaceholderImage
-              image={images.terrasse}
+            <Image
+              src={images.terrasse}
               alt="smartive Team sitzt auf einer Bank mit blauem Himmel und Thunersee im Hintergrund"
               objectFit="cover"
               width={720}
               height={500}
             />
             <div className="hidden md:block md:col-start-2 md:row-span-2 relative">
-              <PlaceholderImage
-                image={images.coderetreat}
+              <Image
+                src={images.coderetreat}
                 alt="smartive Team am Mittagstisch beim Essen"
                 objectFit="cover"
                 layout="responsive"
@@ -67,16 +66,16 @@ const Newsletter: NextPage<Props> = ({ images }) => {
               />
             </div>
             <div className="block md:hidden">
-              <PlaceholderImage
-                image={images.mittag}
+              <Image
+                src={images.mittag}
                 alt="smartive Team am Mittagstisch beim Essen"
                 objectFit="cover"
                 width={720}
                 height={500}
               />
             </div>
-            <PlaceholderImage
-              image={images.dife}
+            <Image
+              src={images.dife}
               alt="smartive Mitarbeiter hält einen Vortrag vor mehreren Leuten"
               objectFit="cover"
               width={720}
@@ -90,7 +89,7 @@ const Newsletter: NextPage<Props> = ({ images }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
+  const images = STATIC_IMAGES;
   return {
     props: {
       images,

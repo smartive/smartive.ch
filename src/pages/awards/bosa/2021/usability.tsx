@@ -1,12 +1,11 @@
-import { BlobVariations, Copy, Grid, Heading2, Keyfigure, TextLink, TextBlock, UnorderedList } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, Heading2, Keyfigure, TextBlock, TextLink, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
+import { Image } from '../../../../components/image';
 import { Testimonial } from '../../../../components/testimonial';
 import { PageHeader } from '../../../../compositions/page-header';
-import { Quote, transformQuote } from '../../../../data/quotes';
-import { PlaceholderImage } from '../../../../elements/placeholder-image';
+import { Quote } from '../../../../data/quotes';
 import { LandingPage } from '../../../../layouts/landing-page';
 import { Section } from '../../../../layouts/section';
-import { getPlaceholders, PlaceholderImages } from '../../../../utils/image-placeholders';
 
 const STATIC_IMAGES = {
   kitchen: '/images/projekte/migipedia/RGB_04_kitchen_012.jpg',
@@ -26,7 +25,7 @@ const QUOTE = {
 };
 
 type Props = {
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
   quote: Quote;
 };
 
@@ -52,8 +51,8 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
 
       <main>
         <Section>
-          <PlaceholderImage
-            image={images.diskutieren}
+          <Image
+            src={images.diskutieren}
             alt="Eine Frau und ein Mann betrachten etwas auf einem Smartphone."
             priority
             objectFit="cover"
@@ -109,15 +108,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
         <Section>
           <Keyfigure
             background="cornflower"
-            image={
-              <PlaceholderImage
-                image={images.phone}
-                alt="Mobile User Interface"
-                height="566"
-                width="275"
-                objectFit="contain"
-              />
-            }
+            image={<Image src={images.phone} alt="Mobile User Interface" height="566" width="275" objectFit="contain" />}
           >
             <Copy>
               Nicht nur beim Aufbau, sondern auch an diversen weiteren Punkten der User Journey wurde auf eine Bedienung und
@@ -137,15 +128,15 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
 
         <Section>
           <Grid cols={2}>
-            <PlaceholderImage
-              image={images.bike}
+            <Image
+              src={images.bike}
               alt="Eine Frau sitzt mit dem Smartphone in der Hand auf einer Treppe und isst Popcorn."
               objectFit="cover"
               width={720}
               height={383}
             />
-            <PlaceholderImage
-              image={images.couch}
+            <Image
+              src={images.couch}
               alt="Eine Frau sitzt mit ihrem Sohn im Wohnzimmer. Sie sortieren Migros Mania Sammelelemente."
               objectFit="cover"
               width={720}
@@ -260,12 +251,12 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
+  const images = STATIC_IMAGES;
 
   return {
     props: {
       images,
-      quote: await transformQuote(QUOTE),
+      quote: QUOTE,
     },
   };
 };

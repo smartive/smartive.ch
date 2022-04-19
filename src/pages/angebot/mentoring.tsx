@@ -16,12 +16,12 @@ import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser, transformTeaser } from '../../data/teaser';
+import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
@@ -114,16 +114,14 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages, quote }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const packages = [Packages.speedboat, Packages['scale-up'], Packages['design-sprint']];
-  const teasers = await Promise.all(
-    [Teasers['zubi'], Teasers['kaspar']].map(async (teaser) => await transformTeaser(teaser))
-  );
+  const teasers = [Teasers['zubi'], Teasers['kaspar']];
 
   return {
     props: {
       packages,
-      quote: await transformQuote(Quotes['lauro-kasparund']),
+      quote: Quotes['lauro-kasparund'],
       teasers: teasers,
-      contact: await transformEmployee(Employees.joshua),
+      contact: Employees.joshua,
     },
   };
 };

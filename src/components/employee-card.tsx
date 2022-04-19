@@ -2,13 +2,16 @@ import { Heading3, TextLink } from '@smartive/guetzli';
 import { usePlausible } from 'next-plausible';
 import React, { FC } from 'react';
 import { Employee } from '../data/employees';
-import { PlaceholderImage } from '../elements/placeholder-image';
 import { PlausibleEvents } from '../utils/tracking';
+import { Image } from './image';
 
 type Props = {
   employee: Employee;
   className?: string;
 };
+
+const getFallbackImage = () =>
+  `/images/portrait-fallback-${['apricot', 'mint', 'cornflower'][Math.floor(Math.random() * 3)]}.svg`;
 
 export const EmployeeCard: FC<Props> = ({
   employee: { name, job, bio, github, linkedin, twitter, email, image, closeup },
@@ -34,6 +37,9 @@ export const EmployeeCard: FC<Props> = ({
   ].filter(Boolean);
   const plausible = usePlausible<PlausibleEvents>();
 
+  const imageWithFallback = image || getFallbackImage();
+  const closeupWithFallback = closeup || getFallbackImage();
+
   return (
     <div
       className={`flex flex-col bg-white-100 rounded overflow-hidden ${className}`}
@@ -42,18 +48,10 @@ export const EmployeeCard: FC<Props> = ({
       itemType="http://schema.org/Person"
     >
       <div className="hidden lg:block w-full">
-        <PlaceholderImage image={image} rounded="none" alt="" objectFit="cover" width="463" height="640" />
+        <Image src={imageWithFallback} rounded="none" alt="" objectFit="cover" width="463" height="640" />
       </div>
       <div className="block lg:hidden w-full">
-        <PlaceholderImage
-          itemProp="image"
-          image={closeup}
-          rounded="none"
-          alt=""
-          objectFit="cover"
-          width="480"
-          height="300"
-        />
+        <Image itemProp="image" src={closeupWithFallback} rounded="none" alt="" objectFit="cover" width="480" height="300" />
       </div>
       <div className="flex flex-col flex-1 p-8 font-sans font-normal text-xxs lg:text-sm">
         <p className="mb-2 lg:mb-6" itemProp="jobTitle">

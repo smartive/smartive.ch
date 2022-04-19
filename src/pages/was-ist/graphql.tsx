@@ -3,7 +3,7 @@ import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
-import { Teaser, transformTeaser } from '../../data/teaser';
+import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
@@ -126,9 +126,7 @@ const GQL: NextPage<Props> = ({ teasers }) => (
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const teasers = await Promise.all(
-    [Teasers.migusto, Teasers.migipedia].map(async (teaser) => await transformTeaser(teaser))
-  );
+  const teasers = [Teasers.migusto, Teasers.migipedia];
   return {
     props: {
       teasers,

@@ -16,12 +16,12 @@ import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser, transformTeaser } from '../../data/teaser';
+import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 
@@ -114,9 +114,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return {
     props: {
       packages,
-      quote: await transformQuote(Quotes['marco-zubi']),
-      teasers: [await transformTeaser(Teasers['zubi'])],
-      contact: await transformEmployee(Employees.joshua),
+      quote: Quotes['marco-zubi'],
+      teasers: [Teasers['zubi']],
+      contact: Employees.joshua,
     },
   };
 };

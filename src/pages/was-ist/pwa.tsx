@@ -3,7 +3,7 @@ import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
-import { Teaser, transformTeaser } from '../../data/teaser';
+import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
@@ -111,9 +111,7 @@ const PWA: NextPage<Props> = ({ teasers }) => (
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const teasers = await Promise.all(
-    [Teasers.subsidia, Teasers['supply-chain']].map(async (teaser) => await transformTeaser(teaser))
-  );
+  const teasers = [Teasers.subsidia, Teasers['supply-chain']];
   return {
     props: {
       teasers,

@@ -2,13 +2,12 @@ import { Copy, Grid } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../components/contact';
+import { Image } from '../components/image';
 import { PageHeader } from '../compositions/page-header';
-import { Employee, transformEmployee } from '../data/employees';
+import { Employee } from '../data/employees';
 import Employees from '../data/employees.json';
-import { PlaceholderImage } from '../elements/placeholder-image';
 import { Page } from '../layouts/page';
 import { Section } from '../layouts/section';
-import { getPlaceholders, PlaceholderImages } from '../utils/image-placeholders';
 
 const STATIC_IMAGES = {
   meeting: '/images/mood/gruppen-meeting.jpg',
@@ -17,7 +16,7 @@ const STATIC_IMAGES = {
 } as const;
 
 type Props = {
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
   contact: Employee;
 };
 
@@ -41,31 +40,26 @@ const Jobs: NextPage<Props> = ({ contact, images }) => {
         <Section>
           <Grid cols={2}>
             <div className="hidden md:block md:row-span-2 relative">
-              <PlaceholderImage
-                image={images.mittag}
-                alt="Das smartive Team isst draussen zu Mittag"
-                objectFit="cover"
-                layout="fill"
-              />
+              <Image src={images.mittag} alt="Das smartive Team isst draussen zu Mittag" objectFit="cover" layout="fill" />
             </div>
             <div className="block md:hidden">
-              <PlaceholderImage
-                image={images.mittag}
+              <Image
+                src={images.mittag}
                 alt="Das smartive Team isst draussen zu Mittag"
                 objectFit="cover"
                 width={720}
                 height={500}
               />
             </div>
-            <PlaceholderImage
-              image={images.meeting}
+            <Image
+              src={images.meeting}
               alt="smartive Mitarbeitende halten ein Meeting"
               objectFit="cover"
               width={720}
               height={380}
             />
-            <PlaceholderImage
-              image={images.jungle}
+            <Image
+              src={images.jungle}
               alt="Zwei smartive Mitarbeitende unterhalten sich und lachen"
               objectFit="cover"
               width={720}
@@ -87,12 +81,12 @@ const Jobs: NextPage<Props> = ({ contact, images }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
+  const images = STATIC_IMAGES;
 
   return {
     props: {
       images,
-      contact: await transformEmployee(Employees.robert),
+      contact: Employees.robert,
     },
   };
 };

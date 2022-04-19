@@ -2,21 +2,20 @@ import { BlobVariations, Copy, Grid, LinkList, TextBlock } from '@smartive/guetz
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
+import { Image } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
 import Packages, { Package } from '../../data/packages';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Award, Teaser, transformTeaser } from '../../data/teaser';
+import { Award, Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
-import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
 const STATIC_IMAGES = {
@@ -26,7 +25,7 @@ const STATIC_IMAGES = {
 } as const;
 
 type Props = {
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
   quote: Quote;
   contact: Employee;
   awards: Award[];
@@ -53,8 +52,8 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages, 
 
     <main>
       <Section>
-        <PlaceholderImage
-          image={images.scan}
+        <Image
+          src={images.scan}
           alt="Verkäuferin scannt Etikett eines Kleidungsstücks mit dem Smartphone"
           priority
           objectFit="cover"
@@ -100,16 +99,16 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages, 
           dem Browser umgesetzt werden. Das Resultat: Schneller und günstiger entwickelt sowie einfacher wartbar.
         </Copy>
         <Grid cols={2}>
-          <PlaceholderImage
-            image={images.screen}
+          <Image
+            src={images.screen}
             alt="Eine Hand die ein Smartphone mit der Subsidia Kassen-App hält"
             priority
             objectFit="cover"
             width={720}
             height={383}
           />
-          <PlaceholderImage
-            image={images.kasse}
+          <Image
+            src={images.kasse}
             alt="Verkaufsberater an einer stationären Kasse hinter einem Bildschirm"
             priority
             objectFit="cover"
@@ -149,18 +148,16 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages, 
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
+  const images = STATIC_IMAGES;
   const packages = [Packages['design-sprint'], Packages['speedboat'], Packages['scale-up'], Packages['solution-review']];
-  const teasers = await Promise.all(
-    getRandomTeasers(3, Teasers.subsidia.title).map(async (teaser) => await transformTeaser(teaser))
-  );
+  const teasers = getRandomTeasers(3, Teasers.subsidia.title);
   return {
     props: {
       images,
       packages,
       teasers,
-      contact: await transformEmployee(Employees.dominique),
-      quote: await transformQuote(Quotes['diego-subsidia']),
+      contact: Employees.dominique,
+      quote: Quotes['diego-subsidia'],
       awards: Teasers.subsidia.awards,
     },
   };

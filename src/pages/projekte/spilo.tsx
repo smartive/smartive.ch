@@ -2,19 +2,18 @@ import { Copy, Grid, Keyfigure, LinkList, Screenshot, ScreenshotVariant, TextBlo
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
+import { Image } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser, transformTeaser } from '../../data/teaser';
+import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Link } from '../../elements/link';
-import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
-import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 
 const STATIC_IMAGES = {
   rennen: '/images/projekte/spilo/bambi-corro-fn3puWB0pHY-unsplash.jpg',
@@ -22,7 +21,7 @@ const STATIC_IMAGES = {
 } as const;
 
 type Props = {
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
   quote: Quote;
   contact: Employee;
   teasers: Teaser[];
@@ -46,16 +45,16 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images }) => (
     <main>
       <Section>
         <Grid cols={2}>
-          <PlaceholderImage
-            image={images.rennen}
+          <Image
+            src={images.rennen}
             alt="Kind rennt auf einem Spielplatz"
             priority
             objectFit="cover"
             width={720}
             height={383}
           />
-          <PlaceholderImage
-            image={images.klettern}
+          <Image
+            src={images.klettern}
             alt="Kind klettert auf einem Spielplatz"
             priority
             objectFit="cover"
@@ -131,18 +130,16 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images }) => (
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
-  const teasers = await Promise.all(
-    [Teasers.ofpg, Teasers.filialfinder, Teasers['supply-chain']].map(async (teaser) => await transformTeaser(teaser))
-  );
+  const images = STATIC_IMAGES;
+  const teasers = [Teasers.ofpg, Teasers.filialfinder, Teasers['supply-chain']];
   return {
     props: {
       images,
       teasers,
-      contact: await transformEmployee(Employees.peter),
+      contact: Employees.peter,
       // TODO: Add real quote
       quote: {
-        ...(await transformQuote(Quotes['fabrina-kig'])),
+        ...Quotes['fabrina-kig'],
         excerpt: 'Bubi spielen, Bubi xund',
         text: 'Super diese smartive, die liefern die Beratung sogar nach Hause! Ohne Lieferkosten! Impfall!',
       },

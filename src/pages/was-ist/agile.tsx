@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
-import { Teaser, transformTeaser } from '../../data/teaser';
+import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
@@ -121,9 +121,7 @@ const Agile: NextPage<Props> = ({ teasers }) => (
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const teasers = await Promise.all(
-    [Teasers.migipedia, Teasers.subsidia, Teasers.ofpg].map(async (teaser) => await transformTeaser(teaser))
-  );
+  const teasers = [Teasers.migipedia, Teasers.subsidia, Teasers.ofpg];
   return {
     props: {
       teasers,

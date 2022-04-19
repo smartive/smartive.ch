@@ -2,19 +2,18 @@ import { BlobVariations, Copy, Grid, Heading3, Keyfigure, UnorderedList } from '
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
+import { Image } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Award, Teaser, transformTeaser } from '../../data/teaser';
+import { Award, Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
-import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
 const STATIC_IMAGES = {
@@ -26,7 +25,7 @@ const STATIC_IMAGES = {
 } as const;
 
 type Props = {
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
   quote: Quote;
   contact: Employee;
   awards: Award[];
@@ -49,8 +48,8 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers, images 
 
     <main>
       <Section>
-        <PlaceholderImage
-          image={images.heber}
+        <Image
+          src={images.heber}
           alt="Ein Mann transportiert Boxen in einem Lager"
           priority
           objectFit="cover"
@@ -61,15 +60,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers, images 
       <Section>
         <Keyfigure
           background="apricot"
-          image={
-            <PlaceholderImage
-              image={images.phone}
-              alt="Mobile User Interface"
-              height="566"
-              width="275"
-              objectFit="contain"
-            />
-          }
+          image={<Image src={images.phone} alt="Mobile User Interface" height="566" width="275" objectFit="contain" />}
         >
           <UnorderedList
             title="Kurz und knackig"
@@ -97,16 +88,16 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers, images 
         </Copy>
 
         <Grid cols={2}>
-          <PlaceholderImage
-            image={images.boxen}
+          <Image
+            src={images.boxen}
             alt="Ein Gebinde im Lager wird mit der neuen Supply Chain App auf einem Smartphone gescannt."
             priority
             objectFit="cover"
             width={720}
             height={383}
           />
-          <PlaceholderImage
-            image={images.converter}
+          <Image
+            src={images.converter}
             alt="Ein Gebinde wird auf einem Laufband verarbeitet."
             priority
             objectFit="cover"
@@ -114,14 +105,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers, images 
             height={383}
           />
         </Grid>
-        <PlaceholderImage
-          image={images.gebaeude}
-          alt="Migros Logistik Zentrum"
-          priority
-          objectFit="cover"
-          width={1504}
-          height={800}
-        />
+        <Image src={images.gebaeude} alt="Migros Logistik Zentrum" priority objectFit="cover" width={1504} height={800} />
       </Section>
       <Section>
         <Heading3>Mehr Überblick, weniger Doppelspurigkeit</Heading3>
@@ -161,16 +145,14 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers, images 
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
-  const teasers = await Promise.all(
-    getRandomTeasers(3, Teasers['supply-chain'].title).map(async (teaser) => await transformTeaser(teaser))
-  );
+  const images = STATIC_IMAGES;
+  const teasers = getRandomTeasers(3, Teasers['supply-chain'].title);
   return {
     props: {
       images,
       teasers,
-      contact: await transformEmployee(Employees.peter),
-      quote: await transformQuote(Quotes['daniel-grai']),
+      contact: Employees.peter,
+      quote: Quotes['daniel-grai'],
       awards: Teasers['supply-chain'].awards,
     },
   };

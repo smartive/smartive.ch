@@ -1,7 +1,7 @@
 import { Blob, BlobType, BrandColor, Heading2, highlight, mapColorToBG } from '@smartive/guetzli';
 import React, { FC } from 'react';
 import { Quote } from '../data/quotes';
-import { Portrait, PortraitVariant } from '../elements/portrait';
+import { Image, ImageVariant } from './image';
 
 type Props = {
   className?: string;
@@ -22,7 +22,7 @@ export const Testimonial: FC<Props> = ({
     )} p-8 lg:p-32 font-sans font-normal text-xxs mb-4 lg:text-sm ${className}`}
   >
     <div className="z-10">
-      <Portrait image={portrait} alt="" variant={PortraitVariant.Small} />
+      <Image src={portrait} alt={credit} variant={ImageVariant.PortraitSmall} />
     </div>
     <Heading2 as="p" className="mt-4 z-10 overflow-hidden sm:overflow-visible">
       &laquo;

@@ -1,10 +1,9 @@
 import { Copy, Grid, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
+import { Image } from '../../components/image';
 import { PageHeader } from '../../compositions/page-header';
-import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
-import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 
 const STATIC_IMAGES = {
   flyer: '/images/projekte/frontify/210908_FRO2101_3766.jpg',
@@ -13,7 +12,7 @@ const STATIC_IMAGES = {
 } as const;
 
 type Props = {
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
 };
 
 const Frontify: NextPage<Props> = ({ images }) => {
@@ -45,8 +44,8 @@ const Frontify: NextPage<Props> = ({ images }) => {
 
       <main>
         <Section>
-          <PlaceholderImage
-            image={images.flyer}
+          <Image
+            src={images.flyer}
             alt="Flyer für das Digital Asset Management von Frontify"
             priority
             objectFit="cover"
@@ -56,16 +55,16 @@ const Frontify: NextPage<Props> = ({ images }) => {
           <span className="text-xs text-black">Fotos: Ladina Bischof</span>
 
           <Grid cols={2}>
-            <PlaceholderImage
-              image={images.styleguide}
+            <Image
+              src={images.styleguide}
               alt="Style Guide von Frontify auf einem Bildschirm"
               priority
               objectFit="scale-down"
               width={1920}
               height={1440}
             />
-            <PlaceholderImage
-              image={images.meeting}
+            <Image
+              src={images.meeting}
               alt="Meeting von Frontify Mitarbeitenden"
               priority
               objectFit="scale-down"
@@ -80,7 +79,7 @@ const Frontify: NextPage<Props> = ({ images }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
+  const images = STATIC_IMAGES;
 
   return {
     props: {

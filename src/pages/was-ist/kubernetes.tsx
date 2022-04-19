@@ -3,7 +3,7 @@ import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
-import { Teaser, transformTeaser } from '../../data/teaser';
+import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
@@ -193,9 +193,7 @@ const Kubernetes: NextPage<Props> = ({ teasers }) => (
 );
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const teasers = await Promise.all(
-    [Teasers['ofpg'], Teasers['kaspar'], Teasers['optimatik']].map(async (teaser) => await transformTeaser(teaser))
-  );
+  const teasers = [Teasers['ofpg'], Teasers['kaspar'], Teasers['optimatik']];
   return {
     props: {
       teasers,

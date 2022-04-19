@@ -2,19 +2,18 @@ import { BlobVariations, Copy, Grid, Keyfigure, LinkList, TextBlock, TextLink, U
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { Contact } from '../../components/contact';
+import { Image } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee, transformEmployee } from '../../data/employees';
+import { Employee } from '../../data/employees';
 import Employees from '../../data/employees.json';
-import { Quote, transformQuote } from '../../data/quotes';
+import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Award, Teaser, transformTeaser } from '../../data/teaser';
+import { Award, Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { PlaceholderImage } from '../../elements/placeholder-image';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
-import { getPlaceholders, PlaceholderImages } from '../../utils/image-placeholders';
 import { getRandomTeasers } from '../../utils/teasers';
 
 const STATIC_IMAGES = {
@@ -25,7 +24,7 @@ const STATIC_IMAGES = {
 } as const;
 
 type Props = {
-  images: PlaceholderImages<typeof STATIC_IMAGES>;
+  images: typeof STATIC_IMAGES;
   quote: Quote;
   contact: Employee;
   teasers: Teaser[];
@@ -71,16 +70,16 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
 
         <Section>
           <Grid cols={2}>
-            <PlaceholderImage
-              image={images.kitchen}
+            <Image
+              src={images.kitchen}
               alt="Frau in orangem Pullover isst Joghurt"
               priority
               objectFit="cover"
               width={720}
               height={383}
             />
-            <PlaceholderImage
-              image={images.diskutieren}
+            <Image
+              src={images.diskutieren}
               alt="Eine Frau und ein Mann betrachten etwas auf einem Smartphone"
               priority
               objectFit="cover"
@@ -91,15 +90,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
         </Section>
         <Section>
           <Keyfigure
-            image={
-              <PlaceholderImage
-                image={images.phone}
-                alt="Mobile User Interface"
-                height="566"
-                width="275"
-                objectFit="contain"
-              />
-            }
+            image={<Image src={images.phone} alt="Mobile User Interface" height="566" width="275" objectFit="contain" />}
           >
             <UnorderedList
               title="Migipedia auf einen Blick"
@@ -116,8 +107,8 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
           </Keyfigure>
         </Section>
         <Section>
-          <PlaceholderImage
-            image={images.couch}
+          <Image
+            src={images.couch}
             alt="Eine Frau sitzt mit ihrem Sohn im Wohnzimmer. Sie sortieren Migros Mania Sammelelemente."
             priority
             objectFit="cover"
@@ -177,16 +168,14 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = await getPlaceholders(STATIC_IMAGES);
-  const teasers = await Promise.all(
-    getRandomTeasers(3, Teasers.migipedia.title).map(async (teaser) => await transformTeaser(teaser))
-  );
+  const images = STATIC_IMAGES;
+  const teasers = getRandomTeasers(3, Teasers.migipedia.title);
   return {
     props: {
       images,
       teasers,
-      quote: await transformQuote(Quotes['philipp-migipedia']),
-      contact: await transformEmployee(Employees.thomas),
+      quote: Quotes['philipp-migipedia'],
+      contact: Employees.thomas,
       awards: Teasers.migipedia.awards,
     },
   };
