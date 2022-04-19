@@ -9,9 +9,10 @@ const OG_IMAGE_SERVICE_URL = `${process.env.NEXT_PUBLIC_OG_IMAGE_SERVICE_URL}/ap
 type PageHeaderProps = PageHeaderComponentProps & {
   description?: string;
   pageTitle?: string;
+  metaOnly?: boolean;
 };
 
-export const PageHeader: FC<PageHeaderProps> = ({ description, pageTitle, ...props }) => {
+export const PageHeader: FC<PageHeaderProps> = ({ description, pageTitle, metaOnly = false, ...props }) => {
   const { asPath } = useRouter();
   const pageUrl = `${SITE_URL}${asPath}`;
   const imageUrl = `${OG_IMAGE_SERVICE_URL}/${encodeURIComponent(props.markdownTitle)}?md=1&fontSize=5rem&fileType=png`;
@@ -40,7 +41,7 @@ export const PageHeader: FC<PageHeaderProps> = ({ description, pageTitle, ...pro
         {description && <meta property="twitter:description" content={description} />}
         <meta property="twitter:image" content={imageUrl} />
       </Head>
-      <PageHeaderComponent {...props} />
+      {!metaOnly && <PageHeaderComponent {...props} />}
     </>
   );
 };

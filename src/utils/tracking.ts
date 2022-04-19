@@ -17,4 +17,9 @@ export type PlausibleEvents = {
     currentUrl: string;
     title: string;
   };
+  'Link Click': {
+    targetUrl: string;
+    currentUrl: string;
+    title: string;
+  };
 };
