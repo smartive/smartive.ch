@@ -244,7 +244,7 @@ const Sprache = () => (
               term: 'Besser positiv als negativ formulieren.',
               description: (
                 <IconList
-                  items={['Wir möchten ein Produkt schaffen, dass du und deine Kunden lieben.']}
+                  items={['Wir möchten ein Produkt schaffen, das du und deine Kunden lieben.']}
                   icon={Heart}
                   iconColor="mint"
                 />
