@@ -142,7 +142,7 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
             </TextBlock>
             <TextBlock title="Top 10 in fünf Jahren" number={10}>
               Unsere Projekte werden regelmässig ausgezeichnet. Bei den{' '}
-              <TextLink href="https://www.netzwoche.ch/news/2021-09-15/die-ewige-bestenliste-2021" newTab>
+              <TextLink href="https://www.netzwoche.ch/news/2022-04-28/die-ewige-bestenliste-2022" newTab>
                 Best of Swiss Web Awards
               </TextLink>{' '}
               rangieren wir in den Top 10 der vergangenen 5 Jahre.
