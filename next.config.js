@@ -26,4 +26,13 @@ module.exports = withBundleAnalyzer({
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1536], // 1536px is our max container size
   },
+  async redirects() {
+    return [
+      {
+        source: '/projekte/zubi',
+        destination: '/projekte/zubi-mentoring',
+        permanent: true,
+      },
+    ];
+  },
 });

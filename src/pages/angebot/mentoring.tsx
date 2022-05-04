@@ -114,7 +114,7 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages, quote }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const packages = [Packages.speedboat, Packages['scale-up'], Packages['design-sprint']];
-  const teasers = [Teasers['zubi'], Teasers['kaspar']];
+  const teasers = [Teasers['zubi-mentoring'], Teasers['kaspar']];
 
   return {
     props: {

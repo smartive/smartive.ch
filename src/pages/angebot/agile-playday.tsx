@@ -115,7 +115,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       packages,
       quote: Quotes['marco-zubi'],
-      teasers: [Teasers['zubi']],
+      teasers: [Teasers['zubi-mentoring']],
       contact: Employees.joshua,
     },
   };

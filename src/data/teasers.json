@@ -143,10 +143,10 @@
     "image": "/images/projekte/optimatik/solar-energy.jpg",
     "imageAlt": "Photovoltaik Anlage auf einem Feld."
   },
-  "zubi": {
-    "label": "Zubi",
+  "zubi-mentoring": {
+    "label": "Zubi Mentoring",
     "title": "Omnichannel Schuh- und Outdoorgeschäft",
-    "link": { "label": "Projekt anschauen", "href": "/projekte/zubi" },
+    "link": { "label": "Projekt anschauen", "href": "/projekte/zubi-mentoring" },
     "image": "/images/projekte/zubi/zubi_lagerfeuer.png",
     "imageAlt": "Frau an einer Grillstelle."
   },
@@ -176,5 +176,12 @@
         "full": "Best of Swiss Web 2021"
       }
     ]
+  },
+  "zubi-redesign": {
+    "label": "zubi.swiss – Relaunch",
+    "title": "E-Commerce – Schön schnell, schön modern und natürlich schön",
+    "link": { "label": "Projekt anschauen", "href": "/projekte/zubi-redesign" },
+    "image": "/images/projekte/zubi/zubi_mockup.png",
+    "imageAlt": "Frau an einer Grillstelle."
   }
 }

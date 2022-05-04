@@ -30,7 +30,7 @@ type Props = {
   packages: Package[];
 };
 
-const Zubi: NextPage<Props> = ({ quote, contact, teasers, images, packages }) => {
+const ZubiMentoring: NextPage<Props> = ({ quote, contact, teasers, images, packages }) => {
   return (
     <Page>
       <PageHeader
@@ -43,7 +43,7 @@ const Zubi: NextPage<Props> = ({ quote, contact, teasers, images, packages }) =>
           das E-Commerce-Team vom Zubi Online Shop mit regelmässigen{' '}
           <TextLink href="/angebot/mentoring">Mentoring-Treffen</TextLink>.
         </Copy>
-        <LinkList links={[{ label: 'Zum Onlineshop', href: 'https://zubischuhe.ch/' }]} />
+        <LinkList links={[{ label: 'Zum Onlineshop', href: 'https://zubi.swiss/' }]} />
       </PageHeader>
 
       <main>
@@ -133,7 +133,7 @@ const Zubi: NextPage<Props> = ({ quote, contact, teasers, images, packages }) =>
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const images = STATIC_IMAGES;
-  const teasers = getRandomTeasers(3, Teasers['zubi'].title);
+  const teasers = getRandomTeasers(3, Teasers['zubi-mentoring'].title);
   const packages = [Packages['mentoring'], Packages['agile-playday']];
   return {
     props: {
@@ -146,4 +146,4 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-export default Zubi;
+export default ZubiMentoring;
