@@ -114,7 +114,7 @@ const Brand: FC = () => (
         Schwarz lieber vermeiden und stattdessen Darkness ☠️ verwenden.
       </Copy>
       <Heading3>Slack Theme</Heading3>
-      <div className="mb-8 flex items-center ">
+      <div className="flex flex-col sm:flex-row gap-2 items-center mb-8">
         <SlackTheme />
       </div>
       <ul className="grid xl:grid-cols-2 gap-8">
