@@ -22,6 +22,7 @@ import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
+import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
 import { getRandomTeasers } from '../../utils/teasers';
@@ -54,8 +55,8 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
           benutzt.
         </Copy>
         <Copy>
-          In Echtzeit (und rasant 🚀) liefert die GraphQL-Schnittstelle Rezeptdaten aus. Aber nicht nur das, dank einer
-          intelligenten Suche ist sie auch das Rückgrat der Migusto-Suchfunktion.
+          In Echtzeit (und rasant 🚀) liefert die <Link href="/was-ist/graphql">GraphQL</Link>-Schnittstelle Rezeptdaten aus.
+          Aber nicht nur das, dank einer intelligenten Suche ist sie auch das Rückgrat der Migusto-Suchfunktion.
         </Copy>
         <LinkList
           links={[
@@ -110,9 +111,10 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             <em>Schmeckt toll, aber noch besser mit etwas Chili.</em>
           </Copy>
           <Copy>
-            Die Schnittstelle kann mit mehreren Mandanten umgehen. Sie liefert Rezepte für Migusto, Famigros und iMpuls. Dank
-            GraphQL ist eine flexible, auf den Mandanten und den Kontext zugeschnittene Abfrage möglich: Nur die jeweils
-            benötigten Felder werden abgefragt, seien es Bild und Titel oder alle Schritte und detaillierte Nährwertangaben.
+            Die Schnittstelle kann mit mehreren Mandanten umgehen. Sie liefert Rezepte für Migusto, Famigros und iMpuls. Dank{' '}
+            <Link href="/was-ist/graphql">GraphQL</Link> ist eine flexible, auf den Mandanten und den Kontext zugeschnittene
+            Abfrage möglich: Nur die jeweils benötigten Felder werden abgefragt, seien es Bild und Titel oder alle Schritte
+            und detaillierte Nährwertangaben.
           </Copy>
         </Section>
         <Section>
