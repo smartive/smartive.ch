@@ -64,7 +64,7 @@
     "@types/tryghost__content-api": "1.3.10",
     "autoprefixer": "10.4.5",
     "eslint": "8.16.0",
-    "next-sitemap": "2.5.27",
+    "next-sitemap": "2.5.28",
     "playwright": "1.22.2",
     "postcss": "8.4.14",
     "postcss-import": "14.1.0",
