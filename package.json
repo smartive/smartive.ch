@@ -27,7 +27,7 @@
     "charts.css": "0.9.0",
     "dayjs": "1.11.2",
     "eslint-config-next": "12.1.6",
-    "framer-motion": "6.3.4",
+    "framer-motion": "6.3.5",
     "graphql": "16.5.0",
     "graphql-request": "4.3.0",
     "image-size": "1.0.1",
