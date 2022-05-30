@@ -29,7 +29,7 @@
     "eslint-config-next": "12.1.6",
     "framer-motion": "6.3.4",
     "graphql": "16.5.0",
-    "graphql-request": "4.2.0",
+    "graphql-request": "4.3.0",
     "image-size": "1.0.1",
     "js-confetti": "0.10.2",
     "motion": "10.10.0",
