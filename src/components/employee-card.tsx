@@ -1,6 +1,6 @@
-import { Heading3, TextLink } from '@smartive/guetzli';
+import { Heading3, TextLink, useSSRSafeRandomNumber } from '@smartive/guetzli';
 import { usePlausible } from 'next-plausible';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Employee } from '../data/employees';
 import { PlausibleEvents } from '../utils/tracking';
 import { Image } from './image';
@@ -10,8 +10,8 @@ type Props = {
   className?: string;
 };
 
-const getFallbackImage = () =>
-  `/images/portrait-fallback-${['apricot', 'mint', 'cornflower'][Math.floor(Math.random() * 3)]}.svg`;
+const availableColors = ['apricot', 'mint', 'cornflower'] as const;
+const getFallbackImage = (colorIndex: number) => `/images/portrait-fallback-${availableColors[colorIndex]}.svg`;
 
 export const EmployeeCard: FC<Props> = ({
   employee: { name, job, bio, github, linkedin, twitter, email, image, closeup },
@@ -37,8 +37,9 @@ export const EmployeeCard: FC<Props> = ({
   ].filter(Boolean);
   const plausible = usePlausible<PlausibleEvents>();
 
-  const imageWithFallback = image || getFallbackImage();
-  const closeupWithFallback = closeup || getFallbackImage();
+  const colorIndex = useSSRSafeRandomNumber(0, availableColors.length - 1);
+  const imageWithFallback = image || getFallbackImage(colorIndex);
+  const closeupWithFallback = closeup || getFallbackImage(colorIndex);
 
   return (
     <div

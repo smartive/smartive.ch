@@ -1,8 +1,8 @@
 import { Client } from '@notionhq/client';
 import { GetPageResponse, ListBlockChildrenResponse, QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
-import { BrandColor, ContentCard, Grid } from '@smartive/guetzli';
+import { BrandColor, ContentCard, Grid, useSSRSafeRandomNumber } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { Fragment } from 'react';
+import { FC } from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
@@ -51,18 +51,8 @@ const DigitalGarden: NextPage<Props> = ({ page, blocks, seeds }) => {
                   (seed.properties.Name.type === 'title' &&
                     seed.properties.Name.title.reduce((acc, cur) => `${acc}${cur.plain_text}`, '')) ||
                   '';
-                const colors = ['cornflower', 'mint', 'apricot'] as BrandColor[];
-                const color = colors[Math.floor(Math.random() * colors.length)];
 
-                return (
-                  <Fragment key={seed.id}>
-                    <ContentCard
-                      title={title}
-                      link={{ label: 'Mehr dazu', href: `/digital-garden/${slug}` }}
-                      background={color}
-                    />
-                  </Fragment>
-                );
+                return <SeedComponent key={seed.id} title={title} slug={slug} />;
               }
 
               return null;
@@ -71,6 +61,19 @@ const DigitalGarden: NextPage<Props> = ({ page, blocks, seeds }) => {
         </Section>
       </main>
     </Page>
+  );
+};
+
+const SeedComponent: FC<{ title: string; slug: string }> = ({ title, slug }) => {
+  const colors = ['cornflower', 'mint', 'apricot'] as BrandColor[];
+  const colorIndex = useSSRSafeRandomNumber(0, colors.length - 1);
+
+  return (
+    <ContentCard
+      title={title}
+      link={{ label: 'Mehr dazu', href: `/digital-garden/${slug}` }}
+      background={colors[colorIndex]}
+    />
   );
 };
 

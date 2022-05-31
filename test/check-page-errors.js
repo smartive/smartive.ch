@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const ignoreListRoutes = ['/404', '/_document', '/_app', '/api/', '/blog/[slug]', '/digital-garden/[slug]', '/index'];
-const ignoreListErrors = ['card-shadow-', 'is smaller than 40x40', 'bg-', 'Fast Refresh', 'Image with src', '403'];
+const ignoreListErrors = ['is smaller than 40x40', 'Fast Refresh', 'Image with src', '403'];
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',
   'nachhaltigkeit/[year]/scope-3': 'nachhaltigkeit/2019/scope-3',

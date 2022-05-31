@@ -1,3 +1,4 @@
+import { useSSRSafeRandomNumber } from '@smartive/guetzli';
 import NextImage, { ImageProps } from 'next/image';
 import { FC, ReactNode } from 'react';
 
@@ -14,7 +15,7 @@ type Props = {
 
 export const Image: FC<Props> = ({ alt, rounded = 'default', src, caption, variant, ...props }) => {
   const bgClasses = ['bg-apricot-200', 'bg-cornflower-200', 'bg-mint-200'];
-  const randomBg = bgClasses[Math.floor(Math.random() * bgClasses.length)];
+  const colorIndex = useSSRSafeRandomNumber(0, bgClasses.length - 1);
 
   if (variant === ImageVariant.PortraitBig || variant === ImageVariant.PortraitSmall) {
     props.width = variant === ImageVariant.PortraitBig ? 208 : 128;
@@ -30,7 +31,7 @@ export const Image: FC<Props> = ({ alt, rounded = 'default', src, caption, varia
         {...(props as any)}
         src={src}
         alt={alt}
-        className={`transition bg-opacity-50 ${randomBg} ${
+        className={`transition bg-opacity-50 ${bgClasses[colorIndex]} ${
           rounded === 'default' ? 'rounded' : rounded === 'full' ? 'rounded-full' : ''
         }`}
       />
