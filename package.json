@@ -63,7 +63,7 @@
     "@types/react-dom": "18.0.5",
     "@types/tryghost__content-api": "1.3.10",
     "autoprefixer": "10.4.5",
-    "eslint": "8.16.0",
+    "eslint": "8.17.0",
     "next-sitemap": "3.0.5",
     "playwright": "1.22.2",
     "postcss": "8.4.14",
