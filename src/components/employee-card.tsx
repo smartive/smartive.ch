@@ -43,6 +43,7 @@ export const EmployeeCard: FC<Props> = ({
 
   return (
     <div
+      id={encodeURI(name)}
       className={`flex flex-col bg-white-100 rounded overflow-hidden ${className}`}
       itemScope
       itemProp="employee"

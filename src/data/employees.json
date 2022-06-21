@@ -19,7 +19,8 @@
         "label": "GitHub",
         "url": "https://github.com/Urogna"
       }
-    ]
+    ],
+    "start": 2021
   },
   "celine": {
     "firstname": "Céline",
@@ -45,7 +46,8 @@
         "label": "GitHub",
         "url": "https://github.com/celine-s"
       }
-    ]
+    ],
+    "start": 2021
   },
   "marco": {
     "firstname": "Marco",
@@ -75,7 +77,8 @@
         "label": "GitHub",
         "url": "https://github.com/triggertoo"
       }
-    ]
+    ],
+    "start": 2014
   },
   "peter": {
     "firstname": "Peter",
@@ -105,7 +108,8 @@
         "label": "GitHub",
         "url": "https://github.com/petermanser"
       }
-    ]
+    ],
+    "start": 2012
   },
   "thilo": {
     "firstname": "Thilo",
@@ -135,7 +139,8 @@
         "label": "GitHub",
         "url": "https://github.com/thilohaas"
       }
-    ]
+    ],
+    "start": 2012
   },
   "moreno": {
     "firstname": "Moreno",
@@ -161,7 +166,8 @@
         "label": "GitHub",
         "url": "https://github.com/mfeltscher"
       }
-    ]
+    ],
+    "start": 2013
   },
   "christoph": {
     "firstname": "Christoph",
@@ -187,7 +193,8 @@
         "label": "GitHub",
         "url": "https://github.com/buehler"
       }
-    ]
+    ],
+    "start": 2014
   },
   "dominique": {
     "firstname": "Dominique",
@@ -217,7 +224,8 @@
         "label": "GitHub",
         "url": "https://github.com/dwirz"
       }
-    ]
+    ],
+    "start": 2016
   },
   "nicola": {
     "firstname": "Nicola",
@@ -243,7 +251,8 @@
         "label": "GitHub",
         "url": "https://github.com/nickredmark"
       }
-    ]
+    ],
+    "start": 2016
   },
   "robert": {
     "firstname": "Robert",
@@ -273,7 +282,8 @@
         "label": "GitHub",
         "url": "https://github.com/deniaz"
       }
-    ]
+    ],
+    "start": 2016
   },
   "mirco": {
     "firstname": "Mirco",
@@ -299,7 +309,8 @@
         "label": "LinkedIn",
         "url": "https://www.linkedin.com/in/mirco-str%C3%A4ssle-22740a20a/"
       }
-    ]
+    ],
+    "start": 2017
   },
   "thomas": {
     "firstname": "Thomas",
@@ -325,7 +336,8 @@
         "label": "GitHub",
         "url": "https://github.com/thommymo"
       }
-    ]
+    ],
+    "start": 2018
   },
   "joshua": {
     "firstname": "Joshua",
@@ -355,7 +367,8 @@
         "label": "Twitter",
         "url": "https://twitter.com/virth91"
       }
-    ]
+    ],
+    "start": 2018
   },
   "kim": {
     "firstname": "Kim",
@@ -381,7 +394,8 @@
         "label": "GitHub",
         "url": "https://github.com/kimbylr"
       }
-    ]
+    ],
+    "start": 2018
   },
   "anna": {
     "firstname": "Anna",
@@ -407,7 +421,8 @@
         "label": "GitHub",
         "url": "https://github.com/BigAccessBrother"
       }
-    ]
+    ],
+    "start": 2019
   },
   "benjamin": {
     "firstname": "Benjamin",
@@ -433,7 +448,8 @@
         "label": "GitHub",
         "url": "https://github.com/benjaminbrossi"
       }
-    ]
+    ],
+    "start": 2019
   },
   "nadia": {
     "firstname": "Nadia",
@@ -459,7 +475,8 @@
         "label": "GitHub",
         "url": "https://github.com/NadiaPosch"
       }
-    ]
+    ],
+    "start": 2020
   },
   "damian": {
     "firstname": "Damian",
@@ -485,7 +502,8 @@
         "label": "Twitter",
         "url": "https://twitter.com/damiancaduff"
       }
-    ]
+    ],
+    "start": 2020
   },
   "sabrina": {
     "firstname": "Sabrina",
@@ -507,7 +525,8 @@
         "label": "LinkedIn",
         "url": "https://www.linkedin.com/in/sabrina-oertle-60a70a8b/"
       }
-    ]
+    ],
+    "start": 2021
   },
   "matthias": {
     "firstname": "Matthias",
@@ -533,7 +552,8 @@
         "label": "GitHub",
         "url": "https://github.com/mlsr714"
       }
-    ]
+    ],
+    "start": 2021
   },
   "kevin": {
     "firstname": "Kevin",
@@ -559,7 +579,8 @@
         "label": "GitHub",
         "url": "https://github.com/Walkeezy"
       }
-    ]
+    ],
+    "start": 2021
   },
   "jennifer": {
     "firstname": "Jennifer",
@@ -581,7 +602,8 @@
         "label": "LinkedIn",
         "url": "https://www.linkedin.com/in/jennifer-duarte-06a636179/"
       }
-    ]
+    ],
+    "start": 2022
   },
   "mike": {
     "firstname": "Mike",
@@ -607,6 +629,7 @@
         "label": "GitHub",
         "url": "https://github.com/mike-schmid"
       }
-    ]
+    ],
+    "start": 2022
   }
 }

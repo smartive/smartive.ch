@@ -30,6 +30,7 @@ export const getNotionEmployees = async (): Promise<Employee[]> => {
           PhotoMain,
           Telefon,
           Booking,
+          Start,
         },
       } = block;
 
@@ -51,6 +52,7 @@ export const getNotionEmployees = async (): Promise<Employee[]> => {
         image: getNotionUrl(PhotoMain.files[0].file.url, block),
         closeup: getNotionUrl(PhotoCloseup.files[0].file.url, block),
         portrait: getNotionUrl(PhotoPortrait.files[0].file.url, block),
+        start: Start.number,
       };
 
       return mapped;
@@ -86,6 +88,7 @@ export type Employee = {
   image: string;
   closeup: string;
   portrait: string;
+  start: number;
 };
 
 interface Properties {
@@ -101,6 +104,7 @@ interface Properties {
   PhotoMain: Files;
   PhotoCloseup: Files;
   PhotoPortrait: Files;
+  Start: NotionNumber;
 }
 
 interface NotionEmployee {
@@ -155,4 +159,9 @@ interface Name {
   id: string;
   type: string;
   title: Title[];
+}
+
+interface NotionNumber {
+  type: string;
+  number: number;
 }

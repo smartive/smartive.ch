@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { Scroll } from 'scrollex';
 import { Footer } from '../components/footer';
 import { useKube } from '../components/kube';
 import '../styles/globals.css';
@@ -34,7 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <PlausibleProvider domain={PLAUSIBLE_DOMAIN} enabled={PLAUSIBLE_ENABLED}>
-      <div className="min-h-screen grid grid-rows-[auto,1fr,auto]">
+      <div className="min-h-screen grid grid-rows-[auto,1fr,auto] overflow-hidden">
         <Head>
           <meta
             name="viewport"
@@ -42,8 +43,17 @@ export default function App({ Component, pageProps }: AppProps) {
           />
         </Head>
         {!!pageProps?.prismicPreview && <PrismicPreviewBar />}
-        <Component {...pageProps} />
-        <Footer />
+        {pathname === '/10' ? (
+          <Scroll.Container scrollAxis="y" className="h-screen">
+            <Component {...pageProps} />
+            <Footer />
+          </Scroll.Container>
+        ) : (
+          <>
+            <Component {...pageProps} />
+            <Footer />
+          </>
+        )}
       </div>
     </PlausibleProvider>
   );

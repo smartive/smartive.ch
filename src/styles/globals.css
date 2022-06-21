@@ -41,6 +41,14 @@ footer {
     @apply break-words;
     word-break: break-word;
   }
+
+  .text-fill-transparent {
+    -webkit-text-fill-color: transparent;
+  }
+
+  .image-overflow-override > span {
+    overflow: visible !important;
+  }
 }
 
 /* blog: github gists */
