@@ -38,7 +38,6 @@ import hoiSmartive from '../../public/images/anniversary/2019/hoi-smartive.png';
 import huette from '../../public/images/anniversary/2019/huette.jpg';
 import whatAview from '../../public/images/anniversary/2019/what-a-view.jpg';
 import skitag2 from '../../public/images/anniversary/2020/skitag.jpeg';
-
 import doeme from '../../public/images/anniversary/2020/doeme.jpeg';
 import fire from '../../public/images/anniversary/2020/fire.png';
 import skifoahn from '../../public/images/anniversary/2020/skifoahn.jpeg';
@@ -91,8 +90,8 @@ const keyframes = {
       translateY: -150,
     },
     [section.bottomAt('container-top')]: {
-      scale: 1.5,
-      translateY: 200,
+      scale: 1.25,
+      translateY: 50,
     },
   }),
   blob:
@@ -143,15 +142,21 @@ const Ten: NextPage<Props> = ({ employees }) => {
       <Scroll.Section>
         <PageHeader markdownTitle="smartive wird 10 🥳" metaOnly></PageHeader>
         <header className="relative bg-white-200 w-11/12 max-w-screen-xl mx-auto overflow-visible">
-          <ParallaxBlob variant={BlobVariants.One} className="absolute -top-12 -left-14 lg:-top-52 lg:-left-28 z-0" />
-          <ParallaxBlob variant={BlobVariants.Two} className="absolute top-36 -left-24 lg:-left-52 z-0" />
-          <ParallaxBlob variant={BlobVariants.Three} className="absolute top-16 lg:-top-10 left-28 lg:left-48 z-0" />
+          <Scroll.Item keyframes={keyframes.blob(0, 200)}>
+            <Blob variant={BlobVariants.One} className="absolute -top-32 -left-14 lg:-top-64 lg:-left-28 z-0" />
+          </Scroll.Item>
+          <Scroll.Item keyframes={keyframes.blob(0, 200)}>
+            <Blob variant={BlobVariants.Two} className="absolute top-16 lg:top-32 -left-24 lg:-left-52 z-0" />
+          </Scroll.Item>
+          <Scroll.Item keyframes={keyframes.blob(0, 200)}>
+            <Blob variant={BlobVariants.Three} className="absolute -top-12 lg:-top-24 left-28 lg:left-48 z-0" />
+          </Scroll.Item>
           <ParallaxBlob
             variant={BlobVariants.One}
             className="absolute -bottom-40 lg:-bottom-56 -right-32 lg:-right-64 z-10"
           />
 
-          <div className="relative text-center h-80 lg:h-[550px] flex items-center place-content-center pb-48 lg:pb-36 z-50">
+          <div className="relative text-center h-80 lg:h-[550px] flex items-center place-content-center z-50 pb-8">
             <Scroll.Item keyframes={keyframes.logo}>
               <TextLogo />
             </Scroll.Item>
@@ -215,7 +220,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
 
         <Scroll.Section>
           <Container
-            className="relative grid-rows-2 lg:grid-rows-3"
+            className="relative grid-rows-[1fr,200px] lg:grid-rows-3"
             inViewChange={(inView) => inView && setVisibleYear(2013)}
           >
             <ParallaxBlob variant={BlobVariants.Four} className="absolute -top-56 -left-64 z-0" />
@@ -239,7 +244,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
 
         <Scroll.Section>
           <Container
-            className="grid-rows-[1fr,0.75fr,0.75fr] lg:grid-rows-5"
+            className="grid-rows-[1fr,200px,200px] lg:grid-rows-5"
             inViewChange={(inView) => inView && setVisibleYear(2014)}
           >
             <ParallaxBlob variant={BlobVariants.Two} className="absolute top-72 -right-24 lg:-right-72 z-0" />
@@ -271,7 +276,10 @@ const Ten: NextPage<Props> = ({ employees }) => {
         </Scroll.Section>
 
         <Scroll.Section>
-          <Container className="grid-rows-5 lg:grid-rows-4" inViewChange={(inView) => inView && setVisibleYear(2015)}>
+          <Container
+            className="grid-rows-[1fr,200px,200px,200px,200px] lg:grid-rows-4"
+            inViewChange={(inView) => inView && setVisibleYear(2015)}
+          >
             <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-4 text-right">
               <Header side="right" year="2015">
                 <Heading level="3">Viele erste Male</Heading>
@@ -282,23 +290,26 @@ const Ten: NextPage<Props> = ({ employees }) => {
                 aber doch für eine Vollzeitstelle.
               </Text>
             </div>
-            <div className="relative col-span-8 lg:col-start-3 lg:col-span-3 lg:row-start-2">
+            <div className="relative col-span-12 lg:col-start-3 lg:col-span-3 lg:row-start-2">
               <ParallaxImage src={docker} alt="" />
             </div>
-            <div className="relative col-span-10 lg:col-start-6 lg:col-span-3 lg:row-start-2">
+            <div className="relative col-span-12 lg:col-start-6 lg:col-span-3 lg:row-start-2">
               <ParallaxImage src={fest} alt="" />
             </div>
-            <div className="relative col-span-10 lg:col-start-9 lg:col-span-3 lg:row-start-2">
-              <ParallaxImage effect="minimal" src={moreno2015} alt="" />
+            <div className="relative col-span-12 lg:col-start-9 lg:col-span-3 lg:row-start-2">
+              <ParallaxImage src={moreno2015} alt="" />
             </div>
-            <div className="relative col-span-8 col-start-4 lg:row-start-3 lg:row-span-2">
-              <ParallaxImage effect="heavy" src={zermatt2015} alt="" />
+            <div className="relative col-span-12 lg:row-start-3 lg:row-span-2 lg:col-start-6">
+              <ParallaxImage src={zermatt2015} alt="" />
             </div>
           </Container>
         </Scroll.Section>
 
         <Scroll.Section>
-          <Container className="grid-rows-6" inViewChange={(inView) => inView && setVisibleYear(2016)}>
+          <Container
+            className="grid-rows-[1fr,200px,200px,300px,200px,200px] lg:grid-rows-6"
+            inViewChange={(inView) => inView && setVisibleYear(2016)}
+          >
             <ParallaxBlob variant={BlobVariants.Five} className="absolute -top-72 -right-24 z-0" />
             <ParallaxBlob variant={BlobVariants.Four} className="absolute bottom-24 left-24 z-0" />
 
@@ -315,10 +326,10 @@ const Ten: NextPage<Props> = ({ employees }) => {
             <div className="relative col-span-12 lg:col-span-6 lg:col-start-2 lg:row-span-2">
               <ParallaxImage src={stockDominique} alt="" />
             </div>
-            <div className="relative col-span-8 col-start-4 lg:col-start-2 lg:col-span-6 lg:row-span-1">
+            <div className="relative col-span-12 lg:col-start-2 lg:col-span-6 lg:row-span-1">
               <ParallaxImage src={bravoThilo} alt="" />
             </div>
-            <div className="relative col-span-8 col-start-2 lg:row-start-2 lg:col-span-5 lg:col-start-8 lg:row-span-3">
+            <div className="relative col-span-12 lg:row-start-2 lg:col-span-5 lg:col-start-8 lg:row-span-3">
               <ParallaxImage src={sanfran} alt="" />
             </div>
             <div className="relative col-span-12 lg:col-span-6 lg:col-start-2 lg:row-span-2">
@@ -331,7 +342,10 @@ const Ten: NextPage<Props> = ({ employees }) => {
         </Scroll.Section>
 
         <Scroll.Section>
-          <Container className="grid-rows-4" inViewChange={(inView) => inView && setVisibleYear(2017)}>
+          <Container
+            className="grid-rows-[1fr,250px,250px,200px,250px,200px] lg:grid-rows-4"
+            inViewChange={(inView) => inView && setVisibleYear(2017)}
+          >
             <ParallaxBlob variant={BlobVariants.Two} className="absolute -top-12 -left-24 z-0" />
             <ParallaxBlob variant={BlobVariants.Six} className="absolute top-1/2 -right-24 z-0" />
 
@@ -359,7 +373,6 @@ const Ten: NextPage<Props> = ({ employees }) => {
             <div className="relative col-span-12 lg:col-span-4 lg:col-start-2">
               <ParallaxImage src={jsConf} alt="" />
             </div>
-
             <div className="relative col-span-12 lg:col-span-5 lg:col-start-6">
               <ParallaxImage src={brewdog} alt="" />
             </div>
@@ -368,7 +381,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
 
         <Scroll.Section>
           <Container
-            className="grid-rows-6 lg:grid-rows-[2fr,1fr,1fr,2fr,2fr,1fr,1fr]"
+            className="grid-rows-[1fr,250px,200px,200px,300px,300px,200px] lg:grid-rows-[2fr,1fr,1fr,2fr,2fr,1fr,1fr]"
             inViewChange={(inView) => inView && setVisibleYear(2018)}
           >
             <ParallaxBlob variant={BlobVariants.Five} className="absolute top-1/3 -left-24 z-0" />
@@ -390,16 +403,16 @@ const Ten: NextPage<Props> = ({ employees }) => {
               </audio>
             </div>
 
-            <div className="col-span-6 lg:col-span-5 lg:col-start-2 relative lg:row-span-2">
+            <div className="col-span-12 lg:col-span-5 lg:col-start-2 relative lg:row-span-2">
               <ParallaxImage src={peter30} alt="" />
             </div>
-            <div className="col-span-6 lg:col-span-5 relative lg:row-span-2">
+            <div className="col-span-12 lg:col-span-5 relative lg:row-span-2">
               <ParallaxImage src={front} alt="" />
             </div>
             <div className="col-span-12 lg:col-span-7 lg:col-start-2 relative">
               <ParallaxImage src={bubblesoccer} alt="" />
             </div>
-            <div className="col-span-10 col-start-2 lg:col-span-4 lg:row-span-2 relative">
+            <div className="col-span-12 lg:col-span-4 lg:row-span-2 relative">
               <ParallaxImage effect="heavy" src={aescher} alt="" />
             </div>
             <div className="col-span-12 lg:col-span-4 relative lg:col-start-3 lg:row-span-2">
@@ -412,7 +425,10 @@ const Ten: NextPage<Props> = ({ employees }) => {
         </Scroll.Section>
 
         <Scroll.Section>
-          <Container className="grid-rows-5" inViewChange={(inView) => inView && setVisibleYear(2019)}>
+          <Container
+            className="grid-rows-[1fr,200px,200px,200px,200px] lg:grid-rows-5"
+            inViewChange={(inView) => inView && setVisibleYear(2019)}
+          >
             <ParallaxBlob variant={BlobVariants.One} className="absolute top-0 -left-72 z-0" />
             <ParallaxBlob variant={BlobVariants.Three} className="absolute -bottom-72 -right-24 z-0" />
 
@@ -448,7 +464,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
 
         <Scroll.Section>
           <Container
-            className="grid-rows-3 lg:grid-rows-[1fr,1.5fr,1fr,1fr,1fr]"
+            className="grid-rows-[1fr,200px,200px,250px] lg:grid-rows-[1fr,1.5fr,1fr,1fr,1fr]"
             inViewChange={(inView) => inView && setVisibleYear(2020)}
           >
             <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-2">
@@ -462,23 +478,26 @@ const Ten: NextPage<Props> = ({ employees }) => {
               </Text>
             </div>
 
-            <div className="relative col-span-6 lg:col-start-2 row-start-2">
+            <div className="relative col-span-12 lg:col-start-2 lg:row-start-2">
               <ParallaxImage effect="heavy" src={fire} alt="" />
             </div>
-            <div className="relative col-span-6 lg:col-span-5 col-start-7 lg:col-start-8 row-start-2">
+            <div className="relative col-span-12 lg:col-span-5 lg:col-start-8 lg:row-start-2">
               <ParallaxImage effect="heavy" src={skifoahn} alt="" />
             </div>
-            <div className="relative col-span-12 lg:col-span-8 lg:col-start-2 row-start-3 lg:row-span-3">
+            <div className="relative col-span-12 lg:col-span-8 lg:col-start-2 lg:row-start-3 lg:row-span-3">
               <ParallaxImage src={skitag2} alt="" />
             </div>
-            <div className="relative hidden lg:block lg:col-span-4 lg:col-span-3 lg:col-start-10 lg:row-span-2">
+            <div className="relative lg:col-span-3 lg:col-start-10 lg:row-span-2">
               <ParallaxImage effect="minimal" src={doeme} alt="" />
             </div>
           </Container>
         </Scroll.Section>
 
         <Scroll.Section>
-          <Container className="grid-rows-6 lg:grid-rows-4" inViewChange={(inView) => inView && setVisibleYear(2021)}>
+          <Container
+            className="grid-rows-[1fr,200px,300px,300px,300px,250px,300px,250px] lg:grid-rows-4"
+            inViewChange={(inView) => inView && setVisibleYear(2021)}
+          >
             <ParallaxBlob variant={BlobVariants.Two} className="absolute top-36 -left-72 z-0" />
             <ParallaxBlob variant={BlobVariants.Seven} className="absolute top-72 left-24 z-0" />
 
@@ -523,7 +542,10 @@ const Ten: NextPage<Props> = ({ employees }) => {
         </Scroll.Section>
 
         <Scroll.Section>
-          <Container className="grid-rows-5" inViewChange={(inView) => inView && setVisibleYear(2022)}>
+          <Container
+            className="grid-rows-[1fr,250px,250px,250px,250px,250px] lg:grid-rows-5"
+            inViewChange={(inView) => inView && setVisibleYear(2022)}
+          >
             <ParallaxBlob variant={BlobVariants.Four} className="absolute bottom-0 -right-96 z-0" />
 
             <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-2">
@@ -541,15 +563,15 @@ const Ten: NextPage<Props> = ({ employees }) => {
               <ParallaxImage effect="minimal" src={gruppafoettali} alt="Alle smarties beim Retro-Brunch." />
             </div>
 
-            <div className="col-span-12 md:col-span-6 lg:col-start-10 relative">
+            <div className="col-span-12 lg:col-span-6 lg:col-start-10 relative">
               <ParallaxImage effect="minimal" src={stadtfueahrig} alt="Stadtführung in Zürich." />
             </div>
 
-            <div className="col-span-12 md:col-span-6 lg:col-start-10 lg:row-start-3 relative">
+            <div className="col-span-12 lg:col-span-6 lg:col-start-10 lg:row-start-3 relative">
               <ParallaxImage effect="minimal" src={rammstein} alt="Gruppenfoto am Rammstein-Konzert." />
             </div>
 
-            <div className="col-span-12 lg:row-span-2 md:col-span-8 lg:col-start-3 lg:row-start-4 relative">
+            <div className="col-span-12 lg:row-span-2 lg:col-span-8 lg:col-start-3 lg:row-start-4 relative">
               <ParallaxImage effect="minimal" src={skitag} alt="Skitag in Arosa." />
             </div>
 
@@ -692,7 +714,7 @@ const ParallaxImage: FC<{
   const parallaxIndex = useSSRSafeRandomNumber(0, 1);
 
   return (
-    <div className=" w-full h-full overflow-hidden rounded z-20">
+    <div className="w-full h-full overflow-hidden rounded z-20 relative">
       <Scroll.Item keyframes={keyframes.image[parallaxIndex]} className="relative w-full h-full image-overflow-override">
         <NextImage
           lazyBoundary="400px"
