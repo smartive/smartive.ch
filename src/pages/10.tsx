@@ -238,7 +238,10 @@ const Ten: NextPage<Props> = ({ employees }) => {
         </Scroll.Section>
 
         <Scroll.Section>
-          <Container className="grid-rows-5" inViewChange={(inView) => inView && setVisibleYear(2014)}>
+          <Container
+            className="grid-rows-[1fr,0.75fr,0.75fr] lg:grid-rows-5"
+            inViewChange={(inView) => inView && setVisibleYear(2014)}
+          >
             <ParallaxBlob variant={BlobVariants.Two} className="absolute top-72 -right-24 lg:-right-72 z-0" />
 
             <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-2">
@@ -251,17 +254,17 @@ const Ten: NextPage<Props> = ({ employees }) => {
                 und bis heute ein Herzensprojekt. 🧡
               </Text>
             </div>
-            <div className="relative col-span-12 row-span-2 lg:col-span-8 lg:row-start-2 lg:col-start-2">
+            <div className="relative col-span-12 lg:row-span-2 lg:col-span-8 lg:row-start-2 lg:col-start-2">
               <ParallaxImage
                 effect="heavy"
                 src={boyband}
                 alt="Moreno, Thilo, Marco und Peter auf einem der ersten Firmenfotos. Sie sehen aus wie eine Boyband."
               />
             </div>
-            <div className="relative col-span-4 lg:col-span-3 lg:row-span-2 lg:row-start-3 lg:col-start-10">
+            <div className="relative hidden lg:block lg:col-span-3 lg:row-span-2 lg:row-start-3 lg:col-start-10">
               <ParallaxImage src={bungee} alt="Peter bei der ersten Generalversammlung am Bungee Jumping." />
             </div>
-            <div className="relative col-span-4 lg:col-span-6 lg:row-start-4 lg:row-span-2 lg:col-start-4">
+            <div className="relative col-span-12 lg:col-span-6 lg:row-start-4 lg:row-span-2 lg:col-start-4">
               <ParallaxImage src={office} alt="Moreno sitzt in einem der ersten smartive Büros." />
             </div>
           </Container>
@@ -459,17 +462,17 @@ const Ten: NextPage<Props> = ({ employees }) => {
               </Text>
             </div>
 
-            <div className="relative col-span-6 col-start-2 row-start-2">
+            <div className="relative col-span-6 lg:col-start-2 row-start-2">
               <ParallaxImage effect="heavy" src={fire} alt="" />
             </div>
-            <div className="relative col-span-5 col-start-8 row-start-2">
+            <div className="relative col-span-6 lg:col-span-5 col-start-7 lg:col-start-8 row-start-2">
               <ParallaxImage effect="heavy" src={skifoahn} alt="" />
             </div>
-            <div className="relative col-span-8 col-start-2 row-start-3 row-span-3">
+            <div className="relative col-span-12 lg:col-span-8 lg:col-start-2 row-start-3 lg:row-span-3">
               <ParallaxImage src={skitag2} alt="" />
             </div>
-            <div className="relative col-span-3 col-start-10 row-start-3 row-span-2">
-              <ParallaxImage src={doeme} alt="" />
+            <div className="relative hidden lg:block lg:col-span-4 lg:col-span-3 lg:col-start-10 lg:row-span-2">
+              <ParallaxImage effect="minimal" src={doeme} alt="" />
             </div>
           </Container>
         </Scroll.Section>
@@ -620,11 +623,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-const Container: FC<{ children: ReactNode; className?: string; inViewChange?: any }> = ({
-  children,
-  className,
-  inViewChange,
-}) => {
+const Container: FC<{
+  children: ReactNode;
+  className?: string;
+  inViewChange?: any;
+}> = ({ children, className, inViewChange }) => {
   const { ref } = useInView({ onChange: inViewChange, threshold: 0.2 });
 
   return (
@@ -646,7 +649,11 @@ const SlackReaction: FC<{ children: ReactNode }> = ({ children }) => (
   </kbd>
 );
 
-const Header: FC<{ children: ReactNode; side: 'right' | 'left'; year: string }> = ({ children, year, side = 'left' }) => {
+const Header: FC<{
+  children: ReactNode;
+  side: 'right' | 'left';
+  year: string;
+}> = ({ children, year, side = 'left' }) => {
   return (
     <header className="relative">
       <div
@@ -675,10 +682,11 @@ const ParallaxBlob: FC<{ variant?: BlobVariants; className?: string }> = ({ vari
   );
 };
 
-const ParallaxImage: FC<{ alt: string; src: StaticImageData; effect?: 'heavy' | 'default' | 'minimal' }> = ({
-  alt,
-  src,
-}) => {
+const ParallaxImage: FC<{
+  alt: string;
+  src: StaticImageData;
+  effect?: 'heavy' | 'default' | 'minimal';
+}> = ({ alt, src }) => {
   const bgClasses = ['bg-apricot-200', 'bg-cornflower-200', 'bg-mint-200'];
   const colorIndex = useSSRSafeRandomNumber(0, bgClasses.length - 1);
   const parallaxIndex = useSSRSafeRandomNumber(0, 1);
