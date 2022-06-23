@@ -478,7 +478,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
               </Text>
             </div>
 
-            <div className="relative col-span-12 lg:col-start-2 lg:row-start-2">
+            <div className="relative col-span-12 lg:col-span-6 lg:col-start-2 lg:row-start-2">
               <ParallaxImage effect="heavy" src={fire} alt="" />
             </div>
             <div className="relative col-span-12 lg:col-span-5 lg:col-start-8 lg:row-start-2">
