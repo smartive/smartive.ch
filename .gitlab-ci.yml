@@ -11,7 +11,7 @@ stages:
 
 .default_template:
   extends: .base
-  image: node:14-alpine
+  image: node:16-alpine
 
 .test_template:
   extends: .default_template
@@ -22,6 +22,7 @@ stages:
 
 .deploy_template:
   extends: .default_template
+  image: node:16
   stage: deploy
   before_script:
     - npm ci

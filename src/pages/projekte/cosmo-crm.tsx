@@ -1,7 +1,7 @@
-import { BlobVariations, Copy, Grid, ImageCard, LinkList, Screenshot, TextBlock, UnorderedList } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, LinkList, Screenshot, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
 import { Contact } from '../../components/contact';
+import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee } from '../../data/employees';
@@ -97,7 +97,7 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
         <Section title="Weitere Erfolgsgeschichten">
           <Grid cols={3}>
             {teasers.map((teaser) => (
-              <ImageCard key={teaser.title} {...teaser} />
+              <NextImageCard key={teaser.title} {...teaser} />
             ))}
           </Grid>
         </Section>
