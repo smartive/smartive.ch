@@ -47,7 +47,7 @@
     "xstate": "4.32.1"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.6.2",
+    "@graphql-codegen/cli": "2.6.3",
     "@graphql-codegen/introspection": "2.1.1",
     "@graphql-codegen/typescript": "2.5.1",
     "@graphql-codegen/typescript-graphql-files-modules": "2.1.1",
