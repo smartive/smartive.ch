@@ -182,7 +182,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
               <Card>
                 <Heading level="3">Wir feiern! 🥳</Heading>
                 <Text>
-                  Zusammen mir dir? Fänden wir echt schön. <br />
+                  Zusammen mit dir? Fänden wir echt schön. <br />
                   Am 26. August 2022 ab 17 Uhr in Zürich.
                 </Text>
                 <Button as="a" href="https://smr.tv/sommerfest-22" onMouseEnter={activeConfettiCannon}>
