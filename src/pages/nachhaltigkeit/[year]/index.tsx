@@ -78,7 +78,7 @@ const YearOverview: NextPage<Props> = ({ year: currentYear, calculatedScopes, li
         description={`Genaue Infos zu unseren Emissionen im ${currentYear}`}
       >
         <Copy>Du möchtest Genaueres wissen? Wo wie was? Das findest du hier.</Copy>
-        <LinkList linkWrapper={NextLink} links={links} />
+        <LinkList linkWrapper={(props) => <NextLink {...props} />} links={links} />
       </PageHeader>
       <Section>
         <Heading3>Greenhouse Gas Protocol: Scopes </Heading3>

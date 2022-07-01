@@ -39,7 +39,7 @@ export const PrismicPage = ({ header, blocks }: Props) => (
     <PageHeader markdownTitle={header.primary.title} description={header.primary.intro?.text}>
       {header.fields && (
         <LinkList
-          linkWrapper={NextLink}
+          linkWrapper={(props) => <NextLink {...props} />}
           links={header.fields.map(({ link, linklabel }) => ({ label: linklabel, href: link }))}
         />
       )}
