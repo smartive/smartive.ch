@@ -5,6 +5,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   experimental: {
     scrollRestoration: true,
+    legacyBrowsers: false,
+    browsersListForSwc: true,
   },
   reactStrictMode: true,
   eslint: {

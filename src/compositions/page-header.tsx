@@ -22,7 +22,7 @@ export const PageHeader: FC<PageHeaderProps> = ({ description, pageTitle, metaOn
   return (
     <>
       <Head>
-        <title>{title} — smartive</title>
+        <title>{`${title} — smartive`}</title>
 
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

@@ -11,11 +11,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    await Promise.all(prismicPages.map(async (page) => await res.unstable_revalidate(page)));
+    await Promise.all(prismicPages.map(async (page) => await res.revalidate(page)));
     return res.json({ revalidated: true });
   } catch (err) {
     // If there was an error, Next.js will continue
     // to show the last successfully generated page
-    return res.status(500).send('Error revalidating');
+    return res.status(500).json({ revalidated: false, message: 'Error while revalidating' });
   }
 }

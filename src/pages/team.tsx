@@ -33,7 +33,10 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
           herausragen. Und eine ungezwungene Atmosphäre: Wir pflegen die Freundschaft. Wir entscheiden zusammen. Wir geben
           allen das Vertrauen und die Freiheit, sich auf ihre Art einzubringen.
         </Copy>
-        <LinkList linkWrapper={NextLink} links={[{ label: 'Du vermisst dein Foto?', href: '/jobs' }]} />
+        <LinkList
+          linkWrapper={(props) => <NextLink {...props} />}
+          links={[{ label: 'Du vermisst dein Foto?', href: '/jobs' }]}
+        />
       </PageHeader>
 
       <main>
