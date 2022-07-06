@@ -1,11 +1,10 @@
 import { BlobVariations, Clock, Copy, Grid, Heading2, Label, PageHeaderVariants, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
-import Employees from '../../data/employees.json';
+import { Employee, getEmployeeByName } from '../../data/employees';
+
 import Packages from '../../data/packages';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
@@ -78,10 +77,12 @@ const ScaleUp: NextPage<Props> = ({ contact, teasers }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
+  const contact = await getEmployeeByName('Thilo Haas');
+
   return {
     props: {
+      contact,
       teasers: [Teasers.subsidia, Teasers['supply-chain']],
-      contact: Employees.thilo,
     },
   };
 };

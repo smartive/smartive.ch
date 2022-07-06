@@ -62,7 +62,7 @@ import { Logo } from '../components/10/logo';
 import { Text } from '../components/10/text';
 import { TextLogo } from '../components/10/text-logo';
 import { PageHeader } from '../compositions/page-header';
-import { Employee, getNotionEmployees } from '../data/employees';
+import { Employee, getAllEmployees } from '../data/employees';
 import { Link } from '../elements/link';
 
 const keyframes = {
@@ -635,7 +635,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
 export default Ten;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const employees = await getNotionEmployees();
+  const employees = await getAllEmployees();
 
   return {
     props: {

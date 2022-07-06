@@ -1,13 +1,12 @@
 import { BlobVariations, Copy, Grid, Keyfigure, LinkList, TextBlock, TextLink, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
 import { Contact } from '../../components/contact';
 import { Image } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
-import Employees from '../../data/employees.json';
+import { Employee, getEmployeeByName } from '../../data/employees';
+
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Award, Teaser } from '../../data/teaser';
@@ -170,12 +169,14 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const images = STATIC_IMAGES;
   const teasers = getRandomTeasers(3, Teasers.migipedia.title);
+  const contact = await getEmployeeByName('Thomas Moser');
+
   return {
     props: {
       images,
       teasers,
+      contact,
       quote: Quotes['philipp-migipedia'],
-      contact: Employees.thomas,
       awards: Teasers.migipedia.awards,
     },
   };

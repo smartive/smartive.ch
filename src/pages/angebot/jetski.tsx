@@ -9,13 +9,12 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
-import Employees from '../../data/employees.json';
+import { Employee, getEmployeeByName } from '../../data/employees';
+
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
 import { Link } from '../../elements/link';
@@ -105,12 +104,13 @@ const Jetski: NextPage<Props> = ({ contact, teasers, packages }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const packages = [Packages.mentoring, Packages['scale-up'], Packages['design-sprint']];
+  const contact = await getEmployeeByName('Robert Vogt');
 
   return {
     props: {
       packages,
+      contact,
       teasers: [],
-      contact: Employees.robert,
     },
   };
 };

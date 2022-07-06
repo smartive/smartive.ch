@@ -10,14 +10,13 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
 import { Contact } from '../../components/contact';
 import { Image } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
-import Employees from '../../data/employees.json';
+import { Employee, getEmployeeByName } from '../../data/employees';
+
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
@@ -200,12 +199,14 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const images = STATIC_IMAGES;
   const teasers = getRandomTeasers(3, Teasers['optimatik'].title);
+  const contact = await getEmployeeByName('Josh Wirth');
+
   return {
     props: {
       images,
       teasers,
+      contact,
       quote: Quotes['hans-optimatik'],
-      contact: Employees.joshua,
     },
   };
 };

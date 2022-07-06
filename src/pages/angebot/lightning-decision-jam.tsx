@@ -9,14 +9,13 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
 import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
-import Employees from '../../data/employees.json';
+import { Employee, getEmployeeByName } from '../../data/employees';
+
 import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
@@ -112,13 +111,14 @@ const LightningDecisionJam: NextPage<Props> = ({ contact, packages, teasers, quo
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const packages = [Packages['design-sprint'], Packages.speedboat, Packages.mentoring];
+  const contact = await getEmployeeByName('Robert Vogt');
 
   return {
     props: {
       packages,
+      contact,
       quote: Quotes['markus-bin'],
       teasers: [],
-      contact: Employees.robert,
     },
   };
 };

@@ -5,7 +5,7 @@ import { Image } from '../../components/image';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import TextBlocks from '../../data/benefits.json';
-import { Employee, getNotionEmployees } from '../../data/employees';
+import { Employee, getAllEmployees } from '../../data/employees';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Page } from '../../layouts/page';
@@ -159,7 +159,7 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const images = STATIC_IMAGES;
-  const employees = await getNotionEmployees();
+  const employees = await getAllEmployees();
 
   return {
     props: {

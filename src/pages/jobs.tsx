@@ -1,11 +1,10 @@
 import { Copy, Grid } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
 import { Contact } from '../components/contact';
 import { Image } from '../components/image';
 import { PageHeader } from '../compositions/page-header';
-import { Employee } from '../data/employees';
-import Employees from '../data/employees.json';
+import { Employee, getEmployeeByName } from '../data/employees';
+
 import { Page } from '../layouts/page';
 import { Section } from '../layouts/section';
 
@@ -82,11 +81,12 @@ const Jobs: NextPage<Props> = ({ contact, images }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const images = STATIC_IMAGES;
+  const contact = await getEmployeeByName('Robert Vogt');
 
   return {
     props: {
       images,
-      contact: Employees.robert,
+      contact,
     },
   };
 };

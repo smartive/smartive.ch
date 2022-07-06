@@ -4,8 +4,8 @@ import { Contact } from '../../components/contact';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
-import Employees from '../../data/employees.json';
+import { Employee, getEmployeeByName } from '../../data/employees';
+
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
@@ -108,11 +108,13 @@ const Cosmo: NextPage<Props> = ({ quote, contact, teasers }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const teasers = getRandomTeasers(3, Teasers.cosmo.title);
+  const contact = await getEmployeeByName('Peter Manser');
+
   return {
     props: {
       teasers,
+      contact,
       quote: Quotes['stefan-cosmo'],
-      contact: Employees.peter,
     },
   };
 };

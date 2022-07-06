@@ -1,6 +1,5 @@
 import { BlobVariations, Copy, Grid, GridSlider, ImageCardVariants } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
 import { Contact } from '../../components/contact';
 import { CustomerList } from '../../components/customer-list';
 import { NextImageCard } from '../../components/image-card';
@@ -8,8 +7,8 @@ import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import { Customer } from '../../data/customers';
 import Customers from '../../data/customers.json';
-import { Employee } from '../../data/employees';
-import Employees from '../../data/employees.json';
+import { Employee, getEmployeeByName } from '../../data/employees';
+
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
@@ -77,14 +76,15 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     .slice()
     .reverse()
     .filter(({ title }) => ![Teasers.kaspar.title, Teasers.frontify.title].includes(title));
+  const contact = await getEmployeeByName('Josh Wirth');
 
   return {
     props: {
       teasers,
+      contact,
       main: [Teasers.kaspar, Teasers.frontify],
       customers: Object.values(Customers),
       quote: Quotes['setareh-dife'],
-      contact: Employees.joshua,
     },
   };
 };

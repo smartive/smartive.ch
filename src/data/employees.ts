@@ -2,7 +2,27 @@ import { getNotionClient } from '../services/notion';
 
 const NOTION_WEBPROFILE_DB_ID = 'a128e46920e94bb48fc2baa77e6bf8c7';
 
-export const getNotionEmployees = async (): Promise<Employee[]> => {
+export const getEmployeeByName = async (name: string): Promise<Employee> => {
+  const {
+    results: [result],
+  } = await getNotionClient().databases.query({
+    database_id: NOTION_WEBPROFILE_DB_ID,
+    filter: {
+      property: 'Name',
+      title: {
+        equals: name,
+      },
+    },
+  });
+
+  if (!result) {
+    throw new Error(`Employee with name "${name}" not found.`);
+  }
+
+  return mapBlockToEmployee(result as unknown as NotionEmployee);
+};
+
+export const getAllEmployees = async (): Promise<Employee[]> => {
   const { results } = await getNotionClient().databases.query({
     database_id: NOTION_WEBPROFILE_DB_ID,
     sorts: [
@@ -13,51 +33,51 @@ export const getNotionEmployees = async (): Promise<Employee[]> => {
     ],
   });
 
-  return Promise.all(
-    (results as unknown as NotionEmployee[]).map(async (block) => {
-      const {
-        id,
-        properties: {
-          Name,
-          Jobbezeichnung,
-          Summary,
-          Mail,
-          GitHub,
-          LinkedIn,
-          Twitter,
-          PhotoPortrait,
-          PhotoCloseup,
-          PhotoMain,
-          Telefon,
-          Booking,
-          Start,
-        },
-      } = block;
+  return (results as unknown as NotionEmployee[]).map(mapBlockToEmployee);
+};
 
-      const name = Name.title[0].plain_text.split(/\s+/);
+const mapBlockToEmployee = (block: NotionEmployee): Employee => {
+  const {
+    id,
+    properties: {
+      Name,
+      Jobbezeichnung,
+      Summary,
+      Mail,
+      GitHub,
+      LinkedIn,
+      Twitter,
+      PhotoPortrait,
+      PhotoCloseup,
+      PhotoMain,
+      Telefon,
+      Booking,
+      Start,
+    },
+  } = block;
 
-      const mapped = {
-        id,
-        name: Name.title[0].plain_text,
-        firstname: name[0],
-        lastname: name.pop(),
-        job: Jobbezeichnung.rich_text[0].plain_text,
-        bio: Summary.rich_text[0].plain_text,
-        email: Mail.email,
-        tel: Telefon.phone_number,
-        booking: Booking.url,
-        github: GitHub.url,
-        linkedin: LinkedIn.url,
-        twitter: Twitter.url,
-        image: getNotionUrl(PhotoMain.files[0].file.url, block),
-        closeup: getNotionUrl(PhotoCloseup.files[0].file.url, block),
-        portrait: getNotionUrl(PhotoPortrait.files[0].file.url, block),
-        start: Start.number,
-      };
+  const name = Name.title[0].plain_text.split(/\s+/);
 
-      return mapped;
-    })
-  );
+  const mapped = {
+    id,
+    name: Name.title[0].plain_text,
+    firstname: name[0],
+    lastname: name.pop(),
+    job: Jobbezeichnung.rich_text[0].plain_text,
+    bio: Summary.rich_text[0].plain_text,
+    email: Mail.email,
+    tel: Telefon.phone_number,
+    booking: Booking.url,
+    github: GitHub.url,
+    linkedin: LinkedIn.url,
+    twitter: Twitter.url,
+    image: getNotionUrl(PhotoMain.files[0].file.url, block),
+    closeup: getNotionUrl(PhotoCloseup.files[0].file.url, block),
+    portrait: getNotionUrl(PhotoPortrait.files[0].file.url, block),
+    start: Start.number,
+  };
+
+  return mapped;
 };
 
 export const getNotionUrl = (image: string, block: NotionEmployee) => {

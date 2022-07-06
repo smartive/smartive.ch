@@ -1,13 +1,12 @@
 import { BlobVariations, Copy, Grid, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
-import React from 'react';
 import { Contact } from '../components/contact';
 import { EmployeeCard } from '../components/employee-card';
 import { Testimonial } from '../components/testimonial';
 import { PageHeader } from '../compositions/page-header';
-import { Employee, getNotionEmployees } from '../data/employees';
-import Employees from '../data/employees.json';
+import { Employee, getAllEmployees, getEmployeeByName } from '../data/employees';
+
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
 import { Page } from '../layouts/page';
@@ -68,12 +67,13 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const employees = await getNotionEmployees();
+  const employees = await getAllEmployees();
+  const contact = await getEmployeeByName('Moreno Feltscher');
 
   return {
     props: {
       employees,
-      contact: Employees.moreno,
+      contact,
       quote: Quotes['thilo-newwork'],
     },
     revalidate: 3600,

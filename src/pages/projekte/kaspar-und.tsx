@@ -1,14 +1,13 @@
 import { BlobVariations, Copy, Grid, LinkList, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
 import { Contact } from '../../components/contact';
 import { Image } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
-import Employees from '../../data/employees.json';
+import { Employee, getEmployeeByName } from '../../data/employees';
+
 import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
@@ -141,14 +140,15 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const images = STATIC_IMAGES;
   const teasers = getRandomTeasers(3, Teasers.kaspar.title);
   const packages = [Packages['mentoring']];
+  const contact = await getEmployeeByName('Josh Wirth');
 
   return {
     props: {
       images,
       teasers,
-      quote: Quotes['lauro-kasparund'],
-      contact: Employees.joshua,
+      contact,
       packages,
+      quote: Quotes['lauro-kasparund'],
     },
   };
 };

@@ -1,13 +1,12 @@
 import { BlobVariations, Copy, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
-import React from 'react';
 import { Contact } from '../../components/contact';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
-import { Employee } from '../../data/employees';
-import Employees from '../../data/employees.json';
+import { Employee, getEmployeeByName } from '../../data/employees';
+
 import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
@@ -72,12 +71,13 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const hiddenPackages = ['Jetski'];
   const packages = Object.values(Packages).filter(({ title }) => !hiddenPackages.includes(title));
+  const contact = await getEmployeeByName('Josh Wirth');
 
   return {
     props: {
       packages,
+      contact,
       quote: Quotes['benj-scrum'],
-      contact: Employees.joshua,
     },
   };
 };

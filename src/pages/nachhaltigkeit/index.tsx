@@ -2,10 +2,10 @@ import { Button, ChevronRight, Copy, Grid, Heading2, Heading3, TextBlock } from 
 import 'charts.css/dist/charts.min.css';
 import type JSConfetti from 'js-confetti';
 import { GetStaticProps, NextPage } from 'next';
-import React, { CSSProperties, useEffect, useState } from 'react';
+import { CSSProperties, useEffect, useState } from 'react';
 import { NextBisectCard } from '../../components/bisect-card';
 import { PageHeader } from '../../compositions/page-header';
-import Employees from '../../data/employees.json';
+import { getAllEmployees } from '../../data/employees';
 import { getNotionBusinessTravel } from '../../data/sustainability/notion-business-travel';
 import { ComparisonTexts, getNotionComparisons } from '../../data/sustainability/notion-comparisons';
 import { getNotionEmployees } from '../../data/sustainability/notion-employees';
@@ -27,11 +27,12 @@ type Props = {
   comparisonTexts: ComparisonTexts;
   allYearsTotalEmission: { year: number; totalEmission: number }[];
   maxYear: number;
+  numberOfEmployees: number;
 };
 
 const COFFEE_KG_2020 = 0.66;
 
-const Sustainabilty: NextPage<Props> = ({ comparisonTexts, allYearsTotalEmission, maxYear }) => {
+const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, allYearsTotalEmission, maxYear }) => {
   const [comparisonText, setComparisonText] = useState(comparisonTexts[0]);
 
   useEffect(() => {
@@ -54,7 +55,7 @@ const Sustainabilty: NextPage<Props> = ({ comparisonTexts, allYearsTotalEmission
       <main>
         <Grid cols={3}>
           <TextBlock title="ÖV-Fritz*innen" number={100} unit="%">
-            100% der {Object.values(Employees).length} Mitarbeiter*innen pendeln mit ÖV oder Fahrrad.
+            100% der {numberOfEmployees} Mitarbeiter*innen pendeln mit ÖV oder Fahrrad.
           </TextBlock>
           <TextBlock title="Kaffeekonsum" number={66} unit="kg">
             Im 2020 haben wir 66 kg Kaffee getrunken.
@@ -212,6 +213,8 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     ALL_YEARS.map(async (year) => ({ year, employees: await getNotionEmployees(year) }))
   );
 
+  const allEmployees = await getAllEmployees();
+
   const allYearsTotalEmission = ALL_YEARS.map((year) => ({
     year,
     totalEmission:
@@ -227,6 +230,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       allYearsTotalEmission,
       comparisonTexts,
       maxYear,
+      numberOfEmployees: allEmployees.length,
     },
   };
 };
