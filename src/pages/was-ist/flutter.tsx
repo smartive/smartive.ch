@@ -1,11 +1,19 @@
-import { Copy, TextLink } from '@smartive/guetzli';
+import { Copy, Grid, TextLink } from '@smartive/guetzli';
+import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
+import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
+import { Teaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
 
-const PWA = () => (
+type Props = {
+  teasers: Teaser[];
+};
+
+const Flutter: NextPage<Props> = ({ teasers }) => (
   <Page>
     <PageHeader
       markdownTitle="Flutter: Beliefert vier Plattformen gleichzeitig."
@@ -47,8 +55,26 @@ const PWA = () => (
           Ist eine <Link href="/was-ist/pwa">PWA</Link> nicht doch die passendere Lösung?
         </Copy>
       </Section>
+
+      <Section title="Unsere Erfahrung">
+        <Copy>Wir haben schon mehrere Projekte mit Flutter umgesetzt, unter anderem:</Copy>
+        <Grid cols={3}>
+          {teasers.map((teaser) => (
+            <NextImageCard key={teaser.title} {...teaser} />
+          ))}
+        </Grid>
+      </Section>
     </main>
   </Page>
 );
 
-export default PWA;
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const teasers = [Teasers.learnfox, Teasers.kaspar, Teasers.binapp];
+  return {
+    props: {
+      teasers,
+    },
+  };
+};
+
+export default Flutter;
