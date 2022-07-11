@@ -36,6 +36,7 @@
     { "source": "/cases/cosmo-crm", "destination": "/projekte/cosmo-crm" },
     { "source": "/cases/enterprise-search", "destination": "/projekte" },
     { "source": "/cases/migros-dimmi", "destination": "/projekte/punkt-m-dimmi" },
+    { "source": "/cases/migros-digital-campaign-factory", "destination": "/projekte/migros-digital-campaign-factory" },
     { "source": "/cases/migros-filialfinder", "destination": "/projekte/migros-filialfinder" },
     { "source": "/cases/migros-ratings-reviews", "destination": "/projekte/migipedia" },
     { "source": "/cases/migros-shared-components", "destination": "/projekte/migros-shared-components" },
