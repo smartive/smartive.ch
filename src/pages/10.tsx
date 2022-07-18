@@ -125,13 +125,16 @@ type Props = { employees: Employee[] };
 
 const Ten: NextPage<Props> = ({ employees }) => {
   const [visibleYear, setVisibleYear] = useState<number>(null);
-  const [avatars, setAvatars] = useState(employees.filter(({ start }) => start === 2012));
+  const [avatars, setAvatars] = useState(
+    employees.filter(({ start }) => start === 2012).filter(({ closeup }) => closeup !== '')
+  );
 
   useEffect(() => {
     const team = employees
       .filter(({ start }) => {
         return start <= visibleYear;
       })
+      .filter(({ closeup }) => closeup !== '')
       .sort((a, b) => a.start - b.start);
 
     setAvatars(team);
@@ -555,7 +558,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
               <Text>
                 Verrückter Start ins Jahr. Unsere Supply Chain-App für die Migros wird auch nach drei Jahren noch mit Awards
                 ausgezeichnet und wir können endlich wieder zusammen Skifahren. Und wir wachsen und wachsen und wachsen und …
-                mittlerweile sind wir 26 Mitarbeitende mit total 11 Kindern! 😱 V-E-R-R-Ü-C-K-T!
+                mittlerweile sind wir {employees.length} Mitarbeitende mit total 11 Kindern! 😱 V-E-R-R-Ü-C-K-T!
               </Text>
             </div>
 
