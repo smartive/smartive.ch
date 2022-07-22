@@ -143,5 +143,10 @@
     "portrait": "/images/portraits/coco-petit-2022.jpg",
     "text": "Mit smartive zusammenzuarbeiten war eine der besten Ideen der Migros in den letzten 10 Jahren. Wir haben es seither keinen einzigen Tag bereut. Gegenseitig spornen wir uns an und schaffen Produkte in höchster Qualität in Rekordzeit.",
     "credit": "Corinne Petit, Agile Coach & Technical Product Owner beim Migros-Genossenschafts-Bund"
+  },
+  "pascal-zwei-wealth": {
+    "portrait": "/images/portraits/pascal-frei.jpeg",
+    "text": "Agilität gelebt. Kosten im Griff. Und das in Schweizer Qualität.",
+    "credit": "Pascal Frei, Partner & Head Platform Development bei ZWEI Wealth"
   }
 }

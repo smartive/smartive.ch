@@ -184,7 +184,7 @@
     ]
   },
   "digital-campaign-factory": {
-    "label": "Migros Digital Campaign Factory",
+    "label": "Maigros Digital Campaign Factory",
     "title": "Fabrik für spielerische Kampagnen",
     "link": {
       "label": "Projekt anschauen",
@@ -212,5 +212,15 @@
     },
     "image": "/images/projekte/learnfox/learnfox.jpeg",
     "imageAlt": "binApp Preview"
+  },
+  "zwei": {
+    "label": "Zwei Wealth",
+    "title": "Digitalisierung einer Vermögensverwaltung",
+    "link": {
+      "label": "Projekt anschauen",
+      "href": "/projekte/zwei-wealth"
+    },
+    "image": "/images/projekte/zwei-wealth/dashboard.png",
+    "imageAlt": "Wealth Office"
   }
 }
