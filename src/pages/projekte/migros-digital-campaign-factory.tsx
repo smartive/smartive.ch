@@ -17,7 +17,7 @@ import { Section } from '../../layouts/section';
 const STATIC_IMAGES = {
   screenshotPhotoAdmin: '/images/projekte/digital-campaign-factory/screenshot-photo-admin.jpg',
   screenshotPhotoWidget: '/images/projekte/digital-campaign-factory/screenshot-photo-widget.jpg',
-  computer: '/images/projekte/digital-campaign-factory/scott-graham-5fNmWej4tAA-unsplash.jpg',
+  woman: '/images/projekte/digital-campaign-factory/karsten-winegeart-4bC1Ef88OYI-unsplash.jpg',
 } as const;
 
 type Props = {
@@ -39,14 +39,7 @@ const MigrosDigitalCampaignFactory: NextPage<Props> = ({ contact, teasers, image
     </PageHeader>
 
     <Section>
-      <Image
-        src={images.computer}
-        alt="Arbeit mit Notizbuch und Computer"
-        priority
-        objectFit="cover"
-        width={1504}
-        height={800}
-      />
+      <Image src={images.woman} alt="Lachende Frau in Einkaufswagen" priority objectFit="cover" width={1504} height={800} />
     </Section>
 
     <main>
