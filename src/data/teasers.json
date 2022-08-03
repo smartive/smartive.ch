@@ -222,5 +222,15 @@
     },
     "image": "/images/projekte/zwei-wealth/dashboard.png",
     "imageAlt": "Wealth Office"
+  },
+  "zitadel": {
+    "label": "ZITADEL",
+    "title": "Ein Kundenportal für die Identity Experience Platform",
+    "link": {
+      "label": "Projekt anschauen",
+      "href": "/projekte/zitadel"
+    },
+    "image": "/images/projekte/zitadel/team.jpeg",
+    "imageAlt": "Das Team hinter ZITADEL"
   }
 }
