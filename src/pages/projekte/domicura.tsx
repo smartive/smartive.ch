@@ -183,14 +183,6 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images, packages }) => {
             ))}
           </Grid>
         </Section>
-
-        <Section title="Weitere Erfolgsgeschichten">
-          <Grid cols={3}>
-            {teasers.map((teaser) => (
-              <NextImageCard key={teaser.title} {...teaser} />
-            ))}
-          </Grid>
-        </Section>
       </main>
     </Page>
   );
