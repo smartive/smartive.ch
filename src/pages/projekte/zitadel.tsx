@@ -17,9 +17,10 @@ import { Section } from '../../layouts/section';
 import { getRandomTeasers } from '../../utils/teasers';
 
 const STATIC_IMAGES = {
-  header: '/images/projekte/zitadel/header.jpg',
+  header: '/images/projekte/zitadel/header.png',
   team: '/images/projekte/zitadel/team.jpeg',
-  screen: '/images/projekte/zitadel/screen.png',
+  meeting1: '/images/projekte/zitadel/meeting-1.png',
+  meeting2: '/images/projekte/zitadel/meeting-2.png',
 } as const;
 
 type Props = {
@@ -88,7 +89,24 @@ const Zitadel: NextPage<Props> = ({ quote, contact, teasers, images }) => {
           </Grid>
         </Section>
         <Section>
-          <Screenshot image={{ url: images.screen, originalHeight: 1121, originalWidth: 1593 }} />
+          <Grid cols={2}>
+            <Image
+              src={images.meeting1}
+              alt="Sitzungszimmer bei einem Workshop"
+              priority
+              objectFit="cover"
+              width={1504}
+              height={847}
+            />
+            <Image
+              src={images.meeting2}
+              alt="Glasfenster mit Postits"
+              priority
+              objectFit="cover"
+              width={1504}
+              height={847}
+            />
+          </Grid>
         </Section>
 
         <Section>
@@ -116,28 +134,16 @@ const Zitadel: NextPage<Props> = ({ quote, contact, teasers, images }) => {
         </Section>
 
         <Section>
-          <Testimonial background="apricot" blobs={BlobVariations.apricot[0]} quote={quote} />
+          <Testimonial background="cornflower" quote={quote} />
         </Section>
 
-        <Section>
-          <TextBlock title="Huhn-Ei">
+        <Section title="Huhn-Ei">
+          <TextBlock title="">
             Eine Verwaltungsplattform für Benutzerverwaltungen braucht auch eine eigene Benutzerverwaltung. Klar oder? Wer
             soll denn sonst die Benutzer*innen für die Benutzerverwaltungsverwaltungsplattform verwalten?! Das klingt zwar
             nach einem schlechten Witz. Ist aber gar nicht so einfach zu lösen und hat während Projektbesprechungen immer mal
             wieder für verwirrte Blicke und lustige Situationen gesorgt.
           </TextBlock>
-        </Section>
-
-        <Section>
-          <Image
-            src={images.team}
-            caption="Das Team hinter ZITADEL."
-            alt="Das Team hinter ZITADEL"
-            priority
-            objectFit="cover"
-            width={1504}
-            height={800}
-          />
         </Section>
 
         <Section title="Unter der Haube">
@@ -153,6 +159,15 @@ const Zitadel: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               Mit Github Actions und Terraform auf die Google Cloud Serverlesss Infrastruktur.
             </TextBlock>
           </Grid>
+          <Image
+            src={images.team}
+            caption="Das Team hinter ZITADEL."
+            alt="Das Team hinter ZITADEL"
+            priority
+            objectFit="cover"
+            width={1504}
+            height={800}
+          />
         </Section>
 
         <Section>
