@@ -232,5 +232,15 @@
     },
     "image": "/images/projekte/zitadel/teaser.png",
     "imageAlt": "Das Team hinter ZITADEL"
+  },
+  "domicura": {
+    "label": "Domicura",
+    "title": "Die Plattform für Angehörigenpflege",
+    "link": {
+      "label": "Projekt anschauen",
+      "href": "/projekte/domicura"
+    },
+    "image": "/images/projekte/domicura/people.jpeg",
+    "imageAlt": "Wealth Office"
   }
 }

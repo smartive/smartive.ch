@@ -17,6 +17,7 @@ import { Employee, getEmployeeByName } from '../../data/employees';
 
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
 
@@ -73,6 +74,7 @@ const FeasibilityWorkshop: NextPage<Props> = ({ contact, teasers, packages }) =>
             />
           </div>
         </Section>
+
         <Section>
           <Contact contact={contact}>
             Ist ein Feasibility Workshop das Richtige für dich?
@@ -101,13 +103,14 @@ const FeasibilityWorkshop: NextPage<Props> = ({ contact, teasers, packages }) =>
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const packages = [Packages['design-sprint'], Packages.speedboat];
+  const teasers = [Teasers.domicura, Teasers.zwei];
   const contact = await getEmployeeByName('Thomas Moser');
 
   return {
     props: {
       packages,
       contact,
-      teasers: [],
+      teasers,
     },
   };
 };

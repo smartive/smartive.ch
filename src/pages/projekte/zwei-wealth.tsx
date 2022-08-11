@@ -227,7 +227,7 @@ const ZweiWealth: NextPage<Props> = ({ quote, contact, teasers, images, packages
           </Contact>
         </Section>
 
-        <Section title="Das haben wir mit dem ZWEI Wealth gemacht:">
+        <Section title="Das haben wir mit ZWEI Wealth gemacht:">
           <PackageList packages={packages} />
         </Section>
         <Section title="Weitere Erfolgsgeschichten">
