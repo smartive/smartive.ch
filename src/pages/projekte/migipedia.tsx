@@ -151,7 +151,9 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
           </Grid>
         </Section>
         <Section>
-          <Contact contact={contact} />
+          <Contact contact={contact}>
+            {contact.firstname} kann Migros Produktnummern auswendig. <br /> Er erzählt dir sicher gern mehr.
+          </Contact>
         </Section>
 
         <Section title="Weitere Erfolgsgeschichten">
@@ -169,7 +171,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const images = STATIC_IMAGES;
   const teasers = getRandomTeasers(3, Teasers.migipedia.title);
-  const contact = await getEmployeeByName('Thomas Moser');
+  const contact = await getEmployeeByName('Peter Manser');
 
   return {
     props: {

@@ -13,6 +13,7 @@ import Teasers from '../../data/teasers.json';
 import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
+import { getRandomTeasers } from '../../utils/teasers';
 
 const STATIC_IMAGES = {
   screenshotPhotoAdmin: '/images/projekte/digital-campaign-factory/screenshot-photo-admin.jpg',
@@ -141,7 +142,7 @@ const MigrosDigitalCampaignFactory: NextPage<Props> = ({ contact, teasers, image
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const images = STATIC_IMAGES;
-  const teasers = [Teasers.ofpg, Teasers.filialfinder, Teasers['supply-chain']];
+  const teasers = getRandomTeasers(3, Teasers['digital-campaign-factory'].title);
   const contact = await getEmployeeByName('Anna Wyss');
 
   return {
