@@ -57,7 +57,7 @@
     "@smartive/prettier-config": "3.0.0",
     "@tailwindcss/forms": "0.5.2",
     "@tailwindcss/typography": "0.5.4",
-    "@types/node": "14.18.24",
+    "@types/node": "14.18.25",
     "@types/puppeteer": "5.4.6",
     "@types/puppeteer-core": "5.4.0",
     "@types/react": "18.0.17",
