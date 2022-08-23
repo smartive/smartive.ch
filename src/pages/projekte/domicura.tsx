@@ -12,6 +12,9 @@ import Teasers from '../../data/teasers.json';
 import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
+import { Quote } from '../../data/quotes';
+import Quotes from '../../data/quotes.json';
+import { Testimonial } from '../../components/testimonial';
 
 const STATIC_IMAGES = {
   people: '/images/projekte/domicura/people.jpeg',
@@ -28,9 +31,10 @@ type Props = {
   contact: Employee;
   teasers: Teaser[];
   packages: Package[];
+  quote: Quote;
 };
 
-const Spilo: NextPage<Props> = ({ contact, teasers, images, packages }) => {
+const Spilo: NextPage<Props> = ({ contact, teasers, images, packages, quote }) => {
   return (
     <Page>
       <PageHeader
@@ -163,6 +167,7 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images, packages }) => {
               unterstützen können.
             </TextBlock>
           </Grid>
+          <Testimonial background="apricot" quote={quote} />
         </Section>
 
         <Section>
@@ -200,6 +205,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       teasers,
       contact,
       packages,
+      quote: Quotes['simon-domicura'],
     },
   };
 };

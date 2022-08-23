@@ -153,5 +153,10 @@
     "portrait": "/images/portraits/fabienne-gerschwiler.jpg",
     "text": "Das Ziel war, unseren Kund*innen ein Portal mit einfachem Onboarding zu bieten. smartive hat dies trotz der Komplexität vieler Umsysteme super umgesetzt.",
     "credit": "Fabienne Gerschwiler, Chief Product Officer"
+  },
+  "simon-domicura": {
+    "portrait": "/images/portraits/simon-hefti.jpg",
+    "text": "Dank dem Speedboat sind wir mit eingeschränkten Mitteln extrem schnell zum MVP gekommen. Wir sind beeindruckt wie intensiv sich smartive mit unserer Idee auseinandergesetzt hat.",
+    "credit": "Simon Hefti, Mitgründer Domicura AG"
   }
 }

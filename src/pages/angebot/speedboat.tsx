@@ -11,14 +11,18 @@ import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
+import { Quote } from '../../data/quotes';
+import Quotes from '../../data/quotes.json';
+import { Testimonial } from '../../components/testimonial';
 
 type Props = {
   contact: Employee;
   packages: Package[];
   teasers: Teaser[];
+  quote: Quote;
 };
 
-const Speedboat: NextPage<Props> = ({ contact, packages, teasers }) => {
+const Speedboat: NextPage<Props> = ({ contact, packages, teasers, quote }) => {
   return (
     <Page>
       <PageHeader
@@ -67,6 +71,9 @@ const Speedboat: NextPage<Props> = ({ contact, packages, teasers }) => {
           </div>
         </Section>
         <Section>
+          <Testimonial background="apricot" quote={quote} />
+        </Section>
+        <Section>
           <Contact contact={contact} />
         </Section>
         <Section>
@@ -93,6 +100,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       packages,
       contact,
       teasers: [Teasers.subsidia, Teasers['supply-chain']],
+      quote: Quotes['simon-domicura'],
     },
   };
 };
