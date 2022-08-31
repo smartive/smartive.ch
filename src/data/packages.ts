@@ -42,7 +42,7 @@ export default {
     background: 'cornflower',
   },
   speedboat: {
-    label: '4 Wochen',
+    label: '6 Wochen',
     title: 'Speedboat',
     content:
       'Lancier in kurzer Zeit dein MVP (Minimum Viable Product) und teste anhand messbarer Ziele, wie dein Produkt ankommt.',

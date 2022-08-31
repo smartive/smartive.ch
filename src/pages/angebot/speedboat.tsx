@@ -33,7 +33,7 @@ const Speedboat: NextPage<Props> = ({ contact, packages, teasers, quote }) => {
         blobs={BlobVariations.mint[0]}
       >
         <Label className="inline-flex flex-row items-center mb-8">
-          <Clock className="h-6 w-6 mr-2 inline" />4 Wochen
+          <Clock className="h-6 w-6 mr-2 inline" />6 Wochen
         </Label>
         <Copy>
           Lancier in kurzer Zeit dein MVP (Minimum Viable Product) und teste anhand messbarer Ziele, wie dein Produkt
@@ -46,7 +46,7 @@ const Speedboat: NextPage<Props> = ({ contact, packages, teasers, quote }) => {
           <Heading2>Was ist ein Speedboat?</Heading2>
           <Copy>
             Du hast eine Idee. Dir ist schon recht klar, wie das Produkt aussehen und funktionieren könnte. Du willst wissen,
-            ob es trägt. In einer agilen Umsetzung mit Lean UX Ansätzen entwickeln wir dein MVP kollaborativ in vier Wochen
+            ob es trägt. In einer agilen Umsetzung mit Lean UX Ansätzen entwickeln wir dein MVP kollaborativ in sechs Wochen
             und bringen es auf den Markt. Die definierten Ziele und Kennzahlen (Key Performance Indicators oder kurz KPI)
             behalten wir dabei laufend im Auge. Mit modernen Tracking-Methoden werden diese KPI nach der Lancierung gemessen
             und ausgewertet. So weisst du stets, welche Hypothesen korrekt waren und welche überarbeitet werden müssen.
@@ -55,7 +55,7 @@ const Speedboat: NextPage<Props> = ({ contact, packages, teasers, quote }) => {
             <UnorderedList
               title="Das hast du davon"
               items={[
-                'In einem interdisziplinären Team bringen wir dein Produkt in vier Wochen auf den Markt.',
+                'In einem interdisziplinären Team bringen wir dein Produkt in sechs Wochen auf den Markt.',
                 'Das Produkt hat eine solide technologische Basis und kann in Zukunft einfach skaliert und ausgebaut werden.',
                 'Du weisst dank den definierten KPI und den Auswertungen stets, welche Teile deines Produkts gut funktionieren.',
                 'Du hast eine konkrete Vorstellung davon, wie es weitergeht und wie der Prozess zur Skalierung deines Produktes aussieht.',
