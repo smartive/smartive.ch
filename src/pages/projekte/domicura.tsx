@@ -23,7 +23,7 @@ const STATIC_IMAGES = {
   laptop: '/images/projekte/domicura/mockup-laptop.png',
   mobile: '/images/projekte/domicura/mockup-mobile.png',
   prototyping: '/images/projekte/domicura/project-prototyping.png',
-  workshop: '/images/projekte/domicura/project-workshop.png',
+  workshop: '/images/projekte/domicura/workshop-image.jpg',
 };
 
 type Props = {
