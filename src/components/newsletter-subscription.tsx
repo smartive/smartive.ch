@@ -15,7 +15,7 @@ export const NewsletterSubscription: FC<Props> = ({ label = '', button = 'Jetzt 
     setEmail(event.target.value.trim());
   };
 
-  const handleSubmit = (event: FormEvent, subscribe: ({ EMAIL: string }) => void) => {
+  const handleSubmit = (event: FormEvent, subscribe: ({ EMAIL }: { EMAIL: string }) => void) => {
     event.preventDefault();
     subscribe({ EMAIL: email });
   };
