@@ -181,7 +181,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
                 – scroll weiter!
               </Heading>
             </div>
-            <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-3">
+            {/* <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-3">
               <Card>
                 <Heading level="3">Wir feiern! 🥳</Heading>
                 <Text>
@@ -192,7 +192,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
                   Ich bin auch dabei!
                 </Button>
               </Card>
-            </div>
+            </div> */}
           </Container>
         </Scroll.Section>
 
