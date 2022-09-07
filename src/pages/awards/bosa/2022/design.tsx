@@ -13,6 +13,8 @@ const STATIC_IMAGES = {
   desktop: '/images/projekte/learnfox/desktop-app@2x.png',
   farbwchooser: '/images/projekte/learnfox/farbwähler@2x.png',
   doppel: '/images/projekte/learnfox/zwei-screens@2x.png',
+  elements: '/images/projekte/learnfox/elements@2x.png',
+  mobile: '/images/projekte/learnfox/mobile@2x.png',
 } as const;
 
 const QUOTE = {
@@ -80,20 +82,8 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
 
         <Section>
           <Image
-            src={images.farbwchooser}
-            alt="Ein Screenshot der LearnFox App zeigt wie Farben gewählt werden können"
-            priority
-            objectFit="cover"
-            width={1504}
-            height={800}
-            quality={100}
-          />
-        </Section>
-
-        <Section>
-          <Image
-            src={images.doppel}
-            alt="Die LernFox App zeigt auf einem iPhone ein PDF an"
+            src={images.elements}
+            alt="Beispiel Elemente in Figma"
             priority
             objectFit="cover"
             width={1504}
@@ -115,8 +105,32 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
 
         <Section>
           <Image
-            src={images.desktop}
-            alt="Ein Screenshot der LearnFox App auf einem Desktop"
+            src={images.mobile}
+            alt="Graue Action Bars"
+            priority
+            objectFit="cover"
+            width={1504}
+            height={800}
+            quality={100}
+          />
+        </Section>
+
+        <Section>
+          <Image
+            src={images.doppel}
+            alt="Die LernFox App zeigt auf einem iPhone ein PDF an"
+            priority
+            objectFit="cover"
+            width={1504}
+            height={800}
+            quality={100}
+          />
+        </Section>
+
+        <Section>
+          <Image
+            src={images.farbwchooser}
+            alt="Die LernFox App zeigt auf einem iPhone ein PDF an"
             priority
             objectFit="cover"
             width={1504}
