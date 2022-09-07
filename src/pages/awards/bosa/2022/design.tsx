@@ -1,4 +1,4 @@
-import { BlobVariations, Copy, Heading2, Keyfigure } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid, Heading2, Keyfigure, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Image } from '../../../../components/image';
 import { Testimonial } from '../../../../components/testimonial';
@@ -19,7 +19,7 @@ const STATIC_IMAGES = {
 
 const QUOTE = {
   excerpt: 'LearnFox oder binApp?',
-  text: 'Uns war es wichtig, den LearnFox visuell von der binApp zu trennen. Und das ist smartive sehr gut gelungen.',
+  text: 'Uns war es wichtig, mit einem neutralen modernen Design für den LearnFox und die binApp aufzutreten. Und das ist smartive sehr gut gelungen.',
   credit: 'Markus Fröhlich, Verlagsleiter bin Genossenschaft',
   portrait: '/images/portraits/markus-froehlich.jpg',
 };
@@ -104,6 +104,21 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
         </Section>
 
         <Section>
+          <Keyfigure background="mint">
+            <Copy as="div">
+              <UnorderedList
+                title="Numbers"
+                items={[
+                  '19ʼ000 digitalisierte Buchseiten',
+                  '5ʼ000 aktive Benutzer*innen',
+                  '745ʼ000 Annotationen, Notizen oder Lesezeichen',
+                ]}
+              />
+            </Copy>
+          </Keyfigure>
+        </Section>
+
+        <Section>
           <Image
             src={images.mobile}
             alt="Graue Action Bars"
@@ -113,32 +128,28 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
             height={800}
             quality={100}
           />
-        </Section>
 
-        <Section>
-          <Image
-            src={images.doppel}
-            alt="Die LernFox App zeigt auf einem iPhone ein PDF an"
-            priority
-            objectFit="cover"
-            width={1504}
-            height={800}
-            quality={100}
-          />
+          <Grid cols={2}>
+            <Image
+              src={images.doppel}
+              alt="Die LernFox App zeigt auf einem iPhone ein PDF an"
+              priority
+              objectFit="cover"
+              width={1504}
+              height={800}
+              quality={100}
+            />
+            <Image
+              src={images.farbwchooser}
+              alt="Die LernFox App zeigt auf einem iPhone ein PDF an"
+              priority
+              objectFit="cover"
+              width={1504}
+              height={800}
+              quality={100}
+            />
+          </Grid>
         </Section>
-
-        <Section>
-          <Image
-            src={images.farbwchooser}
-            alt="Die LernFox App zeigt auf einem iPhone ein PDF an"
-            priority
-            objectFit="cover"
-            width={1504}
-            height={800}
-            quality={100}
-          />
-        </Section>
-
         <Section>
           <Testimonial background="cornflower" blobs={BlobVariations.cornflower[3]} quote={quote} />
         </Section>
@@ -146,7 +157,16 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
         <Section>
           <Keyfigure background="apricot">
             <Heading2>Jury-Hinweis</Heading2>
-            <Copy>Brauchts einen Hinweis?</Copy>
+            <Copy>
+              Die Verlage können ihre Publikationen über die universelle LearnFox App publizieren. Oder über eine (eigene)
+              App-Kopie, mit eigenem Namen und eigenem Logo erstellen lassen.
+            </Copy>
+            <Copy>
+              Der erste LearnFox Kunde ist der hausinterne bin-Eigenverlag. Die «binApp» ist eine App-Kopie von LearnFox und
+              veröffentlicht die eLehrmittel des Verlags. Diese «binApp» haben wir zur Beurteilung bei Best of Swiss Apps
+              eingereicht.
+            </Copy>
+            <Copy>In der nächsten Projektphase werden weitere Kunden auf die LearnFox Plattform onboarded.</Copy>
           </Keyfigure>
         </Section>
       </main>

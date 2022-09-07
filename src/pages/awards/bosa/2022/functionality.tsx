@@ -1,9 +1,10 @@
-import { BlobVariations, Copy, Heading2, Keyfigure } from '@smartive/guetzli';
+import { BlobVariations, Copy, Heading2, Keyfigure, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Image } from '../../../../components/image';
 import { Testimonial } from '../../../../components/testimonial';
 import { PageHeader } from '../../../../compositions/page-header';
 import { Quote } from '../../../../data/quotes';
+import { Link } from '../../../../elements/link';
 import { LandingPage } from '../../../../layouts/landing-page';
 import { Section } from '../../../../layouts/section';
 
@@ -106,8 +107,34 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
         </Section>
 
         <Section>
+          <Keyfigure background="mint">
+            <Copy as="div">
+              <UnorderedList
+                title="Numbers"
+                items={[
+                  '19ʼ000 digitalisierte Buchseiten',
+                  '5ʼ000 aktive Benutzer*innen',
+                  '745ʼ000 Annotationen, Notizen oder Lesezeichen',
+                ]}
+              />
+            </Copy>
+          </Keyfigure>
+        </Section>
+
+        <Section>
           <Heading2>Auf allen Plattformen</Heading2>
-          <Copy>Das Ding fluttert!</Copy>
+          <Copy>
+            Die Schüler*innen arbeiten im Unterricht am liebsten auf einem Laptop. Auf dem Heimweg im Zug dann vielleicht
+            sekundär mit ihrem Smartphone. Deshalb untersützen wir iOS, macOS, Android und Windows. Da für den Kunden eine
+            Weblösung nicht in Frage kam setzen wir auf <Link href="/was-ist/flutter">Flutter</Link>. Damit liefern wir
+            Native-Apps, für alle vier Plattformen, aus einer einzigen Codebasis.
+          </Copy>
+          <Copy>
+            Die Auslieferung in die App Stores ist komplett automatisiert. Das Erstellen von «gebrandeten LearnFox Derivaten»
+            (wie der binApp) ebenfalls. Wenn der nächste Verlag seine «eigene App» haben will, reichen ein paar Konfig
+            Anpassungen und die Publikationen können im <Link href="https://admin.learnfox.ch">LearnFox Admin-UI</Link>{' '}
+            hochladen.
+          </Copy>
         </Section>
 
         <Section>
@@ -156,7 +183,16 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
         <Section>
           <Keyfigure background="apricot">
             <Heading2>Jury-Hinweis</Heading2>
-            <Copy>Brauchts einen Hinweis?</Copy>
+            <Copy>
+              Die Verlage können ihre Publikationen über die universelle LearnFox App publizieren. Oder über eine (eigene)
+              App-Kopie, mit eigenem Namen und eigenem Logo erstellen lassen.
+            </Copy>
+            <Copy>
+              Der erste LearnFox Kunde ist der hausinterne bin-Eigenverlag. Die «binApp» ist eine App-Kopie von LearnFox und
+              veröffentlicht die eLehrmittel des Verlags. Diese «binApp» haben wir zur Beurteilung bei Best of Swiss Apps
+              eingereicht.
+            </Copy>
+            <Copy>In der nächsten Projektphase werden weitere Kunden auf die LearnFox Plattform onboarded.</Copy>
           </Keyfigure>
         </Section>
       </main>
