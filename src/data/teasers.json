@@ -242,5 +242,15 @@
     },
     "image": "/images/projekte/domicura/people.jpeg",
     "imageAlt": "Wealth Office"
+  },
+  "opsone": {
+    "label": "Ops One",
+    "title": "Schweizer Hosting Partner",
+    "link": {
+      "label": "Projekt anschauen",
+      "href": "/projekte/ops-one"
+    },
+    "image": "/images/projekte/opsone/opsone-teaser.png",
+    "imageAlt": "Ops One"
   }
 }
