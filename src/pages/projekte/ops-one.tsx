@@ -48,7 +48,7 @@ const OpsOne: NextPage<Props> = ({ images, teasers, contact, quote }) => {
         <LinkList
           links={[
             {
-              href: 'https://www.opsone.com/',
+              href: 'https://www.opsone.ch/',
               label: 'Bei Ops One vorbeischauen',
             },
           ]}
