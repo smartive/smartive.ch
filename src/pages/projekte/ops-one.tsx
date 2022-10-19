@@ -70,8 +70,8 @@ const OpsOne: NextPage<Props> = ({ images, teasers, contact, quote }) => {
         <Section title="Die Flugvorbereitung">
           <Copy>
             Das Cockpit von Ops One gibts schon länger. Da hast du die Übersicht über deine Cloud Produkte, deine Kosten und
-            deine User. Die dafür verwendete Technologie (MeteorJS) war leider nicht mehr so zukunftssicher. Die Wartbarkeit
-            auch nicht das Gelbe vom Ei.
+            deine User. Die dafür verwendete Technologie (MeteorJS) war etwas in die Jahre gekommen. Die Wartbarkeit auch
+            nicht das Gelbe vom Ei.
           </Copy>
           <Copy>
             Der visuelle Eindruck vom (alten) Cockpit hat nicht zur hochkarätigen Dienstleistungen von Ops One gepasst. Ein
@@ -122,17 +122,17 @@ const OpsOne: NextPage<Props> = ({ images, teasers, contact, quote }) => {
               Developer-Experience gefällt und man damit echt effiziente Lösungen bauen kann.
             </TextBlock>
             <TextBlock title="Hinten.">
-              REST Microservice APIs mit Python. Die wurden direkt vom Ops One Team gebaut. Weshalb? Das sind die direkten
-              Schnittstellen auf die von Ops One entwickelten DevOps Systeme.
+              Eventbasierte REST Microservice APIs mit Python aus Kubernetes. Die wurden direkt vom Ops One Team gebaut.
+              Weshalb? Das sind die direkten Schnittstellen auf die von Ops One entwickelten DevOps Systeme.
             </TextBlock>
             <TextBlock title="Und dazwischen?">
               Ein automatisch generierter, zentraler GraphQL API-Aggregator auf Basis der OpenAPI Spec der dahinterliegenden
-              Services. Damit wir nicht 784 einzelne API Calls machen.
+              Services. Damit wir nicht 784 einzelne API Calls machen. Für Endkunden übrigens auch erreichbar.
             </TextBlock>
           </Grid>
         </Section>
 
-        {/* <Testimonial background="cornflower" quote={quote} /> */}
+        <Testimonial background="cornflower" quote={quote} />
 
         <Section>
           <Contact contact={contact}>
