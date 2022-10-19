@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@notionhq/client": "2.2.1",
-    "@prismicio/next": "0.1.3",
+    "@prismicio/next": "0.1.7",
     "@smartive/guetzli": "2.4.1",
     "@tryghost/content-api": "1.11.1",
     "@xstate/fsm": "2.0.0",
