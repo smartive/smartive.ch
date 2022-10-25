@@ -1,5 +1,5 @@
 import { Decoration } from '@smartive/guetzli';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { Link } from '../elements/link';
 import { Block } from '../utils/notion';
 
@@ -30,7 +30,7 @@ export const NotionRichText = ({ text, decorate = false, className = '' }: Props
           }
 
           if (italic && decorate) {
-            return <Decoration>{text.content}</Decoration>;
+            return <Decoration key={i}>{text.content}</Decoration>;
           }
 
           return (
