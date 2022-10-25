@@ -20,7 +20,11 @@ const PrismicPreviewBar = dynamic(
   }
 );
 
-export default function App({ Component, pageProps }: AppProps) {
+type PrismicPageProps = {
+  pageProps: AppProps['pageProps'] & { prismicPreview?: boolean };
+};
+
+export default function App({ Component, pageProps }: AppProps & PrismicPageProps) {
   const { pathname } = useRouter();
   useKube();
   useEffect(() => {
