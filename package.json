@@ -44,7 +44,7 @@
     "react-mailchimp-subscribe": "2.1.3",
     "scrollex": "2.0.0",
     "sharp": "0.31.1",
-    "xstate": "4.32.1"
+    "xstate": "4.33.6"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.13.7",

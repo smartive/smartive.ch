@@ -16,6 +16,7 @@ const MAX_EXPERIENCE_YEARS = 10;
 const MAX_EXPERIENCE_SALARY = YEARLY_EXPERIENCE * MAX_EXPERIENCE_YEARS;
 
 export const machine = createMachine<any, any, any>({
+  predictableActionArguments: true,
   id: 'salary-calculator',
   initial: 'apprenticeship',
   context: { salary: BASE_SALARY },
