@@ -108,7 +108,7 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
       <motion.div layout transition={{ duration: 0.15 }} className="content">
         <Card background="cornflower">
           <form onSubmit={(e) => e.preventDefault()} className="md:w-2/3 lg:w-1/2 mx-auto md:p-16">
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence mode="wait">
               <motion.div
                 key={state.value.toString()}
                 initial={{ opacity: 0, x: state.event.type === 'BACK' ? -100 : 100 }}

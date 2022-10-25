@@ -9,6 +9,7 @@ const ignoreListErrors = [
   'Image with src',
   '403',
   'autoprefixer: Replace color-adjust',
+  'useElementScroll is deprecated',
 ];
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',
