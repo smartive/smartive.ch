@@ -54,14 +54,19 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
         </Section>
         <Section title="Etwas für jede Projektphase.">
           <Copy>
-            Wir sind davon überzeugt, dass ein Produkt in den Händen der Nutzer*innen mehr wert ist als eines, das nie das
-            Tageslicht erblickt. Unser Ziel besteht darin, dein Produkt so schnell wie möglich auf den Markt zu bringen.
+            Wir sind überzeugt, dass ein Produkt in den Händen der Nutzer*innen mehr wert ist als eins, das nie das
+            Tageslicht erblickt. Deshalb ist unser Ziel, dein Produkt so schnell wie möglich auf den Markt zu bringen.
           </Copy>
-          <Copy>Klingt gut? Gerne unterstützen wie dich mit den folgenden Angeboten:</Copy>
+          <Copy>Siehst du auch so? Dann schau doch mal unsere Angebote an:</Copy>
           <PackageList packages={packages} />
         </Section>
         <Section>
-          <Contact contact={contact} />
+          <Contact contact={contact}>
+            <>
+              Genug gelesen? <br />
+              Sprich mit {contact.firstname}!
+            </>
+          </Contact>
         </Section>
       </main>
     </Page>
