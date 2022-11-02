@@ -47,7 +47,7 @@ export default function App({ Component, pageProps }: AppProps & PrismicPageProp
           />
         </Head>
         {!!pageProps?.prismicPreview && <PrismicPreviewBar />}
-        {pathname === '/10' ? (
+        {pathname === '/10' || pathname.startsWith('/10/') ? (
           <Scroll.Container scrollAxis="y" className="h-screen">
             <Component {...pageProps} />
             <Footer />

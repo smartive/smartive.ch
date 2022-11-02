@@ -104,3 +104,13 @@ footer {
 .kg-bookmark-card .kg-bookmark-thumbnail img {
   @apply w-full object-cover m-0;
 }
+
+/*glider custom height and margin -> used for photo gallery*/
+
+.glider__list > div {
+  height: inherit;
+}
+
+.react-photo-gallery--gallery > div > span {
+  margin: 2px !important;
+}

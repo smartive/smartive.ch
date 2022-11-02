@@ -1,110 +1,71 @@
 /* eslint-disable react/forbid-component-props */
 import { merge, useSSRSafeRandomNumber } from '@smartive/guetzli';
-import { AnimatePresence, motion } from 'framer-motion';
 import JSConfetti from 'js-confetti';
 import { GetStaticProps, NextPage } from 'next';
 import NextImage, { StaticImageData } from 'next/image';
-import NextLink from 'next/link';
 import { FC, ReactNode, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Scroll } from 'scrollex';
-import peterMoreno from '../../public/images/anniversary/2013/peter-moreno.jpg';
-import boyband from '../../public/images/anniversary/2014/boyband.png';
-import bungee from '../../public/images/anniversary/2014/bungee.png';
-import office from '../../public/images/anniversary/2014/office.png';
-import docker from '../../public/images/anniversary/2015/docker.jpg';
-import fest from '../../public/images/anniversary/2015/fest.jpg';
-import moreno2015 from '../../public/images/anniversary/2015/moreno.jpg';
-import zermatt2015 from '../../public/images/anniversary/2015/zermatt.png';
-import bravoThilo from '../../public/images/anniversary/2016/bravo-thilo.png';
-import damianPeter from '../../public/images/anniversary/2016/damian-peter.jpg';
-import newOffice from '../../public/images/anniversary/2016/new-office.png';
-import sanfran from '../../public/images/anniversary/2016/sanfran.png';
-import stockDominique from '../../public/images/anniversary/2016/stock-dominique.jpg';
-import brewdog from '../../public/images/anniversary/2017/brewdog.png';
-import jsConf from '../../public/images/anniversary/2017/js-conf.gif';
-import newBrand from '../../public/images/anniversary/2017/new-brand.png';
-import stockholm from '../../public/images/anniversary/2017/stockholm.jpg';
-import zermatt2017 from '../../public/images/anniversary/2017/zermatt.png';
-import peter30 from '../../public/images/anniversary/2018/30.jpeg';
-import aescher from '../../public/images/anniversary/2018/aescher.png';
-import bubblesoccer from '../../public/images/anniversary/2018/bubblesoccer.png';
-import burger from '../../public/images/anniversary/2018/burger.jpg';
-import front from '../../public/images/anniversary/2018/front.jpg';
-import wmStudio from '../../public/images/anniversary/2018/wm-studio.png';
-import chiefSeniorSolutionDesigner from '../../public/images/anniversary/2019/chief-senior-solution-designer.jpg';
-import ciaoSmartive from '../../public/images/anniversary/2019/ciao-smartive.png';
-import hoiSmartive from '../../public/images/anniversary/2019/hoi-smartive.png';
-import huette from '../../public/images/anniversary/2019/huette.jpg';
-import whatAview from '../../public/images/anniversary/2019/what-a-view.jpg';
-import skitag2 from '../../public/images/anniversary/2020/skitag.jpeg';
-import doeme from '../../public/images/anniversary/2020/doeme.jpeg';
-import fire from '../../public/images/anniversary/2020/fire.png';
-import skifoahn from '../../public/images/anniversary/2020/skifoahn.jpeg';
-import bootle from '../../public/images/anniversary/2021/bootle.jpeg';
-import cultureday from '../../public/images/anniversary/2021/cultureday.jpg';
-import damian from '../../public/images/anniversary/2021/damian.jpeg';
-import ibiza from '../../public/images/anniversary/2021/ibiza.jpeg';
-import mirco from '../../public/images/anniversary/2021/mirco.jpg';
-import moreno2021 from '../../public/images/anniversary/2021/moreno.jpeg';
-import robert from '../../public/images/anniversary/2021/robert.jpeg';
-import gruppafoettali from '../../public/images/anniversary/2022/gruppafoettali.jpg';
-import kuhbar from '../../public/images/anniversary/2022/kuhbar.jpeg';
-import rammstein from '../../public/images/anniversary/2022/rammstein.jpg';
-import skitag from '../../public/images/anniversary/2022/skitag.jpg';
-import stadtfueahrig from '../../public/images/anniversary/2022/stadtfueahrig.jpeg';
-import { Avatar } from '../components/10/avatar';
-import { Blob, BlobVariants } from '../components/10/blob';
-import { Button } from '../components/10/button';
-import { Card } from '../components/10/card';
-import { Heading } from '../components/10/heading';
-import { Logo } from '../components/10/logo';
-import { Text } from '../components/10/text';
-import { TextLogo } from '../components/10/text-logo';
-import { PageHeader } from '../compositions/page-header';
-import { Employee, getAllEmployees } from '../data/employees';
-import { Link } from '../elements/link';
-
-const keyframes = {
-  image: [
-    ({ section }) => ({
-      [section.topAt('container-bottom')]: {
-        translateX: 30,
-      },
-      [section.bottomAt('container-top')]: {
-        translateX: -30,
-      },
-    }),
-    ({ section }) => ({
-      [section.topAt('container-bottom')]: {
-        translateX: -30,
-      },
-      [section.bottomAt('container-top')]: {
-        translateX: 30,
-      },
-    }),
-  ],
-  logo: ({ section }) => ({
-    [section.topAt('container-bottom')]: {
-      scale: -0.5,
-      translateY: -150,
-    },
-    [section.bottomAt('container-top')]: {
-      scale: 1.25,
-      translateY: 50,
-    },
-  }),
-  blob:
-    (from: number, to: number) =>
-    ({ section }) => ({
-      [section.topAt('container-bottom')]: {
-        translateY: to,
-      },
-      [section.bottomAt('container-top')]: {
-        translateY: from,
-      },
-    }),
-} as const;
+import peterMoreno from '../../../public/images/anniversary/2013/peter-moreno.jpg';
+import boyband from '../../../public/images/anniversary/2014/boyband.png';
+import bungee from '../../../public/images/anniversary/2014/bungee.png';
+import office from '../../../public/images/anniversary/2014/office.png';
+import docker from '../../../public/images/anniversary/2015/docker.jpg';
+import fest from '../../../public/images/anniversary/2015/fest.jpg';
+import moreno2015 from '../../../public/images/anniversary/2015/moreno.jpg';
+import zermatt2015 from '../../../public/images/anniversary/2015/zermatt.png';
+import bravoThilo from '../../../public/images/anniversary/2016/bravo-thilo.png';
+import damianPeter from '../../../public/images/anniversary/2016/damian-peter.jpg';
+import newOffice from '../../../public/images/anniversary/2016/new-office.png';
+import sanfran from '../../../public/images/anniversary/2016/sanfran.png';
+import stockDominique from '../../../public/images/anniversary/2016/stock-dominique.jpg';
+import brewdog from '../../../public/images/anniversary/2017/brewdog.png';
+import jsConf from '../../../public/images/anniversary/2017/js-conf.gif';
+import newBrand from '../../../public/images/anniversary/2017/new-brand.png';
+import stockholm from '../../../public/images/anniversary/2017/stockholm.jpg';
+import zermatt2017 from '../../../public/images/anniversary/2017/zermatt.png';
+import peter30 from '../../../public/images/anniversary/2018/30.jpeg';
+import aescher from '../../../public/images/anniversary/2018/aescher.png';
+import bubblesoccer from '../../../public/images/anniversary/2018/bubblesoccer.png';
+import burger from '../../../public/images/anniversary/2018/burger.jpg';
+import front from '../../../public/images/anniversary/2018/front.jpg';
+import wmStudio from '../../../public/images/anniversary/2018/wm-studio.png';
+import chiefSeniorSolutionDesigner from '../../../public/images/anniversary/2019/chief-senior-solution-designer.jpg';
+import ciaoSmartive from '../../../public/images/anniversary/2019/ciao-smartive.png';
+import hoiSmartive from '../../../public/images/anniversary/2019/hoi-smartive.png';
+import huette from '../../../public/images/anniversary/2019/huette.jpg';
+import whatAview from '../../../public/images/anniversary/2019/what-a-view.jpg';
+import skitag2 from '../../../public/images/anniversary/2020/skitag.jpeg';
+import doeme from '../../../public/images/anniversary/2020/doeme.jpeg';
+import fire from '../../../public/images/anniversary/2020/fire.png';
+import skifoahn from '../../../public/images/anniversary/2020/skifoahn.jpeg';
+import bootle from '../../../public/images/anniversary/2021/bootle.jpeg';
+import cultureday from '../../../public/images/anniversary/2021/cultureday.jpg';
+import damian from '../../../public/images/anniversary/2021/damian.jpeg';
+import ibiza from '../../../public/images/anniversary/2021/ibiza.jpeg';
+import mirco from '../../../public/images/anniversary/2021/mirco.jpg';
+import moreno2021 from '../../../public/images/anniversary/2021/moreno.jpeg';
+import robert from '../../../public/images/anniversary/2021/robert.jpeg';
+import gruppafoettali from '../../../public/images/anniversary/2022/gruppafoettali.jpg';
+import kuhbar from '../../../public/images/anniversary/2022/kuhbar.jpeg';
+import rammstein from '../../../public/images/anniversary/2022/rammstein.jpg';
+import skitag from '../../../public/images/anniversary/2022/skitag.jpg';
+import stadtfueahrig from '../../../public/images/anniversary/2022/stadtfueahrig.jpeg';
+import { Avatar } from '../../components/10/avatar';
+import { Blob, BlobVariants } from '../../components/10/blob';
+import { Heading } from '../../components/10/heading';
+import { Logo } from '../../components/10/logo';
+import { Text } from '../../components/10/text';
+import { TextLogo } from '../../components/10/text-logo';
+import { PageHeader } from '../../compositions/page-header';
+import { Employee, getAllEmployees } from '../../data/employees';
+import { Link } from '../../elements/link';
+import NextLink from 'next/link';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Card } from '../../components/10/card';
+import { Button } from '../../components/10/button';
+import { keyframes, TenHead } from '../../components/10/ten-head';
+import { ParallaxBlob } from '../../components/10/ParallaxBlob';
 
 let confetti;
 const activeConfettiCannon = () => {
@@ -121,7 +82,9 @@ const activeConfettiCannon = () => {
   }
 };
 
-type Props = { employees: Employee[] };
+type Props = {
+  employees: Employee[];
+};
 
 const Ten: NextPage<Props> = ({ employees }) => {
   const [visibleYear, setVisibleYear] = useState<number>(null);
@@ -142,33 +105,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
 
   return (
     <>
-      <Scroll.Section>
-        <PageHeader markdownTitle="smartive wird 10 🥳" metaOnly></PageHeader>
-        <header className="relative bg-white-200 w-11/12 max-w-screen-xl mx-auto overflow-visible">
-          <Scroll.Item keyframes={keyframes.blob(0, 200)}>
-            <Blob variant={BlobVariants.One} className="absolute -top-32 -left-14 lg:-top-64 lg:-left-28 z-0" />
-          </Scroll.Item>
-          <Scroll.Item keyframes={keyframes.blob(0, 200)}>
-            <Blob variant={BlobVariants.Two} className="absolute top-16 lg:top-32 -left-24 lg:-left-52 z-0" />
-          </Scroll.Item>
-          <Scroll.Item keyframes={keyframes.blob(0, 200)}>
-            <Blob variant={BlobVariants.Three} className="absolute -top-12 lg:-top-24 left-28 lg:left-48 z-0" />
-          </Scroll.Item>
-          <ParallaxBlob
-            variant={BlobVariants.One}
-            className="absolute -bottom-40 lg:-bottom-56 -right-32 lg:-right-64 z-10"
-          />
-
-          <div className="relative text-center h-80 lg:h-[550px] flex items-center place-content-center z-50 pb-8">
-            <Scroll.Item keyframes={keyframes.logo}>
-              <TextLogo />
-            </Scroll.Item>
-          </div>
-
-          <Logo className="absolute w-36 lg:w-56 right-abs-c-5 lg:right-abs-c-7 -bottom-16 lg:-bottom-32 xl:right-0 z-50" />
-        </header>
-      </Scroll.Section>
-
+      <TenHead />
       <main className="relative bg-black text-white-100 overflow-hidden">
         <Scroll.Section>
           <Container inViewChange={(inView) => inView && setVisibleYear(null)}>
@@ -181,18 +118,8 @@ const Ten: NextPage<Props> = ({ employees }) => {
                 – scroll weiter!
               </Heading>
             </div>
-            {/* <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-3">
-              <Card>
-                <Heading level="3">Wir feiern! 🥳</Heading>
-                <Text>
-                  Zusammen mit dir? Fänden wir echt schön. <br />
-                  Am 26. August 2022 ab 17 Uhr in Zürich.
-                </Text>
-                <Button as="a" href="https://smr.tv/sommerfest-22" onMouseEnter={activeConfettiCannon}>
-                  Ich bin auch dabei!
-                </Button>
-              </Card>
-            </div> */}
+
+            <GalleryCard />
           </Container>
         </Scroll.Section>
 
@@ -593,9 +520,11 @@ const Ten: NextPage<Props> = ({ employees }) => {
                 die Kund*innen und Mitarbeitende glücklich macht. ❤️
               </Text>
             </div>
+            <GalleryCard />
           </Container>
         </Scroll.Section>
       </main>
+
       <div className="bottom-0 w-full py-4 z-50 fixed hidden lg:block">
         {visibleYear !== null && (
           <div className="max-w-screen-xl mx-auto flex justify-center text-[0px]">
@@ -696,17 +625,6 @@ const Header: FC<{
   );
 };
 
-const ParallaxBlob: FC<{ variant?: BlobVariants; className?: string }> = ({ variant, className }) => {
-  const animateFrom = useSSRSafeRandomNumber(-150, -50);
-  const animateTo = useSSRSafeRandomNumber(150, 250);
-
-  return (
-    <Scroll.Item keyframes={keyframes.blob(animateFrom, animateTo)} className={className}>
-      <Blob variant={variant} />
-    </Scroll.Item>
-  );
-};
-
 const ParallaxImage: FC<{
   alt: string;
   src: StaticImageData;
@@ -729,6 +647,32 @@ const ParallaxImage: FC<{
           layout="fill"
         />
       </Scroll.Item>
+    </div>
+  );
+};
+
+const GalleryCard = () => {
+  return (
+    <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-3">
+      <Card>
+        <Heading level="3">Das Jubiläumsfest ist schon vorbei. 🥲</Heading>
+        <Text>
+          Aber: nach der Party ist vor der Party! Falls du Gründe brauchst das nächste Mal dabei zu sein, gibts hier ein paar
+          Partypics.
+        </Text>
+        <div className="flex flex-col md:flex-row md:space-x-4 md:space-y-0 space-y-4">
+          <div className="shrink">
+            <Button as="a" href="/10/fotos" onMouseEnter={activeConfettiCannon}>
+              📸 Impressionen
+            </Button>
+          </div>
+          <div className="shrink">
+            <Button as="a" href="/10/fotobox" onMouseEnter={activeConfettiCannon}>
+              🤡 Fotobox
+            </Button>
+          </div>
+        </div>
+      </Card>
     </div>
   );
 };

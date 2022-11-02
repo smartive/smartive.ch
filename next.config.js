@@ -24,6 +24,7 @@ module.exports = withBundleAnalyzer({
       'smartive-blog.ghost.io',
       'gravatar.com',
       'www.gravatar.com',
+      'smartive-10.rokka.io',
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1536], // 1536px is our max container size
