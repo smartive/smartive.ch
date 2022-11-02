@@ -20,7 +20,7 @@
     "react-dom": "$react-dom"
   },
   "dependencies": {
-    "@notionhq/client": "2.2.1",
+    "@notionhq/client": "2.2.2",
     "@prismicio/next": "0.1.7",
     "@smartive/guetzli": "2.6.0",
     "@tryghost/content-api": "1.11.4",
