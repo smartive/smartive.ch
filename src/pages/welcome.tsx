@@ -2,7 +2,7 @@ import { Copy, Grid, GridSlider, Heading2, Heading3, LinkList } from '@smartive/
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 import { NextContentCard } from '../components/content-card';
-import { Image } from '../components/image';
+import { Image, ImageVariant } from '../components/image';
 import { PageHeader } from '../compositions/page-header';
 import { Link } from '../elements/link';
 import { LandingPage } from '../layouts/landing-page';
@@ -38,21 +38,33 @@ const Welcome: NextPage<Props> = ({ images }) => (
         <Image
           src={images.boats}
           alt="smartive Team auf einem Weidling (Boot) auf dem Rhein"
-          objectFit="cover"
+          variant={ImageVariant.FillContainer}
           width={720}
           height={380}
         />
 
         <div className="hidden md:block md:col-start-2 md:row-span-2 relative">
-          <Image src={images.aescher} alt="smartive Team vor dem Aescher" objectFit="cover" layout="fill" />
+          <Image
+            src={images.aescher}
+            alt="smartive Team vor dem Aescher"
+            variant={ImageVariant.FillContainer}
+            width={1440}
+            height={1000}
+          />
         </div>
         <div className="block md:hidden">
-          <Image src={images.aescher} alt="smartive Team vor dem Aescher" objectFit="cover" width={720} height={500} />
+          <Image
+            src={images.aescher}
+            alt="smartive Team vor dem Aescher"
+            variant={ImageVariant.FillContainer}
+            width={720}
+            height={500}
+          />
         </div>
         <Image
           src={images.pool}
           alt="Drei smartive Mitarbeitende mit Bier im Pool bei der Aussicht über das Verzascatal"
-          objectFit="cover"
+          variant={ImageVariant.FillContainer}
           width={720}
           height={500}
         />

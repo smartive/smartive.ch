@@ -1,7 +1,7 @@
 import { BlobVariations, Copy, Grid, Heading3, Keyfigure, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
@@ -51,7 +51,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers, images 
           src={images.heber}
           alt="Ein Mann transportiert Boxen in einem Lager"
           priority
-          objectFit="cover"
+          variant={ImageVariant.FillContainer}
           width={1504}
           height={800}
         />
@@ -59,7 +59,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers, images 
       <Section>
         <Keyfigure
           background="apricot"
-          image={<Image src={images.phone} alt="Mobile User Interface" height="566" width="275" objectFit="contain" />}
+          image={<Image src={images.phone} alt="Mobile User Interface" height="566" width="275" />}
         >
           <UnorderedList
             title="Kurz und knackig"
@@ -91,7 +91,7 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers, images 
             src={images.boxen}
             alt="Ein Gebinde im Lager wird mit der neuen Supply Chain App auf einem Smartphone gescannt."
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={720}
             height={383}
           />
@@ -99,12 +99,19 @@ const SupplyChain: NextPage<Props> = ({ quote, contact, awards, teasers, images 
             src={images.converter}
             alt="Ein Gebinde wird auf einem Laufband verarbeitet."
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={720}
             height={383}
           />
         </Grid>
-        <Image src={images.gebaeude} alt="Migros Logistik Zentrum" priority objectFit="cover" width={1504} height={800} />
+        <Image
+          src={images.gebaeude}
+          alt="Migros Logistik Zentrum"
+          priority
+          variant={ImageVariant.FillContainer}
+          width={1504}
+          height={800}
+        />
       </Section>
       <Section>
         <Heading3>Mehr Überblick, weniger Doppelspurigkeit</Heading3>

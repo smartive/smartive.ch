@@ -22,7 +22,7 @@ export const Callout: FC<Props> = ({ children, background = 'gray' }) => {
   return (
     <div
       className={[
-        'font-sans font-normal text-xs lg:text-base md:max-w-prose mb-8 rounded p-8 whitespace-pre-line break-words',
+        'font-sans font-normal text-xs lg:text-base mb-8 rounded p-8 whitespace-pre-line break-words',
         backgroundMap[background],
       ].join(' ')}
     >

@@ -10,7 +10,7 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { Image } from '../../../../components/image';
+import { Image, ImageVariant } from '../../../../components/image';
 import { Testimonial } from '../../../../components/testimonial';
 import { PageHeader } from '../../../../compositions/page-header';
 import { Quote } from '../../../../data/quotes';
@@ -65,7 +65,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
             src={images.snack}
             alt="Eine Frau sitzt mit dem Smartphone in der Hand auf einer Treppe und isst Popcorn."
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1504}
             height={800}
           />
@@ -98,7 +98,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
         <Section>
           <Keyfigure
             background="mint"
-            image={<Image src={images.phone} alt="Mobile User Interface" height="566" width="275" objectFit="contain" />}
+            image={<Image src={images.phone} alt="Mobile User Interface" height="566" width="275" />}
           >
             <Copy>
               Nicht nur beim Aufbau, sondern auch an diversen weiteren Punkten der User Journey wurde auf eine Bedienung und
@@ -122,7 +122,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               src={images.stairs}
               alt="Ein Mann steigt das Treppenhaus hoch. Er trägt einen Wäschekorb mit Kleidern und M-Budget-Waschmittel drin."
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={383}
             />
@@ -130,7 +130,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
               src={images.diskutieren}
               alt="Eine Frau und ein Mann betrachten etwas auf einem Smartphone."
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={383}
             />

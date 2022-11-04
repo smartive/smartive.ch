@@ -1,7 +1,7 @@
 import { BlobVariations, BrandColor } from '@smartive/guetzli';
 import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
-import { Image } from '../components/image';
+import { Image, ImageVariant } from '../components/image';
 import { Employee } from '../data/employees';
 import { Section } from '../layouts/section';
 import { PageBody, PageBodyPage_Header } from '../types/generated/prismic';
@@ -54,8 +54,7 @@ export const PrismicPage = ({ header, blocks }: Props) => (
                   src={block.primary.image.url}
                   alt={block.primary.image.alt}
                   priority
-                  objectFit="cover"
-                  layout="responsive"
+                  variant={ImageVariant.FillContainer}
                   width={block.primary.image.dimensions.width}
                   height={block.primary.image.dimensions.height}
                 />

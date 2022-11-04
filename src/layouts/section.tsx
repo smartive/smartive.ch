@@ -7,7 +7,7 @@ export type SectionProps = {
 };
 
 export const Section: FC<SectionProps> = ({ title, children }) => (
-  <section className="my-16 lg:my-48">
+  <section className={`my-16 lg:my-48`}>
     {title && <Heading2>{title}</Heading2>}
     {children}
   </section>

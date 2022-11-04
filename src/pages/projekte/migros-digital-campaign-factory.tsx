@@ -1,7 +1,7 @@
 import { BlobVariations, Copy, Grid, Heading3, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
@@ -40,7 +40,14 @@ const MigrosDigitalCampaignFactory: NextPage<Props> = ({ contact, teasers, image
     </PageHeader>
 
     <Section>
-      <Image src={images.woman} alt="Lachende Frau in Einkaufswagen" priority objectFit="cover" width={1504} height={800} />
+      <Image
+        src={images.woman}
+        alt="Lachende Frau in Einkaufswagen"
+        priority
+        variant={ImageVariant.FillContainer}
+        width={1504}
+        height={800}
+      />
     </Section>
 
     <main>
@@ -58,7 +65,7 @@ const MigrosDigitalCampaignFactory: NextPage<Props> = ({ contact, teasers, image
             src={images.screenshotPhotoAdmin}
             alt="Online Fotowettbewerb Auswertung"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={720}
             height={383}
           />
@@ -66,7 +73,7 @@ const MigrosDigitalCampaignFactory: NextPage<Props> = ({ contact, teasers, image
             src={images.screenshotPhotoWidget}
             alt="Online Fotowettbewerb Bildergalerie"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={720}
             height={383}
           />

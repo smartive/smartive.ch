@@ -1,67 +1,72 @@
-import { Button, Calendar, Clock, Heading3, Share, Switch, Tooltip } from '@smartive/guetzli';
-import { PostOrPage } from '@tryghost/content-api';
+import { Button, Calendar, Clock, Copy, Heading3, Share, Tooltip } from '@smartive/guetzli';
 import dayjs from 'dayjs';
 import 'dayjs/locale/de';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import React, { useState } from 'react';
-import { Image } from '../../components/image';
+import Head from 'next/head';
+import { useState } from 'react';
+import { Image, ImageVariant } from '../../components/image';
+import { NotionRichText } from '../../components/notion-rich-text';
 import { PageHeader } from '../../compositions/page-header';
+import { BlogDetail, getBlogPost, getBlogPosts } from '../../data/blog';
 import { Page } from '../../layouts/page';
-import { Section } from '../../layouts/section';
-import { getGhostClient } from '../../utils/ghost';
+import { Block, getBlocks } from '../../services/notion';
+import { calculateReadingTime } from '../../utils/notion';
+import { renderContent } from '../../utils/notion-block-renderers';
 
-type Props = {
-  post: PostOrPage;
-};
+type Props = { post: BlogDetail; blocks: Block[] };
 
-const BlogPost: NextPage<Props> = ({ post }) => {
+const BlogPost: NextPage<Props> = ({ post, blocks }) => {
   dayjs.locale('de');
   const [copyTooltipOpen, setCopyTooltipOpen] = useState(false);
+  const readingTime = calculateReadingTime(blocks);
+  const plainAbstract = post.abstract.reduce((acc, cur) => `${acc}${cur.plain_text}`, '');
+  const date = dayjs(post.date);
 
   return (
     <Page>
+      <Head>{!post.published && <meta name="robots" content="noindex" />}</Head>
       <div itemScope itemType="https://schema.org/BlogPosting">
         <meta itemProp="headline" content={post.title} />
-        <meta itemProp="abstract" content={post.excerpt} />
-        <PageHeader markdownTitle={post.title} description={post.excerpt}>
+        <meta itemProp="abstract" content={plainAbstract} />
+        <PageHeader markdownTitle={post.title} description={plainAbstract}>
           <div className="grid md:grid-cols-[66%,auto] gap-4">
-            {post.feature_image && (
+            {post.cover && (
               <div>
-                <img
-                  src={post.feature_image}
-                  alt=""
-                  loading="eager"
+                <Image
+                  src={post.cover}
+                  alt={post.title}
+                  priority
                   aria-hidden
-                  className="w-full h-full rounded object-cover"
+                  width={1000}
+                  height={800}
                   itemProp="image"
+                  variant={ImageVariant.FillContainer}
                 />
-                {post.meta_description && <span className="text-black hidden md:inline">{post.meta_description}</span>}
               </div>
             )}
-            <div className="grid place-items-center text-center gap-4 p-8 rounded bg-white-100">
-              {post.primary_author.profile_image && (
+            <div className="grid place-items-center text-center gap-4 p-4 md:p-8 rounded bg-white-100">
+              {post.avatar && (
                 <Image
-                  src={new URL(
-                    `${post.primary_author.profile_image.startsWith('http') ? '' : 'https://'}${
-                      post.primary_author.profile_image
-                    }`
-                  ).toString()}
-                  alt={post.primary_author.name}
-                  width={128}
-                  height={128}
+                  src={new URL(`${post.avatar.startsWith('http') ? '' : 'https://'}${post.avatar}`).toString()}
+                  alt={post.creator}
+                  width={256}
+                  height={256}
                   rounded="full"
-                  objectFit="cover"
+                  variant={ImageVariant.PortraitBig}
                 />
               )}
               <Heading3 as="p">
-                von <span itemProp="author">{post.primary_author.name}</span>
+                von <span itemProp="author">{post.creator}</span>
               </Heading3>
               <div className="grid grid-cols-[1rem,auto] gap-2 justify-items-center place-items-center">
                 <Calendar className="w-4 h-4" />
-                <meta itemProp="dateCreated datePublished pubDate" content={dayjs(post.published_at).format('YYYY-MM-DD')} />
-                <span>{dayjs(post.published_at).format('MMMM YYYY')}</span>
+                <meta
+                  itemProp="dateCreated datePublished pubDate"
+                  content={date.isValid() ? date.format('YYYY-MM-DD') : 'Draft'}
+                />
+                <span>{date.isValid() ? date.format('MMMM YYYY') : 'Draft'}</span>
                 <Clock className="w-4 h-4" />
-                <span>~{post.reading_time} Minuten</span>
+                <span>~{readingTime} Minuten</span>
               </div>
               <div className="grid grid-flow-row xl:grid-flow-col gap-4 mt-4">
                 <Tooltip text="Kopiert!" isOpen={copyTooltipOpen}>
@@ -78,25 +83,23 @@ const BlogPost: NextPage<Props> = ({ post }) => {
                     <Share className="inline-block" /> Link kopieren
                   </Button>
                 </Tooltip>
-                {post.canonical_url && (
-                  <Button as="a" href={post.canonical_url}>
-                    <Switch className="inline-block" />{' '}
-                    {post.tags.some((tag) => tag.name === 'German') ? 'Read in English' : 'Auf Deutsch lesen'}
-                  </Button>
-                )}
               </div>
             </div>
           </div>
         </PageHeader>
 
-        <main>
-          <Section>
-            <article
-              className="prose prose-sm md:prose lg:prose-xl xl:prose-2xl"
-              itemProp="articleBody text"
-              dangerouslySetInnerHTML={{ __html: post.html }}
-            />
-          </Section>
+        <main className="w-full md:w-2/3">
+          <article itemProp="articleBody text">
+            {post.abstract && post.abstract.length > 0 && (
+              <>
+                <Copy>
+                  <NotionRichText text={post.abstract} />
+                </Copy>
+                <hr className="my-8 text-xs lg:text-base" />
+              </>
+            )}
+            {renderContent(blocks)}
+          </article>
         </main>
       </div>
     </Page>
@@ -114,27 +117,27 @@ const copyToClipboard = (text: string) => {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   try {
-    const post = await getGhostClient().posts.read({ slug: params.slug.toString() }, { include: ['authors', 'tags'] });
+    const post = await getBlogPost(params.slug.toString());
+    const blocks = await getBlocks(post.id);
 
     return {
       props: {
         post,
+        blocks,
       },
-      revalidate: 300,
+      revalidate: post.published ? 600 : 1,
     };
   } catch (error) {
+    console.error(error);
     return {
       notFound: true,
+      revalidate: 300,
     };
   }
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getGhostClient().posts.browse({
-    filter: 'visibility:public',
-    order: 'published_at DESC',
-    limit: 'all',
-  });
+  const posts = await getBlogPosts();
 
   return {
     paths: posts.map(({ slug }) => ({ params: { slug } })),

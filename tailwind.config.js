@@ -15,6 +15,20 @@ module.exports = guetzliConfig.tailwindConfig({
       transitionProperty: {
         spacing: 'margin transform',
       },
+      fontFamily: {
+        sans: ['"Inter"', 'sans-serif'],
+        serif: ['"IBM Plex Serif"', 'serif'],
+        mono: [
+          'ui-monospace',
+          'SFMono-Regular',
+          'Menlo',
+          'Monaco',
+          'Consolas',
+          '"Liberation Mono"',
+          '"Courier New"',
+          'monospace',
+        ],
+      },
     },
   },
   plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],

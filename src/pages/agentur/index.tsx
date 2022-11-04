@@ -1,7 +1,7 @@
 import { BlobVariations, Copy, Grid, TextBlock, TextLink } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import TextBlocks from '../../data/benefits.json';
@@ -51,18 +51,24 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
             <Image
               src={images.dife}
               alt="smartive Mitarbeiter mit einem Schild auf dem smartive beworben wird"
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={380}
             />
             <div className="hidden md:block md:col-start-2 md:row-span-2 relative">
-              <Image src={images.mittag} alt="smartive Team am Mittagstisch beim Essen" objectFit="cover" layout="fill" />
+              <Image
+                src={images.mittag}
+                alt="smartive Team am Mittagstisch beim Essen"
+                variant={ImageVariant.FillContainer}
+                width={1440}
+                height={1026}
+              />
             </div>
             <div className="block md:hidden">
               <Image
                 src={images.mittag}
                 alt="smartive Team am Mittagstisch beim Essen"
-                objectFit="cover"
+                variant={ImageVariant.FillContainer}
                 width={720}
                 height={500}
               />
@@ -70,7 +76,7 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
             <Image
               src={images.vortrag}
               alt="smartive Mitarbeiter hält einen Vortrag vor mehreren Leuten"
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={500}
             />
@@ -84,39 +90,47 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
           </Grid>
           <Testimonial background="cornflower" blobs={BlobVariations.cornflower[0]} quote={quote} />
           <Grid cols={2}>
-            <Image
-              src={images.coderetreat}
-              alt="smartive Team am arbeiten an einem Tisch im freien mit dem Valle Verzasca im Hintergrund"
-              objectFit="cover"
-              width={720}
-              height={380}
-            />
-            <Image
-              src={images.aescher}
-              alt="smartive Team bei einer Wanderung mit dem Gasthaus Aescher-Wildkirchli im Hintergrund"
-              objectFit="cover"
-              width={720}
-              height={380}
-            />
-            <Image
-              src={images.terrasse}
-              alt="smartive Team sitzt auf einer Bank mit blauem Himmel und Thunersee im Hintergrund"
-              objectFit="cover"
-              width={720}
-              height={500}
-            />
-            <Image
-              src={images.fussball}
-              alt="smartive Team beim Fussballspielen auf einer grünen Wiese"
-              objectFit="cover"
-              width={720}
-              height={380}
-            />
-            <div className="md:col-span-2">
+            <div className="h-[500px]">
+              <Image
+                src={images.coderetreat}
+                alt="smartive Team am arbeiten an einem Tisch im freien mit dem Valle Verzasca im Hintergrund"
+                variant={ImageVariant.FillContainer}
+                width={720}
+                height={500}
+              />
+            </div>
+            <div className="h-[500px]">
+              <Image
+                src={images.aescher}
+                alt="smartive Team bei einer Wanderung mit dem Gasthaus Aescher-Wildkirchli im Hintergrund"
+                variant={ImageVariant.FillContainer}
+                width={720}
+                height={500}
+              />
+            </div>
+            <div className="h-[500px]">
+              <Image
+                src={images.terrasse}
+                alt="smartive Team sitzt auf einer Bank mit blauem Himmel und Thunersee im Hintergrund"
+                variant={ImageVariant.FillContainer}
+                width={720}
+                height={500}
+              />
+            </div>
+            <div className="h-[500px]">
+              <Image
+                src={images.fussball}
+                alt="smartive Team beim Fussballspielen auf einer grünen Wiese"
+                variant={ImageVariant.FillContainer}
+                width={720}
+                height={500}
+              />
+            </div>
+            <div className="h-[500px] md:col-span-2">
               <Image
                 src={images.essen}
                 alt="smartive Team beim Mittagessen im Freien"
-                objectFit="cover"
+                variant={ImageVariant.FillContainer}
                 width={1504}
                 height={800}
               />

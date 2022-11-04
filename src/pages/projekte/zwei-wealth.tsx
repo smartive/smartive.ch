@@ -11,9 +11,8 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
@@ -66,8 +65,22 @@ const ZweiWealth: NextPage<Props> = ({ quote, contact, teasers, images, packages
       <main>
         <Section>
           <Grid cols={2}>
-            <Image src={images.chat} alt="Titelbild" priority objectFit="cover" width={1420} height={1420} />
-            <Image src={images.article} alt="Titelbild" priority objectFit="cover" width={1420} height={1420} />
+            <Image
+              src={images.chat}
+              alt="Titelbild"
+              priority
+              variant={ImageVariant.FillContainer}
+              width={1420}
+              height={1420}
+            />
+            <Image
+              src={images.article}
+              alt="Titelbild"
+              priority
+              variant={ImageVariant.FillContainer}
+              width={1420}
+              height={1420}
+            />
           </Grid>
         </Section>
 
@@ -161,7 +174,7 @@ const ZweiWealth: NextPage<Props> = ({ quote, contact, teasers, images, packages
               src={images.designsprint}
               alt="Pinke Post-Its auf einem Tisch"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={1420}
               height={1420}
             />
@@ -169,7 +182,7 @@ const ZweiWealth: NextPage<Props> = ({ quote, contact, teasers, images, packages
               src={images.designsprint2}
               alt="Gelbe Post-Its auf einem Tisch"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={1420}
               height={1420}
             />

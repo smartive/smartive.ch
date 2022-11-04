@@ -1,7 +1,7 @@
 import { BlobVariations, Copy, Grid, Heading2, LinkList, PageSection, TextBlock, TextLink } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
@@ -52,7 +52,7 @@ const ZubiRedesign: NextPage<Props> = ({ quote, contact, teasers, images, packag
               src={images.shop}
               alt="Die Filiale von Zubi in Herisau"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={750}
               height={500}
             />
@@ -60,7 +60,7 @@ const ZubiRedesign: NextPage<Props> = ({ quote, contact, teasers, images, packag
               src={images.woman}
               alt="Eine Frau mit einem Wanderrucksack."
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={750}
               height={500}
             />
@@ -101,7 +101,7 @@ const ZubiRedesign: NextPage<Props> = ({ quote, contact, teasers, images, packag
           <Image
             src={images.mockup}
             alt="Eine Macbook mit dem neuen Zubi Shop auf dem Bildschirm"
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1920}
             height={1080}
           />

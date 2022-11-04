@@ -1,7 +1,7 @@
 import { BlobVariations, Copy, Grid, Heading3, Keyfigure, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
@@ -50,7 +50,7 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
             src={images.brot}
             alt="Mitarbeiterin von Jowa zeigt ein Brot"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={720}
             height={383}
           />
@@ -58,16 +58,14 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
             src={images.staubsauger}
             alt="melectronics bei der Beratung zum Staubsaugerkauf"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={720}
             height={383}
           />
         </Grid>
       </Section>
       <Section>
-        <Keyfigure
-          image={<Image src={images.phone} alt="Mobile User Interface" height="566" width="275" objectFit="contain" />}
-        >
+        <Keyfigure image={<Image src={images.phone} alt="Mobile User Interface" height="566" width="275" />}>
           <UnorderedList
             title="Was bringts"
             items={[
@@ -96,7 +94,7 @@ const Dimmi: NextPage<Props> = ({ quote, contact, teasers, images }) => (
           src={images.guetzli}
           alt="Midor Mitarbeiterin im Schutzanzug hält Guetzli"
           priority
-          objectFit="cover"
+          variant={ImageVariant.FillContainer}
           width={1504}
           height={800}
         />

@@ -11,9 +11,8 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
@@ -72,7 +71,7 @@ const LearnFox: NextPage<Props> = ({ quote, contact, teasers, images, packages }
             src={images.title}
             alt="Jugendliche in einem Klassenzimmer"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1504}
             height={800}
           />
@@ -120,15 +119,7 @@ const LearnFox: NextPage<Props> = ({ quote, contact, teasers, images, packages }
         <Section>
           <Keyfigure
             background="cornflower"
-            image={
-              <Image
-                src={images.screenshotMobile}
-                alt="Mobile User Interface"
-                height="873"
-                width="400"
-                objectFit="contain"
-              />
-            }
+            image={<Image src={images.screenshotMobile} alt="Mobile User Interface" height="873" width="400" />}
           >
             <UnorderedList
               title="The Facts"

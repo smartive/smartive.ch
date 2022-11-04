@@ -1,7 +1,7 @@
 import { BlobVariations, Copy, Grid, Heading3, LinkList, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
@@ -49,7 +49,7 @@ const SharedComponents: NextPage<Props> = ({ quote, contact, teasers, images }) 
           src={images.supermarkt}
           alt="Gemüseabteilung in einem Migros Supermarkt"
           priority
-          objectFit="cover"
+          variant={ImageVariant.FillContainer}
           width={1504}
           height={800}
         />

@@ -1,7 +1,7 @@
 import { BlobVariations, Copy, Grid, LinkList, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
@@ -55,21 +55,32 @@ const Kasparund: NextPage<Props> = ({ quote, contact, teasers, images, packages 
             src={images.mood}
             alt="Frau hält die Karte von Kaspar& in die Höhe"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1504}
             height={800}
           />
 
           <Grid cols={2}>
-            <Image
-              src={images.card}
-              alt="Kasparund Karte auf dem Kopf"
-              priority
-              objectFit="scale-down"
-              width={420}
-              height={260}
-            />
-            <Image src={images.app} alt="Kasparund App Preview" priority objectFit="scale-down" width={400} height={711} />
+            <div className="h-[500px] md:h-[700px]">
+              <Image
+                src={images.card}
+                alt="Kasparund Karte auf dem Kopf"
+                priority
+                width={420}
+                height={260}
+                variant={ImageVariant.Centered}
+              />
+            </div>
+            <div className="h-[500px] md:h-[700px]">
+              <Image
+                src={images.app}
+                alt="Kasparund App Preview"
+                priority
+                width={400}
+                height={711}
+                variant={ImageVariant.Centered}
+              />
+            </div>
           </Grid>
         </Section>
         <Section title="Und was haben wir dazu beigetragen?">

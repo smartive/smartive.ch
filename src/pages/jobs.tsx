@@ -1,7 +1,7 @@
 import { Copy, Grid } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../components/contact';
-import { Image } from '../components/image';
+import { Image, ImageVariant } from '../components/image';
 import { PageHeader } from '../compositions/page-header';
 import { Employee, getEmployeeByName } from '../data/employees';
 
@@ -39,13 +39,19 @@ const Jobs: NextPage<Props> = ({ contact, images }) => {
         <Section>
           <Grid cols={2}>
             <div className="hidden md:block md:row-span-2 relative">
-              <Image src={images.mittag} alt="Das smartive Team isst draussen zu Mittag" objectFit="cover" layout="fill" />
+              <Image
+                src={images.mittag}
+                alt="Das smartive Team isst draussen zu Mittag"
+                variant={ImageVariant.FillContainer}
+                width={1440}
+                height={1000}
+              />
             </div>
             <div className="block md:hidden">
               <Image
                 src={images.mittag}
                 alt="Das smartive Team isst draussen zu Mittag"
-                objectFit="cover"
+                variant={ImageVariant.FillContainer}
                 width={720}
                 height={500}
               />
@@ -53,14 +59,14 @@ const Jobs: NextPage<Props> = ({ contact, images }) => {
             <Image
               src={images.meeting}
               alt="smartive Mitarbeitende halten ein Meeting"
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={380}
             />
             <Image
               src={images.jungle}
               alt="Zwei smartive Mitarbeitende unterhalten sich und lachen"
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={500}
             />

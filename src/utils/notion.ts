@@ -1,98 +1,25 @@
-import { GetBlockResponse, GetPageResponse } from '@notionhq/client/build/src/api-endpoints';
+import { Block } from '../services/notion';
 
-type AnyBlock = Extract<GetBlockResponse, { type: string }>;
-export type BlockType = AnyBlock['type'] | 'unordered_list' | 'ordered_list';
-export type Block<Type extends BlockType = BlockType> = Extract<AnyBlock, { type: Type }>;
-
-export type BlockWithChildren = {
-  id: string;
-  type: 'ordered_list' | 'unordered_list';
-  children: Block[];
-};
-
-export type BlockWithMeta = Block<'image'> & {
-  image: {
-    meta: {
-      width: number;
-      height: number;
-    };
-  };
-};
-
-export const getPageTitle = (page: GetPageResponse): string => {
-  if (!page) {
-    return '';
-  }
-
-  return 'properties' in page && page.properties.Name.type === 'title'
-    ? page.properties.Name.title.reduce((acc, cur) => {
-        if ('text' in cur) {
-          return acc + cur.text.content;
-        }
-
-        return acc;
-      }, '')
-    : '';
-};
-
-export const getLexer = <T>(it: IterableIterator<T>) => {
-  const iterator = it;
-  let value = iterator.next().value;
-
-  function getToken() {
-    const t = value;
-
-    switch (t?.type) {
-      case 'bulleted_list_item':
-        // eslint-disable-next-line no-case-declarations
-        const ul = {
-          type: 'unordered_list',
-          id: t.id.substring(0, 6) + 'parent',
-          children: [t],
-        };
-        next();
-        while (value?.type === 'bulleted_list_item') {
-          ul.children.push(value);
-          next();
-        }
-        return ul;
-      case 'numbered_list_item':
-        // eslint-disable-next-line no-case-declarations
-        const ol = {
-          type: 'ordered_list',
-          id: t.id.substring(0, 6) + 'parent',
-          children: [t],
-        };
-        next();
-        while (value?.type === 'numbered_list_item') {
-          ol.children.push(value);
-          next();
-        }
-        return ol;
-      case undefined:
+export const wordCount = (blocks: Block[]) =>
+  blocks.reduce((count, block) => {
+    switch (block.type) {
+      case 'paragraph':
+      case 'heading_1':
+      case 'heading_2':
+      case 'heading_3':
+      case 'to_do':
+      case 'quote':
+      case 'callout':
+        return (
+          count +
+          block[block.type].rich_text.reduce((textCount, text) => textCount + text.plain_text.trim().split(' ').length, 0)
+        );
+      case 'ordered_list':
+      case 'unordered_list':
+        return count + wordCount(block.children);
       default:
-        next();
-        return t;
+        return count;
     }
-  }
+  }, 0);
 
-  function next() {
-    value = iterator.next().value;
-  }
-
-  function lex(): T[] {
-    const parsed = [];
-    let token = getToken();
-
-    while (token) {
-      parsed.push(token);
-      token = getToken();
-    }
-
-    return parsed;
-  }
-
-  return {
-    lex,
-  };
-};
+export const calculateReadingTime = (blocks: Block[]) => Math.ceil(wordCount(blocks) / 200);

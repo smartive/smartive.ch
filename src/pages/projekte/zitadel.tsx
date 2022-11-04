@@ -1,8 +1,7 @@
-import { BlobVariations, Copy, Explainer, Grid, LinkList, Screenshot, TextBlock } from '@smartive/guetzli';
+import { Copy, Explainer, Grid, LinkList, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
@@ -57,7 +56,7 @@ const Zitadel: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             src={images.header}
             alt="Bügelschloss auf einer Tastatur"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1504}
             height={800}
           />
@@ -94,7 +93,7 @@ const Zitadel: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               src={images.meeting1}
               alt="Sitzungszimmer bei einem Workshop"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={1504}
               height={847}
             />
@@ -102,7 +101,7 @@ const Zitadel: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               src={images.meeting2}
               alt="Glasfenster mit Postits"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={1504}
               height={847}
             />
@@ -164,7 +163,7 @@ const Zitadel: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             caption="Das Team hinter ZITADEL."
             alt="Das Team hinter ZITADEL"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1504}
             height={800}
           />

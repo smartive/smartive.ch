@@ -1,7 +1,7 @@
 import { Copy, Grid, Keyfigure, LinkList, Screenshot, ScreenshotVariant, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee, getEmployeeByName } from '../../data/employees';
@@ -48,7 +48,7 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images }) => (
             src={images.rennen}
             alt="Kind rennt auf einem Spielplatz"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={720}
             height={383}
           />
@@ -56,7 +56,7 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images }) => (
             src={images.klettern}
             alt="Kind klettert auf einem Spielplatz"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={720}
             height={383}
           />

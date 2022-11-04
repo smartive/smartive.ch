@@ -1,5 +1,5 @@
 import { Blob, BlobType, BrandColor, Heading2, highlight, mapColorToBG } from '@smartive/guetzli';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Quote } from '../data/quotes';
 import { Image, ImageVariant } from './image';
 

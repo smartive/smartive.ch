@@ -1,18 +1,18 @@
 import { Copy, Grid, LinkList, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { Image } from '../../components/image';
-import { PageHeader } from '../../compositions/page-header';
-import { Page } from '../../layouts/page';
-import { Section } from '../../layouts/section';
-import { Teaser } from '../../data/teaser';
-import Teasers from '../../data/teasers.json';
-import { NextImageCard } from '../../components/image-card';
-import { getRandomTeasers } from '../../utils/teasers';
-import { Employee, getEmployeeByName } from '../../data/employees';
 import { Contact } from '../../components/contact';
+import { Image, ImageVariant } from '../../components/image';
+import { NextImageCard } from '../../components/image-card';
+import { Testimonial } from '../../components/testimonial';
+import { PageHeader } from '../../compositions/page-header';
+import { Employee, getEmployeeByName } from '../../data/employees';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Testimonial } from '../../components/testimonial';
+import { Teaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
+import { Page } from '../../layouts/page';
+import { Section } from '../../layouts/section';
+import { getRandomTeasers } from '../../utils/teasers';
 
 const STATIC_IMAGES = {
   screen1: '/images/projekte/opsone/opsone-1.png',
@@ -61,7 +61,7 @@ const OpsOne: NextPage<Props> = ({ images, teasers, contact, quote }) => {
             src={images.screen4}
             alt="Screenshot Ops One Cockpit"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={3010}
             height={1694}
           />
@@ -100,7 +100,7 @@ const OpsOne: NextPage<Props> = ({ images, teasers, contact, quote }) => {
               src={images.toggles}
               alt="Screenshot Ops One Cockpit"
               priority
-              objectFit="scale-down"
+              variant={ImageVariant.Centered}
               width={3010}
               height={1693}
             />
@@ -108,7 +108,7 @@ const OpsOne: NextPage<Props> = ({ images, teasers, contact, quote }) => {
               src={images.tables}
               alt="Screenshot Ops One Cockpit"
               priority
-              objectFit="scale-down"
+              variant={ImageVariant.Centered}
               width={3010}
               height={1693}
             />

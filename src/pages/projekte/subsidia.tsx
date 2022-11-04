@@ -1,7 +1,7 @@
 import { BlobVariations, Copy, Grid, LinkList, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
@@ -55,7 +55,7 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages, 
           src={images.scan}
           alt="Verkäuferin scannt Etikett eines Kleidungsstücks mit dem Smartphone"
           priority
-          objectFit="cover"
+          variant={ImageVariant.FillContainer}
           width={1504}
           height={800}
         />
@@ -102,7 +102,7 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages, 
             src={images.screen}
             alt="Eine Hand die ein Smartphone mit der Subsidia Kassen-App hält"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={720}
             height={383}
           />
@@ -110,7 +110,7 @@ const Subsidia: NextPage<Props> = ({ quote, contact, awards, teasers, packages, 
             src={images.kasse}
             alt="Verkaufsberater an einer stationären Kasse hinter einem Bildschirm"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={720}
             height={383}
           />

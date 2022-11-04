@@ -11,7 +11,7 @@ import {
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
@@ -63,7 +63,7 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
             src={images.tablet}
             alt="Eine Person hält ein Tablet"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1504}
             height={800}
           />
@@ -88,9 +88,7 @@ const BinApp: NextPage<Props> = ({ quote, contact, teasers, images, packages }) 
         <Section>
           <Keyfigure
             background="cornflower"
-            image={
-              <Image src={images.screenshot} alt="Mobile User Interface" height="2265" width="1080" objectFit="contain" />
-            }
+            image={<Image src={images.screenshot} alt="Mobile User Interface" height="2265" width="1080" />}
           >
             <UnorderedList
               title="Kurz und knackig"

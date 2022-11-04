@@ -2,7 +2,7 @@ import { Copy, Grid } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import React from 'react';
-import { Image } from '../components/image';
+import { Image, ImageVariant } from '../components/image';
 import { PageHeader } from '../compositions/page-header';
 import { LandingPage } from '../layouts/landing-page';
 import { Section } from '../layouts/section';
@@ -43,7 +43,7 @@ const Newsletter: NextPage<Props> = ({ images }) => {
             src={images.mittag}
             alt="smartive Team beim Mittagessen an einem Holztisch"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1504}
             height={800}
           />
@@ -51,7 +51,7 @@ const Newsletter: NextPage<Props> = ({ images }) => {
             <Image
               src={images.terrasse}
               alt="smartive Team sitzt auf einer Bank mit blauem Himmel und Thunersee im Hintergrund"
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={500}
             />
@@ -59,9 +59,8 @@ const Newsletter: NextPage<Props> = ({ images }) => {
               <Image
                 src={images.coderetreat}
                 alt="smartive Team am Mittagstisch beim Essen"
-                objectFit="cover"
-                layout="responsive"
-                width={720}
+                variant={ImageVariant.FillContainer}
+                width={1440}
                 height={1064}
               />
             </div>
@@ -69,7 +68,7 @@ const Newsletter: NextPage<Props> = ({ images }) => {
               <Image
                 src={images.mittag}
                 alt="smartive Team am Mittagstisch beim Essen"
-                objectFit="cover"
+                variant={ImageVariant.FillContainer}
                 width={720}
                 height={500}
               />
@@ -77,7 +76,7 @@ const Newsletter: NextPage<Props> = ({ images }) => {
             <Image
               src={images.dife}
               alt="smartive Mitarbeiter hält einen Vortrag vor mehreren Leuten"
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={500}
             />

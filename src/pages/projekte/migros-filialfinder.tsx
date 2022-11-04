@@ -1,7 +1,7 @@
 import { BlobVariations, Copy, Grid, Heading3, Keyfigure, LinkList, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
@@ -54,7 +54,7 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               src={images.supermarkt}
               alt="Migros Supermarkt auf dem Land von aussen"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={383}
             />
@@ -62,7 +62,7 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               src={images.takeaway}
               alt="Ein Migros Take-Away Stand"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={383}
             />
@@ -71,7 +71,7 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers, images }) => {
         <Section>
           <Keyfigure
             background="apricot"
-            image={<Image src={images.filialfinder} alt="User Interface" height="1000" width="703" objectFit="contain" />}
+            image={<Image src={images.filialfinder} alt="User Interface" height="1000" width="703" />}
           >
             <UnorderedList
               title="Insights"
@@ -91,7 +91,7 @@ const Filialfinder: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             src={images.flughafen}
             alt="Migros Filiale am Flughafen Zürich"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1504}
             height={800}
           />

@@ -66,7 +66,6 @@ const Frontify: NextPage<Props> = ({ images, teasers, contact, quote }) => {
             src={images.flyer}
             alt="Flyer für das Digital Asset Management von Frontify"
             priority
-            objectFit="cover"
             width={1504}
             height={800}
           />
@@ -77,18 +76,10 @@ const Frontify: NextPage<Props> = ({ images, teasers, contact, quote }) => {
               src={images.styleguide}
               alt="Style Guide von Frontify auf einem Bildschirm"
               priority
-              objectFit="scale-down"
               width={1920}
               height={1440}
             />
-            <Image
-              src={images.meeting}
-              alt="Meeting von Frontify Mitarbeitenden"
-              priority
-              objectFit="scale-down"
-              width={1920}
-              height={1440}
-            />
+            <Image src={images.meeting} alt="Meeting von Frontify Mitarbeitenden" priority width={1920} height={1440} />
           </Grid>
         </Section>
         <Section title="Lovestory">
@@ -133,8 +124,6 @@ const Frontify: NextPage<Props> = ({ images, teasers, contact, quote }) => {
                 src={images.team}
                 alt="Frontify und smartive Mitarbeiter*innen"
                 caption="Frontify und smartive Mitarbeiter*innen"
-                priority
-                objectFit="scale-down"
                 width={1920}
                 height={1440}
               />
@@ -144,8 +133,6 @@ const Frontify: NextPage<Props> = ({ images, teasers, contact, quote }) => {
                 src={images.workshop2}
                 alt="Frontify und smartive Mitarbeiter*innen"
                 caption="Das Team bei einem Innovation-Day"
-                priority
-                objectFit="scale-down"
                 width={1920}
                 height={1440}
               />
@@ -217,14 +204,7 @@ const Frontify: NextPage<Props> = ({ images, teasers, contact, quote }) => {
               </TextBlock>
             </div>
           </Grid>
-          <Image
-            src={images.workshop}
-            alt="Frontify und smartive Mitarbeiter*innen"
-            priority
-            objectFit="scale-down"
-            width={1920}
-            height={1440}
-          />
+          <Image src={images.workshop} alt="Frontify und smartive Mitarbeiter*innen" width={1920} height={1440} />
         </Section>
 
         <Section>

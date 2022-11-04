@@ -1,29 +1,17 @@
-import { GetPageResponse, ListBlockChildrenResponse } from '@notionhq/client/build/src/api-endpoints';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
-import { getBlocks, getNotionClient } from '../../services/notion';
-import { getLexer, getPageTitle } from '../../utils/notion';
-import { blockRenderers } from '../../utils/notion-block-renderers';
+import { Block, getBlocks, getNotionClient } from '../../services/notion';
+import { renderContent } from '../../utils/notion-block-renderers';
 
-type Props = { page: GetPageResponse; blocks: ListBlockChildrenResponse['results'] };
+type Props = { blocks: Block[] };
 
-export const SeedPage: NextPage<Props> = ({ page, blocks = [] }) => {
-  const name = getPageTitle(page);
-
-  const iterator = blocks[Symbol.iterator]();
-  const { lex } = getLexer(iterator);
-  const parsedBlocks = lex();
-
+export const SeedPage: NextPage<Props> = ({ blocks = [] }) => {
   return (
     <Page>
-      <PageHeader markdownTitle={name} />
+      <PageHeader markdownTitle={'TODO'} />
 
-      <main>
-        {parsedBlocks.map((block) =>
-          'type' in block && blockRenderers[block.type] ? blockRenderers[block.type](block) : null
-        )}
-      </main>
+      <main>{renderContent(blocks)}</main>
     </Page>
   );
 };
@@ -65,13 +53,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const [entry] = response.results;
 
-  const page = await getNotionClient().pages.retrieve({ page_id: entry.id });
-
   const blocks = await getBlocks(entry.id);
 
   return {
     props: {
-      page,
       blocks,
     },
     revalidate: 60,

@@ -1,276 +1,146 @@
 import { Copy, Heading1, Heading2, Heading3, Label } from '@smartive/guetzli';
 import { Language } from 'prism-react-renderer';
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { Accordion } from '../components/accordion';
 import { Callout } from '../components/callout';
-import { CodeSnippet } from '../components/code-snippet';
+import { CodeSnippet, MermaidDiagram } from '../components/code-snippet';
 import { Image } from '../components/image';
 import { NotionRichText } from '../components/notion-rich-text';
 import { OrderedList } from '../components/ordered-list';
 import { UnorderedList } from '../components/unordered-list';
-import { Section } from '../layouts/section';
-import { Block, BlockType, BlockWithChildren, BlockWithMeta } from './notion';
+import { Link } from '../elements/link';
+import { Block, BlockType } from '../services/notion';
 
-type RenderFn = (block: Block) => ReactNode;
+type RenderFn<T extends Block = Block> = (block: T) => ReactNode;
 
-type AvailableRenderers = Exclude<
-  BlockType,
-  | 'bulleted_list_item'
-  | 'numbered_list_item'
-  | 'template'
-  | 'synced_block'
-  | 'child_page'
-  | 'child_database'
-  | 'equation'
-  | 'breadcrumb'
-  | 'table_of_contents'
-  | 'link_to_page'
-  | 'table_row'
-  | 'embed'
-  | 'bookmark'
-  | 'video'
-  | 'table'
-  | 'pdf'
-  | 'file'
-  | 'audio'
-  | 'link_preview'
-  | 'unsupported'
->;
-
-export const blockRenderers: Record<AvailableRenderers, RenderFn> = {
-  paragraph: (block: Block) => {
-    if ('paragraph' in block) {
-      const { type, id } = block;
-      const value = block[type];
-
-      return (
-        <Copy key={id}>
-          <NotionRichText text={value.rich_text} />
-        </Copy>
-      );
+const createRenderer =
+  <TPart extends BlockType, TBlock extends Block<TPart>>(part: TPart, render: RenderFn<TBlock>): RenderFn<TBlock> =>
+  (block) => {
+    if (part in block || block.type === part) {
+      return render(block);
     }
 
     return null;
-  },
-  heading_1: (block: Block) => {
-    if ('heading_1' in block) {
-      const { type, id } = block;
-      const value = block[type];
+  };
 
-      return (
-        <Heading1 key={id}>
-          <NotionRichText text={value.rich_text} decorate />
-        </Heading1>
-      );
-    }
+export const renderBlock = (block: Block): ReactNode => internalRenderers[block.type]?.(block) ?? null;
+export const renderBlocks = (blocks: Block[]): ReactNode[] => blocks.map(renderBlock);
+export const renderContent = (blocks: Block[]): ReactNode => <>{blocks.map(renderBlock)}</>;
 
-    return null;
-  },
-  heading_2: (block: Block) => {
-    if ('heading_2' in block) {
-      const { type, id } = block;
-      const value = block[type];
-
-      return (
-        <Heading2 key={id}>
-          <NotionRichText text={value.rich_text} />
-        </Heading2>
-      );
-    }
-
-    return null;
-  },
-  heading_3: (block: Block) => {
-    if ('heading_3' in block) {
-      const { type, id } = block;
-      const value = block[type];
-
-      return (
-        <Heading3 key={id}>
-          <NotionRichText text={value.rich_text} />
-        </Heading3>
-      );
-    }
-
-    return null;
-  },
-
-  column_list: (block: Block) => {
-    if ('column_list' in block) {
-      const { id } = block;
-
-      return (
-        <Section key={id}>
-          <div className="md:flex md:flex-row md:gap-4">
-            {(block as any as BlockWithChildren).children.map((child) =>
-              blockRenderers[child.type] ? blockRenderers[child.type](child) : null
-            )}
-          </div>
-        </Section>
-      );
-    }
-
-    return null;
-  },
-  column: (block: Block) => {
-    if ('column' in block) {
-      const { id } = block;
-
-      return (
-        <div key={id}>
-          {(block as any as BlockWithChildren).children.map((child) =>
-            blockRenderers[child.type] ? blockRenderers[child.type](child) : null
-          )}
-        </div>
-      );
-    }
-
-    return null;
-  },
-  ordered_list: (block: Block) => {
-    if ('type' in block) {
-      const { id } = block;
-
-      return (
-        <OrderedList key={id}>
-          {((block as unknown as BlockWithChildren).children as Block<'numbered_list_item'>[]).map((item) => (
-            <NotionRichText key={item.id} text={item[item.type].rich_text} className="text-black font-normal" />
-          ))}
-        </OrderedList>
-      );
-    }
-
-    return null;
-  },
-
-  unordered_list: (block: Block) => {
-    if ('type' in block) {
-      const { id } = block;
-
-      return (
-        <UnorderedList key={id}>
-          {((block as unknown as BlockWithChildren).children as Block<'bulleted_list_item'>[]).map((item) => (
-            <NotionRichText key={item.id} text={item[item.type].rich_text} className="text-black font-normal" />
-          ))}
-        </UnorderedList>
-      );
-    }
-    return null;
-  },
-  to_do: (block: Block) => {
-    if ('to_do' in block) {
-      const { type, id } = block;
-      const value = block[type];
-
-      return (
-        <div key={id}>
-          <Label as="label">
-            <input
-              className="focus:ring-cornflower-500 h-6 w-6 text-cornflower-500 border-cornflower-500 rounded-[6px] mr-4"
-              type="checkbox"
-              id={id}
-              defaultChecked={value.checked}
-            />
-            <NotionRichText text={value.rich_text} />
-          </Label>
-        </div>
-      );
-    }
-
-    return null;
-  },
-  toggle: (block: Block) => {
-    if ('toggle' in block) {
-      const { id, type } = block;
-      const value = block[type];
-
-      return (
-        <Accordion key={id} summary={<NotionRichText text={value.rich_text} />}>
-          {(block as unknown as BlockWithChildren).children.map((item) =>
-            blockRenderers[item.type] ? blockRenderers[item.type](item) : null
-          )}
-        </Accordion>
-      );
-    }
-    return null;
-  },
-  image: (block: BlockWithMeta) => {
-    if ('image' in block) {
-      const { id, type } = block;
-
-      const value = block[type];
-
-      const caption = value.caption ? <NotionRichText text={value.caption} /> : null;
-      const alt = value.caption.reduce((acc, cur) => `${acc}${cur}`, '');
-
-      const { width, height } = value.meta;
-
-      return (
+const internalRenderers = {
+  paragraph: createRenderer('paragraph', ({ id, paragraph: { rich_text } }) => (
+    <Copy key={id}>
+      <NotionRichText text={rich_text} />
+    </Copy>
+  )),
+  heading_1: createRenderer('heading_1', ({ id, heading_1: { rich_text } }) => (
+    <Heading1 className="mt-8 mb-4" key={id}>
+      <NotionRichText text={rich_text} />
+    </Heading1>
+  )),
+  heading_2: createRenderer('heading_2', ({ id, heading_2: { rich_text } }) => (
+    <Heading2 className="mt-6 mb-4" key={id}>
+      <NotionRichText text={rich_text} />
+    </Heading2>
+  )),
+  heading_3: createRenderer('heading_3', ({ id, heading_3: { rich_text } }) => (
+    <Heading3 className="mt-4 mb-4" key={id}>
+      <NotionRichText text={rich_text} />
+    </Heading3>
+  )),
+  column_list: createRenderer('column_list', ({ id, children }) => (
+    <div key={id} className="md:flex md:flex-row md:gap-4">
+      {children.map(renderBlock)}
+    </div>
+  )),
+  column: createRenderer('column', ({ id, children }) => <div key={id}>{children.map(renderBlock)}</div>),
+  ordered_list: createRenderer('ordered_list', ({ id, children }) => (
+    <OrderedList key={id}>{renderBlocks(children)}</OrderedList>
+  )),
+  numbered_list_item: createRenderer('numbered_list_item', ({ id, numbered_list_item: { rich_text } }) => (
+    <NotionRichText key={id} text={rich_text} className="font-sans text-xs lg:text-base" />
+  )),
+  unordered_list: createRenderer('unordered_list', ({ id, children }) => (
+    <UnorderedList key={id}>{renderBlocks(children)}</UnorderedList>
+  )),
+  bulleted_list_item: createRenderer('bulleted_list_item', ({ id, bulleted_list_item: { rich_text } }) => (
+    <NotionRichText key={id} text={rich_text} className="font-sans text-xs lg:text-base" />
+  )),
+  to_do: createRenderer('to_do', ({ id, to_do: { checked, rich_text } }) => (
+    <div key={id}>
+      <Label as="label">
+        <input
+          className="focus:ring-cornflower-500 h-6 w-6 text-cornflower-500 border-cornflower-500 rounded-[6px] mr-4"
+          type="checkbox"
+          id={id}
+          defaultChecked={checked}
+        />
+        <NotionRichText text={rich_text} />
+      </Label>
+    </div>
+  )),
+  toggle: createRenderer('toggle', ({ id, toggle: { rich_text }, children }) => (
+    <Accordion key={id} summary={<NotionRichText text={rich_text} />}>
+      {children.map(renderBlock)}
+    </Accordion>
+  )),
+  image: createRenderer(
+    'image',
+    ({
+      id,
+      image: {
+        meta: { height, width },
+        caption,
+        ...image
+      },
+    }) => (
+      <div key={id} className="grid place-items-center text-xs lg:text-base text-center my-4">
         <Image
-          key={id}
           width={width}
           height={height}
-          layout="responsive"
-          alt={alt}
-          caption={caption}
-          src={value.type === 'external' ? value.external.url : value.file.url}
+          alt={caption?.reduce((acc, cur) => `${acc}${cur}`, '')}
+          caption={caption ? <NotionRichText text={caption} /> : null}
+          src={image.type === 'external' ? image.external.url : image.file.url}
         />
-      );
-    }
-
-    return null;
-  },
-
-  divider: (block: Block) => {
-    if ('divider' in block) {
-      const { id } = block;
-
-      return <hr key={id} className="mb-8" />;
-    }
-    return null;
-  },
-  quote: (block: Block) => {
-    if ('quote' in block) {
-      const { id, type } = block;
-      const value = block[type];
-
-      return (
-        <blockquote
-          key={id}
-          className="bg-white-100 font-sans font-normal text-xs lg:text-base md:max-w-prose mb-8 rounded p-8 whitespace-pre-line break-words"
-        >
-          <NotionRichText text={value.rich_text} />
-        </blockquote>
-      );
-    }
-    return null;
-  },
-  code: (block: Block) => {
-    if ('code' in block) {
-      const { id, type } = block;
-      const value = block[type];
-
-      const plainText = value.rich_text.reduce((acc, cur) => `${acc}${cur.plain_text}`, '');
-
-      return <CodeSnippet key={id} code={plainText} language={block.code.language as Language} />;
-    }
-    return null;
-  },
-  callout: (block: Block) => {
-    if ('callout' in block) {
-      const { type, id } = block;
-      const value = block[type];
-
-      const emoji = block.callout.icon.type === 'emoji' ? block.callout.icon.emoji : null;
-
-      return (
-        <Callout key={id} background={block.callout.color.replace('_background', '')}>
-          {emoji && <span className="mr-4">{emoji}</span>}
-
-          <NotionRichText text={value.rich_text} />
-        </Callout>
-      );
-    }
-    return null;
-  },
+      </div>
+    )
+  ),
+  divider: createRenderer('divider', ({ id }) => <hr key={id} className="my-8 text-xs lg:text-base" />),
+  quote: createRenderer('quote', ({ id, quote: { rich_text } }) => (
+    <blockquote
+      key={id}
+      className="bg-white-100 font-sans font-normal text-xs lg:text-base mb-8 rounded p-8 whitespace-pre-line break-words"
+    >
+      <NotionRichText text={rich_text} />
+    </blockquote>
+  )),
+  code: createRenderer('code', ({ id, code: { caption, language, rich_text } }) => (
+    <div key={id} className="text-xs lg:text-base">
+      {language === 'mermaid' ? (
+        <div className="text-center">
+          <MermaidDiagram
+            code={rich_text.reduce((acc, cur) => `${acc}${cur.plain_text}`, '')}
+            caption={caption?.reduce((acc, cur) => `${acc}${cur.plain_text}`, '')}
+          />
+        </div>
+      ) : (
+        <CodeSnippet
+          code={rich_text.reduce((acc, cur) => `${acc}${cur.plain_text}`, '')}
+          language={language as Language}
+          caption={caption?.reduce((acc, cur) => `${acc}${cur.plain_text}`, '')}
+        />
+      )}
+    </div>
+  )),
+  callout: createRenderer('callout', ({ id, callout: { rich_text, color, icon } }) => (
+    <Callout key={id} background={color.replace('_background', '')}>
+      {icon.type === 'emoji' && <span className="mr-4">{icon.emoji}</span>}
+      <NotionRichText text={rich_text} />
+    </Callout>
+  )),
+  bookmark: createRenderer('bookmark', ({ id, bookmark: { url } }) => (
+    <Link key={id} newTab href={url}>
+      {url}
+    </Link>
+  )),
 };

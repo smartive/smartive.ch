@@ -1,6 +1,6 @@
 import { BlobVariations, Copy, Heading2, Keyfigure, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { Image } from '../../../../components/image';
+import { Image, ImageVariant } from '../../../../components/image';
 import { Testimonial } from '../../../../components/testimonial';
 import { PageHeader } from '../../../../compositions/page-header';
 import { Quote } from '../../../../data/quotes';
@@ -52,7 +52,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
             src={images.title}
             alt="Jugendliche in einem Klassenzimmer"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1504}
             height={800}
             quality={100}
@@ -87,7 +87,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
             src={images.farbwchooser}
             alt="Ein Screenshot der LearnFox App zeigt wie Farben gewählt werden können"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1504}
             height={800}
             quality={100}
@@ -99,7 +99,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
             src={images.doppel}
             alt="Die LernFox App zeigt auf einem iPhone ein PDF an"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1504}
             height={800}
             quality={100}
@@ -142,7 +142,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
             src={images.desktop}
             alt="Ein Screenshot der LearnFox App auf einem Desktop"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1504}
             height={800}
           />

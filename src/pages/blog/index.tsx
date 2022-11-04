@@ -1,17 +1,13 @@
-import { BlobVariations, Calendar, ContentCard, Copy, Grid, ImageCard, ImageCardVariants } from '@smartive/guetzli';
-import { PostsOrPages } from '@tryghost/content-api';
+import { BlobVariations, Calendar, ContentCard, Copy, Grid, ImageCardVariants } from '@smartive/guetzli';
 import dayjs from 'dayjs';
 import 'dayjs/locale/de';
 import { GetStaticProps, NextPage } from 'next';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
+import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
-import { LinkedInArticle } from '../../data/linkedin-articles';
-import LinkedInArticles from '../../data/linkedin-articles.json';
-import { MediumArticle } from '../../data/medium-articles';
-import MediumArticles from '../../data/medium-articles.json';
+import { BlogPost, getBlogPosts } from '../../data/blog';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
-import { getGhostClient } from '../../utils/ghost';
 
 type Props = {
   posts: BlogPost[];
@@ -37,35 +33,52 @@ const Blog: NextPage<Props> = ({ posts }) => {
           itemProp="abstract"
           content="Wenn wir schreiben, schreiben wir meist Code. Hier schreiben wir für einmal über alles, was dahinter steckt – über unsere Firmenkultur und wie wir uns organisieren, welche Ansätze und Technologien bei uns gerade hoch im Kurs sind und wie wir persönliche und technische Herausforderungen meistern. Wirf einen Blick hinter die Kulissen!"
         />
-        {posts.map(({ id, title, description, link }) => (
+        {posts.map(({ id, title, slug }) => (
           <div itemProp="blogPost" itemScope itemType="https://schema.org/BlogPosting" key={`blog-post-meta-${id}`}>
-            <meta itemProp="url" content={link} />
+            <meta itemProp="url" content={slug} />
             <meta itemProp="headline" content={title} />
-            <meta itemProp="abstract" content={description} />
           </div>
         ))}
         <Section>
           <Grid cols={3}>
-            {posts.map(({ id, title, description, dateDisplay, link, thumbnail, externalOrigin }, index) => (
+            {posts.map(({ id, title, slug, date, cover, abstract }, index) => (
               <Fragment key={id}>
-                <ImageCard
-                  className={index === 0 ? 'md:col-span-2 lg:col-span-3' : ''}
-                  variant={index === 0 ? ImageCardVariants.Wide : ImageCardVariants.Small}
-                  label={
-                    <>
-                      <Calendar className="inline-block w-4 h-4 mr-2" />
-                      {dateDisplay}
-                    </>
-                  }
-                  title={title}
-                  description={index === 0 ? description : ''}
-                  link={{
-                    label: `weiterlesen${externalOrigin && externalOrigin !== 'Ghost' ? ` auf ${externalOrigin}` : ''}`,
-                    href: link,
-                    newTab: externalOrigin !== 'Ghost',
-                  }}
-                  image={{ src: thumbnail || '', alt: '' }}
-                />
+                {cover ? (
+                  <NextImageCard
+                    className={index === 0 ? 'md:col-span-2 lg:col-span-3' : ''}
+                    variant={index === 0 ? ImageCardVariants.Wide : ImageCardVariants.Small}
+                    label={
+                      <>
+                        <Calendar className="inline-block w-4 h-4 mr-2" />
+                        {dayjs(date).locale('de').format('MMMM YYYY')}
+                      </>
+                    }
+                    title={title}
+                    imageAlt={title}
+                    description={index === 0 ? abstract.reduce((acc, cur) => `${acc}${cur.plain_text}`, '') : ''}
+                    link={{
+                      label: `weiterlesen`,
+                      href: `blog/${slug}`,
+                    }}
+                    image={cover || ''}
+                  />
+                ) : (
+                  <ContentCard
+                    title={title}
+                    label={
+                      <>
+                        <Calendar className="inline-block w-4 h-4 mr-2" />
+                        {dayjs(date).locale('de').format('MMMM YYYY')}
+                      </>
+                    }
+                    link={{
+                      label: `weiterlesen`,
+                      href: `blog/${slug}`,
+                    }}
+                    background="cornflower"
+                    blobs={BlobVariations.cornflower[1]}
+                  />
+                )}
                 {index === 4 && (
                   <ContentCard
                     title="Suchst du eine Gastautorin für deinen Blog oder einen Speaker für deinen nächsten Event?"
@@ -86,80 +99,12 @@ const Blog: NextPage<Props> = ({ posts }) => {
 export const getStaticProps: GetStaticProps<Props> = async () => {
   dayjs.locale('de');
 
-  const ghostPostsSingleLanguage = await getGhostClient().posts.browse({
-    filter: 'visibility:public+canonical_url:null',
-    order: 'published_at DESC',
-    limit: 'all',
-  });
-  const ghostPostsMultiLanguage = await getGhostClient().posts.browse({
-    filter: 'visibility:public+canonical_url:-null+tag:German',
-    order: 'published_at DESC',
-    limit: 'all',
-  });
-
   return {
     props: {
-      posts: [
-        ...mapMediumPosts(MediumArticles),
-        ...mapLinkedInPosts(LinkedInArticles),
-        ...mapGhostPosts(ghostPostsSingleLanguage),
-        ...mapGhostPosts(ghostPostsMultiLanguage),
-      ].sort(({ date: first }, { date: second }) => (dayjs(first).isAfter(dayjs(second)) ? -1 : 1)),
+      posts: await getBlogPosts(),
     },
-    revalidate: 300,
+    revalidate: 600,
   };
 };
 
-const mapMediumPosts = (posts: MediumArticle[]): BlogPost[] =>
-  posts.map(({ guid, title, description, link, pubDate, thumbnail }) => {
-    const matches = description.match(/<h4>[^<>]*<\/h4>/g);
-    const desc = matches?.length > 0 ? matches[0] : '';
-
-    return {
-      link,
-      thumbnail,
-      title: decodeURI(title).replace(/&amp;/g, '&'),
-      id: guid,
-      description: desc.replace('<h4>', '').replace('</h4>', ''),
-      date: pubDate,
-      dateDisplay: dayjs(pubDate).format('MMMM YYYY'),
-      externalOrigin: 'Medium',
-    };
-  });
-
-const mapLinkedInPosts = (posts: LinkedInArticle[]): BlogPost[] =>
-  posts.map(({ title, description, link, date, thumbnail }) => ({
-    title,
-    link,
-    thumbnail,
-    description,
-    date,
-    dateDisplay: dayjs(date).format('MMMM YYYY'),
-    id: link,
-    externalOrigin: 'LinkedIn',
-  }));
-
-const mapGhostPosts = (posts: PostsOrPages): BlogPost[] =>
-  posts.map(({ id, title, slug, excerpt, published_at, feature_image }) => ({
-    id,
-    title,
-    link: `/blog/${slug}`,
-    thumbnail: feature_image,
-    description: excerpt,
-    date: published_at,
-    dateDisplay: dayjs(published_at).format('MMMM YYYY'),
-    externalOrigin: 'Ghost',
-  }));
-
 export default Blog;
-
-type BlogPost = {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  dateDisplay: string;
-  link: string;
-  thumbnail: string;
-  externalOrigin?: 'Medium' | 'LinkedIn' | 'Ghost';
-};

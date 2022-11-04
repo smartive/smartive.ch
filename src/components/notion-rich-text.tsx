@@ -1,7 +1,7 @@
 import { Decoration } from '@smartive/guetzli';
 import { Fragment } from 'react';
 import { Link } from '../elements/link';
-import { Block } from '../utils/notion';
+import { Block } from '../services/notion';
 
 export type NotionRichTextItems = Extract<Block, { type: 'paragraph' }>['paragraph']['rich_text'];
 
@@ -39,7 +39,7 @@ export const NotionRichText = ({ text, decorate = false, className = '' }: Props
               className={[
                 className,
                 bold ? 'font-bold' : '',
-                code ? 'font-mono' : '',
+                code ? 'font-mono bg-mint-200 py-0.5 px-1 rounded-sm' : '',
                 italic ? 'italic' : '',
                 strikethrough ? 'line-through' : '',
                 underline ? 'underline' : '',

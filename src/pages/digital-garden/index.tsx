@@ -1,14 +1,13 @@
 import { Client } from '@notionhq/client';
-import { GetPageResponse, ListBlockChildrenResponse, QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
+import { GetPageResponse, QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
 import { BrandColor, ContentCard, Grid, useSSRSafeRandomNumber } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { FC } from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
-import { getBlocks, getNotionClient } from '../../services/notion';
-import { getLexer } from '../../utils/notion';
-import { blockRenderers } from '../../utils/notion-block-renderers';
+import { Block, getBlocks, getNotionClient } from '../../services/notion';
+import { renderBlocks } from '../../utils/notion-block-renderers';
 
 const DIGITAL_GARDEN_PAGE_ID = '264d5bf5cd9b4e63b07a05bd2422da78';
 
@@ -18,7 +17,7 @@ const notion = new Client({
 
 type Props = {
   page: GetPageResponse;
-  blocks: ListBlockChildrenResponse['results'];
+  blocks: Block[];
   seeds: QueryDatabaseResponse['results'];
 };
 
@@ -28,18 +27,12 @@ const DigitalGarden: NextPage<Props> = ({ page, blocks, seeds }) => {
     page.properties.title.type === 'title' &&
     page.properties.title?.title.reduce((acc, cur) => `${acc}${cur.plain_text}`, '');
 
-  const iterator = blocks[Symbol.iterator]();
-  const { lex } = getLexer(iterator);
-  const parsedBlocks = lex();
-
   return (
     <Page>
       <PageHeader markdownTitle={name} />
 
       <main>
-        {parsedBlocks.map((block) =>
-          'type' in block && blockRenderers[block.type] ? blockRenderers[block.type](block) : null
-        )}
+        {renderBlocks(blocks)}
         <Section>
           <Grid cols={3}>
             {seeds.map((seed) => {
@@ -83,7 +76,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   });
 
   const page = await getNotionClient().pages.retrieve({ page_id: DIGITAL_GARDEN_PAGE_ID });
-
   const blocks = await getBlocks(DIGITAL_GARDEN_PAGE_ID);
 
   return {

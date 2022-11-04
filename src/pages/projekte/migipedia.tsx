@@ -1,7 +1,7 @@
 import { BlobVariations, Copy, Grid, Keyfigure, LinkList, TextBlock, TextLink, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
@@ -73,7 +73,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
               src={images.kitchen}
               alt="Frau in orangem Pullover isst Joghurt"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={383}
             />
@@ -81,16 +81,14 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
               src={images.diskutieren}
               alt="Eine Frau und ein Mann betrachten etwas auf einem Smartphone"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={383}
             />
           </Grid>
         </Section>
         <Section>
-          <Keyfigure
-            image={<Image src={images.phone} alt="Mobile User Interface" height="566" width="275" objectFit="contain" />}
-          >
+          <Keyfigure image={<Image src={images.phone} alt="Mobile User Interface" height="566" width="275" />}>
             <UnorderedList
               title="Migipedia auf einen Blick"
               items={[
@@ -110,7 +108,7 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
             src={images.couch}
             alt="Eine Frau sitzt mit ihrem Sohn im Wohnzimmer. Sie sortieren Migros Mania Sammelelemente."
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1504}
             height={800}
           />

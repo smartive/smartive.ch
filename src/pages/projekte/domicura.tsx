@@ -1,20 +1,20 @@
 import { Copy, Grid, LinkList, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
+import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee, getEmployeeByName } from '../../data/employees';
 import Packages, { Package } from '../../data/packages';
+import { Quote } from '../../data/quotes';
+import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
-import { Quote } from '../../data/quotes';
-import Quotes from '../../data/quotes.json';
-import { Testimonial } from '../../components/testimonial';
 
 const STATIC_IMAGES = {
   people: '/images/projekte/domicura/people.jpeg',
@@ -56,7 +56,7 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images, packages, quote }) =
             src={images.ipad}
             alt="Ipad Mockup von Franz und Vroni"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1505}
             height={847}
           />
@@ -101,7 +101,7 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images, packages, quote }) =
               src={images.workshop}
               alt="Postits vom Workshop mit Notizen darauf"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={1505}
               height={847}
             />
@@ -109,7 +109,7 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images, packages, quote }) =
               src={images.prototyping}
               alt="Screenshot vom Figma Prototype"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={1505}
               height={847}
             />
@@ -148,10 +148,31 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images, packages, quote }) =
         </Section>
 
         <Section>
-          <Image src={images.laptop} alt="Screenshot Angebotsfinder" priority objectFit="cover" width={1505} height={847} />
+          <Image
+            src={images.laptop}
+            alt="Screenshot Angebotsfinder"
+            priority
+            variant={ImageVariant.FillContainer}
+            width={1505}
+            height={847}
+          />
           <Grid cols={2}>
-            <Image src={images.imac} alt="Screenshot Übersicht" priority objectFit="cover" width={1505} height={1505} />
-            <Image src={images.mobile} alt="Screenshot Artikel" priority objectFit="cover" width={1505} height={1505} />
+            <Image
+              src={images.imac}
+              alt="Screenshot Übersicht"
+              priority
+              variant={ImageVariant.FillContainer}
+              width={1505}
+              height={1505}
+            />
+            <Image
+              src={images.mobile}
+              alt="Screenshot Artikel"
+              priority
+              variant={ImageVariant.FillContainer}
+              width={1505}
+              height={1505}
+            />
           </Grid>
           <Grid cols={2}>
             <TextBlock title="Die Plattfom">

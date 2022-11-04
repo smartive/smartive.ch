@@ -1,7 +1,7 @@
 import { BlobVariations, Copy, Grid, LinkList, PageSection, TextBlock, TextLink } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
@@ -52,7 +52,7 @@ const ZubiMentoring: NextPage<Props> = ({ quote, contact, teasers, images, packa
               src={images.fireplace}
               alt="Eine Frau an einer Feuerstelle."
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={828}
               height={551}
             />
@@ -60,7 +60,7 @@ const ZubiMentoring: NextPage<Props> = ({ quote, contact, teasers, images, packa
               src={images.benj}
               alt="Ein junger Mann mit Outdoorbekleidung"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={828}
               height={551}
             />

@@ -11,7 +11,7 @@ import {
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
@@ -73,7 +73,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               src={images.gemuese}
               alt="Person schneidet Gemüse aus der Vogelperspektive"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={383}
             />
@@ -81,7 +81,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               src={images.kochen}
               alt="Eine Frau und ein Mann beim gemeinsamen Kochen"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={383}
             />
@@ -121,7 +121,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             src={images.pizza}
             alt="Drei Pizzen in einem Backofen"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1504}
             height={800}
           />
@@ -178,8 +178,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               src={images.kraeuter}
               alt="Frischer Bärlauch auf einem Schneidebrett"
               priority
-              objectPosition="center center"
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={383}
             />
@@ -187,8 +186,7 @@ const Migusto: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               src={images.kuh}
               alt="Ein Kuheuter auf einer grünen Wiese"
               priority
-              objectPosition="center top"
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={383}
             />

@@ -11,7 +11,7 @@ import {
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
@@ -66,7 +66,7 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
             src={images.solar}
             alt="Photovoltaik Anlage auf einem Feld"
             priority
-            objectFit="cover"
+            variant={ImageVariant.FillContainer}
             width={1500}
             height={1080}
           />
@@ -99,7 +99,6 @@ const Optimatik: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               src={images.screenshot}
               alt="Screenshot vom Optimatik AG Energie Business Portal"
               priority
-              objectFit="contain"
               width={800}
               height={800}
             />

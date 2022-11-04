@@ -1,7 +1,7 @@
 import { BlobVariations, Copy, Grid, Heading3, Keyfigure, LinkList, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Contact } from '../../components/contact';
-import { Image } from '../../components/image';
+import { Image, ImageVariant } from '../../components/image';
 import { NextImageCard } from '../../components/image-card';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
@@ -60,7 +60,7 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               src={images.gummistiefel}
               alt="Kinderfüsse in Gummistiefeln"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={383}
             />
@@ -68,7 +68,7 @@ const OfpgKig: NextPage<Props> = ({ quote, contact, teasers, images }) => {
               src={images.tisch}
               alt="Leute sitzen an einem Tisch und besprechen sich"
               priority
-              objectFit="cover"
+              variant={ImageVariant.FillContainer}
               width={720}
               height={383}
             />
