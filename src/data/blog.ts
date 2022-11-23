@@ -13,6 +13,12 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
         { property: 'Date', date: { on_or_before: dayjs().format('YYYY-MM-DD') } },
       ],
     },
+    sorts: [
+      {
+        property: 'Date',
+        direction: 'descending',
+      },
+    ],
   });
 
   return results.map(
