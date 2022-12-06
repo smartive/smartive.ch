@@ -28,7 +28,7 @@
     "@xstate/react": "3.0.1",
     "blobs": "2.2.0",
     "charts.css": "0.9.0",
-    "dayjs": "1.11.6",
+    "dayjs": "1.11.7",
     "eslint-config-next": "13.0.6",
     "framer-motion": "7.6.19",
     "glider-js": "^1.7.7",
