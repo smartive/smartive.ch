@@ -55,11 +55,11 @@
     "xstate": "4.35.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.15.0",
-    "@graphql-codegen/introspection": "2.2.2",
-    "@graphql-codegen/typescript": "2.8.3",
+    "@graphql-codegen/cli": "2.16.1",
+    "@graphql-codegen/introspection": "2.2.3",
+    "@graphql-codegen/typescript": "2.8.5",
     "@graphql-codegen/typescript-graphql-files-modules": "2.2.1",
-    "@graphql-codegen/typescript-operations": "2.5.8",
+    "@graphql-codegen/typescript-operations": "2.5.10",
     "@next/bundle-analyzer": "12.3.4",
     "@smartive/eslint-config": "3.1.1",
     "@smartive/prettier-config": "3.0.0",
