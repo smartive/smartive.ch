@@ -76,7 +76,7 @@
     "eslint": "8.29.0",
     "next-sitemap": "3.1.32",
     "playwright": "1.28.1",
-    "postcss": "8.4.19",
+    "postcss": "8.4.20",
     "postcss-import": "15.1.0",
     "prettier": "2.8.1",
     "tailwindcss": "3.2.4",
