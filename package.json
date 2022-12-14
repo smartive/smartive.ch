@@ -30,7 +30,7 @@
     "charts.css": "0.9.0",
     "dayjs": "1.11.7",
     "eslint-config-next": "13.0.6",
-    "framer-motion": "7.7.2",
+    "framer-motion": "7.8.0",
     "glider-js": "^1.7.7",
     "graphql": "16.6.0",
     "graphql-request": "5.0.0",
