@@ -2,7 +2,7 @@ const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
 
-const ignoreListRoutes = ['/404', '/_document', '/_app', '/api/', '/blog/[slug]', '/digital-garden/[slug]', '/index'];
+const ignoreListRoutes = ['/404', '/_document', '/_app', '/api/', '/blog/[slug]', '/index'];
 const ignoreListErrors = [
   'is smaller than 40x40',
   'Fast Refresh',
