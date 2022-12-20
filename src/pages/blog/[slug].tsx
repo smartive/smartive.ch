@@ -88,18 +88,8 @@ const BlogPost: NextPage<Props> = ({ post, blocks }) => {
           </div>
         </PageHeader>
 
-        <main className="w-full md:w-2/3">
-          <article itemProp="articleBody text">
-            {post.abstract && post.abstract.length > 0 && (
-              <>
-                <Copy>
-                  <NotionRichText text={post.abstract} />
-                </Copy>
-                <hr className="my-8 text-xs lg:text-base" />
-              </>
-            )}
-            {renderContent(blocks)}
-          </article>
+        <main className="w-full md:w-2/3 my-16 lg:my-48">
+          <article itemProp="articleBody text">{renderContent(blocks)}</article>
         </main>
       </div>
     </Page>

@@ -34,17 +34,17 @@ const internalRenderers = {
     </Copy>
   )),
   heading_1: createRenderer('heading_1', ({ id, heading_1: { rich_text } }) => (
-    <Heading1 className="mt-8 mb-4" key={id}>
+    <Heading1 className="mt-10 lg:mt-16" key={id}>
       <NotionRichText text={rich_text} />
     </Heading1>
   )),
   heading_2: createRenderer('heading_2', ({ id, heading_2: { rich_text } }) => (
-    <Heading2 className="mt-6 mb-4" key={id}>
+    <Heading2 className="mt-8 lg:mt-14" key={id}>
       <NotionRichText text={rich_text} />
     </Heading2>
   )),
   heading_3: createRenderer('heading_3', ({ id, heading_3: { rich_text } }) => (
-    <Heading3 className="mt-4 mb-4" key={id}>
+    <Heading3 className="mt-8 lg:mt-14" key={id}>
       <NotionRichText text={rich_text} />
     </Heading3>
   )),
