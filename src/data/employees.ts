@@ -31,6 +31,20 @@ export const getAllEmployees = async (): Promise<Employee[]> => {
         direction: 'ascending',
       },
     ],
+    filter: {
+      and: [
+        {
+          property: 'Status',
+          rollup: {
+            any: {
+              select: {
+                equals: 'Completed ✓',
+              },
+            },
+          },
+        },
+      ],
+    },
   });
 
   return (results as unknown as NotionEmployee[]).map(mapBlockToEmployee);
