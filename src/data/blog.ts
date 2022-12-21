@@ -1,6 +1,7 @@
 import { Client } from '@notionhq/client';
 import { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints';
 import dayjs from 'dayjs';
+import { getEmployeeByName } from './employees';
 
 export const getBlogPosts = async (): Promise<BlogPost[]> => {
   const notion = new Client({ auth: process.env.NOTION_TOKEN });
@@ -46,6 +47,7 @@ export const getBlogPost = async (slug: string): Promise<BlogDetail> => {
   }
 
   const page = results[0] as NotionBlog;
+  const employee = await getEmployeeByName(page.properties.Creator.people[0].name);
 
   return {
     id: page.id,
@@ -54,7 +56,7 @@ export const getBlogPost = async (slug: string): Promise<BlogDetail> => {
     slug: page.properties.Slug.formula.string,
     cover: (page.cover?.file ?? page.cover?.external)?.url ?? null,
     abstract: page.properties.Abstract.rich_text,
-    avatar: page.properties.Creator.people[0].avatar_url,
+    avatar: employee.closeup,
     creator: page.properties.Creator.people[0].name,
     published: page.properties.State.status?.name === 'Published',
   };
