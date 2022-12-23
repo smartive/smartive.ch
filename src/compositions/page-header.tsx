@@ -1,7 +1,7 @@
 import { PageHeader as PageHeaderComponent, PageHeaderProps as PageHeaderComponentProps, purify } from '@smartive/guetzli';
 import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 const OG_IMAGE_SERVICE_URL = `${process.env.NEXT_PUBLIC_OG_IMAGE_SERVICE_URL}/api/og-image`;

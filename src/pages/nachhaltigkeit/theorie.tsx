@@ -39,7 +39,7 @@ const Sustainabilty: NextPage<Props> = ({ scopes, categories }) => {
         </ul>
         <br></br>
         <LinkList
-          linkWrapper={(props) => <NextLink {...props} />}
+          linkWrapper={(props) => <NextLink legacyBehavior {...props} />}
           links={[{ label: 'Zurück zur Übersicht', href: '/nachhaltigkeit' }]}
         />
       </PageHeader>

@@ -42,7 +42,7 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
             Projekt fortlaufend evaluiert wird und du in die Entwicklung miteinbezogen bist.
           </Copy>
           <LinkList
-            linkWrapper={(props) => <NextLink {...props} />}
+            linkWrapper={(props) => <NextLink legacyBehavior {...props} />}
             links={[
               { label: 'Was, MVP?', href: '/was-ist/mvp' },
               { label: 'Wie bitte, Scrum?', href: '/was-ist/agile' },

@@ -1,11 +1,10 @@
-import { Button, Calendar, Clock, Copy, Heading3, Share, Tooltip } from '@smartive/guetzli';
+import { Button, Calendar, Clock, Heading3, Share, Tooltip } from '@smartive/guetzli';
 import dayjs from 'dayjs';
 import 'dayjs/locale/de';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { useState } from 'react';
 import { Image, ImageVariant } from '../../components/image';
-import { NotionRichText } from '../../components/notion-rich-text';
 import { PageHeader } from '../../compositions/page-header';
 import { BlogDetail, getBlogPost, getBlogPosts } from '../../data/blog';
 import { Page } from '../../layouts/page';

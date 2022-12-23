@@ -47,7 +47,7 @@ const Scope3: NextPage<Props> = ({
       >
         <Copy>{getScope3(calculatedScopes)[0].description}</Copy>
         <Copy> Scope 3 besteht aus 15 Unterkategorien.</Copy>
-        <LinkList linkWrapper={(props) => <NextLink {...props} />} links={links} />
+        <LinkList linkWrapper={(props) => <NextLink legacyBehavior {...props} />} links={links} />
       </PageHeader>
       <Heading3>Vergleich der Kategorien aus Scope 3</Heading3>
       <div className="max-w-[800px]">

@@ -1,11 +1,11 @@
 import { ArrowUp } from '@smartive/guetzli';
-import { LazyMotion, m as motion, useViewportScroll } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
+import { LazyMotion, m as motion, useScroll } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 const loadFramerFeatures = () => import('../utils/framer-dom-animation').then((res) => res.default);
 
 export const BackToTop = () => {
-  const { scrollYProgress } = useViewportScroll();
+  const { scrollYProgress } = useScroll();
   const [animate, setAnimate] = useState(false);
 
   useEffect(

@@ -1,5 +1,5 @@
 import { FC, useCallback, useEffect, useRef, useState } from 'react';
-import NextImage from 'next/image';
+import NextImage from 'next/legacy/image';
 import Gallery from 'react-photo-gallery-next';
 import Glider from 'glider-js';
 import 'glider-js/glider.min.css';

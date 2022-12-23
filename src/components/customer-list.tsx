@@ -1,5 +1,5 @@
 import { usePlausible } from 'next-plausible';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import { FC } from 'react';
 import { Customer } from '../data/customers';
 import { PlausibleEvents } from '../utils/tracking';

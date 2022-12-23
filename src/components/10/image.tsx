@@ -1,5 +1,5 @@
 import { useSSRSafeRandomNumber } from '@smartive/guetzli';
-import NextImage, { ImageProps } from 'next/image';
+import NextImage, { ImageProps } from 'next/legacy/image';
 import { FC } from 'react';
 
 type Props = {

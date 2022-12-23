@@ -1,6 +1,6 @@
 import { Copy, Grid, Heading3, ImagePosition, Keyfigure, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import React from 'react';
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';

@@ -1,8 +1,10 @@
 /* eslint-disable react/forbid-component-props */
 import { merge, useSSRSafeRandomNumber } from '@smartive/guetzli';
+import { AnimatePresence, motion } from 'framer-motion';
 import JSConfetti from 'js-confetti';
 import { GetStaticProps, NextPage } from 'next';
-import NextImage, { StaticImageData } from 'next/image';
+import NextImage, { StaticImageData } from 'next/legacy/image';
+import NextLink from 'next/link';
 import { FC, ReactNode, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Scroll } from 'scrollex';
@@ -35,10 +37,10 @@ import ciaoSmartive from '../../../public/images/anniversary/2019/ciao-smartive.
 import hoiSmartive from '../../../public/images/anniversary/2019/hoi-smartive.png';
 import huette from '../../../public/images/anniversary/2019/huette.jpg';
 import whatAview from '../../../public/images/anniversary/2019/what-a-view.jpg';
-import skitag2 from '../../../public/images/anniversary/2020/skitag.jpeg';
 import doeme from '../../../public/images/anniversary/2020/doeme.jpeg';
 import fire from '../../../public/images/anniversary/2020/fire.png';
 import skifoahn from '../../../public/images/anniversary/2020/skifoahn.jpeg';
+import skitag2 from '../../../public/images/anniversary/2020/skitag.jpeg';
 import bootle from '../../../public/images/anniversary/2021/bootle.jpeg';
 import cultureday from '../../../public/images/anniversary/2021/cultureday.jpg';
 import damian from '../../../public/images/anniversary/2021/damian.jpeg';
@@ -52,20 +54,15 @@ import rammstein from '../../../public/images/anniversary/2022/rammstein.jpg';
 import skitag from '../../../public/images/anniversary/2022/skitag.jpg';
 import stadtfueahrig from '../../../public/images/anniversary/2022/stadtfueahrig.jpeg';
 import { Avatar } from '../../components/10/avatar';
-import { Blob, BlobVariants } from '../../components/10/blob';
+import { BlobVariants } from '../../components/10/blob';
+import { Button } from '../../components/10/button';
+import { Card } from '../../components/10/card';
 import { Heading } from '../../components/10/heading';
-import { Logo } from '../../components/10/logo';
+import { ParallaxBlob } from '../../components/10/ParallaxBlob';
+import { keyframes, TenHead } from '../../components/10/ten-head';
 import { Text } from '../../components/10/text';
-import { TextLogo } from '../../components/10/text-logo';
-import { PageHeader } from '../../compositions/page-header';
 import { Employee, getAllEmployees } from '../../data/employees';
 import { Link } from '../../elements/link';
-import NextLink from 'next/link';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Card } from '../../components/10/card';
-import { Button } from '../../components/10/button';
-import { keyframes, TenHead } from '../../components/10/ten-head';
-import { ParallaxBlob } from '../../components/10/ParallaxBlob';
 
 let confetti;
 const activeConfettiCannon = () => {

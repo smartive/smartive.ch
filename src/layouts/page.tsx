@@ -36,7 +36,7 @@ export const Page: FC<Props> = ({ children }) => {
           metaLinks={Meta}
           currentPathname={pathname}
           home={<Logo className="h-[21px] w-auto py-[4px]" />}
-          linkWrapper={(props) => <NextLink prefetch={false} {...props} />}
+          linkWrapper={(props) => <NextLink legacyBehavior prefetch={false} {...props} />}
           onMetaLinkClick={(value: string) =>
             plausible('Contact Click', {
               props: {

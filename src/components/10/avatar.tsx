@@ -1,4 +1,4 @@
-import NextImage from 'next/image';
+import NextImage from 'next/legacy/image';
 import { FC } from 'react';
 
 type Props = {

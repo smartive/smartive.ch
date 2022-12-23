@@ -6,7 +6,7 @@ import { Image, ImageVariant } from './image';
 type Props = ImageCardProps & { image: string; imageAlt?: string };
 
 export const NextImageCard: FC<Props> = ({ image, imageAlt, ...props }) => (
-  <NextLink href={props.link.href} passHref>
+  <NextLink href={props.link.href} legacyBehavior passHref>
     <ImageCard
       {...props}
       image={

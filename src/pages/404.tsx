@@ -71,7 +71,7 @@ export default function Custom404() {
         </Heading3>
         <Heading3 as="p">Du könntest stattdessen:</Heading3>
         <LinkList
-          linkWrapper={(props) => <NextLink {...props} />}
+          linkWrapper={(props) => <NextLink legacyBehavior {...props} />}
           links={[
             { label: 'Unsere Projekte ansehen', href: '/projekte' },
             { label: 'In unserem Blog stöbern ', href: '/blog' },

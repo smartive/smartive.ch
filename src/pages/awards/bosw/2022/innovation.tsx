@@ -1,21 +1,13 @@
 import { BlobVariations, Copy, Grid, Heading2, Heading3, Keyfigure, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
-import { FC, ReactNode } from 'react';
+import Image from 'next/legacy/image';
+import { FC } from 'react';
 import { Testimonial } from '../../../../components/testimonial';
 import { PageHeader } from '../../../../compositions/page-header';
 import { Quote } from '../../../../data/quotes';
 import Quotes from '../../../../data/quotes.json';
 import { LandingPage } from '../../../../layouts/landing-page';
 import { Section } from '../../../../layouts/section';
-
-type ListItemProps = {
-  children?: ReactNode;
-};
-
-const ListItem: FC<ListItemProps> = ({ children }) => (
-  <li className="font-sans font-normal text-xs lg:text-base md:max-w-prose my-4 lg:my-8">{children}</li>
-);
 
 const CustomerIcon: FC = () => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

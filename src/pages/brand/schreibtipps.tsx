@@ -1,5 +1,5 @@
 import { Copy, Explainer, Grid, Heading2, Heading3, Keyfigure } from '@smartive/guetzli';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { Link } from '../../elements/link';

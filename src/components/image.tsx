@@ -1,5 +1,5 @@
-import { ImageCard, useSSRSafeRandomNumber } from '@smartive/guetzli';
-import NextImage, { ImageLoaderProps, ImageProps } from 'next/future/image';
+import { useSSRSafeRandomNumber } from '@smartive/guetzli';
+import NextImage, { ImageLoaderProps, ImageProps } from 'next/image';
 import { FC, ReactNode } from 'react';
 
 export enum ImageVariant {

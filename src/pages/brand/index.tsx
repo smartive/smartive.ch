@@ -29,7 +29,7 @@ const Brand: FC = () => (
         individuellen Auftreten aus dem visuellen Erscheinungsbild und dem sprachlichen Auftritt."
     >
       <LinkList
-        linkWrapper={(props) => <NextLink {...props} />}
+        linkWrapper={(props) => <NextLink legacyBehavior {...props} />}
         links={[
           { label: 'Sprachliche Guidelines', href: 'brand/sprache' },
           { label: 'Schreibtipps für Blogposts', href: 'brand/schreibtipps' },
