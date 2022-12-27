@@ -22,6 +22,18 @@ export const getEmployeeByName = async (name: string): Promise<Employee> => {
   return mapBlockToEmployee(result as unknown as NotionEmployee);
 };
 
+export const getEmployeeById = async (id: string): Promise<Employee> => {
+  const result = await getNotionClient().pages.retrieve({
+    page_id: id,
+  });
+
+  if (!result) {
+    throw new Error(`Employee with id "${id}" not found.`);
+  }
+
+  return mapBlockToEmployee(result as unknown as NotionEmployee);
+};
+
 export const getAllEmployees = async (): Promise<Employee[]> => {
   const { results } = await getNotionClient().databases.query({
     database_id: NOTION_WEBPROFILE_DB_ID,
