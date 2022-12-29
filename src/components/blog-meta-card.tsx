@@ -39,7 +39,7 @@ export const BlogMetaCard: FC<Props> = ({ post, readingTime }) => {
           <Button
             as="button"
             onClick={() => {
-              copyToClipboard(window.location.href);
+              navigator.clipboard.writeText(window.location.href);
               setCopyTooltipOpen(true);
               setTimeout(() => {
                 setCopyTooltipOpen(false);
@@ -52,13 +52,4 @@ export const BlogMetaCard: FC<Props> = ({ post, readingTime }) => {
       </div>
     </div>
   );
-};
-
-const copyToClipboard = (text: string) => {
-  const inputc = document.body.appendChild(document.createElement('input'));
-  inputc.value = text;
-  inputc.focus();
-  inputc.select();
-  document.execCommand('copy');
-  inputc.parentNode.removeChild(inputc);
 };
