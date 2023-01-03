@@ -27,7 +27,7 @@
     "@xstate/fsm": "2.0.0",
     "@xstate/react": "3.0.1",
     "blobs": "2.2.0",
-    "charts.css": "0.9.0",
+    "charts.css": "1.0.0",
     "dayjs": "1.11.7",
     "eslint-config-next": "^13.1.0",
     "framer-motion": "8.1.3",
