@@ -1,12 +1,13 @@
 import { Copy, Grid, GridSlider, Heading2, Heading3, LinkList } from '@smartive/guetzli';
-import { GetStaticProps, NextPage } from 'next';
+import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 import React from 'react';
-import { NextContentCard } from '../components/content-card';
-import { Image, ImageVariant } from '../components/image';
-import { PageHeader } from '../compositions/page-header';
-import { Link } from '../elements/link';
-import { LandingPage } from '../layouts/landing-page';
-import { Section } from '../layouts/section';
+import { NextContentCard } from '../../components/content-card';
+import { Image, ImageVariant } from '../../components/image';
+import { PageHeader } from '../../compositions/page-header';
+import { getAllFullEmployees, getFullEmployeeByMail } from '../../data/employees';
+import { Link } from '../../elements/link';
+import { LandingPage } from '../../layouts/landing-page';
+import { Section } from '../../layouts/section';
 
 const STATIC_IMAGES = {
   boats: '/images/welcome/boats.jpg',
@@ -15,19 +16,19 @@ const STATIC_IMAGES = {
   aescher: '/images/welcome/aescher.jpg',
 };
 
-type Props = {
-  images: typeof STATIC_IMAGES;
-};
-const Welcome: NextPage<Props> = ({ images }) => (
+const Welcome: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ images, employee }) => (
   <LandingPage>
     <PageHeader
       markdownTitle="Smart Move™"
-      description="Hoi! Schön bisch da 🤗 Da wir Bäume 🌳 eigentlich ganz gut mögen, haben wir dir kein 500-Seiten-Dossier ausgedruckt und auf deinen neuen Arbeitsplatz gelegt, sondern stellen dir alles was du brauchst digital zur Verfügung."
+      description={`Hoi${
+        employee ? ` ${employee.firstname}` : ''
+      }! Schön bisch da 🤗 Da wir Bäume 🌳 eigentlich ganz gut mögen, haben wir dir kein 500-Seiten-Dossier ausgedruckt und auf deinen neuen Arbeitsplatz gelegt, sondern stellen dir alles was du brauchst digital zur Verfügung.`}
     >
       <Copy>
-        Hoi! Schön bisch da 🤗 Da wir Bäume 🌳 eigentlich ganz gut mögen, haben wir dir kein 500-Seiten-Dossier ausgedruckt
-        und auf deinen neuen Arbeitsplatz gelegt, sondern stellen dir alles was du brauchst digital zur Verfügung. Macht noch
-        Sinn, so als Digital Agentur. Haha. Egal. Wichtig ist, dass du endlich da bist. Wir konntens kaum erwarten.
+        Hoi{employee ? ` ${employee.firstname}` : ''}! Schön bisch da 🤗 Da wir Bäume 🌳 eigentlich ganz gut mögen, haben wir
+        dir kein 500-Seiten-Dossier ausgedruckt und auf deinen neuen Arbeitsplatz gelegt, sondern stellen dir alles was du
+        brauchst digital zur Verfügung. Macht noch Sinn, so als Digital Agentur. Haha. Egal. Wichtig ist, dass du endlich da
+        bist. Wir konntens kaum erwarten.
       </Copy>
 
       <LinkList links={[{ label: 'Google Account einrichten', href: `https://accounts.google.com/signin` }]} />
@@ -75,8 +76,8 @@ const Welcome: NextPage<Props> = ({ images }) => (
       <Heading2>Deine ersten, digitalen Schritte</Heading2>
       <Copy>
         Slack hast du wahrscheinlich schon. Aber es sieht noch nicht so nach smartive aus. Schau doch mal auf unserer{' '}
-        <Link href="/brand">Brandseite</Link>
-        vorbei um dir dein Slack Theme zu ergattern. Und wenn du schon mal da bist, lies dir die Sachen doch rasch durch. 😇
+        <Link href="/brand">Brandseite</Link> vorbei um dir dein Slack Theme zu ergattern. Und wenn du schon mal da bist,
+        lies dir die Sachen doch rasch durch. 😇
       </Copy>
       <Heading3>Love Thy Neighbor</Heading3>
       <Copy>
@@ -93,17 +94,20 @@ const Welcome: NextPage<Props> = ({ images }) => (
         <Link href="https://smarties.app/roles/scrum-master" newTab>
           Scrum
         </Link>{' '}
-        denn funktioniert. Diese Infos findest du in den{' '}
+        denn funktioniert. Diese Infos findest du auf der{' '}
         <Link href="https://smarties.app/roles" newTab>
-          smartive Roles
-        </Link>
-        .
+          Rollen
+        </Link>{' '}
+        Seite in der smarties.app .
       </Copy>
 
-      <Heading3>Du willst auch auf diese Seite?</Heading3>
+      <Heading3>Du willst auch auf die Teamseite?</Heading3>
       <Copy>
-        Unbedingt! Sprich doch kurz Robert oder Kevin an, sie zeigen dir wo und wie du dein Profil erfassen musst, damit du
-        auf der Webseite auftauchst.
+        Unbedingt! Sprich doch kurz mit den{' '}
+        <Link href="https://smarties.app/roles/webmaster" newTab>
+          Webmaster
+        </Link>
+        . Sie zeigen dir wo und wie du dein Profil erfassen musst, damit du auf der Webseite auftauchst.
       </Copy>
     </Section>
     <Section>
@@ -120,7 +124,7 @@ const Welcome: NextPage<Props> = ({ images }) => (
           background="mint"
           label="smarties 🍬"
           title="Unsere eigene, kleine App"
-          content="In der smarties.app (WIP 👷) findest du die Übersicht über deine Zeiten, Ferientage und deine Buddies."
+          content="In der smarties.app findest du die Übersicht über deine Zeiten, Ferientage und deine Buddies."
           link={{ label: 'Zur smarties App', href: 'https://smarties.app' }}
         />
         <NextContentCard
@@ -130,15 +134,37 @@ const Welcome: NextPage<Props> = ({ images }) => (
           content="In Harvest kannst du deine Zeiten und Spesen erfassen. Auch für die Planung von Projekten brauchen wir Harvest."
           link={{ label: 'Zu Harvest', href: 'https://smartive.harvestapp.com/' }}
         />
+        {employee?.todosUrl && (
+          <NextContentCard
+            background="apricot"
+            label="Todos 🎒"
+            title="Dein persönliches Todo-Board"
+            content="Auf Notion findest du dein persönliches Todo-Board. Dort kannst du deine Aufgaben erfassen und verwalten. Auch die Aufgaben für dein Onboarding findest du dort."
+            link={{ label: 'Zum Todo-Board', href: employee.todosUrl }}
+          />
+        )}
       </GridSlider>
     </Section>
   </LandingPage>
 );
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = STATIC_IMAGES;
+const slugifyMail = (email: string) => email.split('@')[0].replaceAll('.', '-');
+const unslugifyMail = (slug: string) => `${slug.replaceAll('-', '.')}@smartive.ch`;
 
-  return { props: { images } };
+export const getStaticPaths: GetStaticPaths = async () => {
+  const employees = await getAllFullEmployees();
+
+  return {
+    paths: employees.map(({ email }) => ({ params: { slug: slugifyMail(email) } })),
+    fallback: false,
+  };
 };
+
+export const getStaticProps = async ({ params }: GetStaticPropsContext) => ({
+  props: {
+    images: STATIC_IMAGES,
+    employee: params?.slug ? await getFullEmployeeByMail(unslugifyMail(params.slug.toString())) : null,
+  },
+});
 
 export default Welcome;
