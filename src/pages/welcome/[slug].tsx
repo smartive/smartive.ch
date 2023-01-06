@@ -156,15 +156,32 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: employees.map(({ email }) => ({ params: { slug: slugifyMail(email) } })),
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
-export const getStaticProps = async ({ params }: GetStaticPropsContext) => ({
-  props: {
-    images: STATIC_IMAGES,
-    employee: params?.slug ? await getFullEmployeeByMail(unslugifyMail(params.slug.toString())) : null,
-  },
-});
+export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
+  const images = STATIC_IMAGES;
+
+  if (!params?.slug) {
+    return { props: { images, employee: null } };
+  }
+
+  try {
+    return {
+      props: {
+        images,
+        employee: await getFullEmployeeByMail(unslugifyMail(params.slug.toString())),
+      },
+      revalidate: 3600,
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      notFound: true,
+      revalidate: 300,
+    };
+  }
+};
 
 export default Welcome;
