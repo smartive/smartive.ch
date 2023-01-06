@@ -11,6 +11,9 @@ export default class CustomDocument extends Document {
             rel="stylesheet"
           />
           <link rel="icon" href="/favicon.ico" />
+          <noscript>
+            <style>{`div#pageContent { opacity: 1}`}</style>
+          </noscript>
         </Head>
         <body className="bg-white-200 text-black">
           <Main />

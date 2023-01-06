@@ -1,33 +1,16 @@
-import { BlobVariations, BrandColor } from '@smartive/guetzli';
-import dynamic from 'next/dynamic';
+import { BlobVariations, BrandColor, Copy, GridSlider, LinkList } from '@smartive/guetzli';
 import NextLink from 'next/link';
+import { Contact } from '../components/contact';
+import { NextContentCard } from '../components/content-card';
+import { CustomerList } from '../components/customer-list';
 import { Image, ImageVariant } from '../components/image';
+import { NextImageCard } from '../components/image-card';
+import { NewsletterCard } from '../components/newsletter-card';
+import { Testimonial } from '../components/testimonial';
 import { Employee } from '../data/employees';
 import { Section } from '../layouts/section';
 import { PageBody, PageBodyPage_Header } from '../types/generated/prismic';
 import { PageHeader } from './page-header';
-
-const LinkList = dynamic(() => import('@smartive/guetzli').then((module) => module.LinkList), { ssr: true });
-const GridSlider = dynamic(() => import('@smartive/guetzli').then((module) => module.GridSlider), { ssr: true });
-const Copy = dynamic(() => import('@smartive/guetzli').then((module) => module.Copy), { ssr: true });
-const Testimonial = dynamic(() => import('../components/testimonial').then((module) => module.Testimonial), {
-  ssr: true,
-});
-const CustomerList = dynamic(() => import('../components/customer-list').then((module) => module.CustomerList), {
-  ssr: true,
-});
-const NewsletterCard = dynamic(() => import('../components/newsletter-card').then((module) => module.NewsletterCard), {
-  ssr: true,
-});
-const Contact = dynamic(() => import('../components/contact').then((module) => module.Contact), {
-  ssr: true,
-});
-const NextImageCard = dynamic(() => import('../components/image-card').then((module) => module.NextImageCard), {
-  ssr: true,
-});
-const NextContentCard = dynamic(() => import('../components/content-card').then((module) => module.NextContentCard), {
-  ssr: true,
-});
 
 type Props = {
   header: PageBodyPage_Header;
