@@ -52,7 +52,7 @@
     "rokka": "3.11.0",
     "scrollex": "^2.0.1",
     "sharp": "0.31.3",
-    "xstate": "4.35.1"
+    "xstate": "4.35.2"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.16.3",
