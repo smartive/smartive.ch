@@ -142,8 +142,8 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
               smartive wurde 2012 gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, an dem wir uns alle
               einbringen und so arbeiten, wie es uns entspricht.
             </TextBlock>
-            <TextBlock title="Vierzehn Teilhaber*innen" number={14}>
-              Darauf sind wir stolz: Vierzehn unserer {teamSize} Mitarbeitenden besitzen smartive-Aktien. Es gibt keine
+            <TextBlock title="Neunzehn Teilhaber*innen" number={19}>
+              Darauf sind wir stolz: Neunzehn unserer {teamSize} Mitarbeitenden besitzen smartive-Aktien. Es gibt keine
               externen Aktionärinnen oder Stakeholder.
             </TextBlock>
             <TextBlock title="Ein Viertelhundert" number={teamSize}>
