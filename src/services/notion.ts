@@ -114,7 +114,8 @@ export async function getBlocks(id: string): Promise<Block[]> {
           const imageUrl = block.image.type === 'external' ? block.image.external.url : block.image.file.url;
 
           // If the image is hosted on cloudinary, we use the cloudinary API to get the image dimensions.
-          if (imageUrl.includes('cloudinary')) {
+          // We also exclude gifs, because the cloudinary API doesn't return anything for them.
+          if (imageUrl.includes('cloudinary') && !imageUrl.includes('.gif')) {
             const infoUrl = `https://res.cloudinary.com/smartive/image/upload/fl_getinfo/${imageUrl.replace(
               'https://res.cloudinary.com/smartive/image/upload/',
               ''
