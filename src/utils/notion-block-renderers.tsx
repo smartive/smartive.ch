@@ -8,6 +8,8 @@ import { Image } from '../components/image';
 import { NotionRichText } from '../components/notion-rich-text';
 import { OrderedList } from '../components/ordered-list';
 import { UnorderedList } from '../components/unordered-list';
+import { Video } from '../components/video';
+import { YoutubeVideo } from '../components/youtube-video';
 import { Link } from '../elements/link';
 import { Block, BlockType } from '../services/notion';
 
@@ -142,5 +144,16 @@ const internalRenderers = {
     <Link key={id} newTab href={url}>
       {url}
     </Link>
+  )),
+  video: createRenderer('video', ({ id, video, video: { caption } }) => (
+    <>
+      {video.type === 'external' ? (
+        (video.external.url.includes('youtube') || video.external.url.includes('youtu.be')) && (
+          <YoutubeVideo key={id} url={video.external.url} caption={caption ? <NotionRichText text={caption} /> : null} />
+        )
+      ) : (
+        <Video key={id} src={video.file.url} caption={caption ? <NotionRichText text={caption} /> : null} />
+      )}
+    </>
   )),
 };
