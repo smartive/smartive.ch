@@ -11,7 +11,8 @@ type Props = {
 };
 
 const availableColors = ['apricot', 'mint', 'cornflower'] as const;
-const getFallbackImage = (colorIndex: number) => `/images/portrait-fallback-${availableColors[colorIndex]}.svg`;
+const getPortraitFallbackImage = (colorIndex: number) => `/images/portrait-fallback-${availableColors[colorIndex]}.svg`;
+const getCloseupFallbackImage = (colorIndex: number) => `/images/closeup-fallback-${availableColors[colorIndex]}.svg`;
 
 export const EmployeeCard: FC<Props> = ({
   employee: { name, job, bio, github, linkedin, twitter, email, image, closeup },
@@ -38,8 +39,8 @@ export const EmployeeCard: FC<Props> = ({
   const plausible = usePlausible<PlausibleEvents>();
 
   const colorIndex = useSSRSafeRandomNumber(0, availableColors.length - 1);
-  const imageWithFallback = image || getFallbackImage(colorIndex);
-  const closeupWithFallback = closeup || getFallbackImage(colorIndex);
+  const potraitWithFallback = image || getPortraitFallbackImage(colorIndex);
+  const closeupWithFallback = closeup || getCloseupFallbackImage(colorIndex);
 
   return (
     <div
@@ -50,14 +51,21 @@ export const EmployeeCard: FC<Props> = ({
       itemType="http://schema.org/Person"
     >
       <div className="hidden lg:block w-full">
-        <Image src={imageWithFallback} rounded="none" alt="" variant={ImageVariant.FillContainer} width="463" height="640" />
+        <Image
+          src={potraitWithFallback}
+          rounded="none"
+          alt={`Portraitfoto von ${name}`}
+          variant={ImageVariant.FillContainer}
+          width="458"
+          height="687"
+        />
       </div>
       <div className="block lg:hidden w-full">
         <Image
           itemProp="image"
           src={closeupWithFallback}
           rounded="none"
-          alt=""
+          alt={`Portraitfoto von ${name}`}
           variant={ImageVariant.FillContainer}
           width="480"
           height="300"
