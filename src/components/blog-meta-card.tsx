@@ -23,7 +23,7 @@ export const BlogMetaCard: FC<Props> = ({ post, readingTime }) => {
             variant={ImageVariant.PortraitBig}
           />
         )}
-        <Heading3 as="p" className="mb-0 lg:mb-0">
+        <Heading3 as="p" className="!mb-0 !lg:mb-0">
           von <span itemProp="author">{post.creator}</span>
         </Heading3>
         <div className="grid grid-cols-[1rem,auto] gap-2 justify-items-center place-items-center">
