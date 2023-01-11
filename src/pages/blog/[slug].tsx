@@ -1,13 +1,14 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
+import { BlogMetaCard } from '../../components/blog-meta-card';
 import { Image, ImageVariant } from '../../components/image';
+import { MobileBlogMetaCard } from '../../components/mobile-blog-meta-card';
 import { PageHeader } from '../../compositions/page-header';
 import { BlogDetail, getBlogPost, getBlogPosts } from '../../data/blog';
 import { Page } from '../../layouts/page';
 import { Block, getBlocks } from '../../services/notion';
 import { calculateReadingTime } from '../../utils/notion';
 import { renderContent } from '../../utils/notion-block-renderers';
-import { BlogMetaCard } from '../../components/blog-meta-card';
 
 type Props = { post: BlogDetail; blocks: Block[] };
 
@@ -40,16 +41,15 @@ const BlogPost: NextPage<Props> = ({ post, blocks }) => {
             <div className="hidden md:block h-full">
               <BlogMetaCard post={post} readingTime={readingTime} />
             </div>
+            <div className="block md:hidden">
+              <MobileBlogMetaCard post={post} />
+            </div>
           </div>
         </PageHeader>
 
-        <main className="w-full md:w-2/3 my-16 lg:my-48">
+        <main className="w-full md:w-2/3 my-12 md:my-16 lg:my-48">
           <article itemProp="articleBody text">{renderContent(blocks)}</article>
         </main>
-
-        <div className="block md:hidden my-16 lg:my-48">
-          <BlogMetaCard post={post} readingTime={readingTime} />
-        </div>
       </div>
     </Page>
   );

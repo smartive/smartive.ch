@@ -56,7 +56,7 @@ export const getBlogPost = async (slug: string): Promise<BlogDetail> => {
     slug: page.properties.Slug.formula.string,
     cover: (page.cover?.file ?? page.cover?.external)?.url ?? null,
     abstract: page.properties.Abstract.rich_text,
-    avatar: employee.closeup,
+    avatar: employee.portrait,
     creator: employee.name,
     published: page.properties.State.status?.name === 'Published',
   };

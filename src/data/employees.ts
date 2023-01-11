@@ -159,7 +159,7 @@ const mapBlockToEmployee = (block: NotionEmployee): Employee => {
     twitter: Twitter.url,
     image: PhotoMain.files.length > 0 ? getNotionUrl(PhotoMain.files[0].file.url, block) : '',
     closeup: PhotoCloseup.files.length > 0 ? getNotionUrl(PhotoCloseup.files[0].file.url, block) : '',
-    portrait: PhotoCloseup.files.length > 0 ? getNotionUrl(PhotoPortrait.files[0].file.url, block) : '',
+    portrait: PhotoPortrait.files.length > 0 ? getNotionUrl(PhotoPortrait.files[0].file.url, block) : '',
     start: Start.number,
   };
 
