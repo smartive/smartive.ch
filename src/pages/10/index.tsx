@@ -103,7 +103,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
   return (
     <>
       <TenHead />
-      <main className="relative bg-black text-white-100 overflow-hidden">
+      <main id="pageContent" className="relative bg-black text-white-100 overflow-hidden">
         <Scroll.Section>
           <Container inViewChange={(inView) => inView && setVisibleYear(null)}>
             <ParallaxBlob variant={BlobVariants.Two} className="absolute w-72 -bottom-72 -left-96 z-0" />

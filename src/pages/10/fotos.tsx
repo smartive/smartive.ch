@@ -15,7 +15,7 @@ const Fotos: NextPage<Props> = ({ photos }) => {
   return (
     <>
       <TenHead />
-      <main className="relative bg-black text-white-100 overflow-hidden">
+      <main id="pageContent" className="relative bg-black text-white-100 overflow-hidden">
         <div className="relative mx-auto sm:mb-0 my-24 md:my-44">
           <SmartGallery photos={photos}></SmartGallery>
         </div>
