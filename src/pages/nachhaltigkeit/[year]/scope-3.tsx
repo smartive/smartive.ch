@@ -2,7 +2,7 @@ import { Copy, Grid, Heading3, LinkList } from '@smartive/guetzli';
 import 'charts.css/dist/charts.min.css';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
-import React, { CSSProperties } from 'react';
+import { CSSProperties } from 'react';
 import { NextBisectCard } from '../../../components/bisect-card';
 import { PageHeader } from '../../../compositions/page-header';
 import { getNotionBusinessTravel } from '../../../data/sustainability/notion-business-travel';
@@ -50,7 +50,7 @@ const Scope3: NextPage<Props> = ({
         <LinkList linkWrapper={(props) => <NextLink legacyBehavior {...props} />} links={links} />
       </PageHeader>
       <Heading3>Vergleich der Kategorien aus Scope 3</Heading3>
-      <div className="max-w-[800px]">
+      <div className="max-w-[800px] mb-2">
         <table
           className="charts-css bar show-heading show-labels show-primary-axis show-data-axes show-4-secondary-axes data-spacing-6 max-w-[800px]"
           style={
@@ -104,7 +104,7 @@ const Scope3: NextPage<Props> = ({
                       )}
 
                       <span className="tooltip">
-                        ca. {totalEmissionNum} t CO<sub>2</sub> <br></br> {ghgCategory}:<br></br> {title}
+                        ca. {totalEmissionNum} t CO<sub>2</sub> <br /> {ghgCategory}:<br /> {title}
                       </span>
                     </td>
                   </tr>
@@ -113,9 +113,6 @@ const Scope3: NextPage<Props> = ({
           </tbody>
         </table>
       </div>
-      <br></br>
-      <br></br>
-
       <Grid cols={3}>
         {categoriesSortedByCategorieAndImpact.map(({ ghgCategory, title, environmentalImpact, description, icon }) => {
           const labelHeader = environmentalImpact === 0 ? 'Keine Emissionen' : 'totale Emissionen';
@@ -143,7 +140,7 @@ const Scope3: NextPage<Props> = ({
               labelHeader={labelHeader}
               header={header}
               content={description}
-            ></NextBisectCard>
+            />
           );
         })}
       </Grid>

@@ -1,7 +1,6 @@
 import { Copy, Explainer, Grid, Heading3, LinkList, TextBlock } from '@smartive/guetzli';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
-import React from 'react';
 import { NextBisectCard } from '../../../components/bisect-card';
 import { PageHeader } from '../../../compositions/page-header';
 import { getNotionBusinessTravel } from '../../../data/sustainability/notion-business-travel';
@@ -60,11 +59,27 @@ const individualComparisonOfTheYear = {
       content: 'Kein Kundenbesuch und keine Weiterbildung wurde mit dem Flugzeug besucht.',
     },
     {
-      number: 2,
+      number: 3,
       unit: 'x 🔥',
-      title: 'Doppelte Heizkosten',
+      title: 'Dreifache Heizkosten',
       content:
-        'Seit Ende 2019 sind wir in einem doppelt so grossen Büro – mit doppelt so viel Fläche, die geheizt werden muss. Wir sind auch mehr Mitarbeiter*innen und teilen unser Büro.',
+        'Seit Ende 2019 sind wir in einem neuen, grossen Büro – mit mehr als doppelt so viel Fläche, die geheizt werden muss. Wir sind auch mehr Mitarbeiter*innen und teilen unser Büro.',
+    },
+  ],
+  2021: [
+    {
+      number: 4,
+      unit: 'x 🛋',
+      title: '2019 = 2 × 2020 = 4 × 2021',
+      content:
+        'Halb so viele Emissionen für Server, Möbel, Lebensmittel als noch im Jahr zuvor. Warum? Dieses Jahr wurden kaum Einrichtungen gekauft.',
+    },
+    {
+      number: 1.7,
+      unit: 'x 🔥',
+      title: 'Umbau Verbrennungsanlage',
+      content:
+        'Die Heizung besteht vorübergehend aus Gas, weil die alte Verbrennungsanlage abgebaut wurde und umgelagert wird. Bis zum Anschluss der neuen an unser Gebäude, wird die Heizung mit Gas betrieben.',
     },
   ],
 };
@@ -99,7 +114,7 @@ const YearOverview: NextPage<Props> = ({ year: currentYear, calculatedScopes, li
                     {Math.round(environmentalImpact / TIMES_OR_DIVIDE_BY_1000)} t CO<sub>2</sub>
                   </>
                 }
-              ></NextBisectCard>
+              />
             ))}
           <NextBisectCard
             key={scope3[0].ghgCategory}
@@ -115,7 +130,7 @@ const YearOverview: NextPage<Props> = ({ year: currentYear, calculatedScopes, li
                 {Math.round(scope3[0].environmentalImpact / TIMES_OR_DIVIDE_BY_1000)} t CO<sub>2</sub>
               </>
             }
-          ></NextBisectCard>
+          />
         </Grid>
       </Section>
       <Section>
@@ -124,7 +139,7 @@ const YearOverview: NextPage<Props> = ({ year: currentYear, calculatedScopes, li
             {`Unser Emissionsausstoss im Jahr ${currentYear} entspricht dem Emissionsausstoss von ${Math.round(
               totalEmission / AVERAGE_SWISSPERSON_EMISSION
             )} `}
-            <Explainer title="inklusive netto import-, export-Bilanz. 1Schweizer*in = 14 t CO eq. pro Jahr">
+            <Explainer title="inklusive netto import-, export-Bilanz. 1 Schweizer*in = 14 t CO₂ eq. pro Jahr">
               Schweizer*innen
             </Explainer>
             .

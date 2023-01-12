@@ -78,7 +78,7 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
         <Section>
           <Heading2>Sind wir auf dem richtigen Weg?</Heading2>
           <Heading3>Unser Ausstoss über die Jahre</Heading3>
-          <div className="max-w-[800px]">
+          <div className="max-w-[800px] mb-2">
             <table
               className="charts-css bar show-heading show-labels show-primary-axis data-spacing-6 max-w-[800px]"
               style={
@@ -116,9 +116,7 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
                 })}
               </tbody>
             </table>
-          </div>{' '}
-          <br></br>
-          <br></br>
+          </div>
           <Grid cols={3}>
             {allYearsTotalEmission.map(({ year, totalEmission }, idx) => (
               <NextBisectCard
@@ -161,16 +159,49 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
                     </span>
                   </>
                 }
-              ></NextBisectCard>
+              />
             ))}
+          </Grid>
+          <Grid cols={3}>
             <NextBisectCard
-              background={brandColor[allYearsTotalEmission.length % brandColor.length]}
+              background={brandColor[2]}
               interactive={false}
-              title={`Ziel für 2021`}
-              header="Und jetzt?"
+              title="Rolle Nachhaltigkeit"
+              header="Ziel 2021 erreicht?"
               labelTitle="Ziel: Netto Null?"
-              content="Im 2021 möchten wir festlegen, welche Schritte wir in den kommenden Jahren unternehmen wollen."
-            ></NextBisectCard>
+              content={`Wir haben die Rolle "Nachhaltigkeit" geschaffen. Die Inhaber*innen der Rolle prüfen den jährlichen Verbrauch, 
+              machen Verbesserungspotenziale ausfindig, setzen sinnvolle Massnahmen um, führen Dialoge mit externen Verantwortlichen und thematisieren interne Aspekte von Nachhaltigkeit.`}
+            />
+            <NextBisectCard
+              background={brandColor[0]}
+              interactive={false}
+              title="Erwartungen für 2022"
+              header="Und 2022?"
+              labelTitle="Neues Büro, wieder Flugreisen"
+              content={
+                <div>
+                  Neu haben wir auch ein Büro in St. Gallen! Betreffend Nachhaltigkeit bedeutet das weniger Pendel-, dafür
+                  unter anderem mehr Heiz- und Strom- Emissionen. Das Büro wurde natürlich auch schön eingerichtet, was
+                  ebenfalls zu einer Zunahme der Emissionen führt.
+                  <br />
+                  Einzelne MitarbeiterInnen sind von der Konferenz in Amsterdam nach Hause geflogen, was zur Zunahme der
+                  Emissionen im Bereich Geschäftsreisen führt.
+                  <br />
+                  Das Beste zum Schluss: Wir haben 40m² Solarzellen auf dem Schulhaus Lachenzelg gekauft. Somit ist ein
+                  Viertel unseres jährlichen Stromverbrauch (3200kWh) durch unsere Solarzellen abgedeckt.
+                </div>
+              }
+            />
+            <NextBisectCard
+              background={brandColor[1]}
+              interactive={false}
+              title="Ziel 2023"
+              header="Und jetzt?"
+              labelTitle="Planung kommende Jahre"
+              content="Wir möchten das Bewusstsein in der Firma stärken, indem wir Nachhaltigkeit mehr thematisieren und diskutieren. Bei uns kann jede*r selbst entscheiden, welche Möbel am besten passen oder wie er/sie zur Konferenz fährt.
+              Die Nachhaltigkeit soll nicht verordnet werden, sondern individuell entschieden und gelebt werden.
+              Des weiteren sind weiterhin viele kleinere Initiativen am Laufen, um unsere Emissionen zu senken, etwa durch Müllvermeidung."
+            />
           </Grid>
         </Section>
         <Section>
