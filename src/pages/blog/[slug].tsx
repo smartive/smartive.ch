@@ -22,7 +22,7 @@ const BlogPost: NextPage<Props> = ({ post, blocks }) => {
       <div itemScope itemType="https://schema.org/BlogPosting">
         <meta itemProp="headline" content={post.title} />
         <meta itemProp="abstract" content={plainAbstract} />
-        <PageHeader markdownTitle={post.title} description={plainAbstract}>
+        <PageHeader markdownTitle={post.title} description={plainAbstract} image={post.cover ?? null}>
           <div className="grid md:grid-cols-[66%,auto] gap-4">
             {post.cover && (
               <div>

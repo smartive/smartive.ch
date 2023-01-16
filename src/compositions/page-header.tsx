@@ -10,12 +10,14 @@ type PageHeaderProps = PageHeaderComponentProps & {
   description?: string;
   pageTitle?: string;
   metaOnly?: boolean;
+  image?: string;
 };
 
-export const PageHeader: FC<PageHeaderProps> = ({ description, pageTitle, metaOnly = false, ...props }) => {
+export const PageHeader: FC<PageHeaderProps> = ({ description, pageTitle, metaOnly = false, image, ...props }) => {
   const { asPath } = useRouter();
   const pageUrl = `${SITE_URL}${asPath}`;
-  const imageUrl = `${OG_IMAGE_SERVICE_URL}/${encodeURIComponent(props.markdownTitle)}?md=1&fontSize=5rem&fileType=png`;
+  const imageUrl =
+    image ?? `${OG_IMAGE_SERVICE_URL}/${encodeURIComponent(props.markdownTitle)}?md=1&fontSize=5rem&fileType=png`;
 
   const title = pageTitle || purify(props.markdownTitle);
 
