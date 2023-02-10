@@ -157,13 +157,24 @@ const mapBlockToEmployee = (block: NotionEmployee): Employee => {
     github: GitHub.url,
     linkedin: LinkedIn.url,
     twitter: Twitter.url,
-    image: PhotoMain.files.length > 0 ? getNotionUrl(PhotoMain.files[0].file.url, block) : '',
-    closeup: PhotoCloseup.files.length > 0 ? getNotionUrl(PhotoCloseup.files[0].file.url, block) : '',
-    portrait: PhotoPortrait.files.length > 0 ? getNotionUrl(PhotoPortrait.files[0].file.url, block) : '',
+    image: getImageUrl(PhotoMain, block),
+    closeup: getImageUrl(PhotoCloseup, block),
+    portrait: getImageUrl(PhotoPortrait, block),
     start: Start.number,
   };
 
   return mapped;
+};
+
+const getImageUrl = (image: Files, block: NotionEmployee) => {
+  if (image.files.length > 0) {
+    if (image.files[0].type === 'external') {
+      return image.files[0].external?.url || '';
+    } else {
+      return image.files[0].file ? getNotionUrl(image.files[0].file.url, block) : '';
+    }
+  }
+  return '';
 };
 
 export const getNotionUrl = (image: string, block: NotionEmployee) => {
@@ -270,7 +281,7 @@ interface Phone {
 
 interface Files {
   type: string;
-  files: { name: string; type: string; file: { url: string } }[];
+  files: { name: string; type: string; file?: { url: string }; external?: { url: string } }[];
 }
 
 interface URL {
