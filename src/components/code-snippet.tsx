@@ -57,7 +57,10 @@ export const MermaidDiagram: FC<MermaidProps> = ({ code, caption }) => {
   const [svg, setSvg] = useState('');
 
   useEffect(() => {
-    mermaid.render('diagram', code, (svg) => setSvg(svg));
+    (async () => {
+      const { svg } = await mermaid.render('diagram', code);
+      setSvg(svg);
+    })();
   }, []);
 
   return (
