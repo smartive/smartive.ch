@@ -163,5 +163,10 @@
     "portrait": "/images/portraits/martin-opsone.jpg",
     "text": "Die enge Zusammenarbeit auf Augenhöhe und der hohe Qualitätsanspruch von smartive hat uns ermöglicht, innert kurzer Zeit vom Prototypen zum MVP zu gelangen.",
     "credit": "Martin Wiederkehr, CEO & Partner Ops One AG"
+  },
+  "coco-mdcf": {
+    "portrait": "/images/portraits/coco-petit-2023.jpg",
+    "text": "Hunderte Kampagnen von dutzenden Migros-Brands und durch den ausgereiften User Flow kaum Supportanfragen!",
+    "credit": "Corinne Petit, Agile Coach & Technical Product Owner beim Migros-Genossenschafts-Bund"
   }
 }
