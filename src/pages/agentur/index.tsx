@@ -1,11 +1,10 @@
 import { BlobVariations, Copy, Grid, TextBlock, TextLink } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
 import { Image, ImageVariant } from '../../components/image';
 import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import TextBlocks from '../../data/benefits.json';
-import { Employee, getAllEmployees } from '../../data/employees';
+import { FullEmployee, getAllFullEmployees } from '../../data/employees';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Page } from '../../layouts/page';
@@ -23,13 +22,14 @@ const STATIC_IMAGES = {
 } as const;
 
 type Props = {
-  employees: Employee[];
+  employees: FullEmployee[];
   images: typeof STATIC_IMAGES;
   quote: Quote;
 };
 
 const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
   const teamSize = employees.length;
+  const shareholderSize = employees.filter((employee) => employee.shareholder).length;
 
   return (
     <Page>
@@ -142,9 +142,9 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
               smartive wurde 2012 gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, an dem wir uns alle
               einbringen und so arbeiten, wie es uns entspricht.
             </TextBlock>
-            <TextBlock title="Neunzehn Teilhaber*innen" number={19}>
-              Darauf sind wir stolz: Neunzehn unserer {teamSize} Mitarbeitenden besitzen smartive-Aktien. Es gibt keine
-              externen Aktionärinnen oder Stakeholder.
+            <TextBlock title="Teilhaber*innen" number={shareholderSize}>
+              Darauf sind wir stolz: {shareholderSize} unserer {teamSize} Mitarbeitenden besitzen smartive-Aktien. Es gibt
+              keine externen Aktionärinnen oder Stakeholder.
             </TextBlock>
             <TextBlock title="Ein Viertelhundert" number={teamSize}>
               Heute kommen {teamSize} Mitarbeitende in Zürich zusammen und bringen ihre Fähigkeiten und ihre Persönlichkeit
@@ -173,7 +173,7 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const images = STATIC_IMAGES;
-  const employees = await getAllEmployees();
+  const employees = await getAllFullEmployees();
 
   return {
     props: {

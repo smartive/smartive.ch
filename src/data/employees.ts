@@ -105,7 +105,7 @@ export const getAllFullEmployees = async (): Promise<FullEmployee[]> => {
 const mapBlockToFullEmployee = (block: NotionFullEmployee): FullEmployee => {
   const {
     id,
-    properties: { Name, Todos, Mail },
+    properties: { Name, Todos, Mail, AktionärIn },
   } = block;
 
   const name = Name.title[0].plain_text.split(/\s+/);
@@ -117,6 +117,7 @@ const mapBlockToFullEmployee = (block: NotionFullEmployee): FullEmployee => {
     firstname: name[0],
     lastname: name.pop(),
     todosUrl: Todos.url,
+    shareholder: AktionärIn.checkbox,
   };
 
   return mapped;
@@ -214,6 +215,7 @@ export type FullEmployee = {
   lastname: string;
   email: string;
   todosUrl: string;
+  shareholder: boolean;
 };
 
 interface Properties {
@@ -254,6 +256,7 @@ interface NotionFullEmployee {
     Name: Name;
     Mail: Mail;
     Todos: UrlPropertyItemObjectResponse;
+    AktionärIn: Checkbox;
   };
   url: string;
 }
@@ -304,4 +307,10 @@ interface Name {
 interface NotionNumber {
   type: string;
   number: number;
+}
+
+interface Checkbox {
+  id: string;
+  type: 'checkbox';
+  checkbox: boolean;
 }
