@@ -10,6 +10,9 @@ import Quotes from '../../../../../data/quotes.json';
 import { Link } from '../../../../../elements/link';
 import { LandingPage } from '../../../../../layouts/landing-page';
 import { Section } from '../../../../../layouts/section';
+import dynamic from 'next/dynamic';
+
+const MdcfThemesAnimation = dynamic(() => import('../../../../../elements/awards/mdcf-themes-animation'));
 
 type Props = {
   quote: Quote;
@@ -54,7 +57,7 @@ const Page: NextPage<Props> = ({ quote }) => {
           einfach noch nie so günstig eine so hochwertige Kampagne gestartet werden.
         </Copy>
         <Copy as="div">
-          <Card background="cornflower">
+          <Card background="mint">
             <div className="p-4">
               <Heading3 className="!mb-4">Probieren geht über beschreibieren!</Heading3>
               <Copy className="!my-0">
@@ -164,6 +167,8 @@ const Page: NextPage<Props> = ({ quote }) => {
               </Copy>
             </div>
           </Grid>
+
+          <MdcfThemesAnimation className="rounded overflow-hidden" />
         </Section>
 
         <Section title="Das Foto-Quiz-Kalender-Spiel-Paket">
@@ -199,7 +204,7 @@ const Page: NextPage<Props> = ({ quote }) => {
               { headline: 'Glücksrad', copy: 'Wer landet auf dem güldnen Feld mit dem Hauptpreis?', widgetType: 'wheel' },
               {
                 headline: 'Tic Tac Toe',
-                copy: 'Simpel, aber unterhaltam – Gewinnst du gegen den Computer?',
+                copy: 'Simpel, aber unterhaltsam – Gewinnst du gegen den Computer?',
                 widgetType: 'tictactoe',
               },
             ].map((data) => (
