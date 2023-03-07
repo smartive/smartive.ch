@@ -37,22 +37,17 @@ module.exports = withBundleAnalyzer({
         destination: '/projekte/zubi-mentoring',
         permanent: true,
       },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'blog.smartive.ch',
+          },
+        ],
+        destination: '/blog/:path*',
+        permanent: true,
+      },
     ];
-  },
-  rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: '/:path*',
-          has: [
-            {
-              type: 'host',
-              value: 'blog.smartive.ch',
-            },
-          ],
-          destination: '/blog/:path*',
-        },
-      ],
-    };
   },
 });
