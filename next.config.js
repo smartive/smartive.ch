@@ -45,7 +45,7 @@ module.exports = withBundleAnalyzer({
             value: 'blog.smartive.ch',
           },
         ],
-        destination: '/blog/:path*',
+        destination: 'https://smartive.ch/blog/:path*',
         permanent: true,
       },
     ];
