@@ -39,4 +39,20 @@ module.exports = withBundleAnalyzer({
       },
     ];
   },
+  rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/:path*',
+          has: [
+            {
+              type: 'host',
+              value: 'blog.smartive.ch',
+            },
+          ],
+          destination: '/blog/:path*',
+        },
+      ],
+    };
+  },
 });

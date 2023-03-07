@@ -56,17 +56,5 @@
       "source": "/jobs/projektleiter-in",
       "destination": "https://smartive.join.com/jobs/3181748-projektleiter-in-bei-smartive"
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "blog.smartive.ch"
-        }
-      ],
-      "destination": "/blog/:path*"
-    }
   ]
 }
