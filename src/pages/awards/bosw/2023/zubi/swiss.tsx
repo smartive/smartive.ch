@@ -47,24 +47,25 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
         <Section>
           <Grid cols={2}>
             <Image
-              quality={100}
               src={images.history}
-              alt="Die Filiale von Zubi in Herisau"
+              alt="Drei Männer in der Schuhmacherei 1950er-Jahre"
               priority
               variant={ImageVariant.FillContainer}
-              width={750}
-              height={500}
+              width={2960}
+              height={2099}
             />
             <Image
               src={images.history2}
-              alt="Eine Frau mit einem Wanderrucksack."
+              alt="Mobiler Zubi-Verkaufswagen an einem Markt"
               priority
               variant={ImageVariant.FillContainer}
-              width={750}
-              height={500}
+              width={1500}
+              height={987}
             />
           </Grid>
+
           <Heading2>Geschichte</Heading2>
+
           <Grid cols={3}>
             <TextBlock title={'1947'}>
               Walter Zuberbühler Senior, Grossvater der heutigen Eigentümer*innen, gründet eine Schuhmacherei mit
@@ -80,16 +81,6 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
             </TextBlock>
           </Grid>
 
-          <Image
-            quality={95}
-            src={images.hero}
-            alt="Menschen in den Bergen und ein Screenshot vom Zubi Online-Shop"
-            priority
-            variant={ImageVariant.FillContainer}
-            width={750}
-            height={500}
-          />
-
           <TextBlock title="2023">
             Das Sortiment beinhaltet mittlerweile weit mehr als Schuhe. 160 Mitarbeitende versorgen die zufriedene Kundschaft
             mit einer grossen Auswahl and Sport- und Wanderschuhen sowie Bekleidung und Ausrüstung für Aktivitäten draussen
@@ -100,6 +91,15 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
             Verkaufsumsatzes. Der Einsatz modernster Technologien ermöglicht es mit deutlich grösseren internationalen Shops
             zu konkurenzieren.
           </Copy>
+
+          <Image
+            src={images.hero}
+            alt="Menschen in den Bergen und ein Screenshot vom Zubi Online-Shop"
+            priority
+            variant={ImageVariant.FillContainer}
+            width={4800}
+            height={2720}
+          />
         </Section>
 
         <Section>
@@ -161,8 +161,8 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
             src={images.desktop}
             alt="Eine Screenshot Mockup vom neuen Zubi Online-Shop"
             variant={ImageVariant.FillContainer}
-            width={1920}
-            height={1080}
+            width={4800}
+            height={2832}
           />
         </Section>
 

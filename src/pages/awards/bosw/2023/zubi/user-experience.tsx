@@ -46,13 +46,12 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
       <main>
         <PageSection>
           <Image
-            quality={95}
             src={images.hero}
             alt="Menschen in den Bergen und ein Screenshot vom Zubi Online-Shop"
             priority
             variant={ImageVariant.FillContainer}
-            width={750}
-            height={500}
+            width={4800}
+            height={2720}
           />
         </PageSection>
 
@@ -115,8 +114,8 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
             src={images.desktop}
             alt="Eine Screenshot Mockup vom neuen Zubi Online-Shop"
             variant={ImageVariant.FillContainer}
-            width={1920}
-            height={1080}
+            width={4800}
+            height={2832}
           />
         </Section>
 
@@ -214,6 +213,7 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
                 </i>
               </Copy>
             </div>
+            p
           </Grid>
         </Section>
 
@@ -235,21 +235,20 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
           </Grid>
           <Grid cols={2}>
             <Image
-              quality={100}
               src={images.history}
-              alt="Die Filiale von Zubi in Herisau"
+              alt="Drei Männer in der Schuhmacherei 1950er-Jahre"
               priority
               variant={ImageVariant.FillContainer}
-              width={750}
-              height={500}
+              width={2960}
+              height={2099}
             />
             <Image
               src={images.history2}
-              alt="Eine Frau mit einem Wanderrucksack."
+              alt="Mobiler Zubi-Verkaufswagen an einem Markt"
               priority
               variant={ImageVariant.FillContainer}
-              width={750}
-              height={500}
+              width={1500}
+              height={987}
             />
           </Grid>
           <TextBlock title="2023">

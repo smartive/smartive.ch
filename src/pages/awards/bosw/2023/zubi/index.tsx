@@ -6,7 +6,7 @@ import { LandingPage } from '../../../../../layouts/landing-page';
 import { Section } from '../../../../../layouts/section';
 
 const STATIC_IMAGES = {
-  hero: '/images/awards/bosw/2023/zubi/hero.png',
+  keyvisual: '/images/awards/bosw/2023/zubi/zubi-keyvisual.jpg',
 } as const;
 
 type Props = {
@@ -17,11 +17,14 @@ const Page: NextPage<Props> = ({ images }) => {
   return (
     <LandingPage>
       <PageHeader
-        markdownTitle="Zubi BOSW 2023"
+        markdownTitle="zubi.swiss – der Onlineshop mit Gesicht"
         description="Das haben wir eingereicht"
         tags={[{ short: 'BOSW22', full: 'Eingabe Best of Swiss Web 2023' }]}
       >
-        <Copy>Den neuen Online-Shop von Zubi haben wir für vier Kategorien eingereicht.</Copy>
+        <Copy>
+          Den neuen Online-Shop von Zubi haben wir in vier verschiedenen Kategorien eingereicht. Such dir eine aus und schaus
+          dir an:
+        </Copy>
 
         <LinkList
           links={[
@@ -36,12 +39,12 @@ const Page: NextPage<Props> = ({ images }) => {
       <main>
         <Section>
           <Image
-            src={images.hero}
+            src={images.keyvisual}
             alt="Screenshot Ops One Cockpit"
             priority
             variant={ImageVariant.FillContainer}
-            width={3010}
-            height={1694}
+            width={2400}
+            height={1360}
           />
         </Section>
       </main>

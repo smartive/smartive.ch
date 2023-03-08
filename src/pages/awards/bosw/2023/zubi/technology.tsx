@@ -48,13 +48,12 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
       <main>
         <PageSection>
           <Image
-            quality={95}
             src={images.hero}
             alt="Menschen in den Bergen und ein Screenshot vom Zubi Online-Shop"
             priority
             variant={ImageVariant.FillContainer}
-            width={750}
-            height={500}
+            width={4800}
+            height={2720}
           />
         </PageSection>
 
@@ -125,13 +124,12 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
           </Grid>
 
           <Image
-            quality={95}
             src={images.architecture}
             alt="Architektur Übersicht Zubi E-Commerce Plattform"
             priority
             variant={ImageVariant.FillContainer}
-            width={750}
-            height={500}
+            width={4440}
+            height={2524}
           />
 
           <Grid cols={2}>
