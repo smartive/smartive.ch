@@ -25,10 +25,10 @@ const Page: NextPage<Props> = ({ images }) => {
 
         <LinkList
           links={[
-            { label: 'Digital Commerce', href: '2023/zubi/digital-commerce' },
-            { label: 'Swiss', href: '2023/zubi/swiss' },
-            { label: 'User-Experience', href: '2023/zubi/user-experience' },
-            { label: 'Technology', href: '2023/zubi/technology' },
+            { label: 'Digital Commerce', href: 'zubi/digital-commerce' },
+            { label: 'Swiss', href: 'zubi/swiss' },
+            { label: 'User-Experience', href: 'zubi/user-experience' },
+            { label: 'Technology', href: 'zubi/technology' },
           ]}
         />
       </PageHeader>
