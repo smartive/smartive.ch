@@ -1,13 +1,13 @@
 import { Copy, Grid, Heading2, Heading3, LinkList, PageSection, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { Image, ImageVariant } from '../../../../components/image';
-import { Testimonial } from '../../../../components/testimonial';
-import { PageHeader } from '../../../../compositions/page-header';
-import { Quote } from '../../../../data/quotes';
-import Quotes from '../../../../data/quotes.json';
-import { Link } from '../../../../elements/link';
-import { LandingPage } from '../../../../layouts/landing-page';
-import { Section } from '../../../../layouts/section';
+import { Image, ImageVariant } from '../../../../../components/image';
+import { Testimonial } from '../../../../../components/testimonial';
+import { PageHeader } from '../../../../../compositions/page-header';
+import { Quote } from '../../../../../data/quotes';
+import Quotes from '../../../../../data/quotes.json';
+import { Link } from '../../../../../elements/link';
+import { LandingPage } from '../../../../../layouts/landing-page';
+import { Section } from '../../../../../layouts/section';
 
 const STATIC_IMAGES = {
   woman: '/images/projekte/zubi/zubi_woman.png',
@@ -28,11 +28,11 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
   return (
     <LandingPage>
       <PageHeader
-        markdownTitle="Ein Familienunternehmen aus dem Appenzellerland"
+        markdownTitle="Filiale Nummer Neun"
         description="Zubi ist mehr als ein Online-Shop. Dein Kauferlebnis startet bei dir Zuhause, unterwegs in den Bergen oder vor Ort in der Filiale."
         tags={[
           { short: 'BOSW2023', full: 'Eingabe Best of Swiss Web 2023' },
-          { short: 'Design', full: 'Kategorie Dot Swiss' },
+          { short: 'Design', full: 'Kategorie User Experience' },
         ]}
       >
         <Copy>
@@ -44,42 +44,7 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
       </PageHeader>
 
       <main>
-        <Section>
-          <Grid cols={2}>
-            <Image
-              quality={100}
-              src={images.history}
-              alt="Die Filiale von Zubi in Herisau"
-              priority
-              variant={ImageVariant.FillContainer}
-              width={750}
-              height={500}
-            />
-            <Image
-              src={images.history2}
-              alt="Eine Frau mit einem Wanderrucksack."
-              priority
-              variant={ImageVariant.FillContainer}
-              width={750}
-              height={500}
-            />
-          </Grid>
-          <Heading2>Geschichte</Heading2>
-          <Grid cols={3}>
-            <TextBlock title={'1947'}>
-              Walter Zuberbühler Senior, Grossvater der heutigen Eigentümer*innen, gründet eine Schuhmacherei mit
-              dazugehörigem Verkaufslokal in Hundwil, Appenzell Ausserrhoden.
-            </TextBlock>
-            <TextBlock title="1968">
-              Auch sein Sohn, Walter Zuberbühler Junior, bleibt dem Schuhgeschäft treu. In den späten 1960er-Jahren zieht es
-              ihn zusätzlich mit dem Verkaufswagen auf regionale Märkte.
-            </TextBlock>
-            <TextBlock title="2012">
-              Die dritte Generation Zuberbühler erkennt das Potenzial vom digitalen Handel, der in der Schweiz noch ganz am
-              Anfang steht. Der erste Online-Shop geht live.
-            </TextBlock>
-          </Grid>
-
+        <PageSection>
           <Image
             quality={95}
             src={images.hero}
@@ -89,18 +54,7 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
             width={750}
             height={500}
           />
-
-          <TextBlock title="2023">
-            Das Sortiment beinhaltet mittlerweile weit mehr als Schuhe. 160 Mitarbeitende versorgen die zufriedene Kundschaft
-            mit einer grossen Auswahl and Sport- und Wanderschuhen sowie Bekleidung und Ausrüstung für Aktivitäten draussen
-            an der frischen Luft.
-          </TextBlock>
-          <Copy>
-            Die eigene, in der Schweiz entwickelte und gehostete E-Commerce Plattform sorgt für einen Drittel des gesamten
-            Verkaufsumsatzes. Der Einsatz modernster Technologien ermöglicht es mit deutlich grösseren internationalen Shops
-            zu konkurenzieren.
-          </Copy>
-        </Section>
+        </PageSection>
 
         <Section>
           <Heading2>Dein Kauferlebnis</Heading2>
@@ -261,6 +215,53 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
               </Copy>
             </div>
           </Grid>
+        </Section>
+
+        <Section>
+          <Heading2>Ein Familienunternehmen aus dem Appenzellerland</Heading2>
+          <Grid cols={3}>
+            <TextBlock title={'1947'}>
+              Walter Zuberbühler Senior, Grossvater der heutigen Eigentümer*innen, gründet eine Schuhmacherei mit
+              dazugehörigem Verkaufslokal in Hundwil, Appenzell Ausserrhoden.
+            </TextBlock>
+            <TextBlock title="1968">
+              Auch sein Sohn, Walter Zuberbühler Junior, bleibt dem Schuhgeschäft treu. In den späten 1960er-Jahren zieht es
+              ihn zusätzlich mit dem Verkaufswagen auf regionale Märkte.
+            </TextBlock>
+            <TextBlock title="2012">
+              Die dritte Generation Zuberbühler erkennt das Potenzial vom digitalen Handel, der in der Schweiz noch ganz am
+              Anfang steht. Der erste Online-Shop geht live.
+            </TextBlock>
+          </Grid>
+          <Grid cols={2}>
+            <Image
+              quality={100}
+              src={images.history}
+              alt="Die Filiale von Zubi in Herisau"
+              priority
+              variant={ImageVariant.FillContainer}
+              width={750}
+              height={500}
+            />
+            <Image
+              src={images.history2}
+              alt="Eine Frau mit einem Wanderrucksack."
+              priority
+              variant={ImageVariant.FillContainer}
+              width={750}
+              height={500}
+            />
+          </Grid>
+          <TextBlock title="2023">
+            Das Sortiment beinhaltet mittlerweile weit mehr als Schuhe. 160 Mitarbeitende versorgen die zufriedene Kundschaft
+            mit einer grossen Auswahl and Sport- und Wanderschuhen sowie Bekleidung und Ausrüstung für Aktivitäten draussen
+            an der frischen Luft.
+          </TextBlock>
+          <Copy>
+            Die eigene, in der Schweiz entwickelte und gehostete E-Commerce Plattform sorgt für einen Drittel des gesamten
+            Verkaufsumsatzes. Der Einsatz modernster Technologien ermöglicht es mit deutlich grösseren internationalen Shops
+            zu konkurenzieren.
+          </Copy>
         </Section>
 
         <Testimonial background="cornflower" quote={quote} />

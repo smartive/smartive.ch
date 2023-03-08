@@ -1,19 +1,21 @@
 import { Copy, Grid, Heading2, Heading3, LinkList, PageSection, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { Image, ImageVariant } from '../../../../components/image';
-import { Testimonial } from '../../../../components/testimonial';
-import { PageHeader } from '../../../../compositions/page-header';
-import { Quote } from '../../../../data/quotes';
-import Quotes from '../../../../data/quotes.json';
-import { Link } from '../../../../elements/link';
-import { LandingPage } from '../../../../layouts/landing-page';
-import { Section } from '../../../../layouts/section';
+import { Image, ImageVariant } from '../../../../../components/image';
+import { Testimonial } from '../../../../../components/testimonial';
+import { PageHeader } from '../../../../../compositions/page-header';
+import { Quote } from '../../../../../data/quotes';
+import Quotes from '../../../../../data/quotes.json';
+import { Link } from '../../../../../elements/link';
+import { LandingPage } from '../../../../../layouts/landing-page';
+import { Section } from '../../../../../layouts/section';
 
 const STATIC_IMAGES = {
   woman: '/images/projekte/zubi/zubi_woman.png',
   shop: '/images/projekte/zubi/zubi_shop.png',
   hero: '/images/awards/bosw/2023/zubi/hero.png',
   desktop: '/images/awards/bosw/2023/zubi/zubi-desktop.png',
+  mobile: '/images/awards/bosw/2023/zubi/zubi_fuer_unterwegs.png',
+  architecture: '/images/awards/bosw/2023/zubi/architecture.png',
   ratings: '/images/awards/bosw/2023/zubi/zubi-ratings.gif',
   history: '/images/awards/bosw/2023/zubi/zubi-history.webp',
   history2: '/images/awards/bosw/2023/zubi/zubi-history.jpeg',
@@ -32,13 +34,13 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
         description="Zubi ist mehr als ein Online-Shop. Dein Kauferlebnis startet bei dir Zuhause, unterwegs in den Bergen oder vor Ort in der Filiale."
         tags={[
           { short: 'BOSW2023', full: 'Eingabe Best of Swiss Web 2023' },
-          { short: 'Design', full: 'Kategorie User Experience' },
+          { short: 'Design', full: 'Kategorie Technology' },
         ]}
       >
         <Copy>
-          Zubi.swiss ist mehr als ein Online-Shop. Das Kauferlebnis startet bei dir Zuhause, unterwegs in den Bergen oder vor
-          Ort in der Filiale. Der 2022 durchgeführte Relaunch präsentiert Zubi im neuen Gewand. Nah bei der Natur. Nah bei
-          dir. Mit moderner User-Experience und intuitivem Kaufprozess.
+          Zubi ist mehr als ein Online-Shop. Das Kauf Erlebniss startet bei dir Zuhause, unterwegs in den Bergen oder vor Ort
+          in der Filiale. Der 2022 durchgeführte Relaunch präsentiert Zubi im neuen Gewand. Nah bei der Natur. Nah bei dir.
+          Mit moderner User-Experience und intuitivem Kaufprozess.
         </Copy>
         <LinkList links={[{ label: 'Zum Onlineshop', href: 'https://zubi.swiss/' }]} />
       </PageHeader>
@@ -93,21 +95,66 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
         </Section>
 
         <Section>
-          <Heading2>Shop as it should</Heading2>
+          <Heading2>Die technologische Bergkette</Heading2>
           <Copy>
-            Dark Patterns führen zu mehr Conversions und schlussendlich zu mehr Cash. Darum findet man sie auch überall im
-            Netz. Das passt nicht zu Zubi. Glückliche Stammkund*innen sind mehr Wert als Rekordumsätze im Weihnachtsgeschäft,
-            wo dann doch die Hälfte zurückgeschickt wird.
+            Durch die Kombination von stationärem und digitalem Handel ergeben sich ein paar komplexe Herausforderungen. Mit
+            einer forgeschrittenen digitalen Infrastruktur können die aber zu echten Verkaufschancen umgewandelt werden.{' '}
           </Copy>
           <Copy>
-            Die digitale Mündigkeit der User steigt stetig und Bright Patterns sorgen nicht nur für glückliche, sondern auch
-            wiederkehrende User.
+            Zubi konzentriert sich bei der eigenen E-Commerce-Plattform deshalb vorallem auf Technologien und
+            Architektur-Philosophien die eine langfristige Flexibilität für zukünftige Anforderungen ermöglichen.
           </Copy>
-          <Copy>
-            Rücksendungen? Voll easy. Pflichtfelder? Absolutes Minimum. Alle Newsletter abbestellen? Ein Klick. Zusätzliche
-            Kosten? Von Anfang an ersichtlich. Zubi überzeugt durch ehrlichen und nachhaltigen Kundenservice. Und nicht durch
-            Marketing-Tricks und billige Effekthascherei.
-          </Copy>
+          <Grid cols={2}>
+            <div>
+              <Heading3>Vorderland</Heading3>
+              <Copy>
+                Das Frontend basiert seit dem Relaunch auf React mit Next.js und Tailwind. Das Design-System mit den
+                wiederverwendbaren Komponenten sorgt für einheitliches Design und einfache Weitentwicklung. Serverside
+                Rendering mit Next.js für die benötigte Performance. Der redaktionelle Content wird in einem Headless-CMS
+                gepflegt. Die Produkte und Verfügbarkeiten kommen via Core-System aus dem ERP.
+              </Copy>
+            </div>
+            <div>
+              <Heading3>Hinterland</Heading3>
+              <Copy>
+                Die gekapselten API-Services, die das Frontend mit allen Umsystemen und Datenbanken verbinden, sind in Golang
+                programmiert. Performance, Wartbarkeit, Ausfallsicherheit konnten durch die Ablösung von PHP enorm gesteigert
+                werden. Ein ORM vereinfacht den Datenzugang und ums Deployment kümmert sich die Gitlab-CI.
+              </Copy>
+            </div>
+          </Grid>
+
+          <Image
+            quality={95}
+            src={images.architecture}
+            alt="Architektur Übersicht Zubi E-Commerce Plattform"
+            priority
+            variant={ImageVariant.FillContainer}
+            width={750}
+            height={500}
+          />
+
+          <Grid cols={2}>
+            <div>
+              <Heading3>Unterm Berg</Heading3>
+              <Copy>
+                Die Micro-Service Infrastruktur wird mit der Google Kubernetes Engine in Zürich betrieben. Die durch Docker
+                und Kubernetes ermöglichte Rendundanz und automatisierte Disaster Recovery garantieren unterbrechungsfreien
+                Betrieb. Deployments im laufenden Tagesgeschäft sind kein Problem. Falls im Betrieb doch mal was nicht
+                rundläuft werden im Monitoring System entsprechende Alarme ausgelöst.
+              </Copy>
+            </div>
+            <div>
+              <Heading3>Säntisblick</Heading3>
+              <Copy>Das Highlight der neuen Hosting-Infrastruktur ist das Autoscaling.</Copy>
+              <Copy>
+                Bei Black Friday und anderen Aktionen war früher Ausnahmezustand. Zusätzliche Infrastruktur-Ressourcen
+                mussten bereitgestellt werden. Heute macht das Software-Team an Black Friday das selbe wie an allen anderen
+                Tagen. Neue Ideen entwickelnn, neue Features umsetzen und die Plattform weiter ausbauen. Und das trotz einem
+                zehnmal höheren Tages-Umsatz als an normalen Tagen.
+              </Copy>
+            </div>
+          </Grid>
         </Section>
 
         <Section>
@@ -175,93 +222,6 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
               />
             </div>
           </Grid>
-
-          <Image src={STATIC_IMAGES.ratings} alt={''} width={200} height={200}></Image>
-
-          <Heading2>Drei von neuntausendneunhundert Bewertungen</Heading2>
-          <Copy>
-            Und{' '}
-            <Link href="https://www.trustedshops.ch/bewertung/info_X6D35618D2397FD5905475F7BFC9AD04F.html">
-              bei Trusted Shops
-            </Link>{' '}
-            findest du die restlichen.
-          </Copy>
-          <Grid cols={3}>
-            <div>
-              <Copy>
-                5/5 –{' '}
-                <i>
-                  Mittwoch bestellt- Donnerstag ausgeliefert(mit freundlich verfasster e-mail Ankündigung)- am Freitag
-                  erhalten: schneller geht‘s nicht!! SUPER
-                </i>
-              </Copy>
-            </div>
-            <div>
-              <Copy>
-                5/5 –{' '}
-                <i>
-                  Hatte online bestellt und brauchte Hilfe, die mir prompt gewährt wurde .. befolgte den Vorschlag und hab
-                  meine Schuhe von ZUBI im Schrank!
-                </i>
-              </Copy>
-            </div>
-            <div>
-              <Copy>
-                5/5 –{' '}
-                <i>
-                  Super ich konnte den Artikel im Geschäft retour geben und die Rückzahlung erfolgte sehr schnell auf mein
-                  TWINT-Konto Danke. Super Service.
-                </i>
-              </Copy>
-            </div>
-          </Grid>
-        </Section>
-
-        <Section>
-          <Heading2>Ein Familienunternehmen aus dem Appenzellerland</Heading2>
-          <Grid cols={3}>
-            <TextBlock title={'1947'}>
-              Walter Zuberbühler Senior, Grossvater der heutigen Eigentümer*innen, gründet eine Schuhmacherei mit
-              dazugehörigem Verkaufslokal in Hundwil, Appenzell Ausserrhoden.
-            </TextBlock>
-            <TextBlock title="1968">
-              Auch sein Sohn, Walter Zuberbühler Junior, bleibt dem Schuhgeschäft treu. In den späten 1960er-Jahren zieht es
-              ihn zusätzlich mit dem Verkaufswagen auf regionale Märkte.
-            </TextBlock>
-            <TextBlock title="2012">
-              Die dritte Generation Zuberbühler erkennt das Potenzial vom digitalen Handel, der in der Schweiz noch ganz am
-              Anfang steht. Der erste Online-Shop geht live.
-            </TextBlock>
-          </Grid>
-          <Grid cols={2}>
-            <Image
-              quality={100}
-              src={images.history}
-              alt="Die Filiale von Zubi in Herisau"
-              priority
-              variant={ImageVariant.FillContainer}
-              width={750}
-              height={500}
-            />
-            <Image
-              src={images.history2}
-              alt="Eine Frau mit einem Wanderrucksack."
-              priority
-              variant={ImageVariant.FillContainer}
-              width={750}
-              height={500}
-            />
-          </Grid>
-          <TextBlock title="2023">
-            Das Sortiment beinhaltet mittlerweile weit mehr als Schuhe. 160 Mitarbeitende versorgen die zufriedene Kundschaft
-            mit einer grossen Auswahl and Sport- und Wanderschuhen sowie Bekleidung und Ausrüstung für Aktivitäten draussen
-            an der frischen Luft.
-          </TextBlock>
-          <Copy>
-            Die eigene, in der Schweiz entwickelte und gehostete E-Commerce Plattform sorgt für einen Drittel des gesamten
-            Verkaufsumsatzes. Der Einsatz modernster Technologien ermöglicht es mit deutlich grösseren internationalen Shops
-            zu konkurenzieren.
-          </Copy>
         </Section>
 
         <Testimonial background="cornflower" quote={quote} />

@@ -1,13 +1,13 @@
 import { Copy, Grid, Heading2, Heading3, LinkList, PageSection, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { Image, ImageVariant } from '../../../../components/image';
-import { Testimonial } from '../../../../components/testimonial';
-import { PageHeader } from '../../../../compositions/page-header';
-import { Quote } from '../../../../data/quotes';
-import Quotes from '../../../../data/quotes.json';
-import { Link } from '../../../../elements/link';
-import { LandingPage } from '../../../../layouts/landing-page';
-import { Section } from '../../../../layouts/section';
+import { Image, ImageVariant } from '../../../../../components/image';
+import { Testimonial } from '../../../../../components/testimonial';
+import { PageHeader } from '../../../../../compositions/page-header';
+import { Quote } from '../../../../../data/quotes';
+import Quotes from '../../../../../data/quotes.json';
+import { Link } from '../../../../../elements/link';
+import { LandingPage } from '../../../../../layouts/landing-page';
+import { Section } from '../../../../../layouts/section';
 
 const STATIC_IMAGES = {
   woman: '/images/projekte/zubi/zubi_woman.png',
