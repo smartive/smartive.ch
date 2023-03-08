@@ -150,9 +150,9 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
               Heute kommen {teamSize} Mitarbeitende in Zürich zusammen und bringen ihre Fähigkeiten und ihre Persönlichkeit
               ein – in Software-Entwicklung, Projektleitung, Design und User Experience.
             </TextBlock>
-            <TextBlock title="Ein Drittel" number={30} unit="%">
-              Was, 30% sind kein Drittel? Dann vielleicht so: Ein Drittel* des Gewinns wird ans Team als Bonus ausbezahlt
-              &ndash; mindestens.
+            <TextBlock title="Mehr als die Hälfte" number={55} unit="%">
+              Bei uns wird der Erfolg nicht nur gefeiert, sondern auch geteilt! 55% des Gewinns werden als Bonus an alle
+              Mitarbeitenden ausgezahlt.
             </TextBlock>
             <TextBlock title="Top 10 in fünf Jahren" number={10}>
               Unsere Projekte werden regelmässig ausgezeichnet. Bei den{' '}
