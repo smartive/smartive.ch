@@ -9,6 +9,7 @@ import { Page } from '../../layouts/page';
 import { Block, getBlocks } from '../../services/notion';
 import { calculateReadingTime } from '../../utils/notion';
 import { renderContent } from '../../utils/notion-block-renderers';
+import mediumBlogSlugs from '../../data/medium-blog-slugs.json';
 
 type Props = { post: BlogDetail; blocks: Block[] };
 
@@ -56,6 +57,25 @@ const BlogPost: NextPage<Props> = ({ post, blocks }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const isMediumSlug = Object.keys(mediumBlogSlugs).includes(params.slug.toString());
+  const mediumSlug: string | undefined = mediumBlogSlugs[params.slug.toString()];
+
+  if (isMediumSlug) {
+    return mediumSlug
+      ? {
+          redirect: {
+            destination: `/blog/${mediumSlug}`,
+            permanent: true,
+          },
+        }
+      : {
+          redirect: {
+            destination: `https://medium.com/smartive/${params.slug}`,
+            permanent: false,
+          },
+        };
+  }
+
   try {
     const post = await getBlogPost(params.slug.toString());
     const blocks = await getBlocks(post.id);
