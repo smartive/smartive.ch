@@ -23,7 +23,7 @@
     "@notionhq/client": "2.2.3",
     "@prismicio/next": "^1.0.2",
     "@smartive/guetzli": "2.8.0",
-    "@tryghost/content-api": "1.11.5",
+    "@tryghost/content-api": "1.11.6",
     "@xstate/fsm": "2.0.0",
     "@xstate/react": "3.2.1",
     "blobs": "2.2.0",
