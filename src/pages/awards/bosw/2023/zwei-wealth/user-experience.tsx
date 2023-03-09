@@ -190,6 +190,14 @@ const Page: NextPage<Props> = ({ quote }) => {
             sofort ersichtlich. Und zwar über alle Assets, Vermögensverwalter und Banken hinweg – nicht nur Anlagen, sondern
             z.B. auch Immobilien. Mehr Überblick bedeutet nämlich mehr Kontrolle.
           </Copy>
+          <Copy as="div">
+            <Image
+              src="/images/awards/bosw/2023/zwei-anlageziele.jpg"
+              alt="ZWEI Wealth Portfolio Screen"
+              width={975}
+              height={613}
+            />
+          </Copy>
         </Section>
 
         <Section title="Management summary oder Deep dive?">
