@@ -57,7 +57,7 @@ const BlogPost: NextPage<Props> = ({ post, blocks }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const isMediumSlug = Object.keys(mediumBlogSlugs).includes(params.slug.toString());
+  const isMediumSlug = Object.keys(mediumBlogSlugs).includes(params.slug.toString().toLowerCase());
   const mediumSlug: string | undefined = mediumBlogSlugs[params.slug.toString()];
 
   if (isMediumSlug) {
