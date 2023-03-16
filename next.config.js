@@ -19,7 +19,6 @@ module.exports = withBundleAnalyzer({
       'www.notion.so',
       'images.prismic.io',
       'smartive.cdn.prismic.io',
-      'smartive-blog.ghost.io',
       'gravatar.com',
       'www.gravatar.com',
       'smartive-10.rokka.io',
