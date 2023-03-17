@@ -74,8 +74,8 @@ const Page: NextPage<Props> = ({ quote }) => {
           <Heading2>Dezember? Kalender!</Heading2>
           <Copy>
             It was that time of the year. Adventskalender gehören einfach dazu! Famigros hat vorgemacht wie’s geht: Der
-            Adventskalender 2022 wurde mit fast zwei Millionen Teilnahmen zum Hit. Vielleicht ja, weil mehr Budget für Preise
-            übrig blieb, da der Kalender so einfach aufzusetzen war?
+            Adventskalender 2022 wurde mit Millionen Teilnahmen zum Hit. Vielleicht ja, weil mehr Budget für Preise übrig
+            blieb, da der Kalender so einfach aufzusetzen war?
           </Copy>
           <Copy>
             Dank Analytics wissen wir auch: 98% derer, die mit dem Widget interagieren, füllen das Teilnahmeformular aus. Die
@@ -98,10 +98,10 @@ const Page: NextPage<Props> = ({ quote }) => {
 
         <Section>
           <Grid cols={3}>
-            <TextBlock title="Teilnahmen" number={1.9} unit="Mio.">
+            <TextBlock title="Teilnahmen" number="Millionen">
               Den Rekord hält der Famigros-Adventskalender
             </TextBlock>
-            <TextBlock title="neue Newsletter-Abos" number={65000}>
+            <TextBlock title="neue Newsletter-Abos" number="Tausende">
               In nur einem Jahr so viele Abos wie Leute in Lugano leben
             </TextBlock>
             <TextBlock title="Conversion Rate" number={98} unit="%">
