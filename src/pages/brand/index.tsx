@@ -70,7 +70,7 @@ const Brand: FC = () => (
     </Section>
 
     <Section>
-      <Heading2>Logo</Heading2>
+      <Heading2 id="logo">Logo</Heading2>
       <Copy>
         Die Visual Identity arbeitet stark mit Farben und Mustern. Das Logo ist schlicht gehalten. Auf schwarzem Hintergrund
         kommt eine weisse Version zum Einsatz.
@@ -108,7 +108,7 @@ const Brand: FC = () => (
     </Section>
 
     <Section>
-      <Heading2>Farben</Heading2>
+      <Heading2 id="colors">Farben</Heading2>
       <Copy>
         Es gibt keine Hauptfarbe – unsere Visual Identity lebt von der Kombination aus Apricot, Mint und Cornflower. Vollgas
         Schwarz lieber vermeiden und stattdessen Darkness ☠️ verwenden.
@@ -172,7 +172,7 @@ const Brand: FC = () => (
     </Section>
 
     <Section>
-      <Heading2>Typografie</Heading2>
+      <Heading2 id="typography">Typografie</Heading2>
       <Copy>Nicht jede Headline braucht eine Auszeichnung.</Copy>
       <Copy as="div">
         <LinkList
@@ -210,7 +210,7 @@ const Brand: FC = () => (
     </Section>
 
     <Section>
-      <Heading2>Patterns & Blobs</Heading2>
+      <Heading2 id="patterns-blobs">Patterns & Blobs</Heading2>
       <Copy>
         Die Patterns und Blobs sind ein wichtiger Bestandteil unseres Brands – die Anwendung ist aber voll uncool. Sprich
         dich doch mit Robert oder Damian ab.
