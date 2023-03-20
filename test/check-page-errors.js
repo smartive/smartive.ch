@@ -10,6 +10,7 @@ const ignoreListErrors = [
   '403',
   'autoprefixer: Replace color-adjust',
   'useElementScroll is deprecated',
+  'value.onChange(callback) is deprecated', // TODO: remove when scrollex package is updated
 ];
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',
