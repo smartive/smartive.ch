@@ -1,4 +1,15 @@
-import { BlobVariations, Card, Copy, Grid, Heading2, Heading3, LinkList, TextBlock, UnorderedList } from '@smartive/guetzli';
+import {
+  BlobVariations,
+  Button,
+  Card,
+  Copy,
+  Grid,
+  Heading2,
+  Heading3,
+  LinkList,
+  TextBlock,
+  UnorderedList,
+} from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextImage from 'next/legacy/image';
 import { Image } from '../../../../../components/image';
@@ -295,6 +306,14 @@ const Page: NextPage<Props> = ({ quote }) => {
           />
         </Section>
       </main>
+
+      <Section>
+        <div className="text-center">
+          <Button as="a" href="/awards/bosw/2023">
+            zurück zur Übersicht
+          </Button>
+        </div>
+      </Section>
     </LandingPage>
   );
 };

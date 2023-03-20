@@ -1,4 +1,4 @@
-import { Copy, Grid, Heading3, TextBlock, UnorderedList } from '@smartive/guetzli';
+import { Button, Copy, Grid, Heading3, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 
@@ -198,6 +198,14 @@ const Page: NextPage<Props> = ({ quote }) => {
               'Zentrale Verfügbarkeit von Daten eröffnet neue Use Cases',
             ]}
           />
+        </Section>
+
+        <Section>
+          <div className="text-center">
+            <Button as="a" href="/awards/bosw/2023">
+              zurück zur Übersicht
+            </Button>
+          </div>
         </Section>
       </main>
     </LandingPage>

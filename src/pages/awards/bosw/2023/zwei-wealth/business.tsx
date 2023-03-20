@@ -1,4 +1,4 @@
-import { Copy, Grid, Heading3, TextBlock, UnorderedList } from '@smartive/guetzli';
+import { Button, Copy, Grid, Heading3, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
 
@@ -197,6 +197,14 @@ const Page: NextPage<Props> = ({ quote }) => {
             einer transparenten Gebühr. Heute kümmern sich bereits über 40 Expert*innen um 1800 Kundinnen und Kunden –
             Tendenz stark steigend.
           </Copy>
+        </Section>
+
+        <Section>
+          <div className="text-center">
+            <Button as="a" href="/awards/bosw/2023">
+              zurück zur Übersicht
+            </Button>
+          </div>
         </Section>
       </main>
     </LandingPage>
