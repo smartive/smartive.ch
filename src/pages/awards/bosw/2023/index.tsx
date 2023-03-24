@@ -69,9 +69,9 @@ const Page: NextPage<Props> = ({ images }) => {
               height={661}
             />
             <div className="col-span-2">
-              <Heading2>Zwei Wealth – digitale Plattform für Vermögensverwaltung</Heading2>
+              <Heading2>ZWEI Wealth – digitale Plattform für Vermögensverwaltung</Heading2>
               <Copy>
-                Die digitale Plattform von Zwei Wealth verbindet Anleger*innen, Berater*innen und Asset Manager*innen. Sie
+                Die digitale Plattform von ZWEI Wealth verbindet Anleger*innen, Berater*innen und Asset Manager*innen. Sie
                 ist die Zukunft der Vermögensverwaltung.
               </Copy>
               <LinkList

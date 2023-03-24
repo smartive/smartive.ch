@@ -1,6 +1,7 @@
 const { chromium } = require('playwright');
 const fs = require('fs');
 const path = require('path');
+const waitOn = require('wait-on');
 
 const ignoreListRoutes = ['/404', '/_document', '/_app', '/api/', '/blog/[slug]', '/index'];
 const ignoreListErrors = [
@@ -53,6 +54,8 @@ const getAllRoutes = (dirPath = './src/pages', arrayOfFiles = []) => {
   });
 
   try {
+    await waitOn({ resources: ['http://localhost:3000/'] });
+
     while (routesToCheck[routeIndex] !== undefined) {
       try {
         if (dynamicRoutes[routesToCheck[routeIndex]]) {
