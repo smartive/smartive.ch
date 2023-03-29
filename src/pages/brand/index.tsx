@@ -90,6 +90,13 @@ const Brand: FC = () => (
         >
           Download PNG
         </a>
+        <a
+          href="images/brand/smartive-print.zip"
+          className="border-b-4 border-cornflower-500 hover:border-black font-bold no-underline"
+          download
+        >
+          Download Print.zip
+        </a>
       </Copy>
       <div className="grid grid-rows-3 sm:grid-rows-2 grid-cols-2 rounded overflow-hidden mt-8">
         <div className="bg-white-100 grid place-items-center h-48 sm:h-72 lg:h-96 col-span-2 sm:col-span-1">
