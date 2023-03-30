@@ -59,6 +59,7 @@ export const getBlogPost = async (slug: string): Promise<BlogDetail> => {
     avatar: employee.portrait,
     creator: employee.name,
     published: page.properties.State.status?.name === 'Published',
+    language: page.properties.Language.select?.name ?? 'de',
   };
 };
 
@@ -72,6 +73,7 @@ export type BlogPost = {
   slug: string;
   date: string;
   cover: string | null;
+  language: string;
 };
 
 export type BlogDetail = BlogPost & {
