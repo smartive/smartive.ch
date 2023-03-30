@@ -51,7 +51,7 @@
     "react-photo-gallery-next": "8.0.1",
     "rokka": "3.13.3",
     "scrollex": "^2.0.1",
-    "sharp": "0.31.3",
+    "sharp": "0.32.0",
     "xstate": "4.37.0"
   },
   "devDependencies": {
