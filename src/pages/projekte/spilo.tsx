@@ -94,14 +94,12 @@ const Spilo: NextPage<Props> = ({ contact, teasers, images }) => (
             verschiedenen Angebote fehlte bisher, da die Daten verteilt und bei den Gemeinden angesiedelt sind.
           </TextBlock>
           <TextBlock title="Das haben wir daraus gemacht">
-            Eine schlanke und schnelle <Link href="/was-ist/pwa">Progressive Web App</Link>
-            erlaubt es Nutzer*innen, Spielplätze und andere Abenteuer in der Nähe zu finden. Die Daten werden aus den
-            verschiedenen Gemeinden zusammengetragen und zentral in einem{' '}
-            <Link href="/was-ist/headless-cms">Headless CMS</Link>
-            gepflegt. In einem <Link href="/angebot/speedboat">Speedboat</Link>
-            haben wir innert 30 Tagen aus einer Idee eine eigene Plattform mit einem eigenen Brand und einem guten{' '}
-            <Link href="/was-ist/lean-ux">UX-Konzept</Link>
-            entwickelt, die einfach zu benutzen ist.
+            Eine schlanke und schnelle <Link href="/was-ist/pwa">Progressive Web App</Link> erlaubt es Nutzer*innen,
+            Spielplätze und andere Abenteuer in der Nähe zu finden. Die Daten werden aus den verschiedenen Gemeinden
+            zusammengetragen und zentral in einem <Link href="/was-ist/headless-cms">Headless CMS</Link> gepflegt. In einem{' '}
+            <Link href="/angebot/speedboat">Speedboat</Link> haben wir innert 30 Tagen aus einer Idee eine eigene Plattform
+            mit einem eigenen Brand und einem guten <Link href="/was-ist/lean-ux">UX-Konzept</Link> entwickelt, die einfach
+            zu benutzen ist.
           </TextBlock>
         </Grid>
       </Section>
