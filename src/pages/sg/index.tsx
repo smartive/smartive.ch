@@ -1,18 +1,18 @@
-import { Button, Copy, Grid, Heading1, Heading2, Heading3, LinkList } from '@smartive/guetzli';
+import { Button, Copy, Grid, Heading2, Heading3, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Image, ImageVariant } from '../../components/image';
 import { PageHeader } from '../../compositions/page-header';
-import { Link } from '../../elements/link';
 import { LandingPage } from '../../layouts/landing-page';
 import { Section } from '../../layouts/section';
 
 const STATIC_IMAGES = {
   rocket: '/images/sg/smartive-lego-rocket.png',
+  balloon: '/images/sg/christoph-balloon-head.png',
   church: '/images/sg/smartive-sg-church.png',
   kitchen: '/images/sg/smartive-sg-kitchen.png',
   plants: '/images/sg/smartive-sg-plants.png',
   plantsClose: '/images/sg/smartive-sg-plants-closeup.png',
-  terrace: '/images/sg/smartive-sg-terrace.png',
+  people: '/images/sg/smartive-sg-people.png',
 } as const;
 
 type Props = {
@@ -23,15 +23,14 @@ const Page: NextPage<Props> = ({ images }) => {
   return (
     <LandingPage>
       <PageHeader markdownTitle="smartive Office _St.Gallen_ – Scho no schö do" description="Das haben wir eingereicht">
-        <div className="relative w-full h-0 pb-[56.25%] rounded overflow-hidden">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/LWZBuoO7_xM"
-            className="absolute top-0 left-0 w-full h-full"
-            title="Scho no schö do"
-            frameBorder="0"
-            allowFullScreen
-          />
-        </div>
+        <Image
+          src={images.balloon}
+          alt="Hängende Grünpflanzen im Büro"
+          priority
+          variant={ImageVariant.FillContainer}
+          width={2907}
+          height={1647}
+        />
       </PageHeader>
 
       <main>
@@ -81,8 +80,8 @@ const Page: NextPage<Props> = ({ images }) => {
             in die Stube unserer Ostschweizer Kund*innen zu tragen.
           </Copy>
           <Image
-            src={images.terrace}
-            alt="Gartentische auf der Dachterasse in St.Gallen"
+            src={images.people}
+            alt="smartive Mitarbeiter auf der Dachterasse in St.Gallen"
             priority
             variant={ImageVariant.FillContainer}
             width={1863}
