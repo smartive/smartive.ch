@@ -21,7 +21,7 @@
     "react-dom": "$react-dom"
   },
   "dependencies": {
-    "@notionhq/client": "2.2.3",
+    "@notionhq/client": "2.2.4",
     "@prismicio/next": "^1.0.2",
     "@smartive/guetzli": "^2.9.0",
     "@xstate/fsm": "2.0.0",
