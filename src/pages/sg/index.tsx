@@ -22,7 +22,10 @@ type Props = {
 const Page: NextPage<Props> = ({ images }) => {
   return (
     <LandingPage>
-      <PageHeader markdownTitle="smartive Office _St.Gallen_ – Scho no schö do" description="Das haben wir eingereicht">
+      <PageHeader
+        markdownTitle="smartive Office _St.Gallen_ – Scho no schö do"
+        description="Komm vorbei an unserer Eröffnungsfeier am 6. Mai"
+      >
         <Image
           src={images.balloon}
           alt="Hängende Grünpflanzen im Büro"
