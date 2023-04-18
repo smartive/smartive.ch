@@ -3,6 +3,7 @@ import { usePlausible } from 'next-plausible';
 import NextLink from 'next/link';
 import { useEffect } from 'react';
 import { Page } from '../layouts/page';
+import { PageHeader } from '../compositions/page-header';
 
 const broccoli = `<svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 800 300" style="white-space: pre; height: 100%; width: 100%">
 <style>
@@ -63,6 +64,7 @@ export default function Custom404() {
 
   return (
     <Page>
+      <PageHeader markdownTitle="Seite nicht gefunden" metaOnly></PageHeader>
       <div className="grid grid-flow-row justify-items-center my-32">
         <div className="relative hidden md:block h-120 w-full" dangerouslySetInnerHTML={{ __html: broccoli }} />
         <div className="relative block md:hidden h-36 w-full" dangerouslySetInnerHTML={{ __html: broccoli }} />
