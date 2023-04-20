@@ -1,6 +1,5 @@
 import { Copy, Grid, GridSlider, Heading2, Heading3, LinkList } from '@smartive/guetzli';
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
-import React from 'react';
 import { NextContentCard } from '../../components/content-card';
 import { Image, ImageVariant } from '../../components/image';
 import { PageHeader } from '../../compositions/page-header';
@@ -8,6 +7,7 @@ import { getAllFullEmployees, getFullEmployeeByMail } from '../../data/employees
 import { Link } from '../../elements/link';
 import { LandingPage } from '../../layouts/landing-page';
 import { Section } from '../../layouts/section';
+import Head from 'next/head';
 
 const STATIC_IMAGES = {
   boats: '/images/welcome/boats.jpg',
@@ -18,6 +18,9 @@ const STATIC_IMAGES = {
 
 const Welcome: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ images, employee }) => (
   <LandingPage>
+    <Head>
+      <meta name="robots" content="noindex" />
+    </Head>
     <PageHeader
       markdownTitle="Smart Move™"
       description={`Hoi${
