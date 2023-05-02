@@ -148,9 +148,11 @@ const internalRenderers = {
   video: createRenderer('video', ({ id, video, video: { caption } }) => (
     <>
       {video.type === 'external' ? (
-        (video.external.url.includes('youtube') || video.external.url.includes('youtu.be')) && (
+        video.external.url.includes('youtube') || video.external.url.includes('youtu.be') ? (
           <YoutubeVideo key={id} url={video.external.url} caption={caption ? <NotionRichText text={caption} /> : null} />
-        )
+        ) : video.external.url.includes('cloudinary') ? (
+          <Video key={id} src={video.external.url} caption={caption ? <NotionRichText text={caption} /> : null} />
+        ) : null
       ) : (
         <Video key={id} src={video.file.url} caption={caption ? <NotionRichText text={caption} /> : null} />
       )}
