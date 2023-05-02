@@ -51,9 +51,7 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
         <Section>
           <Contact contact={contact}>
             <>
-              New Work / Advice Process / Lohnformel 🤔 <br />
-              Alles nur ein dicker Nebel? <br />
-              {contact.firstname} ist dein Leuchtturm.
+              Du willst wissen, wie das so ohne Chef läuft? <br /> {contact.firstname} erzählt dir gerne mehr.
             </>
           </Contact>
         </Section>
@@ -64,7 +62,7 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const employees = await getAllEmployees();
-  const contact = await getEmployeeByName('Moreno Feltscher');
+  const contact = await getEmployeeByName('Peter Manser');
 
   return {
     props: {
