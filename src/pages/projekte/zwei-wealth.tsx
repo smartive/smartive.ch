@@ -21,7 +21,7 @@ import { Employee, getEmployeeByName } from '../../data/employees';
 import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser } from '../../data/teaser';
+import { Award, Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
@@ -44,14 +44,16 @@ type Props = {
   contact: Employee;
   teasers: Teaser[];
   packages: Package[];
+  awards: Award[];
 };
 
-const ZweiWealth: NextPage<Props> = ({ quote, contact, teasers, images, packages }) => {
+const ZweiWealth: NextPage<Props> = ({ quote, contact, teasers, images, packages, awards }) => {
   return (
     <Page>
       <PageHeader
         markdownTitle="Wealth Management, digital"
         description="Wir digitalisieren das Business von ZWEI Wealth mit einer Online-Plattform für Kunden und Asset Manager."
+        tags={awards}
       >
         <Copy>
           Wir digitalisieren das Business von ZWEI Wealth mit einer Online-Plattform für Kunden und Asset Manager. Mit
@@ -257,7 +259,7 @@ const ZweiWealth: NextPage<Props> = ({ quote, contact, teasers, images, packages
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const images = STATIC_IMAGES;
-  const teasers = getRandomTeasers(3, Teasers['learnfox'].title);
+  const teasers = getRandomTeasers(3, Teasers.zwei.title);
   const packages = [Packages['design-sprint'], Packages['feasibility'], Packages['speedboat'], Packages['scale-up']];
   const contact = await getEmployeeByName('Thomas Moser');
 
@@ -268,6 +270,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       teasers,
       quote: Quotes['pascal-zwei-wealth'],
       contact,
+      awards: Teasers.zwei.awards,
     },
   };
 };

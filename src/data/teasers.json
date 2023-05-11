@@ -151,7 +151,13 @@
       "href": "/projekte/zubi-mentoring"
     },
     "image": "/images/projekte/zubi/zubi_lagerfeuer.png",
-    "imageAlt": "Frau an einer Grillstelle."
+    "imageAlt": "Frau an einer Grillstelle.",
+    "awards": [
+      {
+        "short": "BOSW2023",
+        "full": "Best of Swiss Web 2023"
+      }
+    ]
   },
   "frontify": {
     "label": "Frontify",
@@ -191,7 +197,13 @@
       "href": "/projekte/migros-digital-campaign-factory"
     },
     "image": "/images/projekte/digital-campaign-factory/karsten-winegeart-4bC1Ef88OYI-unsplash.jpg",
-    "imageAlt": "Lachende Frau in Einkaufswagen"
+    "imageAlt": "Lachende Frau in Einkaufswagen",
+    "awards": [
+      {
+        "short": "BOSW2023",
+        "full": "Best of Swiss Web 2023"
+      }
+    ]
   },
   "zubi-redesign": {
     "label": "zubi.swiss – Relaunch",
@@ -201,7 +213,13 @@
       "href": "/projekte/zubi-redesign"
     },
     "image": "/images/projekte/zubi/zubi_mockup.png",
-    "imageAlt": "Frau an einer Grillstelle."
+    "imageAlt": "Frau an einer Grillstelle.",
+    "awards": [
+      {
+        "short": "BOSW2023",
+        "full": "Best of Swiss Web 2023"
+      }
+    ]
   },
   "learnfox": {
     "label": "LearnFox",
@@ -221,7 +239,13 @@
       "href": "/projekte/zwei-wealth"
     },
     "image": "/images/projekte/zwei-wealth/dashboard.png",
-    "imageAlt": "Wealth Office"
+    "imageAlt": "Wealth Office",
+    "awards": [
+      {
+        "short": "BOSW2023",
+        "full": "Best of Swiss Web 2023"
+      }
+    ]
   },
   "zitadel": {
     "label": "ZITADEL",

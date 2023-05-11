@@ -11,7 +11,7 @@ import { Employee, getEmployeeByName } from '../../data/employees';
 import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser } from '../../data/teaser';
+import { Award, Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 import { getRandomTeasers } from '../../utils/teasers';
@@ -28,14 +28,16 @@ type Props = {
   contact: Employee;
   teasers: Teaser[];
   packages: Package[];
+  awards: Award[];
 };
 
-const ZubiRedesign: NextPage<Props> = ({ quote, contact, teasers, images, packages }) => {
+const ZubiRedesign: NextPage<Props> = ({ quote, contact, teasers, images, packages, awards }) => {
   return (
     <Page>
       <PageHeader
         markdownTitle="E-Commerce – Schön schnell, schön modern und _natürlich_ schön."
         description="Zubi wills wissen: Einmal ein komplettes Redesign. Backend Services in Go umgeschrieben. Das Frontend in React. Wir haben uns für Zubi um die User Experience und das (umwerfende 😌) Design des Shops auf Basis des neuen Brands gekümmert."
+        tags={awards}
       >
         <Copy>
           Zubi will&apos;s wissen: Einmal ein komplettes Redesign. Backend Services in Go umgeschrieben. Das Frontend in
@@ -162,6 +164,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       quote: Quotes['marco-zubi-redesign'],
       contact,
       packages,
+      awards: Teasers['zubi-redesign'].awards,
     },
   };
 };

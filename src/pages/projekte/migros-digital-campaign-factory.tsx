@@ -8,7 +8,7 @@ import { PageHeader } from '../../compositions/page-header';
 import { Employee, getEmployeeByName } from '../../data/employees';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser } from '../../data/teaser';
+import { Award, Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Link } from '../../elements/link';
 import { Page } from '../../layouts/page';
@@ -27,11 +27,12 @@ type Props = {
   quoteDev: Quote;
   contact: Employee;
   teasers: Teaser[];
+  awards: Award[];
 };
 
-const MigrosDigitalCampaignFactory: NextPage<Props> = ({ contact, teasers, images, quotePO, quoteDev }) => (
+const MigrosDigitalCampaignFactory: NextPage<Props> = ({ contact, teasers, images, quotePO, quoteDev, awards }) => (
   <Page>
-    <PageHeader markdownTitle="Fabrik für spielerische Kampagnen">
+    <PageHeader markdownTitle="Fabrik für spielerische Kampagnen" tags={awards}>
       <Copy>
         Eine digitale Fabrik für personalisierte Gewinnspiele, Umfragen und Wettbewerbe: Damit beglückt der
         Migros-Genossenschafts-Bund seine Kampagnen-Verantwortlichen und die wiederum die Endkund*innen. Als integriertes
@@ -159,6 +160,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       contact,
       quotePO: Quotes['coco-dcf-migros'],
       quoteDev: Quotes['nils-dcf-migros'],
+      awards: Teasers['digital-campaign-factory'].awards,
     },
   };
 };

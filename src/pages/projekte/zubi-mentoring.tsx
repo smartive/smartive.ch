@@ -11,7 +11,7 @@ import { Employee, getEmployeeByName } from '../../data/employees';
 import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Teaser } from '../../data/teaser';
+import { Award, Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
 import { Page } from '../../layouts/page';
 import { getRandomTeasers } from '../../utils/teasers';
@@ -27,14 +27,16 @@ type Props = {
   contact: Employee;
   teasers: Teaser[];
   packages: Package[];
+  awards: Award[];
 };
 
-const ZubiMentoring: NextPage<Props> = ({ quote, contact, teasers, images, packages }) => {
+const ZubiMentoring: NextPage<Props> = ({ quote, contact, teasers, images, packages, awards }) => {
   return (
     <Page>
       <PageHeader
         markdownTitle="Zubi schnürt die _Schuhe_ mit smartive."
         description="Zubi ist ein führendes Schuh- und Outdoorgeschäft aus der Ostschweiz. Das Familienunternehmen wird in dritter Generation geführt und legt gossen Wert auf persönliche und kompetente Beratung. Seit März 2021 unterstützen wir das Entwicklungsteam vom Zubi Online Shop mit regelmässigen Mentoring-Treffen"
+        tags={awards}
       >
         <Copy>
           Zubi ist ein führendes Schuh- und Outdoorgeschäft aus der Ostschweiz. Das Familienunternehmen wird in dritter
@@ -143,6 +145,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       quote: Quotes['niklas-zubi'],
       contact,
       packages,
+      awards: Teasers['zubi-mentoring'].awards,
     },
   };
 };
