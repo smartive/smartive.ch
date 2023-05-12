@@ -1,4 +1,4 @@
-import { Button, Copy, Grid, Heading2, Heading3, LinkList } from '@smartive/guetzli';
+import { Copy, Grid, Heading2, Heading3, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Image, ImageVariant } from '../../components/image';
 import { PageHeader } from '../../compositions/page-header';
@@ -37,20 +37,19 @@ const Page: NextPage<Props> = ({ images }) => {
       </PageHeader>
 
       <main>
-        <Heading3>
-          Gallt euch sankt, denn smartive ist jetzt in freut euch! Und wir gallen uns sehr. So sehr, dass wir für alle
-          Besties und Bambini und natürlich für dich die Türen öffnen. Kommt und feiert mit uns bei Risotto und Riserva!
-        </Heading3>
-        <Copy>Samstag 6. Mai 2023, ab 14:00 Uhr bis 22:00 Uhr</Copy>
-        <Copy>Multergasse 26, 9000 St.Gallen</Copy>
-        <div className="flex">
-          <Button as="a" href="https://smr.tv/opening-sg">
-            Ich bin auch dabei!
-          </Button>
-          <div className="ml-8">
-            <LinkList links={[{ label: 'Ich muss mich leider abmelden', href: 'https://smr.tv/opening-sg' }]} />
-          </div>
-        </div>
+        <Heading3>Gallt euch sankt, denn smartive ist jetzt in freut euch!</Heading3>
+        <Copy>
+          {' '}
+          Gemeinsam mit euch haben wir unseren ersten zweiten Standort gebührend getauft, eingeweiht und gefeiert. Das war
+          wirklich sehr schön.
+        </Copy>
+        <LinkList
+          links={[
+            { label: 'Zu den Fotos vom Eröffnungsfest 📸', href: '/sg/fotos' },
+            { label: 'Zur Pressemitteilung', href: '/blog/hoi-st-gallen' },
+            { label: 'Zum nächsten smartive Fest in Zürich', href: 'https://smr.tv/sommer' },
+          ]}
+        />
         <Section>
           <Grid cols={3}>
             <div className="col-span-2">

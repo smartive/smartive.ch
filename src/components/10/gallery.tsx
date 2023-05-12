@@ -1,15 +1,17 @@
-import { FC, useCallback, useEffect, useRef, useState } from 'react';
-import NextImage from 'next/legacy/image';
-import Gallery from 'react-photo-gallery-next';
+import { merge } from '@smartive/guetzli';
 import Glider from 'glider-js';
 import 'glider-js/glider.min.css';
+import NextImage from 'next/legacy/image';
+import { FC, useCallback, useEffect, useRef, useState } from 'react';
+import Gallery from 'react-photo-gallery-next';
 import { Photo, rokkaLoader } from '../../services/cloud-storage';
 
 type Props = {
   photos: Photo[];
+  dark?: boolean;
 };
 
-export const SmartGallery: FC<Props> = ({ photos }) => {
+export const SmartGallery: FC<Props> = ({ photos, dark = true }) => {
   const gliderListRef = useRef(null);
 
   const [currentImage, setCurrentImage] = useState<number | null>(null);
@@ -60,7 +62,7 @@ export const SmartGallery: FC<Props> = ({ photos }) => {
 
   return (
     <>
-      <div className={'sm:px-2 md:px-8 bg-black md:pb-8'}>
+      <div className={merge(['sm:px-2 md:px-8 md:pb-8', dark ? 'bg-black' : ''])}>
         <Gallery
           photos={photos}
           onClick={openLightbox}
