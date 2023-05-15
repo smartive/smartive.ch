@@ -12,6 +12,7 @@ const Main = [
   { label: 'Team', link: '/team' },
   { label: 'Agentur', link: '/agentur' },
   { label: 'Blog', link: '/blog' },
+  { label: 'Kontakt', link: '/kontakt' },
 ];
 
 const Meta = [
