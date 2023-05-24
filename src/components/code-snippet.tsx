@@ -1,18 +1,17 @@
 import mermaid from 'mermaid';
-import Highlight, { defaultProps, Language } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/shadesOfPurple';
+import { Highlight, themes } from 'prism-react-renderer';
+import Prism from 'prismjs';
 import { FC, useEffect, useState } from 'react';
 
 // This is needed to add c# and rust support in prism.
 // https://github.com/FormidableLabs/prism-react-renderer#faq
-import Prism from 'prism-react-renderer/prism';
 (typeof global !== 'undefined' ? global : window).Prism = Prism;
 require('prismjs/components/prism-rust');
 require('prismjs/components/prism-csharp');
 
 type Props = {
   code: string;
-  language?: Language;
+  language?: string;
   caption?: string;
 };
 
@@ -21,20 +20,20 @@ type MermaidProps = {
   caption?: string;
 };
 
-const replaceLanguages = (lang: string): Language => {
+const replaceLanguages = (lang: string): string => {
   switch (lang) {
     case 'c#':
-      return 'csharp' as Language;
+      return 'csharp';
     case 'c++':
       return 'cpp';
     default:
-      return lang as Language;
+      return lang;
   }
 };
 
 export const CodeSnippet: FC<Props> = ({ code, language, caption }) => (
   <figure>
-    <Highlight {...defaultProps} code={code} language={replaceLanguages(language)} theme={theme}>
+    <Highlight code={code} language={replaceLanguages(language)} theme={themes.shadesOfPurple}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={[className, 'my-8 rounded p-4 whitespace-pre-wrap text-xs relative'].join(' ')} style={style}>
           {language && <div className="absolute right-4 top-2">{language}</div>}
