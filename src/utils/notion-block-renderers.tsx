@@ -1,5 +1,4 @@
 import { Copy, Heading1, Heading2, Heading3, Label } from '@smartive/guetzli';
-import { Language } from 'prism-react-renderer';
 import { ReactNode } from 'react';
 import { Accordion } from '../components/accordion';
 import { Callout } from '../components/callout';
@@ -128,7 +127,7 @@ const internalRenderers = {
       ) : (
         <CodeSnippet
           code={rich_text.reduce((acc, cur) => `${acc}${cur.plain_text}`, '')}
-          language={language as Language}
+          language={language}
           caption={caption?.reduce((acc, cur) => `${acc}${cur.plain_text}`, '')}
         />
       )}

@@ -4,7 +4,7 @@ import Prism from 'prismjs';
 import { FC, useEffect, useState } from 'react';
 
 // This is needed to add c# and rust support in prism.
-// https://github.com/FormidableLabs/prism-react-renderer#faq
+// https://github.com/FormidableLabs/prism-react-renderer#custom-language-support
 (typeof global !== 'undefined' ? global : window).Prism = Prism;
 require('prismjs/components/prism-rust');
 require('prismjs/components/prism-csharp');
