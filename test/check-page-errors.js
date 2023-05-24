@@ -12,6 +12,7 @@ const ignoreListErrors = [
   'autoprefixer: Replace color-adjust',
   'useElementScroll is deprecated',
   'value.onChange(callback) is deprecated', // TODO: remove when scrollex package is updated
+  "Error with Permissions-Policy header: Unrecognized feature: 'ch-ua-form-factor'.", // Caused by YouTube player
 ];
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',
