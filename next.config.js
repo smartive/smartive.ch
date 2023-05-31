@@ -11,6 +11,7 @@ module.exports = withBundleAnalyzer({
     // Don't run linting during build since on CI we manually run the lint command
     ignoreDuringBuilds: true,
   },
+  transpilePackages: ['mermaid', 'dayjs'],
   images: {
     domains: [
       'images.unsplash.com',
