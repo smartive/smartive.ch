@@ -16,5 +16,6 @@
       "gitLabAutomerge": false,
       "labels": ["dependencies-major"]
     }
-  ]
+  ],
+  "ignoreDeps": ["@smartive/guetzli"]
 }

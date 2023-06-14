@@ -23,7 +23,7 @@
   "dependencies": {
     "@notionhq/client": "2.2.5",
     "@prismicio/next": "^1.0.2",
-    "@smartive/guetzli": "2.10.0",
+    "@smartive/guetzli": "2.9.0",
     "@xstate/fsm": "2.0.1",
     "@xstate/react": "3.2.2",
     "blobs": "2.2.0",
