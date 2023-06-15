@@ -47,7 +47,7 @@ const Page: NextPage<Props> = ({ images }) => {
           links={[
             { label: 'Zu den Fotos vom Eröffnungsfest 📸', href: '/sg/fotos' },
             { label: 'Zur Pressemitteilung', href: '/blog/hoi-st-gallen' },
-            { label: 'Zum nächsten smartive Fest in Zürich', href: 'https://smr.tv/sommer' },
+            { label: 'Fotos von anderen Festern 🎉', href: '/sommerfest' },
           ]}
         />
         <Section>
