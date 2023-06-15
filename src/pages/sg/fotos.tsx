@@ -6,6 +6,7 @@ import { Image, ImageVariant } from '../../components/image';
 import { PageHeader } from '../../compositions/page-header';
 import { LandingPage } from '../../layouts/landing-page';
 import { Photo, getImagesFromRokka } from '../../services/cloud-storage';
+import { Copy, LinkList } from '@smartive/guetzli';
 
 type Props = {
   photos: Photo[];
@@ -29,7 +30,24 @@ const Fotos: NextPage<Props> = ({ photos }) => {
           height={803}
         />
       </PageHeader>
-      <main id="pageContent" className="relative text-white-100 overflow-hidden">
+
+      <main id="pageContent" className="relative overflow-hidden">
+        <Copy>
+          Die Eröffnungsfeier des Jahres. Bei smartive in St. Gallen. Mit Risotto und Riserva vom Geschmacksträger. Danke,
+          dass ihr dabei wart.
+        </Copy>
+        <LinkList
+          links={[
+            {
+              label: 'Das haben wir eröffnet',
+              href: '/sg',
+            },
+            {
+              label: 'Da gibts die nächste Party',
+              href: '/sommerfest',
+            },
+          ]}
+        ></LinkList>
         <div className="relative mx-auto sm:mb-0 my-24 md:my-44">
           <SmartGallery photos={photos} dark={false} />
         </div>

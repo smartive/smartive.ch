@@ -1,4 +1,4 @@
-import { Copy } from '@smartive/guetzli';
+import { Copy, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { SmartGallery } from '../../components/10/gallery';
@@ -20,9 +20,21 @@ const Fotos: NextPage<Props> = ({ photos }) => {
           Smarteste Menschen, bestes Wetter, veganste Gaumenfreuden, ein Schwipps oder zwei und Espresso vom Scheff – Das war
           das Sommerfest 2023. Schön, dass ihr mit uns gefeiert habt!
         </Copy>
+        <LinkList
+          links={[
+            {
+              label: 'zu den anderen Sommerfesten',
+              href: '/sommerfest',
+            },
+            {
+              label: 'zu den Fötelis von anderen Parties',
+              href: '/sg/fotos',
+            },
+          ]}
+        ></LinkList>
       </PageHeader>
 
-      <main id="pageContent" className="relative text-white-100 overflow-hidden">
+      <main id="pageContent" className="relative overflow-hidden">
         <div className="relative mx-auto sm:mb-0 my-24 md:my-44">
           <SmartGallery photos={photos} dark={false} />
         </div>
