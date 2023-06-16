@@ -161,7 +161,7 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
               </TextLink>{' '}
               rangieren wir in den Top 10 der vergangenen 5 Jahre.
             </TextBlock>
-            <TextBlock title="Null Chefs" number={0}>
+            <TextBlock title="Null Chefs" number="0">
               Wir leben nach New-Work-Prinzipien. Das heisst Selbstorganisation und keine Hierarchien oder Chefs.
             </TextBlock>
           </Grid>
