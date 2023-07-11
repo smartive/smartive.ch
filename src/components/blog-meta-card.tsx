@@ -2,12 +2,24 @@ import { Button, Calendar, Clock, Heading3, Share, Tooltip } from '@smartive/gue
 import dayjs from 'dayjs';
 import 'dayjs/locale/de';
 import { FC, useState } from 'react';
-import { Image, ImageVariant } from './image';
 import { BlogDetail } from '../data/blog';
+import { Image, ImageVariant } from './image';
 
-type Props = { post: BlogDetail; readingTime: number };
+type Props = { post: BlogDetail; readingTime: number; language: string };
+const TEXTS = {
+  en: {
+    copy: 'Copy link',
+    minutes: 'minutes',
+    from: 'from',
+  },
+  de: {
+    copy: 'Link kopieren',
+    minutes: 'Minuten',
+    from: 'von',
+  },
+} as const;
 
-export const BlogMetaCard: FC<Props> = ({ post, readingTime }) => {
+export const BlogMetaCard: FC<Props> = ({ post, readingTime, language }) => {
   dayjs.locale('de');
   const [copyTooltipOpen, setCopyTooltipOpen] = useState(false);
   const date = dayjs(post.date);
@@ -24,7 +36,7 @@ export const BlogMetaCard: FC<Props> = ({ post, readingTime }) => {
           />
         )}
         <Heading3 as="p" className="!mb-0 !lg:mb-0">
-          von <span itemProp="author">{post.creator}</span>
+          {TEXTS[language].from} <span itemProp="author">{post.creator}</span>
         </Heading3>
         <div className="grid grid-cols-[1rem,auto] gap-2 justify-items-center place-items-center">
           <Calendar className="w-4 h-4" />
@@ -34,7 +46,9 @@ export const BlogMetaCard: FC<Props> = ({ post, readingTime }) => {
           />
           <span>{date.isValid() ? date.format('MMMM YYYY') : 'Draft'}</span>
           <Clock className="w-4 h-4" />
-          <span>~{readingTime} Minuten</span>
+          <span>
+            ~{readingTime} {TEXTS[language].minutes}
+          </span>
         </div>
       </div>
       <div className="text-center">
@@ -49,7 +63,7 @@ export const BlogMetaCard: FC<Props> = ({ post, readingTime }) => {
               }, 1500);
             }}
           >
-            <Share className="inline-block" /> Link kopieren
+            <Share className="inline-block" /> {TEXTS[language].copy}
           </Button>
         </Tooltip>
       </div>

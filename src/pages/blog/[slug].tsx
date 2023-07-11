@@ -20,7 +20,7 @@ const BlogPost: NextPage<Props> = ({ post, blocks }) => {
   return (
     <Page>
       <Head>{!post.published && <meta name="robots" content="noindex" />}</Head>
-      <div itemScope itemType="https://schema.org/BlogPosting">
+      <div itemScope itemType="https://schema.org/BlogPosting" lang={post.language}>
         <meta itemProp="headline" content={post.title} />
         <meta itemProp="abstract" content={plainAbstract} />
         <PageHeader markdownTitle={post.title} description={plainAbstract} image={post.cover ?? null}>
@@ -40,7 +40,7 @@ const BlogPost: NextPage<Props> = ({ post, blocks }) => {
               </div>
             )}
             <div className="hidden md:block h-full">
-              <BlogMetaCard post={post} readingTime={readingTime} />
+              <BlogMetaCard post={post} readingTime={readingTime} language={post.language} />
             </div>
             <div className="block md:hidden">
               <MobileBlogMetaCard post={post} />
