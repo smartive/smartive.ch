@@ -22,7 +22,6 @@ stages:
 
 .deploy_template:
   extends: .default_template
-  image: node:20
   stage: deploy
   before_script:
     - npm ci
