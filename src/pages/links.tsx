@@ -1,5 +1,4 @@
 import { Client } from '@notionhq/client';
-import { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints';
 import { Button } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { usePlausible } from 'next-plausible';
@@ -9,7 +8,7 @@ import { Section } from '../layouts/section';
 import { PlausibleEvents } from '../utils/tracking';
 
 type Props = {
-  seeds: QueryDatabaseResponse['results'];
+  seeds: { url: string; title: string; id: string }[];
 };
 
 const Links: NextPage<Props> = ({ seeds }) => {
@@ -21,47 +20,27 @@ const Links: NextPage<Props> = ({ seeds }) => {
       <main>
         <Section>
           <div className="max-w-screen-sm mx-auto lg:px-4">
-            {seeds.map((seed) => {
-              if ('properties' in seed) {
-                const title =
-                  (seed.properties.title.type === 'formula' &&
-                    seed.properties.title.formula.type === 'string' &&
-                    seed.properties.title.formula.string) ||
-                  '';
-
-                const url =
-                  (seed.properties.url.type === 'formula' &&
-                    seed.properties.url.formula.type === 'string' &&
-                    seed.properties.url.formula.string) ||
-                  '';
-
-                if (!title || !url) {
-                  return;
-                }
-
-                return (
-                  <div key={seed.id} className="mb-8">
-                    <Button
-                      width="full"
-                      as="a"
-                      href={url}
-                      onClick={() => {
-                        plausible('Link Click', {
-                          props: {
-                            currentUrl: window?.location.toString(),
-                            targetUrl: url,
-                            title: title,
-                          },
-                        });
-                      }}
-                    >
-                      {title}
-                    </Button>
-                  </div>
-                );
-              }
-
-              return null;
+            {seeds.map(({ url, title, id }) => {
+              return (
+                <div key={id} className="mb-8">
+                  <Button
+                    width="full"
+                    as="a"
+                    href={url}
+                    onClick={() => {
+                      plausible('Link Click', {
+                        props: {
+                          currentUrl: window?.location.toString(),
+                          targetUrl: url,
+                          title,
+                        },
+                      });
+                    }}
+                  >
+                    {title}
+                  </Button>
+                </div>
+              );
             })}
           </div>
         </Section>
@@ -75,7 +54,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     auth: process.env.NOTION_TOKEN,
   });
 
-  const { results: seeds } = await notion.databases.query({
+  const { results } = await notion.databases.query({
     database_id: process.env.NOTION_LOOMLY_DB_ID,
     sorts: [
       {
@@ -84,6 +63,33 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       },
     ],
   });
+
+  const seeds = results
+    .map((seed) => {
+      if (!('properties' in seed)) {
+        return null;
+      }
+
+      const { title, url } = seed.properties;
+
+      if (!title || !url) {
+        return null;
+      }
+
+      const getValue = (value: typeof url) => {
+        if (value?.type === 'formula' && 'type' in value.formula) {
+          return value.formula?.type === 'string' && value.formula.string;
+        }
+        return '';
+      };
+
+      return {
+        id: seed.id,
+        title: getValue(title),
+        url: getValue(url),
+      };
+    })
+    .filter(Boolean);
 
   return {
     props: {

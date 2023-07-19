@@ -48,6 +48,17 @@ module.exports = withBundleAnalyzer({
         destination: 'https://smartive.ch/blog/:path*',
         permanent: true,
       },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: '^(?!.*smartive).*.ch$',
+          },
+        ],
+        destination: 'https://smartive.ch/:path*',
+        permanent: true,
+      },
     ];
   },
 });
