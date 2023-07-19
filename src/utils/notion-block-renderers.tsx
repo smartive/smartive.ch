@@ -104,7 +104,7 @@ const internalRenderers = {
           src={image.type === 'external' ? image.external.url : image.file.url}
         />
       </div>
-    )
+    ),
   ),
   divider: createRenderer('divider', ({ id }) => <hr key={id} className="my-8 text-xs lg:text-base" />),
   quote: createRenderer('quote', ({ id, quote: { rich_text } }) => (

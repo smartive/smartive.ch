@@ -14,7 +14,7 @@ export const BackToTop = () => {
         const unsubscribe = setAnimate(e === 1);
         return unsubscribe;
       }),
-    []
+    [],
   );
 
   return (

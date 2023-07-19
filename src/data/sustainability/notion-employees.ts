@@ -68,7 +68,7 @@ export const getNotionEmployees = async (year: number): Promise<AllEmployees[]> 
     (results as unknown as NotionEmployee[]).map(
       async ({ id, properties: { Ort, Name, Strasse, OfficeTage, EnvImpactHomeOffice, Emissionsfaktor, Kategorie } }) => {
         const distanceToOffice = await getDistanceFromGoogleMaps(
-          `${Ort.rich_text[0].plain_text},${Strasse.rich_text[0].plain_text}`
+          `${Ort.rich_text[0].plain_text},${Strasse.rich_text[0].plain_text}`,
         );
         const officeDays = OfficeTage.number;
         const envImpactHomeOffice = EnvImpactHomeOffice.formula.number;
@@ -82,8 +82,8 @@ export const getNotionEmployees = async (year: number): Promise<AllEmployees[]> 
           category: Kategorie.rollup.array[0].title[0].plain_text,
           environmentalImpact: distanceToOffice * 2 * emissionsfactor * officeDays * WEEKS_PER_YEAR + envImpactHomeOffice,
         };
-      }
-    )
+      },
+    ),
   );
 };
 

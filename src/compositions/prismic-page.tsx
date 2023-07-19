@@ -74,7 +74,7 @@ export const PrismicPage = ({ header, blocks }: Props) => {
                             href: link,
                           }}
                         />
-                      )
+                      ),
                     )}
                   </GridSlider>
                 </Section>

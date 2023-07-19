@@ -1,13 +1,13 @@
 import { Button, Label, NavItem } from '@smartive/guetzli';
 import { usePlausible } from 'next-plausible';
 import dynamic from 'next/dynamic';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { PlausibleEvents } from '../utils/tracking';
 
 const NewsletterSubscription = dynamic(
   () => import('../components/newsletter-subscription').then((module) => module.NewsletterSubscription),
-  { ssr: false }
+  { ssr: false },
 );
 const BackToTop = dynamic(() => import('../components/back-to-top').then((module) => module.BackToTop), { ssr: false });
 

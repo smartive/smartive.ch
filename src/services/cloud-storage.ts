@@ -29,6 +29,6 @@ export async function getImagesFromRokka(type: string): Promise<Photo[]> {
       src: f.hash + '/' + f.name,
       width: f.width,
       height: f.height,
-    })
+    }),
   );
 }

@@ -17,7 +17,7 @@ const PrismicPreviewBar = dynamic(
   () => import('../components/prismic-preview-bar').then((module) => module.PrismicPreviewBar),
   {
     ssr: false,
-  }
+  },
 );
 
 type PrismicPageProps = {
@@ -33,7 +33,7 @@ export default function App({ Component, pageProps }: AppProps & PrismicPageProp
       {
         opacity: [null, 1],
       },
-      { duration: 0.2 }
+      { duration: 0.2 },
     );
   }, [pathname]);
 

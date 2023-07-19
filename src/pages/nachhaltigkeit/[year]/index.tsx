@@ -7,7 +7,7 @@ import { getNotionBusinessTravel } from '../../../data/sustainability/notion-bus
 import { Categories, getNotionCategories } from '../../../data/sustainability/notion-categories';
 import { getNotionEmployees } from '../../../data/sustainability/notion-employees';
 import { getNotionExpenses } from '../../../data/sustainability/notion-expenses';
-import { getNotionScopes, Scopes } from '../../../data/sustainability/notion-scopes';
+import { Scopes, getNotionScopes } from '../../../data/sustainability/notion-scopes';
 import { getNotionSustainabilityData } from '../../../data/sustainability/notion-sustainability-data';
 import { LandingPage } from '../../../layouts/landing-page';
 import { Section } from '../../../layouts/section';
@@ -15,13 +15,13 @@ import { brandColor } from '../../../utils/color';
 import {
   ALL_YEARS,
   AVERAGE_SWISSPERSON_EMISSION,
+  ScopeNames,
+  TIMES_OR_DIVIDE_BY_1000,
   calculatedScopesFunction,
   getScope3,
   getScope3EnvironmentalImpact,
   reduceByEnvironmentalImpact,
-  ScopeNames,
   sortScope,
-  TIMES_OR_DIVIDE_BY_1000,
 } from '../../../utils/sustainability';
 import '../../_app';
 
@@ -137,7 +137,7 @@ const YearOverview: NextPage<Props> = ({ year: currentYear, calculatedScopes, li
         <Grid cols={2}>
           <TextBlock title="Schweizer*innen" number={Math.round(totalEmission / AVERAGE_SWISSPERSON_EMISSION)} unit="x 👨‍🌾👩‍🌾">
             {`Unser Emissionsausstoss im Jahr ${currentYear} entspricht dem Emissionsausstoss von ${Math.round(
-              totalEmission / AVERAGE_SWISSPERSON_EMISSION
+              totalEmission / AVERAGE_SWISSPERSON_EMISSION,
             )} `}
             <Explainer title="inklusive netto import-, export-Bilanz. 1 Schweizer*in = 14 t CO₂ eq. pro Jahr">
               Schweizer*innen
@@ -188,7 +188,7 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const categories = await getNotionCategories();
 
   const calculatedScopes = calculatedScopesFunction(scopes, businessTravel, sustainabilityData, employees, expenses).sort(
-    (firstElement, secondElement) => firstElement.environmentalImpact - secondElement.environmentalImpact
+    (firstElement, secondElement) => firstElement.environmentalImpact - secondElement.environmentalImpact,
   );
 
   const calculatedCategories = categories.map((category) => ({

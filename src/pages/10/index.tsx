@@ -53,13 +53,13 @@ import kuhbar from '../../../public/images/anniversary/2022/kuhbar.jpeg';
 import rammstein from '../../../public/images/anniversary/2022/rammstein.jpg';
 import skitag from '../../../public/images/anniversary/2022/skitag.jpg';
 import stadtfueahrig from '../../../public/images/anniversary/2022/stadtfueahrig.jpeg';
+import { ParallaxBlob } from '../../components/10/ParallaxBlob';
 import { Avatar } from '../../components/10/avatar';
 import { BlobVariants } from '../../components/10/blob';
 import { Button } from '../../components/10/button';
 import { Card } from '../../components/10/card';
 import { Heading } from '../../components/10/heading';
-import { ParallaxBlob } from '../../components/10/ParallaxBlob';
-import { keyframes, TenHead } from '../../components/10/ten-head';
+import { TenHead, keyframes } from '../../components/10/ten-head';
 import { Text } from '../../components/10/text';
 import { Employee, getAllEmployees } from '../../data/employees';
 import { Link } from '../../elements/link';
@@ -86,7 +86,7 @@ type Props = {
 const Ten: NextPage<Props> = ({ employees }) => {
   const [visibleYear, setVisibleYear] = useState<number>(null);
   const [avatars, setAvatars] = useState(
-    employees.filter(({ start }) => start === 2012).filter(({ closeup }) => closeup !== '')
+    employees.filter(({ start }) => start === 2012).filter(({ closeup }) => closeup !== ''),
   );
 
   useEffect(() => {

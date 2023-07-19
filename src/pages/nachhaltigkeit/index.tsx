@@ -17,9 +17,9 @@ import { brandColor } from '../../utils/color';
 import {
   ALL_YEARS,
   FTE,
+  TIMES_OR_DIVIDE_BY_1000,
   numberFormat,
   reduceByEnvironmentalImpact,
-  TIMES_OR_DIVIDE_BY_1000,
 } from '../../utils/sustainability';
 import '../_app';
 
@@ -142,7 +142,7 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
                     Unsere totalen CO
                     <sub>2</sub>
                     {` eq. Emissionen entsprechen ca. ${numberFormat.format(
-                      Math.round(totalEmission / TIMES_OR_DIVIDE_BY_1000 / comparisonText.emissionPerUnit)
+                      Math.round(totalEmission / TIMES_OR_DIVIDE_BY_1000 / comparisonText.emissionPerUnit),
                     )} `}
                     <span
                       onMouseEnter={async () => {
@@ -169,7 +169,7 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
               title="Rolle Nachhaltigkeit"
               header="Ziel 2021 erreicht?"
               labelTitle="Ziel: Netto Null?"
-              content={`Wir haben die Rolle "Nachhaltigkeit" geschaffen. Die Inhaber*innen der Rolle prüfen den jährlichen Verbrauch, 
+              content={`Wir haben die Rolle "Nachhaltigkeit" geschaffen. Die Inhaber*innen der Rolle prüfen den jährlichen Verbrauch,
               machen Verbesserungspotenziale ausfindig, setzen sinnvolle Massnahmen um, führen Dialoge mit externen Verantwortlichen und thematisieren interne Aspekte von Nachhaltigkeit.`}
             />
             <NextBisectCard
@@ -218,7 +218,7 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
                   (COFFEE_KG_2020 /
                     (allYearsTotalEmission.find(({ year }) => year === 2020).totalEmission / TIMES_OR_DIVIDE_BY_1000)) *
                   100
-                ).toFixed(1)
+                ).toFixed(1),
               )}
               unit="% ☕️"
             >
@@ -241,7 +241,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const businessTravel = await getNotionBusinessTravel();
   const sustainabilityData = await getNotionSustainabilityData();
   const employeesByYear = await Promise.all(
-    ALL_YEARS.map(async (year) => ({ year, employees: await getNotionEmployees(year) }))
+    ALL_YEARS.map(async (year) => ({ year, employees: await getNotionEmployees(year) })),
   );
 
   const allEmployees = await getAllEmployees();

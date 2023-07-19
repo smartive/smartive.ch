@@ -14,7 +14,7 @@ const cloudinaryLoader = ({ src, width, quality }: ImageLoaderProps) => {
   const paramsString = params.join(',');
   return `https://res.cloudinary.com/smartive/image/upload/${paramsString}/${src.replace(
     'https://res.cloudinary.com/smartive/image/upload/',
-    ''
+    '',
   )}`;
 };
 

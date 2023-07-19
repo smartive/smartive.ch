@@ -67,7 +67,7 @@ export const getNotionRedirectUrlData = async (slug: string): Promise<RedirectUr
       url: Url?.title[0]?.plain_text,
       language: Language?.select?.name ?? 'en',
       image: Image?.files[0]?.file?.url ?? null,
-    })
+    }),
   )[0];
 };
 

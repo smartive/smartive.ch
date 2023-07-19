@@ -31,7 +31,7 @@ export const calculatedScopesFunction = (
   businessTravel: BusinessTravels[],
   sustainabilityData: SustainabilityData[],
   employees: AllEmployees[],
-  expenses: Expenses[]
+  expenses: Expenses[],
 ) =>
   scopes.map((scope) => ({
     ...scope,
@@ -54,7 +54,7 @@ export const getDistanceFromGoogleMaps = async (destination: string) => {
       destinations: destination,
       key: process.env.GOOGLEMAPS_URL_KEY,
       mode: 'transit',
-    })}`
+    })}`,
   );
   const jsonDistance = (await response.json()) as GoogleDistance;
   return jsonDistance.rows[0].elements[0].distance.value / TIMES_OR_DIVIDE_BY_1000;

@@ -1,10 +1,9 @@
 import { Calendar, Copy, Heading2, ImageCard, ImageCardVariants, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
-import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { Categories, getNotionCategories } from '../../data/sustainability/notion-categories';
-import { getNotionScopes, Scopes } from '../../data/sustainability/notion-scopes';
+import { Scopes, getNotionScopes } from '../../data/sustainability/notion-scopes';
 import { LandingPage } from '../../layouts/landing-page';
 import { Section } from '../../layouts/section';
 import { ScopeNames, sortScope } from '../../utils/sustainability';

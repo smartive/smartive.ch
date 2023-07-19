@@ -31,7 +31,7 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
         date: page.properties.Date.date.start,
         slug: page.properties.Slug.formula.string,
         cover: (page.cover?.file ?? page.cover?.external)?.url ?? null,
-      } as BlogPost)
+      }) as BlogPost,
   );
 };
 

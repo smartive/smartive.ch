@@ -118,7 +118,7 @@ export async function getBlocks(id: string): Promise<Block[]> {
           if (imageUrl.includes('cloudinary') && !imageUrl.includes('.gif')) {
             const infoUrl = `https://res.cloudinary.com/smartive/image/upload/fl_getinfo/${imageUrl.replace(
               'https://res.cloudinary.com/smartive/image/upload/',
-              ''
+              '',
             )}`;
             const res = (await (await fetch(infoUrl)).json()) as { input: { width: number; height: number } };
             block.image.meta = {

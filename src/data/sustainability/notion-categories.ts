@@ -16,7 +16,7 @@ export const getNotionCategories = async (): Promise<Categories[]> => {
       ghgCategoryNumber: ghgCategoryNumber.number,
       icon: Icon.rich_text[0].plain_text,
       description: Beschreibung.rich_text[0].plain_text,
-    })
+    }),
   );
 };
 

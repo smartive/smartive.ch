@@ -71,7 +71,7 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
         );
       },
     }),
-    []
+    [],
   );
 
   const title = getMeta('title', { machine, state } as any);

@@ -1,7 +1,6 @@
 import { Copy, Grid } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
-import React from 'react';
 import { Image, ImageVariant } from '../components/image';
 import { PageHeader } from '../compositions/page-header';
 import { LandingPage } from '../layouts/landing-page';
@@ -9,7 +8,7 @@ import { Section } from '../layouts/section';
 
 const NewsletterSubscription = dynamic(
   () => import('../components/newsletter-subscription').then((module) => module.NewsletterSubscription),
-  { ssr: false }
+  { ssr: false },
 );
 
 const STATIC_IMAGES = {

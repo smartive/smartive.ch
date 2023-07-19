@@ -9,16 +9,16 @@ import { getNotionBusinessTravel } from '../../../data/sustainability/notion-bus
 import { Categories, getNotionCategories } from '../../../data/sustainability/notion-categories';
 import { getNotionEmployees } from '../../../data/sustainability/notion-employees';
 import { getNotionExpenses } from '../../../data/sustainability/notion-expenses';
-import { getNotionScopes, Scopes } from '../../../data/sustainability/notion-scopes';
+import { Scopes, getNotionScopes } from '../../../data/sustainability/notion-scopes';
 import { getNotionSustainabilityData } from '../../../data/sustainability/notion-sustainability-data';
 import { LandingPage } from '../../../layouts/landing-page';
 import {
   ALL_YEARS,
+  TIMES_OR_DIVIDE_BY_1000,
   calculatedScopesFunction,
   getScope3,
   numberFormat,
   reduceByEnvironmentalImpact,
-  TIMES_OR_DIVIDE_BY_1000,
 } from '../../../utils/sustainability';
 
 type Props = {
@@ -183,11 +183,11 @@ export const getStaticProps: GetStaticProps<Props> = async (context) => {
   const categoriesSortedByCategorieAndImpact = calculatedCategories.sort(
     (firstElement, secondElement) =>
       secondElement.environmentalImpact - firstElement.environmentalImpact ||
-      firstElement.ghgCategoryNumber - secondElement.ghgCategoryNumber
+      firstElement.ghgCategoryNumber - secondElement.ghgCategoryNumber,
   );
   const calculatedScopes = calculatedScopesFunction(scopes, businessTravel, sustainabilityData, employees, expenses);
   const maxCategorieEnvironmentalImpact = Math.max(
-    ...calculatedCategories.map(({ environmentalImpact }) => environmentalImpact)
+    ...calculatedCategories.map(({ environmentalImpact }) => environmentalImpact),
   );
 
   return {

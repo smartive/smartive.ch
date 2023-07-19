@@ -1,11 +1,11 @@
 import { BrandColor, Card, Heading2, PositionX, PositionY } from '@smartive/guetzli';
 import dynamic from 'next/dynamic';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 const NewsletterSubscription = dynamic(
   () => import('./newsletter-subscription').then((module) => module.NewsletterSubscription),
-  { ssr: false }
+  { ssr: false },
 );
 
 type Props = {

@@ -45,7 +45,7 @@ export const getNotionSustainabilityData = async (year?: number): Promise<Sustai
         unit: Einheit.rich_text[0] ? Einheit.rich_text[0].plain_text : null,
         category: Kategorie.rollup.array[0] ? Kategorie.rollup.array[0].title[0].plain_text : null,
       };
-    }
+    },
   );
 };
 
