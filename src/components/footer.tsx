@@ -94,9 +94,6 @@ export const Footer: FC = () => {
             <NavItem href="https://www.instagram.com/smartive_ch/" newTab>
               Instagram
             </NavItem>
-            <NavItem href="https://twitter.com/smartive_ch" newTab>
-              Twitter
-            </NavItem>
             <NavItem href="https://facebook.com/smartive.ch" newTab>
               Facebook
             </NavItem>
@@ -177,9 +174,6 @@ export const Footer: FC = () => {
             </NavItem>
             <NavItem href="https://www.instagram.com/smartive_ch/" newTab>
               Instagram
-            </NavItem>
-            <NavItem href="https://twitter.com/smartive_ch" newTab>
-              Twitter
             </NavItem>
             <NavItem href="https://facebook.com/smartive.ch" newTab>
               Facebook
