@@ -34,7 +34,7 @@ type Props = {
   quote: Quote;
 };
 
-const Spilo: NextPage<Props> = ({ contact, teasers, images, packages, quote }) => {
+const Domicura: NextPage<Props> = ({ contact, teasers, images, packages, quote }) => {
   return (
     <Page>
       <PageHeader
@@ -218,7 +218,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const images = STATIC_IMAGES;
   const teasers = [Teasers.ofpg, Teasers.filialfinder, Teasers.spilo];
   const packages = [Packages['feasibility'], Packages['speedboat']];
-  const contact = await getEmployeeByName('Jan Bühlmann');
+  const contact = await getEmployeeByName('Robert Vogt');
 
   return {
     props: {
@@ -231,4 +231,4 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-export default Spilo;
+export default Domicura;
