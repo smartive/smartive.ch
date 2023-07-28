@@ -1,4 +1,5 @@
 import { BlobVariations, Copy, Grid, TextBlock, TextLink } from '@smartive/guetzli';
+import dayjs from 'dayjs';
 import { GetStaticProps, NextPage } from 'next';
 import { Image, ImageVariant } from '../../components/image';
 import { Testimonial } from '../../components/testimonial';
@@ -11,23 +12,42 @@ import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';
 
 const STATIC_IMAGES = {
-  dife: '/images/mood/dominique-lab-finger.jpg',
-  mittag: '/images/mood/YB_06742.jpg',
-  vortrag: '/images/mood/robert-dife-close-up.jpg',
-  coderetreat: '/images/mood/code-retreat-hackday.jpg',
-  aescher: '/images/mood/aescher-gruppenbild.jpg',
-  terrasse: '/images/mood/code-retreat-terrasse.jpg',
-  fussball: '/images/mood/code-retreat-fussball.jpg',
-  essen: '/images/mood/code-retreat-lunch.jpg',
+  stgallen: {
+    src: '/images/mood/office-stgallen-terrasse.jpg',
+    alt: 'drei smartive Mitarbeitende auf der Terrasse an einem Tisch am Arbeiten und lachen',
+  },
+  mittag: { src: '/images/mood/YB_06742.jpg', alt: 'smartive Team am Mittagstisch beim Essen' },
+  jungle: { src: '/images/mood/damian-anna-jungle.jpg', alt: 'zwei smartive Mitarbeiter im kleinen Sitzungszimmer' },
+  coderetreat: {
+    src: '/images/mood/code-retreat-hackday.jpg',
+    alt: 'smartive Team am arbeiten an einem Tisch im freien mit dem Valle Verzasca im Hintergrund',
+  },
 } as const;
+
+const FOUR_CULTURE_IMAGES = [
+  {
+    src: '/images/mood/code-retreat21-linguistik-vortrag.jpg',
+    alt: 'smartive Team an einem Vortrag über Linguistik von einem smartive Mitarbeiter',
+  },
+  { src: '/images/mood/boat/2.jpg', alt: 'smartive Team beim Kubb spielen auf einer grünen Wies' },
+  {
+    src: '/images/mood/aescher-gruppenbild.jpg',
+    alt: 'smartive Team bei einer Wanderung mit dem Gasthaus Aescher-Wildkirchli im Hintergrund',
+  },
+  {
+    src: '/images/anniversary/2022/stadtfueahrig.jpeg',
+    alt: 'smartive Team bei einer Zürich Stadtführung auf dem Lindenhof',
+  },
+];
 
 type Props = {
   employees: FullEmployee[];
-  images: typeof STATIC_IMAGES;
   quote: Quote;
 };
 
-const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
+const FOUNDING_YEAR = 2012;
+
+const Agentur: NextPage<Props> = ({ quote, employees }) => {
   const teamSize = employees.length;
   const shareholderSize = employees.filter((employee) => employee.shareholder).length;
 
@@ -49,16 +69,16 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
         <Section>
           <Grid cols={2}>
             <Image
-              src={images.dife}
-              alt="smartive Mitarbeiter mit einem Schild auf dem smartive beworben wird"
+              src={STATIC_IMAGES.stgallen.src}
+              alt={STATIC_IMAGES.stgallen.alt}
               variant={ImageVariant.FillContainer}
               width={720}
               height={380}
             />
             <div className="hidden md:block md:col-start-2 md:row-span-2 relative">
               <Image
-                src={images.mittag}
-                alt="smartive Team am Mittagstisch beim Essen"
+                src={STATIC_IMAGES.mittag.src}
+                alt={STATIC_IMAGES.mittag.alt}
                 variant={ImageVariant.FillContainer}
                 width={1440}
                 height={1026}
@@ -66,16 +86,16 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
             </div>
             <div className="block md:hidden">
               <Image
-                src={images.mittag}
-                alt="smartive Team am Mittagstisch beim Essen"
+                src={STATIC_IMAGES.mittag.src}
+                alt={STATIC_IMAGES.mittag.alt}
                 variant={ImageVariant.FillContainer}
                 width={720}
                 height={500}
               />
             </div>
             <Image
-              src={images.vortrag}
-              alt="smartive Mitarbeiter hält einen Vortrag vor mehreren Leuten"
+              src={STATIC_IMAGES.jungle.src}
+              alt={STATIC_IMAGES.jungle.alt}
               variant={ImageVariant.FillContainer}
               width={720}
               height={500}
@@ -90,46 +110,15 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
           </Grid>
           <Testimonial background="cornflower" blobs={BlobVariations.cornflower[0]} quote={quote} />
           <Grid cols={2}>
-            <div className="h-[500px]">
-              <Image
-                src={images.coderetreat}
-                alt="smartive Team am arbeiten an einem Tisch im freien mit dem Valle Verzasca im Hintergrund"
-                variant={ImageVariant.FillContainer}
-                width={720}
-                height={500}
-              />
-            </div>
-            <div className="h-[500px]">
-              <Image
-                src={images.aescher}
-                alt="smartive Team bei einer Wanderung mit dem Gasthaus Aescher-Wildkirchli im Hintergrund"
-                variant={ImageVariant.FillContainer}
-                width={720}
-                height={500}
-              />
-            </div>
-            <div className="h-[500px]">
-              <Image
-                src={images.terrasse}
-                alt="smartive Team sitzt auf einer Bank mit blauem Himmel und Thunersee im Hintergrund"
-                variant={ImageVariant.FillContainer}
-                width={720}
-                height={500}
-              />
-            </div>
-            <div className="h-[500px]">
-              <Image
-                src={images.fussball}
-                alt="smartive Team beim Fussballspielen auf einer grünen Wiese"
-                variant={ImageVariant.FillContainer}
-                width={720}
-                height={500}
-              />
-            </div>
+            {FOUR_CULTURE_IMAGES.map((image) => (
+              <div key={image.src} className="h-[500px]">
+                <Image src={image.src} alt={image.alt} variant={ImageVariant.FillContainer} width={720} height={500} />
+              </div>
+            ))}
             <div className="h-[500px] md:col-span-2">
               <Image
-                src={images.essen}
-                alt="smartive Team beim Mittagessen im Freien"
+                src={STATIC_IMAGES.coderetreat.src}
+                alt={STATIC_IMAGES.coderetreat.alt}
                 variant={ImageVariant.FillContainer}
                 width={1504}
                 height={800}
@@ -138,7 +127,7 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
           </Grid>
 
           <Grid cols={2}>
-            <TextBlock title="Eine Dekade 🤩" number={10}>
+            <TextBlock title="Über eine Dekade 🤩" number={dayjs().year() - FOUNDING_YEAR}>
               smartive wurde 2012 gegründet. Die Firma ist gewachsen, die Kernidee geblieben: Ein Ort, an dem wir uns alle
               einbringen und so arbeiten, wie es uns entspricht.
             </TextBlock>
@@ -172,13 +161,11 @@ const Agentur: NextPage<Props> = ({ quote, images, employees }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const images = STATIC_IMAGES;
   const employees = await getAllFullEmployees();
 
   return {
     props: {
       employees,
-      images,
       quote: Quotes['dominique-kultur'],
     },
   };
