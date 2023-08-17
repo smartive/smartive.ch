@@ -74,7 +74,7 @@
     "autoprefixer": "10.4.15",
     "eslint": "8.45.0",
     "next-sitemap": "4.2.2",
-    "playwright": "1.37.0",
+    "playwright": "1.37.1",
     "postcss": "8.4.28",
     "postcss-import": "15.1.0",
     "prettier": "3.0.0",
