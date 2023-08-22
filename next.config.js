@@ -57,13 +57,13 @@ module.exports = withBundleAnalyzer({
 
 const domainRedirects = () =>
   URLS.map((url) => ({
-    source: '/',
+    source: '/:path*',
     destination: `https://smartive.ch/${url}`,
     permanent: true,
     has: [
       {
         type: 'host',
-        value: `${url}.ch/:path*`,
+        value: `${url}.ch`,
       },
     ],
   }));
