@@ -2,8 +2,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const URLS = ['igittbier', 'nüsse-sind-gesund', 'vadfan', 'visst', 'grattis', 'liiip', 'agilasfuck', 'failwind'];
-
 module.exports = withBundleAnalyzer({
   experimental: {
     scrollRestoration: true,
@@ -55,15 +53,26 @@ module.exports = withBundleAnalyzer({
   },
 });
 
+const URLS = [
+  { host: 'igittbier.ch', notionKey: 'igittbier' },
+  { host: 'vadfan.ch', notionKey: 'vadfan' },
+  { host: 'visst.ch', notionKey: 'visst' },
+  { host: 'grattis.ch', notionKey: 'grattis' },
+  { host: 'liiip.ch', notionKey: 'liiip' },
+  { host: 'agilasfuck.ch', notionKey: 'agilasfuck' },
+  { host: 'failwind.ch', notionKey: 'failwind' },
+  { host: 'xn--nsse-sind-gesund-jzb.ch', notionKey: 'nüsse-sind-gesund' },
+];
+
 const domainRedirects = () =>
-  URLS.map((url) => ({
+  URLS.map(({ host: value, notionKey }) => ({
     source: '/:path*',
-    destination: `https://smartive.ch/${url}`,
+    destination: `https://smartive.ch/${notionKey}`,
     permanent: true,
     has: [
       {
         type: 'host',
-        value: `${url}.ch`,
+        value,
       },
     ],
   }));
