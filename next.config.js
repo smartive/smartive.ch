@@ -2,7 +2,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-const URLS = ['vadfan', 'igittbier', 'nüsse-sind-gesund', 'visst', 'grattis', 'liiip', 'agilasfuck', 'failwind'];
+const URLS = ['igittbier', 'nüsse-sind-gesund', 'vadfan', 'visst', 'grattis', 'liiip', 'agilasfuck', 'failwind'];
 
 module.exports = withBundleAnalyzer({
   experimental: {
@@ -50,17 +50,20 @@ module.exports = withBundleAnalyzer({
         destination: 'https://smartive.ch/blog/:path*',
         permanent: true,
       },
-      ...URLS.map((url) => ({
-        source: '/',
-        destination: `https://smartive.ch/${url}`,
-        permanent: true,
-        has: [
-          {
-            type: 'host',
-            value: `${url}.ch`,
-          },
-        ],
-      })),
+      ...domainRedirects(),
     ];
   },
 });
+
+const domainRedirects = () =>
+  URLS.map((url) => ({
+    source: '/',
+    destination: `https://smartive.ch/${url}`,
+    permanent: true,
+    has: [
+      {
+        type: 'host',
+        value: `${url}.ch/:path*`,
+      },
+    ],
+  }));

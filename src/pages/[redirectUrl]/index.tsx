@@ -43,7 +43,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: notionSlugs.map((redirectUrl) => ({ params: { redirectUrl } })),
-    fallback: 'blocking',
+    fallback: false,
   };
 };
 
