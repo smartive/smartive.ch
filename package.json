@@ -72,7 +72,7 @@
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
-    "eslint": "8.47.0",
+    "eslint": "8.48.0",
     "next-sitemap": "4.2.2",
     "playwright": "1.37.1",
     "postcss": "8.4.28",
