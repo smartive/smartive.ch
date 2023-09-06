@@ -9,6 +9,7 @@ import { FC, useEffect, useState } from 'react';
 require('prismjs/components/prism-rust');
 require('prismjs/components/prism-csharp');
 require('prismjs/components/prism-dart');
+require('prismjs/components/prism-protobuf');
 
 type Props = {
   code: string;
