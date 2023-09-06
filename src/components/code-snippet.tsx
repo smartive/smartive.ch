@@ -8,6 +8,7 @@ import { FC, useEffect, useState } from 'react';
 (typeof global !== 'undefined' ? global : window).Prism = Prism;
 require('prismjs/components/prism-rust');
 require('prismjs/components/prism-csharp');
+require('prismjs/components/prism-dart');
 
 type Props = {
   code: string;
