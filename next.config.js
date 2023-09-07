@@ -62,6 +62,7 @@ const URLS = [
   { host: 'agilasfuck.ch', notionKey: 'agilasfuck' },
   { host: 'failwind.ch', notionKey: 'failwind' },
   { host: 'xn--nsse-sind-gesund-jzb.ch', notionKey: 'nüsse-sind-gesund' },
+  { host: 'schade-schokolade.ch', notionKey: 'schade-schokolade' },
 ];
 
 const domainRedirects = () =>
