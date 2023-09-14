@@ -1,3 +1,4 @@
+const DOMAIN_REDIRECTS = require('./domain-redirects');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -24,6 +25,7 @@ module.exports = withBundleAnalyzer({
       'www.gravatar.com',
       'smartive-10.rokka.io',
       's3-us-west-2.amazonaws.com',
+      'prod-files-secure.s3.us-west-2.amazonaws.com',
       'res.cloudinary.com',
       ...Array.from({ length: 10 }, (_, i) => i + 1).map((n) => `lh${n}.googleusercontent.com`),
     ],
@@ -53,22 +55,10 @@ module.exports = withBundleAnalyzer({
   },
 });
 
-const URLS = [
-  { host: 'igittbier.ch', notionKey: 'igittbier' },
-  { host: 'vadfan.ch', notionKey: 'vadfan' },
-  { host: 'visst.ch', notionKey: 'visst' },
-  { host: 'grattis.ch', notionKey: 'grattis' },
-  { host: 'liiip.ch', notionKey: 'liiip' },
-  { host: 'agilasfuck.ch', notionKey: 'agilasfuck' },
-  { host: 'failwind.ch', notionKey: 'failwind' },
-  { host: 'xn--nsse-sind-gesund-jzb.ch', notionKey: 'nüsse-sind-gesund' },
-  { host: 'schade-schokolade.ch', notionKey: 'schade-schokolade' },
-];
-
 const domainRedirects = () =>
-  URLS.map(({ host: value, notionKey }) => ({
+  DOMAIN_REDIRECTS.map(({ host: value, notionKey }) => ({
     source: '/:path*',
-    destination: `https://smartive.ch/${notionKey}`,
+    destination: `https://smartive.ch/r/${notionKey}`,
     permanent: true,
     has: [
       {

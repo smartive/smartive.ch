@@ -5,38 +5,6 @@ const NOTION_SLUG_ID = '9e33d9d1cb95486fbe08609c2b7edc1c';
 
 type Filter = Extract<QueryDatabaseParameters, { type: 'filter' }>;
 
-export const getNotionRedirectUrls = async (): Promise<string[]> => {
-  const notion = new Client({ auth: process.env.NOTION_TOKEN });
-
-  const { results } = await notion.databases.query({
-    database_id: NOTION_SLUG_ID,
-    filter: {
-      and: [
-        {
-          property: 'Url',
-          title: {
-            is_not_empty: true,
-          },
-        },
-        {
-          property: 'Title',
-          title: {
-            is_not_empty: true,
-          },
-        },
-        {
-          property: 'Description',
-          rich_text: {
-            is_not_empty: true,
-          },
-        },
-      ].filter(Boolean) as Filter[],
-    },
-  });
-
-  return (results as unknown as NotionRedirectUrls[]).map(({ properties: { Url } }) => Url?.title[0]?.plain_text);
-};
-
 export const getNotionRedirectUrlData = async (slug: string): Promise<RedirectUrlData> => {
   const notion = new Client({ auth: process.env.NOTION_TOKEN });
 
@@ -60,7 +28,7 @@ export const getNotionRedirectUrlData = async (slug: string): Promise<RedirectUr
     },
   });
 
-  return (results as unknown as NotionRedirectUrls[]).map(
+  return ((results || []) as unknown as NotionRedirectUrls[]).map(
     ({ properties: { Title, Description, Url, Image, Language } }) => ({
       title: Title?.rich_text[0]?.plain_text ?? '',
       description: Description?.rich_text[0]?.plain_text ?? '',
