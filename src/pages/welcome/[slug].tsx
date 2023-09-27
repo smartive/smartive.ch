@@ -67,7 +67,7 @@ const Welcome: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ ima
         <Copy>
           Zu wissen wie die Leute heissen ist sicher schon mal ein guter Schritt. Aber du fragst dich vielleicht an wen du
           dich wenden kannst, wenn du Fragen zum Thema{' '}
-          <Link href="https://smarties.app/roles/smartive-and-beer" newTab>
+          <Link href="https://smarties.app/roles/chief-fun-officers" newTab>
             Bier 🍻
           </Link>{' '}
           hast (ja, wirklich…). Oder wie genau dieses{' '}
