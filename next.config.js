@@ -19,8 +19,6 @@ module.exports = withBundleAnalyzer({
       's3.us-west-2.amazonaws.com',
       'notion.so',
       'www.notion.so',
-      'images.prismic.io',
-      'smartive.cdn.prismic.io',
       'gravatar.com',
       'www.gravatar.com',
       'smartive-10.rokka.io',
