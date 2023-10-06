@@ -75,7 +75,7 @@ const Agentur: NextPage<Props> = ({ quote, employees }) => {
               width={720}
               height={380}
             />
-            <div className="hidden md:block md:col-start-2 md:row-span-2 relative">
+            <div className="relative hidden md:col-start-2 md:row-span-2 md:block">
               <Image
                 src={STATIC_IMAGES.mittag.src}
                 alt={STATIC_IMAGES.mittag.alt}

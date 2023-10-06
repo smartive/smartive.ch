@@ -37,8 +37,8 @@ const FeasibilityWorkshop: NextPage<Props> = ({ contact, teasers, packages }) =>
         blobs={BlobVariations.mint[1]}
         background="mint"
       >
-        <Label className="inline-flex flex-row items-center mb-8">
-          <Clock className="h-6 w-6 mr-2 inline" />
+        <Label className="mb-8 inline-flex flex-row items-center">
+          <Clock className="mr-2 inline h-6 w-6" />
           Ein Nachmittag
         </Label>
         <Copy>
@@ -55,7 +55,7 @@ const FeasibilityWorkshop: NextPage<Props> = ({ contact, teasers, packages }) =>
             erhältst du eine Einschätzung zur Machbarkeit deines Vorhabens. Gemeinsam erörtern wir den zeitlichen Rahmen,
             damit dein Projekt zum Erfolg wird.
           </Copy>
-          <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
+          <div className="mt-16 grid grid-flow-row grid-cols-1 gap-12 rounded bg-white-100 p-8 lg:gap-20 xl:grid-cols-2">
             <UnorderedList
               title="Das hast du davon"
               items={[

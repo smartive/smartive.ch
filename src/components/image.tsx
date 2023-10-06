@@ -35,7 +35,7 @@ export const Image: FC<Props> = ({ alt, rounded = 'default', src, caption, varia
   }
 
   return (
-    <figure className="w-full min-h-fit h-auto contents">
+    <figure className="contents h-auto min-h-fit w-full">
       <NextImage
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         {...(props as any)}
@@ -43,11 +43,11 @@ export const Image: FC<Props> = ({ alt, rounded = 'default', src, caption, varia
         onLoadingComplete={({ classList }) => classList.remove(bgClasses[colorIndex])}
         src={src}
         alt={alt}
-        className={`transition bg-opacity-50 ${bgClasses[colorIndex]} ${
+        className={`bg-opacity-50 transition ${bgClasses[colorIndex]} ${
           rounded === 'default' ? 'rounded' : rounded === 'full' ? 'rounded-full' : ''
         } ${variant === ImageVariant.PortraitBig || variant === ImageVariant.PortraitSmall ? 'object-cover' : ''} ${
-          variant === ImageVariant.FillContainer ? 'object-cover w-full h-full' : ''
-        } ${variant === ImageVariant.Centered ? 'object-scale-down object-center w-full h-full' : ''}`}
+          variant === ImageVariant.FillContainer ? 'h-full w-full object-cover' : ''
+        } ${variant === ImageVariant.Centered ? 'h-full w-full object-scale-down object-center' : ''}`}
         style={{
           width:
             variant === ImageVariant.PortraitSmall || variant === ImageVariant.PortraitBig
@@ -60,7 +60,7 @@ export const Image: FC<Props> = ({ alt, rounded = 'default', src, caption, varia
         }}
       />
 
-      {caption && <figcaption className="italic mt-2 text-xs">{caption}</figcaption>}
+      {caption && <figcaption className="mt-2 text-xs italic">{caption}</figcaption>}
     </figure>
   );
 };

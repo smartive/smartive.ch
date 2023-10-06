@@ -41,20 +41,20 @@ const WasIst = () => (
     <main>
       <Section>
         <Heading2>Technologie</Heading2>
-        <div className="flex gap-x-8 gap-y-4 flex-wrap mb-16 lg:mb-24">
+        <div className="mb-16 flex flex-wrap gap-x-8 gap-y-4 lg:mb-24">
           {techLinks.map((link) => (
             <Button variant="naked" as="a" key={link.label} href={link.href}>
               {link.label}
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="h-4 w-4" />
             </Button>
           ))}
         </div>
         <Heading2>Projekt- & Prozessmanagement</Heading2>
-        <div className="flex gap-x-8 gap-y-4 flex-wrap">
+        <div className="flex flex-wrap gap-x-8 gap-y-4">
           {managementLinks.map((link) => (
             <Button variant="naked" as="a" key={link.label} href={link.href}>
               {link.label}
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="h-4 w-4" />
             </Button>
           ))}
         </div>

@@ -48,14 +48,14 @@ const Fotos: NextPage<Props> = ({ photos }) => {
             },
           ]}
         ></LinkList>
-        <div className="relative mx-auto sm:mb-0 my-24 md:my-44">
+        <div className="relative mx-auto my-24 sm:mb-0 md:my-44">
           <SmartGallery photos={photos} dark={false} />
         </div>
       </main>
-      <div className="bottom-0 w-full py-8 z-50 fixed hidden lg:block">
-        <div className="fixed right-5 bottom-5 rounded-full bg-conic-gradient p-1 transition-transform scale-100 hover:scale-110 hover:rotate-6 shadow-sm">
+      <div className="fixed bottom-0 z-50 hidden w-full py-8 lg:block">
+        <div className="fixed bottom-5 right-5 scale-100 rounded-full bg-conic-gradient p-1 shadow-sm transition-transform hover:rotate-6 hover:scale-110">
           <button
-            className=" bg-white-200 h-12 w-12 rounded-full bg-white flex items-center justify-center"
+            className=" bg-white flex h-12 w-12 items-center justify-center rounded-full bg-white-200"
             onClick={() => router.back()}
           >
             🔙

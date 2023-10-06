@@ -1,5 +1,5 @@
 import { Button, Input, Label, Tooltip } from '@smartive/guetzli';
-import React, { FC, FormEvent, useRef, useState } from 'react';
+import { FC, FormEvent, useRef, useState } from 'react';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 
 type Props = {
@@ -46,9 +46,9 @@ export const NewsletterSubscription: FC<Props> = ({ label = '', button = 'Jetzt 
         }
 
         return (
-          <div className="text-left overflow-hidden sm:overflow-visible">
+          <div className="overflow-hidden text-left sm:overflow-visible">
             <form
-              className="grid grid-flow-row xl:grid-flow-col gap-2 xl:place-items-end"
+              className="grid grid-flow-row gap-2 xl:grid-flow-col xl:place-items-end"
               onSubmit={(event) => handleSubmit(event, subscribe)}
             >
               <Label as="label" className="grid grid-flow-row">
@@ -65,7 +65,7 @@ export const NewsletterSubscription: FC<Props> = ({ label = '', button = 'Jetzt 
               </Label>
 
               <Button as="button" type="submit" disabled={status === 'sending'}>
-                <span className="font-sans text-sm text-center font-bold w-full">
+                <span className="w-full text-center font-sans text-sm font-bold">
                   {status === 'sending' ? '...' : button}
                 </span>
               </Button>

@@ -71,7 +71,7 @@ const internalRenderers = {
     <div key={id}>
       <Label as="label">
         <input
-          className="focus:ring-cornflower-500 h-6 w-6 text-cornflower-500 border-cornflower-500 rounded-[6px] mr-4"
+          className="mr-4 h-6 w-6 rounded-[6px] border-cornflower-500 text-cornflower-500 focus:ring-cornflower-500"
           type="checkbox"
           id={id}
           defaultChecked={checked}
@@ -95,7 +95,7 @@ const internalRenderers = {
         ...image
       },
     }) => (
-      <div key={id} className="grid place-items-center text-xs lg:text-base text-center my-4">
+      <div key={id} className="my-4 grid place-items-center text-center text-xs lg:text-base">
         <Image
           width={width}
           height={height}
@@ -110,7 +110,7 @@ const internalRenderers = {
   quote: createRenderer('quote', ({ id, quote: { rich_text } }) => (
     <blockquote
       key={id}
-      className="bg-white-100 font-sans font-normal text-xs lg:text-base mb-8 rounded p-8 whitespace-pre-line break-words"
+      className="mb-8 whitespace-pre-line break-words rounded bg-white-100 p-8 font-sans text-xs font-normal lg:text-base"
     >
       <NotionRichText text={rich_text} />
     </blockquote>

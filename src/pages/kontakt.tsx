@@ -51,10 +51,10 @@ const Kontakt: NextPage<Props> = ({ images }) => {
                 CH-8005 Zürich
               </Heading3>
               <p>Eingang Süd vom Westpark, wenn du vor Digitec stehst, bist du auf der falschen Seite.</p>
-              <div className="flex flex-wrap justify-start text-xxs lg:text-base font-bold">
+              <div className="flex flex-wrap justify-start text-xxs font-bold lg:text-base">
                 <a
                   href="https://goo.gl/maps/S2oFWNAp6X5qrWhh7"
-                  className="no-underline border-b-4 border-mint-500 hover:border-black mr-8 last:mr-0 mb-2 transition-colors duration-150"
+                  className="mb-2 mr-8 border-b-4 border-mint-500 no-underline transition-colors duration-150 last:mr-0 hover:border-black"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -78,10 +78,10 @@ const Kontakt: NextPage<Props> = ({ images }) => {
                 CH-9000 St. Gallen
               </Heading3>
               <p>Parkieren wird schwierig, aber vom Parkhaus Oberer Graben sind es nur 2 Minuten zu Fuss. 😇 </p>
-              <div className="flex flex-wrap justify-start text-xxs lg:text-base font-bold">
+              <div className="flex flex-wrap justify-start text-xxs font-bold lg:text-base">
                 <a
                   href="https://goo.gl/maps/WVRWhFx7WjGDRUdA8"
-                  className="no-underline border-b-4 border-mint-500 hover:border-black mr-8 last:mr-0 mb-2 transition-colors duration-150"
+                  className="mb-2 mr-8 border-b-4 border-mint-500 no-underline transition-colors duration-150 last:mr-0 hover:border-black"
                   target="_blank"
                   rel="noreferrer"
                 >

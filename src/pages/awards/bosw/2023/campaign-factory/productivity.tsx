@@ -179,7 +179,7 @@ const Page: NextPage<Props> = ({ quote }) => {
             </div>
           </Grid>
 
-          <MdcfThemesAnimation className="rounded overflow-hidden" />
+          <MdcfThemesAnimation className="overflow-hidden rounded" />
         </Section>
 
         <Section title="Das Foto-Quiz-Kalender-Spiel-Paket">
@@ -189,7 +189,7 @@ const Page: NextPage<Props> = ({ quote }) => {
             Schmankerl. Aber alle animieren die User zur Teilnahme und machen es einfach, Conversions zu generieren.
           </Copy>
 
-          <Grid cols={2} className="gap-12 lg:20">
+          <Grid cols={2} className="lg:20 gap-12">
             {[
               {
                 headline: 'Quiz/Umfrage',
@@ -319,7 +319,7 @@ const Page: NextPage<Props> = ({ quote }) => {
 };
 
 const Widget: FC<{ headline: string; copy: ReactNode; widgetType: string }> = ({ headline, copy, widgetType }) => (
-  <div className="flex gap-10 items-center">
+  <div className="flex items-center gap-10">
     <div className="flex-shrink-0">
       <NextImage src={`/images/awards/bosw/2023/mdcf-${widgetType}.png`} alt={headline} width={120} height={120} />
     </div>

@@ -45,12 +45,12 @@ export const EmployeeCard: FC<Props> = ({
   return (
     <div
       id={encodeURI(name)}
-      className={`flex flex-col bg-white-100 rounded overflow-hidden ${className}`}
+      className={`flex flex-col overflow-hidden rounded bg-white-100 ${className}`}
       itemScope
       itemProp="employee"
       itemType="http://schema.org/Person"
     >
-      <div className="hidden lg:block w-full">
+      <div className="hidden w-full lg:block">
         <Image
           src={potraitWithFallback}
           rounded="none"
@@ -60,7 +60,7 @@ export const EmployeeCard: FC<Props> = ({
           height="687"
         />
       </div>
-      <div className="block lg:hidden w-full">
+      <div className="block w-full lg:hidden">
         <Image
           itemProp="image"
           src={closeupWithFallback}
@@ -71,7 +71,7 @@ export const EmployeeCard: FC<Props> = ({
           height="300"
         />
       </div>
-      <div className="flex flex-col flex-1 p-8 font-sans font-normal text-xxs lg:text-sm">
+      <div className="flex flex-1 flex-col p-8 font-sans text-xxs font-normal lg:text-sm">
         <p className="mb-2 lg:mb-6" itemProp="jobTitle">
           {job}
         </p>
@@ -79,7 +79,7 @@ export const EmployeeCard: FC<Props> = ({
           {name}
         </Heading3>
         <p>{bio}</p>
-        <div className="flex flex-1 content-end flex-row flex-wrap mt-6 gap-x-4 gap-y-2">
+        <div className="mt-6 flex flex-1 flex-row flex-wrap content-end gap-x-4 gap-y-2">
           {links.map(({ label, url }) => {
             const itemProp = url.match(/^mailto:.+$/i) ? 'email' : 'sameAs';
             return (

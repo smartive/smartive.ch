@@ -1,6 +1,6 @@
 export const TextLogo = () => (
   <svg
-    className="max-w-[65vw] h-auto"
+    className="h-auto max-w-[65vw]"
     width="359"
     height="72"
     viewBox="0 0 359 72"

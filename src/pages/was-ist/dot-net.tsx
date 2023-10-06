@@ -1,5 +1,4 @@
 import { Copy, Explainer, UnorderedList } from '@smartive/guetzli';
-import React from 'react';
 import { PageHeader } from '../../compositions/page-header';
 import { Page } from '../../layouts/page';
 import { Section } from '../../layouts/section';

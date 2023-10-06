@@ -35,7 +35,7 @@ export const SlackTheme: FC = () => {
 
   return (
     <>
-      <div className="bg-white-100 rounded text-xs select-all p-4 flex items-center break-all">
+      <div className="flex select-all items-center break-all rounded bg-white-100 p-4 text-xs">
         {darkMode ? darkModeTheme : lightModeTheme}
       </div>
       <Tooltip text="WHOOP! 🥳" isOpen={isOpen}>

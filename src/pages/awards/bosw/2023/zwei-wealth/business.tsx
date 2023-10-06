@@ -103,7 +103,7 @@ const Page: NextPage<Props> = ({ quote }) => {
             <source src="/images/awards/bosw/2023/zwei-explained.mp4" type="video/mp4" />
           </video>
 
-          <Grid cols={2} className="!auto-rows-auto !mt-16">
+          <Grid cols={2} className="!mt-16 !auto-rows-auto">
             <div>
               <Heading3>1</Heading3>
               <Copy>

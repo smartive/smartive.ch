@@ -65,9 +65,9 @@ export default function Custom404() {
   return (
     <Page>
       <PageHeader markdownTitle="Seite nicht gefunden" metaOnly></PageHeader>
-      <div className="grid grid-flow-row justify-items-center my-32">
-        <div className="relative hidden md:block h-120 w-full" dangerouslySetInnerHTML={{ __html: broccoli }} />
-        <div className="relative block md:hidden h-36 w-full" dangerouslySetInnerHTML={{ __html: broccoli }} />
+      <div className="my-32 grid grid-flow-row justify-items-center">
+        <div className="relative hidden h-120 w-full md:block" dangerouslySetInnerHTML={{ __html: broccoli }} />
+        <div className="relative block h-36 w-full md:hidden" dangerouslySetInnerHTML={{ __html: broccoli }} />
         <Heading3 as="h1" className="mt-16 text-center">
           Ooops, scheint als ob es hier nichts zu sehen gibt...
         </Heading3>

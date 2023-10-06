@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
 
 export const Text: FC<{ children: ReactNode; as?: keyof JSX.IntrinsicElements }> = ({ children, as: Tag = 'p' }) => (
-  <Tag className="font-sans font-normal text-xs md:text-sm lg:text-base mb-4 lg:mb-8">{children}</Tag>
+  <Tag className="mb-4 font-sans text-xs font-normal md:text-sm lg:mb-8 lg:text-base">{children}</Tag>
 );

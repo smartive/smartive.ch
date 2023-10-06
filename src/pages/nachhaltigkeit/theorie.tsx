@@ -25,7 +25,7 @@ const Sustainabilty: NextPage<Props> = ({ scopes, categories }) => {
         <Copy>
           Du möchtest wissen, welche Normen und Standards wir benutzen und was das bedeutet? Dann bist du hier richtig.
         </Copy>
-        <ul className="list-disc ml-8 text-xs lg:text-base flex flex-col space-y-4">
+        <ul className="ml-8 flex list-disc flex-col space-y-4 text-xs lg:text-base">
           <li>
             Die <a href="#ökobilanz"> Ökobilanzierung</a> dient uns als methodischer Rahmen. Sie misst die Emissionen und den
             Ressourcenverbrauch mit dem Lebenszyklusansatz (alles von der Wiege bis zur Bahre).
@@ -53,7 +53,7 @@ const Sustainabilty: NextPage<Props> = ({ scopes, categories }) => {
               Entsorgung umweltrelevanten Entnahmen aus der Umwelt (z.B. Erze, Rohöl), sowie Emissionen in die Umwelt (z.B.
               Abfälle, Kohlenstoffdioxidemissionen). Eine Ökobilanz wird in vier Schritten erstellt:
             </Copy>
-            <ol className="list-decimal ml-8 text-xs lg:text-base flex flex-col space-y-4">
+            <ol className="ml-8 flex list-decimal flex-col space-y-4 text-xs lg:text-base">
               <li>
                 <strong>Ziel und der Untersuchungsrahmen</strong>. Das Ziel ist die Messung der Umweltauswirkungen aller
                 Aktivitäten unseres Unternehmens. Zur Hilfe der Abgrenzung dieser Aktivitäten nutzen wir das GHG Protocol
@@ -84,7 +84,7 @@ const Sustainabilty: NextPage<Props> = ({ scopes, categories }) => {
             variant={ImageCardVariants.Wide}
             label={
               <>
-                <Calendar className="inline-block w-4 h-4 mr-2" />
+                <Calendar className="mr-2 inline-block h-4 w-4" />
                 17.09.2021
               </>
             }
@@ -107,14 +107,14 @@ const Sustainabilty: NextPage<Props> = ({ scopes, categories }) => {
               Treibhausgasen. Alle gesammelten Daten wurden anhand von den drei Scopes des Greenhouse Gas Protocol
               zusammengestellt.
             </Copy>
-            <ul className="list-disc ml-8 text-xs lg:text-base flex flex-col space-y-4">
+            <ul className="ml-8 flex list-disc flex-col space-y-4 text-xs lg:text-base">
               {sortScope(scopes).map(({ ghgCategory, description, title }) => (
                 <li key={ghgCategory}>
                   <strong>{title}:</strong> <br></br>
                   {description} <br></br>
                   <br></br>
                   {ghgCategory === ScopeNames.Scope3 ? (
-                    <ol className="list-decimal ml-8 text-xs lg:text-base flex flex-col space-y-4">
+                    <ol className="ml-8 flex list-decimal flex-col space-y-4 text-xs lg:text-base">
                       Scope 3 besteht aus 15 Kategorien. <br></br>
                       {categories.map(({ ghgCategoryNumber, title, icon, description }) => (
                         <li key={ghgCategoryNumber}>

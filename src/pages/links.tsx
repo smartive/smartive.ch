@@ -19,7 +19,7 @@ const Links: NextPage<Props> = ({ seeds }) => {
       <PageHeader markdownTitle="Links" metaOnly></PageHeader>
       <main>
         <Section>
-          <div className="max-w-screen-sm mx-auto lg:px-4">
+          <div className="mx-auto max-w-screen-sm lg:px-4">
             {seeds.map(({ url, title, id }) => {
               return (
                 <div key={id} className="mb-8">

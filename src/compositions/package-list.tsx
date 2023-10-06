@@ -1,5 +1,5 @@
 import { Clock, Grid, GridSlider } from '@smartive/guetzli';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { NextContentCard } from '../components/content-card';
 import { Package } from '../data/packages';
 
@@ -17,7 +17,7 @@ export const PackageList: FC<Props> = ({ packages }) => (
             key={paeckli.title}
             label={
               <>
-                <Clock className="h-4 w-4 mr-2 inline" />
+                <Clock className="mr-2 inline h-4 w-4" />
                 {label}
               </>
             }
@@ -33,7 +33,7 @@ export const PackageList: FC<Props> = ({ packages }) => (
             key={paeckli.title}
             label={
               <>
-                <Clock className="h-4 w-4 mr-2 inline" />
+                <Clock className="mr-2 inline h-4 w-4" />
                 {label}
               </>
             }

@@ -7,7 +7,7 @@ type Props = {
 
 export const Accordion: FC<Props> = ({ summary, children }) => {
   return (
-    <details className="font-sans font-normal text-xs lg:text-base md:max-w-prose mb-8">
+    <details className="mb-8 font-sans text-xs font-normal md:max-w-prose lg:text-base">
       <summary>{summary}</summary>
       {children}
     </details>

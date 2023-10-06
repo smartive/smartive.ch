@@ -147,7 +147,7 @@ const Page: NextPage<Props> = ({ quote }) => {
         </Section>
 
         <Section>
-          <div className="bg-cornflower-500 mx-auto flex rounded justify-center py-12 px-8">
+          <div className="mx-auto flex justify-center rounded bg-cornflower-500 px-8 py-12">
             <Image
               priority
               src="/images/awards/bosw/2022/BOSW2022-Grafik-DailyMail.svg"

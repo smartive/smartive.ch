@@ -78,7 +78,7 @@ const Tipps = () => (
           <div>
             <Heading3>Mach’s iterativ!</Heading3>
             <Copy>Jap, funktioniert auch beim Schreiben. Sogar sehr gut. Du kannst auch Jira-Tickets machen 😏</Copy>
-            <ol className="list-decimal ml-8 text-xs lg:text-base flex flex-col space-y-4">
+            <ol className="ml-8 flex list-decimal flex-col space-y-4 text-xs lg:text-base">
               <li>Vorlauf: Sammle Ideen und notiere sie.</li>
               <li>Schreiben: Nicht zu lange rumfeilen. Schreib mehrere Formulierungen auf, wenn du unsicher bist.</li>
               <li>Überarbeitung (siehe unten)</li>
@@ -114,7 +114,7 @@ const Tipps = () => (
               Synonym-Wörterbuch zu Hilfe! Oder überleg dir Gegensätze und hangle dich zurück («interessant» → «schlaf» →
               «wach»)
             </Copy>
-            <ul className="list-disc ml-8 text-xs lg:text-base flex flex-col space-y-4">
+            <ul className="ml-8 flex list-disc flex-col space-y-4 text-xs lg:text-base">
               <li>
                 z.B.{' '}
                 <Explainer title="wir bauen Komponenten, Architekten und Ingenieure, Pläne und Konzepte, zimmern, konstruieren, visualisieren, ein beständiges Gerüst hochziehen, …">
@@ -136,7 +136,7 @@ const Tipps = () => (
 
       <Section>
         <Heading2>
-          Überarbeiten: Leider <span className="line-through text-mint-500">geil</span> wichtig
+          Überarbeiten: Leider <span className="text-mint-500 line-through">geil</span> wichtig
         </Heading2>
         <Copy>Smartas Tipp: Vor dem Überarbeiten den Text einen Tag liegen lassen.</Copy>
         <Copy>
@@ -146,7 +146,7 @@ const Tipps = () => (
           <br /> Auch zu Beginn kannst du smartive gern erwähnen, z.B. «We at smartive…»
         </Copy>
         <Grid cols={3}>
-          <div className="bg-cornflower-500 rounded px-16 py-12">
+          <div className="rounded bg-cornflower-500 px-16 py-12">
             <Copy>
               Weniger ist mehr. Wücki. (Weitere tolle Tipps und fancy Facts in den{' '}
               <Link href="/brand/sprache">Sprach-Guidelines</Link>)
@@ -157,7 +157,7 @@ const Tipps = () => (
               <li>Ein Thema pro Absatz. Ein Gedanke pro Satz.</li>
             </ul>
           </div>
-          <div className="bg-mint-500 rounded px-16 py-12">
+          <div className="rounded bg-mint-500 px-16 py-12">
             <Copy>
               Nicht jedes Wort muss sitzen.{' '}
               <strong>Investier am meisten Zeit in die Teile, die zuerst gelesen werden</strong>: Titel, Teaser,
@@ -168,13 +168,13 @@ const Tipps = () => (
               Synonym­wörterbücher! Kännsch?
             </Copy>
           </div>
-          <div className="bg-apricot-500 rounded px-16 py-12">
+          <div className="rounded bg-apricot-500 px-16 py-12">
             <Copy>
               Nimm dir Zeit und lies den Text einmal von oben bis unten durch. Am besten laut. Holprige Stellen werden dir
               sofort auffallen.
             </Copy>
           </div>
-          <div className="bg-mint-500 rounded px-16 py-12">
+          <div className="rounded bg-mint-500 px-16 py-12">
             <Copy>
               Leser sind schwer zu befriedigende Biester. Motivier sie mit mit Nützlichem, zäukle mit Cliffhängern, Fragen,
               direkter Ansprache…
@@ -184,14 +184,14 @@ const Tipps = () => (
               Lieblings­menschen vor den Text).
             </Copy>
           </div>
-          <div className="bg-apricot-500 rounded px-16 py-12">
+          <div className="rounded bg-apricot-500 px-16 py-12">
             <Copy>Sei anschaulich und konkret. Mal die Szene aus (Menschen mögen das). Setz Details gezielt ein.</Copy>
             <Copy>
               Nicht lavieren («Wir hatten tendenziell den Eindruck, dass es gut wäre, fliegende Teppichen zu thematisieren» →
               «Fliegende Teppiche: Nicht für uns.»)
             </Copy>
           </div>
-          <div className="bg-cornflower-500 rounded px-16 py-12">
+          <div className="rounded bg-cornflower-500 px-16 py-12">
             <Copy>Bonus: Gönn dir ein paar Stilfiguren, z.B.</Copy>
             <ul className="list-disc text-xs lg:text-base">
               <li>Einen bewusst gesetzten Stolperstein (Überschriften!)</li>

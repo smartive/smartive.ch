@@ -37,7 +37,7 @@ const WasIstReact = () => (
           ]}
         />
         <Grid cols={2}>
-          <div className="bg-cornflower-500 rounded p-8 lg:p-12" id="typescript">
+          <div className="rounded bg-cornflower-500 p-8 lg:p-12" id="typescript">
             <TextBlock title="TypeScript">
               <Copy as="span" className="inline-block">
                 <TextLink href="https://www.typescriptlang.org/" newTab>
@@ -58,7 +58,7 @@ const WasIstReact = () => (
               </Copy>
             </TextBlock>
           </div>
-          <div className="bg-mint-500 rounded p-8 lg:p-12" id="next">
+          <div className="rounded bg-mint-500 p-8 lg:p-12" id="next">
             <TextBlock title="Next.js">
               <Copy as="span" className="inline-block">
                 Mit React generieren wir Komponenten, also Teile einer Seite. Für einen ganzen Webauftritt mit vielen Seiten
@@ -83,7 +83,7 @@ const WasIstReact = () => (
           </div>
         </Grid>
         <Grid cols={2}>
-          <div className="bg-apricot-500 rounded p-8 lg:p-12" id="xstate">
+          <div className="rounded bg-apricot-500 p-8 lg:p-12" id="xstate">
             <TextBlock title="XState">
               <Copy as="span" className="inline-block">
                 Viele mögliche Interaktionen bedeutet auch viele mögliche Zustände – etwa bei einem Verkaufsvorgang: Hat die
@@ -108,7 +108,7 @@ const WasIstReact = () => (
               </Copy>
             </TextBlock>
           </div>
-          <div className="bg-cornflower-500 rounded p-8 lg:p-12" id="tailwind">
+          <div className="rounded bg-cornflower-500 p-8 lg:p-12" id="tailwind">
             <TextBlock title="Tailwind">
               <Copy as="span" className="inline-block">
                 An CSS kommt im Web niemand vorbei. Layout, Farben, Schriften, Spacing – kurz: Das Erscheinungsbild jeder

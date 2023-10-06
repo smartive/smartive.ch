@@ -36,8 +36,8 @@ const SolutionReview: NextPage<Props> = ({ contact, teasers, packages }) => {
         background={Packages['solution-review'].background}
         blobs={BlobVariations.mint[1]}
       >
-        <Label className="inline-flex flex-row items-center mb-8">
-          <Clock className="h-6 w-6 mr-2 inline" />5 Tage
+        <Label className="mb-8 inline-flex flex-row items-center">
+          <Clock className="mr-2 inline h-6 w-6" />5 Tage
         </Label>
         <Copy>
           Erhalte eine objektive Einschätzung der Chancen und Risiken deines digitalen Produkts sowie einen klaren
@@ -54,7 +54,7 @@ const SolutionReview: NextPage<Props> = ({ contact, teasers, packages }) => {
             Klaren, welches die nächsten Schritte sind. Bei einem Solution Review analysieren wir deine bestehende Lösung und
             liefern dir unsere Erkenntnisse, eine Risikoanalyse und Empfehlungen.
           </Copy>
-          <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
+          <div className="mt-16 grid grid-flow-row grid-cols-1 gap-12 rounded bg-white-100 p-8 lg:gap-20 xl:grid-cols-2">
             <UnorderedList
               title="Das hast du davon"
               items={[

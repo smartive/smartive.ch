@@ -27,10 +27,10 @@ export const Footer: FC = () => {
 
   return (
     <footer ref={ref} className="bg-cornflower-500">
-      <div className="container mx-auto px-4 pt-24 xl:pt-32 pb-8 h-full">
-        <Label as="div" className="hidden lg:grid grid-cols-4 grid-flow-row items-end justify-items-center">
+      <div className="container mx-auto h-full px-4 pb-8 pt-24 xl:pt-32">
+        <Label as="div" className="hidden grid-flow-row grid-cols-4 items-end justify-items-center lg:grid">
           <address
-            className="not-italic grid grid-flow-row place-self-start"
+            className="grid grid-flow-row place-self-start not-italic"
             itemScope
             itemType="http://schema.org/Organization"
           >
@@ -87,7 +87,7 @@ export const Footer: FC = () => {
             </div>
           )}
 
-          <div className="grid grid-flow-row place-self-end justify-items-start">
+          <div className="grid grid-flow-row justify-items-start place-self-end">
             <NavItem href="https://www.linkedin.com/company/smartive-ag/" newTab>
               LinkedIn
             </NavItem>
@@ -102,9 +102,9 @@ export const Footer: FC = () => {
           {inView && <BackToTop />}
         </Label>
 
-        <Label as="div" className="relative grid lg:hidden grid-flow-row place-items-center gap-8 max-w-[20rem] mx-auto">
+        <Label as="div" className="relative mx-auto grid max-w-[20rem] grid-flow-row place-items-center gap-8 lg:hidden">
           <address
-            className="not-italic grid grid-flow-row text-center w-full"
+            className="grid w-full grid-flow-row text-center not-italic"
             itemScope
             itemType="http://schema.org/Organization"
           >
@@ -194,7 +194,7 @@ export const Footer: FC = () => {
 
 const SwissMadeSoftwareLogo = () => (
   <svg
-    className="lg:place-self-start mt-8 lg:mt-32 text-black"
+    className="mt-8 text-black lg:mt-32 lg:place-self-start"
     width="244"
     height="25"
     viewBox="0 0 244 25"

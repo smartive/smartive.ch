@@ -33,7 +33,7 @@ const Welcome: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ ima
             width={720}
             height={380}
           />
-          <div className="md:block md:col-start-2 md:row-span-2 relative">
+          <div className="relative md:col-start-2 md:row-span-2 md:block">
             <Image
               src={images.large.src}
               alt={images.large.alt}

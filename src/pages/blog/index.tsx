@@ -49,7 +49,7 @@ const Blog: NextPage<Props> = ({ posts }) => {
                     variant={index === 0 ? ImageCardVariants.Wide : ImageCardVariants.Small}
                     label={
                       <>
-                        <Calendar className="inline-block w-4 h-4 mr-2" />
+                        <Calendar className="mr-2 inline-block h-4 w-4" />
                         {dayjs(date).locale('de').format('MMMM YYYY')}
                       </>
                     }
@@ -67,7 +67,7 @@ const Blog: NextPage<Props> = ({ posts }) => {
                     title={title}
                     label={
                       <>
-                        <Calendar className="inline-block w-4 h-4 mr-2" />
+                        <Calendar className="mr-2 inline-block h-4 w-4" />
                         {dayjs(date).locale('de').format('MMMM YYYY')}
                       </>
                     }

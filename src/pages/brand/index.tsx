@@ -78,38 +78,38 @@ const Brand: FC = () => (
       <Copy className="space-x-8">
         <a
           href="images/brand/smartive.svg"
-          className="border-b-4 border-apricot-500 hover:border-black font-bold no-underline"
+          className="border-b-4 border-apricot-500 font-bold no-underline hover:border-black"
           download="smartive.svg"
         >
           Download SVG
         </a>
         <a
           href="images/brand/smartive.png"
-          className="border-b-4 border-mint-500 hover:border-black font-bold no-underline"
+          className="border-b-4 border-mint-500 font-bold no-underline hover:border-black"
           download
         >
           Download PNG
         </a>
         <a
           href="images/brand/smartive-print.zip"
-          className="border-b-4 border-cornflower-500 hover:border-black font-bold no-underline"
+          className="border-b-4 border-cornflower-500 font-bold no-underline hover:border-black"
           download
         >
           Download Print.zip
         </a>
       </Copy>
-      <div className="grid grid-rows-3 sm:grid-rows-2 grid-cols-2 rounded overflow-hidden mt-8">
-        <div className="bg-white-100 grid place-items-center h-48 sm:h-72 lg:h-96 col-span-2 sm:col-span-1">
-          <Logo className="h-8 lg:h-16 w-auto" />
+      <div className="mt-8 grid grid-cols-2 grid-rows-3 overflow-hidden rounded sm:grid-rows-2">
+        <div className="col-span-2 grid h-48 place-items-center bg-white-100 sm:col-span-1 sm:h-72 lg:h-96">
+          <Logo className="h-8 w-auto lg:h-16" />
         </div>
-        <div className="bg-black grid place-items-center col-span-2 sm:col-span-1">
-          <Logo inverted className="h-8 lg:h-16 w-auto" />
+        <div className="col-span-2 grid place-items-center bg-black sm:col-span-1">
+          <Logo inverted className="h-8 w-auto lg:h-16" />
         </div>
-        <div className="bg-apricot-500 grid place-items-center col-span-2 text-white relative overflow-hidden">
+        <div className="text-white relative col-span-2 grid place-items-center overflow-hidden bg-apricot-500">
           {BlobVariations.apricot[2].map(({ positionX, positionY, color }, i) => (
             <Blob key={i} positionX={positionX} positionY={positionY} color={color} />
           ))}
-          <Logo className="h-8 sm:h-12 lg:h-24 w-auto z-10" />
+          <Logo className="z-10 h-8 w-auto sm:h-12 lg:h-24" />
         </div>
       </div>
     </Section>
@@ -121,10 +121,10 @@ const Brand: FC = () => (
         Schwarz lieber vermeiden und stattdessen Darkness ☠️ verwenden.
       </Copy>
       <Heading3>Slack Theme</Heading3>
-      <div className="flex flex-col sm:flex-row gap-2 items-center mb-8">
+      <div className="mb-8 flex flex-col items-center gap-2 sm:flex-row">
         <SlackTheme />
       </div>
-      <ul className="grid xl:grid-cols-2 gap-8">
+      <ul className="grid gap-8 xl:grid-cols-2">
         <ColorBox
           color="apricot"
           name="Apricot"
@@ -189,7 +189,7 @@ const Brand: FC = () => (
           ]}
         />
       </Copy>
-      <div className="grid grid-rows-2 rounded overflow-hidden">
+      <div className="grid grid-rows-2 overflow-hidden rounded">
         <div className="bg-white-100 p-8 lg:p-16">
           <Heading1 as="p">
             Wir schreiben Headlines in Inter Semi Bold und <Decoration>Auszeichnungen</Decoration> mit IBM Plex Serif kursiv.
@@ -203,7 +203,7 @@ const Brand: FC = () => (
             und fertig.
           </Copy>
         </div>
-        <div className="bg-apricot-500 p-8 lg:p-16 flex flex-col justify-center">
+        <div className="flex flex-col justify-center bg-apricot-500 p-8 lg:p-16">
           <div>
             <Heading1 as="p" className="text-center">
               Auf Patterns und farbigen Flächen schreiben wir auch schwarz.
@@ -225,20 +225,20 @@ const Brand: FC = () => (
       <Copy className="space-x-8">
         <a
           href="images/brand/avatars.zip"
-          className="border-b-4 border-apricot-500 hover:border-black font-bold no-underline"
+          className="border-b-4 border-apricot-500 font-bold no-underline hover:border-black"
           download="avatar-set.zip"
         >
           Download Avatar Set ZIP
         </a>
         <a
           href="images/brand/wallpapers.zip"
-          className="border-b-4 border-mint-500 hover:border-black font-bold no-underline"
+          className="border-b-4 border-mint-500 font-bold no-underline hover:border-black"
           download
         >
           Download Wallpaper Set (Desktop/Mobile) ZIP
         </a>
       </Copy>
-      <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 relative gap-4 sm:gap-6">
+      <div className="relative grid grid-cols-3 gap-4 sm:grid-cols-4 sm:gap-6 lg:grid-cols-6">
         {Array.from({ length: 12 }, (_, i) => (
           <img key={i} src={`images/brand/avatars/avatar${i + 1}.png`} alt="" className="rounded" />
         ))}
@@ -255,25 +255,25 @@ type ColorBoxProps = {
 };
 const ColorBox: FC<ColorBoxProps> = ({ color, name, values }) => (
   <li
-    className={`h-64 flex sm:bg-white-100 rounded overflow-hidden ${
+    className={`flex h-64 overflow-hidden rounded sm:bg-white-100 ${
       color === 'gray'
-        ? 'bg-white-200 border-white-100 border-8 sm:border-0 rounded-l'
+        ? 'rounded-l border-8 border-white-100 bg-white-200 sm:border-0'
         : color === 'darkness'
         ? 'bg-black text-white-200 sm:text-black'
         : mapColorToBG(color)
     }`}
   >
     <div
-      className={`h-64 w-64 flex-0 hidden sm:block ${
+      className={`flex-0 hidden h-64 w-64 sm:block ${
         color === 'gray'
-          ? 'bg-white-200 border-white-100 border-4 rounded-l'
+          ? 'rounded-l border-4 border-white-100 bg-white-200'
           : color === 'darkness'
           ? 'bg-black'
           : mapColorToBG(color)
       }`}
     />
     <div className="p-6">
-      <h3 className="font-sans font-bold text-sm lg:text-lg mb-2 lg:mb-4">{name}</h3>
+      <h3 className="mb-2 font-sans text-sm font-bold lg:mb-4 lg:text-lg">{name}</h3>
       <ColorValues values={values} color={color} />
     </div>
   </li>
@@ -287,11 +287,11 @@ const ColorValues: FC<{ values: ColorValue[]; color: BrandColorOrTint }> = ({ va
   <dl className="grid grid-cols-2 gap-x-12 gap-y-4">
     {values.map(({ label, content }) => (
       <div key={label} className="flex flex-col">
-        <dt className="text-xxs md:text-xs mb-1 font-bold">{label}</dt>
+        <dt className="mb-1 text-xxs font-bold md:text-xs">{label}</dt>
         <dd
-          className={`select-all text-sm md:text-base sm:bg-white-200 ${
+          className={`select-all text-sm sm:bg-white-200 md:text-base ${
             color === 'gray' ? 'bg-white-200' : color === 'darkness' ? 'bg-apricot-800' : mapColorToLightBG(color)
-          } whitespace-nowrap px-[6px] py-[2px] rounded-[4px]`}
+          } whitespace-nowrap rounded-[4px] px-[6px] py-[2px]`}
         >
           {content}
         </dd>

@@ -37,7 +37,7 @@ export const CodeSnippet: FC<Props> = ({ code, language, caption }) => (
   <figure>
     <Highlight code={code} language={replaceLanguages(language)} theme={themes.shadesOfPurple}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={[className, 'my-8 rounded p-4 whitespace-pre-wrap text-xs relative'].join(' ')} style={style}>
+        <pre className={[className, 'relative my-8 whitespace-pre-wrap rounded p-4 text-xs'].join(' ')} style={style}>
           {language && <div className="absolute right-4 top-2">{language}</div>}
           {tokens.map((line, i) => (
             <div {...getLineProps({ line, key: i })} key={i}>
@@ -49,7 +49,7 @@ export const CodeSnippet: FC<Props> = ({ code, language, caption }) => (
         </pre>
       )}
     </Highlight>
-    {caption && <figcaption className="italic -mt-6 mb-4 text-xs">{caption}</figcaption>}
+    {caption && <figcaption className="-mt-6 mb-4 text-xs italic">{caption}</figcaption>}
   </figure>
 );
 
@@ -67,7 +67,7 @@ export const MermaidDiagram: FC<MermaidProps> = ({ code, caption }) => {
   return (
     <figure>
       {svg && <div className="grid place-items-center" dangerouslySetInnerHTML={{ __html: svg }} />}
-      {caption && <figcaption className="italic mt-2 text-xs">{caption}</figcaption>}
+      {caption && <figcaption className="mt-2 text-xs italic">{caption}</figcaption>}
     </figure>
   );
 };

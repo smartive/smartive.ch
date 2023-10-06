@@ -12,7 +12,7 @@ export const CustomerList: FC<Props> = ({ customers }) => {
   const plausible = usePlausible<PlausibleEvents>();
 
   return (
-    <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-8 sm:gap-12 md:gap-16">
+    <div className="grid grid-cols-3 gap-8 sm:gap-12 md:grid-cols-4 md:gap-16 xl:grid-cols-6">
       {customers.map(({ name, logo }) => (
         <Image
           onClick={() => {

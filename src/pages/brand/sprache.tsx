@@ -66,7 +66,7 @@ const Sprache = () => (
       </Section>
 
       <Section>
-        <div className="flex space-x-8 items-center justify-center">
+        <div className="flex items-center justify-center space-x-8">
           <Image src="/images/brand/smarta-loves.png" alt="" height="300" width="300" objectFit="contain" />
           <Heading2>
             <span className="text-cornflower-500">Funktioniert im Web</span>

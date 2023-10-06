@@ -70,15 +70,15 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
           Treibhausgas-Emissionen, die durch unsere Tätigkeiten verursacht werden. Dies reicht von der Klimaanlage im Büro
           über geschäftliche Mobilität bis zum Kaffee, den wir trinken.
         </Copy>
-        <div className="flex gap-x-8 gap-y-4 flex-wrap mb-16 lg:mb-24">
+        <div className="mb-16 flex flex-wrap gap-x-8 gap-y-4 lg:mb-24">
           <Button as="a" key={'ökobilanz'} href={'/nachhaltigkeit/theorie'}>
-            Wie berechnen wir unseren Fussabdruck? <ChevronRight className="w-4 h-4" />
+            Wie berechnen wir unseren Fussabdruck? <ChevronRight className="h-4 w-4" />
           </Button>
         </div>
         <Section>
           <Heading2>Sind wir auf dem richtigen Weg?</Heading2>
           <Heading3>Unser Ausstoss über die Jahre</Heading3>
-          <div className="max-w-[800px] mb-2">
+          <div className="mb-2 max-w-[800px]">
             <table
               className="charts-css bar show-heading show-labels show-primary-axis data-spacing-6 max-w-[800px]"
               style={

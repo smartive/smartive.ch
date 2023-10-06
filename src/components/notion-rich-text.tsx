@@ -39,7 +39,7 @@ export const NotionRichText = ({ text, decorate = false, className = '' }: Props
               className={[
                 className,
                 bold ? 'font-bold' : '',
-                code ? 'font-mono bg-mint-200 py-0.5 px-1 rounded-sm' : '',
+                code ? 'rounded-sm bg-mint-200 px-1 py-0.5 font-mono' : '',
                 italic ? 'italic' : '',
                 strikethrough ? 'line-through' : '',
                 underline ? 'underline' : '',

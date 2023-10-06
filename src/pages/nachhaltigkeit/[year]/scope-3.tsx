@@ -50,7 +50,7 @@ const Scope3: NextPage<Props> = ({
         <LinkList linkWrapper={(props) => <NextLink legacyBehavior {...props} />} links={links} />
       </PageHeader>
       <Heading3>Vergleich der Kategorien aus Scope 3</Heading3>
-      <div className="max-w-[800px] mb-2">
+      <div className="mb-2 max-w-[800px]">
         <table
           className="charts-css bar show-heading show-labels show-primary-axis show-data-axes show-4-secondary-axes data-spacing-6 max-w-[800px]"
           style={

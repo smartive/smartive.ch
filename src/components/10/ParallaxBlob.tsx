@@ -1,7 +1,7 @@
-import { FC } from 'react';
-import { Blob, BlobVariants } from './blob';
 import { useSSRSafeRandomNumber } from '@smartive/guetzli';
+import { FC } from 'react';
 import { Scroll } from 'scrollex';
+import { Blob, BlobVariants } from './blob';
 import { keyframes } from './ten-head';
 
 export const ParallaxBlob: FC<{ variant?: BlobVariants; className?: string }> = ({ variant, className }) => {

@@ -25,8 +25,8 @@ export const BlogMetaCard: FC<Props> = ({ post, readingTime, language }) => {
   const date = dayjs(post.date);
 
   return (
-    <div className="grid justify-center place-content-between gap-4 p-4 md:p-8 rounded bg-white-100 h-full">
-      <div className="grid place-items-center text-center gap-4">
+    <div className="grid h-full place-content-between justify-center gap-4 rounded bg-white-100 p-4 md:p-8">
+      <div className="grid place-items-center gap-4 text-center">
         {post.avatar && (
           <Image
             src={new URL(`${post.avatar.startsWith('http') ? '' : 'https://'}${post.avatar}`).toString()}
@@ -35,17 +35,17 @@ export const BlogMetaCard: FC<Props> = ({ post, readingTime, language }) => {
             variant={ImageVariant.PortraitBig}
           />
         )}
-        <Heading3 as="p" className="!mb-0 !lg:mb-0">
+        <Heading3 as="p" className="!lg:mb-0 !mb-0">
           {TEXTS[language].from} <span itemProp="author">{post.creator}</span>
         </Heading3>
-        <div className="grid grid-cols-[1rem,auto] gap-2 justify-items-center place-items-center">
-          <Calendar className="w-4 h-4" />
+        <div className="grid grid-cols-[1rem,auto] place-items-center justify-items-center gap-2">
+          <Calendar className="h-4 w-4" />
           <meta
             itemProp="dateCreated datePublished pubDate"
             content={date.isValid() ? date.format('YYYY-MM-DD') : 'Draft'}
           />
           <span>{date.isValid() ? date.format('MMMM YYYY') : 'Draft'}</span>
-          <Clock className="w-4 h-4" />
+          <Clock className="h-4 w-4" />
           <span>
             ~{readingTime} {TEXTS[language].minutes}
           </span>

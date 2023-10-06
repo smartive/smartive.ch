@@ -34,7 +34,7 @@ export const Contact: FC<Props> = ({
   };
 
   return (
-    <div className="grid place-content-center items-center justify-items-center text-center lg:text-left grid-flow-row lg:grid-flow-col gap-12 px-4 lg:px-14">
+    <div className="grid grid-flow-row place-content-center items-center justify-items-center gap-12 px-4 text-center lg:grid-flow-col lg:px-14 lg:text-left">
       <Image src={portrait} alt={`${firstname} ${lastname}`} variant={ImageVariant.PortraitBig} />
       <div>
         <Heading2>{children}</Heading2>

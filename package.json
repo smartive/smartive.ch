@@ -24,14 +24,11 @@
     "@smartive/guetzli": "2.9.0",
     "@xstate/fsm": "2.1.0",
     "@xstate/react": "3.2.2",
-    "blobs": "^2.3.0-beta.2",
     "charts.css": "1.0.1",
     "dayjs": "1.11.10",
     "eslint-config-next": "13.5.4",
     "framer-motion": "10.16.4",
     "glider-js": "^1.7.7",
-    "graphql": "16.8.1",
-    "graphql-request": "6.1.0",
     "image-size": "1.0.2",
     "js-confetti": "0.11.0",
     "mermaid": "10.5.0",
@@ -48,7 +45,6 @@
     "react-photo-gallery-next": "8.0.1",
     "rokka": "3.15.0",
     "scrollex": "^2.0.1",
-    "sharp": "0.32.6",
     "xstate": "4.38.2"
   },
   "devDependencies": {
@@ -68,6 +64,7 @@
     "postcss": "8.4.31",
     "postcss-import": "15.1.0",
     "prettier": "3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.5",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2",
     "wait-on": "^7.0.1"

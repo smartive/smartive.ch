@@ -24,7 +24,7 @@ const BlogPost: NextPage<Props> = ({ post, blocks }) => {
         <meta itemProp="headline" content={post.title} />
         <meta itemProp="abstract" content={plainAbstract} />
         <PageHeader markdownTitle={post.title} description={plainAbstract} image={post.cover ?? null}>
-          <div className="grid md:grid-cols-[66%,auto] gap-4">
+          <div className="grid gap-4 md:grid-cols-[66%,auto]">
             {post.cover && (
               <div>
                 <Image
@@ -39,7 +39,7 @@ const BlogPost: NextPage<Props> = ({ post, blocks }) => {
                 />
               </div>
             )}
-            <div className="hidden md:block h-full">
+            <div className="hidden h-full md:block">
               <BlogMetaCard post={post} readingTime={readingTime} language={post.language} />
             </div>
             <div className="block md:hidden">
@@ -48,7 +48,7 @@ const BlogPost: NextPage<Props> = ({ post, blocks }) => {
           </div>
         </PageHeader>
 
-        <main className="w-full md:w-2/3 my-12 md:my-16 lg:my-48">
+        <main className="my-12 w-full md:my-16 md:w-2/3 lg:my-48">
           <article itemProp="articleBody text" lang={post.language}>
             {renderContent(blocks)}
           </article>

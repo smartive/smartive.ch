@@ -27,7 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <PlausibleProvider domain={PLAUSIBLE_DOMAIN} enabled={PLAUSIBLE_ENABLED}>
-      <div className="min-h-screen grid grid-rows-[auto,1fr,auto] overflow-hidden">
+      <div className="grid min-h-screen grid-rows-[auto,1fr,auto] overflow-hidden">
         <Head>
           <meta
             name="viewport"

@@ -14,7 +14,7 @@ export const Image: FC<Props> = ({ fixSize, alt, src, ...props }) => {
     <NextImage
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       {...(props as any)}
-      className={`relative z-20 transition rounded ${bgClasses[colorIndex]}`}
+      className={`relative z-20 rounded transition ${bgClasses[colorIndex]}`}
       src={src}
       alt={alt}
       objectFit={!fixSize ? 'cover' : 'contain'}

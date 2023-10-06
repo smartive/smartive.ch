@@ -7,7 +7,7 @@ type Props = {
 
 export const Avatar: FC<Props> = ({ src }) => {
   return (
-    <div className="relative rounded-full inline-flex items-center p-1 bg-conic-gradient">
+    <div className="relative inline-flex items-center rounded-full bg-conic-gradient p-1">
       <NextImage
         className="rounded-full"
         loading="eager"

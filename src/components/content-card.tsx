@@ -1,6 +1,6 @@
 import { ContentCard, ContentCardProps } from '@smartive/guetzli';
 import NextLink from 'next/link';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 type Props = ContentCardProps;
 

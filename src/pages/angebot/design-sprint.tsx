@@ -38,8 +38,8 @@ const DesignSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
         background={Packages['design-sprint'].background}
         blobs={BlobVariations.apricot[2]}
       >
-        <Label className="inline-flex flex-row items-center mb-8">
-          <Clock className="h-6 w-6 mr-2 inline" />1 Woche
+        <Label className="mb-8 inline-flex flex-row items-center">
+          <Clock className="mr-2 inline h-6 w-6" />1 Woche
         </Label>
         <Copy>
           ‌Gewinn‌ ‌ein‌ ‌besseres‌ ‌Verständnis‌ ‌für‌ ‌die‌ ‌Bedürfnisse‌‌ deiner‌ ‌Nutzer‌ ‌und‌ ‌generier ‌daraus‌
@@ -58,7 +58,7 @@ const DesignSprint: NextPage<Props> = ({ contact, packages, teasers }) => {
             visuellen, klickbaren Prototypen und führen bereits ein erstes Testing mit deinen po­ten­zi­ellen Nutzer*innen
             durch.
           </Copy>
-          <div className="grid grid-flow-row grid-cols-1 xl:grid-cols-2 gap-12 lg:gap-20 bg-white-100 rounded p-8 mt-16">
+          <div className="mt-16 grid grid-flow-row grid-cols-1 gap-12 rounded bg-white-100 p-8 lg:gap-20 xl:grid-cols-2">
             <UnorderedList
               title="Das hast du davon"
               items={[

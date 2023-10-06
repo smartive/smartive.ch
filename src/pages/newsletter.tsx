@@ -54,7 +54,7 @@ const Newsletter: NextPage<Props> = ({ images }) => {
               width={720}
               height={500}
             />
-            <div className="hidden md:block md:col-start-2 md:row-span-2 relative">
+            <div className="relative hidden md:col-start-2 md:row-span-2 md:block">
               <Image
                 src={images.coderetreat}
                 alt="smartive Team am Mittagstisch beim Essen"

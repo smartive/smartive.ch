@@ -83,18 +83,18 @@ export const SmartGallery: FC<Props> = ({ photos, dark = true }) => {
       </div>
       {showViewer ? (
         <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-            <div className="relative my-6 w-screen h-screen">
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full h-full bg-black outline-none focus:outline-none">
-                <div className="p-6 flex-none w-full h-full">
+          <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none">
+            <div className="relative my-6 h-screen w-screen">
+              <div className="rounded-lg relative flex h-full w-full flex-col border-0 bg-black shadow-lg outline-none focus:outline-none">
+                <div className="h-full w-full flex-none p-6">
                   <button
                     type="button"
-                    className="absolute lg:top-3 lg:right-2.5 right-6 top-10 text-white-200 bg-transparent rounded-full text-sm p-1.5 ml-auto inline-flex items-center hover:bg-white-200/50 hover:text-white-100 z-50"
+                    className="absolute right-6 top-10 z-50 ml-auto inline-flex items-center rounded-full bg-transparent p-1.5 text-sm text-white-200 hover:bg-white-200/50 hover:text-white-100 lg:right-2.5 lg:top-3"
                     onClick={() => closeLightbox()}
                   >
                     <svg
                       aria-hidden="true"
-                      className="w-5 h-5"
+                      className="h-5 w-5"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -108,11 +108,11 @@ export const SmartGallery: FC<Props> = ({ photos, dark = true }) => {
                     <span className="sr-only">Close modal</span>
                   </button>
 
-                  <div className="flex-1 mx-auto md:p-4 text-lg bg-white h-full shadow-lg bg-gray-300">
-                    <div className="glider-contain h-full flex items-center">
+                  <div className="bg-white bg-gray-300 mx-auto h-full flex-1 text-lg shadow-lg md:p-4">
+                    <div className="glider-contain flex h-full items-center">
                       <div className="glider__list h-full md:p-2" ref={gliderListRef}>
                         {photos.map((p) => (
-                          <div className={'h-full items-center flex flex-1'} key={'photo-frame-' + p.key}>
+                          <div className={'flex h-full flex-1 items-center'} key={'photo-frame-' + p.key}>
                             <div
                               style={{
                                 width: '100%',
@@ -135,12 +135,12 @@ export const SmartGallery: FC<Props> = ({ photos, dark = true }) => {
                       </div>
                       <button
                         type="button"
-                        className="absolute top-0 left-0 z-30 my-6 flex items-center justify-center h-4/5 md:px-4 cursor-pointer group focus:outline-none glider-prev-test"
+                        className="glider-prev-test group absolute left-0 top-0 z-30 my-6 flex h-4/5 cursor-pointer items-center justify-center focus:outline-none md:px-4"
                       >
-                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white-100 text-black group-hover:bg-white-100/50 group-focus:ring-4 group-focus:ring-white">
+                        <span className="group-focus:ring-white inline-flex h-8 w-8 items-center justify-center rounded-full bg-white-100 text-black group-hover:bg-white-100/50 group-focus:ring-4 sm:h-10 sm:w-10">
                           <svg
                             aria-hidden="true"
-                            className="w-5 h-5 sm:w-6 sm:h-6"
+                            className="h-5 w-5 sm:h-6 sm:w-6"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -154,12 +154,12 @@ export const SmartGallery: FC<Props> = ({ photos, dark = true }) => {
 
                       <button
                         type="button"
-                        className="absolute top-0 right-0 z-30 my-6 flex items-center justify-center h-4/5 md:px-4 cursor-pointer group focus:outline-none glider-next-test"
+                        className="glider-next-test group absolute right-0 top-0 z-30 my-6 flex h-4/5 cursor-pointer items-center justify-center focus:outline-none md:px-4"
                       >
-                        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white-100 text-black group-hover:bg-white-100/50 group-focus:ring-4 group-focus:ring-white">
+                        <span className="group-focus:ring-white inline-flex h-8 w-8 items-center justify-center rounded-full bg-white-100 text-black group-hover:bg-white-100/50 group-focus:ring-4 sm:h-10 sm:w-10">
                           <svg
                             aria-hidden="true"
-                            className="w-5 h-5 sm:w-6 sm:h-6"
+                            className="h-5 w-5 sm:h-6 sm:w-6"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -176,7 +176,7 @@ export const SmartGallery: FC<Props> = ({ photos, dark = true }) => {
               </div>
             </div>
           </div>
-          <div className="opacity-25 fixed inset-0 z-40 bg-white-100"></div>
+          <div className="fixed inset-0 z-40 bg-white-100 opacity-25"></div>
         </>
       ) : null}
     </>

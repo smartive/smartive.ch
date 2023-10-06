@@ -1,5 +1,5 @@
-import React, { FC, ReactNode } from 'react';
 import { Heading2 } from '@smartive/guetzli';
+import { FC, ReactNode } from 'react';
 
 export type SectionProps = {
   title?: string;

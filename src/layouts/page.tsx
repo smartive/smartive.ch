@@ -1,5 +1,5 @@
 import { Logo, Navigation } from '@smartive/guetzli';
-import { domAnimation, LazyMotion } from 'framer-motion';
+import { LazyMotion, domAnimation } from 'framer-motion';
 import { usePlausible } from 'next-plausible';
 import { useRouter } from 'next/dist/client/router';
 import NextLink from 'next/link';
@@ -50,7 +50,7 @@ export const Page: FC<Props> = ({ children }) => {
           onHomeLinkContextMenu={() => (window.location.href = '/brand')}
         />
       </LazyMotion>
-      <div id="pageContent" className="lg:container lg:mx-auto p-4 max-w-[100vw]">
+      <div id="pageContent" className="max-w-[100vw] p-4 lg:container lg:mx-auto">
         {children}
       </div>
     </div>

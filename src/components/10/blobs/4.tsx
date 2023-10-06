@@ -1,6 +1,6 @@
 export const Blob4 = () => (
   <svg
-    className="max-w-full h-auto w-[326px] lg:w-auto"
+    className="h-auto w-[326px] max-w-full lg:w-auto"
     width="652"
     height="706"
     viewBox="0 0 652 706"

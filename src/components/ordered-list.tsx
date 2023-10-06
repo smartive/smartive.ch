@@ -6,10 +6,10 @@ type Props = {
 
 export const OrderedList: FC<Props> = ({ children }) => {
   return (
-    <ol className="list-inside mb-8">
+    <ol className="mb-8 list-inside">
       {Children.map(children, (child) => (
-        <li className="list-decimal font-sans font-bold text-xs lg:text-base text-mint-500">
-          <span className="font-sans font-normal text-xs lg:text-base text-black">{child}</span>
+        <li className="list-decimal font-sans text-xs font-bold text-mint-500 lg:text-base">
+          <span className="font-sans text-xs font-normal text-black lg:text-base">{child}</span>
         </li>
       ))}
     </ol>

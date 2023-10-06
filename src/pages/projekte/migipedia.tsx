@@ -56,10 +56,10 @@ const Migipedia: NextPage<Props> = ({ quote, contact, teasers, awards, images })
 
       <main>
         <Section>
-          <div className="relative w-full h-0 pb-[56.25%] rounded overflow-hidden">
+          <div className="relative h-0 w-full overflow-hidden rounded pb-[56.25%]">
             <iframe
               src="https://www.youtube-nocookie.com/embed/b9q9176Vy0s"
-              className="absolute top-0 left-0 w-full h-full"
+              className="absolute left-0 top-0 h-full w-full"
               title="10 Jahre Migipedia"
               frameBorder="0"
               allowFullScreen

@@ -4,7 +4,7 @@ type Props = {
   children: ReactNode;
 };
 export const Card: FC<Props> = ({ children }) => (
-  <div className="bg-conic-gradient rounded p-1">
-    <div className="bg-white-100 rounded p-8 text-black">{children}</div>
+  <div className="rounded bg-conic-gradient p-1">
+    <div className="rounded bg-white-100 p-8 text-black">{children}</div>
   </div>
 );

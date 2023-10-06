@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 const CIRCLE_ANIMATION_DURATION = '10s';
 const TEXT_ANIMATION_DURATION = '60s';

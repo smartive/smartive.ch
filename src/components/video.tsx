@@ -8,11 +8,11 @@ type Props = {
 export const Video: FC<Props> = ({ src, caption }) => {
   return (
     <figure>
-      <video width="1000" height="562" className="w-full h-auto rounded" controls autoPlay loop muted>
+      <video width="1000" height="562" className="h-auto w-full rounded" controls autoPlay loop muted>
         <source src={src} type="video/mp4"></source>
       </video>
 
-      {caption && <figcaption className="text-center italic mt-2 text-xs">{caption}</figcaption>}
+      {caption && <figcaption className="mt-2 text-center text-xs italic">{caption}</figcaption>}
     </figure>
   );
 };

@@ -3,11 +3,11 @@ import NextLink from 'next/link';
 import { FC } from 'react';
 
 const LogoHeader: FC = () => (
-  <header className="text-center font-sans font-bold text-xs py-4">
+  <header className="py-4 text-center font-sans text-xs font-bold">
     <nav>
       <NextLink href="/" passHref legacyBehavior>
         <NavItem href="/">
-          <Logo className="h-[21px] w-auto py-[4px] mx-auto" />
+          <Logo className="mx-auto h-[21px] w-auto py-[4px]" />
         </NavItem>
       </NextLink>
     </nav>

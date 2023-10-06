@@ -103,12 +103,12 @@ const Ten: NextPage<Props> = ({ employees }) => {
   return (
     <>
       <TenHead />
-      <main id="pageContent" className="relative bg-black text-white-100 overflow-hidden">
+      <main id="pageContent" className="relative overflow-hidden bg-black text-white-100">
         <Scroll.Section>
           <Container inViewChange={(inView) => inView && setVisibleYear(null)}>
-            <ParallaxBlob variant={BlobVariants.Two} className="absolute w-72 -bottom-72 -left-96 z-0" />
+            <ParallaxBlob variant={BlobVariants.Two} className="absolute -bottom-72 -left-96 z-0 w-72" />
 
-            <div className="relative z-10 col-span-12 lg:col-span-6 mt-6 lg:mt-0 mb-12 lg:mb-24">
+            <div className="relative z-10 col-span-12 mb-12 mt-6 lg:col-span-6 lg:mb-24 lg:mt-0">
               <Heading level="3">
                 Zäh. Zeh. Dieci. Zehn. ZEHN! Schon so viele Jahre gibts uns jetzt. Wir brauchen alle Finger BEIDER Hände! 👐
                 Schon bitz verrückt. Aber auch der richtige Zeitpunkt, um mal zurückzuschauen. Wenn du auch Lust darauf hast
@@ -122,7 +122,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
 
         <Scroll.Section>
           <Container inViewChange={(inView) => inView && setVisibleYear(2012)}>
-            <ParallaxBlob variant={BlobVariants.Three} className="absolute top-16 -right-48 z-0" />
+            <ParallaxBlob variant={BlobVariants.Three} className="absolute -right-48 top-16 z-0" />
 
             <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-2">
               <Header side="left" year="2012">
@@ -150,9 +150,9 @@ const Ten: NextPage<Props> = ({ employees }) => {
             className="relative grid-rows-[1fr,200px] lg:grid-rows-3"
             inViewChange={(inView) => inView && setVisibleYear(2013)}
           >
-            <ParallaxBlob variant={BlobVariants.Four} className="absolute -top-56 -left-64 z-0" />
+            <ParallaxBlob variant={BlobVariants.Four} className="absolute -left-64 -top-56 z-0" />
 
-            <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-4 text-right">
+            <div className="relative z-10 col-span-12 text-right lg:col-span-8 lg:col-start-4">
               <Header side="right" year="2013">
                 <Heading level="3">Ein Jahr alt und gut zu Fuss</Heading>
               </Header>
@@ -174,7 +174,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
             className="grid-rows-[1fr,200px,200px] lg:grid-rows-5"
             inViewChange={(inView) => inView && setVisibleYear(2014)}
           >
-            <ParallaxBlob variant={BlobVariants.Two} className="absolute top-72 -right-24 lg:-right-72 z-0" />
+            <ParallaxBlob variant={BlobVariants.Two} className="absolute -right-24 top-72 z-0 lg:-right-72" />
 
             <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-2">
               <Header side="left" year="2014">
@@ -186,17 +186,17 @@ const Ten: NextPage<Props> = ({ employees }) => {
                 und bis heute ein Herzensprojekt. 🧡
               </Text>
             </div>
-            <div className="relative col-span-12 lg:row-span-2 lg:col-span-8 lg:row-start-2 lg:col-start-2">
+            <div className="relative col-span-12 lg:col-span-8 lg:col-start-2 lg:row-span-2 lg:row-start-2">
               <ParallaxImage
                 effect="heavy"
                 src={boyband}
                 alt="Moreno, Thilo, Marco und Peter auf einem der ersten Firmenfotos. Sie sehen aus wie eine Boyband."
               />
             </div>
-            <div className="relative hidden lg:block lg:col-span-3 lg:row-span-2 lg:row-start-3 lg:col-start-10">
+            <div className="relative hidden lg:col-span-3 lg:col-start-10 lg:row-span-2 lg:row-start-3 lg:block">
               <ParallaxImage src={bungee} alt="Peter bei der ersten Generalversammlung am Bungee Jumping." />
             </div>
-            <div className="relative col-span-12 lg:col-span-6 lg:row-start-4 lg:row-span-2 lg:col-start-4">
+            <div className="relative col-span-12 lg:col-span-6 lg:col-start-4 lg:row-span-2 lg:row-start-4">
               <ParallaxImage src={office} alt="Moreno sitzt in einem der ersten smartive Büros." />
             </div>
           </Container>
@@ -207,7 +207,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
             className="grid-rows-[1fr,200px,200px,200px,200px] lg:grid-rows-4"
             inViewChange={(inView) => inView && setVisibleYear(2015)}
           >
-            <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-4 text-right">
+            <div className="relative z-10 col-span-12 text-right lg:col-span-8 lg:col-start-4">
               <Header side="right" year="2015">
                 <Heading level="3">Viele erste Male</Heading>
               </Header>
@@ -217,16 +217,16 @@ const Ten: NextPage<Props> = ({ employees }) => {
                 aber doch für eine Vollzeitstelle.
               </Text>
             </div>
-            <div className="relative col-span-12 lg:col-start-3 lg:col-span-3 lg:row-start-2">
+            <div className="relative col-span-12 lg:col-span-3 lg:col-start-3 lg:row-start-2">
               <ParallaxImage src={docker} alt="" />
             </div>
-            <div className="relative col-span-12 lg:col-start-6 lg:col-span-3 lg:row-start-2">
+            <div className="relative col-span-12 lg:col-span-3 lg:col-start-6 lg:row-start-2">
               <ParallaxImage src={fest} alt="" />
             </div>
-            <div className="relative col-span-12 lg:col-start-9 lg:col-span-3 lg:row-start-2">
+            <div className="relative col-span-12 lg:col-span-3 lg:col-start-9 lg:row-start-2">
               <ParallaxImage src={moreno2015} alt="" />
             </div>
-            <div className="relative col-span-12 lg:row-start-3 lg:row-span-2 lg:col-start-6">
+            <div className="relative col-span-12 lg:col-start-6 lg:row-span-2 lg:row-start-3">
               <ParallaxImage src={zermatt2015} alt="" />
             </div>
           </Container>
@@ -237,7 +237,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
             className="grid-rows-[1fr,200px,200px,300px,200px,200px] lg:grid-rows-6"
             inViewChange={(inView) => inView && setVisibleYear(2016)}
           >
-            <ParallaxBlob variant={BlobVariants.Five} className="absolute -top-72 -right-24 z-0" />
+            <ParallaxBlob variant={BlobVariants.Five} className="absolute -right-24 -top-72 z-0" />
             <ParallaxBlob variant={BlobVariants.Four} className="absolute bottom-24 left-24 z-0" />
 
             <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-2">
@@ -253,10 +253,10 @@ const Ten: NextPage<Props> = ({ employees }) => {
             <div className="relative col-span-12 lg:col-span-6 lg:col-start-2 lg:row-span-2">
               <ParallaxImage src={stockDominique} alt="" />
             </div>
-            <div className="relative col-span-12 lg:col-start-2 lg:col-span-6 lg:row-span-1">
+            <div className="relative col-span-12 lg:col-span-6 lg:col-start-2 lg:row-span-1">
               <ParallaxImage src={bravoThilo} alt="" />
             </div>
-            <div className="relative col-span-12 lg:row-start-2 lg:col-span-5 lg:col-start-8 lg:row-span-3">
+            <div className="relative col-span-12 lg:col-span-5 lg:col-start-8 lg:row-span-3 lg:row-start-2">
               <ParallaxImage src={sanfran} alt="" />
             </div>
             <div className="relative col-span-12 lg:col-span-6 lg:col-start-2 lg:row-span-2">
@@ -273,10 +273,10 @@ const Ten: NextPage<Props> = ({ employees }) => {
             className="grid-rows-[1fr,250px,250px,200px,250px,200px] lg:grid-rows-4"
             inViewChange={(inView) => inView && setVisibleYear(2017)}
           >
-            <ParallaxBlob variant={BlobVariants.Two} className="absolute -top-12 -left-24 z-0" />
-            <ParallaxBlob variant={BlobVariants.Six} className="absolute top-1/2 -right-24 z-0" />
+            <ParallaxBlob variant={BlobVariants.Two} className="absolute -left-24 -top-12 z-0" />
+            <ParallaxBlob variant={BlobVariants.Six} className="absolute -right-24 top-1/2 z-0" />
 
-            <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-4 text-right">
+            <div className="relative z-10 col-span-12 text-right lg:col-span-8 lg:col-start-4">
               <Header side="right" year="2017">
                 <Heading level="3">Es weihnachtet</Heading>
               </Header>
@@ -311,8 +311,8 @@ const Ten: NextPage<Props> = ({ employees }) => {
             className="grid-rows-[1fr,250px,200px,200px,300px,300px,200px] lg:grid-rows-[2fr,1fr,1fr,2fr,2fr,1fr,1fr]"
             inViewChange={(inView) => inView && setVisibleYear(2018)}
           >
-            <ParallaxBlob variant={BlobVariants.Five} className="absolute top-1/3 -left-24 z-0" />
-            <ParallaxBlob variant={BlobVariants.Two} className="absolute top-2/3 -right-72 z-0" />
+            <ParallaxBlob variant={BlobVariants.Five} className="absolute -left-24 top-1/3 z-0" />
+            <ParallaxBlob variant={BlobVariants.Two} className="absolute -right-72 top-2/3 z-0" />
 
             <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-2">
               <Header side="left" year="2018">
@@ -330,22 +330,22 @@ const Ten: NextPage<Props> = ({ employees }) => {
               </audio>
             </div>
 
-            <div className="col-span-12 lg:col-span-5 lg:col-start-2 relative lg:row-span-2">
+            <div className="relative col-span-12 lg:col-span-5 lg:col-start-2 lg:row-span-2">
               <ParallaxImage src={peter30} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-5 relative lg:row-span-2">
+            <div className="relative col-span-12 lg:col-span-5 lg:row-span-2">
               <ParallaxImage src={front} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-7 lg:col-start-2 relative">
+            <div className="relative col-span-12 lg:col-span-7 lg:col-start-2">
               <ParallaxImage src={bubblesoccer} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-4 lg:row-span-2 relative">
+            <div className="relative col-span-12 lg:col-span-4 lg:row-span-2">
               <ParallaxImage effect="heavy" src={aescher} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-4 relative lg:col-start-3 lg:row-span-2">
+            <div className="relative col-span-12 lg:col-span-4 lg:col-start-3 lg:row-span-2">
               <ParallaxImage effect="minimal" src={burger} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-6 relative lg:row-span-4">
+            <div className="relative col-span-12 lg:col-span-6 lg:row-span-4">
               <ParallaxImage src={wmStudio} alt="" />
             </div>
           </Container>
@@ -356,10 +356,10 @@ const Ten: NextPage<Props> = ({ employees }) => {
             className="grid-rows-[1fr,200px,200px,200px,200px] lg:grid-rows-5"
             inViewChange={(inView) => inView && setVisibleYear(2019)}
           >
-            <ParallaxBlob variant={BlobVariants.One} className="absolute top-0 -left-72 z-0" />
+            <ParallaxBlob variant={BlobVariants.One} className="absolute -left-72 top-0 z-0" />
             <ParallaxBlob variant={BlobVariants.Three} className="absolute -bottom-72 -right-24 z-0" />
 
-            <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-4 text-right">
+            <div className="relative z-10 col-span-12 text-right lg:col-span-8 lg:col-start-4">
               <Header side="right" year="2019">
                 <Heading level="3">Das Kind mag Brokkoli!</Heading>
               </Header>
@@ -371,19 +371,19 @@ const Ten: NextPage<Props> = ({ employees }) => {
               </Text>
             </div>
 
-            <div className="col-span-12 relative lg:row-span-2 lg:col-span-10 lg:col-start-2">
+            <div className="relative col-span-12 lg:col-span-10 lg:col-start-2 lg:row-span-2">
               <ParallaxImage effect="minimal" src={huette} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-5 relative lg:col-start-2">
+            <div className="relative col-span-12 lg:col-span-5 lg:col-start-2">
               <ParallaxImage src={chiefSeniorSolutionDesigner} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-5 relative">
+            <div className="relative col-span-12 lg:col-span-5">
               <ParallaxImage src={whatAview} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-5 relative lg:col-start-2">
+            <div className="relative col-span-12 lg:col-span-5 lg:col-start-2">
               <ParallaxImage src={ciaoSmartive} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-5 relative">
+            <div className="relative col-span-12 lg:col-span-5">
               <ParallaxImage src={hoiSmartive} alt="" />
             </div>
           </Container>
@@ -411,7 +411,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
             <div className="relative col-span-12 lg:col-span-5 lg:col-start-8 lg:row-start-2">
               <ParallaxImage effect="heavy" src={skifoahn} alt="" />
             </div>
-            <div className="relative col-span-12 lg:col-span-8 lg:col-start-2 lg:row-start-3 lg:row-span-3">
+            <div className="relative col-span-12 lg:col-span-8 lg:col-start-2 lg:row-span-3 lg:row-start-3">
               <ParallaxImage src={skitag2} alt="" />
             </div>
             <div className="relative lg:col-span-3 lg:col-start-10 lg:row-span-2">
@@ -425,10 +425,10 @@ const Ten: NextPage<Props> = ({ employees }) => {
             className="grid-rows-[1fr,200px,300px,300px,300px,250px,300px,250px] lg:grid-rows-4"
             inViewChange={(inView) => inView && setVisibleYear(2021)}
           >
-            <ParallaxBlob variant={BlobVariants.Two} className="absolute top-36 -left-72 z-0" />
-            <ParallaxBlob variant={BlobVariants.Seven} className="absolute top-72 left-24 z-0" />
+            <ParallaxBlob variant={BlobVariants.Two} className="absolute -left-72 top-36 z-0" />
+            <ParallaxBlob variant={BlobVariants.Seven} className="absolute left-24 top-72 z-0" />
 
-            <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-4 text-right">
+            <div className="relative z-10 col-span-12 text-right lg:col-span-8 lg:col-start-4">
               <Header side="right" year="2021">
                 <Heading level="3">Frische Kleidung ist wichtig</Heading>
               </Header>
@@ -444,25 +444,25 @@ const Ten: NextPage<Props> = ({ employees }) => {
               </Text>
             </div>
 
-            <div className="col-span-12 lg:col-span-3 lg:col-start-3 relative">
+            <div className="relative col-span-12 lg:col-span-3 lg:col-start-3">
               <ParallaxImage src={bootle} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-3 lg:col-start-6 relative">
+            <div className="relative col-span-12 lg:col-span-3 lg:col-start-6">
               <ParallaxImage src={damian} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-3 lg:col-start-9 relative">
+            <div className="relative col-span-12 lg:col-span-3 lg:col-start-9">
               <ParallaxImage src={ibiza} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-3 lg:col-start-3 lg:row-start-3 relative">
+            <div className="relative col-span-12 lg:col-span-3 lg:col-start-3 lg:row-start-3">
               <ParallaxImage src={mirco} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-3 lg:col-start-6 lg:row-start-3 relative">
+            <div className="relative col-span-12 lg:col-span-3 lg:col-start-6 lg:row-start-3">
               <ParallaxImage src={moreno2021} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-3 lg:col-start-9 lg:row-start-3 relative">
+            <div className="relative col-span-12 lg:col-span-3 lg:col-start-9 lg:row-start-3">
               <ParallaxImage src={robert} alt="" />
             </div>
-            <div className="col-span-12 lg:col-span-9 lg:col-start-3 lg:row-start-4 relative">
+            <div className="relative col-span-12 lg:col-span-9 lg:col-start-3 lg:row-start-4">
               <ParallaxImage src={cultureday} alt="" />
             </div>
           </Container>
@@ -473,7 +473,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
             className="grid-rows-[1fr,250px,250px,250px,250px,250px] lg:grid-rows-5"
             inViewChange={(inView) => inView && setVisibleYear(2022)}
           >
-            <ParallaxBlob variant={BlobVariants.Four} className="absolute bottom-0 -right-96 z-0" />
+            <ParallaxBlob variant={BlobVariants.Four} className="absolute -right-96 bottom-0 z-0" />
 
             <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-2">
               <Header side="left" year="2022">
@@ -486,23 +486,23 @@ const Ten: NextPage<Props> = ({ employees }) => {
               </Text>
             </div>
 
-            <div className="col-span-12 lg:row-span-2 lg:col-span-8 lg:col-start-2 relative">
+            <div className="relative col-span-12 lg:col-span-8 lg:col-start-2 lg:row-span-2">
               <ParallaxImage effect="minimal" src={gruppafoettali} alt="Alle smarties beim Retro-Brunch." />
             </div>
 
-            <div className="col-span-12 lg:col-span-6 lg:col-start-10 relative">
+            <div className="relative col-span-12 lg:col-span-6 lg:col-start-10">
               <ParallaxImage effect="minimal" src={stadtfueahrig} alt="Stadtführung in Zürich." />
             </div>
 
-            <div className="col-span-12 lg:col-span-6 lg:col-start-10 lg:row-start-3 relative">
+            <div className="relative col-span-12 lg:col-span-6 lg:col-start-10 lg:row-start-3">
               <ParallaxImage effect="minimal" src={rammstein} alt="Gruppenfoto am Rammstein-Konzert." />
             </div>
 
-            <div className="col-span-12 lg:row-span-2 lg:col-span-8 lg:col-start-3 lg:row-start-4 relative">
+            <div className="relative col-span-12 lg:col-span-8 lg:col-start-3 lg:row-span-2 lg:row-start-4">
               <ParallaxImage effect="minimal" src={skitag} alt="Skitag in Arosa." />
             </div>
 
-            <div className="col-span-12 lg:col-span-4 lg:col-start-11 lg:row-start-4 relative">
+            <div className="relative col-span-12 lg:col-span-4 lg:col-start-11 lg:row-start-4">
               <ParallaxImage effect="minimal" src={kuhbar} alt="Die Kuhbar hat allen ganz viel Spass gemacht." />
             </div>
           </Container>
@@ -522,12 +522,12 @@ const Ten: NextPage<Props> = ({ employees }) => {
         </Scroll.Section>
       </main>
 
-      <div className="bottom-0 w-full py-4 z-50 fixed hidden lg:block">
+      <div className="fixed bottom-0 z-50 hidden w-full py-4 lg:block">
         {visibleYear !== null && (
-          <div className="max-w-screen-xl mx-auto flex justify-center text-[0px]">
+          <div className="mx-auto flex max-w-screen-xl justify-center text-[0px]">
             <motion.div
               layout
-              className="inline-flex px-[1.3rem] py-1 flex-row justify-center bg-white-200 rounded-full shadow-sm"
+              className="inline-flex flex-row justify-center rounded-full bg-white-200 px-[1.3rem] py-1 shadow-sm"
             >
               <AnimatePresence>
                 {avatars.map(({ name, closeup }) => (
@@ -538,7 +538,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.8 }}
                       whileHover={{ scale: 1.3, y: -10, padding: '0px 1.5rem' }}
-                      className="block hover:z-50 -ml-3 -mr-3 overflow-visible"
+                      className="-ml-3 -mr-3 block overflow-visible hover:z-50"
                     >
                       <Avatar src={closeup} />
                     </motion.a>
@@ -548,9 +548,9 @@ const Ten: NextPage<Props> = ({ employees }) => {
             </motion.div>
           </div>
         )}
-        <div className="fixed right-5 bottom-5 rounded-full bg-conic-gradient p-1 transition-transform scale-100 hover:scale-110 hover:rotate-6 shadow-sm">
+        <div className="fixed bottom-5 right-5 scale-100 rounded-full bg-conic-gradient p-1 shadow-sm transition-transform hover:rotate-6 hover:scale-110">
           <button
-            className=" bg-white-200 h-12 w-12 rounded-full bg-white flex items-center justify-center"
+            className=" bg-white flex h-12 w-12 items-center justify-center rounded-full bg-white-200"
             onClick={activeConfettiCannon}
           >
             🎉
@@ -585,7 +585,7 @@ const Container: FC<{
     <section
       ref={ref}
       className={merge([
-        'relative w-11/12 max-w-screen-xl mx-auto my-24 md:my-32 lg:my-56 grid grid-cols-12 gap-4 md:gap-6 lg:gap-8',
+        'relative mx-auto my-24 grid w-11/12 max-w-screen-xl grid-cols-12 gap-4 md:my-32 md:gap-6 lg:my-56 lg:gap-8',
         className,
       ])}
     >
@@ -595,7 +595,7 @@ const Container: FC<{
 };
 
 const SlackReaction: FC<{ children: ReactNode }> = ({ children }) => (
-  <kbd className="px-4 rounded bg-[#424242] scale-100 transition-transform transform-gpu hover:scale-105 inline-block">
+  <kbd className="inline-block scale-100 transform-gpu rounded bg-[#424242] px-4 transition-transform hover:scale-105">
     {children}
   </kbd>
 );
@@ -609,13 +609,13 @@ const Header: FC<{
     <header className="relative">
       <div
         className={merge([
-          '2xl:absolute h-full flex items-center',
+          'flex h-full items-center 2xl:absolute',
 
           side === 'left' ? 'flex-row 2xl:-left-48' : 'flex-row-reverse 2xl:-right-48',
         ])}
       >
         <span className={merge(['h-0.5 w-16 bg-white-100', side === 'left' ? 'mr-4' : 'ml-4'])} />
-        <span className="text-sm lg:text-base font-bold">{year}</span>
+        <span className="text-sm font-bold lg:text-base">{year}</span>
       </div>
       {children}
     </header>
@@ -632,11 +632,11 @@ const ParallaxImage: FC<{
   const parallaxIndex = useSSRSafeRandomNumber(0, 1);
 
   return (
-    <div className="w-full h-full overflow-hidden rounded z-20 relative">
-      <Scroll.Item keyframes={keyframes.image[parallaxIndex]} className="relative w-full h-full image-overflow-override">
+    <div className="relative z-20 h-full w-full overflow-hidden rounded">
+      <Scroll.Item keyframes={keyframes.image[parallaxIndex]} className="image-overflow-override relative h-full w-full">
         <NextImage
           lazyBoundary="400px"
-          className={`relative z-20 transition rounded scale-125 ${bgClasses[colorIndex]}`}
+          className={`relative z-20 scale-125 rounded transition ${bgClasses[colorIndex]}`}
           src={src}
           alt={alt}
           objectFit="cover"
@@ -657,7 +657,7 @@ const GalleryCard = () => {
           Aber: nach der Party ist vor der Party! Falls du Gründe brauchst das nächste Mal dabei zu sein, gibts hier ein paar
           Partypics.
         </Text>
-        <div className="flex flex-col md:flex-row md:space-x-4 md:space-y-0 space-y-4">
+        <div className="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
           <div className="shrink">
             <Button as="a" href="/10/fotos" onMouseEnter={activeConfettiCannon}>
               📸 Impressionen

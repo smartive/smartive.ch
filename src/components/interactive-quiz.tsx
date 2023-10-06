@@ -47,7 +47,7 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
         return (
           <Label key={label} as="label" className="mb-4">
             {label}
-            <Input ref={ref} type={type} className="w-full mb-4" placeholder={placeholder} required={required} />
+            <Input ref={ref} type={type} className="mb-4 w-full" placeholder={placeholder} required={required} />
           </Label>
         );
       },
@@ -81,7 +81,7 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
   if (state.matches('error'))
     return (
       <Card background="mint">
-        <div className="md:w-2/3 lg:w-1/2 mx-auto md:p-16">
+        <div className="mx-auto md:w-2/3 md:p-16 lg:w-1/2">
           <Heading2>Technologie, gäll? 🤬</Heading2>
           <Copy>
             Entweder will unser CRM gerade nicht oder wir haben Mist programmiert. Auf jeden Fall funktioniert das Formular
@@ -107,7 +107,7 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
     <LazyMotion strict features={domMax}>
       <motion.div layout transition={{ duration: 0.15 }} className="content">
         <Card background="cornflower">
-          <form onSubmit={(e) => e.preventDefault()} className="md:w-2/3 lg:w-1/2 mx-auto md:p-16">
+          <form onSubmit={(e) => e.preventDefault()} className="mx-auto md:w-2/3 md:p-16 lg:w-1/2">
             <AnimatePresence mode="wait">
               <motion.div
                 key={state.value.toString()}
@@ -131,7 +131,7 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
                 ) : (
                   <>
                     {!state.matches(machine.initial) && (
-                      <span className="mb-8 block mt-8">
+                      <span className="mb-8 mt-8 block">
                         <TextLink as="button" onClick={() => send('BACK')}>
                           Zurück
                         </TextLink>
