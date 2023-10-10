@@ -4,7 +4,7 @@ import Head from 'next/head';
 import DOMAIN_REDIRECTS from '../../../domain-redirects';
 import { Image, ImageVariant } from '../../components/image';
 import { PageHeader } from '../../compositions/page-header';
-import { RedirectUrlData, getNotionRedirectUrlData } from '../../data/notion-redirect-url';
+import GiveawayPagesContent from '../../data/giveaway-pages.json';
 import { LandingPage } from '../../layouts/landing-page';
 
 const LABELS = {
@@ -20,13 +20,21 @@ const LABELS = {
   },
 } as const;
 
-const RedirectUrl: NextPage<RedirectUrlData> = ({ title, url, description, image, language }) => (
+type Props = {
+  title: string;
+  description: string;
+  url: string;
+  image?: string;
+  language: 'de' | 'en';
+};
+
+const RedirectUrl: NextPage<Props> = ({ title, url, description, image, language }) => (
   <LandingPage lang={language}>
     <Head>
       <meta name="robots" content="noindex,nofollow" />
     </Head>
     <PageHeader markdownTitle={title} description={`Infos about the word ${url}`}>
-      <Copy>{description}</Copy>
+      <Copy className="whitespace-pre-line">{description}</Copy>
       <LinkList
         links={[
           { href: '/blog', label: LABELS[language].blog },
@@ -45,13 +53,13 @@ const RedirectUrl: NextPage<RedirectUrlData> = ({ title, url, description, image
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: DOMAIN_REDIRECTS.map(({ notionKey }) => ({ params: { redirectUrl: notionKey } })),
+    paths: DOMAIN_REDIRECTS.map(({ key }) => ({ params: { redirectUrl: key } })),
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps<RedirectUrlData> = async ({ params }) => {
-  const data = await getNotionRedirectUrlData(params.redirectUrl.toString());
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const data = GiveawayPagesContent[params.redirectUrl.toString()];
 
   if (!data) {
     return { notFound: true };

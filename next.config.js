@@ -54,9 +54,9 @@ module.exports = withBundleAnalyzer({
 });
 
 const domainRedirects = () =>
-  DOMAIN_REDIRECTS.map(({ host: value, notionKey }) => ({
+  DOMAIN_REDIRECTS.map(({ host: value, key }) => ({
     source: '/:path*',
-    destination: `https://smartive.ch/${notionKey}`,
+    destination: `https://smartive.ch/${key}`,
     permanent: true,
     has: [
       {
