@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@notionhq/client": "2.2.13",
-    "@smartive/guetzli": "2.9.0",
+    "@smartive/guetzli": "2.10.1",
     "@xstate/fsm": "2.1.0",
     "@xstate/react": "3.2.2",
     "charts.css": "1.0.1",
