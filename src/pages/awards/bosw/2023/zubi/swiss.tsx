@@ -1,4 +1,4 @@
-import { Button, Copy, Grid, Heading2, Heading3, LinkList, PageSection, TextBlock, UnorderedList } from '@smartive/guetzli';
+import { Button, Copy, Grid, Heading2, Heading3, LinkList, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { Image, ImageVariant } from '../../../../../components/image';
 import { Testimonial } from '../../../../../components/testimonial';

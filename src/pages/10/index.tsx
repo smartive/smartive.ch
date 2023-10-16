@@ -577,6 +577,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 const Container: FC<{
   children: ReactNode;
   className?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   inViewChange?: any;
 }> = ({ children, className, inViewChange }) => {
   const { ref } = useInView({ onChange: inViewChange, threshold: 0.2 });

@@ -1,6 +1,5 @@
-import { BlobVariations, Copy, Grid, LinkList } from '@smartive/guetzli';
+import { BlobVariations, Copy, Grid } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import NextLink from 'next/link';
 import { Contact } from '../components/contact';
 import { EmployeeCard } from '../components/employee-card';
 import { Testimonial } from '../components/testimonial';

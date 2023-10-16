@@ -52,6 +52,7 @@ export const getNotionClient = () =>
 
 const nestedBlocks = ['column', 'column_list', 'toggle'];
 const isImageBlock = (block: BlockObjectResponse): block is Block<'image'> => block.type === 'image';
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const isNestedBlock = (block: any): block is NestedBlock => 'type' in block && nestedBlocks.includes(block.type);
 
 /**

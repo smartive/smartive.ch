@@ -8,7 +8,9 @@ import { getMeta } from '../machines/get-meta';
 const Stack: FC<{ children?: ReactNode }> = ({ children }) => <div className="flex flex-col gap-4">{children}</div>;
 
 type Props = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   machine: StateMachine<any, any, any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   render: (state: any, machine: any) => ReactNode;
 };
 
@@ -74,8 +76,11 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
     [],
   );
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const title = getMeta('title', { machine, state } as any);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const copy = getMeta('copy', { machine, state } as any);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const form = getMeta('form', { machine, state } as any);
 
   if (state.matches('error'))
@@ -139,6 +144,7 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
                     )}
                     <div className="mb-8" />
                     <Heading2 className="max-w-prose">{title}</Heading2>
+                    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                     {getMeta('copy', { machine, state } as any) && <Copy>{copy}</Copy>}
                     {form?.type === 'stack' ? (
                       <Stack>

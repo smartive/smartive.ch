@@ -15,6 +15,7 @@ const YEARLY_EXPERIENCE = 150;
 const MAX_EXPERIENCE_YEARS = 10;
 const MAX_EXPERIENCE_SALARY = YEARLY_EXPERIENCE * MAX_EXPERIENCE_YEARS;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const machine = createMachine<any, any, any>({
   predictableActionArguments: true,
   id: 'salary-calculator',
