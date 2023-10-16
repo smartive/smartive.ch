@@ -33,7 +33,7 @@
     "js-confetti": "0.11.0",
     "mermaid": "10.5.0",
     "motion": "10.16.4",
-    "next": "13.5.4",
+    "next": "13.5.5",
     "next-plausible": "3.11.1",
     "node-fetch": "3.3.2",
     "prism-react-renderer": "2.1.0",
@@ -48,7 +48,7 @@
     "xstate": "4.38.2"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "13.5.4",
+    "@next/bundle-analyzer": "13.5.5",
     "@smartive/eslint-config": "3.3.0",
     "@smartive/prettier-config": "3.1.2",
     "@tailwindcss/forms": "0.5.6",
