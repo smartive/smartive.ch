@@ -88,6 +88,7 @@ const Newsletter: NextPage<Props> = ({ images }) => {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const images = STATIC_IMAGES;
+
   return {
     props: {
       images,

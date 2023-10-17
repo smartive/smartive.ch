@@ -52,6 +52,7 @@ export const NextBisectCard: FC<Props> = ({
       </div>
     </Card>
   );
+
   return link === undefined ? (
     card
   ) : (

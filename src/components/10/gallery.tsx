@@ -54,6 +54,7 @@ export const SmartGallery: FC<Props> = ({ photos, dark = true }) => {
       glider.scrollItem(currentImage);
       glider.refresh(true);
     }
+
     return () => {
       glider && glider.destroy();
       handleCloseAndArrow && window.removeEventListener('keydown', handleCloseAndArrow);

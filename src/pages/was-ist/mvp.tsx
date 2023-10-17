@@ -64,6 +64,7 @@ const Mvp: NextPage<Props> = ({ teasers, packages }) => (
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const packages = [Packages['design-sprint'], Packages['speedboat']];
   const teasers = [Teasers.subsidia, Teasers['supply-chain'], Teasers.ofpg];
+
   return {
     props: {
       teasers,

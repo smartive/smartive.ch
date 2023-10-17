@@ -20,6 +20,7 @@ export const NewsletterCard: FC<Props> = ({
   title = 'Wir schreiben nicht nur Code, sondern auch E-Mails. Auch dir, wenn du willst.',
 }) => {
   const { ref, inView } = useInView({ triggerOnce: true });
+
   return (
     <Card background={background} blobs={blobs}>
       <div ref={ref} className="grid grid-flow-row place-items-center text-center lg:p-24 lg:text-sm">

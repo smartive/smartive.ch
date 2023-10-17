@@ -12,6 +12,7 @@ export enum ImageVariant {
 const cloudinaryLoader = ({ src, width, quality }: ImageLoaderProps) => {
   const params = ['f_auto', 'c_limit', 'w_' + width, 'q_' + (quality || 'auto')];
   const paramsString = params.join(',');
+
   return `https://res.cloudinary.com/smartive/image/upload/${paramsString}/${src.replace(
     'https://res.cloudinary.com/smartive/image/upload/',
     '',

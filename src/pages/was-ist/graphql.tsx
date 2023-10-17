@@ -127,6 +127,7 @@ const GQL: NextPage<Props> = ({ teasers }) => (
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const teasers = [Teasers.migusto, Teasers.migipedia];
+
   return {
     props: {
       teasers,

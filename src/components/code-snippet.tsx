@@ -61,7 +61,7 @@ export const MermaidDiagram: FC<MermaidProps> = ({ code, caption }) => {
     (async () => {
       const { svg } = await mermaid.render('diagram', code);
       setSvg(svg);
-    })();
+    })().catch((e) => console.error(e));
   }, []);
 
   return (

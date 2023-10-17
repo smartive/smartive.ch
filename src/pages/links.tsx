@@ -80,6 +80,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         if (value?.type === 'formula' && 'type' in value.formula) {
           return value.formula?.type === 'string' && value.formula.string;
         }
+
         return '';
       };
 

@@ -121,6 +121,7 @@ const Agile: NextPage<Props> = ({ teasers }) => (
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const teasers = [Teasers.migipedia, Teasers.subsidia, Teasers.ofpg];
+
   return {
     props: {
       teasers,

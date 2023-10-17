@@ -55,8 +55,8 @@ export const BlogMetaCard: FC<Props> = ({ post, readingTime, language }) => {
         <Tooltip text="Kopiert!" isOpen={copyTooltipOpen}>
           <Button
             as="button"
-            onClick={() => {
-              navigator.clipboard.writeText(window.location.href);
+            onClick={async () => {
+              await navigator.clipboard.writeText(window.location.href);
               setCopyTooltipOpen(true);
               setTimeout(() => {
                 setCopyTooltipOpen(false);

@@ -112,6 +112,7 @@ const PWA: NextPage<Props> = ({ teasers }) => (
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const teasers = [Teasers.subsidia, Teasers['supply-chain']];
+
   return {
     props: {
       teasers,

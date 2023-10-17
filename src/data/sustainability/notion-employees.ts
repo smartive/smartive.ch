@@ -64,6 +64,7 @@ export const getNotionEmployees = async (year: number): Promise<AllEmployees[]> 
       ],
     },
   });
+
   return Promise.all(
     (results as unknown as NotionEmployee[]).map(
       async ({ id, properties: { Ort, Name, Strasse, OfficeTage, EnvImpactHomeOffice, Emissionsfaktor, Kategorie } }) => {

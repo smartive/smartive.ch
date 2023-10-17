@@ -11,6 +11,7 @@ type Props = {
 
 const Fotobox: NextPage<Props> = ({ photos }) => {
   const router = useRouter();
+
   return (
     <>
       <TenHead />

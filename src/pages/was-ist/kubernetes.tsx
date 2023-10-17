@@ -194,6 +194,7 @@ const Kubernetes: NextPage<Props> = ({ teasers }) => (
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const teasers = [Teasers['ofpg'], Teasers['kaspar'], Teasers['optimatik']];
+
   return {
     props: {
       teasers,

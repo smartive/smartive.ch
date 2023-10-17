@@ -175,6 +175,7 @@ const getImageUrl = (image: Files, block: NotionEmployee) => {
       return image.files[0].file ? getNotionUrl(image.files[0].file.url, block) : '';
     }
   }
+
   return '';
 };
 

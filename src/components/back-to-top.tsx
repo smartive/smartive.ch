@@ -12,6 +12,7 @@ export const BackToTop = () => {
     () =>
       scrollYProgress.on('change', (e) => {
         const unsubscribe = setAnimate(e === 1);
+
         return unsubscribe;
       }),
     [],

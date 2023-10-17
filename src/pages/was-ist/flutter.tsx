@@ -70,6 +70,7 @@ const Flutter: NextPage<Props> = ({ teasers }) => (
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const teasers = [Teasers.learnfox, Teasers.kaspar, Teasers.binapp];
+
   return {
     props: {
       teasers,

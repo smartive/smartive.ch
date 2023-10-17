@@ -82,6 +82,7 @@ export const EmployeeCard: FC<Props> = ({
         <div className="mt-6 flex flex-1 flex-row flex-wrap content-end gap-x-4 gap-y-2">
           {links.map(({ label, url }) => {
             const itemProp = url.match(/^mailto:.+$/i) ? 'email' : 'sameAs';
+
             return (
               <TextLink
                 key={url}

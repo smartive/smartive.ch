@@ -159,6 +159,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
     };
   } catch (error) {
     console.error(error);
+
     return {
       notFound: true,
       revalidate: 300,

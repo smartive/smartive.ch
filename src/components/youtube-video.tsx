@@ -7,6 +7,7 @@ type Props = {
 
 export const YoutubeVideo: FC<Props> = ({ url, caption }) => {
   const embedId = url.split('youtu.be/')[1] || url.split('youtube.com/watch?v=')[1];
+
   return (
     <figure>
       {embedId && (

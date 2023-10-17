@@ -57,6 +57,7 @@ export const getDistanceFromGoogleMaps = async (destination: string) => {
     })}`,
   );
   const jsonDistance = (await response.json()) as GoogleDistance;
+
   return jsonDistance.rows[0].elements[0].distance.value / TIMES_OR_DIVIDE_BY_1000;
 };
 

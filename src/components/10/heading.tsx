@@ -12,5 +12,6 @@ export const Heading: FC<{
   level: keyof typeof HEADING_STYLES;
 }> = ({ children, level, as }) => {
   const Tag = as || `h${level}`;
+
   return <Tag className={HEADING_STYLES[level]}>{children}</Tag>;
 };

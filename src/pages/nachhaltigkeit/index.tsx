@@ -95,6 +95,7 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
                 {allYearsTotalEmission.map(({ year, totalEmission }) => {
                   const totalEmissionenCalculated = totalEmission / maxYear;
                   const totalEmissionNum = Math.round(totalEmission / TIMES_OR_DIVIDE_BY_1000);
+
                   return (
                     <tr key={year}>
                       <td
@@ -148,7 +149,7 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
                       onMouseEnter={async () => {
                         const Confetti = await import('js-confetti');
                         const confetti = new Confetti.default() as JSConfetti;
-                        confetti.addConfetti({
+                        await confetti.addConfetti({
                           emojis: [comparisonText.emoji],
                           confettiNumber: 30,
                           confettiRadius: 2,

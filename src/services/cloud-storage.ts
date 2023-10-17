@@ -21,6 +21,7 @@ export async function getImagesFromRokka(type: string): Promise<Photo[]> {
   const search = {
     name: type,
   };
+
   return (
     await rokkaStorage.sourceimages.list(organization, { search: search, limit: 2000, sort: 'created desc' })
   ).body.items.map(
