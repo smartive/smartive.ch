@@ -24,7 +24,7 @@
     "@smartive/guetzli": "2.10.1",
     "@xstate/fsm": "2.1.0",
     "@xstate/react": "3.2.2",
-    "charts.css": "1.0.1",
+    "charts.css": "1.1.0",
     "dayjs": "1.11.10",
     "eslint-config-next": "13.5.5",
     "framer-motion": "10.16.4",
