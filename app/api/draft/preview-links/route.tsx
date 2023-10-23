@@ -20,24 +20,21 @@ const headers = {
 };
 
 export async function OPTIONS() {
-  return new Response('ok', {
-    status: 200,
-    headers,
-  });
+  return NextResponse.json('ok', { status: 200, headers });
 }
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   const token = req.nextUrl.searchParams.get('token');
 
   if (token !== process.env.DRAFT_SECRET_TOKEN) {
-    return NextResponse.json({ status: 401, body: { error: 'Invalid Token' } });
+    return NextResponse.json({ error: 'Invalid Token' }, { status: 401, headers });
   }
 
   const parsedRequest = await req.json();
   const url = generatePreviewUrl(parsedRequest);
 
   if (!url) {
-    return NextResponse.json({ status: 200, body: { previewLinks: JSON.stringify([]) } });
+    return NextResponse.json({ previewLinks: JSON.stringify([]) }, { status: 200, headers });
   }
 
   // Vercel autopopulates the VERCEL_URL env variable with the deployment URL
@@ -57,9 +54,5 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       url: `${baseUrl}/api/draft/enable?url=${url}&token=${token}`,
     });
 
-  return NextResponse.json({
-    status: 200,
-    headers,
-    body: { previewLinks: JSON.stringify(previewLinks) },
-  });
+  return NextResponse.json({ previewLinks: JSON.stringify(previewLinks) }, { status: 200, headers });
 }
