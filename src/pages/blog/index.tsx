@@ -3,11 +3,11 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/de';
 import { GetStaticProps, NextPage } from 'next';
 import { Fragment } from 'react';
+import { Page } from '../../../components/layouts/page';
+import { Section } from '../../../components/layouts/section';
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { BlogPost, getBlogPosts } from '../../data/blog';
-import { Page } from '../../layouts/page';
-import { Section } from '../../layouts/section';
 
 type Props = {
   posts: BlogPost[];

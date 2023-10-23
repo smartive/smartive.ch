@@ -1,8 +1,8 @@
 import { Heading3, TextLink, useSSRSafeRandomNumber } from '@smartive/guetzli';
 import { usePlausible } from 'next-plausible';
 import { FC } from 'react';
+import { PlausibleEvents } from '../../utils/tracking';
 import { Employee } from '../data/employees';
-import { PlausibleEvents } from '../utils/tracking';
 import { Image, ImageVariant } from './image';
 
 type Props = {
@@ -35,7 +35,8 @@ export const EmployeeCard: FC<Props> = ({
       label: 'GitHub',
       url: github,
     },
-  ].filter(Boolean);
+  ].filter(Boolean) as { label: string; url: string }[];
+
   const plausible = usePlausible<PlausibleEvents>();
 
   const colorIndex = useSSRSafeRandomNumber(0, availableColors.length - 1);
@@ -44,7 +45,6 @@ export const EmployeeCard: FC<Props> = ({
 
   return (
     <div
-      id={encodeURI(name)}
       className={`flex flex-col overflow-hidden rounded bg-white-100 ${className}`}
       itemScope
       itemProp="employee"

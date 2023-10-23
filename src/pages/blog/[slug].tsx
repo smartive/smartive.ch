@@ -1,15 +1,15 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
+import { Page } from '../../../components/layouts/page';
+import { calculateReadingTime } from '../../../utils/notion';
+import { renderContent } from '../../../utils/notion-block-renderers';
 import { BlogMetaCard } from '../../components/blog-meta-card';
 import { Image, ImageVariant } from '../../components/image';
 import { MobileBlogMetaCard } from '../../components/mobile-blog-meta-card';
 import { PageHeader } from '../../compositions/page-header';
 import { BlogDetail, getBlogPost, getBlogPosts } from '../../data/blog';
-import { Page } from '../../layouts/page';
-import { Block, getBlocks } from '../../services/notion';
-import { calculateReadingTime } from '../../utils/notion';
-import { renderContent } from '../../utils/notion-block-renderers';
 import mediumBlogSlugs from '../../data/medium-blog-slugs.json';
+import { Block, getBlocks } from '../../services/notion';
 
 type Props = { post: BlogDetail; blocks: Block[] };
 
@@ -23,7 +23,7 @@ const BlogPost: NextPage<Props> = ({ post, blocks }) => {
       <div itemScope itemType="https://schema.org/BlogPosting" lang={post.language}>
         <meta itemProp="headline" content={post.title} />
         <meta itemProp="abstract" content={plainAbstract} />
-        <PageHeader markdownTitle={post.title} description={plainAbstract} image={post.cover ?? null}>
+        <PageHeader markdownTitle={post.title} description={plainAbstract} image={post.cover ?? ''}>
           <div className="grid gap-4 md:grid-cols-[66%,auto]">
             {post.cover && (
               <div>
@@ -59,8 +59,8 @@ const BlogPost: NextPage<Props> = ({ post, blocks }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const isMediumSlug = Object.keys(mediumBlogSlugs).includes(params.slug.toString().toLowerCase());
-  const mediumSlug: string | undefined = mediumBlogSlugs[params.slug.toString()];
+  const isMediumSlug = params?.slug && Object.keys(mediumBlogSlugs).includes(params.slug.toString().toLowerCase());
+  const mediumSlug = params?.slug && mediumBlogSlugs[params.slug.toString()];
 
   if (isMediumSlug) {
     return mediumSlug
@@ -79,7 +79,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   }
 
   try {
-    const post = await getBlogPost(params.slug.toString());
+    const post = await getBlogPost(params?.slug?.toString() || '');
     const blocks = await getBlocks(post.id);
 
     return {

@@ -3,6 +3,14 @@ import 'charts.css/dist/charts.min.css';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import { CSSProperties } from 'react';
+import {
+  ALL_YEARS,
+  TIMES_OR_DIVIDE_BY_1000,
+  calculatedScopesFunction,
+  getScope3,
+  numberFormat,
+  reduceByEnvironmentalImpact,
+} from '../../../../utils/sustainability';
 import { NextBisectCard } from '../../../components/bisect-card';
 import { PageHeader } from '../../../compositions/page-header';
 import { getNotionBusinessTravel } from '../../../data/sustainability/notion-business-travel';
@@ -12,14 +20,6 @@ import { getNotionExpenses } from '../../../data/sustainability/notion-expenses'
 import { Scopes, getNotionScopes } from '../../../data/sustainability/notion-scopes';
 import { getNotionSustainabilityData } from '../../../data/sustainability/notion-sustainability-data';
 import { LandingPage } from '../../../layouts/landing-page';
-import {
-  ALL_YEARS,
-  TIMES_OR_DIVIDE_BY_1000,
-  calculatedScopesFunction,
-  getScope3,
-  numberFormat,
-  reduceByEnvironmentalImpact,
-} from '../../../utils/sustainability';
 
 type Props = {
   links: { label: string; href: string }[];
@@ -156,7 +156,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const year = parseInt(context.params.year.toString());
+  const year = context.params?.year ? parseInt(context.params.year.toString()) : undefined;
+
+  if (!year) {
+    return {
+      notFound: true,
+      revalidate: 300,
+    };
+  }
+
   const employees = await getNotionEmployees(year);
   const sustainabilityData = await getNotionSustainabilityData(year);
   const categories = await getNotionCategories();

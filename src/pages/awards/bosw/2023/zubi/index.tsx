@@ -1,9 +1,9 @@
 import { Copy, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
+import { Section } from '../../../../../../components/layouts/section';
 import { Image, ImageVariant } from '../../../../../components/image';
 import { PageHeader } from '../../../../../compositions/page-header';
 import { LandingPage } from '../../../../../layouts/landing-page';
-import { Section } from '../../../../../layouts/section';
 
 const STATIC_IMAGES = {
   keyvisual: '/images/awards/bosw/2023/zubi/zubi-keyvisual.jpg',

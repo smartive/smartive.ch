@@ -2,13 +2,19 @@ import { Client } from '@notionhq/client';
 import { Button } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { usePlausible } from 'next-plausible';
+import { Page } from '../../components/layouts/page';
+import { Section } from '../../components/layouts/section';
+import { PlausibleEvents } from '../../utils/tracking';
 import { PageHeader } from '../compositions/page-header';
-import { Page } from '../layouts/page';
-import { Section } from '../layouts/section';
-import { PlausibleEvents } from '../utils/tracking';
+
+type Seed = {
+  url: string;
+  title: string;
+  id: string;
+};
 
 type Props = {
-  seeds: { url: string; title: string; id: string }[];
+  seeds: Seed[];
 };
 
 const Links: NextPage<Props> = ({ seeds }) => {
@@ -55,7 +61,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   });
 
   const { results } = await notion.databases.query({
-    database_id: process.env.NOTION_LOOMLY_DB_ID,
+    database_id: process.env.NOTION_LOOMLY_DB_ID || '',
     sorts: [
       {
         timestamp: 'created_time',
@@ -90,7 +96,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         url: getValue(url),
       };
     })
-    .filter(Boolean);
+    .filter(Boolean) as Seed[];
 
   return {
     props: {

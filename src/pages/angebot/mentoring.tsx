@@ -10,20 +10,19 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { Contact } from '../../components/contact';
+import { Contact } from '../../../components/contact';
+import { Page } from '../../../components/layouts/page';
+import { Section } from '../../../components/layouts/section';
+import { Testimonial } from '../../../components/testimonial';
 import { NextImageCard } from '../../components/image-card';
-import { Testimonial } from '../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee, getEmployeeByName } from '../../data/employees';
-
 import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { Page } from '../../layouts/page';
-import { Section } from '../../layouts/section';
 
 type Props = {
   contact: Employee;
@@ -87,7 +86,7 @@ const Mentoring: NextPage<Props> = ({ contact, teasers, packages, quote }) => {
           </div>
         </Section>
         <Section>
-          <Testimonial background="mint" blobs={BlobVariations.mint[2]} quote={quote} />
+          <Testimonial background="mint" blobs="mint-2" quote={quote} />
         </Section>
         <Section>
           <Contact contact={contact} />

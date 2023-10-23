@@ -16,7 +16,7 @@ type Props = {
 
 export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
   const [state, send] = useMachine(machine);
-  const ref = useRef(null);
+  const ref = useRef<HTMLInputElement & HTMLTextAreaElement>(null);
 
   const Options = useMemo(
     () => ({

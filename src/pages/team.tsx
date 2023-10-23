@@ -1,15 +1,15 @@
-import { BlobVariations, Copy, Grid } from '@smartive/guetzli';
+import { Copy, Grid } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { Contact } from '../components/contact';
 import { EmployeeCard } from '../components/employee-card';
-import { Testimonial } from '../components/testimonial';
 import { PageHeader } from '../compositions/page-header';
 import { Employee, getAllEmployees, getEmployeeByName } from '../data/employees';
 
+import { Contact } from '../../components/contact';
+import { Page } from '../../components/layouts/page';
+import { Section } from '../../components/layouts/section';
+import { Testimonial } from '../../components/testimonial';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
-import { Page } from '../layouts/page';
-import { Section } from '../layouts/section';
 
 type Props = {
   contact: Employee;
@@ -40,7 +40,7 @@ const Team: NextPage<Props> = ({ employees, contact, quote }) => {
               <EmployeeCard key={employee.email} employee={employee} />
             ))}
           </Grid>
-          <Testimonial background="mint" blobs={BlobVariations.mint[0]} quote={quote} />
+          <Testimonial background="mint" blobs="mint-0" quote={quote} />
           <Grid cols={3}>
             {employees.slice(halfEmpl).map((employee) => (
               <EmployeeCard key={employee.email} employee={employee} />

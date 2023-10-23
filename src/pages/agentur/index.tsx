@@ -1,15 +1,15 @@
-import { BlobVariations, Copy, Grid, TextBlock, TextLink } from '@smartive/guetzli';
+import { Copy, Grid, TextBlock, TextLink } from '@smartive/guetzli';
 import dayjs from 'dayjs';
 import { GetStaticProps, NextPage } from 'next';
+import { Page } from '../../../components/layouts/page';
+import { Section } from '../../../components/layouts/section';
+import { Testimonial } from '../../../components/testimonial';
 import { Image, ImageVariant } from '../../components/image';
-import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import TextBlocks from '../../data/benefits.json';
 import { FullEmployee, getAllFullEmployees } from '../../data/employees';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Page } from '../../layouts/page';
-import { Section } from '../../layouts/section';
 
 const STATIC_IMAGES = {
   stgallen: {
@@ -108,7 +108,7 @@ const Agentur: NextPage<Props> = ({ quote, employees }) => {
               </TextBlock>
             ))}
           </Grid>
-          <Testimonial background="cornflower" blobs={BlobVariations.cornflower[0]} quote={quote} />
+          <Testimonial background="cornflower" blobs="cornflower-0" quote={quote} />
           <Grid cols={2}>
             {FOUR_CULTURE_IMAGES.map((image) => (
               <div key={image.src} className="h-[500px]">

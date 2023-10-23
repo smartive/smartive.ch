@@ -50,8 +50,10 @@ function startEasterEgg() {
   flipper.appendChild(back);
 
   const next = document.getElementById('__next');
-  body.removeChild(next);
-  front.appendChild(next);
+  if (body && next) {
+    body.removeChild(next);
+    front.appendChild(next);
+  }
 
   const egg = document.createElement('iframe');
   egg.style.border = 'none';
@@ -59,13 +61,15 @@ function startEasterEgg() {
   egg.style.height = '100vh';
   back.appendChild(egg);
 
-  body.appendChild(container);
+  body && body.appendChild(container);
 
-  egg.contentWindow.document.body.innerHTML = `<canvas width="512" height="512"></canvas>`;
+  if (egg.contentWindow) {
+    egg.contentWindow.document.body.innerHTML = `<canvas width="512" height="512"></canvas>`;
 
-  const script = document.createElement('script');
-  script.src = '/kube.js';
-  egg.contentWindow.document.body.appendChild(script);
+    const script = document.createElement('script');
+    script.src = '/kube.js';
+    egg.contentWindow.document.body.appendChild(script);
+  }
 
   setTimeout(() => (flipper.style.transform = 'rotateY(180deg)'), 100);
 }

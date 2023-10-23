@@ -1,10 +1,10 @@
 import { Copy, Grid, Heading3, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
+import { Page } from '../../components/layouts/page';
+import { Section } from '../../components/layouts/section';
 import { Image, ImageVariant } from '../components/image';
 import { PageHeader } from '../compositions/page-header';
-import { Page } from '../layouts/page';
-import { Section } from '../layouts/section';
 
 const STATIC_IMAGES = {
   zh: '/images/mood/Agentur-smartive-34.jpg',

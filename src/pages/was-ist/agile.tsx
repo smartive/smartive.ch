@@ -1,12 +1,12 @@
 import { Copy, Grid, Heading3, ImagePosition, Keyfigure, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/legacy/image';
+import { Page } from '../../../components/layouts/page';
+import { Section } from '../../../components/layouts/section';
 import { NextImageCard } from '../../components/image-card';
 import { PageHeader } from '../../compositions/page-header';
 import { Teaser } from '../../data/teaser';
 import Teasers from '../../data/teasers.json';
-import { Page } from '../../layouts/page';
-import { Section } from '../../layouts/section';
 
 type Props = {
   teasers: Teaser[];

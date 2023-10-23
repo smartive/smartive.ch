@@ -1,0 +1,11 @@
+fragment keyfigureBlock on KeyfigureRecord {
+  id
+  image {
+    responsiveImage(imgixParams: { w: 300, auto: format }) {
+      ...responsiveImageFragment
+    }
+  }
+  content {
+    value
+  }
+}

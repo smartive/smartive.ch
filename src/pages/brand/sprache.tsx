@@ -13,11 +13,10 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import Image from 'next/legacy/image';
-import React from 'react';
+import { Section } from '../../../components/layouts/section';
 import { PageHeader } from '../../compositions/page-header';
 import { Link } from '../../elements/link';
 import { LandingPage } from '../../layouts/landing-page';
-import { Section } from '../../layouts/section';
 
 const Sprache = () => (
   <LandingPage>

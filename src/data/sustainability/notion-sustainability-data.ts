@@ -42,8 +42,8 @@ export const getNotionSustainabilityData = async (year?: number): Promise<Sustai
         typeOfProd: Name.title[0].plain_text,
         scope: Scope.rollup.array[0].title[0].plain_text,
         environmentalImpact: Umweltauswirkung.formula.number,
-        unit: Einheit.rich_text[0] ? Einheit.rich_text[0].plain_text : null,
-        category: Kategorie.rollup.array[0] ? Kategorie.rollup.array[0].title[0].plain_text : null,
+        unit: Einheit.rich_text[0] ? Einheit.rich_text[0].plain_text : '',
+        category: Kategorie.rollup.array[0] ? Kategorie.rollup.array[0].title[0].plain_text : '',
       };
     },
   );

@@ -1,27 +1,16 @@
-import {
-  BlobVariations,
-  Button,
-  Card,
-  Copy,
-  Grid,
-  Heading2,
-  Heading3,
-  LinkList,
-  TextBlock,
-  UnorderedList,
-} from '@smartive/guetzli';
+import { Button, Card, Copy, Grid, Heading2, Heading3, LinkList, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
+import dynamic from 'next/dynamic';
 import NextImage from 'next/legacy/image';
+import { FC, ReactNode } from 'react';
+import { Section } from '../../../../../../components/layouts/section';
+import { Testimonial } from '../../../../../../components/testimonial';
 import { Image } from '../../../../../components/image';
-import React, { FC, ReactNode } from 'react';
-import { Testimonial } from '../../../../../components/testimonial';
 import { PageHeader } from '../../../../../compositions/page-header';
 import { Quote } from '../../../../../data/quotes';
 import Quotes from '../../../../../data/quotes.json';
 import { Link } from '../../../../../elements/link';
 import { LandingPage } from '../../../../../layouts/landing-page';
-import { Section } from '../../../../../layouts/section';
-import dynamic from 'next/dynamic';
 
 const MdcfThemesAnimation = dynamic(() => import('../../../../../elements/awards/mdcf-themes-animation'));
 
@@ -122,7 +111,7 @@ const Page: NextPage<Props> = ({ quote }) => {
         </Section>
 
         <Section>
-          <Testimonial background="cornflower" blobs={BlobVariations.cornflower[3]} quote={quote} />
+          <Testimonial background="cornflower" blobs="cornflower-3" quote={quote} />
         </Section>
 
         <Section>

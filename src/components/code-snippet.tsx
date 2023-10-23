@@ -13,7 +13,7 @@ require('prismjs/components/prism-protobuf');
 
 type Props = {
   code: string;
-  language?: string;
+  language: string;
   caption?: string;
 };
 

@@ -25,6 +25,7 @@ module.exports = withBundleAnalyzer({
       's3-us-west-2.amazonaws.com',
       'prod-files-secure.s3.us-west-2.amazonaws.com',
       'res.cloudinary.com',
+      'datocms-assets.com',
       ...Array.from({ length: 10 }, (_, i) => i + 1).map((n) => `lh${n}.googleusercontent.com`),
     ],
     formats: ['image/avif', 'image/webp'],

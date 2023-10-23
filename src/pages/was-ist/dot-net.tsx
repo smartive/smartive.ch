@@ -1,7 +1,7 @@
 import { Copy, Explainer, UnorderedList } from '@smartive/guetzli';
+import { Page } from '../../../components/layouts/page';
+import { Section } from '../../../components/layouts/section';
 import { PageHeader } from '../../compositions/page-header';
-import { Page } from '../../layouts/page';
-import { Section } from '../../layouts/section';
 
 const DotNet = () => (
   <Page>

@@ -1,0 +1,63 @@
+query Project($slug: String!) {
+  project(filter: { slug: { eq: $slug } }) {
+    id
+    content {
+      __typename
+      ... on TextRecord {
+        ...textBlock
+      }
+      ... on TwoColsTextRecord {
+        ...twoColsTextBlock
+      }
+      ... on ThreeColsTextRecord {
+        ...threeColsTextBlock
+      }
+      ... on ImageRecord {
+        ...imageBlock
+      }
+      ... on VideoRecord {
+        ...videoBlock
+      }
+      ... on ProjectIntroRecord {
+        ...projectIntroBlock
+      }
+      ... on ProjectsTeaserRecord {
+        ...projectsTeaserBlock
+      }
+      ... on QuoteRecord {
+        ...quoteBlock
+      }
+      ... on ContactRecord {
+        ...contactBlock
+      }
+      ... on OffersTeaserRecord {
+        ...offersTeaserBlock
+      }
+      ... on KeyfigureRecord {
+        ...keyfigureBlock
+      }
+      ... on ImageTextRecord {
+        ...imageTextBlock
+      }
+    }
+    seo: _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+  site: _site {
+    favicon: faviconMetaTags {
+      attributes
+      content
+      tag
+    }
+    globalSeo {
+      fallbackSeo {
+        description
+        title
+      }
+      titleSuffix
+    }
+  }
+}

@@ -1,9 +1,8 @@
 import { Copy, Grid, Heading2, Heading3 } from '@smartive/guetzli';
 import { NextPage } from 'next';
-import React from 'react';
+import { Section } from '../../../components/layouts/section';
 import { PageHeader } from '../../compositions/page-header';
 import { LandingPage } from '../../layouts/landing-page';
-import { Section } from '../../layouts/section';
 
 const Identity: NextPage = () => (
   <LandingPage>

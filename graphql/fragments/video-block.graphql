@@ -1,0 +1,9 @@
+fragment videoBlock on VideoRecord {
+  id
+  video {
+    url
+    provider
+    providerUid
+    title
+  }
+}

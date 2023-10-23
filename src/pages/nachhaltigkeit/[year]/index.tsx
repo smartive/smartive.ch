@@ -1,17 +1,8 @@
 import { Copy, Explainer, Grid, Heading3, LinkList, TextBlock } from '@smartive/guetzli';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
-import { NextBisectCard } from '../../../components/bisect-card';
-import { PageHeader } from '../../../compositions/page-header';
-import { getNotionBusinessTravel } from '../../../data/sustainability/notion-business-travel';
-import { Categories, getNotionCategories } from '../../../data/sustainability/notion-categories';
-import { getNotionEmployees } from '../../../data/sustainability/notion-employees';
-import { getNotionExpenses } from '../../../data/sustainability/notion-expenses';
-import { Scopes, getNotionScopes } from '../../../data/sustainability/notion-scopes';
-import { getNotionSustainabilityData } from '../../../data/sustainability/notion-sustainability-data';
-import { LandingPage } from '../../../layouts/landing-page';
-import { Section } from '../../../layouts/section';
-import { brandColor } from '../../../utils/color';
+import { Section } from '../../../../components/layouts/section';
+import { brandColor } from '../../../../utils/color';
 import {
   ALL_YEARS,
   AVERAGE_SWISSPERSON_EMISSION,
@@ -22,7 +13,16 @@ import {
   getScope3EnvironmentalImpact,
   reduceByEnvironmentalImpact,
   sortScope,
-} from '../../../utils/sustainability';
+} from '../../../../utils/sustainability';
+import { NextBisectCard } from '../../../components/bisect-card';
+import { PageHeader } from '../../../compositions/page-header';
+import { getNotionBusinessTravel } from '../../../data/sustainability/notion-business-travel';
+import { Categories, getNotionCategories } from '../../../data/sustainability/notion-categories';
+import { getNotionEmployees } from '../../../data/sustainability/notion-employees';
+import { getNotionExpenses } from '../../../data/sustainability/notion-expenses';
+import { Scopes, getNotionScopes } from '../../../data/sustainability/notion-scopes';
+import { getNotionSustainabilityData } from '../../../data/sustainability/notion-sustainability-data';
+import { LandingPage } from '../../../layouts/landing-page';
 import '../../_app';
 
 type Props = {
@@ -179,7 +179,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const year = parseInt(context.params.year.toString());
+  const year = context.params?.year ? parseInt(context.params.year.toString()) : undefined;
+
+  if (!year) {
+    return {
+      notFound: true,
+      revalidate: 300,
+    };
+  }
+
   const employees = await getNotionEmployees(year);
   const sustainabilityData = await getNotionSustainabilityData(year);
   const scopes = await getNotionScopes();

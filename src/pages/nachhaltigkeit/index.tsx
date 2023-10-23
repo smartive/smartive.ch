@@ -3,6 +3,15 @@ import 'charts.css/dist/charts.min.css';
 import type JSConfetti from 'js-confetti';
 import { GetStaticProps, NextPage } from 'next';
 import { CSSProperties, useEffect, useState } from 'react';
+import { Section } from '../../../components/layouts/section';
+import { brandColor } from '../../../utils/color';
+import {
+  ALL_YEARS,
+  FTE,
+  TIMES_OR_DIVIDE_BY_1000,
+  numberFormat,
+  reduceByEnvironmentalImpact,
+} from '../../../utils/sustainability';
 import { NextBisectCard } from '../../components/bisect-card';
 import { PageHeader } from '../../compositions/page-header';
 import { getAllEmployees } from '../../data/employees';
@@ -12,15 +21,6 @@ import { getNotionEmployees } from '../../data/sustainability/notion-employees';
 import { getNotionExpenses } from '../../data/sustainability/notion-expenses';
 import { getNotionSustainabilityData } from '../../data/sustainability/notion-sustainability-data';
 import { LandingPage } from '../../layouts/landing-page';
-import { Section } from '../../layouts/section';
-import { brandColor } from '../../utils/color';
-import {
-  ALL_YEARS,
-  FTE,
-  TIMES_OR_DIVIDE_BY_1000,
-  numberFormat,
-  reduceByEnvironmentalImpact,
-} from '../../utils/sustainability';
 import '../_app';
 
 type Props = {
@@ -38,6 +38,8 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
   useEffect(() => {
     setComparisonText(comparisonTexts[Math.floor(Math.random() * comparisonTexts.length)]);
   }, []);
+
+  const totalEmission2020 = allYearsTotalEmission.find(({ year }) => year === 2020)?.totalEmission ?? 0;
 
   return (
     <LandingPage>
@@ -214,13 +216,7 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
             </TextBlock>
             <TextBlock
               title="Kaffee Konsum"
-              number={parseFloat(
-                (
-                  (COFFEE_KG_2020 /
-                    (allYearsTotalEmission.find(({ year }) => year === 2020).totalEmission / TIMES_OR_DIVIDE_BY_1000)) *
-                  100
-                ).toFixed(1),
-              )}
+              number={parseFloat(((COFFEE_KG_2020 / (totalEmission2020 / TIMES_OR_DIVIDE_BY_1000)) * 100).toFixed(1))}
               unit="% ☕️"
             >
               Der Kaffeekonsum von 2020 entspricht {COFFEE_KG_2020.toFixed(1)} tonnen CO<sub>2</sub> äquivalent. Dies

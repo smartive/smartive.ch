@@ -74,7 +74,7 @@ export const SmartGallery: FC<Props> = ({ photos, dark = true }) => {
                 src={photo.src}
                 width={photo.width}
                 height={photo.height}
-                onClick={(event) => onClick(event, { index })}
+                onClick={(event) => onClick?.(event, { index })}
                 className={'cursor-pointer'}
                 loader={rokkaLoader}
               ></NextImage>

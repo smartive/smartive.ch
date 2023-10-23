@@ -1,13 +1,15 @@
 import { BlobVariations, Copy, GridSlider, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
-import { Contact } from '../components/contact';
+import { Contact } from '../../components/contact';
+import { CustomerLogos } from '../../components/customer-logos';
+import { Page } from '../../components/layouts/page';
+import { Section } from '../../components/layouts/section';
+import { Testimonial } from '../../components/testimonial';
 import { NextContentCard } from '../components/content-card';
-import { CustomerList } from '../components/customer-list';
 import { Image, ImageVariant } from '../components/image';
 import { NextImageCard } from '../components/image-card';
 import { NewsletterCard } from '../components/newsletter-card';
-import { Testimonial } from '../components/testimonial';
 import { PackageList } from '../compositions/package-list';
 import { PageHeader } from '../compositions/page-header';
 import { Customer } from '../data/customers';
@@ -16,8 +18,6 @@ import { Employee, getEmployeeByName } from '../data/employees';
 import Packages, { Package } from '../data/packages';
 import { Quote } from '../data/quotes';
 import Quotes from '../data/quotes.json';
-import { Page } from '../layouts/page';
-import { Section } from '../layouts/section';
 
 const STATIC_IMAGES = {
   main: '/images/mood/Agentur-smartive-34.jpg',
@@ -88,10 +88,10 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages, images }) 
           </GridSlider>
         </Section>
         <Section title="Weiter gebracht haben wir unter anderem schon">
-          <CustomerList customers={customers} />
+          <CustomerLogos customers={customers} />
         </Section>
         <Section>
-          <Testimonial quote={quote} blobs={BlobVariations.apricot[0]} />
+          <Testimonial quote={quote} blobs="apricot-0" />
         </Section>
         <Section title="Wir unterstützen dich, egal wie weit du schon bist.">
           <Copy>

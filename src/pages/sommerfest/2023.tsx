@@ -34,7 +34,7 @@ const Fotos: NextPage<Props> = ({ photos }) => {
         ></LinkList>
       </PageHeader>
 
-      <main id="pageContent" className="relative overflow-hidden">
+      <main className="relative overflow-hidden">
         <div className="relative mx-auto my-24 sm:mb-0 md:my-44">
           <SmartGallery photos={photos} dark={false} />
         </div>

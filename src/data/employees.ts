@@ -115,8 +115,8 @@ const mapBlockToFullEmployee = (block: NotionFullEmployee): FullEmployee => {
     name: Name.title[0].plain_text,
     email: Mail.email,
     firstname: name[0],
-    lastname: name.pop(),
-    todosUrl: Todos.url,
+    lastname: name.pop() || '',
+    todosUrl: Todos.url || '',
     shareholder: AktionärIn.checkbox,
   };
 
@@ -149,7 +149,7 @@ const mapBlockToEmployee = (block: NotionEmployee): Employee => {
     id,
     name: Name.title[0].plain_text,
     firstname: name[0],
-    lastname: name.pop(),
+    lastname: name.pop() || '',
     job: Jobbezeichnung.rich_text[0]?.plain_text || '',
     bio: Summary.rich_text[0]?.plain_text || '',
     email: Mail.email,

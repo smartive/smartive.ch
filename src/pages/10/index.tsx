@@ -84,7 +84,7 @@ type Props = {
 };
 
 const Ten: NextPage<Props> = ({ employees }) => {
-  const [visibleYear, setVisibleYear] = useState<number>(null);
+  const [visibleYear, setVisibleYear] = useState<number>(0);
   const [avatars, setAvatars] = useState(
     employees.filter(({ start }) => start === 2012).filter(({ closeup }) => closeup !== ''),
   );
@@ -103,9 +103,9 @@ const Ten: NextPage<Props> = ({ employees }) => {
   return (
     <>
       <TenHead />
-      <main id="pageContent" className="relative overflow-hidden bg-black text-white-100">
+      <main className="relative overflow-hidden bg-black text-white-100">
         <Scroll.Section>
-          <Container inViewChange={(inView) => inView && setVisibleYear(null)}>
+          <Container inViewChange={(inView) => inView && setVisibleYear(0)}>
             <ParallaxBlob variant={BlobVariants.Two} className="absolute -bottom-72 -left-96 z-0 w-72" />
 
             <div className="relative z-10 col-span-12 mb-12 mt-6 lg:col-span-6 lg:mb-24 lg:mt-0">
@@ -579,7 +579,7 @@ const Container: FC<{
   className?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   inViewChange?: any;
-}> = ({ children, className, inViewChange }) => {
+}> = ({ children, className = '', inViewChange }) => {
   const { ref } = useInView({ onChange: inViewChange, threshold: 0.2 });
 
   return (

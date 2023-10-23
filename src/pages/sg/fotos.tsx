@@ -1,4 +1,5 @@
 /* eslint-disable react/forbid-component-props */
+import { Copy, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { SmartGallery } from '../../components/10/gallery';
@@ -6,7 +7,6 @@ import { Image, ImageVariant } from '../../components/image';
 import { PageHeader } from '../../compositions/page-header';
 import { LandingPage } from '../../layouts/landing-page';
 import { Photo, getImagesFromRokka } from '../../services/cloud-storage';
-import { Copy, LinkList } from '@smartive/guetzli';
 
 type Props = {
   photos: Photo[];
@@ -31,7 +31,7 @@ const Fotos: NextPage<Props> = ({ photos }) => {
         />
       </PageHeader>
 
-      <main id="pageContent" className="relative overflow-hidden">
+      <main className="relative overflow-hidden">
         <Copy>
           Die Eröffnungsfeier des Jahres. Bei smartive in St. Gallen. Mit Risotto und Riserva vom Geschmacksträger. Danke,
           dass ihr dabei wart.

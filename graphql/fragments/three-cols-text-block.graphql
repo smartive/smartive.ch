@@ -1,0 +1,14 @@
+fragment threeColsTextBlock on ThreeColsTextRecord {
+  id
+  heading
+  contentLeft {
+    value
+  }
+  contentMiddle {
+    value
+  }
+  contentRight {
+    value
+  }
+  disableMargin
+}

@@ -1,0 +1,7 @@
+fragment textBlock on TextRecord {
+  id
+  content {
+    value
+  }
+  disableMargin
+}

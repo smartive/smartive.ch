@@ -1,0 +1,11 @@
+fragment twoColsTextBlock on TwoColsTextRecord {
+  id
+  heading
+  contentLeft {
+    value
+  }
+  contentRight {
+    value
+  }
+  disableMargin
+}

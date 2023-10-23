@@ -15,11 +15,11 @@ import {
   TextLink,
 } from '@smartive/guetzli';
 import NextLink from 'next/link';
-import React, { FC } from 'react';
+import { FC } from 'react';
+import { Section } from '../../../components/layouts/section';
 import { SlackTheme } from '../../components/slack-theme';
 import { PageHeader } from '../../compositions/page-header';
 import { LandingPage } from '../../layouts/landing-page';
-import { Section } from '../../layouts/section';
 
 const Brand: FC = () => (
   <LandingPage>

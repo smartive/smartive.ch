@@ -1,13 +1,13 @@
-import { BlobVariations, Copy, Grid, Heading2, Heading3, Keyfigure, TextBlock, UnorderedList } from '@smartive/guetzli';
+import { Copy, Grid, Heading2, Heading3, Keyfigure, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/legacy/image';
-import React, { FC } from 'react';
-import { Testimonial } from '../../../../components/testimonial';
+import { FC } from 'react';
+import { Section } from '../../../../../components/layouts/section';
+import { Testimonial } from '../../../../../components/testimonial';
 import { PageHeader } from '../../../../compositions/page-header';
 import { Quote } from '../../../../data/quotes';
 import Quotes from '../../../../data/quotes.json';
 import { LandingPage } from '../../../../layouts/landing-page';
-import { Section } from '../../../../layouts/section';
 
 type Props = {
   quote: Quote;
@@ -173,7 +173,7 @@ const Page: NextPage<Props> = ({ quote }) => {
         </Section>
 
         <Section>
-          <Testimonial background="cornflower" blobs={BlobVariations.cornflower[3]} quote={quote} />
+          <Testimonial background="cornflower" blobs="cornflower-3" quote={quote} />
         </Section>
 
         <Section>

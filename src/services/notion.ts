@@ -1,3 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+// Disabled this, because Notion might be removed soon from this project and we don't want to spend time on this.
+
 import { Client } from '@notionhq/client/build/src';
 import {
   BlockObjectResponse,
@@ -66,7 +70,7 @@ const isNestedBlock = (block: any): block is NestedBlock => 'type' in block && n
 const read = async (body: NodeJS.ReadableStream) => {
   // First we allocate a buffer we can write stuff into.
   let buffer = Buffer.alloc(0);
-  let dimensions = null;
+  let dimensions;
 
   // Yeah this is 32kb
   const MAX_BUFFER_SIZE_IN_BIT = 32000;
@@ -132,12 +136,14 @@ export async function getBlocks(id: string): Promise<Block[]> {
             const BUFFER_SIZE_IN_BYTES = 1000 * 1000 * 50;
             const response = await fetch(imageUrl, { highWaterMark: BUFFER_SIZE_IN_BYTES });
 
-            const dimensions = await read(response.body);
+            if (response.body) {
+              const dimensions = await read(response.body);
 
-            block.image.meta = {
-              width: dimensions?.width ?? 0,
-              height: dimensions?.height ?? 0,
-            };
+              block.image.meta = {
+                width: dimensions?.width ?? 0,
+                height: dimensions?.height ?? 0,
+              };
+            }
 
             if (block.image.type === 'file') {
               block.image.file.url = getSignedUrl(block.image.file.url, block.id);

@@ -9,17 +9,16 @@ import {
   UnorderedList,
 } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { Contact } from '../../components/contact';
+import { Contact } from '../../../components/contact';
+import { Page } from '../../../components/layouts/page';
+import { Section } from '../../../components/layouts/section';
 import { NextImageCard } from '../../components/image-card';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee, getEmployeeByName } from '../../data/employees';
-
 import Packages, { Package } from '../../data/packages';
 import { Teaser } from '../../data/teaser';
 import { Link } from '../../elements/link';
-import { Page } from '../../layouts/page';
-import { Section } from '../../layouts/section';
 
 type Props = {
   contact: Employee;

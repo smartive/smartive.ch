@@ -1,18 +1,17 @@
-import { BlobVariations, Copy, LinkList } from '@smartive/guetzli';
+import { Copy, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
-import { Contact } from '../../components/contact';
-import { Testimonial } from '../../components/testimonial';
+import { Contact } from '../../../components/contact';
+import { Page } from '../../../components/layouts/page';
+import { Section } from '../../../components/layouts/section';
+import { Testimonial } from '../../../components/testimonial';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee, getEmployeeByName } from '../../data/employees';
-
 import Packages, { Package } from '../../data/packages';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Link } from '../../elements/link';
-import { Page } from '../../layouts/page';
-import { Section } from '../../layouts/section';
 
 type Props = {
   contact: Employee;
@@ -50,7 +49,7 @@ const Angebot: NextPage<Props> = ({ packages, quote, contact }) => {
           />
         </Section>
         <Section>
-          <Testimonial quote={quote} background="cornflower" blobs={BlobVariations.cornflower[3]} />
+          <Testimonial quote={quote} background="cornflower" blobs="cornflower-3" />
         </Section>
         <Section title="Etwas für jede Projektphase.">
           <Copy>

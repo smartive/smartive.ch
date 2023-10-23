@@ -1,0 +1,16 @@
+fragment projectIntroBlock on ProjectIntroRecord {
+  id
+  content {
+    value
+  }
+  links {
+    id
+    label
+    newTab
+    url
+  }
+  tags {
+    id
+    label
+  }
+}

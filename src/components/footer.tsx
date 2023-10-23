@@ -3,7 +3,7 @@ import { usePlausible } from 'next-plausible';
 import dynamic from 'next/dynamic';
 import { FC } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { PlausibleEvents } from '../utils/tracking';
+import { PlausibleEvents } from '../../utils/tracking';
 
 const NewsletterSubscription = dynamic(
   () => import('../components/newsletter-subscription').then((module) => module.NewsletterSubscription),
@@ -21,7 +21,7 @@ const Address = {
   email: 'hello@smartive.ch',
 } as const;
 
-export const Footer: FC = () => {
+export const LegacyFooter: FC = () => {
   const { ref, inView } = useInView({ triggerOnce: true });
   const plausible = usePlausible<PlausibleEvents>();
 

@@ -20,61 +20,6 @@
     "portrait": "/images/employees/portraits/benjamin.jpg",
     "credit": "Benjamin, Unser Scrum Master"
   },
-  "diego-subsidia": {
-    "text": "Die Erfahrung von smartive ist aussergewöhnlich. Wir sind glücklich, bei der Umsetzung auf smartive zählen zu können.",
-    "portrait": "/images/portraits/diego-goldener.jpg",
-    "credit": "Diego Goldener, CEO Subsidia"
-  },
-  "philipp-migipedia": {
-    "excerpt": "Die _Community_ ist so aktiv wie nie zuvor",
-    "text": "Der Einsatz einer massgeschneiderten, performanten Technologie ist sozusagen das Lebenselixier der Migros-Community.",
-    "portrait": "/images/portraits/philipp-buehler.jpg",
-    "credit": "Philipp Bühler, Senior Product Owner Migipedia & Brand"
-  },
-  "daniel-grai": {
-    "portrait": "/images/portraits/daniel-schoenmann.jpg",
-    "excerpt": "Getestet, Entwickelt und die Ziele _schnell_ erreicht",
-    "credit": "Daniel Schönmann, Shared Information Services, Migros-Genossenschafts-Bund",
-    "text": "Innert kürzester Zeit konnten wir durch den PWA-Ansatz einen PoC testen und die Entwicklung des MVP starten. Die gesteckten Effizienzziele wurden bereits erreicht."
-  },
-  "desiree-migusto": {
-    "portrait": "/images/portraits/desiree-poffet.jpg",
-    "credit": "Désirée Poffet, Projektleiterin Digital Platforms & Product Owner migusto.ch",
-    "excerpt": "Basis für _flexible und nachhaltige_ Rezepte",
-    "text": "Die Rezepte-API legt die Basis für eine flexible und nachhaltige Nutzung der Rezept-Daten. Sie ermöglicht eine plattformunabhängige Nutzung und eine State-of-the-Art Suche."
-  },
-  "coco-partner": {
-    "portrait": "/images/portraits/coco-petit.jpg",
-    "excerpt": "Ein Partner auf Augenhöhe",
-    "text": "Wer nicht nur eine Umsetzungs-Agentur sucht, sondern einen Partner auf Augenhöhe, der kritisch nachfragt und doch alles möglich macht, ist bei smartive goldrichtig.",
-    "credit": "Corinne Petit, Agile Coach & Technical Product Owner beim Migros-Genossenschafts-Bund"
-  },
-  "fabrina-kig": {
-    "portrait": "/images/portraits/fabrina-cerf.jpg",
-    "excerpt": "Moderne Weblösung, die ankommt",
-    "text": "Die moderne Weblösung von smartive stösst auf sehr positives Feedback und grosses Interesse bei anderen Kantonen und Organisationen.",
-    "credit": "Fabrina Cerf, Fachstelle Psychische Gesundheit, Kanton St.Gallen"
-  },
-  "coco-fil": {
-    "portrait": "/images/portraits/coco-petit.jpg",
-    "text": "smartive ist Schnell, serviceorientiert und professionell – und vor allem hat die Zusammenarbeit auch immer Spass gemacht!",
-    "credit": "Corinne Petit, Agile Coach & Technical Product Owner beim Migros-Genossenschafts-Bund"
-  },
-  "danijela-dimmi": {
-    "portrait": "/images/portraits/danijela-nikolic.jpg",
-    "text": "Die angenehme Zusammenarbeit und offene Kommunikation ermöglichte es, dieses komplexe Projekt in kurzer Zeit umzusetzen.",
-    "credit": "Danijela Nikolic, Migros-Genossenschafts-Bund (MGB)"
-  },
-  "stefan-cosmo": {
-    "portrait": "/images/portraits/stefan-bischofberger.jpg",
-    "text": "smartive ist für uns der kompetente und zuverlässige Partner, der unserem Projekt zum Erfolg verhilft.",
-    "credit": "Stefan Bischofberger, Cosmopolitan Vermögensverwaltungs AG"
-  },
-  "coco-msrc": {
-    "portrait": "/images/portraits/coco-petit.jpg",
-    "text": "Der Code, den smartive schreibt, ist sauber und von sehr hoher Qualität. Das wird mir immer wieder bestätigt.",
-    "credit": "Corinne Petit, Agile Coach & Technical Product Owner beim Migros-Genossenschafts-Bund"
-  },
   "dominique-kultur": {
     "portrait": "/images/employees/portraits/dominique.jpg",
     "text": "Was ist zentral für eine gesunde Kultur? Probleme auf den Tisch bringen und sie lösen — mit der Unterstützung von allen.",
@@ -89,11 +34,6 @@
     "portrait": "/images/portraits/lauro-boeni.jpg",
     "text": "Das Mentoring erlaubt es uns, einerseits vom fundierten Wissen und den vielfältigen Erfahrungen des smartive Teams zu profitieren und gleichzeitig bei uns intern im Team das notwendige Know-How nachhaltig aufzubauen und zu vertiefen.",
     "credit": "Lauro Böni, Co-Founder Kasparund AG"
-  },
-  "hans-optimatik": {
-    "portrait": "/images/portraits/hans-keller.png",
-    "text": "Unmittelbar nach dem Start des Projekts hatten wir mit smartive einen Partner, der mit hervorragender Erfahrung auf unsere Bedürfnisse eingegangen ist. Die Aufgaben konnten wir somit trotz engem Terminplan mühelos erledigen.",
-    "credit": "Hans Keller, Leiter Entwicklung & Technik Optimatik AG"
   },
   "dominique-lohn": {
     "portrait": "/images/employees/portraits/dominique.jpg",
@@ -110,11 +50,6 @@
     "portrait": "/images/portraits/marco-boeni.jpg",
     "text": "Einmal mehr hat uns das Team von smartive auf eine sympathische, unkomplizierte und effiziente Art und Weise unterstützt. Das Resultat gefällt nicht nur uns, sondern auch unseren Kund*innen. So macht’s Spass!",
     "credit": "Marco Böni, GL/CDO & Leiter E-Commerce Zubischuhe AG"
-  },
-  "niklas-zubi": {
-    "portrait": "/images/portraits/niklas-tidbury.jpg",
-    "text": "Die Landschaft der Cloud-Architekturen und Angebote kann schnell überfordernd wirken. Mit den kompetenten Topografen der technologischen Bergketten bei smartive wirken die grössten Hügel wieder klein, dank regelmässigem Mentoring und Austausch. ⛰",
-    "credit": "Niklas Tidbury, Team Lead Entwicklung Zubischuhe AG"
   },
   "bettina-bosw22-business": {
     "portrait": "/images/portraits/bettina-luginbuehl.jpg",
@@ -134,40 +69,15 @@
     "text": "Spass bei Seite – Kund*innenfeedbacks täglich in dieser Form in der Mailbox zu finden, spart enorm viel Zeit. Deshalb sind Kund*innenfeedbacks fester Bestandteil des Erfolgscontrollings in unseren Sortimenten geworden.",
     "credit": "Bettina Luginbühl, Category-Managerin Beilagen"
   },
-  "nils-dcf-migros": {
-    "portrait": "/images/portraits/nils-grob.jpg",
-    "text": "Eindrucksvoll war, wie schnell wir miteinander ein sehr kollegiales Verhältnis aufbauen konnten. smartive überzeugte uns alle mit ihrem breiten Wissen und ihrer kooperativen Art.",
-    "credit": "Nils-Robin Grob, Software Engineer beim Migros-Genossenschafts-Bund"
-  },
-  "coco-dcf-migros": {
-    "portrait": "/images/portraits/coco-petit-2022.jpg",
-    "text": "Mit smartive zusammenzuarbeiten war eine der besten Ideen der Migros in den letzten 10 Jahren. Wir haben es seither keinen einzigen Tag bereut. Gegenseitig spornen wir uns an und schaffen Produkte in höchster Qualität in Rekordzeit.",
-    "credit": "Corinne Petit, Agile Coach & Technical Product Owner beim Migros-Genossenschafts-Bund"
-  },
-  "pascal-zwei-wealth": {
-    "portrait": "/images/portraits/pascal-frei.jpeg",
-    "text": "Agilität gelebt. Kosten im Griff. Und das in Schweizer Qualität.",
-    "credit": "Pascal Frei, Partner & Head Platform Development bei ZWEI Wealth"
-  },
   "pascal-zwei-bosw": {
     "portrait": "/images/portraits/pascal-frei.jpeg",
     "text": "Endlich können unsere Berater Anlegerinnen und Vermögensverwalter auf einer Plattform verbinden.",
     "credit": "Pascal Frei, Partner & Head Platform Development bei ZWEI Wealth"
   },
-  "fabienne-zitadel": {
-    "portrait": "/images/portraits/fabienne-gerschwiler.jpg",
-    "text": "Das Ziel war, unseren Kund*innen ein Portal mit einfachem Onboarding zu bieten. smartive hat dies trotz der Komplexität vieler Umsysteme super umgesetzt.",
-    "credit": "Fabienne Gerschwiler, Chief Product Officer"
-  },
   "simon-domicura": {
     "portrait": "/images/portraits/simon-hefti.jpg",
     "text": "Dank dem Speedboat sind wir mit eingeschränkten Mitteln extrem schnell zum MVP gekommen. Wir sind beeindruckt wie intensiv sich smartive mit unserer Idee auseinandergesetzt hat.",
     "credit": "Simon Hefti, Mitgründer Domicura AG"
-  },
-  "martin-opsone": {
-    "portrait": "/images/portraits/martin-opsone.jpg",
-    "text": "Die enge Zusammenarbeit auf Augenhöhe und der hohe Qualitätsanspruch von smartive hat uns ermöglicht, innert kurzer Zeit vom Prototypen zum MVP zu gelangen.",
-    "credit": "Martin Wiederkehr, CEO & Partner Ops One AG"
   },
   "coco-mdcf": {
     "portrait": "/images/portraits/coco-petit-2023.jpg",

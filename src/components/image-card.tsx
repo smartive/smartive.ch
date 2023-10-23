@@ -10,7 +10,14 @@ export const NextImageCard: FC<Props> = ({ image, imageAlt, ...props }) => (
     <ImageCard
       {...props}
       image={
-        <Image src={image} alt={imageAlt} rounded="none" height={480} width={720} variant={ImageVariant.FillContainer} />
+        <Image
+          src={image}
+          alt={imageAlt ?? ''}
+          rounded="none"
+          height={480}
+          width={720}
+          variant={ImageVariant.FillContainer}
+        />
       }
     />
   </NextLink>

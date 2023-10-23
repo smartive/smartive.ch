@@ -1,16 +1,16 @@
-import { BlobVariations, Copy, Grid, TextBlock } from '@smartive/guetzli';
+import { Copy, Grid, TextBlock } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { State } from 'xstate';
+import { Page } from '../../../components/layouts/page';
+import { Section } from '../../../components/layouts/section';
+import { Testimonial } from '../../../components/testimonial';
 import { InteractiveQuiz } from '../../components/interactive-quiz';
-import { Testimonial } from '../../components/testimonial';
 import { PageHeader } from '../../compositions/page-header';
 import TextBlocks from '../../data/benefits.json';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
 import { Link } from '../../elements/link';
-import { Page } from '../../layouts/page';
-import { Section } from '../../layouts/section';
 import { Context, machine } from '../../machines/salary-calculator';
 
 type ReportProps = {
@@ -63,7 +63,7 @@ export const Lohnrechner: NextPage<PageProps> = ({ quote }) => {
               </TextBlock>
             ))}
           </Grid>
-          <Testimonial background="apricot" blobs={BlobVariations.apricot[1]} quote={quote} />
+          <Testimonial background="apricot" blobs="apricot-1" quote={quote} />
         </Section>
       </main>
     </Page>

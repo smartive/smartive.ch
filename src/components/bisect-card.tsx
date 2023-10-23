@@ -26,7 +26,7 @@ export const NextBisectCard: FC<Props> = ({
   environmentalImpact = true,
 }) => {
   const card = (
-    <Card background={background} interactive={interactive}>
+    <Card background={background ?? 'apricot'} interactive={interactive}>
       <div className={`grid grid-rows-[160px,auto] ${environmentalImpact ? '' : 'text-black text-opacity-40'}`}>
         <div className={`flex flex-col p-4 font-sans text-xxs font-normal lg:text-sm`}>
           <Heading3 as="p" className="self-center">
@@ -57,7 +57,7 @@ export const NextBisectCard: FC<Props> = ({
     card
   ) : (
     <span className="border-b-0">
-      <Link href={link.href}>{card}</Link>
+      <Link href={link.href ?? ''}>{card}</Link>
     </span>
   );
 };

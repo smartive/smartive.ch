@@ -7,7 +7,7 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
   const notion = new Client({ auth: process.env.NOTION_TOKEN });
 
   const { results } = await notion.databases.query({
-    database_id: process.env.NOTION_BLOG_DB_ID,
+    database_id: process.env.NOTION_BLOG_DB_ID || '',
     filter: {
       and: [
         { property: 'State', status: { equals: 'Published' } },
@@ -38,7 +38,7 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
 export const getBlogPost = async (slug: string): Promise<BlogDetail> => {
   const notion = new Client({ auth: process.env.NOTION_TOKEN });
   const { results } = await notion.databases.query({
-    database_id: process.env.NOTION_BLOG_DB_ID,
+    database_id: process.env.NOTION_BLOG_DB_ID || '',
     filter: { property: 'Slug', formula: { string: { equals: slug } } },
   });
 
@@ -57,7 +57,7 @@ export const getBlogPost = async (slug: string): Promise<BlogDetail> => {
     cover: (page.cover?.file ?? page.cover?.external)?.url ?? null,
     abstract: page.properties.Abstract.rich_text,
     avatar: employee.portrait,
-    creator: employee.name,
+    creator: employee.name || '',
     published: page.properties.State.status?.name === 'Published',
     language: page.properties.Language.select?.name ?? 'de',
   };

@@ -1,9 +1,9 @@
 /* eslint-disable react/forbid-component-props */
 import { GetStaticProps, NextPage } from 'next';
-import { getImagesFromRokka, Photo } from '../../services/cloud-storage';
+import { useRouter } from 'next/router';
 import { SmartGallery } from '../../components/10/gallery';
 import { TenHead } from '../../components/10/ten-head';
-import { useRouter } from 'next/router';
+import { Photo, getImagesFromRokka } from '../../services/cloud-storage';
 
 type Props = {
   photos: Photo[];
@@ -15,7 +15,7 @@ const Fotos: NextPage<Props> = ({ photos }) => {
   return (
     <>
       <TenHead />
-      <main id="pageContent" className="relative overflow-hidden bg-black text-white-100">
+      <main className="relative overflow-hidden bg-black text-white-100">
         <div className="relative mx-auto my-24 sm:mb-0 md:my-44">
           <SmartGallery photos={photos}></SmartGallery>
         </div>

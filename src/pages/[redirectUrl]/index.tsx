@@ -59,7 +59,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const data = GiveawayPagesContent[params.redirectUrl.toString()];
+  const data = params?.redirectUrl && GiveawayPagesContent[params.redirectUrl.toString()];
 
   if (!data) {
     return { notFound: true };

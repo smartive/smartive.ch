@@ -1,12 +1,12 @@
-import { BlobVariations, Copy, Heading2, Keyfigure, UnorderedList } from '@smartive/guetzli';
+import { Copy, Heading2, Keyfigure, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
+import { Section } from '../../../../../components/layouts/section';
+import { Testimonial } from '../../../../../components/testimonial';
 import { Image, ImageVariant } from '../../../../components/image';
-import { Testimonial } from '../../../../components/testimonial';
 import { PageHeader } from '../../../../compositions/page-header';
 import { Quote } from '../../../../data/quotes';
 import { Link } from '../../../../elements/link';
 import { LandingPage } from '../../../../layouts/landing-page';
-import { Section } from '../../../../layouts/section';
 
 const STATIC_IMAGES = {
   title: '/images/projekte/learnfox/learnfox.jpeg',
@@ -166,7 +166,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
         </Section>
 
         <Section>
-          <Testimonial background="cornflower" blobs={BlobVariations.cornflower[3]} quote={quote} />
+          <Testimonial background="cornflower" blobs="cornflower-3" quote={quote} />
         </Section>
 
         <Section>

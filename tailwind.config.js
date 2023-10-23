@@ -1,8 +1,22 @@
 const guetzliConfig = require('@smartive/guetzli/config');
 
 module.exports = guetzliConfig.tailwindConfig({
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./src/**/*.{js,ts,jsx,tsx}', './app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    fontFamily: {
+      sans: ['var(--sans-font)', 'sans-serif'],
+      serif: ['var(--serif-font)', 'serif'],
+      mono: [
+        'ui-monospace',
+        'SFMono-Regular',
+        'Menlo',
+        'Monaco',
+        'Consolas',
+        '"Liberation Mono"',
+        '"Courier New"',
+        'monospace',
+      ],
+    },
     extend: {
       backgroundImage: {
         'conic-gradient':
@@ -14,20 +28,6 @@ module.exports = guetzliConfig.tailwindConfig({
       },
       transitionProperty: {
         spacing: 'margin transform',
-      },
-      fontFamily: {
-        sans: ['"Inter"', 'sans-serif'],
-        serif: ['"IBM Plex Serif"', 'serif'],
-        mono: [
-          'ui-monospace',
-          'SFMono-Regular',
-          'Menlo',
-          'Monaco',
-          'Consolas',
-          '"Liberation Mono"',
-          '"Courier New"',
-          'monospace',
-        ],
       },
     },
   },

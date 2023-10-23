@@ -1,9 +1,8 @@
 import { Copy, Heading2, Keyfigure, UnorderedList } from '@smartive/guetzli';
-import React from 'react';
+import { Page } from '../../../components/layouts/page';
+import { Section } from '../../../components/layouts/section';
 import { PageHeader } from '../../compositions/page-header';
 import { Link } from '../../elements/link';
-import { Page } from '../../layouts/page';
-import { Section } from '../../layouts/section';
 
 const LeanUX = () => (
   <Page>

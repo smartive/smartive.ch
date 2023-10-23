@@ -1,0 +1,5 @@
+fragment contactBlock on ContactRecord {
+  id
+  text
+  smartiveEmployeeName
+}

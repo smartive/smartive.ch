@@ -1,14 +1,13 @@
 import { Button, Copy, Grid, Heading3, TextBlock, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import React from 'react';
 
+import { Section } from '../../../../../../components/layouts/section';
+import { Testimonial } from '../../../../../../components/testimonial';
 import { Image } from '../../../../../components/image';
-import { Testimonial } from '../../../../../components/testimonial';
 import { PageHeader } from '../../../../../compositions/page-header';
 import { Quote } from '../../../../../data/quotes';
 import Quotes from '../../../../../data/quotes.json';
 import { LandingPage } from '../../../../../layouts/landing-page';
-import { Section } from '../../../../../layouts/section';
 
 type Props = {
   quote: Quote;

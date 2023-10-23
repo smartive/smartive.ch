@@ -11,7 +11,7 @@ const rokkaStorage = Rokka({
   apiKey: process.env.ROKKA_API_KEY,
 });
 
-const organization = process.env.ROKKA_ORGANIZATION;
+const organization = process.env.ROKKA_ORGANIZATION || 'smartive';
 
 export const rokkaLoader = ({ src, width }) => {
   return `https://smartive-10.rokka.io/dynamic/resize-width-${width}/o-af-1/${src}`;

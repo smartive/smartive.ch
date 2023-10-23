@@ -1,19 +1,18 @@
 import { BlobVariations, Clock, Copy, Grid, Heading2, Label, PageHeaderVariants, UnorderedList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
-import { Contact } from '../../components/contact';
+import { Contact } from '../../../components/contact';
+import { Page } from '../../../components/layouts/page';
+import { Section } from '../../../components/layouts/section';
+import { Testimonial } from '../../../components/testimonial';
 import { NextImageCard } from '../../components/image-card';
 import { PackageList } from '../../compositions/package-list';
 import { PageHeader } from '../../compositions/page-header';
 import { Employee, getEmployeeByName } from '../../data/employees';
-
 import Packages, { Package } from '../../data/packages';
-import { Teaser } from '../../data/teaser';
-import Teasers from '../../data/teasers.json';
-import { Page } from '../../layouts/page';
-import { Section } from '../../layouts/section';
 import { Quote } from '../../data/quotes';
 import Quotes from '../../data/quotes.json';
-import { Testimonial } from '../../components/testimonial';
+import { Teaser } from '../../data/teaser';
+import Teasers from '../../data/teasers.json';
 
 type Props = {
   contact: Employee;

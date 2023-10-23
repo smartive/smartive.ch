@@ -52,11 +52,11 @@ export const Image: FC<Props> = ({ alt, rounded = 'default', src, caption, varia
         style={{
           width:
             variant === ImageVariant.PortraitSmall || variant === ImageVariant.PortraitBig
-              ? Number.parseInt(props.width.toString(), 10) / 2
+              ? Number.parseInt(props.width?.toString() || '0', 10) / 2
               : undefined,
           height:
             variant === ImageVariant.PortraitSmall || variant === ImageVariant.PortraitBig
-              ? Number.parseInt(props.height.toString(), 10) / 2
+              ? Number.parseInt(props.height?.toString() || '0', 10) / 2
               : undefined,
         }}
       />

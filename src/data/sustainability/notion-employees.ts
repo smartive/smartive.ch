@@ -1,5 +1,5 @@
 import { Client } from '@notionhq/client';
-import { getDistanceFromGoogleMaps, WEEKS_PER_YEAR } from '../../utils/sustainability';
+import { getDistanceFromGoogleMaps, WEEKS_PER_YEAR } from '../../../utils/sustainability';
 
 const NOTION_EMPLOYEE_DB_ID = '7c40115e5a974b6db68e607a94b3a6ee';
 
