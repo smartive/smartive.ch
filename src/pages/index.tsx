@@ -12,8 +12,6 @@ import { NextImageCard } from '../components/image-card';
 import { NewsletterCard } from '../components/newsletter-card';
 import { PackageList } from '../compositions/package-list';
 import { PageHeader } from '../compositions/page-header';
-import { Customer } from '../data/customers';
-import Customers from '../data/customers.json';
 import { Employee, getEmployeeByName } from '../data/employees';
 import Packages, { Package } from '../data/packages';
 import { Quote } from '../data/quotes';
@@ -28,12 +26,11 @@ const STATIC_IMAGES = {
 type Props = {
   images: typeof STATIC_IMAGES;
   contact: Employee;
-  customers: Customer[];
   quote: Quote;
   packages: Package[];
 };
 
-const Home: NextPage<Props> = ({ contact, customers, quote, packages, images }) => {
+const Home: NextPage<Props> = ({ contact, quote, packages, images }) => {
   return (
     <Page>
       <PageHeader
@@ -88,7 +85,9 @@ const Home: NextPage<Props> = ({ contact, customers, quote, packages, images }) 
           </GridSlider>
         </Section>
         <Section title="Weiter gebracht haben wir unter anderem schon">
-          <CustomerLogos customers={customers} />
+          <div className="mt-8 lg:mt-16">
+            <CustomerLogos />
+          </div>
         </Section>
         <Section>
           <Testimonial quote={quote} blobs="apricot-0" />
@@ -126,7 +125,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       packages,
       quote: Quotes['marc-frontify'],
       contact: await getEmployeeByName('Peter Manser'),
-      customers: Object.values(Customers),
     },
   };
 };

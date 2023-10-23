@@ -11,7 +11,6 @@ import { Serif } from '../../components/nodes/serif';
 import { ProjectCard } from '../../components/project-card';
 import { Testimonial } from '../../components/testimonial';
 import { MainProjectsDocument, OtherProjectsDocument } from '../../graphql/generated';
-import Customers from '../../src/data/customers.json';
 import { getEmployeeByName } from '../../src/data/employees';
 import Quotes from '../../src/data/quotes.json';
 import { queryDatoCMS } from '../../utils/query-dato-cms';
@@ -41,7 +40,7 @@ export default async function ProjectPage() {
       </header>
       <main>
         <Section>
-          <CustomerLogos customers={Object.values(Customers)} />
+          <CustomerLogos />
           <Grid cols={2}>
             {mainProjects.allProjects.map(({ id, slug, title, headline, teaserImage }) => (
               <ProjectCard
