@@ -1,4 +1,4 @@
-import { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 type generatePreviewUrlParams = {
   item: { attributes: { slug: string } };
@@ -19,21 +19,25 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-export async function POST(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
+export async function OPTIONS() {
+  return new Response('ok', {
+    status: 200,
+    headers,
+  });
+}
 
-  const token = searchParams.get('token');
+export async function POST(req: NextRequest): Promise<NextResponse> {
+  const token = req.nextUrl.searchParams.get('token');
 
-  if (token !== process.env.DRAFT_SECRET_TOKEN) return new Response('Invalid token', { status: 401 });
+  if (token !== process.env.DRAFT_SECRET_TOKEN) {
+    return NextResponse.json({ status: 401, body: { error: 'Invalid Token' } });
+  }
 
-  const parsedRequest = await request.json();
+  const parsedRequest = await req.json();
   const url = generatePreviewUrl(parsedRequest);
 
   if (!url) {
-    return new Response(JSON.stringify({ previewLinks: [] }), {
-      status: 200,
-      headers,
-    });
+    return NextResponse.json({ status: 200, body: { previewLinks: JSON.stringify([]) } });
   }
 
   // Vercel autopopulates the VERCEL_URL env variable with the deployment URL
@@ -53,8 +57,9 @@ export async function POST(request: NextRequest) {
       url: `${baseUrl}/api/draft/enable?url=${url}&token=${token}`,
     });
 
-  return new Response(JSON.stringify({ previewLinks }), {
+  return NextResponse.json({
     status: 200,
     headers,
+    body: { previewLinks: JSON.stringify(previewLinks) },
   });
 }
