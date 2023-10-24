@@ -37,21 +37,20 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ previewLinks: JSON.stringify([]) }, { status: 200, headers });
   }
 
-  // Vercel autopopulates the VERCEL_URL env variable with the deployment URL
-  const baseUrl = `https://${process.env.VERCEL_URL}`;
+  const baseUrl = `https://${process.env.NEXT_PUBLIC_SITE_URL}/api/draft`;
 
   const previewLinks: { label: string; url: string }[] = [];
 
   if (parsedRequest.item.meta.status !== 'draft')
     previewLinks.push({
       label: 'Published version',
-      url: `${baseUrl}/api/draft/disable?url=${url}`,
+      url: `${baseUrl}/disable?url=${url}`,
     });
 
   if (parsedRequest.item.meta.status !== 'published')
     previewLinks.push({
       label: 'Draft version',
-      url: `${baseUrl}/api/draft/enable?url=${url}&token=${token}`,
+      url: `${baseUrl}/enable?url=${url}&token=${token}`,
     });
 
   return NextResponse.json({ previewLinks }, { status: 200, headers });
