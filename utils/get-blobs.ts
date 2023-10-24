@@ -33,5 +33,6 @@ export const getBlobs = (blobs: BlobVariationName): BlobType[] => {
   if (typeof blobs === 'string') {
     return BlobVariationsMap[blobs];
   }
+
   return blobs;
 };

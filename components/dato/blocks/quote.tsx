@@ -4,7 +4,7 @@ import { Blob } from '@smartive/guetzli';
 import { FC } from 'react';
 import { Image as DatoImage } from 'react-datocms';
 import { QuoteBlockFragment } from '../../../graphql/generated';
-import { getBlobs } from '../../../utils/getBlobs';
+import { getBlobs } from '../../../utils/get-blobs';
 
 type Props = {
   block: QuoteBlockFragment;

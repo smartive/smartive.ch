@@ -4,7 +4,7 @@ import { Blob, BrandColor, highlight, mapColorToBG } from '@smartive/guetzli';
 import NextImage from 'next/image';
 import { FC } from 'react';
 import { Quote } from '../src/data/quotes';
-import { BlobVariationName, getBlobs } from '../utils/getBlobs';
+import { BlobVariationName, getBlobs } from '../utils/get-blobs';
 
 type Props = {
   className?: string;
