@@ -54,5 +54,5 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       url: `${baseUrl}/api/draft/enable?url=${url}&token=${token}`,
     });
 
-  return NextResponse.json({ previewLinks: JSON.stringify(previewLinks) }, { status: 200, headers });
+  return NextResponse.json({ previewLinks }, { status: 200, headers });
 }
