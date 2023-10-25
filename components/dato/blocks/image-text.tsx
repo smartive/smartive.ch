@@ -9,7 +9,11 @@ type Props = {
 };
 
 export const ImageTextBlock: FC<Props> = ({ block: { content, image, layout } }) => (
-  <div className={`my-12 flex items-start gap-8 lg:my-48 xl:gap-16 ${layout === 'image-right' ? 'flex-row-reverse' : ''}`}>
+  <div
+    className={`my-12 flex flex-col items-center gap-8 sm:flex-row lg:my-48 xl:gap-16 ${
+      layout === 'image-right' ? 'flex-row-reverse' : ''
+    }`}
+  >
     {image?.responsiveImage && (
       <div className="basis-2/5">
         <DatoImage data={image.responsiveImage} layout="responsive" className="rounded" />

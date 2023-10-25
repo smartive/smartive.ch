@@ -25,9 +25,7 @@ export const ImageBlock: FC<Props> = ({ block: { images } }) => {
     return <Image key={id} image={responsiveImage} caption={title ? title : undefined} />;
   } else if (images.length > 1) {
     return (
-      <div
-        className={`my-8 grid grid-flow-row grid-cols-${images.length} gap-8 md:auto-rows-fr md:grid-cols-2 xl:my-16 xl:gap-16`}
-      >
+      <div className="my-8 grid gap-2 sm:grid-flow-col sm:gap-8 xl:my-16 xl:gap-16">
         {images.map(
           ({ id, title, responsiveImage }) =>
             responsiveImage && <Image key={id} image={responsiveImage} caption={title ? title : undefined} />,
