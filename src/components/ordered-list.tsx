@@ -4,14 +4,10 @@ type Props = {
   children?: ReactNode;
 };
 
-export const OrderedList: FC<Props> = ({ children }) => {
-  return (
-    <ol className="mb-8 list-inside">
-      {Children.map(children, (child) => (
-        <li className="list-decimal font-sans text-xs font-bold text-mint-500 lg:text-base">
-          <span className="font-sans text-xs font-normal text-black lg:text-base">{child}</span>
-        </li>
-      ))}
-    </ol>
-  );
-};
+export const OrderedList: FC<Props> = ({ children }) => (
+  <ol className="mb-8 ml-8 space-y-2 marker:font-bold marker:text-mint-500">
+    {Children.map(children, (child) => (
+      <li className="list-decimal pl-1 font-sans text-xs font-normal lg:text-base">{child}</li>
+    ))}
+  </ol>
+);
