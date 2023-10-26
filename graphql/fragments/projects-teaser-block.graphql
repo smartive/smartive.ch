@@ -8,7 +8,7 @@ fragment projectsTeaserBlock on ProjectsTeaserRecord {
     headline
     teaserImage {
       responsiveImage(imgixParams: { fit: crop, w: 720, h: 480, auto: format }) {
-        ...responsiveImageFragment
+        ...responsiveImage
       }
     }
   }

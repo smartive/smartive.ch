@@ -2,7 +2,7 @@ fragment imageTextBlock on ImageTextRecord {
   id
   image {
     responsiveImage(imgixParams: { w: 580, auto: format }) {
-      ...responsiveImageFragment
+      ...responsiveImage
     }
   }
   content {

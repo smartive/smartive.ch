@@ -6,7 +6,7 @@ query MainProjects {
     headline
     teaserImage {
       responsiveImage(imgixParams: { fit: crop, w: 720, h: 480, auto: format }) {
-        ...responsiveImageFragment
+        ...responsiveImage
       }
     }
   }
@@ -20,7 +20,7 @@ query OtherProjects {
     headline
     teaserImage {
       responsiveImage(imgixParams: { fit: crop, w: 460, h: 240, auto: format }) {
-        ...responsiveImageFragment
+        ...responsiveImage
       }
     }
   }

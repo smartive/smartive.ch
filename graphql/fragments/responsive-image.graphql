@@ -1,4 +1,4 @@
-fragment responsiveImageFragment on ResponsiveImage {
+fragment responsiveImage on ResponsiveImage {
   src
   width
   height
