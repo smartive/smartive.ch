@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { ProjectModelContentField } from '../../graphql/generated';
 import { ContactBlock } from './blocks/contact';
+import { CustomBlock } from './blocks/custom';
 import { ImageBlock } from './blocks/image';
 import { ImageTextBlock } from './blocks/image-text';
 import { KeyfigureBlock } from './blocks/keyfigure';
@@ -45,6 +46,8 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => (
           return <KeyfigureBlock key={block.id} block={block} />;
         case 'ImageTextRecord':
           return <ImageTextBlock key={block.id} block={block} />;
+        case 'CustomRecord':
+          return <CustomBlock key={block.id} block={block} />;
         default:
           console.error('Unknown block type', block);
 

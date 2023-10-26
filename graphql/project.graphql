@@ -39,6 +39,9 @@ query Project($slug: String!) {
       ... on ImageTextRecord {
         ...imageTextBlock
       }
+      ... on CustomRecord {
+        ...customBlock
+      }
     }
     seo: _seoMetaTags {
       attributes
