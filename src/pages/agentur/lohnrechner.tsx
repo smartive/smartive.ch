@@ -36,7 +36,8 @@ const salaryIndex = TextBlocks.findIndex(({ title }) => title === 'Lohn & Bonus'
 const textBlocks = [...TextBlocks];
 textBlocks[salaryIndex] = {
   title: 'Bonus',
-  content: 'Zum Lohn kommt mindestens ein Drittel des Gewinns zu gleichen Teilen allen Mitarbeitenden zugute.',
+  content:
+    'Bei uns wird der Erfolg nicht nur gefeiert, sondern auch geteilt! 55% des Gewinns werden als Bonus an alle Mitarbeitenden ausgezahlt.',
 };
 
 export const Lohnrechner: NextPage<PageProps> = ({ quote }) => {

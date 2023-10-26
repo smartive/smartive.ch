@@ -14,11 +14,35 @@ type Props = {
   render: (state: any, machine: any) => ReactNode;
 };
 
+type OptionsType = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  continue: ({ value, text, width }: { value: any; text: any; width?: string | undefined }) => JSX.Element;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  skip: ({ text }: { text: any }) => JSX.Element;
+  input: ({
+    type,
+    label,
+    placeholder,
+    required,
+  }: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    label: any;
+    placeholder: any;
+    required?: boolean | undefined;
+  }) => JSX.Element;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  textarea: ({ label }: { label: any }) => JSX.Element;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  'inline-skip': ({ text }: { text: any }) => JSX.Element;
+};
+
 export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
   const [state, send] = useMachine(machine);
   const ref = useRef<HTMLInputElement & HTMLTextAreaElement>(null);
 
-  const Options = useMemo(
+  const Options: OptionsType = useMemo(
     () => ({
       continue: ({ value, text, width = 'auto' }) => {
         return (
