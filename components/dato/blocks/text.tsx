@@ -7,8 +7,8 @@ type Props = {
   block: TextBlockFragment;
 };
 
-export const TextBlock: FC<Props> = ({ block: { content, disableMargin } }) => (
-  <div className={disableMargin ? '' : 'my-12 lg:my-48'}>
+export const TextBlock: FC<Props> = ({ block: { content, disableMarginTop, disableMarginBottom } }) => (
+  <div className={disableMarginTop || disableMarginBottom ? '' : 'my-12 lg:my-48'}>
     {content && <StructuredTextRenderer data={content as StructuredTextType} />}
   </div>
 );

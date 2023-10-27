@@ -7,5 +7,6 @@ fragment twoColsTextBlock on TwoColsTextRecord {
   contentRight {
     value
   }
-  disableMargin
+  disableMarginTop
+  disableMarginBottom
 }

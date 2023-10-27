@@ -10,9 +10,9 @@ type Props = {
 };
 
 export const ThreeColsTextBlock: FC<Props> = ({
-  block: { heading, contentLeft, contentMiddle, contentRight, disableMargin },
+  block: { heading, contentLeft, contentMiddle, contentRight, disableMarginTop, disableMarginBottom },
 }) => (
-  <div className={disableMargin ? '' : 'my-12 lg:my-48'}>
+  <div className={disableMarginTop || disableMarginBottom ? '' : 'my-12 lg:my-48'}>
     {heading && <Heading2>{heading}</Heading2>}
     <Grid cols={3}>
       {contentLeft && (

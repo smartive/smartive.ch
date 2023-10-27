@@ -3,5 +3,6 @@ fragment textBlock on TextRecord {
   content {
     value
   }
-  disableMargin
+  disableMarginTop
+  disableMarginBottom
 }

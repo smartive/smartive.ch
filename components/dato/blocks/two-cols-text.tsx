@@ -9,8 +9,10 @@ type Props = {
   block: TwoColsTextBlockFragment;
 };
 
-export const TwoColsTextBlock: FC<Props> = ({ block: { heading, contentLeft, contentRight, disableMargin } }) => (
-  <div className={disableMargin ? '' : 'my-12 lg:my-48'}>
+export const TwoColsTextBlock: FC<Props> = ({
+  block: { heading, contentLeft, contentRight, disableMarginTop, disableMarginBottom },
+}) => (
+  <div className={disableMarginTop || disableMarginBottom ? '' : 'my-12 lg:my-48'}>
     {heading && <Heading2>{heading}</Heading2>}
     <Grid cols={2}>
       {contentLeft && (
