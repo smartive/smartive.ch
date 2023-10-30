@@ -20,15 +20,17 @@ export async function queryDatoCMS<TResult = unknown, TVariables = Record<string
 
   if (process.env.NEXT_DATOCMS_ENVIRONMENT) headers['X-Environment'] = process.env.NEXT_DATOCMS_ENVIRONMENT;
 
-  const { data } = await (
-    await fetch('https://graphql.datocms.com/', {
-      cache: 'force-cache',
-      next: { tags: ['datocms'] },
-      method: 'POST',
-      headers,
-      body: JSON.stringify({ query: print(document), variables }),
-    })
-  ).json();
+  const response = await fetch('https://graphql.datocms.com/', {
+    cache: 'force-cache',
+    next: { tags: ['datocms'] },
+    method: 'POST',
+    headers,
+    body: JSON.stringify({ query: print(document), variables }),
+  });
+
+  if (!response.ok) throw new Error(`DatoCMS request failed: ${response.statusText}`);
+
+  const { data } = await response.json();
 
   return data;
 }
