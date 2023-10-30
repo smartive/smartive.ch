@@ -147,8 +147,6 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
               >
                 {state.matches('contact') ? (
                   <>
-                    <div className="mb-8" />
-
                     <Heading2 className="max-w-prose">So erreichen wir dich.</Heading2>
                     <Copy>Darauf hast du wohl nur gewartet. Jetzt hätten wir natürlich gerne deine Kontaktdaten.</Copy>
                     <ContactForm
@@ -160,13 +158,12 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
                 ) : (
                   <>
                     {!state.matches(machine.initial) && (
-                      <span className="mb-8 mt-8 block">
+                      <span className="mb-8 block">
                         <TextLink as="button" onClick={() => send('BACK')}>
                           Zurück
                         </TextLink>
                       </span>
                     )}
-                    <div className="mb-8" />
                     <Heading2 className="max-w-prose">{title}</Heading2>
                     {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                     {getMeta('copy', { machine, state } as any) && <Copy>{copy}</Copy>}

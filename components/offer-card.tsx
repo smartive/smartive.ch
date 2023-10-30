@@ -1,6 +1,7 @@
 import { Clock } from '@smartive/guetzli';
 import NextLink from 'next/link';
 import { FC } from 'react';
+import { classNames } from '../utils/css';
 import { Heading3 } from './nodes';
 import { UseClientWrapper } from './use-client-wrapper';
 
@@ -18,7 +19,14 @@ type Props = {
 export const OfferCard: FC<Props> = ({ title, timespan, description, link, linkLabel, color = 'apricot' }) => (
   <NextLink
     href={link}
-    className={`card-shadow grid w-full grid-rows-[auto,1fr,auto] gap-4 overflow-hidden rounded p-8 text-xxs lg:gap-6 lg:text-sm bg-${color}-500 text-black transition-transform active:scale-[.99]`}
+    className={classNames(
+      'card-shadow grid w-full grid-rows-[auto,1fr,auto] gap-4 overflow-hidden rounded p-8 text-xxs text-black transition-transform active:scale-[.99] lg:gap-6 lg:text-sm',
+      {
+        apricot: 'bg-apricot-500',
+        mint: 'bg-mint-500',
+        cornflower: 'bg-cornflower-500',
+      }[color],
+    )}
   >
     {timespan && (
       <div className="inline-flex flex-row items-center">

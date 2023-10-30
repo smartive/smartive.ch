@@ -1,4 +1,4 @@
-import { StructuredText as StructuredTextType } from 'datocms-structured-text-utils';
+import { StructuredText as StructuredTextType, isEmptyDocument } from 'datocms-structured-text-utils';
 import { FC } from 'react';
 import { ProjectIntroBlockFragment } from '../../../graphql/generated';
 import { Link, LinkColors, Tag, TagColors } from '../../nodes';
@@ -20,7 +20,7 @@ export const ProjectIntroBlock: FC<Props> = ({ block: { content, links, tags } }
       </div>
     )}
 
-    {content && (
+    {!isEmptyDocument(content) && (
       <div className="text-base md:text-lg lg:text-xl">
         <StructuredTextRenderer data={content as StructuredTextType} />
       </div>

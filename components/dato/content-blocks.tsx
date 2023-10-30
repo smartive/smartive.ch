@@ -3,6 +3,7 @@ import { ProjectModelContentField } from '../../graphql/generated';
 import { ContactBlock } from './blocks/contact';
 import { CustomBlock } from './blocks/custom';
 import { ImageBlock } from './blocks/image';
+import { ImageGridBlock } from './blocks/image-grid';
 import { ImageTextBlock } from './blocks/image-text';
 import { KeyfigureBlock } from './blocks/keyfigure';
 import { OffersTeaserBlock } from './blocks/offers-teaser';
@@ -19,7 +20,7 @@ type Props = {
 };
 
 export const ContentBlocks: FC<Props> = ({ blocks }) => (
-  <>
+  <div className="my-12 lg:my-48">
     {blocks.map((block) => {
       switch (block.__typename) {
         case 'VideoRecord':
@@ -48,11 +49,13 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => (
           return <ImageTextBlock key={block.id} block={block} />;
         case 'CustomRecord':
           return <CustomBlock key={block.id} block={block} />;
+        case 'ImageGridRecord':
+          return <ImageGridBlock key={block.id} block={block} />;
         default:
           console.error('Unknown block type', block);
 
           return null;
       }
     })}
-  </>
+  </div>
 );

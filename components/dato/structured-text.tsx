@@ -8,10 +8,12 @@ import {
 } from 'datocms-structured-text-utils';
 import { FC, Fragment } from 'react';
 import { StructuredText, renderMarkRule, renderNodeRule } from 'react-datocms';
-import { Heading1, Heading2, Heading3, Paragraph, Serif } from '../nodes';
+import { ImageBlockFragment } from '../../graphql/generated';
+import { Heading1, Heading2, Heading3, Link, Paragraph, Serif } from '../nodes';
 import { InlineLink } from '../nodes/inline-link';
 import { List } from '../nodes/list';
 import { ListItem } from '../nodes/list-item';
+import { ImageBlock } from './blocks/image';
 
 type Props = {
   data: StructuredTextType;
@@ -63,5 +65,23 @@ export const StructuredTextRenderer: FC<Props> = ({ data }) => (
         return <Serif key={key}>{children}</Serif>;
       }),
     ]}
+    renderBlock={({ record }) => {
+      switch (record._modelApiKey) {
+        case 'image':
+          return (
+            <div className="my-4 lg:my-8">
+              <ImageBlock key={record.id} block={record as ImageBlockFragment} />
+            </div>
+          );
+        case 'link':
+          return (
+            <Link key={record.id} href={record.url as string} target={record.newTab ? '_blank' : '_self'}>
+              {record.label as string}
+            </Link>
+          );
+        default:
+          return null;
+      }
+    }}
   />
 );

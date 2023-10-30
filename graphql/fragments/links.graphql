@@ -1,0 +1,6 @@
+fragment links on LinkRecord {
+  id
+  label
+  newTab
+  url
+}

@@ -1,6 +1,7 @@
-import { StructuredText as StructuredTextType } from 'datocms-structured-text-utils';
+import { StructuredText as StructuredTextType, isEmptyDocument } from 'datocms-structured-text-utils';
 import { FC } from 'react';
 import { ThreeColsTextBlockFragment } from '../../../graphql/generated';
+import { classNames } from '../../../utils/css';
 import { Grid } from '../../layouts/grid';
 import { Heading2 } from '../../nodes';
 import { StructuredTextRenderer } from '../structured-text';
@@ -12,20 +13,20 @@ type Props = {
 export const ThreeColsTextBlock: FC<Props> = ({
   block: { heading, contentLeft, contentMiddle, contentRight, disableMarginTop, disableMarginBottom },
 }) => (
-  <div className={disableMarginTop || disableMarginBottom ? '' : 'my-12 lg:my-48'}>
+  <div className={classNames(!disableMarginTop && 'mt-12 lg:mt-48', !disableMarginBottom && 'mb-12 lg:mb-48')}>
     {heading && <Heading2>{heading}</Heading2>}
     <Grid cols={3}>
-      {contentLeft && (
+      {!isEmptyDocument(contentLeft) && (
         <div>
           <StructuredTextRenderer data={contentLeft as StructuredTextType} />
         </div>
       )}
-      {contentMiddle && (
+      {!isEmptyDocument(contentMiddle) && (
         <div>
           <StructuredTextRenderer data={contentMiddle as StructuredTextType} />
         </div>
       )}
-      {contentRight && (
+      {!isEmptyDocument(contentRight) && (
         <div>
           <StructuredTextRenderer data={contentRight as StructuredTextType} />
         </div>

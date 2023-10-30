@@ -1,11 +1,11 @@
 import { Copy, LinkList } from '@smartive/guetzli';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
-import DOMAIN_REDIRECTS from '../../../domain-redirects';
-import { Image, ImageVariant } from '../../components/image';
-import { PageHeader } from '../../compositions/page-header';
-import GiveawayPagesContent from '../../data/giveaway-pages.json';
-import { LandingPage } from '../../layouts/landing-page';
+import DOMAIN_REDIRECTS from '../../../../domain-redirects';
+import { Image, ImageVariant } from '../../../components/image';
+import { PageHeader } from '../../../compositions/page-header';
+import GiveawayPagesContent from '../../../data/giveaway-pages.json';
+import { LandingPage } from '../../../layouts/landing-page';
 
 const LABELS = {
   en: {

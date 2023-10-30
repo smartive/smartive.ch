@@ -7,6 +7,8 @@ type generatePreviewUrlParams = {
 
 const generatePreviewUrl = ({ item, itemType }: generatePreviewUrlParams) => {
   switch (itemType.attributes.api_key) {
+    case 'page':
+      return `/${item.attributes.slug}`;
     case 'project':
       return `/projekte/${item.attributes.slug}`;
   }

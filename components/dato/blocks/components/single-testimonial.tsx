@@ -13,10 +13,10 @@ type Props = {
   authorDesc?: string;
 };
 
-export const Testimonial: FC<Props> = ({ image, quote, authorName, authorDesc }) => (
+export const SingleTestimonial: FC<Props> = ({ image, quote, authorName, authorDesc }) => (
   <div className="relative my-12 grid w-full grid-flow-row place-items-center overflow-hidden rounded bg-mint-500 p-8 text-center font-sans text-xxs font-normal lg:my-48 lg:p-32 lg:text-sm">
     {image && <DatoImage data={image} className="z-10 rounded-full" />}
-    <p className="z-10 mb-4 mt-4 overflow-hidden font-sans text-base font-bold sm:overflow-visible lg:mb-8 lg:text-xl">
+    <p className="z-10 mb-4 mt-4 overflow-hidden whitespace-pre-line font-sans text-base font-bold sm:overflow-visible lg:mb-8 lg:text-xl">
       &laquo;
       {quote}
       &raquo;

@@ -1,5 +1,5 @@
-query Project($slug: String!) {
-  project(filter: { slug: { eq: $slug } }) {
+query Page($slug: String!) {
+  page(filter: { slug: { eq: $slug } }) {
     id
     content {
       __typename

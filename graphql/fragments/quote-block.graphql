@@ -11,4 +11,6 @@ fragment quoteBlock on QuoteRecord {
       }
     }
   }
+  disableMarginTop
+  disableMarginBottom
 }

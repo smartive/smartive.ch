@@ -3,12 +3,42 @@ fragment threeColsTextBlock on ThreeColsTextRecord {
   heading
   contentLeft {
     value
+    blocks {
+      ... on ImageRecord {
+        _modelApiKey
+        ...imageBlock
+      }
+      ... on LinkRecord {
+        _modelApiKey
+        ...links
+      }
+    }
   }
   contentMiddle {
     value
+    blocks {
+      ... on ImageRecord {
+        _modelApiKey
+        ...imageBlock
+      }
+      ... on LinkRecord {
+        _modelApiKey
+        ...links
+      }
+    }
   }
   contentRight {
     value
+    blocks {
+      ... on ImageRecord {
+        _modelApiKey
+        ...imageBlock
+      }
+      ... on LinkRecord {
+        _modelApiKey
+        ...links
+      }
+    }
   }
   disableMarginTop
   disableMarginBottom

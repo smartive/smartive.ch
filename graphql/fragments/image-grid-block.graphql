@@ -1,0 +1,25 @@
+fragment imageGridBlock on ImageGridRecord {
+  id
+  image1 {
+    id
+    title
+    responsiveImage(imgixParams: { fit: crop, w: 720, h: 480, auto: format }) {
+      ...responsiveImage
+    }
+  }
+  image2 {
+    id
+    title
+    responsiveImage(imgixParams: { fit: crop, w: 720, h: 480, auto: format }) {
+      ...responsiveImage
+    }
+  }
+  image3 {
+    id
+    title
+    responsiveImage(imgixParams: { fit: crop, w: 720, h: 1024, auto: format }) {
+      ...responsiveImage
+    }
+  }
+  layout
+}

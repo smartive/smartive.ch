@@ -4,10 +4,7 @@ fragment projectIntroBlock on ProjectIntroRecord {
     value
   }
   links {
-    id
-    label
-    newTab
-    url
+    ...links
   }
   tags {
     id
