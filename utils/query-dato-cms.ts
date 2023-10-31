@@ -3,7 +3,7 @@ import { print } from 'graphql';
 import { GraphQLClientRequestHeaders } from 'graphql-request/build/esm/types';
 import { draftMode } from 'next/headers';
 
-export async function queryDatoCMS<TResult = unknown, TVariables = Record<string, any>>(
+export async function queryDatoCMS<TResult = unknown, TVariables = Record<string, unknown>>(
   document: TypedDocumentNode<TResult, TVariables>,
   variables?: TVariables,
 ): Promise<TResult> {
@@ -21,7 +21,7 @@ export async function queryDatoCMS<TResult = unknown, TVariables = Record<string
   if (process.env.NEXT_DATOCMS_ENVIRONMENT) headers['X-Environment'] = process.env.NEXT_DATOCMS_ENVIRONMENT;
 
   const response = await fetch('https://graphql.datocms.com/', {
-    cache: 'force-cache',
+    cache: isEnabled ? 'no-cache' : 'force-cache',
     next: { tags: ['datocms'] },
     method: 'POST',
     headers,
