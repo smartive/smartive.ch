@@ -6,4 +6,6 @@ fragment videoBlock on VideoRecord {
     providerUid
     title
   }
+  loop
+  autoplay
 }
