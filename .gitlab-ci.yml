@@ -11,7 +11,7 @@ stages:
 
 .default_template:
   extends: .base
-  image: node:20-alpine
+  image: node:21-alpine
 
 .test_template:
   extends: .default_template
