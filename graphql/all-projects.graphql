@@ -13,7 +13,7 @@ query MainProjects {
 }
 
 query OtherProjects {
-  allProjects(orderBy: position_ASC, skip: 2) {
+  allProjects(orderBy: position_ASC, skip: 2, first: 100) {
     id
     slug
     title
