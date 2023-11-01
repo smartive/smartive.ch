@@ -11,6 +11,8 @@ const generatePreviewUrl = ({ item, itemType }: generatePreviewUrlParams) => {
       return `/${item.attributes.slug}`;
     case 'project':
       return `/projekte/${item.attributes.slug}`;
+    default:
+      return null;
   }
 };
 
