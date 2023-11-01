@@ -1,0 +1,11 @@
+fragment logoGridBlock on LogoGridRecord {
+  id
+  heading
+  logos {
+    id
+    url
+    width
+    height
+    title
+  }
+}

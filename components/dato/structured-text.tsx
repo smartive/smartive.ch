@@ -9,10 +9,7 @@ import {
 import { FC, Fragment } from 'react';
 import { StructuredText, renderMarkRule, renderNodeRule } from 'react-datocms';
 import { ImageBlockFragment } from '../../graphql/generated';
-import { Heading1, Heading2, Heading3, Link, Paragraph, Serif } from '../nodes';
-import { InlineLink } from '../nodes/inline-link';
-import { List } from '../nodes/list';
-import { ListItem } from '../nodes/list-item';
+import { Heading1, Heading2, Heading3, InlineLink, Link, List, ListItem, Paragraph, Serif } from '../nodes';
 import { ImageBlock } from './blocks/image';
 
 type Props = {

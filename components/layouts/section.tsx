@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { Heading2 } from '../nodes/heading2';
+import { Heading2 } from '../nodes';
 
 export type SectionProps = {
   title?: string;

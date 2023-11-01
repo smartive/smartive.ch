@@ -45,6 +45,9 @@ query Project($slug: String!) {
       ... on ImageGridRecord {
         ...imageGridBlock
       }
+      ... on LogoGridRecord {
+        ...logoGridBlock
+      }
     }
     seo: _seoMetaTags {
       attributes

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { CryingCloud } from '../components/crying-cloud';
 import { Page } from '../components/layouts/page';
-import { Link } from '../components/nodes/link';
+import { Link } from '../components/nodes';
 
 export const metadata: Metadata = {
   title: 'Seite nicht gefunden — smartive',

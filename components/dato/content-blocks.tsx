@@ -6,6 +6,7 @@ import { ImageBlock } from './blocks/image';
 import { ImageGridBlock } from './blocks/image-grid';
 import { ImageTextBlock } from './blocks/image-text';
 import { KeyfigureBlock } from './blocks/keyfigure';
+import { LogoGridBlock } from './blocks/logo-grid';
 import { OffersTeaserBlock } from './blocks/offers-teaser';
 import { ProjectIntroBlock } from './blocks/project-intro';
 import { ProjectsTeaserBlock } from './blocks/projects-teaser';
@@ -51,6 +52,8 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => (
           return <CustomBlock key={block.id} block={block} />;
         case 'ImageGridRecord':
           return <ImageGridBlock key={block.id} block={block} />;
+        case 'LogoGridRecord':
+          return <LogoGridBlock key={block.id} block={block} />;
         default:
           console.error('Unknown block type', block);
 
