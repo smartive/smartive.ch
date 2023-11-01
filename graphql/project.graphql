@@ -18,9 +18,6 @@ query Project($slug: String!) {
       ... on VideoRecord {
         ...videoBlock
       }
-      ... on ProjectIntroRecord {
-        ...projectIntroBlock
-      }
       ... on ProjectsTeaserRecord {
         ...projectsTeaserBlock
       }

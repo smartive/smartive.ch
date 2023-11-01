@@ -8,7 +8,6 @@ import { ImageTextBlock } from './blocks/image-text';
 import { KeyfigureBlock } from './blocks/keyfigure';
 import { LogoGridBlock } from './blocks/logo-grid';
 import { OffersTeaserBlock } from './blocks/offers-teaser';
-import { ProjectIntroBlock } from './blocks/project-intro';
 import { ProjectsOverviewBlock } from './blocks/projects-overview';
 import { ProjectsTeaserBlock } from './blocks/projects-teaser';
 import { QuoteBlock } from './blocks/quote';
@@ -27,8 +26,6 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => (
       switch (block.__typename) {
         case 'VideoRecord':
           return <VideoBlock key={block.id} block={block} />;
-        case 'ProjectIntroRecord':
-          return <ProjectIntroBlock key={block.id} block={block} />;
         case 'TextRecord':
           return <TextBlock key={block.id} block={block} />;
         case 'TwoColsTextRecord':
