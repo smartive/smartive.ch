@@ -13,7 +13,7 @@ const NeueMachina = localFont({
 });
 
 export const LangerSamstagLogo: FC = () => (
-  <div className="my-12 lg:my-48">
+  <div className="my-8 lg:my-16">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
