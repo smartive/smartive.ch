@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Image as DatoImage, ResponsiveImageType } from 'react-datocms';
 import { ImageBlockFragment } from '../../../graphql/generated';
+import { BlockWrapper } from '../../layouts/block-wrapper';
 
 type Props = {
   block: ImageBlockFragment;
@@ -22,15 +23,21 @@ export const ImageBlock: FC<Props> = ({ block: { images } }) => {
   if (images.length === 1) {
     const { id, title, responsiveImage } = images[0];
 
-    return <Image key={id} image={responsiveImage} caption={title ? title : undefined} />;
+    return (
+      <BlockWrapper marginTop="small" marginBottom="small">
+        <Image key={id} image={responsiveImage} caption={title ? title : undefined} />
+      </BlockWrapper>
+    );
   } else if (images.length > 1) {
     return (
-      <div className="my-8 grid gap-2 sm:auto-cols-[minmax(0,_1fr)] sm:grid-flow-col sm:gap-8 xl:my-16 xl:gap-16">
-        {images.map(
-          ({ id, title, responsiveImage }) =>
-            responsiveImage && <Image key={id} image={responsiveImage} caption={title ? title : undefined} />,
-        )}
-      </div>
+      <BlockWrapper marginTop="small" marginBottom="small">
+        <div className="grid gap-2 sm:auto-cols-[minmax(0,_1fr)] sm:grid-flow-col sm:gap-8 xl:gap-16">
+          {images.map(
+            ({ id, title, responsiveImage }) =>
+              responsiveImage && <Image key={id} image={responsiveImage} caption={title ? title : undefined} />,
+          )}
+        </div>
+      </BlockWrapper>
     );
   }
 };

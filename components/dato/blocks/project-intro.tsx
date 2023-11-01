@@ -1,6 +1,7 @@
 import { StructuredText as StructuredTextType, isEmptyDocument } from 'datocms-structured-text-utils';
 import { FC } from 'react';
 import { ProjectIntroBlockFragment } from '../../../graphql/generated';
+import { BlockWrapper } from '../../layouts/block-wrapper';
 import { Label, LabelColors, Link, LinkColors } from '../../nodes';
 import { StructuredTextRenderer } from '../structured-text';
 
@@ -9,7 +10,7 @@ type Props = {
 };
 
 export const ProjectIntroBlock: FC<Props> = ({ block: { content, links, tags } }) => (
-  <div className="my-12 lg:my-48">
+  <BlockWrapper>
     {tags.length > 0 && (
       <div className="mb-4 flex flex-wrap">
         {tags.map(({ id, label }, index) => (
@@ -35,5 +36,5 @@ export const ProjectIntroBlock: FC<Props> = ({ block: { content, links, tags } }
         ))}
       </div>
     )}
-  </div>
+  </BlockWrapper>
 );

@@ -8,4 +8,6 @@ fragment logoGridBlock on LogoGridRecord {
     height
     title
   }
+  disableMarginTop
+  disableMarginBottom
 }

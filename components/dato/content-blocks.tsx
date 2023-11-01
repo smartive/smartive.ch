@@ -9,6 +9,7 @@ import { KeyfigureBlock } from './blocks/keyfigure';
 import { LogoGridBlock } from './blocks/logo-grid';
 import { OffersTeaserBlock } from './blocks/offers-teaser';
 import { ProjectIntroBlock } from './blocks/project-intro';
+import { ProjectsOverviewBlock } from './blocks/projects-overview';
 import { ProjectsTeaserBlock } from './blocks/projects-teaser';
 import { QuoteBlock } from './blocks/quote';
 import { TextBlock } from './blocks/text';
@@ -52,6 +53,8 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => (
           return <CustomBlock key={block.id} block={block} />;
         case 'ImageGridRecord':
           return <ImageGridBlock key={block.id} block={block} />;
+        case 'ProjectsOverviewRecord':
+          return <ProjectsOverviewBlock key={block.id} block={block} />;
         case 'LogoGridRecord':
           return <LogoGridBlock key={block.id} block={block} />;
         default:

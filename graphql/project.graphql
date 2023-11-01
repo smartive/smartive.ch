@@ -48,6 +48,9 @@ query Project($slug: String!) {
       ... on LogoGridRecord {
         ...logoGridBlock
       }
+      ... on ProjectsOverviewRecord {
+        ...projectsOverviewBlock
+      }
     }
     seo: _seoMetaTags {
       attributes
@@ -67,6 +70,34 @@ query Project($slug: String!) {
         title
       }
       titleSuffix
+    }
+  }
+}
+
+query MainProjects {
+  allProjects(orderBy: position_ASC, first: 2) {
+    id
+    slug
+    title
+    headline
+    teaserImage {
+      responsiveImage(imgixParams: { fit: crop, w: 720, h: 480, auto: format }) {
+        ...responsiveImage
+      }
+    }
+  }
+}
+
+query OtherProjects {
+  allProjects(orderBy: position_ASC, skip: 2, first: 100) {
+    id
+    slug
+    title
+    headline
+    teaserImage {
+      responsiveImage(imgixParams: { fit: crop, w: 460, h: 240, auto: format }) {
+        ...responsiveImage
+      }
     }
   }
 }

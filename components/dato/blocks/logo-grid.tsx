@@ -1,13 +1,14 @@
 import { FC } from 'react';
 import { LogoGridBlockFragment } from '../../../graphql/generated';
+import { BlockWrapper } from '../../layouts/block-wrapper';
 import { Heading2 } from '../../nodes';
 
 type Props = {
   block: LogoGridBlockFragment;
 };
 
-export const LogoGridBlock: FC<Props> = ({ block: { heading, logos } }) => (
-  <div className="my-12 lg:my-48">
+export const LogoGridBlock: FC<Props> = ({ block: { heading, logos, disableMarginTop, disableMarginBottom } }) => (
+  <BlockWrapper marginTop={disableMarginTop ? 'none' : 'large'} marginBottom={disableMarginBottom ? 'none' : 'large'}>
     {heading && (
       <div className="mb-8 lg:mb-16">
         <Heading2>{heading}</Heading2>
@@ -29,5 +30,5 @@ export const LogoGridBlock: FC<Props> = ({ block: { heading, logos } }) => (
         />
       ))}
     </div>
-  </div>
+  </BlockWrapper>
 );

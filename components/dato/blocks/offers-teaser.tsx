@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { OffersTeaserBlockFragment } from '../../../graphql/generated';
+import { BlockWrapper } from '../../layouts/block-wrapper';
 import { Grid } from '../../layouts/grid';
 import { GridSlider } from '../../layouts/grid-slider';
 import { Heading2 } from '../../nodes';
@@ -9,7 +10,7 @@ type Props = {
   block: OffersTeaserBlockFragment;
 };
 
-export const OffersTeaserBlock: FC<Props> = ({ block: { heading, offers } }) => {
+export const OffersTeaserBlock: FC<Props> = ({ block: { heading, offers, disableMarginTop, disableMarginBottom } }) => {
   const offersList = offers.map(({ id, title, description, timespan, linkLabel, legacyLink, color }) => (
     <OfferCard
       key={id}
@@ -23,7 +24,7 @@ export const OffersTeaserBlock: FC<Props> = ({ block: { heading, offers } }) => 
   ));
 
   return (
-    <div className="my-12 lg:my-48">
+    <BlockWrapper marginTop={disableMarginTop ? 'none' : 'large'} marginBottom={disableMarginBottom ? 'none' : 'large'}>
       {heading && <Heading2>{heading}</Heading2>}
 
       <div className="hidden md:block">
@@ -32,6 +33,6 @@ export const OffersTeaserBlock: FC<Props> = ({ block: { heading, offers } }) => 
       <div className="block md:hidden">
         <GridSlider>{offersList}</GridSlider>
       </div>
-    </div>
+    </BlockWrapper>
   );
 };

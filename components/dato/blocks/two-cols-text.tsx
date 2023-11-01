@@ -1,7 +1,7 @@
 import { StructuredText as StructuredTextType, isEmptyDocument } from 'datocms-structured-text-utils';
 import { FC } from 'react';
 import { TwoColsTextBlockFragment } from '../../../graphql/generated';
-import { classNames } from '../../../utils/css';
+import { BlockWrapper } from '../../layouts/block-wrapper';
 import { Grid } from '../../layouts/grid';
 import { Heading2 } from '../../nodes';
 import { StructuredTextRenderer } from '../structured-text';
@@ -13,7 +13,7 @@ type Props = {
 export const TwoColsTextBlock: FC<Props> = ({
   block: { heading, contentLeft, contentRight, disableMarginTop, disableMarginBottom },
 }) => (
-  <div className={classNames(!disableMarginTop && 'mt-12 lg:mt-48', !disableMarginBottom && 'mb-12 lg:mb-48')}>
+  <BlockWrapper marginTop={disableMarginTop ? 'none' : 'large'} marginBottom={disableMarginBottom ? 'none' : 'large'}>
     {heading && <Heading2>{heading}</Heading2>}
     <Grid cols={2}>
       {!isEmptyDocument(contentLeft) && (
@@ -27,5 +27,5 @@ export const TwoColsTextBlock: FC<Props> = ({
         </div>
       )}
     </Grid>
-  </div>
+  </BlockWrapper>
 );

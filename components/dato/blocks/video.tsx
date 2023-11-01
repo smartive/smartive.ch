@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { VideoBlockFragment } from '../../../graphql/generated';
+import { BlockWrapper } from '../../layouts/block-wrapper';
 
 type Props = {
   block: VideoBlockFragment;
@@ -26,7 +27,7 @@ export const VideoBlock: FC<Props> = ({ block: { video, loop, autoplay } }) => {
   if (!videoSrc) return null;
 
   return (
-    <div className="my-12 lg:my-48">
+    <BlockWrapper>
       <iframe
         className="aspect-video w-full rounded"
         title={video?.title}
@@ -34,6 +35,6 @@ export const VideoBlock: FC<Props> = ({ block: { video, loop, autoplay } }) => {
         allow="autoplay; fullscreen; picture-in-picture"
         allowFullScreen
       />
-    </div>
+    </BlockWrapper>
   );
 };
