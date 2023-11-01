@@ -73,13 +73,14 @@ const Home: NextPage<Props> = ({ contact, quote, packages, images }) => {
               imageAlt="Frau mit geöffnetem Laptop"
             />
             <NextContentCard
-              label="Neues vom Blog"
-              title="Hoi St. Gallen 👋"
-              content="Nach über 10 Jahren in Zürich sind wir nun auch in der Ostschweiz zuhause."
-              background="mint"
+              label="New Work for Everyone"
+              title="Neues aus der Rumpelkiste"
+              content="Ob fehlende Flexibilität oder erstickende Kreativität, die Frustration der Mitarbeitenden wächst. Gärtchendenken verhindert Kollaboration, Innovation verkümmert."
+              background="apricot"
               link={{
-                label: 'Zur Pressemitteilung',
-                href: 'https://smartive.ch/blog/hoi-st-gallen',
+                label: '👉 Zu den Good News',
+                href: 'https://new-work.smartive.ch',
+                newTab: true,
               }}
             />
           </GridSlider>
