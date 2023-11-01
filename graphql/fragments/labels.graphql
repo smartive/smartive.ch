@@ -1,0 +1,5 @@
+fragment labels on LabelRecord {
+  id
+  label
+  color
+}

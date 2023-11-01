@@ -9,7 +9,7 @@ import {
 import { FC, Fragment } from 'react';
 import { StructuredText, renderMarkRule, renderNodeRule } from 'react-datocms';
 import { ImageBlockFragment } from '../../graphql/generated';
-import { Heading1, Heading2, Heading3, InlineLink, Link, List, ListItem, Paragraph, Serif } from '../nodes';
+import { Heading1, Heading2, Heading3, InlineLink, Label, Link, List, ListItem, Paragraph, Serif } from '../nodes';
 import { ImageBlock } from './blocks/image';
 
 type Props = {
@@ -72,9 +72,20 @@ export const StructuredTextRenderer: FC<Props> = ({ data }) => (
           );
         case 'link':
           return (
-            <Link key={record.id} href={record.url as string} target={record.newTab ? '_blank' : '_self'}>
+            <Link
+              key={record.id}
+              href={record.url as string}
+              target={record.newTab ? '_blank' : '_self'}
+              color={record.color as string}
+            >
               {record.label as string}
             </Link>
+          );
+        case 'label':
+          return (
+            <Label key={record.id} color={record.color as string}>
+              {record.label as string}
+            </Label>
           );
         default:
           return null;

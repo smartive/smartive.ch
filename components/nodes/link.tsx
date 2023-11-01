@@ -10,9 +10,9 @@ export const Link: FC<Props> = ({ children, href, target, rel, color = 'apricot'
   <NextLink
     href={href ?? '#'}
     target={target ?? '_self'}
-    rel={rel ?? undefined}
+    rel={rel}
     className={classNames(
-      'border-b-4 text-xxs font-bold no-underline transition-colors duration-150 hover:border-black lg:text-base',
+      'peer border-b-4 text-xxs font-bold no-underline transition-colors duration-150 hover:border-black peer-[a&]:ml-4 lg:text-base lg:peer-[a&]:ml-8',
       {
         apricot: 'border-apricot-500',
         mint: 'border-mint-500',

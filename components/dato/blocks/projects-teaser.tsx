@@ -13,13 +13,7 @@ export const ProjectsTeaserBlock: FC<Props> = ({ block: { heading, projects } })
     {heading && <Heading2>{heading}</Heading2>}
     <Grid cols={3}>
       {projects.map(({ id, slug, title, headline, teaserImage }) => (
-        <ProjectCard
-          key={id}
-          slug={slug}
-          title={title}
-          headline={headline}
-          image={teaserImage.responsiveImage ?? undefined}
-        />
+        <ProjectCard key={id} slug={slug} title={title} headline={headline} image={teaserImage.responsiveImage} />
       ))}
     </Grid>
   </div>

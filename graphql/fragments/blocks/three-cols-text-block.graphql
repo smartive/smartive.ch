@@ -1,0 +1,57 @@
+fragment threeColsTextBlock on ThreeColsTextRecord {
+  id
+  heading
+  contentLeft {
+    value
+    blocks {
+      ... on ImageRecord {
+        _modelApiKey
+        ...imageBlock
+      }
+      ... on LinkRecord {
+        _modelApiKey
+        ...links
+      }
+      ... on LabelRecord {
+        _modelApiKey
+        ...labels
+      }
+    }
+  }
+  contentMiddle {
+    value
+    blocks {
+      ... on ImageRecord {
+        _modelApiKey
+        ...imageBlock
+      }
+      ... on LinkRecord {
+        _modelApiKey
+        ...links
+      }
+      ... on LabelRecord {
+        _modelApiKey
+        ...labels
+      }
+    }
+  }
+  contentRight {
+    value
+    blocks {
+      ... on ImageRecord {
+        _modelApiKey
+        ...imageBlock
+      }
+      ... on LinkRecord {
+        _modelApiKey
+        ...links
+      }
+      ... on LabelRecord {
+        _modelApiKey
+        ...labels
+      }
+    }
+  }
+  disableMarginTop
+  disableMarginBottom
+}

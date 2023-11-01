@@ -3,4 +3,5 @@ fragment links on LinkRecord {
   label
   newTab
   url
+  color
 }

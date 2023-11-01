@@ -1,4 +1,4 @@
-fragment threeColsTextBlock on ThreeColsTextRecord {
+fragment twoColsTextBlock on TwoColsTextRecord {
   id
   heading
   contentLeft {
@@ -12,18 +12,9 @@ fragment threeColsTextBlock on ThreeColsTextRecord {
         _modelApiKey
         ...links
       }
-    }
-  }
-  contentMiddle {
-    value
-    blocks {
-      ... on ImageRecord {
+      ... on LabelRecord {
         _modelApiKey
-        ...imageBlock
-      }
-      ... on LinkRecord {
-        _modelApiKey
-        ...links
+        ...labels
       }
     }
   }
@@ -37,6 +28,10 @@ fragment threeColsTextBlock on ThreeColsTextRecord {
       ... on LinkRecord {
         _modelApiKey
         ...links
+      }
+      ... on LabelRecord {
+        _modelApiKey
+        ...labels
       }
     }
   }

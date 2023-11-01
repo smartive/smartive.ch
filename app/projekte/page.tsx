@@ -41,24 +41,12 @@ export default async function ProjectPage() {
           <CustomerLogos />
           <Grid cols={2}>
             {mainProjects.allProjects.map(({ id, slug, title, headline, teaserImage }) => (
-              <ProjectCard
-                key={id}
-                slug={slug}
-                title={title}
-                headline={headline}
-                image={teaserImage.responsiveImage ?? undefined}
-              />
+              <ProjectCard key={id} slug={slug} title={title} headline={headline} image={teaserImage.responsiveImage} />
             ))}
           </Grid>
           <GridSlider>
             {otherProjects.allProjects.slice(0, 3).map(({ id, slug, title, headline, teaserImage }) => (
-              <ProjectCard
-                key={id}
-                slug={slug}
-                title={title}
-                headline={headline}
-                image={teaserImage.responsiveImage ?? undefined}
-              />
+              <ProjectCard key={id} slug={slug} title={title} headline={headline} image={teaserImage.responsiveImage} />
             ))}
           </GridSlider>
           <Testimonial quote={Quotes['setareh-dife']} background="apricot" blobs="apricot-1" />
@@ -66,13 +54,7 @@ export default async function ProjectPage() {
             {otherProjects.allProjects
               .slice(3, otherProjects.allProjects.length)
               .map(({ id, slug, title, headline, teaserImage }) => (
-                <ProjectCard
-                  key={id}
-                  slug={slug}
-                  title={title}
-                  headline={headline}
-                  image={teaserImage.responsiveImage ?? undefined}
-                />
+                <ProjectCard key={id} slug={slug} title={title} headline={headline} image={teaserImage.responsiveImage} />
               ))}
           </Grid>
         </Section>

@@ -1,0 +1,18 @@
+fragment textBlock on TextRecord {
+  id
+  content {
+    value
+    blocks {
+      ... on LinkRecord {
+        _modelApiKey
+        ...links
+      }
+      ... on LabelRecord {
+        _modelApiKey
+        ...labels
+      }
+    }
+  }
+  disableMarginTop
+  disableMarginBottom
+}
