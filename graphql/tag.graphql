@@ -1,0 +1,38 @@
+query Tag($slug: String!) {
+  projectTag(filter: { slug: { eq: $slug } }) {
+    id
+    title
+    content {
+      value
+      blocks {
+        ... on LinkRecord {
+          _modelApiKey
+          ...links
+        }
+        ... on LabelRecord {
+          _modelApiKey
+          ...labels
+        }
+      }
+    }
+    seo: _seoMetaTags {
+      attributes
+      content
+      tag
+    }
+  }
+  site: _site {
+    favicon: faviconMetaTags {
+      attributes
+      content
+      tag
+    }
+    globalSeo {
+      fallbackSeo {
+        description
+        title
+      }
+      titleSuffix
+    }
+  }
+}
