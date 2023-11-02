@@ -30,7 +30,7 @@ export default async function TagPage({ params: { slug } }: Params) {
   const { allProjects } = await queryDatoCMS(ProjectsByTagDocument, { tagId: projectTag.id });
 
   return (
-    <Page>
+    <Page hasMargin>
       <BlockWrapper marginBottom="small">
         <Heading1>{projectTag.title}</Heading1>
         {!isEmptyDocument(projectTag.content) && <StructuredTextRenderer data={projectTag.content as StructuredTextType} />}

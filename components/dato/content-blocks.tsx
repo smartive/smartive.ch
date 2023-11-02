@@ -21,7 +21,7 @@ type Props = {
 };
 
 export const ContentBlocks: FC<Props> = ({ blocks }) => (
-  <div className="my-12 lg:my-48">
+  <div>
     {blocks.map((block) => {
       switch (block.__typename) {
         case 'VideoRecord':

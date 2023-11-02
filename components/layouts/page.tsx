@@ -6,6 +6,7 @@ import { usePlausible } from 'next-plausible';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FC, ReactNode } from 'react';
+import { classNames } from '../../utils/css';
 import { PlausibleEvents } from '../../utils/tracking';
 
 const Main = [
@@ -24,9 +25,12 @@ const Meta = [
 
 type Props = {
   children?: ReactNode;
+  hasMargin?: boolean; // This can be removed, as soon as we moved all pages to dato.
+  // Right now, we can't add margin to all pages, because the PageHeader component from Guetzli also has margin on it.
+  // This would result in a double margin on all "old" pages (e.g. /was-ist/*)
 };
 
-export const Page: FC<Props> = ({ children }) => {
+export const Page: FC<Props> = ({ children, hasMargin = false }) => {
   const pathname = usePathname();
   const plausible = usePlausible<PlausibleEvents>();
 
@@ -52,7 +56,9 @@ export const Page: FC<Props> = ({ children }) => {
           onHomeLinkContextMenu={() => (window.location.href = '/brand')}
         />
       </LazyMotion>
-      <div className="max-w-[100vw] p-4 lg:container lg:mx-auto">{children}</div>
+      <div className={classNames('max-w-[100vw] p-4 lg:container lg:mx-auto', hasMargin && 'my-12 lg:my-48')}>
+        {children}
+      </div>
     </div>
   );
 };

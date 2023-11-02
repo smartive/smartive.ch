@@ -1,6 +1,11 @@
 query Project($slug: String!) {
   project(filter: { slug: { eq: $slug } }) {
     id
+    tags {
+      id
+      slug
+      title
+    }
     content {
       __typename
       ... on TextRecord {
