@@ -1,4 +1,7 @@
 fragment customBlock on CustomRecord {
   id
   component
+   content {
+    value
+  }
 }

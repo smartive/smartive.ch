@@ -7,11 +7,10 @@ const HEADING_STYLES = {
 } as const;
 
 export const Heading: FC<{
-  as?: keyof JSX.IntrinsicElements;
   children: ReactNode;
   level: keyof typeof HEADING_STYLES;
-}> = ({ children, level, as }) => {
-  const Tag = as || `h${level}`;
+}> = ({ children, level }) => {
+  const Tag: `h${keyof typeof HEADING_STYLES}` = `h${level}`;
 
   return <Tag className={HEADING_STYLES[level]}>{children}</Tag>;
 };
