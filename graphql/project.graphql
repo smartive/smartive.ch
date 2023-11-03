@@ -53,6 +53,9 @@ query Project($slug: String!) {
       ... on ProjectsOverviewRecord {
         ...projectsOverviewBlock
       }
+      ... on IframeRecord {
+        ...iframeBlock
+      }
     }
     seo: _seoMetaTags {
       attributes

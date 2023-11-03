@@ -1,7 +1,6 @@
 import { StructuredText as StructuredTextType } from 'datocms-structured-text-utils';
 import { FC } from 'react';
 import { CustomBlockFragment } from '../../../graphql/generated';
-import { CalendlyWidget } from '../../custom/calendly';
 import { Farmer } from '../../custom/farmer-riegel';
 import { LangerSamstagLogo } from '../../custom/langer-samstag/langer-samstag-logo';
 import { SalaryCalculator } from '../../custom/salary-calculator';
@@ -14,8 +13,6 @@ export const CustomBlock: FC<Props> = ({ block: { component, content } }) => {
   switch (component) {
     case 'langerSamstagSvg':
       return <LangerSamstagLogo />;
-    case 'calendly':
-      return <CalendlyWidget />;
     case 'salaryCalculator':
       return <SalaryCalculator />;
     case 'farmer':

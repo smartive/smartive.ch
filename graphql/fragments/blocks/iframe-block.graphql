@@ -1,0 +1,6 @@
+fragment iframeBlock on IframeRecord {
+  id
+  url
+  width
+  height
+}

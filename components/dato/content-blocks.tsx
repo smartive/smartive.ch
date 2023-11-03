@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { ProjectModelContentField } from '../../graphql/generated';
 import { ContactBlock } from './blocks/contact';
 import { CustomBlock } from './blocks/custom';
+import { IframeBlock } from './blocks/iframe-block';
 import { ImageBlock } from './blocks/image';
 import { ImageGridBlock } from './blocks/image-grid';
 import { ImageTextBlock } from './blocks/image-text';
@@ -54,6 +55,8 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => (
           return <ProjectsOverviewBlock key={block.id} block={block} />;
         case 'LogoGridRecord':
           return <LogoGridBlock key={block.id} block={block} />;
+        case 'IframeRecord':
+          return <IframeBlock key={block.id} block={block} />;
         default:
           console.error('Unknown block type', block);
 
