@@ -12,10 +12,6 @@ fragment twoColsTextBlock on TwoColsTextRecord {
         _modelApiKey
         ...links
       }
-      ... on LabelRecord {
-        _modelApiKey
-        ...labels
-      }
     }
   }
   contentRight {
@@ -28,10 +24,6 @@ fragment twoColsTextBlock on TwoColsTextRecord {
       ... on LinkRecord {
         _modelApiKey
         ...links
-      }
-      ... on LabelRecord {
-        _modelApiKey
-        ...labels
       }
     }
   }

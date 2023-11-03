@@ -9,10 +9,6 @@ query Tag($slug: String!) {
           _modelApiKey
           ...links
         }
-        ... on LabelRecord {
-          _modelApiKey
-          ...labels
-        }
       }
     }
     seo: _seoMetaTags {

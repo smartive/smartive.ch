@@ -12,10 +12,6 @@ fragment threeColsTextBlock on ThreeColsTextRecord {
         _modelApiKey
         ...links
       }
-      ... on LabelRecord {
-        _modelApiKey
-        ...labels
-      }
     }
   }
   contentMiddle {
@@ -29,10 +25,6 @@ fragment threeColsTextBlock on ThreeColsTextRecord {
         _modelApiKey
         ...links
       }
-      ... on LabelRecord {
-        _modelApiKey
-        ...labels
-      }
     }
   }
   contentRight {
@@ -45,10 +37,6 @@ fragment threeColsTextBlock on ThreeColsTextRecord {
       ... on LinkRecord {
         _modelApiKey
         ...links
-      }
-      ... on LabelRecord {
-        _modelApiKey
-        ...labels
       }
     }
   }

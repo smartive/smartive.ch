@@ -7,10 +7,6 @@ fragment textBlock on TextRecord {
         _modelApiKey
         ...links
       }
-      ... on LabelRecord {
-        _modelApiKey
-        ...labels
-      }
     }
   }
   disableMarginTop
