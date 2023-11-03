@@ -24,7 +24,14 @@ const Sprache = () => (
       markdownTitle="Sprachlicher Auftritt: Den _richtigen Ton_ treffen"
       description="Worum es hier geht: Sprachliche Mittel so einsetzen, dass sie die gewünschte Wirkung entfalten. Texte transportieren die Persönlichkeit von smartive und unsere Werte."
     >
-      <Image src="/images/brand/smarta-welcome.png" alt="" height="450" width="900" style={{ objectFit: 'contain' }} />
+      <Image
+        src="/images/brand/smarta-welcome.png"
+        alt=""
+        height="450"
+        width="900"
+        style={{ objectFit: 'contain' }}
+        priority
+      />
     </PageHeader>
 
     <main>
