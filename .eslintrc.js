@@ -53,7 +53,7 @@ module.exports = {
       },
     ],
   },
-  ignorePatterns: ['.eslintrc.js', '*.config.js', 'next-sitemap.js'],
+  ignorePatterns: ['.eslintrc.js', '*.config.js', 'next-sitemap.js', 'test/check-page-errors.js'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],

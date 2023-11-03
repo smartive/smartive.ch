@@ -41,7 +41,9 @@ export const Image: FC<Props> = ({ alt, rounded = 'default', src, caption, varia
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         {...(props as any)}
         loader={src.toString().includes('cloudinary') ? cloudinaryLoader : undefined}
-        onLoadingComplete={({ classList }) => classList.remove(bgClasses[colorIndex])}
+        onLoad={(e) => {
+          e.currentTarget.classList.remove(bgClasses[colorIndex]);
+        }}
         src={src}
         alt={alt}
         className={`bg-opacity-50 transition ${bgClasses[colorIndex]} ${

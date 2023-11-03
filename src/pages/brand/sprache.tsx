@@ -12,7 +12,7 @@ import {
   TextLink,
   UnorderedList,
 } from '@smartive/guetzli';
-import Image from 'next/legacy/image';
+import Image from 'next/image';
 import { Section } from '../../../components/layouts/section';
 import { PageHeader } from '../../compositions/page-header';
 import { Link } from '../../elements/link';
@@ -24,7 +24,7 @@ const Sprache = () => (
       markdownTitle="Sprachlicher Auftritt: Den _richtigen Ton_ treffen"
       description="Worum es hier geht: Sprachliche Mittel so einsetzen, dass sie die gewünschte Wirkung entfalten. Texte transportieren die Persönlichkeit von smartive und unsere Werte."
     >
-      <Image src="/images/brand/smarta-welcome.png" alt="" height="450" width="900" objectFit="contain" />
+      <Image src="/images/brand/smarta-welcome.png" alt="" height="450" width="900" style={{ objectFit: 'contain' }} />
     </PageHeader>
 
     <main>
@@ -66,7 +66,7 @@ const Sprache = () => (
 
       <Section>
         <div className="flex items-center justify-center space-x-8">
-          <Image src="/images/brand/smarta-loves.png" alt="" height="300" width="300" objectFit="contain" />
+          <Image src="/images/brand/smarta-loves.png" alt="" height="300" width="300" style={{ objectFit: 'contain' }} />
           <Heading2>
             <span className="text-cornflower-500">Funktioniert im Web</span>
             <br />
