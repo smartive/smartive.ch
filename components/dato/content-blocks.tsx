@@ -12,6 +12,7 @@ import { OffersTeaserBlock } from './blocks/offers-teaser';
 import { ProjectsOverviewBlock } from './blocks/projects-overview';
 import { ProjectsTeaserBlock } from './blocks/projects-teaser';
 import { QuoteBlock } from './blocks/quote';
+import { TableBlock } from './blocks/table';
 import { TextBlock } from './blocks/text';
 import { ThreeColsTextBlock } from './blocks/three-cols-text';
 import { TwoColsTextBlock } from './blocks/two-cols-text';
@@ -57,6 +58,8 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => (
           return <LogoGridBlock key={block.id} block={block} />;
         case 'IframeRecord':
           return <IframeBlock key={block.id} block={block} />;
+        case 'TableRecord':
+          return <TableBlock key={block.id} block={block} />;
         default:
           console.error('Unknown block type', block);
 

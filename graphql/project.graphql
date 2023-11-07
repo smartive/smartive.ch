@@ -41,6 +41,9 @@ query Project($slug: String!) {
       ... on ImageTextRecord {
         ...imageTextBlock
       }
+      ... on TableRecord {
+        ...tableBlock
+      }
       ... on CustomRecord {
         ...customBlock
       }

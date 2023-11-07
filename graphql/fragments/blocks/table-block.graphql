@@ -1,0 +1,6 @@
+fragment tableBlock on TableRecord {
+  id
+  showTableHeader
+  title
+  table
+}
