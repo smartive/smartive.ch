@@ -34,11 +34,6 @@ module.exports = withBundleAnalyzer({
   async redirects() {
     return [
       {
-        source: '/projekte/zubi',
-        destination: '/projekte/zubi-mentoring',
-        permanent: true,
-      },
-      {
         source: '/:path*',
         has: [
           {
