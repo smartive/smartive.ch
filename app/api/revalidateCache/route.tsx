@@ -1,4 +1,4 @@
-import { revalidateTag } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
@@ -10,6 +10,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
   try {
     revalidateTag('datocms');
+    // https://github.com/vercel/next.js/issues/55960#issuecomment-1799206671
+    revalidatePath('/');
   } catch (error) {
     return NextResponse.json({
       status: 500,
@@ -17,5 +19,5 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     });
   }
 
-  return NextResponse.json({ status: 200, body: { status: 'Cache Cleared' } });
+  return NextResponse.json({ revalidated: true, now: Date.now() });
 }
