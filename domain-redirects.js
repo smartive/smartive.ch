@@ -3,7 +3,6 @@ module.exports = [
   { host: 'vadfan.ch', key: 'vadfan' },
   { host: 'visst.ch', key: 'visst' },
   { host: 'grattis.ch', key: 'grattis' },
-  { host: 'liiip.ch', key: 'liiip' },
   { host: 'agilasfuck.ch', key: 'agilasfuck' },
   { host: 'failwind.ch', key: 'failwind' },
   { host: 'xn--nsse-sind-gesund-jzb.ch', key: 'nüsse-sind-gesund' },
