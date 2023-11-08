@@ -1,3 +1,4 @@
+import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { toNextMetadata } from 'react-datocms/seo';
 import { ContentBlocks } from '../../../components/dato/content-blocks';
@@ -19,7 +20,8 @@ export async function generateMetadata({ params: { slug } }: Params) {
 }
 
 export default async function ProjectPage({ params: { slug } }: Params) {
-  const { project } = await queryDatoCMS(ProjectDocument, { slug });
+  const { isEnabled } = draftMode();
+  const { project } = await queryDatoCMS(ProjectDocument, { slug }, isEnabled);
 
   if (!project) notFound();
 

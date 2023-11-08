@@ -1,6 +1,11 @@
 query Page($slug: String!) {
   page(filter: { slug: { eq: $slug } }) {
     id
+    slug
+    parent {
+      id
+      slug
+    }
     content {
       __typename
       ... on TextRecord {
@@ -76,6 +81,33 @@ query Page($slug: String!) {
         title
       }
       titleSuffix
+    }
+  }
+}
+
+query AllPages {
+  allPages(filter: { parent: { exists: "false" } }) {
+    slug
+    children {
+      slug
+      children {
+        slug
+        children {
+          slug
+          children {
+            slug
+          }
+        }
+      }
+    }
+  }
+}
+
+query PageStructure($slug: String!) {
+  page(filter: { slug: { eq: $slug } }) {
+    slug
+    parent {
+      slug
     }
   }
 }

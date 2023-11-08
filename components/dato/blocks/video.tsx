@@ -33,7 +33,6 @@ export const VideoBlock: FC<Props> = ({ block: { video, loop, autoplay } }) => {
         title={video?.title}
         src={videoSrc}
         allow="autoplay; fullscreen; picture-in-picture"
-        allowFullScreen
       />
     </BlockWrapper>
   );

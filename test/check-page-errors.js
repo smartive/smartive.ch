@@ -5,8 +5,13 @@ const waitOn = require('wait-on');
 require('dotenv').config();
 require('dotenv').config({ path: `.env.local`, override: true });
 
-const ignoreListRoutes = ['/_document', '/_app', '/api/', '/blog/[slug]', '/index'];
-const ignoreListErrors = ['value.onChange(callback) is deprecated'];
+const ignoreListRoutes = ['/_document', '/_app', '/api/', '/blog/[slug]', '/index', '/home'];
+const ignoreListErrors = [
+  'value.onChange(callback) is deprecated',
+  "The target origin provided ('https://calendly.com')", // Calendly shizzle conflicting with http://localhost
+  '[Fast Refresh] performing full reload', // Nextjs Fast Refresh is a feature in dev mode, don't worry about it
+  'GPU stall due to ReadPixels', // Farmer project
+];
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',
   'nachhaltigkeit/[year]/scope-3': 'nachhaltigkeit/2019/scope-3',
@@ -33,17 +38,32 @@ const getAllRoutes = (dirPath = './src/pages', arrayOfFiles = []) => {
 
 const getAllDatoCMSRoutes = async () => {
   const allDataRoutesQuery = `
-  query Routes {
-    allPages {
-      slug
+    query Routes {
+      pages: allPages(filter: {parent: {exists: "false"}}) {
+        slug
+      }
+      childPages: allPages(filter: {parent: {exists: "true"}}) {
+        slug
+        parent {
+          slug
+          parent {
+            slug
+            parent {
+              slug
+              parent {
+                slug
+              }
+            }
+          }
+        }
+      }
+      allProjectTags {
+        slug
+      }
+      allProjects {
+        slug
+      }
     }
-    allProjectTags {
-      slug
-    }
-    allProjects {
-      slug
-    }
-  }
 `;
 
   const headers = {
@@ -64,8 +84,24 @@ const getAllDatoCMSRoutes = async () => {
 
   const { data } = await response.json();
 
+  // We only go 5 levels deep in the page tree (see query above).
+  // This is enough for our current page structure.
+  // If we create a deeper page tree, we will notice, because the tests will fail. :-)
+  const childPages = data.childPages.map((page) => {
+    const slug = page.slug;
+    const parentSlugs = [];
+    let parent = page.parent;
+    while (parent) {
+      parentSlugs.push(parent.slug);
+      parent = parent.parent;
+    }
+    return `${parentSlugs.reverse().join('/')}/${slug}`;
+  });
+
   return [
-    ...data.allPages.map((page) => page.slug),
+    '/', // This is the homepage
+    ...data.pages.map((page) => page.slug),
+    ...childPages,
     ...data.allProjectTags.map((tag) => `tags/${tag.slug}`),
     ...data.allProjects.map((project) => `projekte/${project.slug}`),
   ];
@@ -74,12 +110,11 @@ const getAllDatoCMSRoutes = async () => {
 (async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
-  const routesToCheck = getAllRoutes();
-  const datoRoutesToCheck = await getAllDatoCMSRoutes();
+  const routesToCheck = [...(await getAllDatoCMSRoutes()), ...getAllRoutes()];
   const errorsAndWarnings = {};
   let routeIndex = 0;
 
-  console.log('Going to check the following routes:', [...datoRoutesToCheck, ...routesToCheck]);
+  console.log('Going to check the following routes:', routesToCheck);
 
   page.on('console', (msg) => {
     // track errors & warnings but ignore some of them, where we know they are not relevant
