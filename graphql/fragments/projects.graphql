@@ -1,0 +1,11 @@
+fragment projects on ProjectRecord {
+  id
+  slug
+  title
+  headline
+  teaserImage {
+    responsiveImage(imgixParams: { fit: crop, w: 720, h: 480, auto: format }) {
+      ...responsiveImage
+    }
+  }
+}

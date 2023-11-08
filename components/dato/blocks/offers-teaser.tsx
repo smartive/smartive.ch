@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { OffersTeaserBlockFragment } from '../../../graphql/generated';
+import { OffersTeaserRecord } from '../../../graphql/generated';
 import { BlockWrapper } from '../../layouts/block-wrapper';
 import { Grid } from '../../layouts/grid';
 import { GridSlider } from '../../layouts/grid-slider';
@@ -7,7 +7,7 @@ import { Heading2 } from '../../nodes';
 import { OfferCard, OfferCardColor } from '../../offer-card';
 
 type Props = {
-  block: OffersTeaserBlockFragment;
+  block: OffersTeaserRecord;
 };
 
 export const OffersTeaserBlock: FC<Props> = ({ block: { heading, offers, disableMarginTop, disableMarginBottom } }) => {

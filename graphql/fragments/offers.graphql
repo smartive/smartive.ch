@@ -1,0 +1,9 @@
+fragment offers on OfferRecord {
+  id
+  title
+  description
+  timespan
+  linkLabel
+  legacyLink
+  color
+}

@@ -2,13 +2,7 @@ fragment offersTeaserBlock on OffersTeaserRecord {
   id
   heading
   offers {
-    id
-    title
-    description
-    timespan
-    linkLabel
-    legacyLink
-    color
+    ... offers
   }
   disableMarginTop
   disableMarginBottom

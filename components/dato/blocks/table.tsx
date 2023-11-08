@@ -2,18 +2,16 @@ import { FC } from 'react';
 import { TableBlockFragment } from '../../../graphql/generated';
 import { classNames } from '../../../utils/css';
 import { BlockWrapper } from '../../layouts/block-wrapper';
-import { Heading2 } from '../../nodes/heading2';
 
 type Props = {
   block: TableBlockFragment;
 };
 
-export const TableBlock: FC<Props> = ({ block: { table, showTableHeader, title } }) => {
+export const TableBlock: FC<Props> = ({ block: { table, showTableHeader } }) => {
   const { columns, data } = table as { columns: string[]; data: { [key: string]: string }[] };
 
   return (
     <BlockWrapper>
-      <Heading2>{title}</Heading2>
       <div className="sr-only sm:not-sr-only">
         <table className="divide-gray-200 min-w-full divide-y-2 divide-white-200 overflow-hidden rounded-sm">
           {showTableHeader && (

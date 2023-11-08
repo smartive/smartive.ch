@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ProjectModelContentField } from '../../graphql/generated';
+import { PageModelContentField, ProjectModelContentField } from '../../graphql/generated';
 import { ContactBlock } from './blocks/contact';
 import { CustomBlock } from './blocks/custom';
 import { IframeBlock } from './blocks/iframe-block';
@@ -13,13 +13,14 @@ import { ProjectsOverviewBlock } from './blocks/projects-overview';
 import { ProjectsTeaserBlock } from './blocks/projects-teaser';
 import { QuoteBlock } from './blocks/quote';
 import { TableBlock } from './blocks/table';
+import { TeaserSelectionBlock } from './blocks/teaser-selection';
 import { TextBlock } from './blocks/text';
 import { ThreeColsTextBlock } from './blocks/three-cols-text';
 import { TwoColsTextBlock } from './blocks/two-cols-text';
 import { VideoBlock } from './blocks/video';
 
 type Props = {
-  blocks: Array<ProjectModelContentField>;
+  blocks: Array<ProjectModelContentField> | Array<PageModelContentField>;
 };
 
 export const ContentBlocks: FC<Props> = ({ blocks }) => (
@@ -60,6 +61,8 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => (
           return <IframeBlock key={block.id} block={block} />;
         case 'TableRecord':
           return <TableBlock key={block.id} block={block} />;
+        case 'TeaserSelectionRecord':
+          return <TeaserSelectionBlock key={block.id} block={block} />;
         default:
           console.error('Unknown block type', block);
 

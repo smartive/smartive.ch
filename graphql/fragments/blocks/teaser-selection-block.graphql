@@ -1,0 +1,19 @@
+fragment teaserSelectionBlock on TeaserSelectionRecord {
+    id
+    content {
+        value
+    }
+    columnCount
+    teasers {
+        __typename
+        ... on OfferRecord {
+            ... offers
+        }
+        ... on ProjectRecord {
+            ... projects
+        }
+        ... on TeaserCardRecord {
+            ... teaserCard
+        }
+    }
+}

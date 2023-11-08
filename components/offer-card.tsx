@@ -9,10 +9,10 @@ export type OfferCardColor = 'apricot' | 'mint' | 'cornflower';
 
 type Props = {
   title: string;
-  timespan?: string;
-  description?: string;
+  timespan?: string | null;
+  description?: string | null;
   link: string;
-  linkLabel?: string;
+  linkLabel?: string | null;
   color?: OfferCardColor;
 };
 
@@ -20,12 +20,13 @@ export const OfferCard: FC<Props> = ({ title, timespan, description, link, linkL
   <NextLink
     href={link}
     className={classNames(
-      'card-shadow grid w-full grid-rows-[auto,1fr,auto] gap-4 overflow-hidden rounded p-8 text-xxs text-black transition-transform active:scale-[.99] lg:gap-6 lg:text-sm',
+      'card-shadow grid w-full gap-4 overflow-hidden rounded p-8 text-xxs text-black transition-transform active:scale-[.99] lg:gap-6 lg:text-sm',
       {
         apricot: 'bg-apricot-500',
         mint: 'bg-mint-500',
         cornflower: 'bg-cornflower-500',
       }[color],
+      timespan ? 'grid-rows-[auto,1fr,auto]' : 'grid-rows-[1fr,auto]',
     )}
   >
     {timespan && (

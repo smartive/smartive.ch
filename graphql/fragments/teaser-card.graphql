@@ -1,0 +1,10 @@
+fragment teaserCard on TeaserCardRecord {
+    id
+    label
+    title
+    text
+    color
+    linkLabel
+    url
+    newTab
+}
