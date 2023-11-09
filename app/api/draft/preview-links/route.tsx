@@ -1,13 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getAllDatoRoutes } from '../../../../utils/get-dato-routes';
 
 type generatePreviewUrlParams = {
   item: { attributes: { slug: string; parent_id: string }; meta: { status: string } };
   itemType: { attributes: { api_key: string } };
 };
 
-const generatePreviewUrl = ({ item, itemType }: generatePreviewUrlParams) => {
+const generatePreviewUrl = async ({ item, itemType }: generatePreviewUrlParams) => {
   switch (itemType.attributes.api_key) {
     case 'page':
+      if (item.attributes.parent_id) {
+        // page is a child of another page, so let's find the full slug (e.g. /agentur/lohnrechner)
+        const routes = await getAllDatoRoutes();
+        const pathname = routes.find((route) => route.includes(item.attributes.slug));
+
+        return pathname || null;
+      }
+
       return `/${item.attributes.slug}`;
     case 'project':
       return `/projekte/${item.attributes.slug}`;
@@ -37,7 +46,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   }
 
   const parsedRequest = (await req.json()) as generatePreviewUrlParams;
-  const url = generatePreviewUrl(parsedRequest);
+  const url = await generatePreviewUrl(parsedRequest);
 
   if (!url) {
     return NextResponse.json({ previewLinks: [] }, { status: 200, headers });
