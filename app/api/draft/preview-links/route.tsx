@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 type generatePreviewUrlParams = {
-  item: { attributes: { slug: string } };
+  item: { attributes: { slug: string; parent_id: string }; meta: { status: string } };
   itemType: { attributes: { api_key: string } };
 };
 
@@ -11,7 +11,7 @@ const generatePreviewUrl = ({ item, itemType }: generatePreviewUrlParams) => {
       return `/${item.attributes.slug}`;
     case 'project':
       return `/projekte/${item.attributes.slug}`;
-    case 'projectTag':
+    case 'project_tag':
       return `/tags/${item.attributes.slug}`;
     default:
       return null;
@@ -36,11 +36,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ error: 'Invalid Token' }, { status: 401, headers });
   }
 
-  const parsedRequest = await req.json();
+  const parsedRequest = (await req.json()) as generatePreviewUrlParams;
   const url = generatePreviewUrl(parsedRequest);
 
   if (!url) {
-    return NextResponse.json({ previewLinks: JSON.stringify([]) }, { status: 200, headers });
+    return NextResponse.json({ previewLinks: [] }, { status: 200, headers });
   }
 
   const baseUrl = `https://${process.env.NEXT_PUBLIC_SITE_URL}/api/draft`;
