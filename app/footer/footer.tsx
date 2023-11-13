@@ -1,8 +1,8 @@
+import NextLink from 'next/link';
 import { FC } from 'react';
 import { SwissMadeSoftwareLogo } from '../../components/logos/swiss-made-software';
 import { BackToTop } from './back-to-top';
 import { FooterLink } from './link';
-import { NewsletterButton } from './newsletter';
 
 const Address = {
   name: 'smartive AG',
@@ -54,7 +54,12 @@ export const Footer: FC = () => (
             Facebook
           </FooterLink>
           <div className="mt-4">
-            <NewsletterButton />
+            <NextLink
+              href="/newsletter"
+              className="inline-block rounded bg-black px-4 py-3 text-sm text-white-100 transition-transform duration-150 hover:scale-105"
+            >
+              Newsletter abonnieren
+            </NextLink>
           </div>
         </div>
       </div>

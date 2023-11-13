@@ -39,7 +39,7 @@ const getAllRoutes = (dirPath = './src/pages', arrayOfFiles = []) => {
 const getAllDatoCMSRoutes = async () => {
   const allDataRoutesQuery = `
     query Routes {
-      pages: allPages(filter: {parent: {exists: "false"}}) {
+      pages: allPages(filter: {parent: {exists: "false"}, AND: { slug: { neq: "home" } }}) {
         slug
       }
       childPages: allPages(filter: {parent: {exists: "true"}}) {

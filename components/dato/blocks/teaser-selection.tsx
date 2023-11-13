@@ -1,26 +1,16 @@
-import { StructuredText as StructuredTextType } from 'datocms-structured-text-utils';
 import { FC } from 'react';
 import { TeaserSelectionBlockFragment, TeaserSelectionModelTeasersField } from '../../../graphql/generated';
 import { BlockWrapper } from '../../layouts/block-wrapper';
 import { Grid } from '../../layouts/grid';
 import { OfferCard, OfferCardColor } from '../../offer-card';
 import { ProjectCard } from '../../project-card';
-import { StructuredTextRenderer } from '../structured-text';
+import { TeaserCard, TeaserCardColor } from '../../teaser-card';
 
 type Props = {
   block: TeaserSelectionBlockFragment;
 };
 
-export const TeaserSelectionBlock: FC<Props> = ({ block: { content, columnCount, teasers } }) => (
-  <BlockWrapper>
-    <StructuredTextRenderer data={content?.value as StructuredTextType} />
-    <Grid cols={(columnCount ?? 3) as 2 | 3 | 4}>
-      {teasers?.map((teaser) => renderTeasers(teaser as TeaserSelectionModelTeasersField))}
-    </Grid>
-  </BlockWrapper>
-);
-
-const renderTeasers = (teaser: TeaserSelectionModelTeasersField) => {
+const Teaser: FC<{ teaser: TeaserSelectionModelTeasersField }> = ({ teaser }) => {
   switch (teaser.__typename) {
     case 'ProjectRecord':
       return (
@@ -46,16 +36,26 @@ const renderTeasers = (teaser: TeaserSelectionModelTeasersField) => {
       );
     case 'TeaserCardRecord':
       return (
-        <OfferCard
+        <TeaserCard
           key={teaser.id}
+          eyebrow={teaser.eyebrow}
           title={teaser.title}
           link={teaser.url}
           description={teaser.text}
           linkLabel={teaser.linkLabel}
-          color={teaser.color as OfferCardColor}
+          color={teaser.color as TeaserCardColor}
+          newTab={teaser.newTab ?? false}
         />
       );
     default:
       return null;
   }
 };
+
+export const TeaserSelectionBlock: FC<Props> = ({ block: { teasers, disableMarginTop, disableMarginBottom } }) => (
+  <BlockWrapper marginTop={disableMarginTop ? 'none' : 'large'} marginBottom={disableMarginBottom ? 'none' : 'large'}>
+    <Grid cols={(teasers?.length ?? 3) as 2 | 3 | 4}>
+      {teasers?.map((teaser) => <Teaser key={teaser.id} teaser={teaser as TeaserSelectionModelTeasersField} />)}
+    </Grid>
+  </BlockWrapper>
+);

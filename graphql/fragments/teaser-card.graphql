@@ -1,10 +1,10 @@
 fragment teaserCard on TeaserCardRecord {
-    id
-    label
-    title
-    text
-    color
-    linkLabel
-    url
-    newTab
+  id
+  eyebrow
+  title
+  text
+  color
+  linkLabel
+  url
+  newTab
 }

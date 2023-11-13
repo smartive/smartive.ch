@@ -17,9 +17,9 @@ export const ProjectCard: FC<Props> = ({ slug, title, headline, image }) => (
   >
     {image && <DatoImage data={image} layout="responsive" />}
     <div className="grid grid-rows-[auto,1fr,auto] p-4 font-sans text-xxs font-normal lg:p-8 lg:text-sm">
-      <p className="mb-4">{title}</p>
+      <p>{title}</p>
       <Heading3>{headline}</Heading3>
-      <div>
+      <div className="mt-4">
         <span className="border-b-2">Projekt anschauen</span>
       </div>
     </div>

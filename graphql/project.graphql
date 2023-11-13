@@ -62,6 +62,9 @@ query Project($slug: String!) {
       ... on IframeRecord {
         ...iframeBlock
       }
+      ... on NewsletterRecord {
+        ...newsletterBlock
+      }
     }
     seo: _seoMetaTags {
       attributes

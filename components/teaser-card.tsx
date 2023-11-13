@@ -1,22 +1,21 @@
-import { Clock } from '@smartive/guetzli';
 import NextLink from 'next/link';
 import { FC } from 'react';
 import { classNames } from '../utils/css';
 import { Heading3 } from './nodes';
-import { UseClientWrapper } from './use-client-wrapper';
 
-export type OfferCardColor = 'apricot' | 'mint' | 'cornflower';
+export type TeaserCardColor = 'apricot' | 'mint' | 'cornflower';
 
 type Props = {
   title: string;
-  timespan?: string | null;
+  eyebrow?: string | null;
   description?: string | null;
   link: string;
   linkLabel?: string | null;
-  color?: OfferCardColor;
+  color?: TeaserCardColor;
+  newTab?: boolean;
 };
 
-export const OfferCard: FC<Props> = ({ title, timespan, description, link, linkLabel, color = 'apricot' }) => (
+export const TeaserCard: FC<Props> = ({ eyebrow, title, description, link, linkLabel, color = 'apricot', newTab }) => (
   <NextLink
     href={link}
     className={classNames(
@@ -27,16 +26,11 @@ export const OfferCard: FC<Props> = ({ title, timespan, description, link, linkL
         cornflower: 'bg-cornflower-500',
       }[color],
     )}
+    target={newTab ? '_blank' : '_self'}
+    rel={newTab ? 'noopener noreferrer' : undefined}
   >
     <div className="space-y-6 lg:space-y-8">
-      {timespan && (
-        <div className="inline-flex flex-row items-center">
-          <UseClientWrapper>
-            <Clock className="mr-2 inline h-4 w-4" />
-          </UseClientWrapper>
-          {timespan}
-        </div>
-      )}
+      {eyebrow && <p>{eyebrow}</p>}
       <Heading3>{title}</Heading3>
       {description && <p>{description}</p>}
     </div>

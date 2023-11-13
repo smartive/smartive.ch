@@ -76,6 +76,7 @@ export const StructuredTextRenderer: FC<Props> = ({ data }) => (
               key={record.id}
               href={record.url as string}
               target={record.newTab ? '_blank' : '_self'}
+              rel={record.newTab ? 'noopener noreferrer' : undefined}
               color={record.color as string}
             >
               {record.label as string}

@@ -35,7 +35,7 @@ query Page($slug: String!) {
       ... on OffersTeaserRecord {
         ...offersTeaserBlock
       }
-       ... on TeaserSelectionRecord {
+      ... on TeaserSelectionRecord {
         ...teaserSelectionBlock
       }
       ... on KeyfigureRecord {
@@ -62,6 +62,9 @@ query Page($slug: String!) {
       ... on IframeRecord {
         ...iframeBlock
       }
+      ... on NewsletterRecord {
+        ...newsletterBlock
+      }
     }
     seo: _seoMetaTags {
       attributes
@@ -86,7 +89,7 @@ query Page($slug: String!) {
 }
 
 query AllPages {
-  allPages(filter: { parent: { exists: "false" } }) {
+  allPages(filter: { parent: { exists: "false" }, AND: { slug: { neq: "home" } } }) {
     slug
     children {
       slug

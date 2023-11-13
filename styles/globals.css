@@ -14,7 +14,7 @@ html {
 }
 
 :focus-visible {
-  outline: 3px solid theme('colors.mint.200');
+  outline: 3px solid theme('colors.cornflower.500');
 }
 
 footer {

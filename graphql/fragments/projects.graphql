@@ -4,7 +4,7 @@ fragment projects on ProjectRecord {
   title
   headline
   teaserImage {
-    responsiveImage(imgixParams: { fit: crop, w: 720, h: 480, auto: format }) {
+    responsiveImage(imgixParams: { fit: crop, w: 460, h: 240, auto: format }) {
       ...responsiveImage
     }
   }

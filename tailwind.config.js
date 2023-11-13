@@ -29,6 +29,10 @@ module.exports = guetzliConfig.tailwindConfig({
       transitionProperty: {
         spacing: 'margin transform',
       },
+      colors: {
+        success: '#16a34a',
+        error: '#ef4444',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],

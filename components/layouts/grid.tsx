@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren } from 'react';
+import { classNames } from '../../utils/css';
 
 const AvailableColumnLayouts = {
   2: 'grid-cols-1 md:grid-cols-2',
@@ -11,7 +12,12 @@ type Props = PropsWithChildren<{
 }>;
 
 export const Grid: FC<Props> = ({ cols, children }) => (
-  <div className={`grid ${AvailableColumnLayouts[cols]} my-8 grid-flow-row gap-8 md:auto-rows-fr xl:my-16 xl:gap-16`}>
+  <div
+    className={classNames(
+      'my-8 grid grid-flow-row gap-4 md:auto-rows-fr md:gap-8 xl:my-16 xl:gap-16',
+      AvailableColumnLayouts[cols],
+    )}
+  >
     {children}
   </div>
 );

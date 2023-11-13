@@ -1,0 +1,19 @@
+fragment newsletterBlock on NewsletterRecord {
+  id
+  content {
+    value
+    blocks {
+      ... on LinkRecord {
+        _modelApiKey
+        ...links
+      }
+    }
+  }
+  image {
+    id
+    title
+    responsiveImage(imgixParams: { w: 752, h: 752, auto: format }) {
+      ...responsiveImage
+    }
+  }
+}

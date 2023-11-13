@@ -1,19 +1,17 @@
 fragment teaserSelectionBlock on TeaserSelectionRecord {
-    id
-    content {
-        value
+  id
+  teasers {
+    __typename
+    ... on OfferRecord {
+      ...offers
     }
-    columnCount
-    teasers {
-        __typename
-        ... on OfferRecord {
-            ... offers
-        }
-        ... on ProjectRecord {
-            ... projects
-        }
-        ... on TeaserCardRecord {
-            ... teaserCard
-        }
+    ... on ProjectRecord {
+      ...projects
     }
+    ... on TeaserCardRecord {
+      ...teaserCard
+    }
+  }
+  disableMarginTop
+  disableMarginBottom
 }
