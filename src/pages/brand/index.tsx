@@ -259,8 +259,8 @@ const ColorBox: FC<ColorBoxProps> = ({ color, name, values }) => (
       color === 'gray'
         ? 'rounded-l border-8 border-white-100 bg-white-200 sm:border-0'
         : color === 'darkness'
-        ? 'bg-black text-white-200 sm:text-black'
-        : mapColorToBG(color)
+          ? 'bg-black text-white-200 sm:text-black'
+          : mapColorToBG(color)
     }`}
   >
     <div
@@ -268,8 +268,8 @@ const ColorBox: FC<ColorBoxProps> = ({ color, name, values }) => (
         color === 'gray'
           ? 'rounded-l border-4 border-white-100 bg-white-200'
           : color === 'darkness'
-          ? 'bg-black'
-          : mapColorToBG(color)
+            ? 'bg-black'
+            : mapColorToBG(color)
       }`}
     />
     <div className="p-6">
