@@ -1,0 +1,13 @@
+query allEmployees {
+  employees: allEmployees(orderBy: name_ASC, first: 100) {
+    ... on EmployeeRecord {
+      ...employee
+    }
+  }
+}
+
+query Employee($name: String!) {
+  employee(filter: { name: { eq: $name } }) {
+    ...employee
+  }
+}

@@ -8,6 +8,7 @@ import NextLink from 'next/link';
 import { FC, ReactNode, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Scroll } from 'scrollex';
+import { AllEmployeesDocument } from '../../../graphql/generated';
 import peterMoreno from '../../../public/images/anniversary/2013/peter-moreno.jpg';
 import boyband from '../../../public/images/anniversary/2014/boyband.png';
 import bungee from '../../../public/images/anniversary/2014/bungee.png';
@@ -53,6 +54,8 @@ import kuhbar from '../../../public/images/anniversary/2022/kuhbar.jpeg';
 import rammstein from '../../../public/images/anniversary/2022/rammstein.jpg';
 import skitag from '../../../public/images/anniversary/2022/skitag.jpg';
 import stadtfueahrig from '../../../public/images/anniversary/2022/stadtfueahrig.jpeg';
+import { isTruthy } from '../../../utils/common';
+import { queryDatoCMS } from '../../../utils/query-dato-cms';
 import { ParallaxBlob } from '../../components/10/ParallaxBlob';
 import { Avatar } from '../../components/10/avatar';
 import { BlobVariants } from '../../components/10/blob';
@@ -61,7 +64,6 @@ import { Card } from '../../components/10/card';
 import { Heading } from '../../components/10/heading';
 import { TenHead, keyframes } from '../../components/10/ten-head';
 import { Text } from '../../components/10/text';
-import { Employee, getAllEmployees } from '../../data/employees';
 import { Link } from '../../elements/link';
 
 let confetti;
@@ -80,21 +82,16 @@ const activeConfettiCannon = () => {
 };
 
 type Props = {
-  employees: Employee[];
+  employees: { start: number; image: string; name: string }[];
 };
 
 const Ten: NextPage<Props> = ({ employees }) => {
   const [visibleYear, setVisibleYear] = useState<number>(0);
-  const [avatars, setAvatars] = useState(
-    employees.filter(({ start }) => start === 2012).filter(({ closeup }) => closeup !== ''),
-  );
+  const [avatars, setAvatars] = useState(employees.filter(({ start }) => start === 2012));
 
   useEffect(() => {
     const team = employees
-      .filter(({ start }) => {
-        return start <= visibleYear;
-      })
-      .filter(({ closeup }) => closeup !== '')
+      .filter(({ start, image }) => start <= visibleYear && image !== '')
       .sort((a, b) => a.start - b.start);
 
     setAvatars(team);
@@ -523,14 +520,14 @@ const Ten: NextPage<Props> = ({ employees }) => {
       </main>
 
       <div className="fixed bottom-0 z-50 hidden w-full py-4 lg:block">
-        {visibleYear !== null && (
+        {visibleYear && (
           <div className="mx-auto flex max-w-screen-xl justify-center text-[0px]">
             <motion.div
               layout
               className="inline-flex flex-row justify-center rounded-full bg-white-200 px-[1.3rem] py-1 shadow-sm"
             >
               <AnimatePresence>
-                {avatars.map(({ name, closeup }) => (
+                {avatars.map(({ name, image }) => (
                   <NextLink href={`/team#${name}`} passHref key={name}>
                     <motion.a
                       layout
@@ -540,7 +537,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
                       whileHover={{ scale: 1.3, y: -10, padding: '0px 1.5rem' }}
                       className="-ml-3 -mr-3 block overflow-visible hover:z-50"
                     >
-                      <Avatar src={closeup} />
+                      <Avatar src={image} />
                     </motion.a>
                   </NextLink>
                 ))}
@@ -564,11 +561,21 @@ const Ten: NextPage<Props> = ({ employees }) => {
 export default Ten;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const employees = await getAllEmployees();
+  const { employees } = await queryDatoCMS(AllEmployeesDocument);
 
   return {
     props: {
-      employees,
+      employees: employees
+        .map(({ start, portrait, name }) => {
+          if (!portrait?.responsiveImage || !start) return false;
+
+          return {
+            start: start,
+            image: portrait.responsiveImage.src,
+            name,
+          };
+        })
+        .filter(isTruthy),
     },
     revalidate: 3600,
   };

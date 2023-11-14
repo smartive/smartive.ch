@@ -3,6 +3,17 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
+const domains = [
+  'images.unsplash.com',
+  'smartive-10.rokka.io',
+  'res.cloudinary.com',
+  '**.amazonaws.com',
+  '**.notion.so',
+  '**.gravatar.com',
+  '**.datocms-assets.com',
+  ...Array.from({ length: 10 }, (_, i) => i + 1).map((n) => `lh${n}.googleusercontent.com`),
+];
+
 module.exports = withBundleAnalyzer({
   experimental: {
     scrollRestoration: true,
@@ -14,19 +25,11 @@ module.exports = withBundleAnalyzer({
   },
   transpilePackages: ['mermaid', 'dayjs'],
   images: {
-    domains: [
-      'images.unsplash.com',
-      's3.us-west-2.amazonaws.com',
-      'notion.so',
-      'www.notion.so',
-      'gravatar.com',
-      'www.gravatar.com',
-      'smartive-10.rokka.io',
-      's3-us-west-2.amazonaws.com',
-      'prod-files-secure.s3.us-west-2.amazonaws.com',
-      'res.cloudinary.com',
-      'datocms-assets.com',
-      ...Array.from({ length: 10 }, (_, i) => i + 1).map((n) => `lh${n}.googleusercontent.com`),
+    remotePatterns: [
+      ...domains.map((domain) => ({
+        protocol: 'https',
+        hostname: domain,
+      })),
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1536], // 1536px is our max container size

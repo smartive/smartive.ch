@@ -10,7 +10,6 @@ export type PlausibleEvents = {
     value: string;
     url: string;
     component: 'navigation' | 'footer' | 'contact-box' | 'employee-card';
-    device: 'mobile' | 'desktop';
   };
   'Job Click': {
     extUrl: string;

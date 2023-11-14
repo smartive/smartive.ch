@@ -49,7 +49,6 @@ export const Page: FC<Props> = ({ children, hasMargin = false }) => {
                 value,
                 url: window?.location.toString(),
                 component: 'navigation',
-                device: 'desktop',
               },
             })
           }

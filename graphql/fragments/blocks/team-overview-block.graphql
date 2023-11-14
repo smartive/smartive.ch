@@ -1,0 +1,14 @@
+fragment teamOverviewBlock on TeamOverviewRecord {
+    id
+    selectedTestimonial: testimonial {
+    id
+    quote
+    authorName
+    authorDesc
+    authorImage {
+      responsiveImage(imgixParams: { fit: crop, w: 128, h: 128, auto: format }) {
+        ...responsiveImage
+      }
+    }
+  }
+}

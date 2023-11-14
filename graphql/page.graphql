@@ -47,6 +47,9 @@ query Page($slug: String!) {
       ... on TableRecord {
         ...tableBlock
       }
+      ... on TeamOverviewRecord {
+        ...teamOverviewBlock
+      }
       ... on CustomRecord {
         ...customBlock
       }

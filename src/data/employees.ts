@@ -36,34 +36,6 @@ export const getEmployeeById = async (id: string): Promise<Employee> => {
   return mapBlockToEmployee(result as unknown as NotionEmployee);
 };
 
-export const getAllEmployees = async (): Promise<Employee[]> => {
-  const { results } = await getNotionClient().databases.query({
-    database_id: NOTION_WEBPROFILE_DB_ID,
-    sorts: [
-      {
-        property: 'Name',
-        direction: 'ascending',
-      },
-    ],
-    filter: {
-      and: [
-        {
-          property: 'Status',
-          rollup: {
-            any: {
-              select: {
-                equals: 'Completed ✓',
-              },
-            },
-          },
-        },
-      ],
-    },
-  });
-
-  return (results as unknown as NotionEmployee[]).map(mapBlockToEmployee);
-};
-
 export const getFullEmployeeByMail = async (mail: string): Promise<FullEmployee> => {
   const {
     results: [result],

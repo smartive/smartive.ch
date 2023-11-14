@@ -14,6 +14,7 @@ import { ProjectsOverviewBlock } from './blocks/projects-overview';
 import { ProjectsTeaserBlock } from './blocks/projects-teaser';
 import { QuoteBlock } from './blocks/quote';
 import { TableBlock } from './blocks/table';
+import { TeamOverviewBlock } from './blocks/team-overview';
 import { TeaserSelectionBlock } from './blocks/teaser-selection';
 import { TextBlock } from './blocks/text';
 import { ThreeColsTextBlock } from './blocks/three-cols-text';
@@ -64,6 +65,8 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => (
           return <TableBlock key={block.id} block={block} />;
         case 'TeaserSelectionRecord':
           return <TeaserSelectionBlock key={block.id} block={block} />;
+        case 'TeamOverviewRecord':
+          return <TeamOverviewBlock key={block.id} block={block} />;
         case 'NewsletterRecord':
           return <NewsletterBlock key={block.id} block={block} />;
         default:

@@ -4,7 +4,9 @@ import type JSConfetti from 'js-confetti';
 import { GetStaticProps, NextPage } from 'next';
 import { CSSProperties, useEffect, useState } from 'react';
 import { Section } from '../../../components/layouts/section';
+import { AllEmployeesDocument } from '../../../graphql/generated';
 import { brandColor } from '../../../utils/color';
+import { queryDatoCMS } from '../../../utils/query-dato-cms';
 import {
   ALL_YEARS,
   FTE,
@@ -14,7 +16,6 @@ import {
 } from '../../../utils/sustainability';
 import { NextBisectCard } from '../../components/bisect-card';
 import { PageHeader } from '../../compositions/page-header';
-import { getAllEmployees } from '../../data/employees';
 import { getNotionBusinessTravel } from '../../data/sustainability/notion-business-travel';
 import { ComparisonTexts, getNotionComparisons } from '../../data/sustainability/notion-comparisons';
 import { getNotionEmployees } from '../../data/sustainability/notion-employees';
@@ -241,7 +242,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     ALL_YEARS.map(async (year) => ({ year, employees: await getNotionEmployees(year) })),
   );
 
-  const allEmployees = await getAllEmployees();
+  const { employees } = await queryDatoCMS(AllEmployeesDocument);
 
   const allYearsTotalEmission = ALL_YEARS.map((year) => ({
     year,
@@ -258,7 +259,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       allYearsTotalEmission,
       comparisonTexts,
       maxYear,
-      numberOfEmployees: allEmployees.length,
+      numberOfEmployees: employees.length,
     },
   };
 };

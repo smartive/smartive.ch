@@ -1,5 +1,9 @@
 fragment contactBlock on ContactRecord {
   id
   text
-  smartiveEmployeeName
+  contact {
+    ... on EmployeeRecord {
+      ...employee
+    }
+  }
 }

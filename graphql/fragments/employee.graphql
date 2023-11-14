@@ -1,0 +1,28 @@
+fragment employee on EmployeeRecord {
+  image {
+    responsiveImage(imgixParams: { fit: crop, w: 458, h: 687, auto: format }) {
+      ...responsiveImage
+    }
+  }
+  closeup {
+    responsiveImage(imgixParams: { fit: crop, w: 720, h: 450, auto: format }) {
+      ...responsiveImage
+    }
+  }
+  portrait {
+    responsiveImage(imgixParams: { fit: crop, w: 208, h: 208, auto: format }) {
+      ...responsiveImage
+    }
+  }
+  name
+  job
+  bio
+  email
+  linkedin
+  github
+  twitter
+  tel
+  booking
+  start
+  id
+}
