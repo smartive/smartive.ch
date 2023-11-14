@@ -20,7 +20,6 @@ fragment employee on EmployeeRecord {
   email
   linkedin
   github
-  twitter
   tel
   booking
   start

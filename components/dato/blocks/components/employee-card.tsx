@@ -21,7 +21,7 @@ type Props = {
 const availableColors = ['apricot', 'mint', 'cornflower'] as const;
 
 export const EmployeeCard: FC<Props> = ({
-  employee: { name, job, bio, email, closeup, image, github, linkedin, twitter },
+  employee: { name, job, bio, email, closeup, image, github, linkedin },
   className = '',
 }) => {
   const links = [
@@ -32,10 +32,6 @@ export const EmployeeCard: FC<Props> = ({
     linkedin && {
       label: 'LinkedIn',
       url: linkedin,
-    },
-    twitter && {
-      label: 'Twitter',
-      url: twitter,
     },
     github && {
       label: 'GitHub',

@@ -105,7 +105,6 @@ const mapBlockToEmployee = (block: NotionEmployee): Employee => {
       Mail,
       GitHub,
       LinkedIn,
-      Twitter,
       PhotoPortrait,
       PhotoCloseup,
       PhotoMain,
@@ -129,7 +128,6 @@ const mapBlockToEmployee = (block: NotionEmployee): Employee => {
     booking: Booking.url,
     github: GitHub.url,
     linkedin: LinkedIn.url,
-    twitter: Twitter.url,
     image: getImageUrl(PhotoMain, block),
     closeup: getImageUrl(PhotoCloseup, block),
     portrait: getImageUrl(PhotoPortrait, block),
@@ -175,7 +173,6 @@ export type Employee = {
   booking: string;
   github?: string;
   linkedin?: string;
-  twitter?: string;
   image: string;
   closeup: string;
   portrait: string;
@@ -199,7 +196,6 @@ interface Properties {
   Telefon: Phone;
   GitHub: URL;
   LinkedIn: URL;
-  Twitter: URL;
   Booking: URL;
   PhotoMain: Files;
   PhotoCloseup: Files;

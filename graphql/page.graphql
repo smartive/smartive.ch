@@ -23,17 +23,11 @@ query Page($slug: String!) {
       ... on VideoRecord {
         ...videoBlock
       }
-      ... on ProjectsTeaserRecord {
-        ...projectsTeaserBlock
-      }
       ... on QuoteRecord {
         ...quoteBlock
       }
       ... on ContactRecord {
         ...contactBlock
-      }
-      ... on OffersTeaserRecord {
-        ...offersTeaserBlock
       }
       ... on TeaserSelectionRecord {
         ...teaserSelectionBlock

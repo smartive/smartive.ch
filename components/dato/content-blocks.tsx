@@ -9,9 +9,7 @@ import { ImageTextBlock } from './blocks/image-text';
 import { KeyfigureBlock } from './blocks/keyfigure';
 import { LogoGridBlock } from './blocks/logo-grid';
 import { NewsletterBlock } from './blocks/newsletter';
-import { OffersTeaserBlock } from './blocks/offers-teaser';
 import { ProjectsOverviewBlock } from './blocks/projects-overview';
-import { ProjectsTeaserBlock } from './blocks/projects-teaser';
 import { QuoteBlock } from './blocks/quote';
 import { TableBlock } from './blocks/table';
 import { TeamOverviewBlock } from './blocks/team-overview';
@@ -39,14 +37,10 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => (
           return <ThreeColsTextBlock key={block.id} block={block} />;
         case 'ImageRecord':
           return <ImageBlock key={block.id} block={block} />;
-        case 'ProjectsTeaserRecord':
-          return <ProjectsTeaserBlock key={block.id} block={block} />;
         case 'QuoteRecord':
           return <QuoteBlock key={block.id} block={block} />;
         case 'ContactRecord':
           return <ContactBlock key={block.id} block={block} />;
-        case 'OffersTeaserRecord':
-          return <OffersTeaserBlock key={block.id} block={block} />;
         case 'KeyfigureRecord':
           return <KeyfigureBlock key={block.id} block={block} />;
         case 'ImageTextRecord':

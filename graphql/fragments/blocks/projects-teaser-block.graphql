@@ -1,7 +1,0 @@
-fragment projectsTeaserBlock on ProjectsTeaserRecord {
-  id
-  heading
-  projects {
-    ...projects
-  }
-}
