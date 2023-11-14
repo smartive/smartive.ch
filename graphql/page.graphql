@@ -102,12 +102,3 @@ query AllPages {
     }
   }
 }
-
-query PageStructure($slug: String!) {
-  page(filter: { slug: { eq: $slug } }) {
-    slug
-    parent {
-      slug
-    }
-  }
-}

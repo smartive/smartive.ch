@@ -26,7 +26,7 @@ const generatePathnames = (pages: PagePath[]): string[] => {
 };
 
 export const getAllDatoRoutes = async () => {
-  const { allPages } = await queryDatoCMS(AllPagesDocument);
+  const { allPages } = await queryDatoCMS(AllPagesDocument, {}, true);
 
   return generatePathnames(allPages as PagePath[]);
 };
