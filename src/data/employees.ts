@@ -1,28 +1,7 @@
 import { UrlPropertyItemObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import { getNotionClient } from '../services/notion';
 
-const NOTION_WEBPROFILE_DB_ID = 'a128e46920e94bb48fc2baa77e6bf8c7';
 const NOTION_EMPLOYEES_DB_ID = '7c40115e5a974b6db68e607a94b3a6ee';
-
-export const getEmployeeByName = async (name: string): Promise<Employee> => {
-  const {
-    results: [result],
-  } = await getNotionClient().databases.query({
-    database_id: NOTION_WEBPROFILE_DB_ID,
-    filter: {
-      property: 'Name',
-      title: {
-        equals: name,
-      },
-    },
-  });
-
-  if (!result) {
-    throw new Error(`Employee with name "${name}" not found.`);
-  }
-
-  return mapBlockToEmployee(result as unknown as NotionEmployee);
-};
 
 export const getEmployeeById = async (id: string): Promise<Employee> => {
   const result = await getNotionClient().pages.retrieve({

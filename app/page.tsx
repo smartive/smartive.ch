@@ -19,7 +19,7 @@ export default async function ContentPage() {
   if (!page) notFound();
 
   return (
-    <Page hasMargin>
+    <Page>
       <ContentBlocks blocks={page.content as Array<PageModelContentField>} />
     </Page>
   );

@@ -13,7 +13,7 @@ type Props = {
 export const ProjectCard: FC<Props> = ({ slug, title, headline, image }) => (
   <NextLink
     href={`/projekte/${slug}`}
-    className="card-shadow grid w-full grid-rows-[auto,1fr,auto] overflow-hidden rounded bg-white-100 text-black transition-transform active:scale-[.99]"
+    className="card-shadow grid w-full max-w-[720px] grid-rows-[auto,1fr,auto] overflow-hidden rounded bg-white-100 text-black transition-transform active:scale-[.99]"
   >
     {image && <DatoImage data={image} layout="responsive" />}
     <div className="grid grid-rows-[auto,1fr,auto] p-4 font-sans text-xxs font-normal lg:p-8 lg:text-sm">

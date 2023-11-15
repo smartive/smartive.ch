@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { PageModelContentField, ProjectModelContentField } from '../../graphql/generated';
+import { OfferModelContentField, PageModelContentField, ProjectModelContentField } from '../../graphql/generated';
 import { ContactBlock } from './blocks/contact';
 import { CustomBlock } from './blocks/custom';
 import { IframeBlock } from './blocks/iframe-block';
@@ -20,7 +20,7 @@ import { TwoColsTextBlock } from './blocks/two-cols-text';
 import { VideoBlock } from './blocks/video';
 
 type Props = {
-  blocks: Array<ProjectModelContentField> | Array<PageModelContentField>;
+  blocks: Array<ProjectModelContentField> | Array<PageModelContentField> | Array<OfferModelContentField>;
 };
 
 export const ContentBlocks: FC<Props> = ({ blocks }) => (

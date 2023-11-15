@@ -1,17 +1,17 @@
 import Image from 'next/image';
 import { FC } from 'react';
 import { Image as DatoImage } from 'react-datocms';
-import { EmployeeFragment } from '../../../../graphql/generated';
-import closeupApricot from '../../../../public/images/closeup-fallback-apricot.svg';
-import closeupCornflower from '../../../../public/images/closeup-fallback-cornflower.svg';
-import closeupMint from '../../../../public/images/closeup-fallback-mint.svg';
-import portraitApricot from '../../../../public/images/portrait-fallback-apricot.svg';
-import portraitCornflower from '../../../../public/images/portrait-fallback-cornflower.svg';
-import portraitMint from '../../../../public/images/portrait-fallback-mint.svg';
-import { isTruthy } from '../../../../utils/common';
-import { classNames } from '../../../../utils/css';
-import { Heading3 } from '../../../nodes/heading3';
+import { EmployeeFragment } from '../graphql/generated';
+import closeupApricot from '../public/images/closeup-fallback-apricot.svg';
+import closeupCornflower from '../public/images/closeup-fallback-cornflower.svg';
+import closeupMint from '../public/images/closeup-fallback-mint.svg';
+import portraitApricot from '../public/images/portrait-fallback-apricot.svg';
+import portraitCornflower from '../public/images/portrait-fallback-cornflower.svg';
+import portraitMint from '../public/images/portrait-fallback-mint.svg';
+import { isTruthy } from '../utils/common';
+import { classNames } from '../utils/css';
 import { EmployeeContactLink } from './employee-contact-link';
+import { Heading3 } from './nodes/heading3';
 
 type Props = {
   employee: EmployeeFragment;

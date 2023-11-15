@@ -1,11 +1,10 @@
-query Project($slug: String!) {
-  project(filter: { slug: { eq: $slug } }) {
+query Offer($slug: String!) {
+  offer(filter: { slug: { eq: $slug } }) {
     id
-    tags {
-      id
-      slug
-      title
-    }
+    title
+    color
+    description
+    timespan
     content {
       __typename
       ... on TextRecord {
@@ -75,48 +74,6 @@ query Project($slug: String!) {
         title
       }
       titleSuffix
-    }
-  }
-}
-
-query MainProjects {
-  allProjects(orderBy: position_ASC, first: 2) {
-    id
-    slug
-    title
-    headline
-    teaserImage {
-      responsiveImage(imgixParams: { fit: crop, w: 720, h: 480, auto: format }) {
-        ...responsiveImage
-      }
-    }
-  }
-}
-
-query OtherProjects {
-  allProjects(orderBy: position_ASC, skip: 2, first: 100) {
-    id
-    slug
-    title
-    headline
-    teaserImage {
-      responsiveImage(imgixParams: { fit: crop, w: 460, h: 240, auto: format }) {
-        ...responsiveImage
-      }
-    }
-  }
-}
-
-query ProjectsByTag($tagId: [ItemId]) {
-  allProjects(filter: { tags: { anyIn: $tagId } }, orderBy: position_ASC, first: 100) {
-    id
-    slug
-    title
-    headline
-    teaserImage {
-      responsiveImage(imgixParams: { fit: crop, w: 460, h: 240, auto: format }) {
-        ...responsiveImage
-      }
     }
   }
 }

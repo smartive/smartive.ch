@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const NotFound = () => {
   return (
-    <Page hasMargin>
+    <Page>
       <div className="my-32 grid grid-flow-row justify-items-center">
         <CryingCloud />
         <div className="mt-16 space-y-8 text-center font-sans text-sm font-bold lg:text-lg">

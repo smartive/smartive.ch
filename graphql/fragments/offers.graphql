@@ -1,9 +1,9 @@
 fragment offers on OfferRecord {
   id
+  slug
   title
   description
   timespan
   linkLabel
-  legacyLink
   color
 }

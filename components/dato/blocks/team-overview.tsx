@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { AllEmployeesDocument, TeamOverviewBlockFragment } from '../../../graphql/generated';
 import { queryDatoCMS } from '../../../utils/query-dato-cms';
+import { EmployeeCard } from '../../employee-card';
 import { BlockWrapper } from '../../layouts/block-wrapper';
 import { Grid } from '../../layouts/grid';
-import { EmployeeCard } from './components/employee-card';
-import { SingleTestimonial } from './components/single-testimonial';
+import { SingleTestimonial } from '../../single-testimonial';
 
 type Props = {
   block: TeamOverviewBlockFragment;

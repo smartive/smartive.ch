@@ -5,7 +5,7 @@ import { BlockWrapper } from '../../layouts/block-wrapper';
 import { Grid } from '../../layouts/grid';
 import { GridSlider } from '../../layouts/grid-slider';
 import { ProjectCard } from '../../project-card';
-import { SingleTestimonial } from './components/single-testimonial';
+import { SingleTestimonial } from '../../single-testimonial';
 
 type Props = {
   block: ProjectsOverviewBlockFragment;

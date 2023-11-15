@@ -4,9 +4,9 @@ import { classNames } from '../../utils/css';
 
 export const LinkColors = ['apricot', 'mint', 'cornflower'] as const;
 
-type Props = PropsWithChildren<{ href: string; target?: string; rel?: string; color?: string }>;
+type Props = PropsWithChildren<{ href: string; target?: string; rel?: string; title?: string; color?: string }>;
 
-export const Link: FC<Props> = ({ children, href, target, rel, color = 'apricot' }) => (
+export const Link: FC<Props> = ({ children, href, target, rel, title, color = 'apricot' }) => (
   <NextLink
     href={href ?? '#'}
     target={target ?? '_self'}
@@ -19,6 +19,7 @@ export const Link: FC<Props> = ({ children, href, target, rel, color = 'apricot'
         cornflower: 'border-cornflower-500',
       }[color],
     )}
+    title={title}
   >
     {children}
   </NextLink>

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Image as DatoImage } from 'react-datocms';
-import { ResponsiveImageFragment } from '../../../../graphql/generated';
+import { ResponsiveImageFragment } from '../graphql/generated';
 
 export const TestimonialColors = ['apricot', 'mint', 'cornflower'] as const;
 

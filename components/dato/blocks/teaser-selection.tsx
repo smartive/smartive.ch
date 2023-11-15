@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { TeaserSelectionBlockFragment, TeaserSelectionModelTeasersField } from '../../../graphql/generated';
 import { BlockWrapper } from '../../layouts/block-wrapper';
 import { Grid } from '../../layouts/grid';
-import { OfferCard, OfferCardColor } from '../../offer-card';
+import { OfferCard, OfferColor } from '../../offer-card';
 import { ProjectCard } from '../../project-card';
 import { TeaserCard, TeaserCardColor } from '../../teaser-card';
 
@@ -26,12 +26,12 @@ const Teaser: FC<{ teaser: TeaserSelectionModelTeasersField }> = ({ teaser }) =>
       return (
         <OfferCard
           key={teaser.id}
+          slug={teaser.slug}
           title={teaser.title}
-          link={teaser.legacyLink}
           timespan={teaser.timespan}
           description={teaser.description}
           linkLabel={teaser.linkLabel}
-          color={teaser.color as OfferCardColor}
+          color={teaser.color as OfferColor}
         />
       );
     case 'TeaserCardRecord':

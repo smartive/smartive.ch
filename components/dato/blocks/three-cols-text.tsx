@@ -17,17 +17,17 @@ export const ThreeColsTextBlock: FC<Props> = ({
     {heading && <Heading2>{heading}</Heading2>}
     <Grid cols={3}>
       {!isEmptyDocument(contentLeft) && (
-        <div>
+        <div className="font-sans text-xs lg:text-base">
           <StructuredTextRenderer data={contentLeft as StructuredTextType} />
         </div>
       )}
       {!isEmptyDocument(contentMiddle) && (
-        <div>
+        <div className="font-sans text-xs lg:text-base">
           <StructuredTextRenderer data={contentMiddle as StructuredTextType} />
         </div>
       )}
       {!isEmptyDocument(contentRight) && (
-        <div>
+        <div className="font-sans text-xs lg:text-base">
           <StructuredTextRenderer data={contentRight as StructuredTextType} />
         </div>
       )}

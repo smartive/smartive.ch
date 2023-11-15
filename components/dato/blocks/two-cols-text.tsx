@@ -17,12 +17,12 @@ export const TwoColsTextBlock: FC<Props> = ({
     {heading && <Heading2>{heading}</Heading2>}
     <Grid cols={2}>
       {!isEmptyDocument(contentLeft) && (
-        <div>
+        <div className="font-sans text-xs lg:text-base">
           <StructuredTextRenderer data={contentLeft as StructuredTextType} />
         </div>
       )}
       {!isEmptyDocument(contentRight) && (
-        <div>
+        <div className="font-sans text-xs lg:text-base">
           <StructuredTextRenderer data={contentRight as StructuredTextType} />
         </div>
       )}

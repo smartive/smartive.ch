@@ -38,7 +38,7 @@ export default async function ContentPage({ params: { slug } }: Params) {
   if (!page) notFound();
 
   return (
-    <Page hasMargin>
+    <Page>
       <ContentBlocks blocks={page.content as Array<PageModelContentField>} />
     </Page>
   );

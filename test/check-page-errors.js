@@ -63,6 +63,9 @@ const getAllDatoCMSRoutes = async () => {
       allProjects {
         slug
       }
+      allOffers {
+        slug
+      }
     }
 `;
 

@@ -3,7 +3,7 @@
 import { TextLink } from '@smartive/guetzli';
 import { usePlausible } from 'next-plausible';
 import { FC, PropsWithChildren } from 'react';
-import { PlausibleEvents } from '../../../../utils/tracking';
+import { PlausibleEvents } from '../utils/tracking';
 
 type Props = PropsWithChildren<{
   href: string;

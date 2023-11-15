@@ -25,12 +25,9 @@ const Meta = [
 
 type Props = {
   children?: ReactNode;
-  hasMargin?: boolean; // TODO: This can be removed, as soon as we moved all pages to dato.
-  // Right now, we can't add margin to all pages, because the PageHeader component from Guetzli also has margin on it.
-  // This would result in a double margin on all "old" pages (e.g. /was-ist/*)
 };
 
-export const Page: FC<Props> = ({ children, hasMargin = false }) => {
+export const Page: FC<Props> = ({ children }) => {
   const pathname = usePathname();
   const plausible = usePlausible<PlausibleEvents>();
 
@@ -55,9 +52,7 @@ export const Page: FC<Props> = ({ children, hasMargin = false }) => {
           onHomeLinkContextMenu={() => (window.location.href = '/brand')}
         />
       </LazyMotion>
-      <div className={classNames('min-h-[50vh] max-w-[100vw] p-4 lg:container lg:mx-auto', hasMargin && 'my-12 lg:my-48')}>
-        {children}
-      </div>
+      <div className={classNames('min-h-[50vh] max-w-[100vw] p-4 lg:container lg:mx-auto')}>{children}</div>
     </div>
   );
 };

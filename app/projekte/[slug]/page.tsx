@@ -26,7 +26,7 @@ export default async function ProjectPage({ params: { slug } }: Params) {
   if (!project) notFound();
 
   return (
-    <Page hasMargin>
+    <Page>
       {project.tags && (
         <div className="mb-4 flex flex-wrap gap-2 lg:mb-8">
           {project.tags.map((tag, index) => (

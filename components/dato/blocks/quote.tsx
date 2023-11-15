@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { QuoteBlockFragment } from '../../../graphql/generated';
 import { BlockWrapper } from '../../layouts/block-wrapper';
-import { SingleTestimonial } from './components/single-testimonial';
-import { SmallTestimonial, TestimonialColors } from './components/small-testimonial';
+import { SingleTestimonial } from '../../single-testimonial';
+import { SmallTestimonial, TestimonialColors } from '../../small-testimonial';
 
 type Props = {
   block: QuoteBlockFragment;

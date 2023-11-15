@@ -3,9 +3,9 @@
 import { Blob } from '@smartive/guetzli';
 import { FC } from 'react';
 import { Image as DatoImage } from 'react-datocms';
-import { ResponsiveImageFragment } from '../../../../graphql/generated';
-import { classNames } from '../../../../utils/css';
-import { getBlobs } from '../../../../utils/get-blobs';
+import { ResponsiveImageFragment } from '../graphql/generated';
+import { classNames } from '../utils/css';
+import { getBlobs } from '../utils/get-blobs';
 
 type Props = {
   quote: string;

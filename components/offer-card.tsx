@@ -5,20 +5,20 @@ import { classNames } from '../utils/css';
 import { Heading3 } from './nodes';
 import { UseClientWrapper } from './use-client-wrapper';
 
-export type OfferCardColor = 'apricot' | 'mint' | 'cornflower';
+export type OfferColor = 'apricot' | 'mint' | 'cornflower';
 
 type Props = {
+  slug: string;
   title: string;
   timespan?: string | null;
   description?: string | null;
-  link: string;
   linkLabel?: string | null;
-  color?: OfferCardColor;
+  color?: OfferColor;
 };
 
-export const OfferCard: FC<Props> = ({ title, timespan, description, link, linkLabel, color = 'apricot' }) => (
+export const OfferCard: FC<Props> = ({ slug, title, timespan, description, linkLabel, color = 'apricot' }) => (
   <NextLink
-    href={link}
+    href={`/angebot/${slug}`}
     className={classNames(
       'card-shadow grid w-full grid-rows-[1fr,auto] gap-4 overflow-hidden rounded p-8 text-xxs text-black transition-transform active:scale-[.99] lg:gap-6 lg:text-sm',
       {
