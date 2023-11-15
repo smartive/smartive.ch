@@ -1,5 +1,10 @@
-import { revalidatePath, revalidateTag } from 'next/cache';
+import { revalidateTag } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
+
+type BodyType = {
+  event_type: 'create' | 'update' | 'delete' | 'publish' | 'unpublish';
+  entity_slug: string;
+};
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   const token = req.nextUrl.searchParams.get('token');
@@ -8,10 +13,15 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ status: 401, body: { error: 'Invalid Token' } });
   }
 
+  let tags = ['datocms'];
+  const { entity_slug }: BodyType = await req.json();
+
+  if (entity_slug) {
+    tags = [...tags, entity_slug];
+  }
+
   try {
-    revalidateTag('datocms');
-    // https://github.com/vercel/next.js/issues/55960#issuecomment-1799206671
-    revalidatePath('/');
+    tags.map((tag) => revalidateTag(tag));
   } catch (error) {
     return NextResponse.json({
       status: 500,
@@ -19,5 +29,5 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     });
   }
 
-  return NextResponse.json({ revalidated: true, now: Date.now() });
+  return NextResponse.json({ revalidated: true, now: Date.now(), tags });
 }

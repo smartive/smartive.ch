@@ -2,9 +2,14 @@ import { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { print } from 'graphql';
 import { GraphQLClientRequestHeaders } from 'graphql-request/build/esm/types';
 
-export async function queryDatoCMS<TResult = unknown, TVariables = Record<string, unknown>>(
-  document: TypedDocumentNode<TResult, TVariables>,
-  variables?: TVariables,
+type Variables = {
+  slug?: string;
+  tagId?: string;
+};
+
+export async function queryDatoCMS<TResult = unknown>(
+  document: TypedDocumentNode<TResult, Variables>,
+  variables?: Variables,
   isDraft?: boolean,
 ): Promise<TResult> {
   const headers: GraphQLClientRequestHeaders = {
@@ -18,9 +23,15 @@ export async function queryDatoCMS<TResult = unknown, TVariables = Record<string
 
   if (process.env.NEXT_DATOCMS_ENVIRONMENT) headers['X-Environment'] = process.env.NEXT_DATOCMS_ENVIRONMENT;
 
+  let tags = ['datocms'];
+
+  if (variables && variables.slug) {
+    tags = [...tags, variables.slug];
+  }
+
   const response = await fetch('https://graphql.datocms.com/', {
     cache: isDraft ? 'no-cache' : 'force-cache',
-    next: { tags: ['datocms'] },
+    next: { tags },
     method: 'POST',
     headers,
     body: JSON.stringify({ query: print(document), variables }),
