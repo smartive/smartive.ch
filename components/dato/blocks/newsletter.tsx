@@ -13,7 +13,7 @@ type Props = {
 export const NewsletterBlock: FC<Props> = ({ block: { content, image } }) => (
   <BlockWrapper>
     <div className="grid overflow-hidden rounded bg-white-100 md:grid-cols-2">
-      <div className="p-4 pb-8 md:p-16">
+      <div className="p-4 pb-8 font-sans text-xs md:p-16 lg:text-base">
         {!isEmptyDocument(content) && <StructuredTextRenderer data={content as StructuredTextType} />}
         <NewsletterForm />
       </div>
