@@ -1,7 +1,7 @@
 'use client';
 
-import { TextLink } from '@smartive/guetzli';
 import { usePlausible } from 'next-plausible';
+import NextLink from 'next/link';
 import { FC, PropsWithChildren } from 'react';
 import { PlausibleEvents } from '../utils/tracking';
 
@@ -13,9 +13,9 @@ export const EmployeeContactLink: FC<Props> = ({ href, children }) => {
   const plausible = usePlausible<PlausibleEvents>();
 
   return (
-    <TextLink
-      key={href}
+    <NextLink
       href={href}
+      target="_blank"
       onClick={() => {
         plausible('Contact Click', {
           props: {
@@ -25,8 +25,9 @@ export const EmployeeContactLink: FC<Props> = ({ href, children }) => {
           },
         });
       }}
+      className="border-b-2 no-underline transition-colors hover:border-apricot-500 focus:outline-none"
     >
       {children}
-    </TextLink>
+    </NextLink>
   );
 };

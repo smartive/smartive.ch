@@ -29,8 +29,8 @@ export const ContactBlock: FC<Props> = async ({ block: { text, contact } }) => {
         <div>
           <p className="mb-4 whitespace-pre-line font-sans text-base font-bold lg:mb-8 lg:text-xl">{text}</p>
           <div className="flex flex-wrap justify-center gap-4 lg:justify-start lg:gap-8">
-            {links.map(({ label, href }, index) => (
-              <Link key={href} href={href} color={SmartiveColors[index % 3]}>
+            {links.map(({ label, href, title }, index) => (
+              <Link key={href} href={href} title={title} target="_blank" color={SmartiveColors[index % 3]}>
                 {label}
               </Link>
             ))}
