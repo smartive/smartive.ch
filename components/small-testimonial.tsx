@@ -1,8 +1,7 @@
 import { FC } from 'react';
 import { Image as DatoImage } from 'react-datocms';
 import { ResponsiveImageFragment } from '../graphql/generated';
-
-export const TestimonialColors = ['apricot', 'mint', 'cornflower'] as const;
+import { SmartiveColorsType } from '../utils/color';
 
 const colorClassNames = {
   apricot: 'text-apricot-500',
@@ -15,7 +14,7 @@ type Props = {
   image?: ResponsiveImageFragment;
   authorName?: string;
   authorDesc?: string;
-  color?: string;
+  color?: SmartiveColorsType;
 };
 
 export const SmallTestimonial: FC<Props> = ({ image, quote, authorName, authorDesc, color = 'apricot' }) => (

@@ -262,7 +262,7 @@ const Bosa2023: NextPage<Props> = ({ quote, images }) => {
           </Copy>
         </Section>
 
-        <Testimonial background="cornflower" quote={quote} />
+        <Testimonial color="cornflower" quote={quote.text} authorName={quote.credit} legacyImage={quote.portrait} />
         <Section>
           <Heading2>Das macht uns einzigartig</Heading2>
           <Grid cols={2}>

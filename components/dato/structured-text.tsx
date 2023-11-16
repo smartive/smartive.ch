@@ -9,6 +9,7 @@ import {
 import { FC, Fragment } from 'react';
 import { StructuredText, renderMarkRule, renderNodeRule } from 'react-datocms';
 import { ImageBlockFragment } from '../../graphql/generated';
+import { SmartiveColorsType } from '../../utils/color';
 import { Heading1, Heading2, Heading3, InlineLink, Link, List, ListItem, Paragraph, Serif } from '../nodes';
 import { ImageBlock } from './blocks/image';
 
@@ -77,7 +78,7 @@ export const StructuredTextRenderer: FC<Props> = ({ data }) => (
               href={record.url as string}
               target={record.newTab ? '_blank' : '_self'}
               rel={record.newTab ? 'noopener noreferrer' : undefined}
-              color={record.color as string}
+              color={record.color as SmartiveColorsType}
             >
               {record.label as string}
             </Link>

@@ -1,9 +1,8 @@
 import NextLink from 'next/link';
 import { FC } from 'react';
+import { SmartiveColorsType } from '../utils/color';
 import { classNames } from '../utils/css';
 import { Heading3 } from './nodes';
-
-export type TeaserCardColor = 'apricot' | 'mint' | 'cornflower';
 
 type Props = {
   title: string;
@@ -11,7 +10,7 @@ type Props = {
   description?: string | null;
   link: string;
   linkLabel?: string | null;
-  color?: TeaserCardColor;
+  color?: SmartiveColorsType;
   newTab?: boolean;
 };
 

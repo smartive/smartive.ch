@@ -1,3 +1,3 @@
-import { BrandColor } from '@smartive/guetzli';
+export type SmartiveColorsType = 'apricot' | 'cornflower' | 'mint';
 
-export const brandColor: BrandColor[] = ['apricot', 'mint', 'cornflower'];
+export const SmartiveColors = ['apricot', 'mint', 'cornflower'] as const;

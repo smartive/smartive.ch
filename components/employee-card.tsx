@@ -8,6 +8,7 @@ import closeupMint from '../public/images/closeup-fallback-mint.svg';
 import portraitApricot from '../public/images/portrait-fallback-apricot.svg';
 import portraitCornflower from '../public/images/portrait-fallback-cornflower.svg';
 import portraitMint from '../public/images/portrait-fallback-mint.svg';
+import { SmartiveColors } from '../utils/color';
 import { isTruthy } from '../utils/common';
 import { classNames } from '../utils/css';
 import { EmployeeContactLink } from './employee-contact-link';
@@ -17,8 +18,6 @@ type Props = {
   employee: EmployeeFragment;
   className?: string;
 };
-
-const availableColors = ['apricot', 'mint', 'cornflower'] as const;
 
 export const EmployeeCard: FC<Props> = ({
   employee: { name, job, bio, email, closeup, image, github, linkedin },
@@ -39,7 +38,7 @@ export const EmployeeCard: FC<Props> = ({
     },
   ].filter(isTruthy);
 
-  const colorIndex = Math.floor(Math.random() * availableColors.length);
+  const colorIndex = Math.floor(Math.random() * SmartiveColors.length);
   const alt = `Portraitfoto von ${name}`;
 
   return (

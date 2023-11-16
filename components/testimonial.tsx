@@ -1,45 +1,49 @@
-'use client';
-
-import { Blob, BrandColor, highlight, mapColorToBG } from '@smartive/guetzli';
 import NextImage from 'next/image';
 import { FC } from 'react';
-import { Quote } from '../src/data/quotes';
+import { Image as DatoImage } from 'react-datocms';
+import { ResponsiveImageFragment } from '../graphql/generated';
+import { SmartiveColorsType } from '../utils/color';
 import { classNames } from '../utils/css';
-import { BlobVariationName, getBlobs } from '../utils/get-blobs';
+import { Blobs } from './blobs';
 
 type Props = {
-  className?: string;
-  quote: Quote;
-  background?: BrandColor;
-  blobs?: BlobVariationName;
+  quote: string;
+  image?: ResponsiveImageFragment;
+  legacyImage?: string; // TODO: remove when all testimonials are in dato
+  authorName?: string;
+  authorDesc?: string;
+  hasMargin?: boolean;
+  color?: SmartiveColorsType;
 };
 
-export const Testimonial: FC<Props> = ({
-  quote: { text, excerpt, credit, portrait },
-  className = '',
-  blobs,
-  background = 'apricot',
-}) => (
+export const Testimonial: FC<Props> = ({ image, quote, authorName, authorDesc, hasMargin = true, legacyImage, color }) => (
   <div
     className={classNames(
-      'relative mb-4 grid w-full grid-flow-row place-items-center overflow-hidden rounded p-8 text-center font-sans text-xxs font-normal lg:p-32 lg:text-sm',
-      mapColorToBG(background),
-      className,
+      'relative grid w-full grid-flow-row place-items-center overflow-hidden rounded bg-mint-500 p-8 text-center font-sans text-xxs font-normal lg:p-32 lg:text-sm',
+      hasMargin && 'my-12 lg:my-48',
     )}
   >
-    <div className="z-10">
-      <NextImage src={portrait} width={256} height={256} alt={credit} className="h-32 w-32 rounded-full object-cover" />
-    </div>
-    <p className="z-10 mb-4 mt-4 overflow-hidden font-sans text-base font-bold sm:overflow-visible lg:mb-8 lg:text-xl">
+    {image && <DatoImage data={image} className="z-10 rounded-full" />}
+    {legacyImage && (
+      <NextImage
+        src={legacyImage}
+        width={256}
+        height={256}
+        alt={authorName ?? ''}
+        className="h-32 w-32 rounded-full object-cover"
+      />
+    )}
+    <p className="z-10 mb-4 mt-4 overflow-hidden whitespace-pre-line font-sans text-base font-bold sm:overflow-visible lg:mb-8 lg:text-xl">
       &laquo;
-      {excerpt ? highlight(excerpt) : highlight(text)}
+      {quote}
       &raquo;
     </p>
-    {excerpt && <p className="z-10 mb-8 text-sm font-bold lg:text-base">{text}</p>}
-    <p className="z-10">{credit}</p>
-    {blobs &&
-      getBlobs(blobs).map(({ color, positionX, positionY }, index) => (
-        <Blob key={index} positionX={positionX} positionY={positionY} color={color} />
-      ))}
+    {authorName && (
+      <p className="z-10">
+        {authorName}
+        {authorDesc && `, ${authorDesc}`}
+      </p>
+    )}
+    <Blobs color={color} />
   </div>
 );

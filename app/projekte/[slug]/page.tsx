@@ -3,8 +3,9 @@ import { notFound } from 'next/navigation';
 import { toNextMetadata } from 'react-datocms/seo';
 import { ContentBlocks } from '../../../components/dato/content-blocks';
 import { Page } from '../../../components/layouts/page';
-import { ProjectTag, ProjectTagColors } from '../../../components/project-tag';
+import { ProjectTag } from '../../../components/project-tag';
 import { ProjectDocument, ProjectModelContentField } from '../../../graphql/generated';
+import { SmartiveColors } from '../../../utils/color';
 import { queryDatoCMS } from '../../../utils/query-dato-cms';
 
 type Params = {
@@ -30,7 +31,7 @@ export default async function ProjectPage({ params: { slug } }: Params) {
       {project.tags && (
         <div className="mb-4 flex flex-wrap gap-2 lg:mb-8">
           {project.tags.map((tag, index) => (
-            <ProjectTag key={tag.id} slug={tag.slug} title={tag.title} color={ProjectTagColors[index % 3]} />
+            <ProjectTag key={tag.id} slug={tag.slug} title={tag.title} color={SmartiveColors[index % 3]} />
           ))}
         </div>
       )}

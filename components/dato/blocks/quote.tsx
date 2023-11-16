@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import { QuoteBlockFragment } from '../../../graphql/generated';
+import { SmartiveColors } from '../../../utils/color';
 import { BlockWrapper } from '../../layouts/block-wrapper';
-import { SingleTestimonial } from '../../single-testimonial';
-import { SmallTestimonial, TestimonialColors } from '../../small-testimonial';
+import { SmallTestimonial } from '../../small-testimonial';
+import { Testimonial } from '../../testimonial';
 
 type Props = {
   block: QuoteBlockFragment;
@@ -13,7 +14,7 @@ export const QuoteBlock: FC<Props> = ({ block: { testimonial, disableMarginTop, 
     const { quote, authorImage, authorName, authorDesc } = testimonial[0];
 
     return (
-      <SingleTestimonial
+      <Testimonial
         quote={quote}
         image={authorImage?.responsiveImage}
         authorName={authorName ?? undefined}
@@ -32,7 +33,7 @@ export const QuoteBlock: FC<Props> = ({ block: { testimonial, disableMarginTop, 
             image={authorImage?.responsiveImage}
             authorName={authorName ?? undefined}
             authorDesc={authorDesc ?? undefined}
-            color={TestimonialColors[index % 3]}
+            color={SmartiveColors[index % 3]}
           />
         ))}
       </div>

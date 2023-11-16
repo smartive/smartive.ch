@@ -1,13 +1,12 @@
 import NextLink from 'next/link';
 import { FC } from 'react';
+import { SmartiveColorsType } from '../utils/color';
 import { classNames } from '../utils/css';
-
-export const ProjectTagColors = ['apricot', 'mint', 'cornflower'] as const;
 
 type Props = {
   slug: string;
   title: string;
-  color?: 'apricot' | 'mint' | 'cornflower';
+  color?: SmartiveColorsType;
 };
 
 export const ProjectTag: FC<Props> = ({ slug, title, color = 'apricot' }) => (

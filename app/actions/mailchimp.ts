@@ -7,6 +7,7 @@ client.setConfig({
   server: process.env.MAILCHIMP_SERVER,
 });
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function mailchimpSignup(_prevState: any, formData: FormData) {
   const email = formData.get('email');
 

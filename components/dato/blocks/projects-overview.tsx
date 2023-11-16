@@ -5,7 +5,7 @@ import { BlockWrapper } from '../../layouts/block-wrapper';
 import { Grid } from '../../layouts/grid';
 import { GridSlider } from '../../layouts/grid-slider';
 import { ProjectCard } from '../../project-card';
-import { SingleTestimonial } from '../../single-testimonial';
+import { Testimonial } from '../../testimonial';
 
 type Props = {
   block: ProjectsOverviewBlockFragment;
@@ -28,7 +28,7 @@ export const ProjectsOverviewBlock: FC<Props> = async ({ block: { selectedTestim
         ))}
       </GridSlider>
       {selectedTestimonial && (
-        <SingleTestimonial
+        <Testimonial
           quote={selectedTestimonial.quote}
           image={selectedTestimonial.authorImage?.responsiveImage}
           authorName={selectedTestimonial.authorName ?? undefined}

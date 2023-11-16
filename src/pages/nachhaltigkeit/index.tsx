@@ -5,7 +5,7 @@ import { GetStaticProps, NextPage } from 'next';
 import { CSSProperties, useEffect, useState } from 'react';
 import { Section } from '../../../components/layouts/section';
 import { AllEmployeesDocument } from '../../../graphql/generated';
-import { brandColor } from '../../../utils/color';
+import { SmartiveColors } from '../../../utils/color';
 import { queryDatoCMS } from '../../../utils/query-dato-cms';
 import {
   ALL_YEARS,
@@ -38,6 +38,7 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
 
   useEffect(() => {
     setComparisonText(comparisonTexts[Math.floor(Math.random() * comparisonTexts.length)]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const totalEmission2020 = allYearsTotalEmission.find(({ year }) => year === 2020)?.totalEmission ?? 0;
@@ -126,7 +127,7 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
               <NextBisectCard
                 key={year}
                 interactive={true}
-                background={brandColor[idx % brandColor.length]}
+                background={SmartiveColors[idx % SmartiveColors.length]}
                 title={year.toString()}
                 labelTitle={
                   <>
@@ -168,7 +169,7 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
           </Grid>
           <Grid cols={3}>
             <NextBisectCard
-              background={brandColor[2]}
+              background={SmartiveColors[2]}
               interactive={false}
               title="Rolle Nachhaltigkeit"
               header="Ziel 2021 erreicht?"
@@ -177,7 +178,7 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
               machen Verbesserungspotenziale ausfindig, setzen sinnvolle Massnahmen um, führen Dialoge mit externen Verantwortlichen und thematisieren interne Aspekte von Nachhaltigkeit.`}
             />
             <NextBisectCard
-              background={brandColor[0]}
+              background={SmartiveColors[0]}
               interactive={false}
               title="Erwartungen für 2022"
               header="Und 2022?"
@@ -197,7 +198,7 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
               }
             />
             <NextBisectCard
-              background={brandColor[1]}
+              background={SmartiveColors[1]}
               interactive={false}
               title="Ziel 2023"
               header="Und jetzt?"

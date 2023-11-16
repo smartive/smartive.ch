@@ -1,10 +1,9 @@
 import NextLink from 'next/link';
 import { FC, PropsWithChildren } from 'react';
+import { SmartiveColorsType } from '../../utils/color';
 import { classNames } from '../../utils/css';
 
-export const LinkColors = ['apricot', 'mint', 'cornflower'] as const;
-
-type Props = PropsWithChildren<{ href: string; target?: string; rel?: string; title?: string; color?: string }>;
+type Props = PropsWithChildren<{ href: string; target?: string; rel?: string; title?: string; color?: SmartiveColorsType }>;
 
 export const Link: FC<Props> = ({ children, href, target, rel, title, color = 'apricot' }) => (
   <NextLink

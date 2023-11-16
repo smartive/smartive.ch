@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { TeaserSelectionBlockFragment, TeaserSelectionModelTeasersField } from '../../../graphql/generated';
+import { SmartiveColorsType } from '../../../utils/color';
 import { BlockWrapper } from '../../layouts/block-wrapper';
 import { Grid } from '../../layouts/grid';
-import { OfferCard, OfferColor } from '../../offer-card';
+import { OfferCard } from '../../offer-card';
 import { ProjectCard } from '../../project-card';
-import { TeaserCard, TeaserCardColor } from '../../teaser-card';
+import { TeaserCard } from '../../teaser-card';
 
 type Props = {
   block: TeaserSelectionBlockFragment;
@@ -31,7 +32,7 @@ const Teaser: FC<{ teaser: TeaserSelectionModelTeasersField }> = ({ teaser }) =>
           timespan={teaser.timespan}
           description={teaser.description}
           linkLabel={teaser.linkLabel}
-          color={teaser.color as OfferColor}
+          color={teaser.color as SmartiveColorsType}
         />
       );
     case 'TeaserCardRecord':
@@ -43,7 +44,7 @@ const Teaser: FC<{ teaser: TeaserSelectionModelTeasersField }> = ({ teaser }) =>
           link={teaser.url}
           description={teaser.text}
           linkLabel={teaser.linkLabel}
-          color={teaser.color as TeaserCardColor}
+          color={teaser.color as SmartiveColorsType}
           newTab={teaser.newTab ?? false}
         />
       );

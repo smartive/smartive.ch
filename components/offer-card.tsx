@@ -1,11 +1,9 @@
-import { Clock } from '@smartive/guetzli';
 import NextLink from 'next/link';
 import { FC } from 'react';
+import { SmartiveColorsType } from '../utils/color';
 import { classNames } from '../utils/css';
+import { GuetzliClock } from './icons/clock';
 import { Heading3 } from './nodes';
-import { UseClientWrapper } from './use-client-wrapper';
-
-export type OfferColor = 'apricot' | 'mint' | 'cornflower';
 
 type Props = {
   slug: string;
@@ -13,7 +11,7 @@ type Props = {
   timespan?: string | null;
   description?: string | null;
   linkLabel?: string | null;
-  color?: OfferColor;
+  color?: SmartiveColorsType;
 };
 
 export const OfferCard: FC<Props> = ({ slug, title, timespan, description, linkLabel, color = 'apricot' }) => (
@@ -31,9 +29,7 @@ export const OfferCard: FC<Props> = ({ slug, title, timespan, description, linkL
     <div className="space-y-6 lg:space-y-8">
       {timespan && (
         <div className="inline-flex flex-row items-center">
-          <UseClientWrapper>
-            <Clock className="mr-2 inline h-4 w-4" />
-          </UseClientWrapper>
+          <GuetzliClock className="mr-2 inline h-4 w-4" />
           {timespan}
         </div>
       )}

@@ -2,7 +2,7 @@ import { Copy, Explainer, Grid, Heading3, LinkList, TextBlock } from '@smartive/
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import NextLink from 'next/link';
 import { Section } from '../../../../components/layouts/section';
-import { brandColor } from '../../../../utils/color';
+import { SmartiveColors } from '../../../../utils/color';
 import {
   ALL_YEARS,
   AVERAGE_SWISSPERSON_EMISSION,
@@ -103,7 +103,7 @@ const YearOverview: NextPage<Props> = ({ year: currentYear, calculatedScopes, li
             .map(({ title, description, environmentalImpact, ghgCategory }, idx) => (
               <NextBisectCard
                 key={ghgCategory}
-                background={brandColor[(idx + 2) % brandColor.length]}
+                background={SmartiveColors[(idx + 2) % SmartiveColors.length]}
                 interactive={false}
                 title={title}
                 content={description}
@@ -118,7 +118,7 @@ const YearOverview: NextPage<Props> = ({ year: currentYear, calculatedScopes, li
             ))}
           <NextBisectCard
             key={scope3[0].ghgCategory}
-            background={brandColor[(ALL_YEARS.length + 2) % 3]}
+            background={SmartiveColors[(ALL_YEARS.length + 2) % 3]}
             interactive={true}
             title={scope3[0].title}
             content={scope3[0].description}

@@ -174,7 +174,7 @@ const Bosa2021: NextPage<Props> = ({ quote, images }) => {
         </Section>
 
         <Section>
-          <Testimonial background="mint" blobs="mint-0" quote={quote} />
+          <Testimonial color="mint" quote={quote.text} authorName={quote.credit} legacyImage={quote.portrait} />
         </Section>
 
         <Section>

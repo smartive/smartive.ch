@@ -169,7 +169,7 @@ const Page: NextPage<Props> = ({ quote }) => {
         </Section>
 
         <Section>
-          <Testimonial background="apricot" quote={quote} />
+          <Testimonial color="apricot" quote={quote.text} authorName={quote.credit} legacyImage={quote.portrait} />
         </Section>
 
         <Section title="Wenn alle gewinnen, gewinnen alle">

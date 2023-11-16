@@ -25,6 +25,7 @@ module.exports = {
               'Heading3',
               'Calendar',
               'Clock',
+              'GuetzliClock',
               'Share',
               'Label',
               'Textarea',

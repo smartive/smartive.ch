@@ -4,7 +4,7 @@ import { queryDatoCMS } from '../../../utils/query-dato-cms';
 import { EmployeeCard } from '../../employee-card';
 import { BlockWrapper } from '../../layouts/block-wrapper';
 import { Grid } from '../../layouts/grid';
-import { SingleTestimonial } from '../../single-testimonial';
+import { Testimonial } from '../../testimonial';
 
 type Props = {
   block: TeamOverviewBlockFragment;
@@ -22,7 +22,7 @@ export const TeamOverviewBlock: FC<Props> = async ({ block: { selectedTestimonia
         ))}
       </Grid>
       {selectedTestimonial && (
-        <SingleTestimonial
+        <Testimonial
           quote={selectedTestimonial.quote}
           image={selectedTestimonial.authorImage?.responsiveImage}
           authorName={selectedTestimonial.authorName ?? undefined}

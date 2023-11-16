@@ -123,6 +123,7 @@ const FarmerGroup: FC<JSX.IntrinsicElements['group'] & { topping?: 'full' | 'bot
     for (const { color, index } of DOT_INGREDIENTS) {
       materials[`Zutat ${index}`].color.set(desaturateColor(color));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
