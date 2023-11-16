@@ -29,11 +29,11 @@ export default async function ProjectPage({ params: { slug } }: Params) {
   return (
     <Page>
       {project.tags && (
-        <div className="mb-4 flex flex-wrap gap-2 lg:mb-8">
+        <section className="project-tags peer mb-4 mt-12 flex flex-wrap gap-2 lg:mb-8 lg:mt-48">
           {project.tags.map((tag, index) => (
             <ProjectTag key={tag.id} slug={tag.slug} title={tag.title} color={SmartiveColors[index % 3]} />
           ))}
-        </div>
+        </section>
       )}
 
       <ContentBlocks blocks={project.content as Array<ProjectModelContentField>} />

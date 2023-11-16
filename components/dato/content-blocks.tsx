@@ -24,7 +24,7 @@ type Props = {
 };
 
 export const ContentBlocks: FC<Props> = ({ blocks }) => (
-  <div>
+  <>
     {blocks.map((block) => {
       switch (block.__typename) {
         case 'VideoRecord':
@@ -69,5 +69,5 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => (
           return null;
       }
     })}
-  </div>
+  </>
 );

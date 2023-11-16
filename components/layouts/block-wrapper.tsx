@@ -9,6 +9,7 @@ type Props = PropsWithChildren<{
 export const BlockWrapper: FC<Props> = ({ children, marginTop = 'large', marginBottom = 'large' }) => (
   <section
     className={classNames(
+      'peer-[.project-tags]:mt-0',
       {
         large: 'mt-12 lg:mt-48',
         small: 'mt-8 lg:mt-16',
