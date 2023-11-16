@@ -1,7 +1,7 @@
 import { Client } from '@notionhq/client';
 import { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints';
 import dayjs from 'dayjs';
-import { getEmployeeById } from './employees';
+import { getEmployeeFromDato } from '../../utils/get-employee-from-dato';
 
 export const getBlogPosts = async (): Promise<BlogPost[]> => {
   const notion = new Client({ auth: process.env.NOTION_TOKEN });
@@ -47,20 +47,31 @@ export const getBlogPost = async (slug: string): Promise<BlogDetail> => {
   }
 
   const page = results[0] as NotionBlog;
-  const employee = await getEmployeeById(page.properties.Creator.relation[0].id);
 
-  return {
+  const author = page.properties.Author.rich_text[0]?.plain_text;
+  const employee = await getEmployeeFromDato(author);
+
+  const blogpost = {
     id: page.id,
     title: page.properties.Title.title[0].text.content,
     date: page.properties.Date.date?.start ?? null,
     slug: page.properties.Slug.formula.string,
     cover: (page.cover?.file ?? page.cover?.external)?.url ?? null,
     abstract: page.properties.Abstract.rich_text,
-    avatar: employee.portrait,
-    creator: employee.name || '',
+    creator: author,
     published: page.properties.State.status?.name === 'Published',
     language: page.properties.Language.select?.name ?? 'de',
   };
+
+  let creatorImage = {};
+
+  if (employee) {
+    creatorImage = {
+      avatar: employee?.portrait?.url,
+    };
+  }
+
+  return { ...blogpost, ...creatorImage };
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -78,6 +89,6 @@ export type BlogPost = {
 
 export type BlogDetail = BlogPost & {
   creator: string;
-  avatar: string;
+  avatar?: string;
   published: boolean;
 };

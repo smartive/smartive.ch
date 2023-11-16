@@ -1,8 +1,6 @@
 query allEmployees {
   employees: allEmployees(orderBy: name_ASC, first: 100) {
-    ... on EmployeeRecord {
-      ...employee
-    }
+    ...employee
   }
 }
 

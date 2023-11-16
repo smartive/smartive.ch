@@ -3,18 +3,6 @@ import { getNotionClient } from '../services/notion';
 
 const NOTION_EMPLOYEES_DB_ID = '7c40115e5a974b6db68e607a94b3a6ee';
 
-export const getEmployeeById = async (id: string): Promise<Employee> => {
-  const result = await getNotionClient().pages.retrieve({
-    page_id: id,
-  });
-
-  if (!result) {
-    throw new Error(`Employee with id "${id}" not found.`);
-  }
-
-  return mapBlockToEmployee(result as unknown as NotionEmployee);
-};
-
 export const getFullEmployeeByMail = async (mail: string): Promise<FullEmployee> => {
   const {
     results: [result],
@@ -74,73 +62,6 @@ const mapBlockToFullEmployee = (block: NotionFullEmployee): FullEmployee => {
   return mapped;
 };
 
-const mapBlockToEmployee = (block: NotionEmployee): Employee => {
-  const {
-    id,
-    properties: {
-      Name,
-      Jobbezeichnung,
-      Summary,
-      Mail,
-      GitHub,
-      LinkedIn,
-      PhotoPortrait,
-      PhotoCloseup,
-      PhotoMain,
-      Telefon,
-      Booking,
-      Start,
-    },
-  } = block;
-
-  const name = Name.title[0].plain_text.split(/\s+/);
-
-  const mapped = {
-    id,
-    name: Name.title[0].plain_text,
-    firstname: name[0],
-    lastname: name.pop() || '',
-    job: Jobbezeichnung.rich_text[0]?.plain_text || '',
-    bio: Summary.rich_text[0]?.plain_text || '',
-    email: Mail.email,
-    tel: Telefon.phone_number,
-    booking: Booking.url,
-    github: GitHub.url,
-    linkedin: LinkedIn.url,
-    image: getImageUrl(PhotoMain, block),
-    closeup: getImageUrl(PhotoCloseup, block),
-    portrait: getImageUrl(PhotoPortrait, block),
-    start: Start.number,
-  };
-
-  return mapped;
-};
-
-const getImageUrl = (image: Files, block: NotionEmployee) => {
-  if (image.files.length > 0) {
-    if (image.files[0].type === 'external') {
-      return image.files[0].external?.url || '';
-    } else {
-      return image.files[0].file ? getNotionUrl(image.files[0].file.url, block) : '';
-    }
-  }
-
-  return '';
-};
-
-export const getNotionUrl = (image: string, block: NotionEmployee) => {
-  const table = 'block';
-
-  const proxyUrl = `https://www.notion.so/image/${encodeURIComponent(image)}`;
-
-  const url = new URL(proxyUrl);
-  url.searchParams.set('table', table);
-  url.searchParams.set('id', block.id);
-  url.searchParams.set('cache', 'v2');
-
-  return url.toString();
-};
-
 export type Employee = {
   name?: string;
   firstname: string;
@@ -167,32 +88,6 @@ export type FullEmployee = {
   shareholder: boolean;
 };
 
-interface Properties {
-  Name: Name;
-  Jobbezeichnung: RichText;
-  Summary: RichText;
-  Mail: Mail;
-  Telefon: Phone;
-  GitHub: URL;
-  LinkedIn: URL;
-  Booking: URL;
-  PhotoMain: Files;
-  PhotoCloseup: Files;
-  PhotoPortrait: Files;
-  Start: NotionNumber;
-}
-
-interface NotionEmployee {
-  object: string;
-  id: string;
-  created_time: Date;
-  last_edited_time: Date;
-  parent: Parent;
-  archived: boolean;
-  properties: Properties;
-  url: string;
-}
-
 interface NotionFullEmployee {
   object: string;
   id: string;
@@ -214,30 +109,9 @@ interface Parent {
   database_id: string;
 }
 
-interface RichText {
-  id: string;
-  type: string;
-  rich_text: { type: string; text: { content: string }; plain_text: string }[];
-}
-
 interface Mail {
   type: string;
   email: string;
-}
-
-interface Phone {
-  type: string;
-  phone_number: string;
-}
-
-interface Files {
-  type: string;
-  files: { name: string; type: string; file?: { url: string }; external?: { url: string } }[];
-}
-
-interface URL {
-  type: string;
-  url: string;
 }
 
 interface Title {
@@ -250,11 +124,6 @@ interface Name {
   id: string;
   type: string;
   title: Title[];
-}
-
-interface NotionNumber {
-  type: string;
-  number: number;
 }
 
 interface Checkbox {

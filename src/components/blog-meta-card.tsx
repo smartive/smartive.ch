@@ -2,6 +2,7 @@ import { Button, Calendar, Clock, Heading3, Share, Tooltip } from '@smartive/gue
 import dayjs from 'dayjs';
 import 'dayjs/locale/de';
 import { FC, useState } from 'react';
+import portraitMint from '../../public/images/portrait-fallback-mint.svg';
 import { BlogDetail } from '../data/blog';
 import { Image, ImageVariant } from './image';
 
@@ -27,14 +28,7 @@ export const BlogMetaCard: FC<Props> = ({ post, readingTime, language }) => {
   return (
     <div className="grid h-full place-content-between justify-center gap-4 rounded bg-white-100 p-4 md:p-8">
       <div className="grid place-items-center gap-4 text-center">
-        {post.avatar && (
-          <Image
-            src={new URL(`${post.avatar.startsWith('http') ? '' : 'https://'}${post.avatar}`).toString()}
-            alt={post.creator}
-            rounded="full"
-            variant={ImageVariant.PortraitBig}
-          />
-        )}
+        <Image src={post?.avatar ?? portraitMint} alt={post.creator} rounded="full" variant={ImageVariant.PortraitBig} />
         <Heading3 as="p" className="!lg:mb-0 !mb-0">
           {TEXTS[language].from} <span itemProp="author">{post.creator}</span>
         </Heading3>

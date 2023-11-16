@@ -10,6 +10,7 @@ fragment employee on EmployeeRecord {
     }
   }
   portrait {
+    url
     responsiveImage(imgixParams: { fit: crop, w: 208, h: 208, auto: format }) {
       ...responsiveImage
     }

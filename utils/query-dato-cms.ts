@@ -5,6 +5,7 @@ import { GraphQLClientRequestHeaders } from 'graphql-request/build/esm/types';
 type Variables = {
   slug?: string;
   tagId?: string;
+  name?: string;
 };
 
 export async function queryDatoCMS<TResult = unknown>(
