@@ -42,6 +42,8 @@
     { "source": "/cases/subsidia-kasse", "destination": "/projekte/subsidia" },
     { "source": "/google-search-appliance", "destination": "/projekte" },
     { "source": "/angebot/ideation-sprint", "destination": "/angebot/design-sprint" },
-    { "source": "/roles", "destination": "https://smr.tv/roles" }
+    { "source": "/roles", "destination": "https://smr.tv/roles" },
+    { "source": "/instagram", "destination": "https://www.instagram.com/smartive_ch/" },
+    { "source": "/linkedin", "destination": "https://www.linkedin.com/company/smartive-ch/" }
   ]
 }
