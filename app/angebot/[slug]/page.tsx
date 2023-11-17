@@ -15,14 +15,14 @@ type Params = {
 };
 
 export async function generateMetadata({ params: { slug } }: Params) {
-  const { offer, site } = await queryDatoCMS(OfferDocument, { slug });
+  const { offer, site } = await queryDatoCMS({ document: OfferDocument, variables: { slug } });
 
   return toNextMetadata([...site.favicon, ...(offer?.seo || [])]);
 }
 
 export default async function ProjectPage({ params: { slug } }: Params) {
   const { isEnabled } = draftMode();
-  const { offer } = await queryDatoCMS(OfferDocument, { slug }, isEnabled);
+  const { offer } = await queryDatoCMS({ document: OfferDocument, variables: { slug }, includeDrafts: isEnabled });
 
   if (!offer) notFound();
 

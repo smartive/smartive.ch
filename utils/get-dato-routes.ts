@@ -1,4 +1,5 @@
 import { AllPagesDocument } from '../graphql/generated';
+import { ALL_PAGES_TAG } from './const';
 import { queryDatoCMS } from './query-dato-cms';
 
 type PagePath = {
@@ -26,7 +27,11 @@ const generatePathnames = (pages: PagePath[]): string[] => {
 };
 
 export const getAllDatoRoutes = async () => {
-  const { allPages } = await queryDatoCMS(AllPagesDocument, {}, true);
+  const { allPages } = await queryDatoCMS({
+    document: AllPagesDocument,
+    includeDrafts: true,
+    revalidateTags: [ALL_PAGES_TAG],
+  });
 
   return generatePathnames(allPages as PagePath[]);
 };

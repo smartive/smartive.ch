@@ -11,7 +11,7 @@ type Props = {
 };
 
 export const TeamOverviewBlock: FC<Props> = async ({ block: { selectedTestimonial } }) => {
-  const { employees } = await queryDatoCMS(AllEmployeesDocument);
+  const { employees } = await queryDatoCMS({ document: AllEmployeesDocument });
   const halfEmpl = Math.round(employees.length / 12) * 6;
 
   return (

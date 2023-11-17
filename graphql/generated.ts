@@ -24,6 +24,118 @@ export type Scalars = {
   UploadId: { input: string; output: string; }
 };
 
+/** Block of type 📝 Blog Overview (blog_overview) */
+export type BlogOverviewRecord = RecordInterface & {
+  __typename?: 'BlogOverviewRecord';
+  _createdAt: Scalars['DateTime']['output'];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>;
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+  _isValid: Scalars['BooleanType']['output'];
+  _modelApiKey: Scalars['String']['output'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _updatedAt: Scalars['DateTime']['output'];
+  id: Scalars['ItemId']['output'];
+};
+
+
+/** Block of type 📝 Blog Overview (blog_overview) */
+export type BlogOverviewRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+export type BlogpostModelContentField = ContactRecord | CustomRecord | IframeRecord | ImageGridRecord | ImageRecord | ImageTextRecord | LogoGridRecord | NewsletterRecord | QuoteRecord | TableRecord | TeaserSelectionRecord | TextRecord | ThreeColsTextRecord | TwoColsTextRecord | VideoRecord;
+
+export type BlogpostModelFilter = {
+  AND?: InputMaybe<Array<InputMaybe<BlogpostModelFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<BlogpostModelFilter>>>;
+  _createdAt?: InputMaybe<CreatedAtFilter>;
+  _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
+  _isValid?: InputMaybe<BooleanFilter>;
+  _publicationScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _publishedAt?: InputMaybe<PublishedAtFilter>;
+  _status?: InputMaybe<StatusFilter>;
+  _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
+  _updatedAt?: InputMaybe<UpdatedAtFilter>;
+  author?: InputMaybe<LinkFilter>;
+  excerpt?: InputMaybe<TextFilter>;
+  id?: InputMaybe<ItemIdFilter>;
+  image?: InputMaybe<FileFilter>;
+  language?: InputMaybe<StringFilter>;
+  seometatags?: InputMaybe<SeoFilter>;
+  slug?: InputMaybe<SlugFilter>;
+  title?: InputMaybe<StringFilter>;
+};
+
+export enum BlogpostModelOrderBy {
+  CreatedAtAsc = '_createdAt_ASC',
+  CreatedAtDesc = '_createdAt_DESC',
+  FirstPublishedAtAsc = '_firstPublishedAt_ASC',
+  FirstPublishedAtDesc = '_firstPublishedAt_DESC',
+  IsValidAsc = '_isValid_ASC',
+  IsValidDesc = '_isValid_DESC',
+  PublicationScheduledAtAsc = '_publicationScheduledAt_ASC',
+  PublicationScheduledAtDesc = '_publicationScheduledAt_DESC',
+  PublishedAtAsc = '_publishedAt_ASC',
+  PublishedAtDesc = '_publishedAt_DESC',
+  StatusAsc = '_status_ASC',
+  StatusDesc = '_status_DESC',
+  UnpublishingScheduledAtAsc = '_unpublishingScheduledAt_ASC',
+  UnpublishingScheduledAtDesc = '_unpublishingScheduledAt_DESC',
+  UpdatedAtAsc = '_updatedAt_ASC',
+  UpdatedAtDesc = '_updatedAt_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  LanguageAsc = 'language_ASC',
+  LanguageDesc = 'language_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC'
+}
+
+/** Record of type Blogpost (blogpost) */
+export type BlogpostRecord = RecordInterface & {
+  __typename?: 'BlogpostRecord';
+  _createdAt: Scalars['DateTime']['output'];
+  /** Editing URL */
+  _editingUrl?: Maybe<Scalars['String']['output']>;
+  _firstPublishedAt?: Maybe<Scalars['DateTime']['output']>;
+  _isValid: Scalars['BooleanType']['output'];
+  _modelApiKey: Scalars['String']['output'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  /** Generates SEO and Social card meta tags to be used in your frontend */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
+  _updatedAt: Scalars['DateTime']['output'];
+  author: EmployeeRecord;
+  content: Array<BlogpostModelContentField>;
+  excerpt: Scalars['String']['output'];
+  id: Scalars['ItemId']['output'];
+  image: ImageFileField;
+  language: Scalars['String']['output'];
+  seometatags?: Maybe<SeoField>;
+  slug: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+
+/** Record of type Blogpost (blogpost) */
+export type BlogpostRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+
+/** Record of type Blogpost (blogpost) */
+export type BlogpostRecordExcerptArgs = {
+  markdown?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
 /** Specifies how to filter Boolean fields */
 export type BooleanFilter = {
   /** Search for records with an exact match */
@@ -167,6 +279,8 @@ export type EmployeeModelFilter = {
   linkedin?: InputMaybe<StringFilter>;
   name?: InputMaybe<StringFilter>;
   portrait?: InputMaybe<FileFilter>;
+  seometatags?: InputMaybe<SeoFilter>;
+  slug?: InputMaybe<SlugFilter>;
   start?: InputMaybe<IntegerFilter>;
   tel?: InputMaybe<StringFilter>;
 };
@@ -208,7 +322,7 @@ export enum EmployeeModelOrderBy {
   TelDesc = 'tel_DESC'
 }
 
-/** Record of type 🧑‍💻 Employee (employee) */
+/** Record of type Employee (employee) */
 export type EmployeeRecord = RecordInterface & {
   __typename?: 'EmployeeRecord';
   _createdAt: Scalars['DateTime']['output'];
@@ -235,18 +349,20 @@ export type EmployeeRecord = RecordInterface & {
   linkedin?: Maybe<Scalars['String']['output']>;
   name: Scalars['String']['output'];
   portrait?: Maybe<FileField>;
+  seometatags?: Maybe<SeoField>;
+  slug: Scalars['String']['output'];
   start?: Maybe<Scalars['IntType']['output']>;
   tel?: Maybe<Scalars['String']['output']>;
 };
 
 
-/** Record of type 🧑‍💻 Employee (employee) */
+/** Record of type Employee (employee) */
 export type EmployeeRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
 
-/** Record of type 🧑‍💻 Employee (employee) */
+/** Record of type Employee (employee) */
 export type EmployeeRecordBioArgs = {
   markdown?: InputMaybe<Scalars['Boolean']['input']>;
 };
@@ -2124,6 +2240,20 @@ export type KeyfigureRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
+/** Specifies how to filter Single-link fields */
+export type LinkFilter = {
+  /** Search for records with an exact match. The specified value must be a Record ID */
+  eq?: InputMaybe<Scalars['ItemId']['input']>;
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars['BooleanType']['input']>;
+  /** Filter records linked to one of the specified records */
+  in?: InputMaybe<Array<InputMaybe<Scalars['ItemId']['input']>>>;
+  /** Exclude records with an exact match. The specified value must be a Record ID */
+  neq?: InputMaybe<Scalars['ItemId']['input']>;
+  /** Filter records not linked to one of the specified records */
+  notIn?: InputMaybe<Array<InputMaybe<Scalars['ItemId']['input']>>>;
+};
+
 /** Block of type 🔗 Link (link) */
 export type LinkRecord = RecordInterface & {
   __typename?: 'LinkRecord';
@@ -2252,7 +2382,6 @@ export type OfferModelFilter = {
   color?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   id?: InputMaybe<ItemIdFilter>;
-  legacyLink?: InputMaybe<StringFilter>;
   linkLabel?: InputMaybe<StringFilter>;
   position?: InputMaybe<PositionFilter>;
   seometatags?: InputMaybe<SeoFilter>;
@@ -2284,8 +2413,6 @@ export enum OfferModelOrderBy {
   DescriptionDesc = 'description_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
-  LegacyLinkAsc = 'legacyLink_ASC',
-  LegacyLinkDesc = 'legacyLink_DESC',
   LinkLabelAsc = 'linkLabel_ASC',
   LinkLabelDesc = 'linkLabel_DESC',
   PositionAsc = 'position_ASC',
@@ -2296,7 +2423,7 @@ export enum OfferModelOrderBy {
   TitleDesc = 'title_DESC'
 }
 
-/** Record of type 🎁 Offer (offer) */
+/** Record of type Offer (offer) */
 export type OfferRecord = RecordInterface & {
   __typename?: 'OfferRecord';
   _createdAt: Scalars['DateTime']['output'];
@@ -2316,7 +2443,6 @@ export type OfferRecord = RecordInterface & {
   content: Array<OfferModelContentField>;
   description?: Maybe<Scalars['String']['output']>;
   id: Scalars['ItemId']['output'];
-  legacyLink?: Maybe<Scalars['String']['output']>;
   linkLabel: Scalars['String']['output'];
   position?: Maybe<Scalars['IntType']['output']>;
   seometatags?: Maybe<SeoField>;
@@ -2326,7 +2452,7 @@ export type OfferRecord = RecordInterface & {
 };
 
 
-/** Record of type 🎁 Offer (offer) */
+/** Record of type Offer (offer) */
 export type OfferRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
@@ -2339,7 +2465,7 @@ export type OrientationFilter = {
   neq?: InputMaybe<UploadOrientation>;
 };
 
-export type PageModelContentField = ContactRecord | CustomRecord | IframeRecord | ImageGridRecord | ImageRecord | ImageTextRecord | KeyfigureRecord | LogoGridRecord | NewsletterRecord | ProjectsOverviewRecord | QuoteRecord | TableRecord | TeamOverviewRecord | TeaserSelectionRecord | TextRecord | ThreeColsTextRecord | TwoColsTextRecord | VideoRecord;
+export type PageModelContentField = BlogOverviewRecord | ContactRecord | CustomRecord | IframeRecord | ImageGridRecord | ImageRecord | ImageTextRecord | KeyfigureRecord | LogoGridRecord | NewsletterRecord | ProjectsOverviewRecord | QuoteRecord | TableRecord | TeamOverviewRecord | TeaserSelectionRecord | TextRecord | ThreeColsTextRecord | TwoColsTextRecord | VideoRecord;
 
 export type PageModelFilter = {
   AND?: InputMaybe<Array<InputMaybe<PageModelFilter>>>;
@@ -2385,7 +2511,7 @@ export enum PageModelOrderBy {
   TitleDesc = 'title_DESC'
 }
 
-/** Record of type 📄 Page (page) */
+/** Record of type Page (page) */
 export type PageRecord = RecordInterface & {
   __typename?: 'PageRecord';
   _createdAt: Scalars['DateTime']['output'];
@@ -2412,7 +2538,7 @@ export type PageRecord = RecordInterface & {
 };
 
 
-/** Record of type 📄 Page (page) */
+/** Record of type Page (page) */
 export type PageRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
@@ -2441,7 +2567,7 @@ export type PositionFilter = {
   neq?: InputMaybe<Scalars['IntType']['input']>;
 };
 
-export type ProjectModelContentField = ContactRecord | CustomRecord | IframeRecord | ImageGridRecord | ImageRecord | ImageTextRecord | KeyfigureRecord | LogoGridRecord | NewsletterRecord | ProjectsOverviewRecord | QuoteRecord | TableRecord | TeaserSelectionRecord | TextRecord | ThreeColsTextRecord | TwoColsTextRecord | VideoRecord;
+export type ProjectModelContentField = ContactRecord | CustomRecord | IframeRecord | ImageGridRecord | ImageRecord | ImageTextRecord | KeyfigureRecord | LogoGridRecord | NewsletterRecord | QuoteRecord | TableRecord | TeaserSelectionRecord | TextRecord | ThreeColsTextRecord | TwoColsTextRecord | VideoRecord;
 
 export type ProjectModelFilter = {
   AND?: InputMaybe<Array<InputMaybe<ProjectModelFilter>>>;
@@ -2491,7 +2617,7 @@ export enum ProjectModelOrderBy {
   TitleDesc = 'title_DESC'
 }
 
-/** Record of type 🚀 Project (project) */
+/** Record of type Project (project) */
 export type ProjectRecord = RecordInterface & {
   __typename?: 'ProjectRecord';
   _createdAt: Scalars['DateTime']['output'];
@@ -2519,7 +2645,7 @@ export type ProjectRecord = RecordInterface & {
 };
 
 
-/** Record of type 🚀 Project (project) */
+/** Record of type Project (project) */
 export type ProjectRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
@@ -2572,7 +2698,7 @@ export enum ProjectTagModelOrderBy {
   TitleDesc = 'title_DESC'
 }
 
-/** Record of type 🏷️ Project-Tag (project_tag) */
+/** Record of type Project-Tag (project_tag) */
 export type ProjectTagRecord = RecordInterface & {
   __typename?: 'ProjectTagRecord';
   _createdAt: Scalars['DateTime']['output'];
@@ -2596,7 +2722,7 @@ export type ProjectTagRecord = RecordInterface & {
 };
 
 
-/** Record of type 🏷️ Project-Tag (project_tag) */
+/** Record of type Project-Tag (project_tag) */
 export type ProjectTagRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
@@ -2649,6 +2775,8 @@ export type PublishedAtFilter = {
 export type Query = {
   __typename?: 'Query';
   /** Returns meta information regarding a record collection */
+  _allBlogpostsMeta: CollectionMetadata;
+  /** Returns meta information regarding a record collection */
   _allEmployeesMeta: CollectionMetadata;
   /** Returns meta information regarding a record collection */
   _allOffersMeta: CollectionMetadata;
@@ -2667,6 +2795,8 @@ export type Query = {
   /** Returns the single instance record */
   _site: Site;
   /** Returns a collection of records */
+  allBlogposts: Array<BlogpostRecord>;
+  /** Returns a collection of records */
   allEmployees: Array<EmployeeRecord>;
   /** Returns a collection of records */
   allOffers: Array<OfferRecord>;
@@ -2683,6 +2813,8 @@ export type Query = {
   /** Returns a collection of assets */
   allUploads: Array<FileField>;
   /** Returns a specific record */
+  blogpost?: Maybe<BlogpostRecord>;
+  /** Returns a specific record */
   employee?: Maybe<EmployeeRecord>;
   /** Returns a specific record */
   offer?: Maybe<OfferRecord>;
@@ -2698,6 +2830,13 @@ export type Query = {
   testimonial?: Maybe<TestimonialRecord>;
   /** Returns a specific asset */
   upload?: Maybe<FileField>;
+};
+
+
+/** The query root for this schema */
+export type Query_AllBlogpostsMetaArgs = {
+  filter?: InputMaybe<BlogpostModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
 };
 
 
@@ -2761,6 +2900,17 @@ export type Query_AllUploadsMetaArgs = {
 export type Query_SiteArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
+};
+
+
+/** The query root for this schema */
+export type QueryAllBlogpostsArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<BlogpostModelFilter>;
+  first?: InputMaybe<Scalars['IntType']['input']>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<BlogpostModelOrderBy>>>;
+  skip?: InputMaybe<Scalars['IntType']['input']>;
 };
 
 
@@ -2849,6 +2999,15 @@ export type QueryAllUploadsArgs = {
   locale?: InputMaybe<SiteLocale>;
   orderBy?: InputMaybe<Array<InputMaybe<UploadOrderBy>>>;
   skip?: InputMaybe<Scalars['IntType']['input']>;
+};
+
+
+/** The query root for this schema */
+export type QueryBlogpostArgs = {
+  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<BlogpostModelFilter>;
+  locale?: InputMaybe<SiteLocale>;
+  orderBy?: InputMaybe<Array<InputMaybe<BlogpostModelOrderBy>>>;
 };
 
 
@@ -3184,7 +3343,6 @@ export type TeaserCardModelFilter = {
   color?: InputMaybe<StringFilter>;
   eyebrow?: InputMaybe<StringFilter>;
   id?: InputMaybe<ItemIdFilter>;
-  label?: InputMaybe<StringFilter>;
   linkLabel?: InputMaybe<StringFilter>;
   newTab?: InputMaybe<BooleanFilter>;
   text?: InputMaybe<TextFilter>;
@@ -3215,8 +3373,6 @@ export enum TeaserCardModelOrderBy {
   EyebrowDesc = 'eyebrow_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
-  LabelAsc = 'label_ASC',
-  LabelDesc = 'label_DESC',
   LinkLabelAsc = 'linkLabel_ASC',
   LinkLabelDesc = 'linkLabel_DESC',
   NewTabAsc = 'newTab_ASC',
@@ -3227,7 +3383,7 @@ export enum TeaserCardModelOrderBy {
   UrlDesc = 'url_DESC'
 }
 
-/** Record of type 💥 Teaser-Cards (teaser_card) */
+/** Record of type Teaser-Cards (teaser_card) */
 export type TeaserCardRecord = RecordInterface & {
   __typename?: 'TeaserCardRecord';
   _createdAt: Scalars['DateTime']['output'];
@@ -3246,7 +3402,6 @@ export type TeaserCardRecord = RecordInterface & {
   color: Scalars['String']['output'];
   eyebrow?: Maybe<Scalars['String']['output']>;
   id: Scalars['ItemId']['output'];
-  label?: Maybe<Scalars['String']['output']>;
   linkLabel: Scalars['String']['output'];
   newTab?: Maybe<Scalars['BooleanType']['output']>;
   text?: Maybe<Scalars['String']['output']>;
@@ -3255,13 +3410,13 @@ export type TeaserCardRecord = RecordInterface & {
 };
 
 
-/** Record of type 💥 Teaser-Cards (teaser_card) */
+/** Record of type Teaser-Cards (teaser_card) */
 export type TeaserCardRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
 
-/** Record of type 💥 Teaser-Cards (teaser_card) */
+/** Record of type Teaser-Cards (teaser_card) */
 export type TeaserCardRecordTextArgs = {
   markdown?: InputMaybe<Scalars['Boolean']['input']>;
 };
@@ -3342,7 +3497,7 @@ export enum TestimonialModelOrderBy {
   TitleDesc = 'title_DESC'
 }
 
-/** Record of type 💬 Testimonial (testimonial) */
+/** Record of type Testimonial (testimonial) */
 export type TestimonialRecord = RecordInterface & {
   __typename?: 'TestimonialRecord';
   _createdAt: Scalars['DateTime']['output'];
@@ -3367,13 +3522,13 @@ export type TestimonialRecord = RecordInterface & {
 };
 
 
-/** Record of type 💬 Testimonial (testimonial) */
+/** Record of type Testimonial (testimonial) */
 export type TestimonialRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
 
-/** Record of type 💬 Testimonial (testimonial) */
+/** Record of type Testimonial (testimonial) */
 export type TestimonialRecordQuoteArgs = {
   markdown?: InputMaybe<Scalars['Boolean']['input']>;
 };
@@ -4095,7 +4250,7 @@ export type PageQueryVariables = Exact<{
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'PageRecord', id: string, slug: string, parent?: { __typename?: 'PageRecord', id: string, slug: string } | null, content: Array<{ __typename: 'ContactRecord', id: string, text: string, contact: { __typename?: 'EmployeeRecord', name: string, email: string, tel?: string | null, booking?: string | null, portrait?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } } | { __typename: 'CustomRecord', id: string, component?: string | null, content?: { __typename?: 'CustomModelContentField', value: unknown } | null } | { __typename: 'IframeRecord', id: string, url: string, width: string, height: string } | { __typename: 'ImageGridRecord', id: string, layout?: string | null, image1?: { __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, image2?: { __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, image3?: { __typename?: 'FileField', id: string, title?: string | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } | { __typename: 'ImageRecord', id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename: 'ImageTextRecord', id: string, layout?: string | null, image?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, content?: { __typename?: 'ImageTextModelContentField', value: unknown } | null } | { __typename: 'KeyfigureRecord', id: string, image?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, content?: { __typename?: 'KeyfigureModelContentField', value: unknown } | null } | { __typename: 'LogoGridRecord', id: string, heading?: string | null, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, logos: Array<{ __typename?: 'TitleFileField', id: string, url: string, width?: number | null, height?: number | null, title: string }> } | { __typename: 'NewsletterRecord', id: string, content?: { __typename?: 'NewsletterModelContentField', value: unknown, blocks: Array<{ __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, image?: { __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null } | { __typename: 'ProjectsOverviewRecord', id: string, selectedTestimonial?: { __typename?: 'TestimonialRecord', id: string, quote: string, authorName?: string | null, authorDesc?: string | null, authorImage?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null } | null } | { __typename: 'QuoteRecord', id: string, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, testimonial: Array<{ __typename?: 'TestimonialRecord', id: string, quote: string, authorName?: string | null, authorDesc?: string | null, authorImage?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null }> } | { __typename: 'TableRecord', id: string, showTableHeader?: boolean | null, table?: unknown | null } | { __typename: 'TeamOverviewRecord', id: string, selectedTestimonial?: { __typename?: 'TestimonialRecord', id: string, quote: string, authorName?: string | null, authorDesc?: string | null, authorImage?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null } | null } | { __typename: 'TeaserSelectionRecord', id: string, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, teasers: Array<{ __typename: 'OfferRecord', id: string, slug: string, title: string, description?: string | null, timespan?: string | null, linkLabel: string, color: string } | { __typename: 'ProjectRecord', id: string, slug: string, title: string, headline: string, teaserImage: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } } | { __typename: 'TeaserCardRecord', id: string, eyebrow?: string | null, title: string, text?: string | null, color: string, linkLabel: string, url: string, newTab?: boolean | null }> } | { __typename: 'TextRecord', id: string, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, content?: { __typename?: 'TextModelContentField', value: unknown, blocks: Array<{ __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null } | { __typename: 'ThreeColsTextRecord', id: string, heading?: string | null, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, contentLeft?: { __typename?: 'ThreeColsTextModelContentLeftField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, contentMiddle?: { __typename?: 'ThreeColsTextModelContentMiddleField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, contentRight?: { __typename?: 'ThreeColsTextModelContentRightField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null } | { __typename: 'TwoColsTextRecord', id: string, heading?: string | null, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, contentLeft?: { __typename?: 'TwoColsTextModelContentLeftField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, contentRight?: { __typename?: 'TwoColsTextModelContentRightField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null } | { __typename: 'VideoRecord', id: string, loop?: boolean | null, autoplay?: boolean | null, video?: { __typename?: 'VideoField', url: string, provider: string, providerUid: string, title: string } | null }>, seo: Array<{ __typename?: 'Tag', attributes?: Record<string, string> | null, content?: string | null, tag: string }> } | null, site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: Record<string, string> | null, content?: string | null, tag: string }>, globalSeo?: { __typename?: 'GlobalSeoField', titleSuffix?: string | null, fallbackSeo?: { __typename?: 'SeoField', description?: string | null, title?: string | null } | null } | null } };
+export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'PageRecord', id: string, slug: string, parent?: { __typename?: 'PageRecord', id: string, slug: string } | null, content: Array<{ __typename: 'BlogOverviewRecord' } | { __typename: 'ContactRecord', id: string, text: string, contact: { __typename?: 'EmployeeRecord', name: string, email: string, tel?: string | null, booking?: string | null, portrait?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } } | { __typename: 'CustomRecord', id: string, component?: string | null, content?: { __typename?: 'CustomModelContentField', value: unknown } | null } | { __typename: 'IframeRecord', id: string, url: string, width: string, height: string } | { __typename: 'ImageGridRecord', id: string, layout?: string | null, image1?: { __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, image2?: { __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, image3?: { __typename?: 'FileField', id: string, title?: string | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } | { __typename: 'ImageRecord', id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename: 'ImageTextRecord', id: string, layout?: string | null, image?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, content?: { __typename?: 'ImageTextModelContentField', value: unknown } | null } | { __typename: 'KeyfigureRecord', id: string, image?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, content?: { __typename?: 'KeyfigureModelContentField', value: unknown } | null } | { __typename: 'LogoGridRecord', id: string, heading?: string | null, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, logos: Array<{ __typename?: 'TitleFileField', id: string, url: string, width?: number | null, height?: number | null, title: string }> } | { __typename: 'NewsletterRecord', id: string, content?: { __typename?: 'NewsletterModelContentField', value: unknown, blocks: Array<{ __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, image?: { __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null } | { __typename: 'ProjectsOverviewRecord', id: string, selectedTestimonial?: { __typename?: 'TestimonialRecord', id: string, quote: string, authorName?: string | null, authorDesc?: string | null, authorImage?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null } | null } | { __typename: 'QuoteRecord', id: string, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, testimonial: Array<{ __typename?: 'TestimonialRecord', id: string, quote: string, authorName?: string | null, authorDesc?: string | null, authorImage?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null }> } | { __typename: 'TableRecord', id: string, showTableHeader?: boolean | null, table?: unknown | null } | { __typename: 'TeamOverviewRecord', id: string, selectedTestimonial?: { __typename?: 'TestimonialRecord', id: string, quote: string, authorName?: string | null, authorDesc?: string | null, authorImage?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null } | null } | { __typename: 'TeaserSelectionRecord', id: string, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, teasers: Array<{ __typename: 'OfferRecord', id: string, slug: string, title: string, description?: string | null, timespan?: string | null, linkLabel: string, color: string } | { __typename: 'ProjectRecord', id: string, slug: string, title: string, headline: string, teaserImage: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } } | { __typename: 'TeaserCardRecord', id: string, eyebrow?: string | null, title: string, text?: string | null, color: string, linkLabel: string, url: string, newTab?: boolean | null }> } | { __typename: 'TextRecord', id: string, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, content?: { __typename?: 'TextModelContentField', value: unknown, blocks: Array<{ __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null } | { __typename: 'ThreeColsTextRecord', id: string, heading?: string | null, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, contentLeft?: { __typename?: 'ThreeColsTextModelContentLeftField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, contentMiddle?: { __typename?: 'ThreeColsTextModelContentMiddleField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, contentRight?: { __typename?: 'ThreeColsTextModelContentRightField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null } | { __typename: 'TwoColsTextRecord', id: string, heading?: string | null, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, contentLeft?: { __typename?: 'TwoColsTextModelContentLeftField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, contentRight?: { __typename?: 'TwoColsTextModelContentRightField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null } | { __typename: 'VideoRecord', id: string, loop?: boolean | null, autoplay?: boolean | null, video?: { __typename?: 'VideoField', url: string, provider: string, providerUid: string, title: string } | null }>, seo: Array<{ __typename?: 'Tag', attributes?: Record<string, string> | null, content?: string | null, tag: string }> } | null, site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: Record<string, string> | null, content?: string | null, tag: string }>, globalSeo?: { __typename?: 'GlobalSeoField', titleSuffix?: string | null, fallbackSeo?: { __typename?: 'SeoField', description?: string | null, title?: string | null } | null } | null } };
 
 export type AllPagesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -4107,7 +4262,7 @@ export type ProjectQueryVariables = Exact<{
 }>;
 
 
-export type ProjectQuery = { __typename?: 'Query', project?: { __typename?: 'ProjectRecord', id: string, tags: Array<{ __typename?: 'ProjectTagRecord', id: string, slug: string, title: string }>, content: Array<{ __typename: 'ContactRecord', id: string, text: string, contact: { __typename?: 'EmployeeRecord', name: string, email: string, tel?: string | null, booking?: string | null, portrait?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } } | { __typename: 'CustomRecord', id: string, component?: string | null, content?: { __typename?: 'CustomModelContentField', value: unknown } | null } | { __typename: 'IframeRecord', id: string, url: string, width: string, height: string } | { __typename: 'ImageGridRecord', id: string, layout?: string | null, image1?: { __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, image2?: { __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, image3?: { __typename?: 'FileField', id: string, title?: string | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } | { __typename: 'ImageRecord', id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename: 'ImageTextRecord', id: string, layout?: string | null, image?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, content?: { __typename?: 'ImageTextModelContentField', value: unknown } | null } | { __typename: 'KeyfigureRecord', id: string, image?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, content?: { __typename?: 'KeyfigureModelContentField', value: unknown } | null } | { __typename: 'LogoGridRecord', id: string, heading?: string | null, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, logos: Array<{ __typename?: 'TitleFileField', id: string, url: string, width?: number | null, height?: number | null, title: string }> } | { __typename: 'NewsletterRecord', id: string, content?: { __typename?: 'NewsletterModelContentField', value: unknown, blocks: Array<{ __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, image?: { __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null } | { __typename: 'ProjectsOverviewRecord' } | { __typename: 'QuoteRecord', id: string, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, testimonial: Array<{ __typename?: 'TestimonialRecord', id: string, quote: string, authorName?: string | null, authorDesc?: string | null, authorImage?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null }> } | { __typename: 'TableRecord', id: string, showTableHeader?: boolean | null, table?: unknown | null } | { __typename: 'TeaserSelectionRecord', id: string, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, teasers: Array<{ __typename: 'OfferRecord', id: string, slug: string, title: string, description?: string | null, timespan?: string | null, linkLabel: string, color: string } | { __typename: 'ProjectRecord', id: string, slug: string, title: string, headline: string, teaserImage: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } } | { __typename: 'TeaserCardRecord', id: string, eyebrow?: string | null, title: string, text?: string | null, color: string, linkLabel: string, url: string, newTab?: boolean | null }> } | { __typename: 'TextRecord', id: string, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, content?: { __typename?: 'TextModelContentField', value: unknown, blocks: Array<{ __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null } | { __typename: 'ThreeColsTextRecord', id: string, heading?: string | null, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, contentLeft?: { __typename?: 'ThreeColsTextModelContentLeftField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, contentMiddle?: { __typename?: 'ThreeColsTextModelContentMiddleField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, contentRight?: { __typename?: 'ThreeColsTextModelContentRightField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null } | { __typename: 'TwoColsTextRecord', id: string, heading?: string | null, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, contentLeft?: { __typename?: 'TwoColsTextModelContentLeftField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, contentRight?: { __typename?: 'TwoColsTextModelContentRightField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null } | { __typename: 'VideoRecord', id: string, loop?: boolean | null, autoplay?: boolean | null, video?: { __typename?: 'VideoField', url: string, provider: string, providerUid: string, title: string } | null }>, seo: Array<{ __typename?: 'Tag', attributes?: Record<string, string> | null, content?: string | null, tag: string }> } | null, site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: Record<string, string> | null, content?: string | null, tag: string }>, globalSeo?: { __typename?: 'GlobalSeoField', titleSuffix?: string | null, fallbackSeo?: { __typename?: 'SeoField', description?: string | null, title?: string | null } | null } | null } };
+export type ProjectQuery = { __typename?: 'Query', project?: { __typename?: 'ProjectRecord', id: string, tags: Array<{ __typename?: 'ProjectTagRecord', id: string, slug: string, title: string }>, content: Array<{ __typename: 'ContactRecord', id: string, text: string, contact: { __typename?: 'EmployeeRecord', name: string, email: string, tel?: string | null, booking?: string | null, portrait?: { __typename?: 'FileField', responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } } | { __typename: 'CustomRecord', id: string, component?: string | null, content?: { __typename?: 'CustomModelContentField', value: unknown } | null } | { __typename: 'IframeRecord', id: string, url: string, width: string, height: string } | { __typename: 'ImageGridRecord', id: string, layout?: string | null, image1?: { __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, image2?: { __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, image3?: { __typename?: 'FileField', id: string, title?: string | null, responsiveImage?: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } | null } | null } | { __typename: 'ImageRecord', id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename: 'ImageTextRecord', id: string, layout?: string | null, image?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, content?: { __typename?: 'ImageTextModelContentField', value: unknown } | null } | { __typename: 'KeyfigureRecord', id: string, image?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null, content?: { __typename?: 'KeyfigureModelContentField', value: unknown } | null } | { __typename: 'LogoGridRecord', id: string, heading?: string | null, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, logos: Array<{ __typename?: 'TitleFileField', id: string, url: string, width?: number | null, height?: number | null, title: string }> } | { __typename: 'NewsletterRecord', id: string, content?: { __typename?: 'NewsletterModelContentField', value: unknown, blocks: Array<{ __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, image?: { __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null } | { __typename: 'QuoteRecord', id: string, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, testimonial: Array<{ __typename?: 'TestimonialRecord', id: string, quote: string, authorName?: string | null, authorDesc?: string | null, authorImage?: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } | null }> } | { __typename: 'TableRecord', id: string, showTableHeader?: boolean | null, table?: unknown | null } | { __typename: 'TeaserSelectionRecord', id: string, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, teasers: Array<{ __typename: 'OfferRecord', id: string, slug: string, title: string, description?: string | null, timespan?: string | null, linkLabel: string, color: string } | { __typename: 'ProjectRecord', id: string, slug: string, title: string, headline: string, teaserImage: { __typename?: 'ImageFileField', responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } } } | { __typename: 'TeaserCardRecord', id: string, eyebrow?: string | null, title: string, text?: string | null, color: string, linkLabel: string, url: string, newTab?: boolean | null }> } | { __typename: 'TextRecord', id: string, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, content?: { __typename?: 'TextModelContentField', value: unknown, blocks: Array<{ __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null } | { __typename: 'ThreeColsTextRecord', id: string, heading?: string | null, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, contentLeft?: { __typename?: 'ThreeColsTextModelContentLeftField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, contentMiddle?: { __typename?: 'ThreeColsTextModelContentMiddleField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, contentRight?: { __typename?: 'ThreeColsTextModelContentRightField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null } | { __typename: 'TwoColsTextRecord', id: string, heading?: string | null, disableMarginTop?: boolean | null, disableMarginBottom?: boolean | null, contentLeft?: { __typename?: 'TwoColsTextModelContentLeftField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null, contentRight?: { __typename?: 'TwoColsTextModelContentRightField', value: unknown, blocks: Array<{ __typename?: 'ImageRecord', _modelApiKey: string, id: string, images: Array<{ __typename?: 'ImageFileField', id: string, title?: string | null, responsiveImage: { __typename?: 'ResponsiveImage', src: string, width: number, height: number, alt?: string | null, title?: string | null, base64?: string | null, sizes: string } }> } | { __typename?: 'LinkRecord', _modelApiKey: string, id: string, label: string, newTab?: boolean | null, url: string, color?: string | null }> } | null } | { __typename: 'VideoRecord', id: string, loop?: boolean | null, autoplay?: boolean | null, video?: { __typename?: 'VideoField', url: string, provider: string, providerUid: string, title: string } | null }>, seo: Array<{ __typename?: 'Tag', attributes?: Record<string, string> | null, content?: string | null, tag: string }> } | null, site: { __typename?: 'Site', favicon: Array<{ __typename?: 'Tag', attributes?: Record<string, string> | null, content?: string | null, tag: string }>, globalSeo?: { __typename?: 'GlobalSeoField', titleSuffix?: string | null, fallbackSeo?: { __typename?: 'SeoField', description?: string | null, title?: string | null } | null } | null } };
 
 export type MainProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 

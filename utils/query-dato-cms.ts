@@ -8,11 +8,19 @@ type Variables = {
   name?: string;
 };
 
-export async function queryDatoCMS<TResult = unknown>(
-  document: TypedDocumentNode<TResult, Variables>,
-  variables?: Variables,
-  isDraft?: boolean,
-): Promise<TResult> {
+type Options<TResult = unknown> = {
+  document: TypedDocumentNode<TResult, Variables>;
+  variables?: Variables;
+  includeDrafts?: boolean;
+  revalidateTags?: string[];
+};
+
+export async function queryDatoCMS<TResult = unknown>({
+  document,
+  variables,
+  includeDrafts,
+  revalidateTags,
+}: Options<TResult>): Promise<TResult> {
   const headers: GraphQLClientRequestHeaders = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
@@ -20,18 +28,18 @@ export async function queryDatoCMS<TResult = unknown>(
     Authorization: `Bearer ${process.env.NEXT_DATOCMS_API_TOKEN}`,
   };
 
-  if (isDraft) headers['X-Include-Drafts'] = 'true';
+  if (includeDrafts) headers['X-Include-Drafts'] = 'true';
 
   if (process.env.NEXT_DATOCMS_ENVIRONMENT) headers['X-Environment'] = process.env.NEXT_DATOCMS_ENVIRONMENT;
 
-  let tags = ['datocms'];
+  let tags = revalidateTags || [];
 
   if (variables && variables.slug) {
     tags = [...tags, variables.slug];
   }
 
   const response = await fetch('https://graphql.datocms.com/', {
-    cache: isDraft ? 'no-cache' : 'force-cache',
+    cache: includeDrafts ? 'no-cache' : 'force-cache',
     next: { tags },
     method: 'POST',
     headers,

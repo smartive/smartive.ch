@@ -561,7 +561,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
 export default Ten;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const { employees } = await queryDatoCMS(AllEmployeesDocument);
+  const { employees } = await queryDatoCMS({ document: AllEmployeesDocument });
 
   return {
     props: {

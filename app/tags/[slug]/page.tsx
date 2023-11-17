@@ -17,17 +17,17 @@ type Params = {
 };
 
 export async function generateMetadata({ params: { slug } }: Params) {
-  const { projectTag, site } = await queryDatoCMS(TagDocument, { slug });
+  const { projectTag, site } = await queryDatoCMS({ document: TagDocument, variables: { slug } });
 
   return toNextMetadata([...site.favicon, ...(projectTag?.seo || [])]);
 }
 
 export default async function TagPage({ params: { slug } }: Params) {
-  const { projectTag } = await queryDatoCMS(TagDocument, { slug });
+  const { projectTag } = await queryDatoCMS({ document: TagDocument, variables: { slug } });
 
   if (!projectTag) notFound();
 
-  const { allProjects } = await queryDatoCMS(ProjectsByTagDocument, { tagId: projectTag.id });
+  const { allProjects } = await queryDatoCMS({ document: ProjectsByTagDocument, variables: { tagId: projectTag.id } });
 
   return (
     <Page>

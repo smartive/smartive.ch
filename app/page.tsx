@@ -7,14 +7,14 @@ import { PageDocument, PageModelContentField } from '../graphql/generated';
 import { queryDatoCMS } from '../utils/query-dato-cms';
 
 export async function generateMetadata() {
-  const data = await queryDatoCMS(PageDocument, { slug: 'home' });
+  const data = await queryDatoCMS({ document: PageDocument, variables: { slug: 'home' } });
 
   return toNextMetadata([...data.site.favicon, ...(data.page?.seo || [])]);
 }
 
 export default async function ContentPage() {
   const { isEnabled } = draftMode();
-  const { page } = await queryDatoCMS(PageDocument, { slug: 'home' }, isEnabled);
+  const { page } = await queryDatoCMS({ document: PageDocument, variables: { slug: 'home' }, includeDrafts: isEnabled });
 
   if (!page) notFound();
 

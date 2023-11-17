@@ -12,8 +12,8 @@ type Props = {
 };
 
 export const ProjectsOverviewBlock: FC<Props> = async ({ block: { selectedTestimonial } }) => {
-  const { allProjects: mainProjects } = await queryDatoCMS(MainProjectsDocument);
-  const { allProjects: otherProjects } = await queryDatoCMS(OtherProjectsDocument);
+  const { allProjects: mainProjects } = await queryDatoCMS({ document: MainProjectsDocument });
+  const { allProjects: otherProjects } = await queryDatoCMS({ document: OtherProjectsDocument });
 
   return (
     <BlockWrapper marginTop="small" marginBottom="small">

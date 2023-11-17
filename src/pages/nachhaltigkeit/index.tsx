@@ -243,7 +243,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     ALL_YEARS.map(async (year) => ({ year, employees: await getNotionEmployees(year) })),
   );
 
-  const { employees } = await queryDatoCMS(AllEmployeesDocument);
+  const { employees } = await queryDatoCMS({ document: AllEmployeesDocument });
 
   const allYearsTotalEmission = ALL_YEARS.map((year) => ({
     year,
