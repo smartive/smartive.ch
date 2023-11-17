@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const IframeBlock: FC<Props> = async ({ block: { url, width, height } }) => (
-  <BlockWrapper>
+  <BlockWrapper marginTop="small" marginBottom="small">
     <div className="rounded bg-cornflower-500 p-4">
       {/* We get the width as pixel value from DatoCMS, but iframe needs it without "px"*/}
       <iframe src={url} width={width.replace('px', '')} height={height.replace('px', '')} />
