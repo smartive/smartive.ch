@@ -4,6 +4,7 @@ import '../styles/globals.css';
 import { DraftModeBanner } from './api/draft-mode-banner';
 import { ibm_plex, inter } from './fonts';
 import { Footer } from './footer/footer';
+import { Kube } from '../components/kube';
 
 const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN as string;
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>
           {children}
           <Footer />
+          <Kube />
         </main>
       </body>
     </html>

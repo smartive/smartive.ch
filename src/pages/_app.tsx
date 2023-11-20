@@ -6,14 +6,12 @@ import { Scroll } from 'scrollex';
 import { ibm_plex, inter } from '../../app/fonts';
 import { Footer } from '../../app/footer/footer';
 import '../../styles/globals.css';
-import { useKube } from '../components/kube';
 
 const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
 const PLAUSIBLE_ENABLED = process.env.NEXT_PUBLIC_PLAUSIBLE_ENABLED === 'true';
 
 export default function App({ Component, pageProps }: AppProps) {
   const pathname = usePathname();
-  useKube();
 
   return (
     <PlausibleProvider domain={PLAUSIBLE_DOMAIN || ''} enabled={PLAUSIBLE_ENABLED}>

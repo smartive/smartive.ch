@@ -1,4 +1,6 @@
-import { useEffect } from 'react';
+'use client';
+
+import { FC, useEffect } from 'react';
 
 const allowedKeys = {
   37: 'left',
@@ -13,7 +15,7 @@ const konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right'
 
 let konamiCodePosition = 0;
 
-function startEasterEgg() {
+const startEasterEgg = () => {
   const body = document.getElementsByTagName('body').item(0);
 
   const container = document.createElement('div');
@@ -49,10 +51,10 @@ function startEasterEgg() {
   back.style.transform = 'rotateY(180deg)';
   flipper.appendChild(back);
 
-  const next = document.getElementById('__next');
-  if (body && next) {
-    body.removeChild(next);
-    front.appendChild(next);
+  const main = document.getElementsByTagName('main').item(0);
+  if (body && main) {
+    body.removeChild(main);
+    front.appendChild(main);
   }
 
   const egg = document.createElement('iframe');
@@ -72,9 +74,9 @@ function startEasterEgg() {
   }
 
   setTimeout(() => (flipper.style.transform = 'rotateY(180deg)'), 100);
-}
+};
 
-function listener(e) {
+const listener = (e: { keyCode: string | number }) => {
   const key = allowedKeys[e.keyCode];
   const requiredKey = konamiCode[konamiCodePosition];
 
@@ -91,12 +93,14 @@ function listener(e) {
   } else {
     konamiCodePosition = 0;
   }
-}
+};
 
-export const useKube = () => {
+export const Kube: FC = () => {
   useEffect(() => {
     document.addEventListener('keydown', listener);
 
     return () => document.removeEventListener('keydown', listener);
   }, []);
+
+  return <></>;
 };
