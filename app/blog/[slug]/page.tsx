@@ -28,6 +28,8 @@ type Params = {
 export async function generateMetadata({ params: { slug } }: Params) {
   const { blogpost, site } = await queryDatoCMS({ document: PostDocument, variables: { slug } });
 
+  const language = blogpost?.language ?? 'de';
+
   const datoMetadata = toNextMetadata([...site.favicon]);
 
   const metadata = {
@@ -46,6 +48,10 @@ export async function generateMetadata({ params: { slug } }: Params) {
       ],
       publishedTime: blogpost?.published,
       type: 'article',
+    },
+    other: {
+      ['twitter:label1']: LANG_STRINGS[language].writtenBy,
+      ['twitter:data1']: blogpost?.author?.name ?? blogpost?.altAuthor,
     },
   };
 

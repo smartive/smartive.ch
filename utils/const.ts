@@ -7,6 +7,7 @@ export const LANG_STRINGS = {
     minutes: 'minutes',
     by: 'by',
     back: 'Back to overview',
+    writtenBy: 'Written by',
   },
   de: {
     copy: 'Link kopieren',
@@ -14,5 +15,6 @@ export const LANG_STRINGS = {
     minutes: 'Minuten',
     by: 'von',
     back: 'Zurück zur Übersicht',
+    writtenBy: 'Geschrieben von',
   },
 } as const;
