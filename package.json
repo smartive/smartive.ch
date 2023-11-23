@@ -66,7 +66,7 @@
     "@smartive/prettier-config": "3.1.2",
     "@tailwindcss/forms": "0.5.7",
     "@tailwindcss/typography": "0.5.10",
-    "@types/node": "20.9.4",
+    "@types/node": "20.9.5",
     "@types/react": "18.2.38",
     "@types/react-dom": "18.2.17",
     "@typescript-eslint/eslint-plugin": "^6.7.5",
