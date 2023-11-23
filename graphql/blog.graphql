@@ -1,0 +1,130 @@
+query Post($slug: String!) {
+  blogpost(filter: { slug: { eq: $slug } }) {
+    id
+    slug
+    language
+    author {
+      name
+      portrait {
+        responsiveImage(imgixParams: { fit: crop, w: 164, h: 164, auto: format }) {
+          ...responsiveImage
+        }
+      }
+    }
+    altAuthor
+    image {
+      ogImage: url(imgixParams: { fit: crop, w: 1200, h: 630, auto: format })
+      responsiveImage(imgixParams: { fit: crop, w: 1000, h: 600, auto: format }) {
+        ...responsiveImage
+      }
+    }
+    title
+    excerpt
+    content {
+      __typename
+      ... on TextRecord {
+        ...textBlock
+      }
+      ... on TwoColsTextRecord {
+        ...twoColsTextBlock
+      }
+      ... on ThreeColsTextRecord {
+        ...threeColsTextBlock
+      }
+      ... on ImageRecord {
+        ...imageBlock
+      }
+      ... on VideoRecord {
+        ...videoBlock
+      }
+      ... on QuoteRecord {
+        ...quoteBlock
+      }
+      ... on ContactRecord {
+        ...contactBlock
+      }
+      ... on TeaserSelectionRecord {
+        ...teaserSelectionBlock
+      }
+      ... on ImageTextRecord {
+        ...imageTextBlock
+      }
+      ... on TableRecord {
+        ...tableBlock
+      }
+      ... on CustomRecord {
+        ...customBlock
+      }
+      ... on ImageGridRecord {
+        ...imageGridBlock
+      }
+      ... on LogoGridRecord {
+        ...logoGridBlock
+      }
+      ... on IframeRecord {
+        ...iframeBlock
+      }
+      ... on NewsletterRecord {
+        ...newsletterBlock
+      }
+    }
+    published: _firstPublishedAt
+  }
+  site: _site {
+    favicon: faviconMetaTags {
+      attributes
+      content
+      tag
+    }
+    globalSeo {
+      titleSuffix
+    }
+  }
+}
+
+query LatestPost {
+  blogpost(orderBy: _firstPublishedAt_DESC) {
+    id
+    slug
+    title
+    excerpt
+    author {
+      name
+      portrait {
+        responsiveImage(imgixParams: { fit: crop, w: 50, h: 50, auto: format }) {
+          ...responsiveImage
+        }
+      }
+    }
+    altAuthor
+    image {
+      responsiveImage(imgixParams: { fit: crop, w: 752, h: 600, auto: format }) {
+        ...responsiveImage
+      }
+    }
+    published: _firstPublishedAt
+  }
+}
+
+query AllPostsWithoutLatest {
+  blogposts: allBlogposts(orderBy: _firstPublishedAt_DESC, skip: 1, first: 100) {
+    id
+    slug
+    title
+    author {
+      name
+      portrait {
+        responsiveImage(imgixParams: { fit: crop, w: 50, h: 50, auto: format }) {
+          ...responsiveImage
+        }
+      }
+    }
+    altAuthor
+    image {
+      responsiveImage(imgixParams: { fit: crop, w: 460, h: 240, auto: format }) {
+        ...responsiveImage
+      }
+    }
+    published: _firstPublishedAt
+  }
+}

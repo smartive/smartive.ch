@@ -33,7 +33,6 @@ export const ProjectsOverviewBlock: FC<Props> = async ({ block: { selectedTestim
           image={selectedTestimonial.authorImage?.responsiveImage}
           authorName={selectedTestimonial.authorName ?? undefined}
           authorDesc={selectedTestimonial.authorDesc ?? undefined}
-          hasMargin={false}
         />
       )}
       <Grid cols={3}>

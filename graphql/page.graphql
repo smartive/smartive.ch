@@ -62,6 +62,9 @@ query Page($slug: String!) {
       ... on NewsletterRecord {
         ...newsletterBlock
       }
+      ... on BlogOverviewRecord {
+        ...blogOverviewBlock
+      }
     }
     seo: _seoMetaTags {
       attributes

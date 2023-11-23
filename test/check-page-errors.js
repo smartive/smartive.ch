@@ -5,12 +5,13 @@ const waitOn = require('wait-on');
 require('dotenv').config();
 require('dotenv').config({ path: `.env.local`, override: true });
 
-const ignoreListRoutes = ['/_document', '/_app', '/api/', '/blog/[slug]', '/index', '/home'];
+const ignoreListRoutes = ['/_document', '/_app', '/api/', '/index', '/home'];
 const ignoreListErrors = [
   'value.onChange(callback) is deprecated',
   "The target origin provided ('https://calendly.com')", // Calendly shizzle conflicting with http://localhost
   '[Fast Refresh] performing full reload', // Nextjs Fast Refresh is a feature in dev mode, don't worry about it
   'GPU stall due to ReadPixels', // Farmer project
+  "It looks like the video you're trying to play will not work on this system!", // HLS streaming video
 ];
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',
@@ -66,6 +67,9 @@ const getAllDatoCMSRoutes = async () => {
       allOffers {
         slug
       }
+      allBlogposts {
+        slug
+      }
     }
 `;
 
@@ -107,6 +111,8 @@ const getAllDatoCMSRoutes = async () => {
     ...childPages,
     ...data.allProjectTags.map((tag) => `tags/${tag.slug}`),
     ...data.allProjects.map((project) => `projekte/${project.slug}`),
+    ...data.allOffers.map((project) => `angebot/${project.slug}`),
+    ...data.allBlogposts.map((project) => `blog/${project.slug}`),
   ];
 };
 

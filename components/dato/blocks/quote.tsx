@@ -14,12 +14,14 @@ export const QuoteBlock: FC<Props> = ({ block: { testimonial, disableMarginTop, 
     const { quote, authorImage, authorName, authorDesc } = testimonial[0];
 
     return (
-      <Testimonial
-        quote={quote}
-        image={authorImage?.responsiveImage}
-        authorName={authorName ?? undefined}
-        authorDesc={authorDesc ?? undefined}
-      />
+      <BlockWrapper marginTop={disableMarginTop ? 'none' : 'large'} marginBottom={disableMarginBottom ? 'none' : 'large'}>
+        <Testimonial
+          quote={quote}
+          image={authorImage?.responsiveImage}
+          authorName={authorName ?? undefined}
+          authorDesc={authorDesc ?? undefined}
+        />
+      </BlockWrapper>
     );
   }
 

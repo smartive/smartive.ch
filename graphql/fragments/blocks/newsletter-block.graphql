@@ -12,7 +12,7 @@ fragment newsletterBlock on NewsletterRecord {
   image {
     id
     title
-    responsiveImage(imgixParams: { w: 752, h: 752, auto: format }) {
+    responsiveImage(imgixParams: { fit: crop, w: 752, h: 752, auto: format }) {
       ...responsiveImage
     }
   }

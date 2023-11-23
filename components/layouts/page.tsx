@@ -52,7 +52,7 @@ export const Page: FC<Props> = ({ children }) => {
           onHomeLinkContextMenu={() => (window.location.href = '/brand')}
         />
       </LazyMotion>
-      <div className={classNames('min-h-[50vh] max-w-[100vw] p-4 lg:container lg:mx-auto')}>{children}</div>
+      <div className={classNames('min-h-[70vh] max-w-[100vw] p-4 lg:container lg:mx-auto')}>{children}</div>
     </div>
   );
 };

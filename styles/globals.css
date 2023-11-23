@@ -21,6 +21,12 @@ footer {
   @apply relative;
 }
 
+/* Unfortunately I was not able to get this done with tailwind */
+/* Feel free to suggest a solution ;) */
+header + section.block-wrapper {
+  margin-top: 0;
+}
+
 @screen lg {
   footer {
     @apply w-full;

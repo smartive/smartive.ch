@@ -17,6 +17,7 @@ type Props = {
 export const OfferCard: FC<Props> = ({ slug, title, timespan, description, linkLabel, color = 'apricot' }) => (
   <NextLink
     href={`/angebot/${slug}`}
+    title={`Angebot '${title}' ansehen`}
     className={classNames(
       'card-shadow grid w-full grid-rows-[1fr,auto] gap-4 overflow-hidden rounded p-8 text-xxs text-black transition-transform active:scale-[.99] lg:gap-6 lg:text-sm',
       {

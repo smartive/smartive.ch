@@ -1,0 +1,41 @@
+import dayjs from 'dayjs';
+import NextLink from 'next/link';
+import { FC } from 'react';
+import { Image as DatoImage, ResponsiveImageType } from 'react-datocms';
+import { AvatarFallback } from './avatar-fallback';
+import { Heading3 } from './nodes';
+
+require('dayjs/locale/de');
+
+type Props = {
+  slug: string;
+  title: string;
+  published?: string | null;
+  image: ResponsiveImageType;
+  author?: string | null;
+  authorImage?: ResponsiveImageType;
+};
+
+export const BlogpostCard: FC<Props> = ({ slug, title, published, image, author, authorImage }) => (
+  <NextLink
+    href={`/blog/${slug}`}
+    title={`Beitrag '${title}' lesen`}
+    className="card-shadow grid w-full max-w-[720px] grid-rows-[auto,1fr,auto] overflow-hidden rounded bg-white-100 text-black transition-transform active:scale-[.99]"
+  >
+    <DatoImage data={image} layout="responsive" />
+    <div className="grid grid-rows-[auto,1fr,auto] p-4 font-sans text-xxs font-normal lg:p-8 lg:text-sm">
+      <div className="text flex flex-row items-center gap-4 lg:text-xs">
+        {authorImage ? <DatoImage data={authorImage} className="rounded-full" /> : <AvatarFallback />}
+        <div>
+          von {author}
+          <br />
+          {published && dayjs(published).locale('de').format('MMMM YYYY')}
+        </div>
+      </div>
+      <Heading3>{title}</Heading3>
+      <div>
+        <span className="border-b-2">Beitrag lesen</span>
+      </div>
+    </div>
+  </NextLink>
+);

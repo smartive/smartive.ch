@@ -1,16 +1,34 @@
 import {
   StructuredText as StructuredTextType,
+  isBlockquote,
+  isCode,
   isHeading,
   isLink,
   isList,
   isListItem,
   isParagraph,
+  isThematicBreak,
 } from 'datocms-structured-text-utils';
 import { FC, Fragment } from 'react';
 import { StructuredText, renderMarkRule, renderNodeRule } from 'react-datocms';
 import { ImageBlockFragment } from '../../graphql/generated';
 import { SmartiveColorsType } from '../../utils/color';
-import { Heading1, Heading2, Heading3, InlineLink, Link, List, ListItem, Paragraph, Serif } from '../nodes';
+import {
+  Blockquote,
+  Code,
+  CodeSnippet,
+  Heading1,
+  Heading2,
+  Heading3,
+  InlineLink,
+  Link,
+  ListItem,
+  OrderedList,
+  Paragraph,
+  Serif,
+  ThematicBreak,
+  UnorderedList,
+} from '../nodes';
 import { ImageBlock } from './blocks/image';
 
 type Props = {
@@ -21,12 +39,14 @@ export const StructuredTextRenderer: FC<Props> = ({ data }) => (
   <StructuredText
     data={data}
     customNodeRules={[
-      renderNodeRule(isList, ({ children, key }) => {
-        return <List key={key}>{children}</List>;
-      }),
-      renderNodeRule(isListItem, ({ children, key }) => {
-        return <ListItem key={key}>{children}</ListItem>;
-      }),
+      renderNodeRule(isList, ({ node, children, key }) =>
+        node.style === 'numbered' ? (
+          <OrderedList key={key}>{children}</OrderedList>
+        ) : (
+          <UnorderedList key={key}>{children}</UnorderedList>
+        ),
+      ),
+      renderNodeRule(isListItem, ({ children, key }) => <ListItem key={key}>{children}</ListItem>),
       renderNodeRule(isHeading, ({ node, children, key }) => {
         switch (node.level) {
           case 1:
@@ -57,11 +77,17 @@ export const StructuredTextRenderer: FC<Props> = ({ data }) => (
 
         return <Paragraph key={key}>{children}</Paragraph>;
       }),
+      renderNodeRule(isBlockquote, ({ key, children, node }) => (
+        <Blockquote key={key} attribution={node.attribution}>
+          {children}
+        </Blockquote>
+      )),
+      renderNodeRule(isCode, ({ key, node }) => <CodeSnippet key={key} code={node.code} language={node.language} />),
+      renderNodeRule(isThematicBreak, ({ key }) => <ThematicBreak key={key} />),
     ]}
     customMarkRules={[
-      renderMarkRule('emphasis', ({ children, key }) => {
-        return <Serif key={key}>{children}</Serif>;
-      }),
+      renderMarkRule('emphasis', ({ children, key }) => <Serif key={key}>{children}</Serif>),
+      renderMarkRule('code', ({ children, key }) => <Code key={key}>{children}</Code>),
     ]}
     renderBlock={({ record }) => {
       switch (record._modelApiKey) {

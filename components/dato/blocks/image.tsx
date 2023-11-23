@@ -13,10 +13,10 @@ type ImageProps = {
 };
 
 const Image: FC<ImageProps> = ({ image, caption }) => (
-  <div>
+  <>
     <DatoImage data={image} layout="responsive" className="rounded" />
     {caption && <p className="mt-2 text-xs italic">{caption}</p>}
-  </div>
+  </>
 );
 
 export const ImageBlock: FC<Props> = ({ block: { images } }) => {

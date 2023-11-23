@@ -1,5 +1,11 @@
 import { FC } from 'react';
-import { OfferModelContentField, PageModelContentField, ProjectModelContentField } from '../../graphql/generated';
+import {
+  BlogpostModelContentField,
+  OfferModelContentField,
+  PageModelContentField,
+  ProjectModelContentField,
+} from '../../graphql/generated';
+import { BlogOverviewBlock } from './blocks/blog-overview';
 import { ContactBlock } from './blocks/contact';
 import { CustomBlock } from './blocks/custom';
 import { IframeBlock } from './blocks/iframe-block';
@@ -20,7 +26,11 @@ import { TwoColsTextBlock } from './blocks/two-cols-text';
 import { VideoBlock } from './blocks/video';
 
 type Props = {
-  blocks: Array<ProjectModelContentField> | Array<PageModelContentField> | Array<OfferModelContentField>;
+  blocks:
+    | Array<ProjectModelContentField>
+    | Array<PageModelContentField>
+    | Array<OfferModelContentField>
+    | Array<BlogpostModelContentField>;
 };
 
 export const ContentBlocks: FC<Props> = ({ blocks }) => (
@@ -63,6 +73,8 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => (
           return <TeamOverviewBlock key={block.id} block={block} />;
         case 'NewsletterRecord':
           return <NewsletterBlock key={block.id} block={block} />;
+        case 'BlogOverviewRecord':
+          return <BlogOverviewBlock key={block.id} block={block} />;
         default:
           console.error('Unknown block type', block);
 

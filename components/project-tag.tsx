@@ -12,6 +12,7 @@ type Props = {
 export const ProjectTag: FC<Props> = ({ slug, title, color = 'apricot' }) => (
   <NextLink
     href={`/tags/${slug}`}
+    title={`Alle Projekte zu "${title}" ansehen`}
     className={classNames(
       'inline-block rounded-sm px-2 py-2 text-xs text-white-100 transition-colors lg:px-4 lg:py-2',
       {
@@ -20,7 +21,6 @@ export const ProjectTag: FC<Props> = ({ slug, title, color = 'apricot' }) => (
         cornflower: 'bg-cornflower-500 hover:bg-cornflower-800',
       }[color],
     )}
-    title={`Alle Projekte zu "${title}" ansehen`}
   >
     {title}
   </NextLink>

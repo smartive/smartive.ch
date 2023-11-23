@@ -1,4 +1,4 @@
-import { revalidateTag } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
 import { ALL_PAGES_TAG } from '../../../utils/const';
 
@@ -28,6 +28,23 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   // This is necessary to update generateStaticParams
   if (item_type === 'page' && (event_type === 'create' || event_type === 'delete')) {
     tags.push(ALL_PAGES_TAG);
+  }
+
+  // Revalidate overview pages
+  if (item_type === 'blogpost') {
+    revalidatePath('/blog');
+  }
+
+  if (item_type === 'project') {
+    revalidatePath('/projekte');
+  }
+
+  if (item_type === 'offer') {
+    revalidatePath('/angebot');
+  }
+
+  if (item_type === 'employee') {
+    revalidatePath('/team');
   }
 
   try {

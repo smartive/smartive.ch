@@ -1,0 +1,6 @@
+fragment blogOverviewBlock on BlogOverviewRecord {
+  id
+  teaser {
+    ...teaserCard
+  }
+}

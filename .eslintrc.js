@@ -26,6 +26,7 @@ module.exports = {
               'Calendar',
               'Clock',
               'GuetzliClock',
+              'GuetzliCalendar',
               'Share',
               'Label',
               'Textarea',
@@ -46,6 +47,9 @@ module.exports = {
               // scrollex
               'Scroll.Container',
               'Scroll.Item',
+
+              // mux
+              'MuxVideo',
             ],
 
             message: 'Avoid using className',

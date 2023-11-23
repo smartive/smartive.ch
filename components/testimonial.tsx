@@ -3,7 +3,6 @@ import { FC } from 'react';
 import { Image as DatoImage } from 'react-datocms';
 import { ResponsiveImageFragment } from '../graphql/generated';
 import { SmartiveColorsType } from '../utils/color';
-import { classNames } from '../utils/css';
 import { Blobs } from './blobs';
 
 type Props = {
@@ -12,17 +11,11 @@ type Props = {
   legacyImage?: string; // TODO: remove when all testimonials are in dato
   authorName?: string;
   authorDesc?: string;
-  hasMargin?: boolean;
   color?: SmartiveColorsType;
 };
 
-export const Testimonial: FC<Props> = ({ image, quote, authorName, authorDesc, hasMargin = true, legacyImage, color }) => (
-  <div
-    className={classNames(
-      'relative grid w-full grid-flow-row place-items-center overflow-hidden rounded bg-mint-500 p-8 text-center font-sans text-xxs font-normal lg:p-32 lg:text-sm',
-      hasMargin && 'my-12 lg:my-48',
-    )}
-  >
+export const Testimonial: FC<Props> = ({ image, quote, authorName, authorDesc, legacyImage, color }) => (
+  <div className="relative grid w-full grid-flow-row place-items-center overflow-hidden rounded bg-mint-500 p-8 text-center font-sans text-xxs font-normal lg:p-32 lg:text-sm">
     {image && <DatoImage data={image} className="z-10 rounded-full" />}
     {legacyImage && (
       <NextImage

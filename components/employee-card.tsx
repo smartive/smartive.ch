@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import NextImage from 'next/image';
 import { FC } from 'react';
 import { Image as DatoImage } from 'react-datocms';
 import { EmployeeFragment } from '../graphql/generated';
@@ -47,14 +47,14 @@ export const EmployeeCard: FC<Props> = ({
         {image?.responsiveImage ? (
           <DatoImage data={{ ...image.responsiveImage, alt }} />
         ) : (
-          <Image src={{ 0: portraitMint, 1: portraitApricot, 2: portraitCornflower }[colorIndex]} alt={alt} />
+          <NextImage src={{ 0: portraitMint, 1: portraitApricot, 2: portraitCornflower }[colorIndex]} alt={alt} />
         )}
       </div>
       <div className="block w-full lg:hidden">
         {closeup?.responsiveImage ? (
           <DatoImage data={{ ...closeup.responsiveImage, alt }} />
         ) : (
-          <Image src={{ 0: closeupMint, 1: closeupApricot, 2: closeupCornflower }[colorIndex]} alt={alt} />
+          <NextImage src={{ 0: closeupMint, 1: closeupApricot, 2: closeupCornflower }[colorIndex]} alt={alt} />
         )}
       </div>
       <div className="flex flex-1 flex-col p-8 font-sans text-xxs font-normal lg:text-sm">

@@ -1,11 +1,21 @@
 fragment videoBlock on VideoRecord {
   id
+  videoType
   video {
     url
     provider
     providerUid
     title
   }
+  videoFile {
+    width
+    height
+    blurUpThumb
+    video {
+      muxPlaybackId
+    }
+  }
+  controls
   loop
   autoplay
 }
