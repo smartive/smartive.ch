@@ -1,5 +1,8 @@
 fragment projectsOverviewBlock on ProjectsOverviewRecord {
   id
+  filterByTopics {
+    id
+  }
   selectedTestimonial: testimonial {
     id
     quote

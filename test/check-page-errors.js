@@ -58,7 +58,7 @@ const getAllDatoCMSRoutes = async () => {
           }
         }
       }
-      allProjectTags {
+      allTopics {
         slug
       }
       allProjects {
@@ -109,7 +109,7 @@ const getAllDatoCMSRoutes = async () => {
     '/', // This is the homepage
     ...data.pages.map((page) => page.slug),
     ...childPages,
-    ...data.allProjectTags.map((tag) => `tags/${tag.slug}`),
+    ...data.allTopics.map((tag) => `t/${tag.slug}`),
     ...data.allProjects.map((project) => `projekte/${project.slug}`),
     ...data.allOffers.map((project) => `angebot/${project.slug}`),
     ...data.allBlogposts.map((project) => `blog/${project.slug}`),

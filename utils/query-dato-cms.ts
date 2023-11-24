@@ -4,7 +4,7 @@ import { GraphQLClientRequestHeaders } from 'graphql-request/build/esm/types';
 
 type Variables = {
   slug?: string;
-  tagId?: string;
+  topicIds?: string[];
   name?: string;
 };
 

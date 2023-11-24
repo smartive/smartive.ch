@@ -1,7 +1,7 @@
 query Project($slug: String!) {
   project(filter: { slug: { eq: $slug } }) {
     id
-    tags {
+    topics {
       id
       slug
       title
@@ -69,13 +69,6 @@ query Project($slug: String!) {
       content
       tag
     }
-    globalSeo {
-      fallbackSeo {
-        description
-        title
-      }
-      titleSuffix
-    }
   }
 }
 
@@ -107,8 +100,8 @@ query OtherProjects {
   }
 }
 
-query ProjectsByTag($tagId: [ItemId]) {
-  allProjects(filter: { tags: { anyIn: $tagId } }, orderBy: position_ASC, first: 100) {
+query ProjectsByTopics($topicIds: [ItemId]) {
+  allProjects(filter: { topics: { anyIn: $topicIds } }, orderBy: position_ASC, first: 100) {
     id
     slug
     title

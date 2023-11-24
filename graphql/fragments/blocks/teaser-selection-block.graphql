@@ -11,6 +11,9 @@ fragment teaserSelectionBlock on TeaserSelectionRecord {
     ... on TeaserCardRecord {
       ...teaserCard
     }
+    ... on BlogpostRecord {
+      ...blogpostCard
+    }
   }
   disableMarginTop
   disableMarginBottom

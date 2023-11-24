@@ -1,9 +1,9 @@
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { toNextMetadata } from 'react-datocms/seo';
-import { ContentBlocks } from '../../../components/dato/content-blocks';
+import { ContentBlocks } from '../../../components/content-blocks';
 import { Page } from '../../../components/layouts/page';
-import { ProjectTag } from '../../../components/project-tag';
+import { TopicLink } from '../../../components/projects/topic-link';
 import { ProjectDocument, ProjectModelContentField } from '../../../graphql/generated';
 import { SmartiveColors } from '../../../utils/color';
 import { queryDatoCMS } from '../../../utils/query-dato-cms';
@@ -28,10 +28,10 @@ export default async function ProjectPage({ params: { slug } }: Params) {
 
   return (
     <Page>
-      {project.tags && (
+      {project.topics && (
         <header className="mb-4 mt-12 flex flex-wrap gap-2 lg:mb-8 lg:mt-48">
-          {project.tags.map((tag, index) => (
-            <ProjectTag key={tag.id} slug={tag.slug} title={tag.title} color={SmartiveColors[index % 3]} />
+          {project.topics.map((tag, index) => (
+            <TopicLink key={tag.id} slug={tag.slug} title={tag.title} color={SmartiveColors[index % 3]} />
           ))}
         </header>
       )}

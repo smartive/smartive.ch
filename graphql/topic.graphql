@@ -1,11 +1,8 @@
-query Page($slug: String!) {
-  page(filter: { slug: { eq: $slug } }) {
+query Topic($slug: String!) {
+  topic(filter: { slug: { eq: $slug } }) {
     id
     slug
-    parent {
-      id
-      slug
-    }
+    title
     content {
       __typename
       ... on TextRecord {
@@ -32,17 +29,11 @@ query Page($slug: String!) {
       ... on TeaserSelectionRecord {
         ...teaserSelectionBlock
       }
-      ... on KeyfigureRecord {
-        ...keyfigureBlock
-      }
       ... on ImageTextRecord {
         ...imageTextBlock
       }
       ... on TableRecord {
         ...tableBlock
-      }
-      ... on TeamOverviewRecord {
-        ...teamOverviewBlock
       }
       ... on CustomRecord {
         ...customBlock
@@ -62,9 +53,6 @@ query Page($slug: String!) {
       ... on NewsletterRecord {
         ...newsletterBlock
       }
-      ... on BlogOverviewRecord {
-        ...blogOverviewBlock
-      }
     }
     seo: _seoMetaTags {
       attributes
@@ -77,24 +65,6 @@ query Page($slug: String!) {
       attributes
       content
       tag
-    }
-  }
-}
-
-query AllPages {
-  allPages(filter: { parent: { exists: "false" }, AND: { slug: { neq: "home" } } }) {
-    slug
-    children {
-      slug
-      children {
-        slug
-        children {
-          slug
-          children {
-            slug
-          }
-        }
-      }
     }
   }
 }

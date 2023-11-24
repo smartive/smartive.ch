@@ -108,23 +108,6 @@ query LatestPost {
 
 query AllPostsWithoutLatest {
   blogposts: allBlogposts(orderBy: _firstPublishedAt_DESC, skip: 1, first: 100) {
-    id
-    slug
-    title
-    author {
-      name
-      portrait {
-        responsiveImage(imgixParams: { fit: crop, w: 50, h: 50, auto: format }) {
-          ...responsiveImage
-        }
-      }
-    }
-    altAuthor
-    image {
-      responsiveImage(imgixParams: { fit: crop, w: 460, h: 240, auto: format }) {
-        ...responsiveImage
-      }
-    }
-    published: _firstPublishedAt
+    ...blogpostCard
   }
 }

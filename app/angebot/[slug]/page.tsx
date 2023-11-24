@@ -1,7 +1,7 @@
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { toNextMetadata } from 'react-datocms/seo';
-import { ContentBlocks } from '../../../components/dato/content-blocks';
+import { ContentBlocks } from '../../../components/content-blocks';
 import { Page } from '../../../components/layouts/page';
 import { OfferHeader } from '../../../components/offer-header';
 import { OfferDocument, OfferModelContentField } from '../../../graphql/generated';

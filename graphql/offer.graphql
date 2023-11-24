@@ -68,12 +68,5 @@ query Offer($slug: String!) {
       content
       tag
     }
-    globalSeo {
-      fallbackSeo {
-        description
-        title
-      }
-      titleSuffix
-    }
   }
 }

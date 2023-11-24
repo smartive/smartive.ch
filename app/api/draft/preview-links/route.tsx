@@ -20,8 +20,8 @@ const generatePreviewUrl = async ({ item, itemType }: generatePreviewUrlParams) 
       return `/${item.attributes.slug}`;
     case 'project':
       return `/projekte/${item.attributes.slug}`;
-    case 'project_tag':
-      return `/tags/${item.attributes.slug}`;
+    case 'topic':
+      return `/t/${item.attributes.slug}`;
     case 'offer':
       return `/angebot/${item.attributes.slug}`;
     case 'blogpost':
