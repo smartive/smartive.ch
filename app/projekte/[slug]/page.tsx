@@ -15,14 +15,21 @@ type Params = {
 };
 
 export async function generateMetadata({ params: { slug } }: Params) {
-  const { project, site } = await queryDatoCMS({ document: ProjectDocument, variables: { slug } });
+  const { project, site } = await queryDatoCMS({
+    document: ProjectDocument,
+    variables: { slug },
+    includeDrafts: draftMode().isEnabled,
+  });
 
   return toNextMetadata([...site.favicon, ...(project?.seo || [])]);
 }
 
 export default async function ProjectPage({ params: { slug } }: Params) {
-  const { isEnabled } = draftMode();
-  const { project } = await queryDatoCMS({ document: ProjectDocument, variables: { slug }, includeDrafts: isEnabled });
+  const { project } = await queryDatoCMS({
+    document: ProjectDocument,
+    variables: { slug },
+    includeDrafts: draftMode().isEnabled,
+  });
 
   if (!project) notFound();
 

@@ -16,14 +16,21 @@ type Params = {
 };
 
 export async function generateMetadata({ params: { slug } }: Params) {
-  const { topic, site } = await queryDatoCMS({ document: TopicDocument, variables: { slug } });
+  const { topic, site } = await queryDatoCMS({
+    document: TopicDocument,
+    variables: { slug },
+    includeDrafts: draftMode().isEnabled,
+  });
 
   return toNextMetadata([...site.favicon, ...(topic?.seo || [])]);
 }
 
 export default async function TopicPage({ params: { slug } }: Params) {
-  const { isEnabled } = draftMode();
-  const { topic } = await queryDatoCMS({ document: TopicDocument, variables: { slug }, includeDrafts: isEnabled });
+  const { topic } = await queryDatoCMS({
+    document: TopicDocument,
+    variables: { slug },
+    includeDrafts: draftMode().isEnabled,
+  });
 
   if (!topic) notFound();
 

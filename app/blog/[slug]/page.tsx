@@ -26,7 +26,11 @@ type Params = {
 };
 
 export async function generateMetadata({ params: { slug } }: Params) {
-  const { blogpost, site } = await queryDatoCMS({ document: PostDocument, variables: { slug } });
+  const { blogpost, site } = await queryDatoCMS({
+    document: PostDocument,
+    variables: { slug },
+    includeDrafts: draftMode().isEnabled,
+  });
 
   const language = blogpost?.language ?? 'de';
 
@@ -66,8 +70,11 @@ export default async function BlogpostPage({ params: { slug } }: Params) {
     permanentRedirect(smartiveBlogSlug ? `/blog/${smartiveBlogSlug}` : `https://medium.com/smartive/${slug}`);
   }
 
-  const { isEnabled } = draftMode();
-  const { blogpost } = await queryDatoCMS({ document: PostDocument, variables: { slug }, includeDrafts: isEnabled });
+  const { blogpost } = await queryDatoCMS({
+    document: PostDocument,
+    variables: { slug },
+    includeDrafts: draftMode().isEnabled,
+  });
 
   if (!blogpost) notFound();
 

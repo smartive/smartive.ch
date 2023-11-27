@@ -16,7 +16,11 @@ type Params = {
 const getLastSlug = (slug: string[]) => slug[slug.length - 1];
 
 export async function generateMetadata({ params: { slug } }: Params) {
-  const data = await queryDatoCMS({ document: PageDocument, variables: { slug: getLastSlug(slug) } });
+  const data = await queryDatoCMS({
+    document: PageDocument,
+    variables: { slug: getLastSlug(slug) },
+    includeDrafts: draftMode().isEnabled,
+  });
 
   return toNextMetadata([...data.site.favicon, ...(data.page?.seo || [])]);
 }
@@ -34,11 +38,10 @@ export async function generateStaticParams() {
 export const dynamicParams = false; // Redirects to 404 if route is not generate by generateStaticParams
 
 export default async function ContentPage({ params: { slug } }: Params) {
-  const { isEnabled } = draftMode();
   const { page } = await queryDatoCMS({
     document: PageDocument,
     variables: { slug: getLastSlug(slug) },
-    includeDrafts: isEnabled,
+    includeDrafts: draftMode().isEnabled,
   });
 
   if (!page) notFound();
