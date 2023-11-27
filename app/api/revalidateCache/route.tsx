@@ -1,6 +1,6 @@
 import { revalidatePath, revalidateTag } from 'next/cache';
 import { NextRequest, NextResponse } from 'next/server';
-import { ALL_PAGES_TAG } from '../../../utils/const';
+import { ALL_PAGES_TAG, PAGE_STRUCTURE_TAG } from '../../../utils/const';
 
 type BodyType = {
   event_type: 'create' | 'update' | 'delete' | 'publish' | 'unpublish';
@@ -25,9 +25,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   }
 
   // If a new page is created, invalidate the cache for all pages
-  // This is necessary to update generateStaticParams
   if (item_type === 'page' && (event_type === 'create' || event_type === 'delete')) {
-    tags.push(ALL_PAGES_TAG);
+    tags.push(ALL_PAGES_TAG, PAGE_STRUCTURE_TAG);
   }
 
   // Revalidate overview pages

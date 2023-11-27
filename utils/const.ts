@@ -1,4 +1,5 @@
 export const ALL_PAGES_TAG = 'all-pages';
+export const PAGE_STRUCTURE_TAG = 'page-structure';
 
 export const LANG_STRINGS = {
   en: {

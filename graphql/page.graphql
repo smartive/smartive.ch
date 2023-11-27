@@ -80,3 +80,12 @@ query Page($slug: String!) {
     }
   }
 }
+
+query PageStructure($slug: String!) {
+  page(filter: { slug: { eq: $slug } }) {
+    slug
+    parent {
+      slug
+    }
+  }
+}

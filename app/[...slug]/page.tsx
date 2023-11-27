@@ -3,9 +3,10 @@ import { notFound } from 'next/navigation';
 import { toNextMetadata } from 'react-datocms/seo';
 import { ContentBlocks } from '../../components/content-blocks';
 import { Page } from '../../components/layouts/page';
-import { PageDocument, PageModelContentField } from '../../graphql/generated';
+import { PageDocument, PageModelContentField, PageRecord } from '../../graphql/generated';
 import { getAllDatoRoutes } from '../../utils/get-dato-routes';
 import { queryDatoCMS } from '../../utils/query-dato-cms';
+import { validateRoutes } from '../../utils/validate-dato-routes';
 
 type Params = {
   params: {
@@ -29,13 +30,13 @@ export async function generateStaticParams() {
   const { pages } = await getAllDatoRoutes();
 
   return pages
-    .filter(({ path }) => path !== '/')
+    .filter(({ path }) => path !== '/') // We filter out the homepage
     .map(({ path }) => ({
       slug: path.split('/').filter(Boolean),
     }));
 }
 
-export const dynamicParams = false; // Redirects to 404 if route is not generate by generateStaticParams
+export const dynamicParams = true;
 
 export default async function ContentPage({ params: { slug } }: Params) {
   const { page } = await queryDatoCMS({
@@ -45,6 +46,8 @@ export default async function ContentPage({ params: { slug } }: Params) {
   });
 
   if (!page) notFound();
+
+  await validateRoutes(page as unknown as PageRecord, slug);
 
   return (
     <Page>
