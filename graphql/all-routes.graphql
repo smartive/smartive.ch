@@ -1,0 +1,43 @@
+query AllRoutes {
+  allPages(filter: { parent: { exists: "false" } }) {
+    ...pageDetails
+    children {
+      ...pageDetails
+      children {
+        ...pageDetails
+        children {
+          ...pageDetails
+          children {
+            ...pageDetails
+          }
+        }
+      }
+    }
+  }
+  allEmployees {
+    slug
+    lastModified: _updatedAt
+  }
+  allBlogposts {
+    slug
+    lastModified: _updatedAt
+  }
+  allOffers {
+    slug
+    lastModified: _updatedAt
+  }
+  allProjects {
+    slug
+    lastModified: _updatedAt
+  }
+  allTopics {
+    slug
+    lastModified: _updatedAt
+  }
+}
+
+fragment pageDetails on PageRecord {
+  slug
+  lastModified: _updatedAt
+  preventPageIndexing
+}

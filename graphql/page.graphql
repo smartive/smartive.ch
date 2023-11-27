@@ -80,21 +80,3 @@ query Page($slug: String!) {
     }
   }
 }
-
-query AllPages {
-  allPages(filter: { parent: { exists: "false" }, AND: { slug: { neq: "home" } } }) {
-    slug
-    children {
-      slug
-      children {
-        slug
-        children {
-          slug
-          children {
-            slug
-          }
-        }
-      }
-    }
-  }
-}

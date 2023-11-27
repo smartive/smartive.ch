@@ -22,11 +22,13 @@ export async function generateMetadata({ params: { slug } }: Params) {
 }
 
 export async function generateStaticParams() {
-  const routes = await getAllDatoRoutes();
+  const { pages } = await getAllDatoRoutes();
 
-  return routes.map((route) => ({
-    slug: route.split('/').filter(Boolean),
-  }));
+  return pages
+    .filter(({ path }) => path !== '/')
+    .map(({ path }) => ({
+      slug: path.split('/').filter(Boolean),
+    }));
 }
 
 export const dynamicParams = false; // Redirects to 404 if route is not generate by generateStaticParams

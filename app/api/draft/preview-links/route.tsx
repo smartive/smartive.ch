@@ -11,10 +11,10 @@ const generatePreviewUrl = async ({ item, itemType }: generatePreviewUrlParams) 
     case 'page':
       if (item.attributes.parent_id) {
         // page is a child of another page, so let's find the full slug (e.g. /agentur/lohnrechner)
-        const routes = await getAllDatoRoutes();
-        const pathname = routes.find((route) => route.includes(item.attributes.slug));
+        const { pages } = await getAllDatoRoutes();
+        const page = pages.find(({ path }) => path.includes(item.attributes.slug));
 
-        return pathname || null;
+        return page?.path || null;
       }
 
       return `/${item.attributes.slug}`;
