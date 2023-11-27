@@ -10,12 +10,9 @@ module.exports = {
           {
             propName: 'className',
             allowedFor: [
-              'NextImageCard',
               'Blob',
               'ParallaxBlob',
               'Tag',
-              'MdcfThemesAnimation',
-              'NotionRichText',
 
               // 3rd Party Exceptions
               // guetzli
@@ -24,10 +21,8 @@ module.exports = {
               'Heading2',
               'Heading3',
               'Calendar',
-              'Clock',
               'GuetzliClock',
               'GuetzliCalendar',
-              'Share',
               'Label',
               'Textarea',
               'Input',

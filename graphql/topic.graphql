@@ -3,6 +3,7 @@ query Topic($slug: String!) {
     id
     slug
     title
+    hideTitle
     content {
       __typename
       ... on TextRecord {

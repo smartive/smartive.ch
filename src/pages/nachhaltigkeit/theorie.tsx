@@ -96,7 +96,7 @@ const Sustainabilty: NextPage<Props> = ({ scopes, categories }) => {
               href: 'https://smartive.ch/blog/nachhaltigkeit',
               newTab: true,
             }}
-            image={{ src: '/images/blog/linkedin/culture-day.jpg', alt: 'culture-day-2021' }}
+            image={{ src: '/images/nachhaltigkeit/culture-day.jpg', alt: 'culture-day-2021' }}
           />
         </Section>
         <Section>

@@ -44,6 +44,18 @@
     { "source": "/angebot/ideation-sprint", "destination": "/angebot/design-sprint" },
     { "source": "/roles", "destination": "https://smr.tv/roles" },
     { "source": "/instagram", "destination": "https://www.instagram.com/smartive_ch/" },
-    { "source": "/linkedin", "destination": "https://www.linkedin.com/company/smartive-ch/" }
+    { "source": "/linkedin", "destination": "https://www.linkedin.com/company/smartive-ch/" },
+    { "source": "/was-ist/agile", "destination": "/t/agile" },
+    { "source": "/was-ist/dot-net", "destination": "/t/dot-net" },
+    { "source": "/was-ist/flutter", "destination": "/t/flutter" },
+    { "source": "/was-ist/graphql", "destination": "/t/graphql" },
+    { "source": "/was-ist/grpc", "destination": "/t/grpc" },
+    { "source": "/was-ist/headless-cms", "destination": "/t/headless-cms" },
+    { "source": "/was-ist/iam", "destination": "/t/iam" },
+    { "source": "/was-ist/kubernetes", "destination": "/t/kubernetes" },
+    { "source": "/was-ist/lean-ux", "destination": "/t/lean-ux" },
+    { "source": "/was-ist/mvp", "destination": "/t/mvp" },
+    { "source": "/was-ist/pwa", "destination": "/t/pwa" },
+    { "source": "/was-ist/react", "destination": "/t/react" }
   ]
 }

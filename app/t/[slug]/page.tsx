@@ -31,9 +31,11 @@ export default async function TopicPage({ params: { slug } }: Params) {
 
   return (
     <Page>
-      <header className="mt-12 lg:mt-48">
-        <Heading1>{topic.title}</Heading1>
-      </header>
+      {!topic.hideTitle && (
+        <header className="mt-12 lg:mt-48">
+          <Heading1>{topic.title}</Heading1>
+        </header>
+      )}
 
       <ContentBlocks blocks={topic.content as Array<TopicModelContentField>} />
 

@@ -8,17 +8,19 @@ type Props = {
   block: ProjectsOverviewBlockFragment;
 };
 
-export const ProjectsOverviewBlock: FC<Props> = async ({ block: { filterByTopics, selectedTestimonial } }) => {
+export const ProjectsOverviewBlock: FC<Props> = async ({
+  block: { filterByTopics, selectedTestimonial, disableMarginTop, disableMarginBottom },
+}) => {
   if (filterByTopics.length > 0) {
     return (
-      <BlockWrapper marginTop="small" marginBottom="small">
+      <BlockWrapper marginTop={disableMarginTop ? 'none' : 'large'} marginBottom={disableMarginBottom ? 'none' : 'large'}>
         <FilteredProjects topicIds={filterByTopics.map(({ id }) => id)} />
       </BlockWrapper>
     );
   }
 
   return (
-    <BlockWrapper marginTop="small" marginBottom="small">
+    <BlockWrapper marginTop={disableMarginTop ? 'none' : 'large'} marginBottom={disableMarginBottom ? 'none' : 'large'}>
       <AllProjects selectedTestimonial={selectedTestimonial} />
     </BlockWrapper>
   );
