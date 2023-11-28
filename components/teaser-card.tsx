@@ -18,11 +18,11 @@ export const TeaserCard: FC<Props> = ({ eyebrow, title, description, link, linkL
   <NextLink
     href={link}
     className={classNames(
-      'card-shadow grid w-full grid-rows-[1fr,auto] gap-4 overflow-hidden rounded p-8 text-xxs text-black transition-transform active:scale-[.99] lg:gap-6 lg:text-sm',
+      'grid w-full grid-rows-[1fr,auto] gap-4 overflow-hidden rounded p-8 text-xxs text-black transition-transform active:scale-[.99] lg:gap-6 lg:text-sm',
       {
-        apricot: 'bg-apricot-500',
-        mint: 'bg-mint-500',
-        cornflower: 'bg-cornflower-500',
+        apricot: 'card-shadow-cornflower bg-apricot-500',
+        mint: 'card-shadow-apricot bg-mint-500',
+        cornflower: 'card-shadow-mint bg-cornflower-500',
       }[color],
     )}
     target={newTab ? '_blank' : '_self'}
