@@ -23,9 +23,9 @@ export const ReadingTime: FC<{ elementId: string; lang: string }> = ({ elementId
 
   if (time > 0) {
     return (
-      <div className="text-gray-500 text-xs">
+      <>
         ~{time} {LANG_STRINGS[lang].minutes}
-      </div>
+      </>
     );
   }
 

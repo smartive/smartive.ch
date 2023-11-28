@@ -23,7 +23,7 @@ export const BlogpostCard: FC<Props> = ({ slug, title, published, image, author,
     className="card-shadow grid w-full max-w-[720px] grid-rows-[auto,1fr,auto] overflow-hidden rounded bg-white-100 text-black transition-transform active:scale-[.99]"
   >
     <DatoImage data={image} layout="responsive" />
-    <div className="grid grid-rows-[auto,1fr,auto] p-4 font-sans text-xxs font-normal lg:p-8 lg:text-sm">
+    <div className="grid grid-rows-[auto,1fr,auto] p-5 font-sans text-xxs font-normal lg:p-8 lg:text-sm">
       <div className="text flex flex-row items-center gap-4 lg:text-xs">
         {authorImage ? <DatoImage data={authorImage} className="rounded-full" /> : <AvatarFallback />}
         <div>

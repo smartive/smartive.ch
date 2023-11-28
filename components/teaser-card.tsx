@@ -18,7 +18,7 @@ export const TeaserCard: FC<Props> = ({ eyebrow, title, description, link, linkL
   <NextLink
     href={link}
     className={classNames(
-      'grid w-full grid-rows-[1fr,auto] gap-4 overflow-hidden rounded p-8 text-xxs text-black transition-transform active:scale-[.99] lg:gap-6 lg:text-sm',
+      'grid w-full grid-rows-[1fr,auto] gap-4 overflow-hidden rounded p-5 text-xxs text-black transition-transform active:scale-[.99] lg:gap-6 lg:p-8 lg:text-sm',
       {
         apricot: 'card-shadow-cornflower bg-apricot-500',
         mint: 'card-shadow-apricot bg-mint-500',
@@ -28,7 +28,7 @@ export const TeaserCard: FC<Props> = ({ eyebrow, title, description, link, linkL
     target={newTab ? '_blank' : '_self'}
     rel={newTab ? 'noopener noreferrer' : undefined}
   >
-    <div className="space-y-6 lg:space-y-8">
+    <div className="space-y-2 md:space-y-6 lg:space-y-8">
       {eyebrow && <p>{eyebrow}</p>}
       <Heading3>{title}</Heading3>
       {description && <p>{description}</p>}

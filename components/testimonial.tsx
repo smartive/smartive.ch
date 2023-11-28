@@ -16,7 +16,11 @@ type Props = {
 
 export const Testimonial: FC<Props> = ({ image, quote, authorName, authorDesc, legacyImage, color }) => (
   <div className="relative grid w-full grid-flow-row place-items-center overflow-hidden rounded bg-mint-500 p-8 text-center font-sans text-xxs font-normal lg:p-32 lg:text-sm">
-    {image && <DatoImage data={image} className="z-10 rounded-full" />}
+    {image && (
+      <div className="z-10 h-24 w-24 lg:h-32 lg:w-32">
+        <DatoImage data={image} className="rounded-full" />
+      </div>
+    )}
     {legacyImage && (
       <NextImage
         src={legacyImage}

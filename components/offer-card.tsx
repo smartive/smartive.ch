@@ -19,7 +19,7 @@ export const OfferCard: FC<Props> = ({ slug, title, timespan, description, linkL
     href={`/angebot/${slug}`}
     title={`Angebot '${title}' ansehen`}
     className={classNames(
-      'grid w-full grid-rows-[1fr,auto] gap-4 overflow-hidden rounded p-8 text-xxs text-black transition-transform active:scale-[.99] lg:gap-6 lg:text-sm',
+      'grid w-full grid-rows-[1fr,auto] gap-4 overflow-hidden rounded p-5 text-xxs text-black transition-transform active:scale-[.99] lg:gap-6 lg:p-8 lg:text-sm',
       {
         apricot: 'card-shadow-cornflower bg-apricot-500',
         mint: 'card-shadow-apricot bg-mint-500',
@@ -27,7 +27,7 @@ export const OfferCard: FC<Props> = ({ slug, title, timespan, description, linkL
       }[color],
     )}
   >
-    <div className="space-y-6 lg:space-y-8">
+    <div className="space-y-2 md:space-y-6 lg:space-y-8">
       {timespan && (
         <div className="inline-flex flex-row items-center">
           <GuetzliClock className="mr-2 inline h-4 w-4" />

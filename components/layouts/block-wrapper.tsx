@@ -11,12 +11,12 @@ export const BlockWrapper: FC<Props> = ({ children, marginTop = 'large', marginB
     className={classNames(
       'block-wrapper',
       {
-        large: 'mt-12 lg:mt-48',
-        small: 'mt-8 lg:mt-16',
+        large: 'mt-12 md:mt-24 lg:mt-48',
+        small: 'mt-8 md:mt-12 lg:mt-16',
       }[marginTop],
       {
-        large: 'mb-12 lg:mb-48',
-        small: 'mb-8 lg:mb-16',
+        large: 'mb-12 md:mb-24 lg:mb-48',
+        small: 'mb-8 md:mb-12 lg:mb-16',
       }[marginBottom],
     )}
   >

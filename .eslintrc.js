@@ -13,6 +13,7 @@ module.exports = {
               'Blob',
               'ParallaxBlob',
               'Tag',
+              'AvatarFallback',
 
               // 3rd Party Exceptions
               // guetzli

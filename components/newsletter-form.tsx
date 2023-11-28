@@ -18,7 +18,7 @@ const SubmitButton: FC = () => {
       type="submit"
       aria-disabled={pending}
       disabled={pending}
-      className="border-b-4 border-cornflower-500 text-xxs font-bold no-underline transition-colors duration-150 hover:border-black lg:text-base"
+      className="border-b-2 border-cornflower-500 text-xxs font-bold no-underline transition-colors duration-150 hover:border-black lg:border-b-4 lg:text-base"
     >
       Newsletter abonnieren
     </button>

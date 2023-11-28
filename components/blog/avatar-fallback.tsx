@@ -1,16 +1,21 @@
 import { FC } from 'react';
 import { SmartiveColorValues } from '../../utils/color';
+import { classNames } from '../../utils/css';
 
 const getRandomColor = (): string => SmartiveColorValues[Math.floor(Math.random() * SmartiveColorValues.length)];
 
-export const AvatarFallback: FC<{ width?: number; height?: number }> = ({ width = 50, height = 50 }) => (
+export const AvatarFallback: FC<{ width?: number; height?: number; className?: string }> = ({
+  width = 50,
+  height = 50,
+  className,
+}) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={width}
     height={height}
     fill="none"
     viewBox="0 0 92 92"
-    className="rounded-full"
+    className={classNames('rounded-full', className)}
   >
     <path fill={getRandomColor()} d="M0 0H91.6V91.6H0z"></path>
     <path

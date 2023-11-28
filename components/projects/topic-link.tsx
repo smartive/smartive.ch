@@ -14,11 +14,11 @@ export const TopicLink: FC<Props> = ({ slug, title, color = 'apricot' }) => (
     href={`/t/${slug}`}
     title={`Alle Projekte zu "${title}" ansehen`}
     className={classNames(
-      'inline-block rounded-sm px-2 py-2 text-xs text-white-100 transition-colors lg:px-4 lg:py-2',
+      'inline-block rounded-sm px-2 py-2 text-xxs text-black transition-all hover:bg-opacity-80 active:scale-95 lg:px-3 lg:py-1 lg:text-xs',
       {
-        apricot: 'bg-apricot-500 hover:bg-apricot-800',
-        mint: 'bg-mint-500 hover:bg-mint-800',
-        cornflower: 'bg-cornflower-500 hover:bg-cornflower-800',
+        apricot: 'bg-apricot-500',
+        mint: 'bg-mint-500',
+        cornflower: 'bg-cornflower-500',
       }[color],
     )}
   >

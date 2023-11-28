@@ -11,7 +11,7 @@ export const Link: FC<Props> = ({ children, href, target, rel, title, color = 'a
     target={target ?? '_self'}
     rel={rel}
     className={classNames(
-      'peer border-b-4 text-xxs font-bold no-underline transition-colors duration-150 hover:border-black peer-[a&]:ml-4 lg:text-base lg:peer-[a&]:ml-8',
+      'mr-4 mt-2 inline-block border-b-2 text-xxs font-bold no-underline transition-colors duration-150 hover:border-black md:text-sm lg:border-b-4 lg:text-base lg:peer-[a&]:ml-8',
       {
         apricot: 'border-apricot-500',
         mint: 'border-mint-500',

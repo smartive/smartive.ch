@@ -53,17 +53,17 @@ export const Footer: FC = () => (
           <FooterLink href="https://facebook.com/smartive.ch" target="_blank">
             Facebook
           </FooterLink>
-          <div className="mt-4">
+          <div className="mt-4 justify-self-center">
             <NextLink
               href="/newsletter"
-              className="inline-block rounded bg-black px-4 py-3 text-sm text-white-100 transition-transform duration-150 hover:scale-105"
+              className="inline-block rounded bg-black px-4 py-2 text-sm text-white-100 transition-transform duration-150 hover:scale-105 lg:py-3"
             >
               Newsletter abonnieren
             </NextLink>
           </div>
         </div>
       </div>
-      <div className="grid grid-flow-row justify-between md:grid-flow-col">
+      <div className="grid grid-flow-row justify-center md:grid-flow-col md:justify-between">
         <SwissMadeSoftwareLogo />
         <BackToTop />
       </div>

@@ -32,7 +32,7 @@ export const BlogOverviewBlock: FC<Props> = async ({ block: { teaser } }) => {
           {blogpost?.image?.responsiveImage && (
             <DatoImage data={blogpost.image.responsiveImage} layout="responsive" objectFit="cover" />
           )}
-          <div className="grid grid-rows-[auto,auto,1fr,auto] p-4 pb-8 font-sans text-xs md:p-16 lg:text-base">
+          <div className="grid grid-rows-[auto,auto,1fr,auto] p-5 font-sans text-xs md:p-16 lg:text-base">
             <div className="text flex flex-row items-center gap-4 lg:text-xs">
               {blogpost?.author?.portrait?.responsiveImage ? (
                 <DatoImage data={blogpost.author.portrait.responsiveImage} className="rounded-full" />

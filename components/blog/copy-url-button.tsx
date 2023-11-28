@@ -15,7 +15,7 @@ export const CopyUrlButton: FC<{ lang: string }> = ({ lang }) => {
           setDisplayMessage(false);
         }, 1500);
       }}
-      className="rounded border border-black px-4 py-2 text-xxs transition-colors hover:border-cornflower-500 hover:bg-cornflower-500 hover:text-white-100 lg:text-xs"
+      className="hidden rounded border border-black px-3 py-1 text-xxs transition-colors hover:border-cornflower-500 hover:bg-cornflower-500 hover:text-white-100 md:block md:px-4 md:py-2 lg:text-xs"
     >
       {displayMessage ? <span>{LANG_STRINGS[lang].copied}</span> : <span>{LANG_STRINGS[lang].copy}</span>}
     </button>

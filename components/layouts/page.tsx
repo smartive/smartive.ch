@@ -6,7 +6,6 @@ import { usePlausible } from 'next-plausible';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FC, ReactNode } from 'react';
-import { classNames } from '../../utils/css';
 import { PlausibleEvents } from '../../utils/tracking';
 
 const Main = [
@@ -52,7 +51,7 @@ export const Page: FC<Props> = ({ children }) => {
           onHomeLinkContextMenu={() => (window.location.href = '/brand')}
         />
       </LazyMotion>
-      <div className={classNames('min-h-[70vh] max-w-[100vw] p-4 lg:container lg:mx-auto')}>{children}</div>
+      <div className="mx-auto min-h-[70vh] w-11/12 max-w-[1536px]">{children}</div>
     </div>
   );
 };
