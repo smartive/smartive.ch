@@ -82,6 +82,19 @@ query Post($slug: String!) {
   }
 }
 
+query PostNavigation($date: DateTime!) {
+  previousPost: allBlogposts(orderBy: _firstPublishedAt_DESC, first: 1, filter: { _firstPublishedAt: { lt: $date } }) {
+    id
+    title
+    slug
+  }
+  nextPost: allBlogposts(orderBy: _firstPublishedAt_ASC, first: 1, skip: 1, filter: { _firstPublishedAt: { gt: $date } }) {
+    id
+    title
+    slug
+  }
+}
+
 query LatestPost {
   blogpost(orderBy: _firstPublishedAt_DESC) {
     id

@@ -6,6 +6,7 @@ type Variables = {
   slug?: string;
   topicIds?: string[];
   name?: string;
+  date?: string;
 };
 
 type Options<TResult = unknown> = {

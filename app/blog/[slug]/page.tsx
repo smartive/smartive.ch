@@ -2,9 +2,9 @@ import { draftMode } from 'next/headers';
 import { notFound, permanentRedirect } from 'next/navigation';
 import { toNextMetadata } from 'react-datocms/seo';
 import { BlogpostHeader } from '../../../components/blog/blogpost-header';
+import { BlogpostNavigation } from '../../../components/blog/blogpost-navigation';
 import { ContentBlocks } from '../../../components/content-blocks';
 import { Page } from '../../../components/layouts/page';
-import { Link } from '../../../components/nodes';
 import { BlogpostModelContentField, PostDocument } from '../../../graphql/generated';
 import mediumBlogSlugs from '../../../src/data/medium-blog-slugs.json';
 import { LANG_STRINGS } from '../../../utils/const';
@@ -92,9 +92,7 @@ export default async function BlogpostPage({ params: { slug } }: Params) {
       >
         <ContentBlocks blocks={content as Array<BlogpostModelContentField>} />
       </div>
-      <div className="my-12 max-w-[1000px] text-center lg:my-48">
-        <Link href="/blog">{LANG_STRINGS[language].back}</Link>
-      </div>
+      {published && <BlogpostNavigation currentPostPublished={published} language={language} />}
     </Page>
   );
 }
