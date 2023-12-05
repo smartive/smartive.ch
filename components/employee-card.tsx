@@ -45,14 +45,14 @@ export const EmployeeCard: FC<Props> = ({
     <div className={classNames('flex flex-col overflow-hidden rounded bg-white-100', className)}>
       <div className="hidden w-full lg:block">
         {image?.responsiveImage ? (
-          <DatoImage data={{ ...image.responsiveImage, alt }} />
+          <DatoImage data={{ ...image.responsiveImage, alt }} layout="responsive" />
         ) : (
           <NextImage src={{ 0: portraitMint, 1: portraitApricot, 2: portraitCornflower }[colorIndex]} alt={alt} />
         )}
       </div>
       <div className="block w-full lg:hidden">
         {closeup?.responsiveImage ? (
-          <DatoImage data={{ ...closeup.responsiveImage, alt }} />
+          <DatoImage data={{ ...closeup.responsiveImage, alt }} layout="responsive" />
         ) : (
           <NextImage src={{ 0: closeupMint, 1: closeupApricot, 2: closeupCornflower }[colorIndex]} alt={alt} />
         )}
