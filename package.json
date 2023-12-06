@@ -23,7 +23,7 @@
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@mux/mux-video-react": "0.7.0",
-    "@notionhq/client": "2.2.13",
+    "@notionhq/client": "2.2.14",
     "@react-three/drei": "^9.80.9",
     "@react-three/fiber": "^8.13.7",
     "@smartive/guetzli": "2.10.1",
