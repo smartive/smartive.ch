@@ -10,9 +10,10 @@ type Props = {
   controls?: boolean | null;
   autoplay?: boolean | null;
   loop?: boolean | null;
+  placeholder?: string | null;
 };
 
-export const VideoPlayer: FC<Props> = ({ playbackId, width, height, controls, autoplay, loop }) => (
+export const VideoPlayer: FC<Props> = ({ playbackId, width, height, controls, autoplay, loop, placeholder }) => (
   <MuxVideo
     playbackId={playbackId}
     streamType="on-demand"
@@ -23,5 +24,6 @@ export const VideoPlayer: FC<Props> = ({ playbackId, width, height, controls, au
     width={width}
     height={height}
     className="rounded"
+    placeholder={placeholder}
   />
 );
