@@ -74,7 +74,7 @@ const Scope3: NextPage<Props> = ({
                     : numberFormat.format(Math.round(environmentalImpact / TIMES_OR_DIVIDE_BY_1000));
 
                 return (
-                  <tr className="max-w-64 b-24" key={ghgCategory}>
+                  <tr className="max-w-64" key={ghgCategory}>
                     <th
                       className="inline-block text-lg"
                       scope="column"
