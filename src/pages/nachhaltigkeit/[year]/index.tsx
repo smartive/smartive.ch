@@ -26,7 +26,7 @@ import { LandingPage } from '../../../layouts/landing-page';
 import '../../_app';
 
 type Props = {
-  year: number;
+  year: keyof typeof individualComparisonOfTheYear;
   calculatedScopes: Scopes[];
   scope3: Scopes[];
   links: { label: string; href: string }[];
@@ -82,7 +82,7 @@ const individualComparisonOfTheYear = {
         'Die Heizung besteht vorübergehend aus Gas, weil die alte Verbrennungsanlage abgebaut wurde und umgelagert wird. Bis zum Anschluss der neuen an unser Gebäude, wird die Heizung mit Gas betrieben.',
     },
   ],
-};
+} as const;
 
 const YearOverview: NextPage<Props> = ({ year: currentYear, calculatedScopes, links, totalEmission, scope3, category1 }) => {
   return (
@@ -171,15 +171,16 @@ const YearOverview: NextPage<Props> = ({ year: currentYear, calculatedScopes, li
     </LandingPage>
   );
 };
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = () => {
   return {
     paths: ALL_YEARS.map((y) => ({ params: { year: y.toString() } })),
-
     fallback: false,
   };
 };
 export const getStaticProps: GetStaticProps<Props> = async (context) => {
-  const year = context.params?.year ? parseInt(context.params.year.toString()) : undefined;
+  const year = context.params?.year
+    ? (parseInt(context.params.year.toString()) as keyof typeof individualComparisonOfTheYear)
+    : undefined;
 
   if (!year) {
     return {

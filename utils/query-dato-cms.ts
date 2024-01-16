@@ -29,13 +29,17 @@ export async function queryDatoCMS<TResult = unknown>({
     Authorization: `Bearer ${process.env.NEXT_DATOCMS_API_TOKEN}`,
   };
 
-  if (includeDrafts) headers['X-Include-Drafts'] = 'true';
+  if (includeDrafts) {
+    headers['X-Include-Drafts'] = 'true';
+  }
 
-  if (process.env.NEXT_DATOCMS_ENVIRONMENT) headers['X-Environment'] = process.env.NEXT_DATOCMS_ENVIRONMENT;
+  if (process.env.NEXT_DATOCMS_ENVIRONMENT) {
+    headers['X-Environment'] = process.env.NEXT_DATOCMS_ENVIRONMENT;
+  }
 
-  let tags = revalidateTags || [];
+  let tags = revalidateTags ?? [];
 
-  if (variables && variables.slug) {
+  if (variables?.slug) {
     tags = [...tags, variables.slug];
   }
 
@@ -47,9 +51,11 @@ export async function queryDatoCMS<TResult = unknown>({
     body: JSON.stringify({ query: print(document), variables }),
   });
 
-  if (!response.ok) throw new Error(`DatoCMS request failed: ${response.statusText}`);
+  if (!response.ok) {
+    throw new Error(`DatoCMS request failed: ${response.statusText}`);
+  }
 
-  const { data } = await response.json();
+  const { data } = (await response.json()) as { data: TResult };
 
   return data;
 }

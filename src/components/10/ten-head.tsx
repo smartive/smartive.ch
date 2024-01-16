@@ -1,11 +1,15 @@
-import { Scroll } from 'scrollex';
+import { Keyframes, Scroll } from 'scrollex';
 import { PageHeader } from '../../compositions/page-header';
 import { ParallaxBlob } from './ParallaxBlob';
 import { Blob, BlobVariants } from './blob';
 import { Logo } from './logo';
 import { TextLogo } from './text-logo';
 
-export const keyframes = {
+export const keyframes: {
+  image: Keyframes[];
+  logo: Keyframes;
+  blob: (from: number, to: number) => Keyframes;
+} = {
   image: [
     ({ section }) => ({
       [section.topAt('container-bottom')]: {
@@ -23,7 +27,7 @@ export const keyframes = {
         translateX: 30,
       },
     }),
-  ],
+  ] as Keyframes[],
   logo: ({ section }) => ({
     [section.topAt('container-bottom')]: {
       scale: -0.5,
@@ -44,12 +48,12 @@ export const keyframes = {
         translateY: from,
       },
     }),
-} as const;
+};
 
 export const TenHead = () => {
   return (
     <Scroll.Section>
-      <PageHeader markdownTitle="smartive wird 10 🥳" metaOnly></PageHeader>
+      <PageHeader markdownTitle="smartive wird 10 🥳" metaOnly />
       <header className="relative mx-auto w-11/12 max-w-screen-xl overflow-visible bg-white-200">
         <Scroll.Item keyframes={keyframes.blob(0, 200)}>
           <Blob variant={BlobVariants.One} className="absolute -left-14 -top-32 z-0 lg:-left-28 lg:-top-64" />

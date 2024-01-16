@@ -14,6 +14,7 @@ import {
   mapColorToLightBG,
   TextLink,
 } from '@smartive/guetzli';
+import NextImage from 'next/image';
 import NextLink from 'next/link';
 import { FC } from 'react';
 import { Section } from '../../../components/layouts/section';
@@ -240,7 +241,14 @@ const Brand: FC = () => (
       </Copy>
       <div className="relative grid grid-cols-3 gap-4 sm:grid-cols-4 sm:gap-6 lg:grid-cols-6">
         {Array.from({ length: 12 }, (_, i) => (
-          <img key={i} src={`images/brand/avatars/avatar${i + 1}.png`} alt="" className="rounded" />
+          <NextImage
+            key={i}
+            src={`/images/brand/avatars/avatar${i + 1}.png`}
+            alt=""
+            width={200}
+            height={200}
+            className="rounded"
+          />
         ))}
       </div>
     </Section>

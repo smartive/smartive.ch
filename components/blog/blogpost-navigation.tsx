@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { PostNavigationDocument } from '../../graphql/generated';
-import { LANG_STRINGS } from '../../utils/const';
+import { LANG_STRINGS, Language } from '../../utils/const';
 import { queryDatoCMS } from '../../utils/query-dato-cms';
 import { Link } from '../nodes';
 
 type Props = {
   currentPostPublished: string;
-  language: string;
+  language: Language;
 };
 
 export const BlogpostNavigation: FC<Props> = async ({ currentPostPublished, language }) => {

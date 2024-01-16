@@ -11,7 +11,9 @@ type Props = {
 export const FilteredProjects: FC<Props> = async ({ topicIds }) => {
   const { allProjects } = await queryDatoCMS({ document: ProjectsByTopicsDocument, variables: { topicIds } });
 
-  if (allProjects.length === 0) return null;
+  if (allProjects.length === 0) {
+    return null;
+  }
 
   return (
     <Grid cols={3}>

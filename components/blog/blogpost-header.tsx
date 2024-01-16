@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { FC } from 'react';
 import { Image as DatoImage, ResponsiveImageType } from 'react-datocms';
-import { LANG_STRINGS } from '../../utils/const';
+import { LANG_STRINGS, Language } from '../../utils/const';
 import { GuetzliCalendar } from '../icons/calendar';
 import { GuetzliClock } from '../icons/clock';
 import { Heading1 } from '../nodes';
@@ -17,7 +17,7 @@ type Props = {
   image: ResponsiveImageType;
   author?: string | null;
   authorImage?: ResponsiveImageType;
-  language: string;
+  language: Language;
 };
 
 export const BlogpostHeader: FC<Props> = ({ title, image, author, authorImage, published, language }) => (
@@ -46,10 +46,10 @@ export const BlogpostHeader: FC<Props> = ({ title, image, author, authorImage, p
             )}
             <div className="flex flex-row items-center">
               <GuetzliClock className="mr-2 h-4 w-4" />
-              <ReadingTime elementId="blogpost" lang={language} />
+              <ReadingTime elementId="blogpost" language={language} />
             </div>
           </div>
-          <CopyUrlButton lang={language} />
+          <CopyUrlButton language={language} />
         </div>
       </div>
     </div>

@@ -2,16 +2,18 @@
 
 import { FC, useEffect } from 'react';
 
-const allowedKeys = {
-  37: 'left',
-  38: 'up',
-  39: 'right',
-  40: 'down',
-  65: 'a',
-  66: 'b',
-};
-
-const konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a'];
+const konamiCode = [
+  'ArrowUp',
+  'ArrowUp',
+  'ArrowDown',
+  'ArrowDown',
+  'ArrowLeft',
+  'ArrowRight',
+  'ArrowLeft',
+  'ArrowRight',
+  'b',
+  'a',
+];
 
 let konamiCodePosition = 0;
 
@@ -63,7 +65,7 @@ const startEasterEgg = () => {
   egg.style.height = '100vh';
   back.appendChild(egg);
 
-  body && body.appendChild(container);
+  body?.appendChild(container);
 
   if (egg.contentWindow) {
     egg.contentWindow.document.body.innerHTML = `<canvas width="512" height="512"></canvas>`;
@@ -76,13 +78,12 @@ const startEasterEgg = () => {
   setTimeout(() => (flipper.style.transform = 'rotateY(180deg)'), 100);
 };
 
-const listener = (e: { keyCode: string | number }) => {
-  const key = allowedKeys[e.keyCode];
+const listener = ({ key }: KeyboardEvent) => {
   const requiredKey = konamiCode[konamiCodePosition];
 
   if (key === requiredKey) {
     konamiCodePosition++;
-    if (konamiCodePosition == konamiCode.length) {
+    if (konamiCodePosition === konamiCode.length) {
       try {
         startEasterEgg();
       } finally {

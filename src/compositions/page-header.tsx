@@ -19,7 +19,7 @@ export const PageHeader: FC<PageHeaderProps> = ({ description, pageTitle, metaOn
   const imageUrl =
     image ?? `${OG_IMAGE_SERVICE_URL}/${encodeURIComponent(props.markdownTitle)}?md=1&fontSize=5rem&fileType=png`;
 
-  const title = pageTitle || purify(props.markdownTitle);
+  const title = pageTitle ?? purify(props.markdownTitle);
 
   return (
     <>

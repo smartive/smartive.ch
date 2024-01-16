@@ -1,7 +1,6 @@
 /* eslint-disable react/forbid-component-props */
 import { merge, useSSRSafeRandomNumber } from '@smartive/guetzli';
 import { AnimatePresence, motion } from 'framer-motion';
-import JSConfetti from 'js-confetti';
 import { GetStaticProps, NextPage } from 'next';
 import NextImage, { StaticImageData } from 'next/legacy/image';
 import NextLink from 'next/link';
@@ -66,19 +65,19 @@ import { TenHead, keyframes } from '../../components/10/ten-head';
 import { Text } from '../../components/10/text';
 import { Link } from '../../elements/link';
 
-let confetti;
-const activeConfettiCannon = () => {
+const fireConfetti = async () => {
   const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  if (!mediaQuery.matches) {
-    if (typeof confetti !== 'object') {
-      confetti = new JSConfetti();
-    }
-
-    confetti.addConfetti({
-      confettiColors: ['#F8935A', '#7DDDD1', '#6986E8'],
-    });
+  if (mediaQuery.matches) {
+    return;
   }
+
+  const Confetti = await import('js-confetti');
+  const confetti = new Confetti.default();
+
+  await confetti.addConfetti({
+    confettiColors: ['#F8935A', '#7DDDD1', '#6986E8'],
+  });
 };
 
 type Props = {
@@ -95,7 +94,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
       .sort((a, b) => a.start - b.start);
 
     setAvatars(team);
-  }, [visibleYear]);
+  }, [visibleYear, employees]);
 
   return (
     <>
@@ -548,7 +547,7 @@ const Ten: NextPage<Props> = ({ employees }) => {
         <div className="fixed bottom-5 right-5 scale-100 rounded-full bg-conic-gradient p-1 shadow-sm transition-transform hover:rotate-6 hover:scale-110">
           <button
             className=" bg-white flex h-12 w-12 items-center justify-center rounded-full bg-white-200"
-            onClick={activeConfettiCannon}
+            onClick={fireConfetti}
           >
             🎉
           </button>
@@ -567,7 +566,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     props: {
       employees: employees
         .map(({ start, portrait, name }) => {
-          if (!portrait?.responsiveImage || !start) return false;
+          if (!portrait?.responsiveImage || !start) {
+            return false;
+          }
 
           return {
             start: start,
@@ -584,8 +585,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 const Container: FC<{
   children: ReactNode;
   className?: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  inViewChange?: any;
+  inViewChange?: (inView: boolean) => void;
 }> = ({ children, className = '', inViewChange }) => {
   const { ref } = useInView({ onChange: inViewChange, threshold: 0.2 });
 
@@ -667,12 +667,12 @@ const GalleryCard = () => {
         </Text>
         <div className="flex flex-col space-y-4 md:flex-row md:space-x-4 md:space-y-0">
           <div className="shrink">
-            <Button as="a" href="/10/fotos" onMouseEnter={activeConfettiCannon}>
+            <Button as="a" href="/10/fotos" onMouseEnter={fireConfetti}>
               📸 Impressionen
             </Button>
           </div>
           <div className="shrink">
-            <Button as="a" href="/10/fotobox" onMouseEnter={activeConfettiCannon}>
+            <Button as="a" href="/10/fotobox" onMouseEnter={fireConfetti}>
               🤡 Fotobox
             </Button>
           </div>

@@ -123,7 +123,7 @@ const Page: NextPage<Props> = ({ images }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = () => {
   const images = STATIC_IMAGES;
 
   return {

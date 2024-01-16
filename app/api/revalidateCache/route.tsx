@@ -15,7 +15,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ status: 401, body: { error: 'Invalid Token' } });
   }
 
-  const { entity_slug, event_type, item_type }: BodyType = await req.json();
+  const { entity_slug, event_type, item_type } = (await req.json()) as BodyType;
 
   const tags: string[] = [];
 
@@ -52,7 +52,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
   try {
     tags.map((tag) => revalidateTag(tag));
-  } catch (error) {
+  } catch (error: unknown) {
     return NextResponse.json({
       status: 500,
       body: { message: 'Failed to clear the cache', error },

@@ -5,11 +5,6 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { mailchimpSignup } from '../app/actions/mailchimp';
 import { classNames } from '../utils/css';
 
-const initialState = {
-  message: null,
-  type: null,
-} as const;
-
 const SubmitButton: FC = () => {
   const { pending } = useFormStatus();
 
@@ -25,31 +20,25 @@ const SubmitButton: FC = () => {
   );
 };
 
-const Messages: FC<{ state?: typeof initialState }> = ({ state }) => {
-  if (!state?.type) return null;
-
-  return (
-    <div
-      className={classNames(
-        'mb-4 border-l-4 bg-opacity-10 p-4',
-        {
-          success: 'border-success bg-success text-success',
-          info: 'border-cornflower-500 bg-cornflower-200 text-cornflower-500',
-          error: 'border-error bg-error text-error',
-        }[state?.type],
-      )}
-    >
-      {state?.message}
-    </div>
-  );
-};
-
 export const NewsletterForm: FC = () => {
-  const [state, formAction] = useFormState(mailchimpSignup, initialState);
+  const [{ type, message }, formAction] = useFormState(mailchimpSignup, { message: undefined, type: undefined });
 
   return (
     <form action={formAction}>
-      <Messages state={state} />
+      {type && (
+        <div
+          className={classNames(
+            'mb-4 border-l-4 bg-opacity-10 p-4',
+            {
+              success: 'border-success bg-success text-success',
+              info: 'border-cornflower-500 bg-cornflower-200 text-cornflower-500',
+              error: 'border-error bg-error text-error',
+            }[type],
+          )}
+        >
+          {message}
+        </div>
+      )}
       <fieldset className="mb-8 flex flex-col space-y-2">
         <label htmlFor="email">Deine E-Mail-Adresse 👇</label>
         <input

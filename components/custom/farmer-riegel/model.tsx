@@ -106,11 +106,13 @@ type GLTFResult = GLTF & {
   };
 };
 
+const nodeKeyMap = { 1: 'Zutat_1', 2: 'Zutat_2', 3: 'Zutat_3' } as const;
+const materialKeyMap = { 1: 'Zutat 1', 2: 'Zutat 2', 3: 'Zutat 3' } as const;
+
 const FarmerGroup: FC<JSX.IntrinsicElements['group'] & { topping?: 'full' | 'bottom' | 'none' }> = (props) => {
   const { nodes, materials } = useGLTF('/three/farmer.glb') as GLTFResult;
   const groupRef = useRef<Group | null>(null);
   const { topping } = props;
-
   useFrame(({ clock }) => {
     if (groupRef.current) {
       groupRef.current.rotation.y = clock.getElapsedTime() / 3;
@@ -118,10 +120,10 @@ const FarmerGroup: FC<JSX.IntrinsicElements['group'] & { topping?: 'full' | 'bot
   });
 
   useEffect(() => {
-    materials['Schokolade voll'].color.set(CHOCOLATE_COLORS['milk']);
-    materials['Schokolade unten'].color.set(CHOCOLATE_COLORS['dark']);
+    materials['Schokolade voll'].color.set(CHOCOLATE_COLORS.milk);
+    materials['Schokolade unten'].color.set(CHOCOLATE_COLORS.dark);
     for (const { color, index } of DOT_INGREDIENTS) {
-      materials[`Zutat ${index}`].color.set(desaturateColor(color));
+      materials[materialKeyMap[index]].color.set(desaturateColor(color));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -134,9 +136,9 @@ const FarmerGroup: FC<JSX.IntrinsicElements['group'] & { topping?: 'full' | 'bot
       {DOT_INGREDIENTS.map(({ index }) => (
         <mesh
           key={index}
-          geometry={nodes[`Zutat_${index}`].geometry}
+          geometry={nodes[nodeKeyMap[index]].geometry}
           visible={topping !== 'full'}
-          material={materials[`Zutat ${index}`]}
+          material={materials[materialKeyMap[index]]}
         />
       ))}
     </group>

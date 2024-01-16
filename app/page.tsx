@@ -13,7 +13,7 @@ export async function generateMetadata() {
     includeDrafts: draftMode().isEnabled,
   });
 
-  return toNextMetadata([...data.site.favicon, ...(data.page?.seo || [])]);
+  return toNextMetadata([...data.site.favicon, ...(data.page?.seo ?? [])]);
 }
 
 export default async function ContentPage() {
@@ -23,11 +23,13 @@ export default async function ContentPage() {
     includeDrafts: draftMode().isEnabled,
   });
 
-  if (!page) notFound();
+  if (!page) {
+    notFound();
+  }
 
   return (
     <Page>
-      <ContentBlocks blocks={page.content as Array<PageModelContentField>} />
+      <ContentBlocks blocks={page.content as PageModelContentField[]} />
     </Page>
   );
 }

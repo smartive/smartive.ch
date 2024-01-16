@@ -148,7 +148,7 @@ const Scope3: NextPage<Props> = ({
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = () => {
   return {
     paths: ALL_YEARS.map((y) => ({ params: { year: y.toString() } })),
     fallback: false,

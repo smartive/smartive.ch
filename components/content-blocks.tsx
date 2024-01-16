@@ -28,60 +28,69 @@ import { VideoBlock } from './blocks/video';
 
 type Props = {
   blocks:
-    | Array<ProjectModelContentField>
-    | Array<PageModelContentField>
-    | Array<OfferModelContentField>
-    | Array<BlogpostModelContentField>
-    | Array<TopicModelContentField>;
+    | ProjectModelContentField[]
+    | PageModelContentField[]
+    | OfferModelContentField[]
+    | BlogpostModelContentField[]
+    | TopicModelContentField[];
 };
 
 export const ContentBlocks: FC<Props> = ({ blocks }) => (
   <>
-    {blocks.map((block) => {
-      switch (block.__typename) {
-        case 'VideoRecord':
-          return <VideoBlock key={block.id} block={block} />;
-        case 'TextRecord':
-          return <TextBlock key={block.id} block={block} />;
-        case 'TwoColsTextRecord':
-          return <TwoColsTextBlock key={block.id} block={block} />;
-        case 'ThreeColsTextRecord':
-          return <ThreeColsTextBlock key={block.id} block={block} />;
-        case 'ImageRecord':
-          return <ImageBlock key={block.id} block={block} />;
-        case 'QuoteRecord':
-          return <QuoteBlock key={block.id} block={block} />;
-        case 'ContactRecord':
-          return <ContactBlock key={block.id} block={block} />;
-        case 'KeyfigureRecord':
-          return <KeyfigureBlock key={block.id} block={block} />;
-        case 'ImageTextRecord':
-          return <ImageTextBlock key={block.id} block={block} />;
-        case 'CustomRecord':
-          return <CustomBlock key={block.id} block={block} />;
-        case 'ImageGridRecord':
-          return <ImageGridBlock key={block.id} block={block} />;
-        case 'ProjectsOverviewRecord':
-          return <ProjectsOverviewBlock key={block.id} block={block} />;
-        case 'LogoGridRecord':
-          return <LogoGridBlock key={block.id} block={block} />;
-        case 'IframeRecord':
-          return <IframeBlock key={block.id} block={block} />;
-        case 'TableRecord':
-          return <TableBlock key={block.id} block={block} />;
-        case 'TeaserSelectionRecord':
-          return <TeaserSelectionBlock key={block.id} block={block} />;
-        case 'TeamOverviewRecord':
-          return <TeamOverviewBlock key={block.id} block={block} />;
-        case 'NewsletterRecord':
-          return <NewsletterBlock key={block.id} block={block} />;
-        case 'BlogOverviewRecord':
-          return <BlogOverviewBlock key={block.id} block={block} />;
-        default:
-          console.error('Unknown block type', block);
+    {blocks.map(
+      (
+        block:
+          | ProjectModelContentField
+          | PageModelContentField
+          | OfferModelContentField
+          | BlogpostModelContentField
+          | TopicModelContentField,
+      ) => {
+        switch (block.__typename) {
+          case 'VideoRecord':
+            return <VideoBlock key={block.id} block={block} />;
+          case 'TextRecord':
+            return <TextBlock key={block.id} block={block} />;
+          case 'TwoColsTextRecord':
+            return <TwoColsTextBlock key={block.id} block={block} />;
+          case 'ThreeColsTextRecord':
+            return <ThreeColsTextBlock key={block.id} block={block} />;
+          case 'ImageRecord':
+            return <ImageBlock key={block.id} block={block} />;
+          case 'QuoteRecord':
+            return <QuoteBlock key={block.id} block={block} />;
+          case 'ContactRecord':
+            return <ContactBlock key={block.id} block={block} />;
+          case 'KeyfigureRecord':
+            return <KeyfigureBlock key={block.id} block={block} />;
+          case 'ImageTextRecord':
+            return <ImageTextBlock key={block.id} block={block} />;
+          case 'CustomRecord':
+            return <CustomBlock key={block.id} block={block} />;
+          case 'ImageGridRecord':
+            return <ImageGridBlock key={block.id} block={block} />;
+          case 'ProjectsOverviewRecord':
+            return <ProjectsOverviewBlock key={block.id} block={block} />;
+          case 'LogoGridRecord':
+            return <LogoGridBlock key={block.id} block={block} />;
+          case 'IframeRecord':
+            return <IframeBlock key={block.id} block={block} />;
+          case 'TableRecord':
+            return <TableBlock key={block.id} block={block} />;
+          case 'TeaserSelectionRecord':
+            return <TeaserSelectionBlock key={block.id} block={block} />;
+          case 'TeamOverviewRecord':
+            return <TeamOverviewBlock key={block.id} block={block} />;
+          case 'NewsletterRecord':
+            return <NewsletterBlock key={block.id} block={block} />;
+          case 'BlogOverviewRecord':
+            return <BlogOverviewBlock key={block.id} block={block} />;
+          default:
+            console.error('Unknown block type', block);
 
-          return null;
-      }
-    })}
+            return null;
+        }
+      },
+    )}
   </>
 );

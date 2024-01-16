@@ -2,7 +2,7 @@ import { merge } from '@smartive/guetzli';
 import Glider from 'glider-js';
 import 'glider-js/glider.min.css';
 import NextImage from 'next/legacy/image';
-import { FC, useCallback, useEffect, useRef, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import Gallery from 'react-photo-gallery-next';
 import { Photo, rokkaLoader } from '../../services/cloud-storage';
 
@@ -12,72 +12,69 @@ type Props = {
 };
 
 export const SmartGallery: FC<Props> = ({ photos, dark = true }) => {
-  const gliderListRef = useRef(null);
+  const gliderListRef = useRef<HTMLDivElement>(null);
 
   const [currentImage, setCurrentImage] = useState<number | null>(null);
   const showViewer = currentImage !== null;
-
-  const openLightbox = useCallback((event, { index }) => {
-    setCurrentImage(index);
-  }, []);
 
   const closeLightbox = () => {
     setCurrentImage(null);
   };
 
   useEffect(() => {
-    let glider;
-    let handleCloseAndArrow;
-    if (showViewer && gliderListRef.current) {
-      glider = new Glider(gliderListRef.current, {
-        slidesToShow: 1,
-        draggable: false,
-        slidesToScroll: 1,
-        scrollLock: true,
-        arrows: {
-          prev: '.glider-prev-test',
-          next: '.glider-next-test',
-        },
-      });
-
-      handleCloseAndArrow = (e) => {
-        if (e.key === 'Escape') {
-          closeLightbox();
-        } else if (e.key === 'ArrowLeft') {
-          glider.scrollItem(glider.getCurrentSlide() - 1);
-        } else if (e.key === 'ArrowRight') {
-          glider.scrollItem(glider.getCurrentSlide() + 1);
-        }
-      };
-      window.addEventListener('keydown', handleCloseAndArrow);
-
-      glider.scrollItem(currentImage);
-      glider.refresh(true);
+    if (!(showViewer && gliderListRef.current)) {
+      return;
     }
 
-    return () => {
-      glider && glider.destroy();
-      handleCloseAndArrow && window.removeEventListener('keydown', handleCloseAndArrow);
+    const glider = new Glider(gliderListRef.current, {
+      slidesToShow: 1,
+      draggable: false,
+      slidesToScroll: 1,
+      scrollLock: true,
+      arrows: {
+        prev: '.glider-prev-test',
+        next: '.glider-next-test',
+      },
+    });
+
+    const handleCloseAndArrow = ({ key }: KeyboardEvent) => {
+      if (key === 'Escape') {
+        closeLightbox();
+      } else if (key === 'ArrowLeft') {
+        glider.scrollItem(glider.slide - 1, false);
+      } else if (key === 'ArrowRight') {
+        glider.scrollItem(glider.slide + 1, false);
+      }
     };
-  }, [currentImage]);
+
+    window.addEventListener('keydown', handleCloseAndArrow);
+
+    glider.scrollItem(currentImage, false);
+    glider.refresh(true);
+
+    return () => {
+      glider.destroy();
+      window.removeEventListener('keydown', handleCloseAndArrow);
+    };
+  }, [currentImage, showViewer]);
 
   return (
     <>
       <div className={merge(['sm:px-2 md:px-8 md:pb-8', dark ? 'bg-black' : ''])}>
         <Gallery
           photos={photos}
-          onClick={openLightbox}
+          onClick={(_, { index }) => setCurrentImage(index)}
           renderImage={({ photo, index, onClick }) => {
             return (
               <NextImage
-                key={'image-' + photo.key}
+                key={`image-${photo.key}`}
                 src={photo.src}
                 width={photo.width}
                 height={photo.height}
                 onClick={(event) => onClick?.(event, { index })}
                 className={'cursor-pointer'}
                 loader={rokkaLoader}
-              ></NextImage>
+              />
             );
           }}
         />

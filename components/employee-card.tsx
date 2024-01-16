@@ -26,7 +26,7 @@ export const EmployeeCard: FC<Props> = ({
   const links = [
     email && {
       label: email,
-      url: 'mailto:' + email,
+      url: `mailto:${email}`,
     },
     linkedin && {
       label: 'LinkedIn',
@@ -38,7 +38,7 @@ export const EmployeeCard: FC<Props> = ({
     },
   ].filter(isTruthy);
 
-  const colorIndex = Math.floor(Math.random() * SmartiveColors.length);
+  const colorIndex = Math.floor(Math.random() * SmartiveColors.length) as 0 | 1 | 2;
   const alt = `Portraitfoto von ${name}`;
 
   return (

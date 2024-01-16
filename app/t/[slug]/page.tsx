@@ -22,7 +22,7 @@ export async function generateMetadata({ params: { slug } }: Params) {
     includeDrafts: draftMode().isEnabled,
   });
 
-  return toNextMetadata([...site.favicon, ...(topic?.seo || [])]);
+  return toNextMetadata([...site.favicon, ...(topic?.seo ?? [])]);
 }
 
 export default async function TopicPage({ params: { slug } }: Params) {
@@ -32,7 +32,9 @@ export default async function TopicPage({ params: { slug } }: Params) {
     includeDrafts: draftMode().isEnabled,
   });
 
-  if (!topic) notFound();
+  if (!topic) {
+    notFound();
+  }
 
   const hasProjectsOverviewBlock = topic.content.some((block) => block.__typename === 'ProjectsOverviewRecord');
 
@@ -44,7 +46,7 @@ export default async function TopicPage({ params: { slug } }: Params) {
         </header>
       )}
 
-      <ContentBlocks blocks={topic.content as Array<TopicModelContentField>} />
+      <ContentBlocks blocks={topic.content as TopicModelContentField[]} />
 
       {!hasProjectsOverviewBlock && (
         <BlockWrapper marginTop="small">

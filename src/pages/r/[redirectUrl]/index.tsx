@@ -51,15 +51,15 @@ const RedirectUrl: NextPage<Props> = ({ title, url, description, image, language
   </LandingPage>
 );
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = () => {
   return {
     paths: DOMAIN_REDIRECTS.map(({ key }) => ({ params: { redirectUrl: key } })),
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const data = params?.redirectUrl && GiveawayPagesContent[params.redirectUrl.toString()];
+export const getStaticProps: GetStaticProps<Props> = ({ params }) => {
+  const data = params?.redirectUrl && (GiveawayPagesContent[params.redirectUrl.toString()] as Props);
 
   if (!data) {
     return { notFound: true };

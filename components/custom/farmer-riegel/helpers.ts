@@ -26,7 +26,7 @@ export const DOT_INGREDIENTS = [
   { color: 'hsla(223, 24%, 35%, 1)', index: 1 },
   { color: 'hsla(2, 62%, 52%, 1)', index: 2 },
   { color: 'hsla(18, 58%, 45%, 1)', index: 3 },
-];
+] as const;
 
 export const desaturateColor = (color: string) => {
   const [hue, saturation, lightness] = color

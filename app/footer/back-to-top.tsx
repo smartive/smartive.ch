@@ -10,16 +10,11 @@ export const BackToTop = () => {
   const { scrollYProgress } = useScroll();
   const [animate, setAnimate] = useState(false);
 
-  useEffect(
-    () =>
-      scrollYProgress.on('change', (e) => {
-        const unsubscribe = setAnimate(e === 1);
+  useEffect(() => {
+    scrollYProgress.on('change', (latestPosition) => setAnimate(latestPosition >= 1));
 
-        return unsubscribe;
-      }),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  );
+    return () => scrollYProgress.destroy();
+  }, [scrollYProgress]);
 
   return (
     <LazyMotion strict features={loadFramerFeatures}>

@@ -23,7 +23,7 @@ export async function generateMetadata({ params: { slug } }: Params) {
     includeDrafts: draftMode().isEnabled,
   });
 
-  return toNextMetadata([...data.site.favicon, ...(data.page?.seo || [])]);
+  return toNextMetadata([...data.site.favicon, ...(data.page?.seo ?? [])]);
 }
 
 export async function generateStaticParams() {
@@ -45,13 +45,15 @@ export default async function ContentPage({ params: { slug } }: Params) {
     includeDrafts: draftMode().isEnabled,
   });
 
-  if (!page) notFound();
+  if (!page) {
+    notFound();
+  }
 
   await validateRoutes(page as unknown as PageRecord, slug);
 
   return (
     <Page>
-      <ContentBlocks blocks={page.content as Array<PageModelContentField>} />
+      <ContentBlocks blocks={page.content as PageModelContentField[]} />
     </Page>
   );
 }

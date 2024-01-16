@@ -14,7 +14,7 @@ const generatePreviewUrl = async ({ item, itemType }: generatePreviewUrlParams) 
         const { pages } = await getAllDatoRoutes();
         const page = pages.find(({ path }) => path.includes(item.attributes.slug));
 
-        return page?.path || null;
+        return page?.path ?? null;
       }
 
       return `/${item.attributes.slug}`;
@@ -38,7 +38,7 @@ const headers = {
   'Content-Type': 'application/json',
 };
 
-export async function OPTIONS() {
+export function OPTIONS() {
   return NextResponse.json('ok', { status: 200, headers });
 }
 
@@ -60,17 +60,19 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
   const previewLinks: { label: string; url: string }[] = [];
 
-  if (parsedRequest.item.meta.status !== 'draft')
+  if (parsedRequest.item.meta.status !== 'draft') {
     previewLinks.push({
       label: 'Published version',
       url: `${baseUrl}/disable?url=${url}`,
     });
+  }
 
-  if (parsedRequest.item.meta.status !== 'published')
+  if (parsedRequest.item.meta.status !== 'published') {
     previewLinks.push({
       label: 'Draft version',
       url: `${baseUrl}/enable?url=${url}&token=${token}`,
     });
+  }
 
   return NextResponse.json({ previewLinks }, { status: 200, headers });
 }

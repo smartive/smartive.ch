@@ -4,6 +4,7 @@ import { AnimatePresence, domMax, LazyMotion, m as motion } from 'framer-motion'
 import { FC, ReactNode, useMemo, useRef, useState } from 'react';
 import { StateMachine } from 'xstate';
 import { getMeta } from '../machines/get-meta';
+import { FormType } from '../machines/interactive-quiz';
 
 const Stack: FC<{ children?: ReactNode }> = ({ children }) => <div className="flex flex-col gap-4">{children}</div>;
 
@@ -15,27 +16,21 @@ type Props = {
 };
 
 type OptionsType = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  continue: ({ value, text, width }: { value: any; text: any; width?: string | undefined }) => JSX.Element;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  skip: ({ text }: { text: any }) => JSX.Element;
+  continue: ({ value, text, width }: { value: string; text: string; width?: string | undefined }) => JSX.Element;
+  skip: ({ text }: { text: string }) => JSX.Element;
   input: ({
     type,
     label,
     placeholder,
     required,
   }: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    type: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    label: any;
-    placeholder: any;
-    required?: boolean | undefined;
+    type: FormType;
+    label?: string;
+    placeholder?: string;
+    required?: boolean;
   }) => JSX.Element;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  textarea: ({ label }: { label: any }) => JSX.Element;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  'inline-skip': ({ text }: { text: any }) => JSX.Element;
+  textarea: ({ label }: { label: string }) => JSX.Element;
+  'inline-skip': ({ text }: { text: string }) => JSX.Element;
 };
 
 export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
@@ -52,7 +47,7 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
             as="button"
             key={text}
             onClick={() => {
-              const input = value || ref.current?.value;
+              const input = value ?? ref.current?.value;
               send({ type: 'CONTINUE', value: input });
             }}
           >
@@ -107,7 +102,7 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const form = getMeta('form', { machine, state } as any);
 
-  if (state.matches('error'))
+  if (state.matches('error')) {
     return (
       <Card background="mint">
         <div className="mx-auto md:w-2/3 md:p-16 lg:w-1/2">
@@ -131,6 +126,7 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
         </div>
       </Card>
     );
+  }
 
   return (
     <LazyMotion strict features={domMax}>

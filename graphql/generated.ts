@@ -278,6 +278,7 @@ export type EmployeeModelFilter = {
   github?: InputMaybe<StringFilter>;
   id?: InputMaybe<ItemIdFilter>;
   image?: InputMaybe<FileFilter>;
+  imagePortrait?: InputMaybe<FileFilter>;
   job?: InputMaybe<StringFilter>;
   linkedin?: InputMaybe<StringFilter>;
   name?: InputMaybe<StringFilter>;
@@ -348,6 +349,7 @@ export type EmployeeRecord = RecordInterface & {
   github?: Maybe<Scalars['String']['output']>;
   id: Scalars['ItemId']['output'];
   image?: Maybe<FileField>;
+  imagePortrait?: Maybe<FileField>;
   job?: Maybe<Scalars['String']['output']>;
   linkedin?: Maybe<Scalars['String']['output']>;
   name: Scalars['String']['output'];
@@ -3103,6 +3105,7 @@ export type SeoField = {
   __typename?: 'SeoField';
   description?: Maybe<Scalars['String']['output']>;
   image?: Maybe<FileField>;
+  noIndex?: Maybe<Scalars['BooleanType']['output']>;
   title?: Maybe<Scalars['String']['output']>;
   twitterCard?: Maybe<Scalars['String']['output']>;
 };
@@ -3119,6 +3122,7 @@ export type Site = {
   faviconMetaTags: Array<Tag>;
   globalSeo?: Maybe<GlobalSeoField>;
   locales: Array<SiteLocale>;
+  noIndex?: Maybe<Scalars['BooleanType']['output']>;
 };
 
 

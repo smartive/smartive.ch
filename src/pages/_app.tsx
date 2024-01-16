@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const pathname = usePathname();
 
   return (
-    <PlausibleProvider domain={PLAUSIBLE_DOMAIN || ''} enabled={PLAUSIBLE_ENABLED}>
+    <PlausibleProvider domain={PLAUSIBLE_DOMAIN ?? ''} enabled={PLAUSIBLE_ENABLED}>
       <div className={`grid min-h-screen grid-rows-[auto,1fr,auto] overflow-hidden ${inter.variable} ${ibm_plex.variable}`}>
         <Head>
           <meta

@@ -78,10 +78,10 @@ export interface Kategorie {
 
 export interface Rollup {
   type: string;
-  array: Array[];
+  array: Array1[];
 }
 
-export interface Array {
+export interface Array1 {
   type: string;
   title: Title[];
 }

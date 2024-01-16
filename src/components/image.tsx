@@ -10,7 +10,7 @@ export enum ImageVariant {
 }
 
 const cloudinaryLoader = ({ src, width, quality }: ImageLoaderProps) => {
-  const params = ['f_auto', 'c_limit', 'w_' + width, 'q_' + (quality || 'auto')];
+  const params = ['f_auto', 'c_limit', 'w_' + width, 'q_' + (quality ?? 'auto')];
   const paramsString = params.join(',');
 
   return `https://res.cloudinary.com/smartive/image/upload/${paramsString}/${src.replace(
@@ -20,6 +20,7 @@ const cloudinaryLoader = ({ src, width, quality }: ImageLoaderProps) => {
 };
 
 type Props = {
+  src: string;
   variant?: ImageVariant;
   rounded?: 'full' | 'default' | 'none';
   caption?: string | ReactNode;
@@ -54,11 +55,11 @@ export const Image: FC<Props> = ({ alt, rounded = 'default', src, caption, varia
         style={{
           width:
             variant === ImageVariant.PortraitSmall || variant === ImageVariant.PortraitBig
-              ? Number.parseInt(props.width?.toString() || '0', 10) / 2
+              ? Number.parseInt(props.width?.toString() ?? '0', 10) / 2
               : undefined,
           height:
             variant === ImageVariant.PortraitSmall || variant === ImageVariant.PortraitBig
-              ? Number.parseInt(props.height?.toString() || '0', 10) / 2
+              ? Number.parseInt(props.height?.toString() ?? '0', 10) / 2
               : undefined,
         }}
       />

@@ -3,6 +3,15 @@ module.exports = {
   extends: ['next', '@smartive/eslint-config/react'],
   root: true,
   rules: {
+    // still needed for: interactive-quiz.tsx, salary-calculator.tsx, get-meta.ts.
+    // fixes for these eslint rules will be done in a separate PR - parallel to xstate upgrade
+    '@typescript-eslint/no-unsafe-member-access': 'warn',
+    '@typescript-eslint/no-unsafe-call': 'warn',
+    '@typescript-eslint/no-unsafe-return': 'warn',
+    '@typescript-eslint/no-unsafe-argument': 'warn',
+    '@typescript-eslint/no-unsafe-assignment': 'warn',
+    '@typescript-eslint/no-base-to-string': 'warn',
+
     'react/forbid-component-props': [
       'error',
       {

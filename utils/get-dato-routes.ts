@@ -45,7 +45,9 @@ const generatePagePathnames = (pages: PagePath[]): Route[] => {
 
   // We replace /home with / because we redirect /home to / in middleware.ts
   const homeIndex = pathnames.findIndex(({ path }) => path === '/home');
-  if (homeIndex > -1) pathnames[homeIndex].path = '/';
+  if (homeIndex > -1) {
+    pathnames[homeIndex].path = '/';
+  }
 
   return pathnames;
 };

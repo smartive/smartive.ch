@@ -8,7 +8,7 @@ type Props = {
   block: ProjectsOverviewBlockFragment;
 };
 
-export const ProjectsOverviewBlock: FC<Props> = async ({
+export const ProjectsOverviewBlock: FC<Props> = ({
   block: { filterByTopics, selectedTestimonial, disableMarginTop, disableMarginBottom },
 }) => {
   if (filterByTopics.length > 0) {

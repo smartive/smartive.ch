@@ -9,7 +9,7 @@ type Props = {
   block: ContactBlockFragment;
 };
 
-export const ContactBlock: FC<Props> = async ({ block: { text, contact } }) => {
+export const ContactBlock: FC<Props> = ({ block: { text, contact } }) => {
   const { email, tel, name, booking, portrait } = contact;
   const firstName = name.split(' ')[0];
 
@@ -18,7 +18,9 @@ export const ContactBlock: FC<Props> = async ({ block: { text, contact } }) => {
     { label: tel, href: `tel:${tel}`, title: `Anrufen bei ${firstName}` },
   ];
 
-  if (booking) links.unshift({ label: 'Termin buchen', href: booking, title: `Termin bei ${firstName} buchen` });
+  if (booking) {
+    links.unshift({ label: 'Termin buchen', href: booking, title: `Termin bei ${firstName} buchen` });
+  }
 
   return (
     <BlockWrapper>

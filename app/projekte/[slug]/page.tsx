@@ -20,7 +20,7 @@ export async function generateMetadata({ params: { slug } }: Params) {
     includeDrafts: draftMode().isEnabled,
   });
 
-  return toNextMetadata([...site.favicon, ...(project?.seo || [])]);
+  return toNextMetadata([...site.favicon, ...(project?.seo ?? [])]);
 }
 
 export default async function ProjectPage({ params: { slug } }: Params) {
@@ -30,7 +30,9 @@ export default async function ProjectPage({ params: { slug } }: Params) {
     includeDrafts: draftMode().isEnabled,
   });
 
-  if (!project) notFound();
+  if (!project) {
+    notFound();
+  }
 
   return (
     <Page>
@@ -42,7 +44,7 @@ export default async function ProjectPage({ params: { slug } }: Params) {
         </header>
       )}
 
-      <ContentBlocks blocks={project.content as Array<ProjectModelContentField>} />
+      <ContentBlocks blocks={project.content as ProjectModelContentField[]} />
     </Page>
   );
 }

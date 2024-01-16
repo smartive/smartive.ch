@@ -4,8 +4,7 @@ import {
   OffersFragment,
   ProjectsFragment,
   TeaserCardFragment,
-  TeaserSelectionBlockFragment,
-  TeaserSelectionModelTeasersField,
+  TeaserSelectionRecord,
 } from '../../graphql/generated';
 import { SmartiveColorsType } from '../../utils/color';
 import { BlogpostCard } from '../blog/blogpost-card';
@@ -16,7 +15,7 @@ import { ProjectCard } from '../projects/project-card';
 import { TeaserCard } from '../teaser-card';
 
 type Props = {
-  block: TeaserSelectionBlockFragment;
+  block: TeaserSelectionRecord;
 };
 
 const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragment | BlogpostCardFragment }> = ({
@@ -78,7 +77,7 @@ const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragmen
 export const TeaserSelectionBlock: FC<Props> = ({ block: { teasers, disableMarginTop, disableMarginBottom } }) => (
   <BlockWrapper marginTop={disableMarginTop ? 'none' : 'large'} marginBottom={disableMarginBottom ? 'none' : 'large'}>
     <Grid cols={(teasers?.length ?? 3) as 2 | 3 | 4}>
-      {teasers?.map((teaser) => <Teaser key={teaser.id} teaser={teaser as TeaserSelectionModelTeasersField} />)}
+      {teasers?.map((teaser) => <Teaser key={teaser.id} teaser={teaser} />)}
     </Grid>
   </BlockWrapper>
 );

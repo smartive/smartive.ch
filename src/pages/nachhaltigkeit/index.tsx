@@ -1,6 +1,5 @@
 import { Button, ChevronRight, Copy, Grid, Heading2, Heading3, TextBlock } from '@smartive/guetzli';
 import 'charts.css/dist/charts.min.css';
-import type JSConfetti from 'js-confetti';
 import { GetStaticProps, NextPage } from 'next';
 import { CSSProperties, useEffect, useState } from 'react';
 import { Section } from '../../../components/layouts/section';
@@ -152,7 +151,7 @@ const Sustainabilty: NextPage<Props> = ({ numberOfEmployees, comparisonTexts, al
                     <span
                       onMouseEnter={async () => {
                         const Confetti = await import('js-confetti');
-                        const confetti = new Confetti.default() as JSConfetti;
+                        const confetti = new Confetti.default();
                         await confetti.addConfetti({
                           emojis: [comparisonText.emoji],
                           confettiNumber: 30,

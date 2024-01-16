@@ -134,10 +134,10 @@ export interface Kategorie {
 
 export interface Rollup {
   type: string;
-  array: Array[];
+  array: ArrayType[];
 }
 
-export interface Array {
+export interface ArrayType {
   type: string;
   title: Title[];
 }

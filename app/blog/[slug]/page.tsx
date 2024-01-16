@@ -7,7 +7,7 @@ import { ContentBlocks } from '../../../components/content-blocks';
 import { Page } from '../../../components/layouts/page';
 import { BlogpostModelContentField, PostDocument } from '../../../graphql/generated';
 import mediumBlogSlugs from '../../../src/data/medium-blog-slugs.json';
-import { LANG_STRINGS } from '../../../utils/const';
+import { LANG_STRINGS, Language } from '../../../utils/const';
 import { queryDatoCMS } from '../../../utils/query-dato-cms';
 
 require('dayjs/locale/de');
@@ -25,7 +25,7 @@ export async function generateMetadata({ params: { slug } }: Params) {
     includeDrafts: draftMode().isEnabled,
   });
 
-  const language = blogpost?.language ?? 'de';
+  const language: Language = (blogpost?.language as Language) ?? 'de';
 
   const datoMetadata = toNextMetadata([...site.favicon]);
 
@@ -57,7 +57,7 @@ export async function generateMetadata({ params: { slug } }: Params) {
 
 export default async function BlogpostPage({ params: { slug } }: Params) {
   const isMediumSlug = slug && Object.keys(mediumBlogSlugs).includes(slug.toString().toLowerCase());
-  const smartiveBlogSlug = slug && mediumBlogSlugs[slug.toString()];
+  const smartiveBlogSlug = slug && (mediumBlogSlugs as Record<string, string>)[slug.toString()];
 
   if (isMediumSlug) {
     permanentRedirect(smartiveBlogSlug ? `/blog/${smartiveBlogSlug}` : `https://medium.com/smartive/${slug}`);
@@ -69,7 +69,9 @@ export default async function BlogpostPage({ params: { slug } }: Params) {
     includeDrafts: draftMode().isEnabled,
   });
 
-  if (!blogpost) notFound();
+  if (!blogpost) {
+    notFound();
+  }
 
   const { title, content, published, image, author, altAuthor, language } = blogpost;
 
@@ -81,7 +83,7 @@ export default async function BlogpostPage({ params: { slug } }: Params) {
         image={image?.responsiveImage}
         authorImage={author?.portrait?.responsiveImage ?? undefined}
         author={author?.name ?? altAuthor}
-        language={language}
+        language={language as Language}
       />
       <div
         id="blogpost"
@@ -90,9 +92,9 @@ export default async function BlogpostPage({ params: { slug } }: Params) {
         lang={language}
         className="max-w-[1000px] [&>*:first-child]:mt-0"
       >
-        <ContentBlocks blocks={content as Array<BlogpostModelContentField>} />
+        <ContentBlocks blocks={content as BlogpostModelContentField[]} />
       </div>
-      {published && <BlogpostNavigation currentPostPublished={published} language={language} />}
+      {published && <BlogpostNavigation currentPostPublished={published} language={language as Language} />}
     </Page>
   );
 }

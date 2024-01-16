@@ -32,7 +32,9 @@ export const VideoBlock: FC<Props> = ({ block: { videoType, video, videoFile, lo
   if (videoType === 'external') {
     const videoSrc = getVideoSrc(video, { controls: controls ?? true, loop: loop ?? false, autoplay: autoplay ?? false });
 
-    if (!videoSrc) return null;
+    if (!videoSrc) {
+      return null;
+    }
 
     return (
       <BlockWrapper marginTop="small" marginBottom="small">

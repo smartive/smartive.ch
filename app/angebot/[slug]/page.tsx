@@ -21,7 +21,7 @@ export async function generateMetadata({ params: { slug } }: Params) {
     includeDrafts: draftMode().isEnabled,
   });
 
-  return toNextMetadata([...site.favicon, ...(offer?.seo || [])]);
+  return toNextMetadata([...site.favicon, ...(offer?.seo ?? [])]);
 }
 
 export default async function ProjectPage({ params: { slug } }: Params) {
@@ -31,7 +31,9 @@ export default async function ProjectPage({ params: { slug } }: Params) {
     includeDrafts: draftMode().isEnabled,
   });
 
-  if (!offer) notFound();
+  if (!offer) {
+    notFound();
+  }
 
   return (
     <Page>
@@ -41,7 +43,7 @@ export default async function ProjectPage({ params: { slug } }: Params) {
         description={offer.description}
         color={offer.color as SmartiveColorsType}
       />
-      <ContentBlocks blocks={offer.content as Array<OfferModelContentField>} />
+      <ContentBlocks blocks={offer.content as OfferModelContentField[]} />
     </Page>
   );
 }

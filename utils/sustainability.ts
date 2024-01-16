@@ -47,7 +47,10 @@ export const sortScope = (scopes: Scopes[]) =>
   scopes.sort((firstElement, secondElement) => firstElement.ghgCategory.localeCompare(secondElement.ghgCategory));
 
 export const getDistanceFromGoogleMaps = async (destination: string) => {
-  if (!destination) return 0;
+  if (!destination) {
+    return 0;
+  }
+
   const response = await fetch(
     `${process.env.GOOGLEMAPS_URL}?${querystring.encode({
       origins: 'Pfingstweidstrasse 60, 8004 Zurich',

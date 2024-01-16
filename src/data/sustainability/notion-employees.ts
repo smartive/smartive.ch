@@ -162,14 +162,14 @@ export interface EnvImpactHomeOffice {
   formula: Formula;
 }
 
-export interface Array {
+export interface Array1 {
   type: string;
   number: number;
 }
 
 export interface Rollup {
   type: string;
-  array: Array[];
+  array: Array1[];
 }
 
 export interface Emissionsfaktor {

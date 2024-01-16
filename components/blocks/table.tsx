@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const TableBlock: FC<Props> = ({ block: { table, showTableHeader } }) => {
-  const { columns, data } = table as { columns: string[]; data: { [key: string]: string }[] };
+  const { columns, data } = table as { columns: string[]; data: Record<string, string>[] };
 
   return (
     <BlockWrapper>
