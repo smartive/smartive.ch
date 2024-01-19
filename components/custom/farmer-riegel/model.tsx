@@ -144,5 +144,3 @@ const FarmerGroup: FC<JSX.IntrinsicElements['group'] & { topping?: 'full' | 'bot
     </group>
   );
 };
-
-useGLTF.preload('/three/farmer.glb');
