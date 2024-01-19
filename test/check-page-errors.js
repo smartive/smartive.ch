@@ -12,6 +12,7 @@ const ignoreListErrors = [
   '[Fast Refresh] performing full reload', // Nextjs Fast Refresh is a feature in dev mode, don't worry about it
   'GPU stall due to ReadPixels', // Farmer project
   "It looks like the video you're trying to play will not work on this system!", // HLS streaming video
+  'Third-party cookie will be blocked. Learn more in the Issues tab.',
 ];
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',
