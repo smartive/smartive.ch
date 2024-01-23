@@ -55,7 +55,7 @@ import skitag from '../../../public/images/anniversary/2022/skitag.jpg';
 import stadtfueahrig from '../../../public/images/anniversary/2022/stadtfueahrig.jpeg';
 import { isTruthy } from '../../../utils/common';
 import { queryDatoCMS } from '../../../utils/query-dato-cms';
-import { ParallaxBlob } from '../../components/10/ParallaxBlob';
+import { ParallaxBlob } from '../../components/10/parallax-blob';
 import { Avatar } from '../../components/10/avatar';
 import { BlobVariants } from '../../components/10/blob';
 import { Button } from '../../components/10/button';

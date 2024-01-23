@@ -1,6 +1,6 @@
 import { Keyframes, Scroll } from 'scrollex';
 import { PageHeader } from '../../compositions/page-header';
-import { ParallaxBlob } from './ParallaxBlob';
+import { ParallaxBlob } from './parallax-blob';
 import { Blob, BlobVariants } from './blob';
 import { Logo } from './logo';
 import { TextLogo } from './text-logo';

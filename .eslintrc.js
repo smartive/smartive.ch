@@ -2,6 +2,7 @@
 module.exports = {
   extends: ['next', '@smartive/eslint-config/react'],
   root: true,
+  plugins: ['validate-filename'],
   rules: {
     // still needed for: interactive-quiz.tsx, salary-calculator.tsx, get-meta.ts.
     // fixes for these eslint rules will be done in a separate PR - parallel to xstate upgrade
@@ -12,6 +13,19 @@ module.exports = {
     '@typescript-eslint/no-unsafe-assignment': 'warn',
     '@typescript-eslint/no-base-to-string': 'warn',
 
+    'validate-filename/naming-rules': [
+      'error',
+      {
+        rules: [
+          {
+            case: 'kebab',
+            target: '**/**',
+            // validate-filename doesn't support filenames which start with a number e.g. `blobs/1.tsx`
+            excludes: ['blobs']
+          },
+        ],
+      },
+    ],
     'react/forbid-component-props': [
       'error',
       {

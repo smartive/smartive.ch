@@ -1,10 +1,10 @@
 import { Copy, LinkList } from '@smartive/guetzli';
 import { GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { SmartGallery } from '../../components/10/gallery';
-import { PageHeader } from '../../compositions/page-header';
-import { LandingPage } from '../../layouts/landing-page';
-import { Photo, getImagesFromRokka } from '../../services/cloud-storage';
+import { SmartGallery } from '../../../components/10/gallery';
+import { PageHeader } from '../../../compositions/page-header';
+import { LandingPage } from '../../../layouts/landing-page';
+import { Photo, getImagesFromRokka } from '../../../services/cloud-storage';
 
 type Props = {
   photos: Photo[];
