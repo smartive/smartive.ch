@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, Fragment } from 'react';
 import { TableBlockFragment } from '../../graphql/generated';
 import { classNames } from '../../utils/css';
 import { BlockWrapper } from '../layouts/block-wrapper';
@@ -11,7 +11,7 @@ export const TableBlock: FC<Props> = ({ block: { table, showTableHeader } }) => 
   const { columns, data } = table as { columns: string[]; data: Record<string, string>[] };
 
   return (
-    <BlockWrapper>
+    <BlockWrapper marginTop="small" marginBottom="small">
       <div className="sr-only sm:not-sr-only">
         <table className="divide-gray-200 min-w-full divide-y-2 divide-white-200 overflow-hidden rounded-sm">
           {showTableHeader && (
@@ -50,28 +50,26 @@ export const TableBlock: FC<Props> = ({ block: { table, showTableHeader } }) => 
 
       <div className="my-5 flex flex-col gap-4 sm:hidden" aria-hidden={true}>
         {data.map((row, rowIndex) => (
-          <>
-            <div
-              key={rowIndex}
-              className={classNames('overflow-hidden rounded-sm', showTableHeader ? 'grid grid-cols-[1fr,3fr]' : '')}
-            >
-              {columns.map((column) => (
-                <>
-                  {showTableHeader && (
-                    <div className="flex items-center bg-black p-4 text-xs font-bold text-white-100">{column}</div>
+          <div
+            key={rowIndex}
+            className={classNames('overflow-hidden rounded-sm', showTableHeader ? 'grid grid-cols-[1fr,3fr]' : '')}
+          >
+            {columns.map((column) => (
+              <Fragment key={column}>
+                {showTableHeader && (
+                  <div className="flex items-center bg-black p-4 text-xs font-bold text-white-100">{column}</div>
+                )}
+                <div
+                  className={classNames(
+                    'flex items-center border-b-2 border-white-200 bg-white-100 p-4 text-xs last:border-b-0',
+                    column === columns[0] && 'font-bold',
                   )}
-                  <div
-                    className={classNames(
-                      'flex items-center border-b-2 border-white-200 bg-white-100 p-4 text-xs last:border-b-0',
-                      column === columns[0] && 'font-bold',
-                    )}
-                  >
-                    {row[column]}
-                  </div>
-                </>
-              ))}
-            </div>
-          </>
+                >
+                  {row[column]}
+                </div>
+              </Fragment>
+            ))}
+          </div>
         ))}
       </div>
     </BlockWrapper>
