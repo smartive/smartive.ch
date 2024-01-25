@@ -1,5 +1,5 @@
 query AllRoutes {
-  allPages(filter: { parent: { exists: "false" } }) {
+  allPages(filter: { parent: { exists: "false" } }, first: 100) {
     ...pageDetails
     children {
       ...pageDetails
@@ -14,23 +14,23 @@ query AllRoutes {
       }
     }
   }
-  allEmployees {
+  allEmployees(first: 100) {
     slug
     lastModified: _updatedAt
   }
-  allBlogposts {
+  allBlogposts(first: 100) {
     slug
     lastModified: _updatedAt
   }
-  allOffers {
+  allOffers(first: 100) {
     slug
     lastModified: _updatedAt
   }
-  allProjects {
+  allProjects(first: 100) {
     slug
     lastModified: _updatedAt
   }
-  allTopics {
+  allTopics(first: 100) {
     slug
     lastModified: _updatedAt
   }

@@ -23,6 +23,11 @@ module.exports = withBundleAnalyzer({
     // Don't run linting during build since on CI we manually run the lint command
     ignoreDuringBuilds: true,
   },
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
   transpilePackages: ['mermaid', 'dayjs'],
   images: {
     remotePatterns: [

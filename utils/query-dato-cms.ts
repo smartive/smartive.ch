@@ -44,7 +44,7 @@ export async function queryDatoCMS<TResult = unknown>({
   }
 
   const response = await fetch('https://graphql.datocms.com/', {
-    cache: includeDrafts ? 'no-cache' : 'force-cache',
+    cache: includeDrafts ? 'no-store' : 'force-cache',
     next: { tags },
     method: 'POST',
     headers,
