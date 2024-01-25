@@ -29,10 +29,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     tags.push(ALL_PAGES_TAG, PAGE_STRUCTURE_TAG);
   }
 
-  if (item_type === 'force') {
-    revalidatePath('/[...slug]');
-  }
-
   // Revalidate overview pages
   if (item_type === 'blogpost') {
     revalidatePath('/blog');

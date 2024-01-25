@@ -4,7 +4,6 @@ import { toNextMetadata } from 'react-datocms/seo';
 import { ContentBlocks } from '../../components/content-blocks';
 import { Page } from '../../components/layouts/page';
 import { PageDocument, PageModelContentField, PageRecord } from '../../graphql/generated';
-import { getAllDatoRoutes } from '../../utils/get-dato-routes';
 import { queryDatoCMS } from '../../utils/query-dato-cms';
 import { validateRoutes } from '../../utils/validate-dato-routes';
 
@@ -26,15 +25,16 @@ export async function generateMetadata({ params: { slug } }: Params) {
   return toNextMetadata([...data.site.favicon, ...(data.page?.seo ?? [])]);
 }
 
-export async function generateStaticParams() {
-  const { pages } = await getAllDatoRoutes();
+// TODO: Removed to check if generateStaticParams is causing the revalidation issues
+// export async function generateStaticParams() {
+//   const { pages } = await getAllDatoRoutes();
 
-  return pages
-    .filter(({ path }) => path !== '/') // We filter out the homepage
-    .map(({ path }) => ({
-      slug: path.split('/').filter(Boolean),
-    }));
-}
+//   return pages
+//     .filter(({ path }) => path !== '/') // We filter out the homepage
+//     .map(({ path }) => ({
+//       slug: path.split('/').filter(Boolean),
+//     }));
+// }
 
 export const dynamicParams = true;
 
