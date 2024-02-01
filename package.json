@@ -72,7 +72,7 @@
     "autoprefixer": "10.4.17",
     "eslint": "8.56.0",
     "eslint-plugin-validate-filename": "^0.0.4",
-    "playwright": "1.41.1",
+    "playwright": "1.41.2",
     "postcss": "8.4.33",
     "postcss-import": "16.0.0",
     "prettier": "3.2.4",
