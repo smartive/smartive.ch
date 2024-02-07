@@ -53,7 +53,7 @@ export default async function ContentPage({ params: { slug } }: Params) {
   }
 
   return (
-    <Page>
+    <Page landingPageLayout={page.landingPageLayout}>
       <ContentBlocks blocks={page.content as PageModelContentField[]} />
     </Page>
   );

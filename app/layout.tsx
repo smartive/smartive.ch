@@ -14,11 +14,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-white-200 text-black">
         {draftMode().isEnabled && <DraftModeBanner />}
-        <main>
-          {children}
-          <Footer />
-          <Kube />
-        </main>
+        {children}
+        <Footer />
+        <Kube />
       </body>
     </html>
   );

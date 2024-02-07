@@ -23,35 +23,46 @@ const Meta = [
 ];
 
 type Props = {
+  landingPageLayout?: boolean;
   children?: ReactNode;
 };
 
-export const Page: FC<Props> = ({ children }) => {
+export const Page: FC<Props> = ({ landingPageLayout, children }) => {
   const pathname = usePathname();
   const plausible = usePlausible<PlausibleEvents>();
 
   return (
-    <div>
-      <LazyMotion strict features={domAnimation}>
-        <Navigation
-          mainLinks={Main}
-          metaLinks={Meta}
-          currentPathname={pathname ?? '/'}
-          home={<Logo className="h-[21px] w-auto py-[4px]" />}
-          linkWrapper={(props) => <NextLink legacyBehavior prefetch={false} {...props} />}
-          onMetaLinkClick={(value: string) =>
-            plausible('Contact Click', {
-              props: {
-                value,
-                url: window?.location.toString(),
-                component: 'navigation',
-              },
-            })
-          }
-          onHomeLinkContextMenu={() => (window.location.href = '/brand')}
-        />
-      </LazyMotion>
-      <div className="mx-auto min-h-[70vh] w-11/12 max-w-[1536px]">{children}</div>
-    </div>
+    <>
+      {landingPageLayout ? (
+        <header className="py-4 text-center font-sans text-xs font-bold">
+          <NextLink href="/" title="zur Startseite">
+            <Logo className="mx-auto h-[21px] w-auto py-[4px]" />
+          </NextLink>
+        </header>
+      ) : (
+        <header>
+          <LazyMotion strict features={domAnimation}>
+            <Navigation
+              mainLinks={Main}
+              metaLinks={Meta}
+              currentPathname={pathname ?? '/'}
+              home={<Logo className="h-[21px] w-auto py-[4px]" />}
+              linkWrapper={(props) => <NextLink legacyBehavior prefetch={false} {...props} />}
+              onMetaLinkClick={(value: string) =>
+                plausible('Contact Click', {
+                  props: {
+                    value,
+                    url: window?.location.toString(),
+                    component: 'navigation',
+                  },
+                })
+              }
+              onHomeLinkContextMenu={() => (window.location.href = '/brand')}
+            />
+          </LazyMotion>
+        </header>
+      )}
+      <main className="mx-auto min-h-[70vh] w-11/12 max-w-[1536px]">{children}</main>
+    </>
   );
 };

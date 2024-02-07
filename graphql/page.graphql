@@ -2,6 +2,7 @@ query Page($slug: String!) {
   page(filter: { slug: { eq: $slug } }) {
     id
     slug
+    landingPageLayout
     parent {
       id
       slug

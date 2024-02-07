@@ -7,9 +7,9 @@ type Props = {
   playbackId: string;
   width?: number | string;
   height?: number | string;
-  controls?: boolean | null;
-  autoplay?: boolean | null;
-  loop?: boolean | null;
+  controls?: boolean;
+  autoplay?: boolean;
+  loop?: boolean;
   placeholder?: string | null;
 };
 
