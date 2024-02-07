@@ -11,6 +11,7 @@ const domains = [
   '**.notion.so',
   '**.gravatar.com',
   '**.datocms-assets.com',
+  '**.cloudfront.net',
   ...Array.from({ length: 10 }, (_, i) => i + 1).map((n) => `lh${n}.googleusercontent.com`),
 ];
 

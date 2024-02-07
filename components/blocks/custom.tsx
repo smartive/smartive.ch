@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { CustomBlockFragment } from '../../graphql/generated';
 import { Farmer } from '../custom/farmer-riegel';
 import { LangerSamstagLogo } from '../custom/langer-samstag/langer-samstag-logo';
+import { Podcast } from '../custom/podcast';
 import { SalaryCalculator } from '../custom/salary-calculator';
 
 type Props = {
@@ -17,6 +18,8 @@ export const CustomBlock: FC<Props> = ({ block: { component, content } }) => {
       return <SalaryCalculator />;
     case 'farmer':
       return <Farmer content={content as StructuredTextType} />;
+    case 'podcast':
+      return <Podcast />;
     default:
       console.error('Unknown custom component', component);
 

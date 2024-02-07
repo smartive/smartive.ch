@@ -115,3 +115,30 @@ header + section.block-wrapper {
 .react-photo-gallery--gallery > div > span {
   margin: 2px !important;
 }
+
+/* custom slider styles for podcast */
+.playback-progress-slider {
+  @apply h-1 w-full cursor-pointer appearance-none rounded-full bg-transparent;
+}
+
+.playback-progress-slider[type='range'] {
+  -webkit-appearance: none;
+}
+
+.playback-progress-slider[type='range']::-webkit-slider-runnable-track {
+  @apply h-1 border-none;
+}
+
+.playback-progress-slider[type='range']::-webkit-slider-thumb {
+  @apply bg-white-100;
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  margin-top: -5px;
+}
+
+.playback-progress-slider[type='range']::-moz-range-thumb {
+  @apply bg-white-100 h-3 w-3;
+  border-radius: 50%;
+}
