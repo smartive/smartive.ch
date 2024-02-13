@@ -7,6 +7,12 @@ fragment imageTextBlock on ImageTextRecord {
   }
   content {
     value
+    blocks {
+      ... on LinkRecord {
+        _modelApiKey
+        ...links
+      }
+    }
   }
   layout
 }
