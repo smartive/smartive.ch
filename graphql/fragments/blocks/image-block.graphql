@@ -7,4 +7,5 @@ fragment imageBlock on ImageRecord {
       ...responsiveImage
     }
   }
+  priority
 }
