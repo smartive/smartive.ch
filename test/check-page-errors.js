@@ -17,7 +17,6 @@ const ignoreListErrors = [
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',
   'nachhaltigkeit/[year]/scope-3': 'nachhaltigkeit/2019/scope-3',
-  'r/[redirectUrl]': 'r/schade-schokolade',
 };
 
 const getAllRoutes = (dirPath = './src/pages', arrayOfFiles = []) => {

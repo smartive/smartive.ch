@@ -1,4 +1,3 @@
-const DOMAIN_REDIRECTS = require('./domain-redirects');
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -53,20 +52,17 @@ module.exports = withBundleAnalyzer({
         destination: 'https://smartive.ch/blog/:path*',
         permanent: true,
       },
-      ...domainRedirects(),
+      {
+        source: '/:path*',
+        destination: 'https://smartive.ch/r/schade-schokolade',
+        permanent: true,
+        has: [
+          {
+            type: 'host',
+            value: 'schade-schokolade.ch',
+          },
+        ],
+      },
     ];
   },
 });
-
-const domainRedirects = () =>
-  DOMAIN_REDIRECTS.map(({ host: value, key }) => ({
-    source: '/:path*',
-    destination: `https://smartive.ch/r/${key}`,
-    permanent: true,
-    has: [
-      {
-        type: 'host',
-        value,
-      },
-    ],
-  }));
