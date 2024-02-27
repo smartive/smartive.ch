@@ -11,7 +11,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/welcome/', ...disallowedPages, ...DOMAIN_REDIRECTS.map(({ key }) => `/r/${key}`)],
+      disallow: [...disallowedPages, ...DOMAIN_REDIRECTS.map(({ key }) => `/r/${key}`)],
     },
     sitemap: 'https://smartive.ch/sitemap.xml',
   };
