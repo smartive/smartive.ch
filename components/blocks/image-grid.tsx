@@ -8,8 +8,10 @@ type Props = {
   block: ImageGridBlockFragment;
 };
 
-export const ImageGridBlock: FC<Props> = ({ block: { image1, image2, image3, layout } }) => (
-  <BlockWrapper>
+export const ImageGridBlock: FC<Props> = ({
+  block: { image1, image2, image3, layout, disableMarginTop, disableMarginBottom },
+}) => (
+  <BlockWrapper marginTop={disableMarginTop ? 'none' : 'large'} marginBottom={disableMarginBottom ? 'none' : 'large'}>
     <div className="flex flex-col gap-8 sm:grid sm:grid-cols-2 sm:grid-rows-2 xl:gap-16">
       {image1?.responsiveImage && (
         <DatoImage

@@ -22,4 +22,6 @@ fragment imageGridBlock on ImageGridRecord {
     }
   }
   layout
+  disableMarginTop
+  disableMarginBottom
 }
