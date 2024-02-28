@@ -9,8 +9,8 @@ type Props = {
   block: ImageTextBlockFragment;
 };
 
-export const ImageTextBlock: FC<Props> = ({ block: { content, image, layout } }) => (
-  <BlockWrapper>
+export const ImageTextBlock: FC<Props> = ({ block: { content, image, layout, disableMarginTop, disableMarginBottom } }) => (
+  <BlockWrapper marginBottom={disableMarginBottom ? 'none' : 'large'} marginTop={disableMarginTop ? 'none' : 'large'}>
     <div
       className={`flex flex-col items-center gap-8 sm:flex-row xl:gap-16 ${
         layout === 'image-right' ? 'sm:flex-row-reverse' : ''
