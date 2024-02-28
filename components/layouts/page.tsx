@@ -57,7 +57,6 @@ export const Page: FC<Props> = ({ landingPageLayout, children }) => {
                   },
                 })
               }
-              onHomeLinkContextMenu={() => (window.location.href = '/brand')}
             />
           </LazyMotion>
         </header>

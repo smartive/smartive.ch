@@ -13,6 +13,7 @@ const ignoreListErrors = [
   'GPU stall due to ReadPixels', // Farmer project
   "It looks like the video you're trying to play will not work on this system!", // HLS streaming video
   'Third-party cookie will be blocked. Learn more in the Issues tab.',
+  'Custom state pseudo classes are changing from ":--webkit-media-controls-play-button" to ":state(webkit-media-controls-play-button)" soon. See more here: https://github.com/w3c/csswg-drafts/issues/4805' // External Video player
 ];
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',

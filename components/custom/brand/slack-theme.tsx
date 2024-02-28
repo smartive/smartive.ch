@@ -1,3 +1,5 @@
+'use client';
+
 import { Button, Tooltip } from '@smartive/guetzli';
 import { FC, useEffect, useState } from 'react';
 
