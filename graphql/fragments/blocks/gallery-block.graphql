@@ -1,0 +1,4 @@
+fragment galleryBlock on GalleryRecord {
+  id
+  rokkaname
+}

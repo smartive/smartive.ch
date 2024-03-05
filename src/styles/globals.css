@@ -1,0 +1,155 @@
+@import '@smartive/guetzli/styles/guetzli.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  @apply bg-cornflower-500;
+  @apply text-mint-500;
+}
+
+:focus-visible {
+  outline: 3px solid theme('colors.cornflower.500');
+}
+
+footer {
+  @apply relative;
+}
+
+/* Unfortunately I was not able to get this done with tailwind */
+/* Feel free to suggest a solution ;) */
+header + section.block-wrapper {
+  margin-top: 0;
+}
+
+@screen lg {
+  footer {
+    @apply w-full;
+    height: 489px;
+    left: 50%;
+    right: 50%;
+    margin-left: -50%;
+    margin-right: -50%;
+  }
+}
+
+@layer utilities {
+  .break-words-clean {
+    @apply break-words;
+    word-break: break-word;
+  }
+
+  .text-fill-transparent {
+    -webkit-text-fill-color: transparent;
+  }
+
+  .image-overflow-override > span {
+    overflow: visible !important;
+  }
+
+  .card-shadow,
+  .card-shadow-mint,
+  .card-shadow-cornflower,
+  .card-shadow-apricot {
+    @apply transition-shadow duration-150;
+  }
+
+  li:nth-of-type(n) > .card-shadow,
+  .card-shadow:nth-of-type(n),
+  .card-shadow-mint {
+    box-shadow: theme('colors.mint.500') 0 0;
+  }
+
+  li:nth-of-type(n) > .card-shadow:hover,
+  .card-shadow:nth-of-type(n):hover,
+  .card-shadow-mint:hover {
+    box-shadow: theme('colors.mint.500') 0.5rem 0.5rem;
+  }
+
+  li:nth-of-type(2n) > .card-shadow,
+  .card-shadow:nth-of-type(2n),
+  .card-shadow-cornflower {
+    box-shadow: theme('colors.cornflower.500') 0 0;
+  }
+
+  li:nth-of-type(2n) > .card-shadow:hover,
+  .card-shadow:nth-of-type(2n):hover,
+  .card-shadow-cornflower:hover {
+    box-shadow: theme('colors.cornflower.500') 0.5rem 0.5rem;
+  }
+
+  li:nth-of-type(3n) > .card-shadow,
+  .card-shadow:nth-of-type(3n),
+  .card-shadow-apricot {
+    box-shadow: theme('colors.apricot.500') 0 0;
+  }
+
+  li:nth-of-type(3n) > .card-shadow:hover,
+  .card-shadow:nth-of-type(3n):hover,
+  .card-shadow-apricot:hover {
+    box-shadow: theme('colors.apricot.500') 0.5rem 0.5rem;
+  }
+}
+
+/* yarl css classes used to style the icons within the yet-another-react-lightbox */
+.yarl__navigation_prev {
+  filter: none !important;
+}
+.yarl__navigation_next {
+  filter: none !important;
+}
+
+.yarl__toolbar .yarl__icon {
+  padding: 5px !important;
+}
+
+.yarl__navigation_prev .yarl__icon {
+  background-color: #f3f4f6;
+  color: black;
+  box-shadow: none !important;
+  border-radius: 100%;
+  padding: 5px !important;
+  border: none !important;
+  
+}
+.yarl__navigation_next .yarl__icon {
+  background-color: #f3f4f6;
+  color: black;
+  box-shadow: none !important;
+  border-radius: 100%;
+  padding: 5px !important;
+  border: none !important;
+  
+}
+
+/* custom slider styles for podcast */
+.playback-progress-slider {
+  @apply h-1 w-full cursor-pointer appearance-none rounded-full bg-transparent;
+}
+
+.playback-progress-slider[type='range'] {
+  -webkit-appearance: none;
+}
+
+.playback-progress-slider[type='range']::-webkit-slider-runnable-track {
+  @apply h-1 border-none;
+}
+
+.playback-progress-slider[type='range']::-webkit-slider-thumb {
+  @apply bg-white-100;
+  -webkit-appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  margin-top: -5px;
+}
+
+.playback-progress-slider[type='range']::-moz-range-thumb {
+  @apply bg-white-100 h-3 w-3;
+  border-radius: 50%;
+}

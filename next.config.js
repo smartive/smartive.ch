@@ -7,7 +7,6 @@ const domains = [
   'smartive-10.rokka.io',
   'res.cloudinary.com',
   '**.amazonaws.com',
-  '**.notion.so',
   '**.gravatar.com',
   '**.datocms-assets.com',
   '**.cloudfront.net',
@@ -30,6 +29,8 @@ module.exports = withBundleAnalyzer({
   },
   transpilePackages: ['mermaid', 'dayjs'],
   images: {
+    loader: 'custom',
+    loaderFile: './src/utils/image-loader.ts',
     remotePatterns: [
       ...domains.map((domain) => ({
         protocol: 'https',

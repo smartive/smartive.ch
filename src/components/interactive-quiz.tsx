@@ -1,10 +1,10 @@
+import { getMeta } from '@/machines/get-meta';
+import { FormType } from '@/machines/interactive-quiz';
 import { Button, Card, Copy, Heading2, Input, Label, Textarea, TextLink, Tooltip } from '@smartive/guetzli';
 import { useMachine } from '@xstate/react';
 import { AnimatePresence, domMax, LazyMotion, m as motion } from 'framer-motion';
 import { FC, ReactNode, useMemo, useRef, useState } from 'react';
 import { StateMachine } from 'xstate';
-import { getMeta } from '../machines/get-meta';
-import { FormType } from '../machines/interactive-quiz';
 
 const Stack: FC<{ children?: ReactNode }> = ({ children }) => <div className="flex flex-col gap-4">{children}</div>;
 

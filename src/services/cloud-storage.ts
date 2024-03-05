@@ -13,13 +13,9 @@ const rokkaStorage = Rokka({
 
 const organization = process.env.ROKKA_ORGANIZATION ?? 'smartive';
 
-export const rokkaLoader = ({ src, width }) => {
-  return `https://smartive-10.rokka.io/dynamic/resize-width-${width}/o-af-1/${src}`;
-};
-
-export async function getImagesFromRokka(type: string): Promise<Photo[]> {
+export async function getImagesFromRokka(name: string): Promise<Photo[]> {
   const search = {
-    name: type,
+    name,
   };
 
   return (
@@ -27,7 +23,7 @@ export async function getImagesFromRokka(type: string): Promise<Photo[]> {
   ).body.items.map(
     (f): Photo => ({
       key: f.hash,
-      src: f.hash + '/' + f.name,
+      src: `smartive-10.rokka.io/${f.hash}/${f.name}`,
       width: f.width,
       height: f.height,
     }),

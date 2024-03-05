@@ -30,6 +30,9 @@ query Page($slug: String!) {
       ... on ContactRecord {
         ...contactBlock
       }
+      ... on GalleryRecord {
+        ...galleryBlock
+      }
       ... on TeaserSelectionRecord {
         ...teaserSelectionBlock
       }

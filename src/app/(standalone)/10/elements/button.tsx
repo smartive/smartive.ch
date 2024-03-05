@@ -1,0 +1,33 @@
+'use client';
+
+import { merge } from '@smartive/guetzli';
+import { FC, ReactNode } from 'react';
+
+type Base = {
+  children: ReactNode;
+  as?: 'a' | 'button';
+  inverted?: boolean;
+};
+
+type Link = {
+  as: 'a';
+  href: string;
+  onMouseEnter?: () => void;
+} & Base;
+
+type Button = {
+  as: 'button';
+  onClick?(e): void;
+} & Base;
+
+export const Button: FC<Button | Link> = ({ children, as: Tag = 'button', inverted = false, ...rest }) => (
+  <Tag
+    className={merge([
+      'inline-block  scale-100 rounded-full px-8 py-3 font-sans text-sm font-bold transition-transform hover:scale-105',
+      inverted ? 'bg-white-100 text-black' : 'bg-black text-white-100',
+    ])}
+    {...rest}
+  >
+    {children}
+  </Tag>
+);

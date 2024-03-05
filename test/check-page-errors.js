@@ -5,36 +5,19 @@ const waitOn = require('wait-on');
 require('dotenv').config();
 require('dotenv').config({ path: `.env.local`, override: true });
 
-const ignoreListRoutes = ['/_document', '/_app', '/api/', '/index', '/home'];
 const ignoreListErrors = [
   'value.onChange(callback) is deprecated',
   "The target origin provided ('https://calendly.com')", // Calendly shizzle conflicting with http://localhost
   '[Fast Refresh] performing full reload', // Nextjs Fast Refresh is a feature in dev mode, don't worry about it
   'GPU stall due to ReadPixels', // Farmer project
   "It looks like the video you're trying to play will not work on this system!", // HLS streaming video
+  '[analytics.js] Failed to load Analytics.js TypeError: Failed to fetch',
   'Third-party cookie will be blocked. Learn more in the Issues tab.',
   'Custom state pseudo classes are changing from ":--webkit-media-controls-play-button" to ":state(webkit-media-controls-play-button)" soon. See more here: https://github.com/w3c/csswg-drafts/issues/4805' // External Video player
 ];
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',
   'nachhaltigkeit/[year]/scope-3': 'nachhaltigkeit/2019/scope-3',
-};
-
-const getAllRoutes = (dirPath = './src/pages', arrayOfFiles = []) => {
-  files = fs.readdirSync(dirPath);
-
-  files.forEach((file) => {
-    if (fs.statSync(dirPath + '/' + file).isDirectory()) {
-      arrayOfFiles = getAllRoutes(dirPath + '/' + file, arrayOfFiles);
-    } else {
-      const filePath = path.join(dirPath, '/', file);
-      if (ignoreListRoutes.every((ignore) => !filePath.includes(ignore))) {
-        arrayOfFiles.push(path.join(dirPath, '/', file));
-      }
-    }
-  });
-
-  return arrayOfFiles.map((path) => path.replace('src/pages/', '').replace('index.tsx', '').replace('.tsx', ''));
 };
 
 const getAllDatoCMSRoutes = async () => {
@@ -116,10 +99,26 @@ const getAllDatoCMSRoutes = async () => {
   ];
 };
 
+const getStandaloneRoutes = (dirPath = './src/app/(standalone)', arrayOfFiles = []) => {
+  files = fs.readdirSync(dirPath);
+
+  files.forEach((file) => {
+    const filePath = `${dirPath}/${file}`;
+    
+    if (fs.statSync(filePath).isDirectory()) {
+      arrayOfFiles = getStandaloneRoutes(filePath, arrayOfFiles);
+    } else if (filePath.includes('page.tsx')) {
+      arrayOfFiles.push(filePath);
+    }
+  });
+  
+  return arrayOfFiles.map((path) => path.replace('./src/app/(standalone)/', '').replace('/page.tsx', ''));
+};
+
 (async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
-  const routesToCheck = [...(await getAllDatoCMSRoutes()), ...getAllRoutes()];
+  const routesToCheck = [...getStandaloneRoutes(), ...(await getAllDatoCMSRoutes())]
   const errorsAndWarnings = {};
   let routeIndex = 0;
 
