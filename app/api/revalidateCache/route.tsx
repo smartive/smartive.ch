@@ -22,16 +22,16 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
   // find the route for the slug
   const allRoutes = await getAllDatoRoutes();
-  const route = [
+  const routes = [
     ...allRoutes.pages,
     ...allRoutes.blogposts,
     ...allRoutes.offers,
     ...allRoutes.projects,
     ...allRoutes.topics,
-  ].find((route) => route.path.includes(entity_slug));
+  ].filter((route) => route.path.includes(entity_slug));
 
-  if (route) {
-    paths.push(route.path);
+  if (routes.length) {
+    paths.push(...routes.map((route) => route.path));
   }
 
   // If a new page is created, invalidate the cache for all pages
