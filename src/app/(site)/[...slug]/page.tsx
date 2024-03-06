@@ -2,11 +2,11 @@ import { ContentBlocks } from '@/components/content-blocks';
 import { Page } from '@/components/layouts/page';
 import { PageDocument, PageModelContentField, PageRecord } from '@/graphql/generated';
 import { getAllDatoRoutes } from '@/utils/get-dato-routes';
+import { getMetadata } from '@/utils/get-metadata';
 import { queryDatoCMS } from '@/utils/query-dato-cms';
 import { getLastSlug, validateRoutes } from '@/utils/validate-dato-routes';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
-import { toNextMetadata } from 'react-datocms/seo';
 
 type Params = {
   params: {
@@ -15,13 +15,13 @@ type Params = {
 };
 
 export async function generateMetadata({ params: { slug } }: Params) {
-  const data = await queryDatoCMS({
+  const { site, page } = await queryDatoCMS({
     document: PageDocument,
     variables: { slug: getLastSlug(slug) },
     includeDrafts: draftMode().isEnabled,
   });
 
-  return toNextMetadata([...data.site.favicon, ...(data.page?.seo ?? [])]);
+  return getMetadata([...site.favicon, ...(page?.seo ?? [])]);
 }
 
 export async function generateStaticParams() {

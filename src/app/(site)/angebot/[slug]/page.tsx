@@ -3,10 +3,10 @@ import { Page } from '@/components/layouts/page';
 import { OfferHeader } from '@/components/offer-header';
 import { OfferDocument, OfferModelContentField } from '@/graphql/generated';
 import { SmartiveColorsType } from '@/utils/color';
+import { getMetadata } from '@/utils/get-metadata';
 import { queryDatoCMS } from '@/utils/query-dato-cms';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
-import { toNextMetadata } from 'react-datocms/seo';
 
 type Params = {
   params: {
@@ -21,7 +21,7 @@ export async function generateMetadata({ params: { slug } }: Params) {
     includeDrafts: draftMode().isEnabled,
   });
 
-  return toNextMetadata([...site.favicon, ...(offer?.seo ?? [])]);
+  return getMetadata([...site.favicon, ...(offer?.seo ?? [])]);
 }
 
 export default async function ProjectPage({ params: { slug } }: Params) {

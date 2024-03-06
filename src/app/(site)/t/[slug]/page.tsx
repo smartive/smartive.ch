@@ -4,10 +4,10 @@ import { Page } from '@/components/layouts/page';
 import { Heading1 } from '@/components/nodes';
 import { FilteredProjects } from '@/components/projects/filtered-projects';
 import { TopicDocument, TopicModelContentField } from '@/graphql/generated';
+import { getMetadata } from '@/utils/get-metadata';
 import { queryDatoCMS } from '@/utils/query-dato-cms';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
-import { toNextMetadata } from 'react-datocms/seo';
 
 type Params = {
   params: {
@@ -22,7 +22,7 @@ export async function generateMetadata({ params: { slug } }: Params) {
     includeDrafts: draftMode().isEnabled,
   });
 
-  return toNextMetadata([...site.favicon, ...(topic?.seo ?? [])]);
+  return getMetadata([...site.favicon, ...(topic?.seo ?? [])]);
 }
 
 export default async function TopicPage({ params: { slug } }: Params) {

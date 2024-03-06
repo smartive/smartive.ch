@@ -1,9 +1,9 @@
 'use client';
 
+import { mailchimpSignup } from '@/actions/mailchimp';
 import { classNames } from '@/utils/css';
 import { FC } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
-import { mailchimpSignup } from '../app/(site)/actions/mailchimp';
 
 const SubmitButton: FC = () => {
   const { pending } = useFormStatus();
