@@ -5,7 +5,7 @@ import { draftMode } from 'next/headers';
 import { ReactNode } from 'react';
 import { DraftModeBanner } from './api/draft-mode-banner';
 
-const RootLayout = ({ children }: { children: ReactNode }) => (
+const Layout = ({ children }: { children: ReactNode }) => (
   <>
     {draftMode().isEnabled && <DraftModeBanner />}
     {children}
@@ -14,4 +14,4 @@ const RootLayout = ({ children }: { children: ReactNode }) => (
   </>
 );
 
-export default RootLayout;
+export default Layout;

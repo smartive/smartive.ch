@@ -1,6 +1,6 @@
 'use client';
 
-import MuxVideo from '@mux/mux-video-react';
+import dynamic from 'next/dynamic';
 import { FC } from 'react';
 
 type Props = {
@@ -12,6 +12,8 @@ type Props = {
   loop?: boolean;
   placeholder?: string | null;
 };
+
+const MuxVideo = dynamic(() => import('@mux/mux-video-react'), { ssr: false });
 
 export const VideoPlayer: FC<Props> = ({ playbackId, width, height, controls, autoplay, loop, placeholder }) => (
   <MuxVideo

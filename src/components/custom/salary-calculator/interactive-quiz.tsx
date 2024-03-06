@@ -1,19 +1,15 @@
-import { getMeta } from '@/machines/get-meta';
-import { FormType } from '@/machines/interactive-quiz';
-import { Button, Card, Copy, Heading2, Input, Label, Textarea, TextLink, Tooltip } from '@smartive/guetzli';
+'use client';
+
+import { Heading1, Heading3, Paragraph } from '@/components/nodes';
+import { Button, Card, Copy, Heading2, Input, Label, TextLink, Textarea, Tooltip } from '@smartive/guetzli';
 import { useMachine } from '@xstate/react';
-import { AnimatePresence, domMax, LazyMotion, m as motion } from 'framer-motion';
+import { AnimatePresence, LazyMotion, domMax, m as motion } from 'framer-motion';
 import { FC, ReactNode, useMemo, useRef, useState } from 'react';
-import { StateMachine } from 'xstate';
+import { getMeta } from './machine/get-meta';
+import { FormType } from './machine/interactive-quiz';
+import { machine } from './machine/salary-calculator';
 
 const Stack: FC<{ children?: ReactNode }> = ({ children }) => <div className="flex flex-col gap-4">{children}</div>;
-
-type Props = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  machine: StateMachine<any, any, any>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  render: (state: any, machine: any) => ReactNode;
-};
 
 type OptionsType = {
   continue: ({ value, text, width }: { value: string; text: string; width?: string | undefined }) => JSX.Element;
@@ -33,7 +29,7 @@ type OptionsType = {
   'inline-skip': ({ text }: { text: string }) => JSX.Element;
 };
 
-export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
+export const InteractiveQuiz: FC = () => {
   const [state, send] = useMachine(machine);
   const ref = useRef<HTMLInputElement & HTMLTextAreaElement>(null);
 
@@ -150,7 +146,17 @@ export const InteractiveQuiz: FC<Props> = ({ machine, render }) => {
                     />
                   </>
                 ) : state.done ? (
-                  render(state, machine)
+                  <>
+                    <Heading1>{state.context.salary * 13}</Heading1>
+                    <Heading3>Franken im Jahr</Heading3>
+                    <Paragraph>
+                      Anhand deiner Angaben würdest du wohl so CHF{' '}
+                      {new Intl.NumberFormat('de-CH').format(state.context.salary * 13)}.- im Jahr verdienen. Dazu kommen
+                      noch ein grosszügiger Bonus der abhängig davon ist, wie erfolgreich unser Jahr war. Auch Lohnerhöhungen
+                      verhandeln wir nicht, deshalb gibts einfach jedes Jahr CHF 175.- pro Monat dazu.
+                    </Paragraph>
+                    <Paragraph>Scroll doch noch ein bisschen. Dort siehst du, warum du bei uns richtig bist. 💯</Paragraph>
+                  </>
                 ) : (
                   <>
                     {!state.matches(machine.initial) && (

@@ -10,7 +10,7 @@ require('prismjs/components/prism-dart');
 require('prismjs/components/prism-csharp');
 require('prismjs/components/prism-protobuf');
 
-type Props = {
+export type CodeSnippetProps = {
   code: string;
   language?: string;
   caption?: string;
@@ -27,7 +27,7 @@ const replaceLanguages = (lang: string): string => {
   }
 };
 
-export const CodeSnippet: FC<Props> = ({ code, language = '', caption }) => (
+export const CodeSnippet: FC<CodeSnippetProps> = ({ code, language = '', caption }) => (
   <figure>
     <Highlight code={code} language={replaceLanguages(language)} theme={themes.vsDark}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (

@@ -1,6 +1,3 @@
-import sanitizeHtml from 'sanitize-html';
-import { Parser } from 'xml2js';
-
 type RawEpisode = {
   title: string[];
   link: string[];
@@ -22,13 +19,15 @@ type ParsedXML = {
 };
 
 export async function getEpisodes() {
+  const sanitizeHtml = (await import('sanitize-html')).default;
+  const { parseStringPromise } = await import('xml2js');
   try {
     const response = await fetch('https://anchor.fm/s/eef08ae0/podcast/rss', {
       next: { revalidate: 60 * 60 * 24 },
     });
 
     const rawResult = await response.text();
-    const { rss } = (await new Parser().parseStringPromise(rawResult)) as ParsedXML;
+    const { rss } = (await parseStringPromise(rawResult)) as ParsedXML;
     const episodes = rss.channel[0].item;
 
     return episodes.map((episode) => {

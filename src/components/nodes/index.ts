@@ -1,6 +1,6 @@
 export * from './blockquote';
 export * from './code';
-export * from './code-snippet';
+export { CodeSnippet } from './code-snippet';
 export * from './heading1';
 export * from './heading2';
 export * from './heading3';

@@ -28,25 +28,19 @@ import { TwoColsTextBlock } from './blocks/two-cols-text';
 import { VideoBlock } from './blocks/video';
 
 type Props = {
-  blocks:
-    | ProjectModelContentField[]
-    | PageModelContentField[]
-    | OfferModelContentField[]
-    | BlogpostModelContentField[]
-    | TopicModelContentField[];
+  blocks: (
+    | ProjectModelContentField
+    | PageModelContentField
+    | OfferModelContentField
+    | BlogpostModelContentField
+    | TopicModelContentField
+  )[];
 };
 
-export const ContentBlocks: FC<Props> = ({ blocks }) => (
-  <>
-    {blocks.map(
-      (
-        block:
-          | ProjectModelContentField
-          | PageModelContentField
-          | OfferModelContentField
-          | BlogpostModelContentField
-          | TopicModelContentField,
-      ) => {
+export const ContentBlocks: FC<Props> = ({ blocks }) => {
+  return (
+    <>
+      {blocks.map((block) => {
         switch (block.__typename) {
           case 'VideoRecord':
             return <VideoBlock key={block.id} block={block} />;
@@ -93,7 +87,7 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => (
 
             return null;
         }
-      },
-    )}
-  </>
-);
+      })}
+    </>
+  );
+};

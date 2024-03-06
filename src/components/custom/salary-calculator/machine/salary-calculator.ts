@@ -158,7 +158,7 @@ export const machine = createMachine<any, any, any>({
           target: 'familyAllowance',
           actions: assign({
             salary: ({ salary }: Context, { value }) =>
-              salary + Math.min(parseInt(value ?? 0, 10) * YEARLY_EXPERIENCE, MAX_EXPERIENCE_SALARY),
+              salary + Math.min(value ? parseInt(value ?? '0') * YEARLY_EXPERIENCE : 0, MAX_EXPERIENCE_SALARY),
           }),
         },
       },
@@ -183,7 +183,7 @@ export const machine = createMachine<any, any, any>({
         CONTINUE: {
           target: 'report',
           actions: assign({
-            salary: ({ salary }: Context, { value }) => salary + parseInt(value ?? '0', 10) * FAMILY_ALLOWANCE,
+            salary: ({ salary }: Context, { value }) => salary + (value ? parseInt(value) * FAMILY_ALLOWANCE : 0),
           }),
         },
       },

@@ -2,11 +2,12 @@
 
 /* eslint-disable react/no-unknown-property */
 import { classNames } from '@/utils/css';
-import { PresentationControls, useGLTF } from '@react-three/drei';
+import { useGLTF } from '@react-three/drei/core/useGLTF';
+import { PresentationControls } from '@react-three/drei/web/PresentationControls';
 import { Canvas, useFrame } from '@react-three/fiber';
 import localFont from 'next/font/local';
 import { FC, useEffect, useRef, useState } from 'react';
-import THREE, { Group } from 'three';
+import type { Group, Mesh, MeshStandardMaterial } from 'three';
 import type { GLTF } from 'three-stdlib';
 import { ArrowTopToBottomLeft, ArrowToptoBottomRight } from './arrow-icons';
 import { CHOCOLATE_COLORS, DOT_INGREDIENTS, TOGGLE_BUTTONS, desaturateColor } from './helpers';
@@ -45,7 +46,6 @@ export const FarmerModel: FC = () => {
         </div>
 
         <div className="h-120 w-full max-w-[28rem]">
-          {/* eslint-disable-next-line react/forbid-component-props */}
           <Canvas camera={{ fov: 45 }} key={canvasRerender} className="touch-none">
             <directionalLight intensity={1.4} position={[1, 1, 1]} />
             <directionalLight intensity={1.4} position={[-1, 0, 0]} />
@@ -88,21 +88,21 @@ export const FarmerModel: FC = () => {
 
 type GLTFResult = GLTF & {
   nodes: {
-    Schoko_voll: THREE.Mesh;
-    Schoko_unten: THREE.Mesh;
-    Farmer_Soft: THREE.Mesh;
-    Farmer_Nuss: THREE.Mesh;
-    Zutat_1: THREE.Mesh;
-    Zutat_2: THREE.Mesh;
-    Zutat_3: THREE.Mesh;
+    Schoko_voll: Mesh;
+    Schoko_unten: Mesh;
+    Farmer_Soft: Mesh;
+    Farmer_Nuss: Mesh;
+    Zutat_1: Mesh;
+    Zutat_2: Mesh;
+    Zutat_3: Mesh;
   };
   materials: {
-    ['Schokolade voll']: THREE.MeshStandardMaterial;
-    ['Schokolade unten']: THREE.MeshStandardMaterial;
-    Riegel: THREE.MeshStandardMaterial;
-    ['Zutat 1']: THREE.MeshStandardMaterial;
-    ['Zutat 2']: THREE.MeshStandardMaterial;
-    ['Zutat 3']: THREE.MeshStandardMaterial;
+    ['Schokolade voll']: MeshStandardMaterial;
+    ['Schokolade unten']: MeshStandardMaterial;
+    Riegel: MeshStandardMaterial;
+    ['Zutat 1']: MeshStandardMaterial;
+    ['Zutat 2']: MeshStandardMaterial;
+    ['Zutat 3']: MeshStandardMaterial;
   };
 };
 

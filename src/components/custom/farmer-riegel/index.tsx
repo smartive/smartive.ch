@@ -3,15 +3,15 @@ import { StructuredText as StructuredTextType, isEmptyDocument } from 'datocms-s
 import { FC } from 'react';
 import { StructuredTextRenderer } from '../../dato-structured-text';
 import { BlockWrapper } from '../../layouts/block-wrapper';
-import { FarmerModel } from './model';
+import { Farmer } from './farmer';
 
-export const Farmer: FC<{ content: StructuredTextType }> = ({ content }) => {
+export const FarmerBlock: FC<{ content: StructuredTextType }> = ({ content }) => {
   const hasContent = !isEmptyDocument(content);
 
   return (
     <BlockWrapper>
-      <div className={classNames(hasContent && 'flex flex-col items-center gap-8 sm:flex-row xl:gap-16 ')}>
-        <FarmerModel />
+      <div className={classNames(hasContent && 'flex flex-col items-center gap-8 md:flex-row xl:gap-16 ')}>
+        <Farmer />
         {hasContent && (
           <div className="basis-3/5 text-xs lg:text-base">
             <StructuredTextRenderer data={content} />

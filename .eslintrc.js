@@ -69,6 +69,9 @@ module.exports = {
 
               // mux
               'MuxVideo',
+
+              // three js
+              'Canvas',
             ],
 
             message: 'Avoid using className',
