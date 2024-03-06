@@ -1,3 +1,5 @@
+'use client';
+
 import { merge } from '@smartive/guetzli';
 import { FC, ReactNode } from 'react';
 

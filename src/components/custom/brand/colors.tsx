@@ -1,3 +1,5 @@
+'use client';
+
 import { BrandColor, mapColorToBG, mapColorToLightBG } from '@smartive/guetzli';
 import { FC } from 'react';
 import { SlackTheme } from './slack-theme';

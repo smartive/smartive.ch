@@ -1,3 +1,5 @@
+'use client';
+
 import { Copy, Decoration, Heading1, TextLink } from '@smartive/guetzli';
 import { FC } from 'react';
 

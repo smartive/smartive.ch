@@ -1,7 +1,7 @@
 import { ProjectsByTopicsDocument } from '@/graphql/generated';
 import { queryDatoCMS } from '@/utils/query-dato-cms';
-import { Grid } from '@smartive/guetzli';
 import { FC } from 'react';
+import { Grid } from '../layouts/grid';
 import { ProjectCard } from './project-card';
 
 type Props = {

@@ -1,3 +1,5 @@
+'use client';
+
 import { Cross, Decoration, DescriptionList, Heading2, Heart, IconList, TextLink } from '@smartive/guetzli';
 import { FC } from 'react';
 
