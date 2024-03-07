@@ -1,6 +1,6 @@
 export * from './blockquote';
 export * from './code';
-export { CodeSnippet } from './code-snippet';
+export { CodeSnippetClient } from './code-snippet-client';
 export * from './heading1';
 export * from './heading2';
 export * from './heading3';

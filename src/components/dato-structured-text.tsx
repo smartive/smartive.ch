@@ -17,7 +17,7 @@ import { ImageBlock } from './blocks/image';
 import {
   Blockquote,
   Code,
-  CodeSnippet,
+  CodeSnippetClient,
   Heading1,
   Heading2,
   Heading3,
@@ -82,7 +82,7 @@ export const StructuredTextRenderer: FC<Props> = ({ data }) => (
           {children}
         </Blockquote>
       )),
-      renderNodeRule(isCode, ({ key, node }) => <CodeSnippet key={key} code={node.code} language={node.language} />),
+      renderNodeRule(isCode, ({ key, node }) => <CodeSnippetClient key={key} code={node.code} language={node.language} />),
       renderNodeRule(isThematicBreak, ({ key }) => <ThematicBreak key={key} />),
     ]}
     customMarkRules={[

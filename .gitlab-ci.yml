@@ -36,6 +36,15 @@ linting:
   only:
     - merge_requests
 
+check unused code:
+  extends: .default_template
+  before_script:
+    - npm ci
+  script:
+    - npm run knip
+  only:
+    - merge_requests
+
 tests:
   extends: .test_template
   script:

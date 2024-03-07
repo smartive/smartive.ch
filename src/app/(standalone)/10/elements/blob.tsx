@@ -11,7 +11,7 @@ export enum BlobVariants {
   Seven = 'Seven',
 }
 
-export const blobMap: Record<BlobVariants, ReactNode> = {
+const blobMap: Record<BlobVariants, ReactNode> = {
   [BlobVariants.One]: <Blob1 />,
   [BlobVariants.Two]: <Blob2 />,
   [BlobVariants.Three]: <Blob3 />,

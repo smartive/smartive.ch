@@ -1,7 +1,7 @@
 import { assign, createMachine } from 'xstate';
 import { FormType, OptionType } from './interactive-quiz';
 
-export interface Context {
+interface Context {
   salary: number;
 }
 
