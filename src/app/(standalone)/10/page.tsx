@@ -100,7 +100,6 @@ export default async function TenYearsPage() {
 
         <GalleryCard />
       </Container>
-
       <Container year={2012}>
         <ParallaxBlob variant={BlobVariants.Three} className="absolute -right-48 top-16 z-0" />
 
@@ -122,7 +121,6 @@ export default async function TenYearsPage() {
           />
         </div>
       </Container>
-
       <Container className="relative grid-rows-[1fr,200px] lg:grid-rows-3" year={2013}>
         <ParallaxBlob variant={BlobVariants.Four} className="absolute -left-64 -top-56 z-0" />
 
@@ -140,7 +138,6 @@ export default async function TenYearsPage() {
           <ParallaxImage effect="minimal" src={peterMoreno} alt="Moreno und Peter" />
         </div>
       </Container>
-
       <Container className="grid-rows-[1fr,200px,200px] lg:grid-rows-5" year={2014}>
         <ParallaxBlob variant={BlobVariants.Two} className="absolute -right-24 top-72 z-0 lg:-right-72" />
 
@@ -168,7 +165,6 @@ export default async function TenYearsPage() {
           <ParallaxImage src={office} alt="Moreno sitzt in einem der ersten smartive Büros." />
         </div>
       </Container>
-
       <Container className="grid-rows-[1fr,200px,200px,200px,200px] lg:grid-rows-4" year={2015}>
         <div className="relative z-10 col-span-12 text-right lg:col-span-8 lg:col-start-4">
           <Header side="right" year="2015">
@@ -193,7 +189,6 @@ export default async function TenYearsPage() {
           <ParallaxImage src={zermatt2015} alt="" />
         </div>
       </Container>
-
       <Container className="grid-rows-[1fr,200px,200px,300px,200px,200px] lg:grid-rows-6" year={2016}>
         <ParallaxBlob variant={BlobVariants.Five} className="absolute -right-24 -top-72 z-0" />
         <ParallaxBlob variant={BlobVariants.Four} className="absolute bottom-24 left-24 z-0" />
@@ -224,7 +219,6 @@ export default async function TenYearsPage() {
           <ParallaxImage src={newOffice} alt="" />
         </div>
       </Container>
-
       <Container className="grid-rows-[1fr,250px,250px,200px,250px,200px] lg:grid-rows-4" year={2017}>
         <ParallaxBlob variant={BlobVariants.Two} className="absolute -left-24 -top-12 z-0" />
         <ParallaxBlob variant={BlobVariants.Six} className="absolute -right-24 top-1/2 z-0" />
@@ -256,7 +250,6 @@ export default async function TenYearsPage() {
           <ParallaxImage src={brewdog} alt="" />
         </div>
       </Container>
-
       <Container
         className="grid-rows-[1fr,250px,200px,200px,300px,300px,200px] lg:grid-rows-[2fr,1fr,1fr,2fr,2fr,1fr,1fr]"
         year={2018}
@@ -298,7 +291,6 @@ export default async function TenYearsPage() {
           <ParallaxImage src={wmStudio} alt="" />
         </div>
       </Container>
-
       <Container className="grid-rows-[1fr,200px,200px,200px,200px] lg:grid-rows-5" year={2019}>
         <ParallaxBlob variant={BlobVariants.One} className="absolute -left-72 top-0 z-0" />
         <ParallaxBlob variant={BlobVariants.Three} className="absolute -bottom-72 -right-24 z-0" />
@@ -331,7 +323,6 @@ export default async function TenYearsPage() {
           <ParallaxImage src={hoiSmartive} alt="" />
         </div>
       </Container>
-
       <Container className="grid-rows-[1fr,200px,200px,250px] lg:grid-rows-[1fr,1.5fr,1fr,1fr,1fr]" year={2020}>
         <div className="relative z-10 col-span-12 lg:col-span-8 lg:col-start-2">
           <Header side="left" year="2020">
@@ -357,7 +348,6 @@ export default async function TenYearsPage() {
           <ParallaxImage effect="minimal" src={doeme} alt="" />
         </div>
       </Container>
-
       <Container className="grid-rows-[1fr,200px,300px,300px,300px,250px,300px,250px] lg:grid-rows-4" year={2021}>
         <ParallaxBlob variant={BlobVariants.Two} className="absolute -left-72 top-36 z-0" />
         <ParallaxBlob variant={BlobVariants.Seven} className="absolute left-24 top-72 z-0" />
@@ -400,7 +390,6 @@ export default async function TenYearsPage() {
           <ParallaxImage src={cultureday} alt="" />
         </div>
       </Container>
-
       <Container className="grid-rows-[1fr,250px,250px,250px,250px,250px] lg:grid-rows-5" year={2022}>
         <ParallaxBlob variant={BlobVariants.Four} className="absolute -right-96 bottom-0 z-0" />
 
@@ -435,7 +424,6 @@ export default async function TenYearsPage() {
           <ParallaxImage effect="minimal" src={kuhbar} alt="Die Kuhbar hat allen ganz viel Spass gemacht." />
         </div>
       </Container>
-
       <Container year={2023}>
         <div className="col-span-12 lg:col-span-6 lg:col-start-4">
           <Text>
@@ -446,8 +434,8 @@ export default async function TenYearsPage() {
         </div>
         <GalleryCard />
       </Container>
-
-      <Suspense fallback={<div>Loading...</div>}>
+      {/* Use Suspense to prevent prerender error from useSearchParams in VisibleYears. */}
+      <Suspense>
         <VisibleYears employees={employees} />
       </Suspense>
     </>

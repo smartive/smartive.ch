@@ -42,7 +42,7 @@ export const EmployeeCard: FC<Props> = ({
   const alt = `Portraitfoto von ${name}`;
 
   return (
-    <div className={classNames('flex flex-col overflow-hidden rounded bg-white-100', className)}>
+    <div className={classNames('flex flex-col overflow-hidden rounded bg-white-100', className)} id={name}>
       <div className="hidden w-full lg:block">
         {image?.responsiveImage ? (
           <DatoImage data={{ ...image.responsiveImage, alt }} layout="responsive" />

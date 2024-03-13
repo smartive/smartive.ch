@@ -1,11 +1,10 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import NextLink from 'next/link';
-import { useSearchParams } from 'next/navigation';
 import { FC } from 'react';
+import { Image as DatoImage } from 'react-datocms';
 import { ResponsiveImageType } from 'react-datocms/image';
-import { Avatar } from '../elements/avatar';
+import { useYearQuery } from '../use-year-query';
 import { fireConfetti } from './fire-confetti';
 
 export const VisibleYears: FC<{
@@ -15,8 +14,7 @@ export const VisibleYears: FC<{
     image: ResponsiveImageType;
   }[];
 }> = ({ employees }) => {
-  const searchParams = useSearchParams();
-  const visibleYear = parseInt(searchParams?.get('year') ?? '');
+  const [visibleYear] = useYearQuery();
 
   const avatars = employees.filter(({ start }) => start <= visibleYear);
 
@@ -30,18 +28,20 @@ export const VisibleYears: FC<{
           >
             <AnimatePresence>
               {avatars.map(({ name, image }) => (
-                <NextLink href={`/team#${name}`} passHref key={name}>
-                  <motion.a
-                    layout
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    whileHover={{ scale: 1.3, y: -10, padding: '0px 1.5rem' }}
-                    className="-ml-3 -mr-3 block h-full overflow-visible hover:z-50"
-                  >
-                    <Avatar image={image} />
-                  </motion.a>
-                </NextLink>
+                <motion.a
+                  layout
+                  href={`/team#${name}`}
+                  key={name}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  whileHover={{ scale: 1.3, y: -10, padding: '0px 1.5rem' }}
+                  className="-ml-3 -mr-3 block h-full overflow-visible hover:z-50"
+                >
+                  <div className="relative inline-flex h-14 w-14 items-center overflow-hidden rounded-full bg-conic-gradient p-1">
+                    <DatoImage data={image} pictureClassName="h-12 w-12 rounded-full" className="h-12 w-12 rounded-full" />
+                  </div>
+                </motion.a>
               ))}
             </AnimatePresence>
           </motion.div>

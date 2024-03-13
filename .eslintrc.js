@@ -67,6 +67,9 @@ module.exports = {
               'Scroll.Container',
               'Scroll.Item',
 
+              // /10 page
+              'Section',
+
               // mux
               'MuxVideo',
 

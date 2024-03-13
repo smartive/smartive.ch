@@ -23,7 +23,7 @@ export const ParallaxImage: FC<{
           src={src}
           alt={alt}
           fill
-          sizes="100vw"
+          sizes="40vw"
         />
       </Scroll.Item>
     </div>
