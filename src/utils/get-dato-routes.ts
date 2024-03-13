@@ -5,7 +5,9 @@ import { queryDatoCMS } from './query-dato-cms';
 type PagePath = {
   slug: string;
   lastModified: string;
-  preventPageIndexing: boolean;
+  seometatags?: {
+    noIndex: boolean;
+  };
   children: PagePath[];
 };
 
@@ -20,21 +22,21 @@ type AllRoutes = {
 type Route = {
   path: string;
   lastModified: string;
-  preventPageIndexing?: boolean;
+  noIndex?: boolean;
 };
 
 const generatePagePathnames = (pages: PagePath[]): Route[] => {
   const pathnames: Route[] = [];
 
   const generatePathname = (
-    { slug, lastModified, preventPageIndexing, children }: PagePath,
+    { slug, lastModified, seometatags, children }: PagePath,
     currentPath: string,
     currentPathname: string,
   ) => {
     const newPath = currentPath === '' ? `/${slug}` : `${currentPath}/${slug}`;
     const newCurrentPathname = currentPathname === '' ? slug : `${currentPathname}/${slug}`;
 
-    pathnames.push({ path: newPath, lastModified, preventPageIndexing });
+    pathnames.push({ path: newPath, lastModified, noIndex: seometatags?.noIndex });
 
     if (children && children.length > 0) {
       children.map((child) => generatePathname(child, newPath, newCurrentPathname));

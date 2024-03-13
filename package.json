@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run develop",
-    "develop": "npm run generate && next dev",
+    "predev": "npm run generate",
+    "dev": "next dev",
+    "develop": "npm run dev",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --noEmit",

@@ -4,7 +4,7 @@ import { MetadataRoute } from 'next';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { pages, blogposts, offers, projects, topics } = await getAllDatoRoutes(false);
 
-  const indexablePages = pages.filter(({ preventPageIndexing }) => !preventPageIndexing);
+  const indexablePages = pages.filter(({ noIndex }) => !noIndex);
 
   const pagePaths = indexablePages.map(({ path, lastModified }) => ({ url: `https://smartive.ch${path}`, lastModified }));
   const blogpostsPaths = blogposts.map(({ path, lastModified }) => ({ url: `https://smartive.ch${path}`, lastModified }));

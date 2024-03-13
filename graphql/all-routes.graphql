@@ -39,5 +39,7 @@ query AllRoutes {
 fragment pageDetails on PageRecord {
   slug
   lastModified: _updatedAt
-  preventPageIndexing
+  seometatags {
+    noIndex
+  }
 }
