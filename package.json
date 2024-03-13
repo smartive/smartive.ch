@@ -27,7 +27,7 @@
     "@mux/mux-video-react": "0.8.3",
     "@react-three/drei": "^9.80.9",
     "@react-three/fiber": "^8.13.7",
-    "@smartive/guetzli": "2.10.1",
+    "@smartive/guetzli": "2.10.2",
     "@xstate/react": "3.2.2",
     "dayjs": "1.11.10",
     "dotenv": "^16.3.1",
