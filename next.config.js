@@ -19,6 +19,9 @@ module.exports = withBundleAnalyzer({
     // Don't run linting during build since on CI we manually run the lint command
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    optimizePackageImports: ['@smartive/guetzli'],
+  },
   transpilePackages: ['mermaid', 'dayjs'],
   images: {
     loader: 'custom',

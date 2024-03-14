@@ -1,9 +1,8 @@
 import { SmartiveColorsType } from '@/utils/color';
 import { classNames } from '@/utils/css';
+import { Clock, Copy, Heading1 } from '@smartive/guetzli';
 import { FC } from 'react';
 import { Blobs } from './blobs';
-import { GuetzliClock } from './icons/clock';
-import { Heading1, Paragraph } from './nodes';
 
 type Props = {
   title: string;
@@ -28,14 +27,10 @@ export const OfferHeader: FC<Props> = ({ title, timespan, description, color = '
     </div>
     {timespan && (
       <div className="z-10 inline-flex flex-row items-center font-sans text-sm font-bold lg:text-base">
-        <GuetzliClock className="mr-2 inline h-6 w-6" /> {timespan}
+        <Clock className="mr-2 inline h-6 w-6" /> {timespan}
       </div>
     )}
-    {description && (
-      <div className="z-10 font-sans text-xs lg:text-base">
-        <Paragraph>{description}</Paragraph>
-      </div>
-    )}
+    {description && <Copy className="z-10">{description}</Copy>}
     <Blobs color={color} />
   </div>
 );

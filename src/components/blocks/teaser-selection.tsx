@@ -76,8 +76,6 @@ const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragmen
 
 export const TeaserSelectionBlock: FC<Props> = ({ block: { teasers, disableMarginTop, disableMarginBottom } }) => (
   <BlockWrapper marginTop={disableMarginTop ? 'none' : 'large'} marginBottom={disableMarginBottom ? 'none' : 'large'}>
-    <Grid cols={(teasers?.length ?? 3) as 2 | 3 | 4}>
-      {teasers?.map((teaser) => <Teaser key={teaser.id} teaser={teaser} />)}
-    </Grid>
+    <Grid cols={teasers?.length ?? 3}>{teasers?.map((teaser) => <Teaser key={teaser.id} teaser={teaser} />)}</Grid>
   </BlockWrapper>
 );

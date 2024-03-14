@@ -1,10 +1,8 @@
 import { LANG_STRINGS, Language } from '@/utils/const';
+import { Calendar, Clock, Heading1 } from '@smartive/guetzli';
 import dayjs from 'dayjs';
 import { FC } from 'react';
 import { Image as DatoImage, ResponsiveImageType } from 'react-datocms';
-import { GuetzliCalendar } from '../icons/calendar';
-import { GuetzliClock } from '../icons/clock';
-import { Heading1 } from '../nodes';
 import { AvatarFallback } from './avatar-fallback';
 import { CopyUrlButton } from './copy-url-button';
 import { ReadingTime } from './reading-time';
@@ -40,12 +38,12 @@ export const BlogpostHeader: FC<Props> = ({ title, image, author, authorImage, p
           <div className="flex flex-col text-xxs md:items-center md:gap-2 lg:text-xs">
             {published && (
               <div className="flex flex-row items-center">
-                <GuetzliCalendar className="mr-2 h-4 w-4" />
+                <Calendar className="mr-2 h-4 w-4" />
                 {dayjs(published).locale(language).format('MMMM YYYY')}
               </div>
             )}
             <div className="flex flex-row items-center">
-              <GuetzliClock className="mr-2 h-4 w-4" />
+              <Clock className="mr-2 h-4 w-4" />
               <ReadingTime elementId="blogpost" language={language} />
             </div>
           </div>

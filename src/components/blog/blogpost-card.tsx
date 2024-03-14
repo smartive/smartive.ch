@@ -1,8 +1,8 @@
+import { Heading3 } from '@smartive/guetzli';
 import dayjs from 'dayjs';
 import NextLink from 'next/link';
 import { FC } from 'react';
 import { Image as DatoImage, ResponsiveImageType } from 'react-datocms';
-import { Heading3 } from '../nodes';
 import { AvatarFallback } from './avatar-fallback';
 
 require('dayjs/locale/de');

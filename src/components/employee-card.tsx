@@ -2,6 +2,7 @@ import { EmployeeFragment } from '@/graphql/generated';
 import { SmartiveColors } from '@/utils/color';
 import { isTruthy } from '@/utils/common';
 import { classNames } from '@/utils/css';
+import { Heading3 } from '@smartive/guetzli';
 import NextImage from 'next/image';
 import { FC } from 'react';
 import { Image as DatoImage } from 'react-datocms';
@@ -12,7 +13,6 @@ import portraitApricot from '../../public/images/portrait-fallback-apricot.svg';
 import portraitCornflower from '../../public/images/portrait-fallback-cornflower.svg';
 import portraitMint from '../../public/images/portrait-fallback-mint.svg';
 import { EmployeeContactLink } from './employee-contact-link';
-import { Heading3 } from './nodes/heading3';
 
 type Props = {
   employee: EmployeeFragment;

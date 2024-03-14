@@ -1,7 +1,18 @@
 'use client';
 
-import { Heading1, Heading3, Paragraph } from '@/components/nodes';
-import { Button, Card, Copy, Heading2, Input, Label, TextLink, Textarea, Tooltip } from '@smartive/guetzli';
+import {
+  Button,
+  Card,
+  Copy,
+  Heading1,
+  Heading2,
+  Heading3,
+  Input,
+  Label,
+  TextLink,
+  Textarea,
+  Tooltip,
+} from '@smartive/guetzli';
 import { useMachine } from '@xstate/react';
 import { AnimatePresence, LazyMotion, domMax, m as motion } from 'framer-motion';
 import { FC, ReactNode, useMemo, useRef, useState } from 'react';
@@ -149,13 +160,13 @@ export const InteractiveQuiz: FC = () => {
                   <>
                     <Heading1>{state.context.salary * 13}</Heading1>
                     <Heading3>Franken im Jahr</Heading3>
-                    <Paragraph>
+                    <Copy>
                       Anhand deiner Angaben würdest du wohl so CHF{' '}
                       {new Intl.NumberFormat('de-CH').format(state.context.salary * 13)}.- im Jahr verdienen. Dazu kommen
                       noch ein grosszügiger Bonus der abhängig davon ist, wie erfolgreich unser Jahr war. Auch Lohnerhöhungen
                       verhandeln wir nicht, deshalb gibts einfach jedes Jahr CHF 175.- pro Monat dazu.
-                    </Paragraph>
-                    <Paragraph>Scroll doch noch ein bisschen. Dort siehst du, warum du bei uns richtig bist. 💯</Paragraph>
+                    </Copy>
+                    <Copy>Scroll doch noch ein bisschen. Dort siehst du, warum du bei uns richtig bist. 💯</Copy>
                   </>
                 ) : (
                   <>

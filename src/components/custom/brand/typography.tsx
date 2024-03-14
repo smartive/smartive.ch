@@ -1,5 +1,3 @@
-'use client';
-
 import { Copy, Decoration, Heading1, TextLink } from '@smartive/guetzli';
 import { FC } from 'react';
 
@@ -23,9 +21,7 @@ export const Typography: FC = () => (
         <Heading1 as="p" className="text-center">
           Auf Patterns und farbigen Flächen schreiben wir auch schwarz.
         </Heading1>
-        <div className="flex justify-center">
-          <Copy>Und bitte ganz wenig Copytext.</Copy>
-        </div>
+        <Copy>Und bitte ganz wenig Copytext.</Copy>
       </div>
     </div>
   </div>

@@ -1,11 +1,11 @@
 import { ContentBlocks } from '@/components/content-blocks';
 import { BlockWrapper } from '@/components/layouts/block-wrapper';
 import { Page } from '@/components/layouts/page';
-import { Heading1 } from '@/components/nodes';
 import { FilteredProjects } from '@/components/projects/filtered-projects';
 import { TopicDocument, TopicModelContentField } from '@/graphql/generated';
 import { getMetadata } from '@/utils/get-metadata';
 import { queryDatoCMS } from '@/utils/query-dato-cms';
+import { Heading1 } from '@smartive/guetzli';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 

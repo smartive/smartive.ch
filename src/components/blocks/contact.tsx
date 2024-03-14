@@ -1,9 +1,8 @@
 import { ContactBlockFragment } from '@/graphql/generated';
-import { SmartiveColors } from '@/utils/color';
+import { LinkList } from '@smartive/guetzli';
 import { FC } from 'react';
 import { Image as DatoImage } from 'react-datocms';
 import { BlockWrapper } from '../layouts/block-wrapper';
-import { Link } from '../nodes';
 
 type Props = {
   block: ContactBlockFragment;
@@ -33,11 +32,7 @@ export const ContactBlock: FC<Props> = ({ block: { text, contact } }) => {
         <div>
           <p className="mb-4 whitespace-pre-line font-sans text-base font-bold lg:mb-8 lg:text-xl">{text}</p>
           <div className="flex flex-wrap justify-center gap-2 lg:justify-start lg:gap-4">
-            {links.map(({ label, href, title }, index) => (
-              <Link key={href} href={href} title={title} target="_blank" color={SmartiveColors[index % 3]}>
-                {label}
-              </Link>
-            ))}
+            <LinkList links={links.map(({ label, href, title }) => ({ label: label ?? title, href }))} />
           </div>
         </div>
       </div>

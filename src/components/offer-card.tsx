@@ -1,9 +1,8 @@
 import { SmartiveColorsType } from '@/utils/color';
 import { classNames } from '@/utils/css';
+import { Clock, Heading3 } from '@smartive/guetzli';
 import NextLink from 'next/link';
 import { FC } from 'react';
-import { GuetzliClock } from './icons/clock';
-import { Heading3 } from './nodes';
 
 type Props = {
   slug: string;
@@ -30,7 +29,7 @@ export const OfferCard: FC<Props> = ({ slug, title, timespan, description, linkL
     <div className="space-y-2 md:space-y-6 lg:space-y-8">
       {timespan && (
         <div className="inline-flex flex-row items-center">
-          <GuetzliClock className="mr-2 inline h-4 w-4" />
+          <Clock className="mr-2 inline h-4 w-4" />
           {timespan}
         </div>
       )}

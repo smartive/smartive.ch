@@ -13,7 +13,7 @@ export const FarmerBlock: FC<{ content: StructuredTextType }> = ({ content }) =>
       <div className={classNames(hasContent && 'flex flex-col items-center gap-8 md:flex-row xl:gap-16 ')}>
         <Farmer />
         {hasContent && (
-          <div className="basis-3/5 text-xs lg:text-base">
+          <div className="basis-3/5">
             <StructuredTextRenderer data={content} />
           </div>
         )}

@@ -10,10 +10,6 @@ type Props = {
 
 export const TextBlock: FC<Props> = ({ block: { content, disableMarginTop, disableMarginBottom } }) => (
   <BlockWrapper marginTop={disableMarginTop ? 'none' : 'large'} marginBottom={disableMarginBottom ? 'none' : 'large'}>
-    {!isEmptyDocument(content) && (
-      <div className="font-sans text-xs lg:text-base">
-        <StructuredTextRenderer data={content as StructuredTextType} />
-      </div>
-    )}
+    {!isEmptyDocument(content) && <StructuredTextRenderer data={content as StructuredTextType} />}
   </BlockWrapper>
 );

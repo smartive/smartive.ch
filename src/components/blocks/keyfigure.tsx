@@ -14,7 +14,7 @@ export const KeyfigureBlock: FC<Props> = ({ block: { image, content } }) => (
     <div className="flex flex-col items-center justify-center gap-8 rounded bg-cornflower-500 p-8 md:flex-row md:gap-16">
       {image?.responsiveImage && <DatoImage data={image?.responsiveImage} className="rounded" />}
       {!isEmptyDocument(content) && (
-        <div className="text-base font-bold md:max-w-[50%]">
+        <div className="font-bold md:max-w-[50%]">
           <StructuredTextRenderer data={content as StructuredTextType} />
         </div>
       )}

@@ -1,6 +1,7 @@
 import { AllPostsWithoutLatestDocument, BlogOverviewBlockFragment, LatestPostDocument } from '@/graphql/generated';
 import { SmartiveColorsType } from '@/utils/color';
 import { queryDatoCMS } from '@/utils/query-dato-cms';
+import { Heading2 } from '@smartive/guetzli';
 import dayjs from 'dayjs';
 import NextLink from 'next/link';
 import { FC, Fragment } from 'react';
@@ -9,7 +10,6 @@ import { AvatarFallback } from '../blog/avatar-fallback';
 import { BlogpostCard } from '../blog/blogpost-card';
 import { BlockWrapper } from '../layouts/block-wrapper';
 import { Grid } from '../layouts/grid';
-import { Heading2 } from '../nodes';
 import { TeaserCard } from '../teaser-card';
 
 require('dayjs/locale/de');

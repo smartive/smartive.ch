@@ -22,7 +22,7 @@ export const ImageTextBlock: FC<Props> = ({ block: { content, image, layout, dis
         </div>
       )}
       {!isEmptyDocument(content) && (
-        <div className="basis-3/5 text-xs lg:text-base">
+        <div className="basis-3/5">
           <StructuredTextRenderer data={content as StructuredTextType} />
         </div>
       )}

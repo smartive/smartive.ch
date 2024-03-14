@@ -1,8 +1,8 @@
 import { SmartiveColorsType } from '@/utils/color';
 import { classNames } from '@/utils/css';
+import { Heading3 } from '@smartive/guetzli';
 import NextLink from 'next/link';
 import { FC } from 'react';
-import { Heading3 } from './nodes';
 
 type Props = {
   title: string;
