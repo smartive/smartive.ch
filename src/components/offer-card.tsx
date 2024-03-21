@@ -1,6 +1,5 @@
 import { SmartiveColorsType } from '@/utils/color';
-import { classNames } from '@/utils/css';
-import { Clock, Heading3 } from '@smartive/guetzli';
+import { classNames, Clock, Heading3 } from '@smartive/guetzli';
 import NextLink from 'next/link';
 import { FC } from 'react';
 

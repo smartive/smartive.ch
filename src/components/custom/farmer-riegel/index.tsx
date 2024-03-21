@@ -1,4 +1,4 @@
-import { classNames } from '@/utils/css';
+import { classNames } from '@smartive/guetzli';
 import { StructuredText as StructuredTextType, isEmptyDocument } from 'datocms-structured-text-utils';
 import { FC } from 'react';
 import { StructuredTextRenderer } from '../../dato-structured-text';

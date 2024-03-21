@@ -1,10 +1,11 @@
 'use client';
 
-import { useSSRSafeRandomNumber } from '@smartive/guetzli';
+import { classNames } from '@smartive/guetzli';
 import NextImage, { StaticImageData } from 'next/image';
 import { FC } from 'react';
 import { Scroll } from 'scrollex';
 import { keyframes } from './ten-head';
+import { useSSRSafeRandomNumber } from './use-ssr-safe-random-number';
 
 export const ParallaxImage: FC<{
   alt: string;
@@ -19,7 +20,10 @@ export const ParallaxImage: FC<{
     <div className="relative z-20 h-full w-full overflow-hidden rounded">
       <Scroll.Item keyframes={keyframes.image[parallaxIndex]} className="image-overflow-override relative h-full w-full">
         <NextImage
-          className={`relative z-20 scale-125 rounded object-cover object-center transition ${bgClasses[colorIndex]}`}
+          className={classNames(
+            'relative z-20 scale-125 rounded object-cover object-center transition',
+            bgClasses[colorIndex],
+          )}
           src={src}
           alt={alt}
           fill

@@ -1,10 +1,10 @@
 'use client';
 
 /* eslint-disable react/no-unknown-property */
-import { classNames } from '@/utils/css';
 import { useGLTF } from '@react-three/drei/core/useGLTF';
 import { PresentationControls } from '@react-three/drei/web/PresentationControls';
 import { Canvas, useFrame } from '@react-three/fiber';
+import { classNames } from '@smartive/guetzli';
 import localFont from 'next/font/local';
 import { FC, useEffect, useRef, useState } from 'react';
 import type { Group, Mesh, MeshStandardMaterial } from 'three';
@@ -31,13 +31,13 @@ export const FarmerModel: FC = () => {
         <div className="absolute inset-0">
           <div className="pointer-events-none relative z-10 h-full w-full">
             <div className="absolute left-3 top-1/4 flex flex-col items-center justify-center">
-              <span className={`text-base ${heyOctoberFont.className}`}>Interaktiv</span>
+              <span className={classNames('text-base', heyOctoberFont.className)}>Interaktiv</span>
               <div className="translate-x-1/3">
                 <ArrowToptoBottomRight />
               </div>
             </div>
             <div className="absolute right-3 top-10 flex flex-col items-center justify-center">
-              <span className={`text-base ${heyOctoberFont.className}`}>Spielerisch</span>
+              <span className={classNames('text-base', heyOctoberFont.className)}>Spielerisch</span>
               <div className="-translate-x-1/3">
                 <ArrowTopToBottomLeft />
               </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { BlobType, BlobVariations } from '@smartive/guetzli';
+import { BlobType, BlobVariations } from '@/components/blobs/blob-variations';
 
 export type BlobVariationName =
   | 'cornflower-0'

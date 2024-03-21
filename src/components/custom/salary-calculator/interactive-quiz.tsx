@@ -1,21 +1,10 @@
 'use client';
 
-import {
-  Button,
-  Card,
-  Copy,
-  Heading1,
-  Heading2,
-  Heading3,
-  Input,
-  Label,
-  TextLink,
-  Textarea,
-  Tooltip,
-} from '@smartive/guetzli';
+import { Button, Copy, Heading1, Heading2, Heading3, Input, Label, TextLink, Textarea, Tooltip } from '@smartive/guetzli';
 import { useMachine } from '@xstate/react';
 import { AnimatePresence, LazyMotion, domMax, m as motion } from 'framer-motion';
 import { FC, ReactNode, useMemo, useRef, useState } from 'react';
+import { Card } from './card';
 import { getMeta } from './machine/get-meta';
 import { FormType } from './machine/interactive-quiz';
 import { machine } from './machine/salary-calculator';

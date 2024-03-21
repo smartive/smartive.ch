@@ -1,6 +1,8 @@
 'use client';
 
-import { Cross, Decoration, DescriptionList, Heading2, Heart, IconList, TextLink } from '@smartive/guetzli';
+import { DescriptionList } from '@/components/custom/brand/description-list';
+import { IconList } from '@/components/custom/brand/icon-list';
+import { Cross, Decoration, Heading2, Heart, TextLink } from '@smartive/guetzli';
 import { FC } from 'react';
 
 export const LanguageBlock: FC = () => (

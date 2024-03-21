@@ -1,7 +1,7 @@
 'use client';
 
 import { mailchimpSignup } from '@/actions/mailchimp';
-import { classNames } from '@/utils/css';
+import { classNames } from '@smartive/guetzli';
 import { FC } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 

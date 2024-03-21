@@ -1,8 +1,7 @@
 import { EmployeeFragment } from '@/graphql/generated';
 import { SmartiveColors } from '@/utils/color';
 import { isTruthy } from '@/utils/common';
-import { classNames } from '@/utils/css';
-import { Heading3 } from '@smartive/guetzli';
+import { classNames, Heading3 } from '@smartive/guetzli';
 import NextImage from 'next/image';
 import { FC } from 'react';
 import { Image as DatoImage } from 'react-datocms';

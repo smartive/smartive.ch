@@ -1,5 +1,5 @@
 import { SmartiveColorsType } from '@/utils/color';
-import { classNames } from '@/utils/css';
+import { classNames } from '@smartive/guetzli';
 import NextLink from 'next/link';
 import { FC, PropsWithChildren } from 'react';
 

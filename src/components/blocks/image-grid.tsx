@@ -1,5 +1,5 @@
 import { ImageGridBlockFragment } from '@/graphql/generated';
-import { classNames } from '@/utils/css';
+import { classNames } from '@smartive/guetzli';
 import { FC } from 'react';
 import { Image as DatoImage } from 'react-datocms';
 import { BlockWrapper } from '../layouts/block-wrapper';

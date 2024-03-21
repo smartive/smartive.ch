@@ -1,4 +1,4 @@
-import { classNames } from '@/utils/css';
+import { classNames } from '@smartive/guetzli';
 import { FC, ReactNode } from 'react';
 
 export const Header: FC<{

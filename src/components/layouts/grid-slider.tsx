@@ -1,3 +1,4 @@
+import { classNames } from '@smartive/guetzli';
 import { Children, FC, PropsWithChildren } from 'react';
 
 const getGridLayout = (childrenCount: number) => {
@@ -22,9 +23,10 @@ const getGridLayout = (childrenCount: number) => {
 
 export const GridSlider: FC<PropsWithChildren> = ({ children }) => (
   <ul
-    className={`-mx-4 my-8 flex w-screen items-stretch overflow-x-auto overflow-y-hidden px-4 lg:mx-0 lg:grid lg:w-full lg:auto-rows-fr lg:overflow-visible lg:p-0 xl:my-16 ${getGridLayout(
-      Children.count(children),
-    )} lg:gap-8 xl:gap-16`}
+    className={classNames(
+      '-mx-4 my-8 flex w-screen items-stretch overflow-x-auto overflow-y-hidden px-4 lg:mx-0 lg:grid lg:w-full lg:auto-rows-fr lg:gap-8 lg:overflow-visible lg:p-0 xl:my-16 xl:gap-16',
+      getGridLayout(Children.count(children)),
+    )}
     style={{ scrollSnapType: 'x mandatory' }}
   >
     {Children.map(children, (child, i) => (

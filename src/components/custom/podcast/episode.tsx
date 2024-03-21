@@ -1,7 +1,6 @@
 'use client';
 
-import { classNames } from '@/utils/css';
-import { Button, Heading3 } from '@smartive/guetzli';
+import { Button, classNames, Heading3 } from '@smartive/guetzli';
 import NextImage from 'next/image';
 import { ChangeEvent, FC, useEffect, useRef, useState } from 'react';
 import { toHumanreadableTime, type Episode as EpisodeType } from './helpers';

@@ -1,6 +1,8 @@
 'use client';
 
-import { Blob, BlobVariations, Logo } from '@smartive/guetzli';
+import { Blob } from '@/components/blobs/blob';
+import { BlobVariations } from '@/components/blobs/blob-variations';
+import { Logo } from '@smartive/guetzli';
 import { FC } from 'react';
 import { Link } from '../../nodes';
 

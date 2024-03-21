@@ -1,6 +1,6 @@
 'use client';
 
-import { merge } from '@smartive/guetzli';
+import { classNames } from '@smartive/guetzli';
 import { FC, ReactNode } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { Scroll } from 'scrollex';
@@ -19,10 +19,10 @@ export const Section: FC<{
     <Scroll.Section>
       <section
         ref={ref}
-        className={merge([
+        className={classNames(
           'relative mx-auto my-24 grid w-11/12 max-w-screen-xl grid-cols-12 gap-4 md:my-32 md:gap-6 lg:my-56 lg:gap-8',
           className,
-        ])}
+        )}
       >
         {children}
       </section>

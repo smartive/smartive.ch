@@ -1,6 +1,6 @@
 'use client';
 
-import { BrandColor, mapColorToBG, mapColorToLightBG } from '@smartive/guetzli';
+import { BrandColor, classNames, mapColorToBG, mapColorToLightBG } from '@smartive/guetzli';
 import { FC } from 'react';
 import { SlackTheme } from './slack-theme';
 
@@ -73,22 +73,24 @@ type ColorBoxProps = {
 
 const ColorBox: FC<ColorBoxProps> = ({ color, name, values }) => (
   <li
-    className={`flex h-64 overflow-hidden rounded sm:bg-white-100 ${
+    className={classNames(
+      'flex h-64 overflow-hidden rounded sm:bg-white-100',
       color === 'gray'
         ? 'rounded-l border-8 border-white-100 bg-white-200 sm:border-0'
         : color === 'darkness'
           ? 'bg-black text-white-200 sm:text-black'
-          : mapColorToBG(color)
-    }`}
+          : mapColorToBG(color),
+    )}
   >
     <div
-      className={`flex-0 hidden h-64 w-64 sm:block ${
+      className={classNames(
+        'flex-0 hidden h-64 w-64 sm:block',
         color === 'gray'
           ? 'rounded-l border-4 border-white-100 bg-white-200'
           : color === 'darkness'
             ? 'bg-black'
-            : mapColorToBG(color)
-      }`}
+            : mapColorToBG(color),
+      )}
     />
     <div className="p-6">
       <h3 className="mb-2 font-sans text-sm font-bold lg:mb-4 lg:text-lg">{name}</h3>
@@ -108,9 +110,10 @@ const ColorValues: FC<{ values: ColorValue[]; color: BrandColorOrTint }> = ({ va
       <div key={label} className="flex flex-col">
         <dt className="mb-1 text-xxs font-bold md:text-xs">{label}</dt>
         <dd
-          className={`select-all text-sm sm:bg-white-200 md:text-base ${
-            color === 'gray' ? 'bg-white-200' : color === 'darkness' ? 'bg-apricot-800' : mapColorToLightBG(color)
-          } whitespace-nowrap rounded-[4px] px-[6px] py-[2px]`}
+          className={classNames(
+            'select-all whitespace-nowrap rounded-[4px] px-[6px] py-[2px] text-sm sm:bg-white-200 md:text-base',
+            color === 'gray' ? 'bg-white-200' : color === 'darkness' ? 'bg-apricot-800' : mapColorToLightBG(color),
+          )}
         >
           {content}
         </dd>

@@ -18,6 +18,9 @@ const config: KnipConfig = {
 
     'src/app/(site)/robots.ts',
     'src/app/(site)/sitemap.ts',
+
+    // because it doesn't know blobs/v2/animate
+    'src/components/blobs/blob.tsx',
   ],
   ignoreDependencies: [
     '@typescript-eslint/eslint-plugin',

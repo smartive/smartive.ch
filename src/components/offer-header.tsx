@@ -1,6 +1,5 @@
 import { SmartiveColorsType } from '@/utils/color';
-import { classNames } from '@/utils/css';
-import { Clock, Copy, Heading1 } from '@smartive/guetzli';
+import { classNames, Clock, Copy, Heading1 } from '@smartive/guetzli';
 import { FC } from 'react';
 import { Blobs } from './blobs';
 

@@ -1,13 +1,8 @@
 import { ResponsiveImageFragment } from '@/graphql/generated';
 import { SmartiveColorsType } from '@/utils/color';
+import { mapColorToText } from '@smartive/guetzli';
 import { FC } from 'react';
 import { Image as DatoImage } from 'react-datocms';
-
-const colorClassNames = {
-  apricot: 'text-apricot-500',
-  mint: 'text-mint-500',
-  cornflower: 'text-cornflower-500',
-};
 
 type Props = {
   quote: string;
@@ -20,9 +15,9 @@ type Props = {
 export const SmallTestimonial: FC<Props> = ({ image, quote, authorName, authorDesc, color = 'apricot' }) => (
   <div className="grid grid-rows-[1fr,auto] items-center rounded bg-white-100 p-6 lg:p-10">
     <p className="text-center text-sm font-bold md:text-base lg:text-lg">
-      <span className={`${colorClassNames[color]}`}>&laquo;</span>
+      <span className={mapColorToText(color)}>&laquo;</span>
       {quote}
-      <span className={`${colorClassNames[color]}`}>&raquo;</span>
+      <span className={mapColorToText(color)}>&raquo;</span>
     </p>
     <div className="mt-8 flex w-full items-center gap-4">
       {image && <DatoImage data={{ ...image, width: 80, height: 80 }} className="rounded-full" />}

@@ -1,5 +1,5 @@
 import { SmartiveColorValues } from '@/utils/color';
-import { classNames } from '@/utils/css';
+import { classNames } from '@smartive/guetzli';
 import { FC } from 'react';
 
 const getRandomColor = (): string => SmartiveColorValues[Math.floor(Math.random() * SmartiveColorValues.length)];

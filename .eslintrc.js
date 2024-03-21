@@ -53,7 +53,6 @@ module.exports = {
               'Copy',
               'Grid',
               'ChevronRight',
-              'ImageCard',
 
               // dato
               'DatoImage',

@@ -1,4 +1,4 @@
-import { classNames } from '@/utils/css';
+import { classNames } from '@smartive/guetzli';
 import { FC, PropsWithChildren } from 'react';
 
 type Props = PropsWithChildren<{

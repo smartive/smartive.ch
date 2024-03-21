@@ -1,7 +1,7 @@
 import { BlockWrapper } from '@/components/layouts/block-wrapper';
 import { GalleryBlockFragment } from '@/graphql/generated';
 import { getImagesFromRokka } from '@/services/cloud-storage';
-import { classNames } from '@/utils/css';
+import { classNames } from '@smartive/guetzli';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 import { FC, Suspense } from 'react';

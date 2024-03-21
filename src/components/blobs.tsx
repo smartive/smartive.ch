@@ -1,8 +1,8 @@
 'use client';
 
+import { Blob } from '@/components/blobs/blob';
 import { SmartiveColorsType } from '@/utils/color';
 import { BlobVariationName, getBlobs } from '@/utils/get-blobs';
-import { Blob } from '@smartive/guetzli';
 import { FC } from 'react';
 
 export const Blobs: FC<{ color?: SmartiveColorsType }> = ({ color = 'mint' }) => (
