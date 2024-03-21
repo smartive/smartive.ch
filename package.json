@@ -77,7 +77,7 @@
     "eslint": "8.57.0",
     "eslint-plugin-validate-filename": "^0.0.4",
     "playwright": "1.42.1",
-    "postcss": "8.4.37",
+    "postcss": "8.4.38",
     "postcss-import": "16.1.0",
     "prettier": "3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.5",
