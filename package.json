@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@mailchimp/mailchimp_marketing": "^3.0.80",
-    "@mux/mux-video-react": "0.8.3",
+    "@mux/mux-video-react": "0.8.4",
     "@react-three/drei": "^9.80.9",
     "@react-three/fiber": "^8.13.7",
     "@smartive/guetzli": "2.10.2",
