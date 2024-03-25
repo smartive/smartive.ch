@@ -13,7 +13,9 @@ const ignoreListErrors = [
   "It looks like the video you're trying to play will not work on this system!", // HLS streaming video
   '[analytics.js] Failed to load Analytics.js TypeError: Failed to fetch',
   'Third-party cookie will be blocked. Learn more in the Issues tab.',
-  'Custom state pseudo classes are changing from ":--webkit-media-controls-play-button" to ":state(webkit-media-controls-play-button)" soon. See more here: https://github.com/w3c/csswg-drafts/issues/4805' // External Video player
+  'Custom state pseudo classes are changing from ":--webkit-media-controls-play-button" to ":state(webkit-media-controls-play-button)" soon. See more here: https://github.com/w3c/csswg-drafts/issues/4805', // External Video player
+  'onPointerEnterCapture', // Mux video
+  'onPointerLeaveCapture', // Mux video
 ];
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',
@@ -104,21 +106,21 @@ const getStandaloneRoutes = (dirPath = './src/app/(standalone)', arrayOfFiles = 
 
   files.forEach((file) => {
     const filePath = `${dirPath}/${file}`;
-    
+
     if (fs.statSync(filePath).isDirectory()) {
       arrayOfFiles = getStandaloneRoutes(filePath, arrayOfFiles);
     } else if (filePath.includes('page.tsx')) {
       arrayOfFiles.push(filePath);
     }
   });
-  
+
   return arrayOfFiles.map((path) => path.replace('./src/app/(standalone)/', '').replace('/page.tsx', ''));
 };
 
 (async () => {
   const browser = await chromium.launch();
   const page = await browser.newPage();
-  const routesToCheck = [...getStandaloneRoutes(), ...(await getAllDatoCMSRoutes())]
+  const routesToCheck = [...getStandaloneRoutes(), ...(await getAllDatoCMSRoutes())];
   const errorsAndWarnings = {};
   let routeIndex = 0;
 

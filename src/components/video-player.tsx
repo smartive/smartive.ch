@@ -27,5 +27,7 @@ export const VideoPlayer: FC<Props> = ({ playbackId, width, height, controls, au
     height={height}
     className="rounded"
     placeholder={placeholder}
+    onPointerEnterCapture={undefined}
+    onPointerLeaveCapture={undefined}
   />
 );
