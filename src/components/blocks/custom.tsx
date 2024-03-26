@@ -6,6 +6,7 @@ import { FarmerBlock } from '../custom/farmer-riegel';
 import { LangerSamstagLogo } from '../custom/langer-samstag/langer-samstag-logo';
 import { Podcast } from '../custom/podcast';
 import { SalaryCalculator } from '../custom/salary-calculator/salary-calculator';
+import { SparepartConfigurator } from '../custom/sparepart-configurator';
 
 type Props = {
   block: CustomBlockFragment;
@@ -27,6 +28,9 @@ export const CustomBlock: FC<Props> = ({ block: { component, content, brandtype 
     }
     case 'brand': {
       return <Brand type={brandtype as BrandTypes} />;
+    }
+    case 'sparepartConfigurator': {
+      return <SparepartConfigurator />;
     }
     default:
       console.error('Unknown custom component', component);
