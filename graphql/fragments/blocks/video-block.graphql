@@ -8,11 +8,8 @@ fragment videoBlock on VideoRecord {
     title
   }
   videoFile {
-    width
-    height
-    blurUpThumb
     video {
-      muxPlaybackId
+      ...videoFragment
     }
   }
   controls

@@ -21,7 +21,7 @@ module.exports = {
             case: 'kebab',
             target: '**/**',
             // validate-filename doesn't support filenames which start with a number e.g. `blobs/1.tsx`
-            excludes: ['blobs']
+            excludes: ['blobs'],
           },
         ],
       },
@@ -56,6 +56,7 @@ module.exports = {
 
               // dato
               'DatoImage',
+              'DatoVideoPlayer',
 
               // next
               'NextImage',
@@ -67,9 +68,6 @@ module.exports = {
 
               // /10 page
               'Section',
-
-              // mux
-              'MuxVideo',
 
               // three js
               'Canvas',

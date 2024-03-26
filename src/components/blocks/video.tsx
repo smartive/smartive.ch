@@ -51,15 +51,8 @@ export const VideoBlock: FC<Props> = ({ block: { videoType, video, videoFile, lo
   if (videoType === 'upload') {
     return (
       <BlockWrapper marginTop="small" marginBottom="small">
-        {videoFile?.video?.muxPlaybackId ? (
-          <VideoPlayer
-            playbackId={videoFile.video.muxPlaybackId}
-            controls={controls}
-            autoplay={autoplay}
-            loop={loop}
-            width={videoFile?.width ?? undefined}
-            height={videoFile?.height ?? undefined}
-          />
+        {videoFile?.video ? (
+          <VideoPlayer video={videoFile.video} controls={controls} autoplay={autoplay} loop={loop} />
         ) : (
           <div className="'mb-4 border-l-4 border-error bg-error bg-opacity-10 p-4 text-base text-error">
             Sorry, das Video konnte nicht geladen werden. 😔
