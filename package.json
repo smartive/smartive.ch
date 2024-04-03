@@ -14,8 +14,6 @@
     "analyze-bundle": "ANALYZE=true npm run build",
     "test": "node test/check-page-errors.js",
     "test:ci": "next dev & node test/check-page-errors.js",
-    "deploy:preview": "vercel --token $VERCEL_TOKEN --yes --scope smartive > deployment-url.txt",
-    "deploy:production": "vercel --token $VERCEL_TOKEN --confirm --scope smartive --prod",
     "generate": "graphql-codegen"
   },
   "overrides": {

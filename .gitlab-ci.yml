@@ -4,28 +4,15 @@ include:
     ref: v4.0.0
     file: '/all-templates.yml'
 
-stages:
-  - test
-  - release
-  - deploy
-
 .default_template:
   extends: .base
   image: node:21-alpine
 
 .test_template:
   extends: .default_template
-  stage: test
   image: mcr.microsoft.com/playwright:focal
   before_script:
     - npm ci
-
-.deploy_template:
-  extends: .default_template
-  stage: deploy
-  before_script:
-    - npm ci
-    - npm i -g vercel
 
 linting:
   extends: .default_template
@@ -51,27 +38,3 @@ tests:
     - npm run test:ci
   only:
     - merge_requests
-
-deploy preview:
-  extends: .deploy_template
-  script:
-    - npm run deploy:preview
-    - echo "PREVIEW_DEPLOYMENT_URL=$(cat deployment-url.txt)" >> deploy.env
-  artifacts:
-    reports:
-      dotenv: deploy.env
-  environment:
-    name: Preview $CI_COMMIT_REF_SLUG
-    url: $PREVIEW_DEPLOYMENT_URL
-  rules:
-    - if: '$CI_MERGE_REQUEST_IID && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME !~ /^renovate\//'
-
-deploy production:
-  extends: .deploy_template
-  script:
-    - npm run deploy:production
-  environment:
-    name: production
-    url: https://smartive.ch
-  rules:
-    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
