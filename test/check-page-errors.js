@@ -14,8 +14,7 @@ const ignoreListErrors = [
   '[analytics.js] Failed to load Analytics.js TypeError: Failed to fetch',
   'Third-party cookie will be blocked. Learn more in the Issues tab.',
   'Custom state pseudo classes are changing from ":--webkit-media-controls-play-button" to ":state(webkit-media-controls-play-button)" soon. See more here: https://github.com/w3c/csswg-drafts/issues/4805', // External Video player
-  'onPointerEnterCapture', // Mux video
-  'onPointerLeaveCapture', // Mux video
+  "Error with Permissions-Policy header: Unrecognized feature: 'ch-ua-form-factor'", // Youtube videos
 ];
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',

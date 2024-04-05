@@ -4,17 +4,22 @@
   "packageRules": [
     {
       "packagePatterns": ["^@types[/]"],
-      "groupName": "typescript typings"
+      "groupName": "TypeScript typings"
     },
     {
       "packagePatterns": ["^eslint*", "prettier"],
-      "groupName": "linting"
+      "groupName": "Linting"
+    },
+    {
+      "matchPackagePatterns": ["playwright"],
+      "groupName": "Playwright",
+      "automerge": true
     },
     {
       "updateTypes": ["major"],
       "automerge": false,
       "gitLabAutomerge": false,
-      "labels": ["dependencies-major"]
+      "labels": ["dependencies", "dependencies-major"]
     }
   ]
 }
