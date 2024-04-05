@@ -16,6 +16,11 @@ const ignoreListErrors = [
   'Custom state pseudo classes are changing from ":--webkit-media-controls-play-button" to ":state(webkit-media-controls-play-button)" soon. See more here: https://github.com/w3c/csswg-drafts/issues/4805', // External Video player
   "Error with Permissions-Policy header: Unrecognized feature: 'ch-ua-form-factor'", // Youtube videos
 ];
+
+const ignoreListLocations = [
+  'https://cdn.segment.io/analytics.js', // Calendly
+];
+
 const dynamicRoutes = {
   'nachhaltigkeit/[year]/': 'nachhaltigkeit/2019/',
   'nachhaltigkeit/[year]/scope-3': 'nachhaltigkeit/2019/scope-3',
@@ -129,9 +134,10 @@ const getStandaloneRoutes = (dirPath = './src/app/(standalone)', arrayOfFiles = 
     // track errors & warnings but ignore some of them, where we know they are not relevant
     if (
       (msg.type() === 'error' || msg.type() === 'warning') &&
-      ignoreListErrors.every((ignore) => !msg.text().includes(ignore))
+      ignoreListErrors.every((ignore) => !msg.text().includes(ignore)) &&
+      ignoreListLocations.every((ignore) => !msg.location().url.includes(ignore))
     ) {
-      errorsAndWarnings[page.url()] = msg.text();
+      errorsAndWarnings[page.url()] = { message: msg.text(), location: msg.location().url };
     }
   });
 
