@@ -23,7 +23,7 @@ export async function getEpisodes() {
   const { parseStringPromise } = await import('xml2js');
   try {
     const response = await fetch('https://anchor.fm/s/eef08ae0/podcast/rss', {
-      next: { revalidate: 60 * 60 * 24 },
+      next: { revalidate: 3600 },
     });
 
     const rawResult = await response.text();
