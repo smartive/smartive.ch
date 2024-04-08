@@ -65,7 +65,7 @@
     "@tailwindcss/typography": "0.5.12",
     "@types/mailchimp__mailchimp_marketing": "^3.0.17",
     "@types/node": "20.12.5",
-    "@types/react": "18.2.74",
+    "@types/react": "18.2.75",
     "@types/react-dom": "18.2.24",
     "@types/sanitize-html": "^2.9.5",
     "@types/seedrandom": "^3.0.8",
