@@ -23,7 +23,9 @@ export const LightboxComponent: FC<{ slides: Photo[] }> = ({ slides }) => {
       }
       index={currentImage}
       render={{
-        slide: ({ slide: { src, width, height } }) => <NextImage src={src} width={width} height={height} alt="" />,
+        slide: ({ slide: { src, width, height } }) => (
+          <NextImage src={src} width={width} height={height} alt="" className="max-h-[90vh] max-w-[90vw] object-contain" />
+        ),
       }}
       slides={slides}
     />
