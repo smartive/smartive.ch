@@ -49,6 +49,11 @@ module.exports = withBundleAnalyzer({
         permanent: true,
       },
       {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+      {
         source: '/:path*',
         destination: 'https://smartive.ch/r/schade-schokolade',
         permanent: true,

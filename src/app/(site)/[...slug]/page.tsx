@@ -43,7 +43,7 @@ export default async function ContentPage({ params: { slug } }: Params) {
     includeDrafts: draftMode().isEnabled,
   });
 
-  if (!page) {
+  if (!page || page.slug === 'home') {
     notFound();
   }
 
