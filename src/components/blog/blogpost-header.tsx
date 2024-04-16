@@ -24,13 +24,15 @@ export const BlogpostHeader: FC<Props> = ({ title, image, author, authorImage, p
     <div className="my-12 grid overflow-hidden rounded bg-white-100 md:grid-cols-[auto,33.5%] lg:my-16">
       <DatoImage data={image} layout="responsive" objectFit="cover" />
       <div className="grid auto-cols-max grid-flow-col auto-rows-max items-center gap-4 p-5 font-sans md:grid-flow-row md:justify-center md:gap-6 md:p-16 lg:text-base">
-        {authorImage ? (
+        <div className="flex w-full justify-center">
           <div className="h-20 w-20 lg:h-40 lg:w-40">
-            <DatoImage data={authorImage} className="rounded-full" />
+            {authorImage ? (
+              <DatoImage data={authorImage} className="rounded-full" />
+            ) : (
+              <AvatarFallback className="h-full w-full" />
+            )}
           </div>
-        ) : (
-          <AvatarFallback className="h-20 w-20 lg:h-40 lg:w-40" />
-        )}
+        </div>
         <div className="flex flex-col items-start gap-2 md:items-center md:gap-4 lg:gap-6">
           <p className="text-xs md:text-sm lg:text-base">
             {LANG_STRINGS[language].by} <strong>{author}</strong>
