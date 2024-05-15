@@ -20,7 +20,6 @@ export const BackToTop = () => {
     <LazyMotion strict features={loadFramerFeatures}>
       <button
         title="Zurück nach oben"
-        aria-hidden
         className="mt-8 grid grid-flow-col place-items-center gap-2 justify-self-center text-sm font-bold focus:outline-none focus:ring-[3px] focus:ring-mint-200 lg:col-start-4 lg:place-self-end"
         onClick={() =>
           window.scrollTo({

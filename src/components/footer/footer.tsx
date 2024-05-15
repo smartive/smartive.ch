@@ -50,9 +50,6 @@ export const Footer: FC = () => (
           <FooterLink href="https://www.instagram.com/smartive_ch/" target="_blank">
             Instagram
           </FooterLink>
-          <FooterLink href="https://facebook.com/smartive.ch" target="_blank">
-            Facebook
-          </FooterLink>
           <div className="mt-4 justify-self-center">
             <NextLink
               href="/newsletter"
