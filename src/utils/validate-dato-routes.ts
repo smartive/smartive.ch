@@ -12,7 +12,10 @@ export const validateRoutes = async (page: PageRecord, slugs: string[]) => {
   // Change order of slugs to match the order of the page hierarchy. It's easier to work with.
   slugs = slugs.reverse();
 
-  if (slugs.length === 2) {
+  if (page.parent && slugs.length === 1) {
+    // If the page has a parent, but the slug length is 1, it means that the parent is missing.
+    notFound();
+  } else if (slugs.length === 2) {
     // We check if the parent slug is the correct one.
     if (slugs[1] !== page.parent?.slug) {
       notFound();
