@@ -56,7 +56,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     return NextResponse.json({ previewLinks: [] }, { status: 200, headers });
   }
 
-  const baseUrl = `https://${process.env.NEXT_PUBLIC_SITE_URL}/api/draft`;
+  const baseUrl = `https://${process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}/api/draft`;
 
   const previewLinks: { label: string; url: string }[] = [];
 
