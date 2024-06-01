@@ -47,7 +47,7 @@
     "scrollex": "^2.0.1",
     "seedrandom": "^3.0.5",
     "sharp": "^0.33.2",
-    "three": "^0.164.0",
+    "three": "^0.165.0",
     "xml2js": "^0.6.2",
     "xstate": "4.38.3",
     "yet-another-react-lightbox": "^3.17.0"
