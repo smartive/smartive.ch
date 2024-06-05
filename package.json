@@ -41,7 +41,7 @@
     "react": "^18.2.0",
     "react-datocms": "^6.0.0",
     "react-dom": "^18.2.0",
-    "react-intersection-observer": "9.10.2",
+    "react-intersection-observer": "9.10.3",
     "rokka": "3.16.0",
     "sanitize-html": "^2.11.0",
     "scrollex": "^2.0.1",
