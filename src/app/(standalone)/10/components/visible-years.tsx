@@ -49,7 +49,7 @@ export const VisibleYears: FC<{
       ) : null}
       <div className="fixed bottom-5 right-5 scale-100 rounded-full bg-conic-gradient p-1 shadow-sm transition-transform hover:rotate-6 hover:scale-110">
         <button
-          className=" bg-white flex h-12 w-12 items-center justify-center rounded-full bg-white-200"
+          className="bg-white flex h-12 w-12 items-center justify-center rounded-full bg-white-200"
           onClick={fireConfetti}
         >
           🎉

@@ -88,7 +88,7 @@ const Episode: FC<{ episode: EpisodeType }> = ({ episode }) => {
       <div className="flex flex-col gap-2.5 p-4">
         <p className="text-xxs">{date}</p>
         <Heading3 className="!mb-0 text-mint-500 lg:mb-0">{title}</Heading3>
-        <div className="flex gap-4 ">
+        <div className="flex gap-4">
           <button onClick={toggleIsPlaying}>{isPlaying ? <PauseIcon /> : <PlayIcon />}</button>
           <div className="flex-grow">
             <input
