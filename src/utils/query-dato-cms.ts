@@ -1,6 +1,5 @@
 import { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { print } from 'graphql';
-import { GraphQLClientRequestHeaders } from 'graphql-request/build/esm/types';
 
 type Variables = {
   slug?: string;
@@ -22,7 +21,7 @@ export async function queryDatoCMS<TResult = unknown>({
   includeDrafts,
   revalidateTags,
 }: Options<TResult>): Promise<TResult> {
-  const headers: GraphQLClientRequestHeaders = {
+  const headers = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
     'X-Exclude-Invalid': 'true',
