@@ -34,8 +34,8 @@ export const BlogOverviewBlock: FC<Props> = async ({ block: { teaser } }) => {
           )}
           <div className="grid grid-rows-[auto,auto,1fr,auto] p-5 font-sans text-xs md:p-16 lg:text-base">
             <div className="text flex flex-row items-center gap-4 lg:text-xs">
-              {blogpost?.author?.portrait?.responsiveImage ? (
-                <DatoImage data={blogpost.author.portrait.responsiveImage} className="rounded-full" />
+              {blogpost?.author?.imagePortrait?.responsiveImage ? (
+                <DatoImage data={blogpost.author.imagePortrait.responsiveImage} className="rounded-full" />
               ) : (
                 <AvatarFallback />
               )}
@@ -63,7 +63,7 @@ export const BlogOverviewBlock: FC<Props> = async ({ block: { teaser } }) => {
               published={post.published}
               image={post.image.responsiveImage}
               author={post.author?.name ?? post.altAuthor}
-              authorImage={post?.author?.portrait?.responsiveImage ?? undefined}
+              authorImage={post?.author?.imagePortrait?.responsiveImage ?? undefined}
             />
             {index === 3 && teaser && (
               <TeaserCard

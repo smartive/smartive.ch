@@ -66,7 +66,7 @@ const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragmen
           published={teaser.published}
           image={teaser.image.responsiveImage}
           author={teaser.author?.name}
-          authorImage={teaser.author?.portrait?.responsiveImage ?? undefined}
+          authorImage={teaser.author?.imagePortrait?.responsiveImage ?? undefined}
         />
       );
     default:

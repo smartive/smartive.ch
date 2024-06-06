@@ -5,9 +5,6 @@ import { classNames, Heading3 } from '@smartive/guetzli';
 import NextImage from 'next/image';
 import { FC } from 'react';
 import { Image as DatoImage } from 'react-datocms';
-import closeupApricot from '../../public/images/closeup-fallback-apricot.svg';
-import closeupCornflower from '../../public/images/closeup-fallback-cornflower.svg';
-import closeupMint from '../../public/images/closeup-fallback-mint.svg';
 import portraitApricot from '../../public/images/portrait-fallback-apricot.svg';
 import portraitCornflower from '../../public/images/portrait-fallback-cornflower.svg';
 import portraitMint from '../../public/images/portrait-fallback-mint.svg';
@@ -19,7 +16,7 @@ type Props = {
 };
 
 export const EmployeeCard: FC<Props> = ({
-  employee: { name, job, bio, email, closeup, image, github, linkedin },
+  employee: { name, job, bio, email, image, github, linkedin },
   className = '',
 }) => {
   const links = [
@@ -42,18 +39,11 @@ export const EmployeeCard: FC<Props> = ({
 
   return (
     <div className={classNames('flex flex-col overflow-hidden rounded bg-white-100', className)} id={name}>
-      <div className="hidden w-full lg:block">
+      <div className="w-full">
         {image?.responsiveImage ? (
           <DatoImage data={{ ...image.responsiveImage, alt }} layout="responsive" />
         ) : (
           <NextImage src={{ 0: portraitMint, 1: portraitApricot, 2: portraitCornflower }[colorIndex]} alt={alt} />
-        )}
-      </div>
-      <div className="block w-full lg:hidden">
-        {closeup?.responsiveImage ? (
-          <DatoImage data={{ ...closeup.responsiveImage, alt }} layout="responsive" />
-        ) : (
-          <NextImage src={{ 0: closeupMint, 1: closeupApricot, 2: closeupCornflower }[colorIndex]} alt={alt} />
         )}
       </div>
       <div className="flex flex-1 flex-col p-8 font-sans text-xxs font-normal lg:text-sm">

@@ -2,7 +2,7 @@ fragment contactBlock on ContactRecord {
   id
   text
   contact {
-    portrait {
+    imagePortrait {
       responsiveImage(imgixParams: { fit: crop, w: 208, h: 208, auto: format }) {
         ...responsiveImage
       }

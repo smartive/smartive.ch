@@ -81,7 +81,7 @@ export default async function BlogpostPage({ params: { slug } }: Params) {
         title={title}
         published={published}
         image={image?.responsiveImage}
-        authorImage={author?.portrait?.responsiveImage ?? undefined}
+        authorImage={author?.imagePortrait?.responsiveImage ?? undefined}
         author={author?.name ?? altAuthor}
         language={language as Language}
       />

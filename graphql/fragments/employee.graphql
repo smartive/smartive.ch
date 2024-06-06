@@ -1,17 +1,13 @@
 fragment employee on EmployeeRecord {
-  image {
-    responsiveImage(imgixParams: { fit: crop, w: 458, h: 687, auto: format }) {
-      ...responsiveImage
-    }
-  }
-  closeup {
-    responsiveImage(imgixParams: { fit: crop, w: 720, h: 450, auto: format }) {
-      ...responsiveImage
-    }
-  }
-  portrait {
+  image: imageMain {
     url
-    responsiveImage(imgixParams: { fit: crop, w: 208, h: 208, auto: format }) {
+    responsiveImage(imgixParams: { fit: crop, w: 458, h: 687 }) {
+      ...responsiveImage
+    }
+  }
+  imagePortrait {
+    url
+    responsiveImage(imgixParams: { fit: crop, w: 208, h: 208 }) {
       ...responsiveImage
     }
   }

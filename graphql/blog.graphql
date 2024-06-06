@@ -5,7 +5,7 @@ query Post($slug: String!) {
     language
     author {
       name
-      portrait {
+      imagePortrait {
         responsiveImage(imgixParams: { fit: crop, w: 164, h: 164, auto: format }) {
           ...responsiveImage
         }
@@ -103,7 +103,7 @@ query LatestPost {
     excerpt
     author {
       name
-      portrait {
+      imagePortrait {
         responsiveImage(imgixParams: { fit: crop, w: 50, h: 50, auto: format }) {
           ...responsiveImage
         }

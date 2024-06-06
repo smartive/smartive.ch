@@ -4,7 +4,7 @@ fragment blogpostCard on BlogpostRecord {
   title
   author {
     name
-    portrait {
+    imagePortrait {
       responsiveImage(imgixParams: { fit: crop, w: 50, h: 50, auto: format }) {
         ...responsiveImage
       }

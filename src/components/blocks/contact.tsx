@@ -9,7 +9,7 @@ type Props = {
 };
 
 export const ContactBlock: FC<Props> = ({ block: { text, contact } }) => {
-  const { email, tel, name, booking, portrait } = contact;
+  const { email, tel, name, booking, imagePortrait } = contact;
   const firstName = name.split(' ')[0];
 
   const links = [
@@ -24,9 +24,9 @@ export const ContactBlock: FC<Props> = ({ block: { text, contact } }) => {
   return (
     <BlockWrapper>
       <div className="grid grid-flow-row place-content-center items-center justify-items-center gap-6 px-4 text-center lg:grid-flow-col lg:gap-12 lg:px-14 lg:text-left">
-        {portrait?.responsiveImage && (
+        {imagePortrait?.responsiveImage && (
           <div className="h-36 w-36 lg:h-52 lg:w-52">
-            <DatoImage data={{ ...portrait.responsiveImage, alt: name }} className="rounded-full" />
+            <DatoImage data={{ ...imagePortrait.responsiveImage, alt: name }} className="rounded-full" />
           </div>
         )}
         <div>

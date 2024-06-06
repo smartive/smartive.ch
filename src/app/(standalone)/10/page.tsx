@@ -71,14 +71,14 @@ export function generateMetadata() {
 export default async function TenYearsPage() {
   const { employees: datoEmployee } = await queryDatoCMS({ document: AllEmployeesDocument });
   const employees = datoEmployee
-    .map(({ start, portrait, name }) => {
-      if (!portrait?.responsiveImage || !start) {
+    .map(({ start, imagePortrait, name }) => {
+      if (!imagePortrait?.responsiveImage || !start) {
         return false;
       }
 
       return {
         start,
-        image: portrait.responsiveImage,
+        image: imagePortrait.responsiveImage,
         name,
       };
     })
