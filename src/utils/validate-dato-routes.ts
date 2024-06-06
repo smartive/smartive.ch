@@ -1,7 +1,6 @@
 import { PageRecord, PageStructureDocument } from '@/graphql/generated';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
-import { PAGE_STRUCTURE_TAG } from './const';
 import { queryDatoCMS } from './query-dato-cms';
 
 export const getLastSlug = (slugs: string[]): string => {
@@ -33,7 +32,6 @@ export const validateRoutes = async (page: PageRecord, slugs: string[]) => {
           document: PageStructureDocument,
           variables: { slug: currentSlug },
           includeDrafts: draftMode().isEnabled,
-          revalidateTags: [PAGE_STRUCTURE_TAG],
         });
         if (page?.parent?.slug !== parentSlug) {
           notFound();
