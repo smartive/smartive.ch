@@ -1,7 +1,7 @@
 import { NewsletterBlockFragment } from '@/graphql/generated';
 import { StructuredText as StructuredTextType, isEmptyDocument } from 'datocms-structured-text-utils';
 import { FC } from 'react';
-import { Image as DatoImage } from 'react-datocms';
+import { SRCImage as DatoSRCImage } from 'react-datocms';
 import { StructuredTextRenderer } from '../dato-structured-text';
 import { BlockWrapper } from '../layouts/block-wrapper';
 import { NewsletterForm } from '../newsletter-form';
@@ -19,7 +19,7 @@ export const NewsletterBlock: FC<Props> = ({ block: { content, image } }) => (
       </div>
       {image?.responsiveImage && (
         <div className="relative order-1 min-h-[250px] md:order-2 md:min-h-[200px]">
-          <DatoImage data={image.responsiveImage} layout="fill" objectFit="cover" />
+          <DatoSRCImage data={image.responsiveImage} style={{ objectFit: 'cover' }} />
         </div>
       )}
     </div>

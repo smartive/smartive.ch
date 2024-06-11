@@ -2,7 +2,7 @@ import { LANG_STRINGS, Language } from '@/utils/const';
 import { Calendar, Clock, Heading1 } from '@smartive/guetzli';
 import dayjs from 'dayjs';
 import { FC } from 'react';
-import { Image as DatoImage, ResponsiveImageType } from 'react-datocms';
+import { SRCImage as DatoSRCImage, ResponsiveImageType } from 'react-datocms';
 import { AvatarFallback } from './avatar-fallback';
 import { CopyUrlButton } from './copy-url-button';
 import { ReadingTime } from './reading-time';
@@ -22,12 +22,12 @@ export const BlogpostHeader: FC<Props> = ({ title, image, author, authorImage, p
   <header className="mt-12 lg:mt-48">
     <Heading1>{title}</Heading1>
     <div className="my-12 grid overflow-hidden rounded bg-white-100 md:grid-cols-[auto,33.5%] lg:my-16">
-      <DatoImage data={image} layout="responsive" objectFit="cover" />
+      <DatoSRCImage data={image} style={{ objectFit: 'cover', width: '100%', maxWidth: '100%' }} />
       <div className="grid auto-cols-max grid-flow-col auto-rows-max items-center gap-4 p-5 font-sans md:grid-flow-row md:justify-center md:gap-6 md:p-16 lg:text-base">
         <div className="flex w-full justify-center">
           <div className="h-20 w-20 lg:h-40 lg:w-40">
             {authorImage ? (
-              <DatoImage data={authorImage} className="rounded-full" />
+              <DatoSRCImage data={authorImage} className="rounded-full" />
             ) : (
               <AvatarFallback className="h-full w-full" />
             )}

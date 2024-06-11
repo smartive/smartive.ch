@@ -2,7 +2,7 @@ import { Heading3 } from '@smartive/guetzli';
 import dayjs from 'dayjs';
 import NextLink from 'next/link';
 import { FC } from 'react';
-import { Image as DatoImage, ResponsiveImageType } from 'react-datocms';
+import { SRCImage as DatoSRCImage, ResponsiveImageType } from 'react-datocms';
 import { AvatarFallback } from './avatar-fallback';
 
 require('dayjs/locale/de');
@@ -22,10 +22,10 @@ export const BlogpostCard: FC<Props> = ({ slug, title, published, image, author,
     title={`Beitrag '${title}' lesen`}
     className="card-shadow grid w-full max-w-[720px] grid-rows-[auto,1fr,auto] overflow-hidden rounded bg-white-100 text-black transition-transform active:scale-[.99]"
   >
-    <DatoImage data={image} layout="responsive" />
+    <DatoSRCImage data={image} style={{ width: '100%', maxWidth: '100%' }} />
     <div className="grid grid-rows-[auto,1fr,auto] p-5 font-sans text-xxs font-normal lg:p-8 lg:text-sm">
       <div className="text flex flex-row items-center gap-4 lg:text-xs">
-        {authorImage ? <DatoImage data={authorImage} className="rounded-full" /> : <AvatarFallback />}
+        {authorImage ? <DatoSRCImage data={authorImage} className="rounded-full" /> : <AvatarFallback />}
         <div>
           von {author}
           <br />

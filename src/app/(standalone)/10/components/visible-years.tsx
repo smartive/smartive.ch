@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { FC } from 'react';
-import { Image as DatoImage } from 'react-datocms';
+import { SRCImage as DatoSRCImage } from 'react-datocms';
 import { ResponsiveImageType } from 'react-datocms/image';
 import { useYearQuery } from '../use-year-query';
 import { fireConfetti } from './fire-confetti';
@@ -39,7 +39,7 @@ export const VisibleYears: FC<{
                   className="-ml-3 -mr-3 block h-full overflow-visible hover:z-50"
                 >
                   <div className="relative inline-flex h-14 w-14 items-center overflow-hidden rounded-full bg-conic-gradient p-1">
-                    <DatoImage data={image} pictureClassName="h-12 w-12 rounded-full" className="h-12 w-12 rounded-full" />
+                    <DatoSRCImage data={image} className="h-12 w-12 rounded-full" />
                   </div>
                 </motion.a>
               ))}

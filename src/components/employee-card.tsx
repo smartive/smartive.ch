@@ -4,7 +4,7 @@ import { isTruthy } from '@/utils/common';
 import { classNames, Heading3 } from '@smartive/guetzli';
 import NextImage from 'next/image';
 import { FC } from 'react';
-import { Image as DatoImage } from 'react-datocms';
+import { SRCImage as DatoSRCImage } from 'react-datocms';
 import portraitApricot from '../../public/images/portrait-fallback-apricot.svg';
 import portraitCornflower from '../../public/images/portrait-fallback-cornflower.svg';
 import portraitMint from '../../public/images/portrait-fallback-mint.svg';
@@ -41,7 +41,7 @@ export const EmployeeCard: FC<Props> = ({
     <div className={classNames('flex flex-col overflow-hidden rounded bg-white-100', className)} id={name}>
       <div className="w-full">
         {image?.responsiveImage ? (
-          <DatoImage data={{ ...image.responsiveImage, alt }} layout="responsive" />
+          <DatoSRCImage data={{ ...image.responsiveImage, alt }} style={{ width: '100%', maxWidth: '100%' }} />
         ) : (
           <NextImage src={{ 0: portraitMint, 1: portraitApricot, 2: portraitCornflower }[colorIndex]} alt={alt} />
         )}

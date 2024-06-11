@@ -2,7 +2,7 @@ import { ResponsiveImageFragment } from '@/graphql/generated';
 import { SmartiveColorsType } from '@/utils/color';
 import { mapColorToText } from '@smartive/guetzli';
 import { FC } from 'react';
-import { Image as DatoImage } from 'react-datocms';
+import { SRCImage as DatoSRCImage } from 'react-datocms';
 
 type Props = {
   quote: string;
@@ -20,7 +20,7 @@ export const SmallTestimonial: FC<Props> = ({ image, quote, authorName, authorDe
       <span className={mapColorToText(color)}>&raquo;</span>
     </p>
     <div className="mt-8 flex w-full items-center gap-4">
-      {image && <DatoImage data={{ ...image, width: 80, height: 80 }} className="rounded-full" />}
+      {image && <DatoSRCImage data={{ ...image, width: 80, height: 80 }} className="rounded-full" />}
       {authorName && (
         <span className="text-xxs lg:text-sm">
           <strong>{authorName}</strong>

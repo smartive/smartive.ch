@@ -1,6 +1,6 @@
 import { ImageBlockFragment } from '@/graphql/generated';
 import { FC } from 'react';
-import { Image as DatoImage, ResponsiveImageType } from 'react-datocms';
+import { SRCImage as DatoSRCImage, ResponsiveImageType } from 'react-datocms';
 import { BlockWrapper } from '../layouts/block-wrapper';
 
 type Props = {
@@ -15,7 +15,7 @@ type ImageProps = {
 
 const Image: FC<ImageProps> = ({ image, caption, priority }) => (
   <div>
-    <DatoImage data={image} layout="responsive" className="rounded" priority={priority} />
+    <DatoSRCImage data={image} className="rounded" priority={priority} style={{ width: '100%', maxWidth: '100%' }} />
     {caption && <p className="mt-2 text-xs italic">{caption}</p>}
   </div>
 );

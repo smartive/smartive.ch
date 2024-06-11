@@ -2,7 +2,7 @@ import { ImageTextBlockFragment } from '@/graphql/generated';
 import { classNames } from '@smartive/guetzli';
 import { StructuredText as StructuredTextType, isEmptyDocument } from 'datocms-structured-text-utils';
 import { FC } from 'react';
-import { Image as DatoImage } from 'react-datocms';
+import { SRCImage as DatoSRCImage } from 'react-datocms';
 import { StructuredTextRenderer } from '../dato-structured-text';
 import { BlockWrapper } from '../layouts/block-wrapper';
 
@@ -20,7 +20,7 @@ export const ImageTextBlock: FC<Props> = ({ block: { content, image, layout, dis
     >
       {image?.responsiveImage && (
         <div className="basis-2/5">
-          <DatoImage data={image.responsiveImage} layout="responsive" className="rounded" />
+          <DatoSRCImage data={image.responsiveImage} className="rounded" style={{ width: '100%', maxWidth: '100%' }} />
         </div>
       )}
       {!isEmptyDocument(content) && (

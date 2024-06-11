@@ -55,7 +55,7 @@ module.exports = {
               'ChevronRight',
 
               // dato
-              'DatoImage',
+              'DatoSRCImage',
               'DatoVideoPlayer',
 
               // next
