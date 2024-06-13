@@ -15,6 +15,7 @@ fragment imageTextBlock on ImageTextRecord {
     }
   }
   layout
+  isKeyfigure
   disableMarginTop
   disableMarginBottom
 }

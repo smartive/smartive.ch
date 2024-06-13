@@ -10,21 +10,24 @@ type Props = {
   block: ImageTextBlockFragment;
 };
 
-export const ImageTextBlock: FC<Props> = ({ block: { content, image, layout, disableMarginTop, disableMarginBottom } }) => (
+export const ImageTextBlock: FC<Props> = ({
+  block: { content, image, layout, disableMarginTop, disableMarginBottom, isKeyfigure = true },
+}) => (
   <BlockWrapper marginBottom={disableMarginBottom ? 'none' : 'large'} marginTop={disableMarginTop ? 'none' : 'large'}>
     <div
       className={classNames(
-        'flex flex-col items-center gap-8 sm:flex-row xl:gap-16',
+        'flex flex-col items-center gap-8 md:flex-row xl:gap-16',
         layout === 'image-right' && 'sm:flex-row-reverse',
+        isKeyfigure && 'justify-center rounded bg-cornflower-500 p-8',
       )}
     >
       {image?.responsiveImage && (
-        <div className="basis-2/5">
-          <DatoSRCImage data={image.responsiveImage} className="rounded" style={{ width: '100%', maxWidth: '100%' }} />
+        <div className={classNames(isKeyfigure ? 'flex max-w-[300px] items-center justify-center' : 'basis-2/5')}>
+          <DatoSRCImage data={image.responsiveImage} />
         </div>
       )}
       {!isEmptyDocument(content) && (
-        <div className="basis-3/5">
+        <div className={classNames(isKeyfigure ? 'font-bold md:max-w-[50%]' : 'basis-3/5')}>
           <StructuredTextRenderer data={content as StructuredTextType} />
         </div>
       )}

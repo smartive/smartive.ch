@@ -30,15 +30,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     }
 
     // Revalidate the whole site for the following types, because the data can be used on multiple pages
-    if (
-      item_type === 'blogpost' ||
-      item_type === 'employee' ||
-      item_type === 'offer' ||
-      item_type === 'project' ||
-      item_type === 'teaser_card' ||
-      item_type === 'testimonial' ||
-      item_type === 'topic'
-    ) {
+    if (['blogpost', 'employee', 'offer', 'project', 'teaser_card', 'testimonial', 'topic'].includes(item_type)) {
       revalidatePath('/', 'layout');
     }
   } catch (error: unknown) {

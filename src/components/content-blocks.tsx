@@ -1,5 +1,6 @@
 import {
   BlogpostModelContentField,
+  ImageTextBlockFragment,
   OfferModelContentField,
   PageModelContentField,
   ProjectModelContentField,
@@ -14,7 +15,6 @@ import { IframeBlock } from './blocks/iframe-block';
 import { ImageBlock } from './blocks/image';
 import { ImageGridBlock } from './blocks/image-grid';
 import { ImageTextBlock } from './blocks/image-text';
-import { KeyfigureBlock } from './blocks/keyfigure';
 import { LogoGridBlock } from './blocks/logo-grid';
 import { NewsletterBlock } from './blocks/newsletter';
 import { ProjectsOverviewBlock } from './blocks/projects-overview';
@@ -57,7 +57,17 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => {
           case 'ContactRecord':
             return <ContactBlock key={block.id} block={block} />;
           case 'KeyfigureRecord':
-            return <KeyfigureBlock key={block.id} block={block} />;
+            return (
+              <ImageTextBlock
+                key={block.id}
+                block={
+                  {
+                    ...block,
+                    isKeyfigure: true,
+                  } as unknown as ImageTextBlockFragment // TODO: remove block completely
+                }
+              />
+            );
           case 'ImageTextRecord':
             return <ImageTextBlock key={block.id} block={block} />;
           case 'CustomRecord':
