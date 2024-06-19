@@ -1,7 +1,7 @@
 'use client';
 
 /* eslint-disable react/no-unknown-property */
-import { useGLTF } from '@react-three/drei/core/useGLTF';
+import { useGLTF } from '@react-three/drei';
 import { PresentationControls } from '@react-three/drei/web/PresentationControls';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { classNames } from '@smartive/guetzli';
