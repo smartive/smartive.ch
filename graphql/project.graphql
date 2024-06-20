@@ -32,9 +32,6 @@ query Project($slug: String!) {
       ... on TeaserSelectionRecord {
         ...teaserSelectionBlock
       }
-      ... on KeyfigureRecord {
-        ...keyfigureBlock
-      }
       ... on ImageTextRecord {
         ...imageTextBlock
       }

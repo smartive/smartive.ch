@@ -1,6 +1,5 @@
 import {
   BlogpostModelContentField,
-  ImageTextBlockFragment,
   OfferModelContentField,
   PageModelContentField,
   ProjectModelContentField,
@@ -56,18 +55,6 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => {
             return <QuoteBlock key={block.id} block={block} />;
           case 'ContactRecord':
             return <ContactBlock key={block.id} block={block} />;
-          case 'KeyfigureRecord':
-            return (
-              <ImageTextBlock
-                key={block.id}
-                block={
-                  {
-                    ...block,
-                    isKeyfigure: true,
-                  } as unknown as ImageTextBlockFragment // TODO: remove block completely
-                }
-              />
-            );
           case 'ImageTextRecord':
             return <ImageTextBlock key={block.id} block={block} />;
           case 'CustomRecord':
