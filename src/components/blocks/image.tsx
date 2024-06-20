@@ -24,6 +24,10 @@ export const ImageBlock: FC<Props> = ({ block: { images, priority } }) => {
   if (images.length === 1) {
     const { id, title, responsiveImage } = images[0];
 
+    if (!responsiveImage) {
+      return null;
+    }
+
     return (
       <BlockWrapper marginTop="small" marginBottom="small">
         <Image key={id} image={responsiveImage} caption={title ?? undefined} priority={priority} />

@@ -8,6 +8,10 @@ import { FC, Suspense } from 'react';
 import { LightboxComponent } from './lightbox';
 
 export const GalleryBlock: FC<{ block: GalleryBlockFragment; dark?: boolean }> = async ({ block: { rokkaname }, dark }) => {
+  if (!rokkaname) {
+    return null;
+  }
+
   const items = await getImagesFromRokka(rokkaname);
 
   return (
