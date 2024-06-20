@@ -56,6 +56,7 @@
     { "source": "/was-ist/lean-ux", "destination": "/t/lean-ux" },
     { "source": "/was-ist/mvp", "destination": "/t/mvp" },
     { "source": "/was-ist/pwa", "destination": "/t/pwa" },
-    { "source": "/was-ist/react", "destination": "/t/react" }
+    { "source": "/was-ist/react", "destination": "/t/react" },
+    { "source": "/deine-webseite", "destination": "/angebot/deine-webseite" }
   ]
 }
