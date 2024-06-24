@@ -1,6 +1,6 @@
 import Rokka from 'rokka';
 
-export type Photo = {
+type Photo = {
   key: string;
   src: string;
   width: number;

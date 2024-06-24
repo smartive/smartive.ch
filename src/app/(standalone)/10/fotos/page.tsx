@@ -1,15 +1,9 @@
-import { GalleryBlock } from '@/components/blocks/gallery/block';
+import { RokkaGallery } from '../components/rokka-gallery';
 import { BackButton } from '../elements/back-button';
 
 const Page = () => (
   <>
-    <GalleryBlock
-      dark
-      block={{
-        rokkaname: 'party*',
-        id: 'party',
-      }}
-    />
+    <RokkaGallery rokkaname="party*" />
     <BackButton />
   </>
 );

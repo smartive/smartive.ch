@@ -1,20 +1,23 @@
 'use client';
 
-import { Photo } from '@/services/cloud-storage';
 import NextImage from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FC } from 'react';
-import { Lightbox } from 'yet-another-react-lightbox';
+import { Lightbox as LightboxComponent } from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 
-export const LightboxComponent: FC<{ slides: Photo[] }> = ({ slides }) => {
+type Props = {
+  slides: { key: string; src: string; width: number; height: number }[];
+};
+
+export const Lightbox: FC<Props> = ({ slides }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const search = searchParams?.get('image');
   const currentImage = search ? slides.findIndex((slide) => slide.key.includes(search)) : -1;
 
   return (
-    <Lightbox
+    <LightboxComponent
       open={currentImage !== -1}
       close={() =>
         router.push(`?`, {

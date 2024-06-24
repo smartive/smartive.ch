@@ -1,4 +1,13 @@
 fragment galleryBlock on GalleryRecord {
   id
-  rokkaname
+  galleryimages {
+    id
+    title
+    smallSize: responsiveImage(imgixParams: { h: 339 }) {
+      ...responsiveImage
+    }
+    largeSize: responsiveImage(imgixParams: { w: 2000 }) {
+      ...responsiveImage
+    }
+  }
 }
