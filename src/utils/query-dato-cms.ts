@@ -21,7 +21,11 @@ export async function queryDatoCMS<TResult = unknown>({
   includeDrafts,
   revalidateTags,
 }: Options<TResult>): Promise<TResult> {
-  const headers = {
+  if (!process.env.NEXT_DATOCMS_API_TOKEN) {
+    throw new Error('Missing NEXT_DATOCMS_API_TOKEN');
+  }
+
+  const headers: HeadersInit = {
     'Content-Type': 'application/json',
     Accept: 'application/json',
     'X-Exclude-Invalid': 'true',
@@ -50,10 +54,16 @@ export async function queryDatoCMS<TResult = unknown>({
   });
 
   if (!response.ok) {
-    throw new Error(`DatoCMS request failed: ${response.statusText}`);
+    const body = await response.text();
+
+    throw new Error(`DatoCMS request failed: ${response.status}\n${body}`);
   }
 
-  const { data } = (await response.json()) as { data: TResult };
+  const body = (await response.json()) as { data: TResult } | { errors: unknown[] };
 
-  return data;
+  if ('errors' in body) {
+    throw new Error(`Invalid GraphQL request: ${body.errors}`); // eslint-disable-line @typescript-eslint/restrict-template-expressions
+  }
+
+  return body.data;
 }
