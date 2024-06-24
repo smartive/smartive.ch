@@ -15,7 +15,7 @@ type ImageProps = {
 
 const Image: FC<ImageProps> = ({ image, caption, priority }) => (
   <div>
-    <DatoSRCImage data={image} className="rounded" priority={priority} style={{ width: '100%', maxWidth: '100%' }} />
+    <DatoSRCImage data={image} imgClassName="rounded" priority={priority} imgStyle={{ width: '100%', maxWidth: '100%' }} />
     {caption && <p className="mt-2 text-xs italic">{caption}</p>}
   </div>
 );

@@ -20,7 +20,7 @@ export const TableBlock: FC<Props> = ({ block: { table, showTableHeader } }) => 
                 {columns.map((column, index) => (
                   <th
                     key={index}
-                    className="font-medium bg-black text-left text-xs tracking-wider text-gray-500 text-white-100 md:px-8 md:py-5 lg:px-12 lg:py-6 lg:text-base"
+                    className="font-medium bg-black text-left text-xs tracking-wider text-white-100 md:px-8 md:py-5 lg:px-12 lg:py-6 lg:text-base"
                   >
                     {column}
                   </th>

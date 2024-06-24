@@ -39,7 +39,7 @@ export const VisibleYears: FC<{
                   className="-ml-3 -mr-3 block h-full overflow-visible hover:z-50"
                 >
                   <div className="relative inline-flex h-14 w-14 items-center overflow-hidden rounded-full bg-conic-gradient p-1">
-                    <DatoSRCImage data={image} className="h-12 w-12 rounded-full" />
+                    <DatoSRCImage data={image} imgClassName="h-12 w-12 rounded-full" />
                   </div>
                 </motion.a>
               ))}

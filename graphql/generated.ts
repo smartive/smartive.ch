@@ -3488,6 +3488,7 @@ export type TeaserCardModelFilter = {
   id?: InputMaybe<ItemIdFilter>;
   linkLabel?: InputMaybe<StringFilter>;
   newTab?: InputMaybe<BooleanFilter>;
+  teaserCardImage?: InputMaybe<FileFilter>;
   text?: InputMaybe<TextFilter>;
   title?: InputMaybe<StringFilter>;
   url?: InputMaybe<StringFilter>;
@@ -3547,6 +3548,7 @@ export type TeaserCardRecord = RecordInterface & {
   id: Scalars['ItemId']['output'];
   linkLabel: Scalars['String']['output'];
   newTab: Scalars['BooleanType']['output'];
+  teaserCardImage?: Maybe<ImageFileField>;
   text?: Maybe<Scalars['String']['output']>;
   title: Scalars['String']['output'];
   url: Scalars['String']['output'];
@@ -3582,11 +3584,9 @@ export type TeaserSelectionRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']['output']>;
   _updatedAt: Scalars['DateTime']['output'];
-  automaticTeasers?: Maybe<Scalars['String']['output']>;
   disableMarginBottom: Scalars['BooleanType']['output'];
   disableMarginTop: Scalars['BooleanType']['output'];
   id: Scalars['ItemId']['output'];
-  selection?: Maybe<Scalars['String']['output']>;
   teasers: Array<TeaserSelectionModelTeasersField>;
 };
 

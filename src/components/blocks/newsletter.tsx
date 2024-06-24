@@ -19,7 +19,7 @@ export const NewsletterBlock: FC<Props> = ({ block: { content, image } }) => (
       </div>
       {image?.responsiveImage && (
         <div className="relative order-1 min-h-[250px] md:order-2 md:min-h-[200px]">
-          <DatoSRCImage data={image.responsiveImage} style={{ objectFit: 'cover', maxWidth: '100%' }} />
+          <DatoSRCImage data={image.responsiveImage} imgStyle={{ objectFit: 'cover', maxWidth: '100%' }} />
         </div>
       )}
     </div>

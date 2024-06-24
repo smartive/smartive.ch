@@ -30,15 +30,12 @@ export const BlogOverviewBlock: FC<Props> = async ({ block: { teaser } }) => {
           className="card-shadow grid overflow-hidden rounded bg-white-100 transition-transform active:scale-[.99] md:grid-cols-2"
         >
           {blogpost?.image?.responsiveImage && (
-            <DatoSRCImage
-              data={blogpost.image.responsiveImage}
-              style={{ objectFit: 'cover', width: '100%', maxWidth: '100%' }}
-            />
+            <DatoSRCImage data={blogpost.image.responsiveImage} imgStyle={{ maxWidth: '100%' }} />
           )}
           <div className="grid grid-rows-[auto,auto,1fr,auto] p-5 font-sans text-xs md:p-16 lg:text-base">
             <div className="text flex flex-row items-center gap-4 lg:text-xs">
               {blogpost?.author?.imagePortrait?.responsiveImage ? (
-                <DatoSRCImage data={blogpost.author.imagePortrait.responsiveImage} className="rounded-full" />
+                <DatoSRCImage data={blogpost.author.imagePortrait.responsiveImage} imgClassName="rounded-full" />
               ) : (
                 <AvatarFallback />
               )}

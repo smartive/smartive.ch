@@ -26,7 +26,7 @@ export const ContactBlock: FC<Props> = ({ block: { text, contact } }) => {
       <div className="grid grid-flow-row place-content-center items-center justify-items-center gap-6 px-4 text-center lg:grid-flow-col lg:gap-12 lg:px-14 lg:text-left">
         {imagePortrait?.responsiveImage && (
           <div className="h-36 w-36 lg:h-52 lg:w-52">
-            <DatoSRCImage data={{ ...imagePortrait.responsiveImage, alt: name }} className="rounded-full" />
+            <DatoSRCImage data={{ ...imagePortrait.responsiveImage, alt: name }} imgClassName="rounded-full" />
           </div>
         )}
         <div>

@@ -52,7 +52,7 @@ export const Blob: FC<Props> = ({
     canvasRef.current.width = adjustedSize;
     canvasRef.current.height = adjustedSize;
     setSize(adjustedSize);
-  }, [canvasRef, setSize]);
+  }, [canvasRef, setSize]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     resize();
@@ -60,7 +60,7 @@ export const Blob: FC<Props> = ({
     window.addEventListener('resize', resize);
 
     return () => window.removeEventListener('resize', resize);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!canvasRef.current) {
@@ -117,7 +117,7 @@ export const Blob: FC<Props> = ({
         ...blobOptions,
       },
     });
-  }, [size]);
+  }, [size]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return <canvas ref={canvasRef} className={classNames('absolute z-0 rounded', positionX, positionY, className)} />;
 };

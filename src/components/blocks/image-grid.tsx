@@ -9,7 +9,11 @@ type Props = {
 };
 
 const Image: FC<{ image: ResponsiveImageFragment }> = ({ image }) => (
-  <DatoSRCImage data={image} style={{ width: '100%', maxWidth: '100%', height: '100%' }} className="rounded object-cover" />
+  <DatoSRCImage
+    data={image}
+    imgStyle={{ width: '100%', maxWidth: '100%', height: '100%' }}
+    imgClassName="rounded object-cover"
+  />
 );
 
 export const ImageGridBlock: FC<Props> = ({

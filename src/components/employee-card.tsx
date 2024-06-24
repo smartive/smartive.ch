@@ -41,7 +41,7 @@ export const EmployeeCard: FC<Props> = ({
     <div className={classNames('flex flex-col overflow-hidden rounded bg-white-100', className)} id={name}>
       <div className="w-full">
         {image?.responsiveImage ? (
-          <DatoSRCImage data={{ ...image.responsiveImage, alt }} style={{ width: '100%', maxWidth: '100%' }} />
+          <DatoSRCImage data={{ ...image.responsiveImage, alt }} imgStyle={{ width: '100%', maxWidth: '100%' }} />
         ) : (
           <NextImage src={{ 0: portraitMint, 1: portraitApricot, 2: portraitCornflower }[colorIndex]} alt={alt} />
         )}

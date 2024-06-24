@@ -20,7 +20,7 @@ export const SmallTestimonial: FC<Props> = ({ image, quote, authorName, authorDe
       <span className={mapColorToText(color)}>&raquo;</span>
     </p>
     <div className="mt-8 flex w-full items-center gap-4">
-      {image && <DatoSRCImage data={{ ...image, width: 80, height: 80 }} className="rounded-full" />}
+      {image && <DatoSRCImage data={{ ...image, width: 80, height: 80 }} imgClassName="rounded-full" />}
       {authorName && (
         <span className="text-xxs lg:text-sm">
           <strong>{authorName}</strong>
