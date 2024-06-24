@@ -7,4 +7,9 @@ fragment teaserCard on TeaserCardRecord {
   linkLabel
   url
   newTab
+  teaserCardImage {
+    responsiveImage(imgixParams: { fit: crop, w: 460, h: 240 }) {
+      ...responsiveImage
+    }
+  }
 }

@@ -53,7 +53,8 @@ const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragmen
           link={teaser.url}
           description={teaser.text}
           linkLabel={teaser.linkLabel}
-          color={teaser.color as SmartiveColorsType}
+          color={teaser.color as SmartiveColorsType | 'white'}
+          image={teaser.teaserCardImage?.responsiveImage}
           newTab={teaser.newTab ?? false}
         />
       );
