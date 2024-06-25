@@ -1,5 +1,4 @@
 import { AllPostsWithoutLatestDocument, BlogOverviewBlockFragment, LatestPostDocument } from '@/graphql/generated';
-import { SmartiveColorsType } from '@/utils/color';
 import { queryDatoCMS } from '@/utils/query-dato-cms';
 import { Heading2 } from '@smartive/guetzli';
 import dayjs from 'dayjs';
@@ -8,10 +7,9 @@ import NextLink from 'next/link';
 import { FC, Fragment } from 'react';
 import { SRCImage as DatoSRCImage } from 'react-datocms';
 import { AvatarFallback } from '../blog/avatar-fallback';
-import { BlogpostCard } from '../blog/blogpost-card';
+import { Card, CardColors } from '../card';
 import { BlockWrapper } from '../layouts/block-wrapper';
 import { Grid } from '../layouts/grid';
-import { TeaserCard } from '../teaser-card';
 
 require('dayjs/locale/de');
 
@@ -60,24 +58,28 @@ export const BlogOverviewBlock: FC<Props> = async ({ block: { teaser } }) => {
       <Grid cols={3}>
         {blogposts.map((post, index) => (
           <Fragment key={post.id}>
-            <BlogpostCard
+            <Card
               key={post.id}
+              link={`/blog/${post.slug}`}
+              linkTitle={`Beitrag '${post.title}' lesen`}
+              linkLabel="Beitrag lesen"
               title={post.title}
-              slug={post.slug}
-              published={post.published}
               image={post.image.responsiveImage}
-              author={post.author?.name ?? post.altAuthor}
-              authorImage={post?.author?.imagePortrait?.responsiveImage ?? undefined}
+              blogpostData={{
+                author: post.author?.name,
+                authorImage: post.author?.imagePortrait?.responsiveImage,
+                published: post.published,
+              }}
             />
             {index === 3 && teaser && (
-              <TeaserCard
+              <Card
                 key={teaser.id}
                 eyebrow={teaser.eyebrow}
                 title={teaser.title}
                 link={teaser.url}
                 description={teaser.text}
                 linkLabel={teaser.linkLabel}
-                color={teaser.color as SmartiveColorsType}
+                color={teaser.color as CardColors}
                 newTab={teaser.newTab ?? false}
               />
             )}

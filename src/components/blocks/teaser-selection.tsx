@@ -5,14 +5,10 @@ import {
   TeaserCardFragment,
   TeaserSelectionRecord,
 } from '@/graphql/generated';
-import { SmartiveColorsType } from '@/utils/color';
 import { FC } from 'react';
-import { BlogpostCard } from '../blog/blogpost-card';
+import { Card, CardColors } from '../card';
 import { BlockWrapper } from '../layouts/block-wrapper';
 import { Grid } from '../layouts/grid';
-import { OfferCard } from '../offer-card';
-import { ProjectCard } from '../projects/project-card';
-import { TeaserCard } from '../teaser-card';
 
 type Props = {
   block: TeaserSelectionRecord;
@@ -24,50 +20,58 @@ const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragmen
   switch (teaser.__typename) {
     case 'ProjectRecord':
       return (
-        <ProjectCard
+        <Card
           key={teaser.id}
-          slug={teaser.slug}
-          title={teaser.title}
-          headline={teaser.headline}
+          link={`/projekte/${teaser.slug}`}
+          linkTitle={`Projekt '${teaser.title}' ansehen`}
+          linkLabel="Projekt anschauen"
+          eyebrow={teaser.title}
+          title={teaser.headline}
           image={teaser.teaserImage.responsiveImage}
         />
       );
     case 'OfferRecord':
       return (
-        <OfferCard
+        <Card
           key={teaser.id}
-          slug={teaser.slug}
+          link={`/angebot/${teaser.slug}`}
+          linkTitle={`Angebot '${teaser.title}' ansehen`}
+          linkLabel={teaser.linkLabel}
           title={teaser.title}
           timespan={teaser.timespan}
           description={teaser.description}
-          linkLabel={teaser.linkLabel}
-          color={teaser.color as SmartiveColorsType}
+          color={teaser.color as CardColors}
+          image={teaser.offerImage?.responsiveImage}
         />
       );
     case 'TeaserCardRecord':
       return (
-        <TeaserCard
+        <Card
           key={teaser.id}
           eyebrow={teaser.eyebrow}
           title={teaser.title}
           link={teaser.url}
           description={teaser.text}
           linkLabel={teaser.linkLabel}
-          color={teaser.color as SmartiveColorsType | 'white'}
+          color={teaser.color as CardColors}
           image={teaser.teaserCardImage?.responsiveImage}
           newTab={teaser.newTab ?? false}
         />
       );
     case 'BlogpostRecord':
       return (
-        <BlogpostCard
+        <Card
           key={teaser.id}
-          slug={teaser.slug}
+          link={`/blog/${teaser.slug}`}
+          linkTitle={`Beitrag '${teaser.title}' lesen`}
+          linkLabel="Beitrag lesen"
           title={teaser.title}
-          published={teaser.published}
           image={teaser.image.responsiveImage}
-          author={teaser.author?.name}
-          authorImage={teaser.author?.imagePortrait?.responsiveImage ?? undefined}
+          blogpostData={{
+            author: teaser.author?.name,
+            authorImage: teaser.author?.imagePortrait?.responsiveImage,
+            published: teaser.published,
+          }}
         />
       );
     default:

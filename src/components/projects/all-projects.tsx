@@ -2,10 +2,10 @@ import { MainProjectsDocument, OtherProjectsDocument, ProjectsOverviewBlockFragm
 import { queryDatoCMS } from '@/utils/query-dato-cms';
 import { draftMode } from 'next/headers';
 import { FC } from 'react';
+import { Card } from '../card';
 import { Grid } from '../layouts/grid';
 import { GridSlider } from '../layouts/grid-slider';
 import { Testimonial } from '../testimonial';
-import { ProjectCard } from './project-card';
 
 type Props = {
   selectedTestimonial: ProjectsOverviewBlockFragment['selectedTestimonial'];
@@ -25,12 +25,28 @@ export const AllProjects: FC<Props> = async ({ selectedTestimonial }) => {
     <>
       <Grid cols={2}>
         {mainProjects.map(({ id, slug, title, headline, teaserImage }) => (
-          <ProjectCard key={id} slug={slug} title={title} headline={headline} image={teaserImage.responsiveImage} />
+          <Card
+            key={id}
+            link={`/projekte/${slug}`}
+            linkTitle={`Projekt '${title}' ansehen`}
+            linkLabel="Projekt anschauen"
+            eyebrow={title}
+            title={headline}
+            image={teaserImage.responsiveImage}
+          />
         ))}
       </Grid>
       <GridSlider>
         {otherProjects.slice(0, 3).map(({ id, slug, title, headline, teaserImage }) => (
-          <ProjectCard key={id} slug={slug} title={title} headline={headline} image={teaserImage.responsiveImage} />
+          <Card
+            key={id}
+            link={`/projekte/${slug}`}
+            linkTitle={`Projekt '${title}' ansehen`}
+            linkLabel="Projekt anschauen"
+            eyebrow={title}
+            title={headline}
+            image={teaserImage.responsiveImage}
+          />
         ))}
       </GridSlider>
       {selectedTestimonial && (
@@ -43,7 +59,15 @@ export const AllProjects: FC<Props> = async ({ selectedTestimonial }) => {
       )}
       <Grid cols={3}>
         {otherProjects.slice(3, otherProjects.length).map(({ id, slug, title, headline, teaserImage }) => (
-          <ProjectCard key={id} slug={slug} title={title} headline={headline} image={teaserImage.responsiveImage} />
+          <Card
+            key={id}
+            link={`/projekte/${slug}`}
+            linkTitle={`Projekt '${title}' ansehen`}
+            linkLabel="Projekt anschauen"
+            eyebrow={title}
+            title={headline}
+            image={teaserImage.responsiveImage}
+          />
         ))}
       </Grid>
     </>

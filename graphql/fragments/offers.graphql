@@ -6,4 +6,9 @@ fragment offers on OfferRecord {
   timespan
   linkLabel
   color
+  offerImage {
+    responsiveImage(imgixParams: { fit: crop, w: 460, h: 240, auto: format }) {
+      ...responsiveImage
+    }
+  }
 }

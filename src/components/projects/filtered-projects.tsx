@@ -2,8 +2,8 @@ import { ProjectsByTopicsDocument } from '@/graphql/generated';
 import { queryDatoCMS } from '@/utils/query-dato-cms';
 import { draftMode } from 'next/headers';
 import { FC } from 'react';
+import { Card } from '../card';
 import { Grid } from '../layouts/grid';
-import { ProjectCard } from './project-card';
 
 type Props = {
   topicIds: string[];
@@ -23,7 +23,15 @@ export const FilteredProjects: FC<Props> = async ({ topicIds }) => {
   return (
     <Grid cols={3}>
       {allProjects.map(({ id, slug, title, headline, teaserImage }) => (
-        <ProjectCard key={id} slug={slug} title={title} headline={headline} image={teaserImage.responsiveImage} />
+        <Card
+          key={id}
+          link={`/projekte/${slug}`}
+          linkTitle={`Projekt '${title}' ansehen`}
+          linkLabel="Projekt anschauen"
+          eyebrow={title}
+          title={headline}
+          image={teaserImage.responsiveImage}
+        />
       ))}
     </Grid>
   );
