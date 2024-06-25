@@ -1,5 +1,6 @@
 import { MainProjectsDocument, OtherProjectsDocument, ProjectsOverviewBlockFragment } from '@/graphql/generated';
 import { queryDatoCMS } from '@/utils/query-dato-cms';
+import { draftMode } from 'next/headers';
 import { FC } from 'react';
 import { Grid } from '../layouts/grid';
 import { GridSlider } from '../layouts/grid-slider';
@@ -11,8 +12,14 @@ type Props = {
 };
 
 export const AllProjects: FC<Props> = async ({ selectedTestimonial }) => {
-  const { allProjects: mainProjects } = await queryDatoCMS({ document: MainProjectsDocument });
-  const { allProjects: otherProjects } = await queryDatoCMS({ document: OtherProjectsDocument });
+  const { allProjects: mainProjects } = await queryDatoCMS({
+    document: MainProjectsDocument,
+    includeDrafts: draftMode().isEnabled,
+  });
+  const { allProjects: otherProjects } = await queryDatoCMS({
+    document: OtherProjectsDocument,
+    includeDrafts: draftMode().isEnabled,
+  });
 
   return (
     <>

@@ -3,6 +3,7 @@ import { SmartiveColorsType } from '@/utils/color';
 import { queryDatoCMS } from '@/utils/query-dato-cms';
 import { Heading2 } from '@smartive/guetzli';
 import dayjs from 'dayjs';
+import { draftMode } from 'next/headers';
 import NextLink from 'next/link';
 import { FC, Fragment } from 'react';
 import { SRCImage as DatoSRCImage } from 'react-datocms';
@@ -19,8 +20,11 @@ type Props = {
 };
 
 export const BlogOverviewBlock: FC<Props> = async ({ block: { teaser } }) => {
-  const { blogpost } = await queryDatoCMS({ document: LatestPostDocument });
-  const { blogposts } = await queryDatoCMS({ document: AllPostsWithoutLatestDocument });
+  const { blogpost } = await queryDatoCMS({ document: LatestPostDocument, includeDrafts: draftMode().isEnabled });
+  const { blogposts } = await queryDatoCMS({
+    document: AllPostsWithoutLatestDocument,
+    includeDrafts: draftMode().isEnabled,
+  });
 
   return (
     <BlockWrapper>

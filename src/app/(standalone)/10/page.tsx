@@ -3,6 +3,7 @@ import { AllEmployeesDocument } from '@/graphql/generated';
 import { isTruthy } from '@/utils/common';
 import { queryDatoCMS } from '@/utils/query-dato-cms';
 import { Copy } from '@smartive/guetzli';
+import { draftMode } from 'next/headers';
 import NextImage from 'next/image';
 import { default as Link } from 'next/link';
 import { Suspense } from 'react';
@@ -69,7 +70,10 @@ export function generateMetadata() {
 }
 
 export default async function TenYearsPage() {
-  const { employees: datoEmployee } = await queryDatoCMS({ document: AllEmployeesDocument });
+  const { employees: datoEmployee } = await queryDatoCMS({
+    document: AllEmployeesDocument,
+    includeDrafts: draftMode().isEnabled,
+  });
   const employees = datoEmployee
     .map(({ start, imagePortrait, name }) => {
       if (!imagePortrait?.responsiveImage || !start) {

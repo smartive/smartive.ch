@@ -1,6 +1,7 @@
 import { PostNavigationDocument } from '@/graphql/generated';
 import { LANG_STRINGS, Language } from '@/utils/const';
 import { queryDatoCMS } from '@/utils/query-dato-cms';
+import { draftMode } from 'next/headers';
 import { FC } from 'react';
 import { Link } from '../nodes';
 
@@ -13,6 +14,7 @@ export const BlogpostNavigation: FC<Props> = async ({ currentPostPublished, lang
   const { previousPost, nextPost } = await queryDatoCMS({
     document: PostNavigationDocument,
     variables: { date: currentPostPublished },
+    includeDrafts: draftMode().isEnabled,
   });
 
   return (

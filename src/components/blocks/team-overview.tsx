@@ -1,5 +1,6 @@
 import { AllEmployeesDocument, TeamOverviewBlockFragment } from '@/graphql/generated';
 import { queryDatoCMS } from '@/utils/query-dato-cms';
+import { draftMode } from 'next/headers';
 import { FC } from 'react';
 import { EmployeeCard } from '../employee-card';
 import { BlockWrapper } from '../layouts/block-wrapper';
@@ -11,7 +12,7 @@ type Props = {
 };
 
 export const TeamOverviewBlock: FC<Props> = async ({ block: { selectedTestimonial } }) => {
-  const { employees } = await queryDatoCMS({ document: AllEmployeesDocument });
+  const { employees } = await queryDatoCMS({ document: AllEmployeesDocument, includeDrafts: draftMode().isEnabled });
   const halfEmpl = Math.round(employees.length / 12) * 6;
 
   return (
