@@ -28,7 +28,9 @@ const getVideoSrc = (video: VideoBlockFragment['video'], { controls, loop, autop
   }
 };
 
-export const VideoBlock: FC<Props> = ({ block: { videoType, video, videoFile, loop, autoplay, controls } }) => {
+export const VideoBlock: FC<Props> = ({
+  block: { videoType, video, videoFile, loop, autoplay, controls, maxWidth, disableMarginTop, disableMarginBottom },
+}) => {
   if (videoType === 'external') {
     const videoSrc = getVideoSrc(video, { controls: controls ?? true, loop: loop ?? false, autoplay: autoplay ?? false });
 
@@ -37,7 +39,7 @@ export const VideoBlock: FC<Props> = ({ block: { videoType, video, videoFile, lo
     }
 
     return (
-      <BlockWrapper marginTop="small" marginBottom="small">
+      <BlockWrapper marginTop={disableMarginTop ? 'small' : 'large'} marginBottom={disableMarginBottom ? 'small' : 'large'}>
         <iframe
           className="aspect-video w-full rounded"
           title={video?.title}
@@ -50,11 +52,13 @@ export const VideoBlock: FC<Props> = ({ block: { videoType, video, videoFile, lo
 
   if (videoType === 'upload') {
     return (
-      <BlockWrapper marginTop="small" marginBottom="small">
+      <BlockWrapper marginTop={disableMarginTop ? 'small' : 'large'} marginBottom={disableMarginBottom ? 'small' : 'large'}>
         {videoFile?.video ? (
-          <VideoPlayer video={videoFile.video} controls={controls} autoplay={autoplay} loop={loop} />
+          <div className="mx-auto" style={{ maxWidth: maxWidth ? `${maxWidth}px` : '100%' }}>
+            <VideoPlayer video={videoFile.video} controls={controls} autoplay={autoplay} loop={loop} />
+          </div>
         ) : (
-          <div className="'mb-4 border-l-4 border-error bg-error bg-opacity-10 p-4 text-base text-error">
+          <div className="mb-4 border-l-4 border-error bg-error bg-opacity-10 p-4 text-base text-error">
             Sorry, das Video konnte nicht geladen werden. 😔
           </div>
         )}

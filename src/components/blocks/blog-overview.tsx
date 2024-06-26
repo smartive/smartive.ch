@@ -76,7 +76,7 @@ export const BlogOverviewBlock: FC<Props> = async ({ block: { teaser } }) => {
                 key={teaser.id}
                 eyebrow={teaser.eyebrow}
                 title={teaser.title}
-                link={teaser.url}
+                link={teaser.url ?? ''}
                 description={teaser.text}
                 linkLabel={teaser.linkLabel}
                 color={teaser.color as CardColors}

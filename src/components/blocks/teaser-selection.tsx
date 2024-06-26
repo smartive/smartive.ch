@@ -50,7 +50,7 @@ const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragmen
           key={teaser.id}
           eyebrow={teaser.eyebrow}
           title={teaser.title}
-          link={teaser.url}
+          link={teaser.url ?? '/'}
           description={teaser.text}
           linkLabel={teaser.linkLabel}
           color={teaser.color as CardColors}
