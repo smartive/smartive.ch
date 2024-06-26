@@ -57,6 +57,10 @@
     { "source": "/was-ist/mvp", "destination": "/t/mvp" },
     { "source": "/was-ist/pwa", "destination": "/t/pwa" },
     { "source": "/was-ist/react", "destination": "/t/react" },
-    { "source": "/deine-webseite", "destination": "/angebot/deine-webseite" }
+    { "source": "/deine-webseite", "destination": "/angebot/deine-webseite" },
+    { "source": "/sommerfest", "destination": "/events" },
+    { "source": "/sommerfest/2023", "destination": "/events/sommerfest-2023" },
+    { "source": "/sommerfest/2024", "destination": "/events/sommerfest-2024" },
+    { "source": "/sg/fotos", "destination": "/events/eroeffnung-sg" }
   ]
 }
