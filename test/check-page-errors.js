@@ -19,6 +19,7 @@ const ignoreListErrors = [
 
 const ignoreListLocations = [
   'https://cdn.segment.io/analytics.js', // Calendly
+  'https://player.vimeo.com/', // Vimeo player
 ];
 
 const dynamicRoutes = {
