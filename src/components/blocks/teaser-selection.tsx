@@ -5,6 +5,7 @@ import {
   TeaserCardFragment,
   TeaserSelectionRecord,
 } from '@/graphql/generated';
+import { getPathnameForSlug } from '@/utils/get-dato-routes';
 import { FC } from 'react';
 import { Card, CardColors } from '../card';
 import { BlockWrapper } from '../layouts/block-wrapper';
@@ -14,9 +15,17 @@ type Props = {
   block: TeaserSelectionRecord;
 };
 
-const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragment | BlogpostCardFragment }> = ({
+const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragment | BlogpostCardFragment }> = async ({
   teaser,
 }) => {
+  let internalLink: string | null = null;
+
+  if (teaser.__typename === 'TeaserCardRecord') {
+    if (!teaser.isExternalUrl && teaser.link?.slug) {
+      internalLink = await getPathnameForSlug(teaser.link?.slug);
+    }
+  }
+
   switch (teaser.__typename) {
     case 'ProjectRecord':
       return (
@@ -50,7 +59,7 @@ const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragmen
           key={teaser.id}
           eyebrow={teaser.eyebrow}
           title={teaser.title}
-          link={teaser.url ?? '/'}
+          link={teaser.isExternalUrl ? teaser.url : internalLink}
           description={teaser.text}
           linkLabel={teaser.linkLabel}
           color={teaser.color as CardColors}

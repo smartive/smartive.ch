@@ -12,4 +12,22 @@ fragment teaserCard on TeaserCardRecord {
       ...responsiveImage
     }
   }
+  isExternalUrl
+  link {
+    ... on PageRecord {
+      slug
+    }
+    ... on ProjectRecord {
+      slug
+    }
+    ... on OfferRecord {
+      slug
+    }
+    ... on BlogpostRecord {
+      slug
+    }
+    ... on TopicRecord {
+      slug
+    }
+  }
 }

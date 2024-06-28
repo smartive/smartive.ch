@@ -44,7 +44,7 @@ const generatePagePathnames = (pages: PagePath[]): Route[] => {
 
   pages.map((page) => generatePathname(page, '', ''));
 
-  // We replace /home with / because we redirect /home to / in middleware.ts
+  // We replace /home with / because we redirect /home to / in next.config.js
   const homeIndex = pathnames.findIndex(({ path }) => path === '/home');
   if (homeIndex > -1) {
     pathnames[homeIndex].path = '/';
@@ -79,4 +79,13 @@ export const getAllDatoRoutes = async (includeDrafts = true): Promise<AllRoutes>
     projects,
     topics,
   };
+};
+
+export const getPathnameForSlug = async (slug: string): Promise<string | null> => {
+  const allRoutes = await getAllDatoRoutes(false);
+  const route = Object.values(allRoutes)
+    .flat()
+    .find((route) => route.path.split('/').pop() === slug);
+
+  return route?.path ?? null;
 };
