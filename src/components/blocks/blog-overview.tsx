@@ -66,7 +66,7 @@ export const BlogOverviewBlock: FC<Props> = async ({ block: { teaser } }) => {
               title={post.title}
               image={post.image.responsiveImage}
               blogpostData={{
-                author: post.author?.name,
+                author: post.author?.name ?? post.altAuthor,
                 authorImage: post.author?.imagePortrait?.responsiveImage,
                 published: post.published,
               }}

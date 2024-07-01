@@ -69,6 +69,7 @@ export type BlogpostModelFilter = {
   id?: InputMaybe<ItemIdFilter>;
   image?: InputMaybe<FileFilter>;
   language?: InputMaybe<StringFilter>;
+  seometatags?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
   title?: InputMaybe<StringFilter>;
 };
@@ -123,6 +124,7 @@ export type BlogpostRecord = RecordInterface & {
   id: Scalars['ItemId']['output'];
   image: ImageFileField;
   language: Scalars['String']['output'];
+  seometatags?: Maybe<SeoField>;
   slug: Scalars['String']['output'];
   title: Scalars['String']['output'];
 };
@@ -228,10 +230,12 @@ export type CreatedAtFilter = {
 
 export type CustomModelContentField = {
   __typename?: 'CustomModelContentField';
-  blocks: Array<Scalars['String']['output']>;
-  links: Array<Scalars['String']['output']>;
+  blocks: Array<LinkRecord>;
+  links: Array<CustomModelContentLinksField>;
   value: Scalars['JsonField']['output'];
 };
+
+export type CustomModelContentLinksField = BlogpostRecord | OfferRecord | PageRecord | ProjectRecord | TopicRecord;
 
 /** Block of type 🪄 Custom (custom) */
 export type CustomRecord = RecordInterface & {
@@ -767,9 +771,11 @@ export type ImageRecord_SeoMetaTagsArgs = {
 export type ImageTextModelContentField = {
   __typename?: 'ImageTextModelContentField';
   blocks: Array<LinkRecord>;
-  links: Array<Scalars['String']['output']>;
+  links: Array<ImageTextModelContentLinksField>;
   value: Scalars['JsonField']['output'];
 };
+
+export type ImageTextModelContentLinksField = BlogpostRecord | OfferRecord | PageRecord | ProjectRecord | TopicRecord;
 
 /** Block of type 🖼️ Image & Text (image_text) */
 export type ImageTextRecord = RecordInterface & {
@@ -2579,9 +2585,11 @@ export enum MuxThumbnailFormatType {
 export type NewsletterModelContentField = {
   __typename?: 'NewsletterModelContentField';
   blocks: Array<LinkRecord>;
-  links: Array<Scalars['String']['output']>;
+  links: Array<NewsletterModelContentLinksField>;
   value: Scalars['JsonField']['output'];
 };
+
+export type NewsletterModelContentLinksField = BlogpostRecord | OfferRecord | PageRecord | ProjectRecord | TopicRecord;
 
 /** Block of type 🗞️ Newsletter (newsletter) */
 export type NewsletterRecord = RecordInterface & {
@@ -2728,7 +2736,6 @@ export type PageModelFilter = {
   landingPageLayout?: InputMaybe<BooleanFilter>;
   parent?: InputMaybe<ParentFilter>;
   position?: InputMaybe<PositionFilter>;
-  preventPageIndexing?: InputMaybe<BooleanFilter>;
   seometatags?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
   title?: InputMaybe<StringFilter>;
@@ -2757,8 +2764,6 @@ export enum PageModelOrderBy {
   LandingPageLayoutDesc = 'landingPageLayout_DESC',
   PositionAsc = 'position_ASC',
   PositionDesc = 'position_DESC',
-  PreventPageIndexingAsc = 'preventPageIndexing_ASC',
-  PreventPageIndexingDesc = 'preventPageIndexing_DESC',
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC'
 }
@@ -2785,7 +2790,6 @@ export type PageRecord = RecordInterface & {
   landingPageLayout: Scalars['BooleanType']['output'];
   parent?: Maybe<PageRecord>;
   position?: Maybe<Scalars['IntType']['output']>;
-  preventPageIndexing: Scalars['BooleanType']['output'];
   seometatags?: Maybe<SeoField>;
   slug: Scalars['String']['output'];
   title: Scalars['String']['output'];
@@ -3835,9 +3839,11 @@ export type TextFilter = {
 export type TextModelContentField = {
   __typename?: 'TextModelContentField';
   blocks: Array<LinkRecord>;
-  links: Array<Scalars['String']['output']>;
+  links: Array<TextModelContentLinksField>;
   value: Scalars['JsonField']['output'];
 };
+
+export type TextModelContentLinksField = BlogpostRecord | OfferRecord | PageRecord | ProjectRecord | TopicRecord;
 
 /** Block of type ✏️ Text (text) */
 export type TextRecord = RecordInterface & {
@@ -3872,27 +3878,33 @@ export type ThreeColsTextModelContentLeftBlocksField = ImageRecord | LinkRecord;
 export type ThreeColsTextModelContentLeftField = {
   __typename?: 'ThreeColsTextModelContentLeftField';
   blocks: Array<ThreeColsTextModelContentLeftBlocksField>;
-  links: Array<Scalars['String']['output']>;
+  links: Array<ThreeColsTextModelContentLeftLinksField>;
   value: Scalars['JsonField']['output'];
 };
+
+export type ThreeColsTextModelContentLeftLinksField = BlogpostRecord | OfferRecord | PageRecord | ProjectRecord | TopicRecord;
 
 export type ThreeColsTextModelContentMiddleBlocksField = ImageRecord | LinkRecord;
 
 export type ThreeColsTextModelContentMiddleField = {
   __typename?: 'ThreeColsTextModelContentMiddleField';
   blocks: Array<ThreeColsTextModelContentMiddleBlocksField>;
-  links: Array<Scalars['String']['output']>;
+  links: Array<ThreeColsTextModelContentMiddleLinksField>;
   value: Scalars['JsonField']['output'];
 };
+
+export type ThreeColsTextModelContentMiddleLinksField = BlogpostRecord | OfferRecord | PageRecord | ProjectRecord | TopicRecord;
 
 export type ThreeColsTextModelContentRightBlocksField = ImageRecord | LinkRecord;
 
 export type ThreeColsTextModelContentRightField = {
   __typename?: 'ThreeColsTextModelContentRightField';
   blocks: Array<ThreeColsTextModelContentRightBlocksField>;
-  links: Array<Scalars['String']['output']>;
+  links: Array<ThreeColsTextModelContentRightLinksField>;
   value: Scalars['JsonField']['output'];
 };
+
+export type ThreeColsTextModelContentRightLinksField = BlogpostRecord | OfferRecord | PageRecord | ProjectRecord | TopicRecord;
 
 /** Block of type ✏️ Text 3 Columns (three_cols_text) */
 export type ThreeColsTextRecord = RecordInterface & {
@@ -4084,18 +4096,22 @@ export type TwoColsTextModelContentLeftBlocksField = ImageRecord | LinkRecord;
 export type TwoColsTextModelContentLeftField = {
   __typename?: 'TwoColsTextModelContentLeftField';
   blocks: Array<TwoColsTextModelContentLeftBlocksField>;
-  links: Array<Scalars['String']['output']>;
+  links: Array<TwoColsTextModelContentLeftLinksField>;
   value: Scalars['JsonField']['output'];
 };
+
+export type TwoColsTextModelContentLeftLinksField = BlogpostRecord | OfferRecord | PageRecord | ProjectRecord | TopicRecord;
 
 export type TwoColsTextModelContentRightBlocksField = ImageRecord | LinkRecord;
 
 export type TwoColsTextModelContentRightField = {
   __typename?: 'TwoColsTextModelContentRightField';
   blocks: Array<TwoColsTextModelContentRightBlocksField>;
-  links: Array<Scalars['String']['output']>;
+  links: Array<TwoColsTextModelContentRightLinksField>;
   value: Scalars['JsonField']['output'];
 };
+
+export type TwoColsTextModelContentRightLinksField = BlogpostRecord | OfferRecord | PageRecord | ProjectRecord | TopicRecord;
 
 /** Block of type ✏️ Text 2 Columns (two_cols_text) */
 export type TwoColsTextRecord = RecordInterface & {
