@@ -5,6 +5,7 @@ import NextLink from 'next/link';
 import { FC } from 'react';
 import { SRCImage as DatoSRCImage, ResponsiveImageType } from 'react-datocms';
 import { AvatarFallback } from './blog/avatar-fallback';
+import { ImageComponent } from './image';
 
 require('dayjs/locale/de');
 
@@ -63,7 +64,7 @@ export const Card: FC<Props> = ({
       target={newTab ? '_blank' : '_self'}
       rel={newTab ? 'noopener noreferrer' : undefined}
     >
-      <div>{image && <DatoSRCImage data={image} imgStyle={{ width: '100%', maxWidth: '100%' }} />}</div>
+      <div>{image && <ImageComponent image={{ responsiveImage: image }} />}</div>
       <div className="grid grid-rows-[auto,1fr,auto] p-5 font-sans text-xxs font-normal md:p-6 lg:p-8 lg:text-sm">
         {blogpostData ? (
           <div className="text flex flex-row items-center gap-4 lg:text-xs">

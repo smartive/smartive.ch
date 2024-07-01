@@ -1,39 +1,31 @@
-import { ImageGridBlockFragment, ResponsiveImageFragment } from '@/graphql/generated';
+import { ImageGridBlockFragment } from '@/graphql/generated';
 import { classNames } from '@smartive/guetzli';
 import { FC } from 'react';
-import { SRCImage as DatoSRCImage } from 'react-datocms';
+import { ImageComponent } from '../image';
 import { BlockWrapper } from '../layouts/block-wrapper';
 
 type Props = {
   block: ImageGridBlockFragment;
 };
 
-const Image: FC<{ image: ResponsiveImageFragment }> = ({ image }) => (
-  <DatoSRCImage
-    data={image}
-    imgStyle={{ width: '100%', maxWidth: '100%', height: '100%' }}
-    imgClassName="rounded object-cover"
-  />
-);
-
 export const ImageGridBlock: FC<Props> = ({
   block: { image1, image2, image3, layout, disableMarginTop, disableMarginBottom },
 }) => (
   <BlockWrapper marginTop={disableMarginTop ? 'none' : 'large'} marginBottom={disableMarginBottom ? 'none' : 'large'}>
     <div className="flex flex-col gap-8 sm:grid sm:grid-cols-2 sm:grid-rows-2 xl:gap-16">
-      {image1?.responsiveImage && (
+      {image1 && (
         <div className={classNames('row-start-1', layout === 'portrait-left' ? 'col-start-2' : 'col-start-1')}>
-          <Image image={image1.responsiveImage} />
+          <ImageComponent image={image1} imgClassName="rounded w-full object-cover" />
         </div>
       )}
-      {image2?.responsiveImage && (
+      {image2 && (
         <div className={classNames('row-start-2', layout === 'portrait-left' ? 'col-start-2' : 'col-start-1')}>
-          <Image image={image2.responsiveImage} />
+          <ImageComponent image={image2} imgClassName="rounded w-full object-cover" />
         </div>
       )}
-      {image3?.responsiveImage && (
+      {image3 && (
         <div className={classNames('row-span-2 row-start-1', layout === 'portrait-left' ? 'col-start-1' : 'col-start-2')}>
-          <Image image={image3.responsiveImage} />
+          <ImageComponent image={image3} imgClassName="rounded h-full object-cover" />
         </div>
       )}
     </div>

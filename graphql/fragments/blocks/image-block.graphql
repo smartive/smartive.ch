@@ -6,6 +6,7 @@ fragment imageBlock on ImageRecord {
     responsiveImage(imgixParams: { w: 1504, auto: format }) {
       ...responsiveImage
     }
+    url
   }
   priority
 }

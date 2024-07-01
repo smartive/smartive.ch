@@ -8,6 +8,7 @@ import { FC, Fragment } from 'react';
 import { SRCImage as DatoSRCImage } from 'react-datocms';
 import { AvatarFallback } from '../blog/avatar-fallback';
 import { Card, CardColors } from '../card';
+import { ImageComponent } from '../image';
 import { BlockWrapper } from '../layouts/block-wrapper';
 import { Grid } from '../layouts/grid';
 
@@ -31,9 +32,7 @@ export const BlogOverviewBlock: FC<Props> = async ({ block: { teaser } }) => {
           href={`/blog/${blogpost.slug}`}
           className="card-shadow grid overflow-hidden rounded bg-white-100 transition-transform active:scale-[.99] md:grid-cols-2"
         >
-          {blogpost?.image?.responsiveImage && (
-            <DatoSRCImage data={blogpost.image.responsiveImage} imgStyle={{ maxWidth: '100%' }} />
-          )}
+          {blogpost?.image?.responsiveImage && <ImageComponent image={blogpost.image} />}
           <div className="grid grid-rows-[auto,auto,1fr,auto] p-5 font-sans text-xs md:p-16 lg:text-base">
             <div className="text flex flex-row items-center gap-4 lg:text-xs">
               {blogpost?.author?.imagePortrait?.responsiveImage ? (

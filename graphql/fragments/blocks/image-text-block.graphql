@@ -4,6 +4,8 @@ fragment imageTextBlock on ImageTextRecord {
     responsiveImage(imgixParams: { w: 580, auto: format }) {
       ...responsiveImage
     }
+    url
+    alt
   }
   content {
     value

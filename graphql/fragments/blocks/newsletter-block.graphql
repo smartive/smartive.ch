@@ -15,5 +15,7 @@ fragment newsletterBlock on NewsletterRecord {
     responsiveImage(imgixParams: { fit: crop, w: 752, h: 752, auto: format }) {
       ...responsiveImage
     }
+    url
+    alt
   }
 }

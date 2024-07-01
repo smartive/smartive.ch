@@ -1,46 +1,38 @@
 import { ImageBlockFragment } from '@/graphql/generated';
 import { FC } from 'react';
-import { SRCImage as DatoSRCImage, ResponsiveImageType } from 'react-datocms';
+import { ImageComponent } from '../image';
 import { BlockWrapper } from '../layouts/block-wrapper';
 
 type Props = {
   block: ImageBlockFragment;
 };
 
-type ImageProps = {
-  image: ResponsiveImageType;
-  caption?: string;
-  priority?: boolean;
-};
-
-const Image: FC<ImageProps> = ({ image, caption, priority }) => (
-  <div>
-    <DatoSRCImage data={image} imgClassName="rounded" priority={priority} imgStyle={{ width: '100%', maxWidth: '100%' }} />
-    {caption && <p className="mt-2 text-xs italic">{caption}</p>}
-  </div>
-);
-
 export const ImageBlock: FC<Props> = ({ block: { images, priority } }) => {
   if (images.length === 1) {
-    const { id, title, responsiveImage } = images[0];
+    const image = images[0];
 
-    if (!responsiveImage) {
+    if (!image) {
       return null;
     }
 
     return (
       <BlockWrapper marginTop="small" marginBottom="small">
-        <Image key={id} image={responsiveImage} caption={title ?? undefined} priority={priority} />
+        <>
+          <ImageComponent key={image.id} image={image} priority={priority} imgClassName="rounded object-cover" />
+          {image?.title && <p className="mt-2 text-xs italic">{image.title}</p>}
+        </>
       </BlockWrapper>
     );
   } else if (images.length > 1) {
     return (
       <BlockWrapper marginTop="small" marginBottom="small">
         <div className="grid gap-2 sm:auto-cols-[minmax(0,_1fr)] sm:grid-flow-col sm:gap-8 xl:gap-16">
-          {images.map(
-            ({ id, title, responsiveImage }) =>
-              responsiveImage && <Image key={id} image={responsiveImage} caption={title ?? undefined} priority={priority} />,
-          )}
+          {images.map((image) => (
+            <div key={image.id}>
+              <ImageComponent key={image.id} image={image} priority={priority} imgClassName="rounded object-cover" />
+              {image?.title && <p className="mt-2 text-xs italic">{image.title}</p>}
+            </div>
+          ))}
         </div>
       </BlockWrapper>
     );

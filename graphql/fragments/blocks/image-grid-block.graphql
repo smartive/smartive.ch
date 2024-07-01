@@ -3,6 +3,7 @@ fragment imageGridBlock on ImageGridRecord {
   image1 {
     id
     title
+    url
     responsiveImage(imgixParams: { fit: crop, w: 720, h: 480, auto: format }) {
       ...responsiveImage
     }
@@ -10,6 +11,7 @@ fragment imageGridBlock on ImageGridRecord {
   image2 {
     id
     title
+    url
     responsiveImage(imgixParams: { fit: crop, w: 720, h: 480, auto: format }) {
       ...responsiveImage
     }
@@ -17,6 +19,7 @@ fragment imageGridBlock on ImageGridRecord {
   image3 {
     id
     title
+    url
     responsiveImage(imgixParams: { fit: crop, w: 720, h: 1024, auto: format }) {
       ...responsiveImage
     }
