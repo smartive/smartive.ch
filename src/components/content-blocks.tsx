@@ -1,10 +1,15 @@
 import {
+  BlogOverviewBlockFragment,
   BlogpostModelContentField,
   GalleryBlockFragment,
+  ImageTextBlockFragment,
   OfferModelContentField,
   PageModelContentField,
   ProjectModelContentField,
+  TextBlockFragment,
+  ThreeColsTextBlockFragment,
   TopicModelContentField,
+  TwoColsTextBlockFragment,
 } from '@/graphql/generated';
 import { FC } from 'react';
 import { BlogOverviewBlock } from './blocks/blog-overview';
@@ -45,11 +50,11 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => {
           case 'VideoRecord':
             return <VideoBlock key={block.id} block={block} />;
           case 'TextRecord':
-            return <TextBlock key={block.id} block={block} />;
+            return <TextBlock key={block.id} block={block as TextBlockFragment} />;
           case 'TwoColsTextRecord':
-            return <TwoColsTextBlock key={block.id} block={block} />;
+            return <TwoColsTextBlock key={block.id} block={block as TwoColsTextBlockFragment} />;
           case 'ThreeColsTextRecord':
-            return <ThreeColsTextBlock key={block.id} block={block} />;
+            return <ThreeColsTextBlock key={block.id} block={block as ThreeColsTextBlockFragment} />;
           case 'ImageRecord':
             return <ImageBlock key={block.id} block={block} />;
           case 'QuoteRecord':
@@ -57,7 +62,7 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => {
           case 'ContactRecord':
             return <ContactBlock key={block.id} block={block} />;
           case 'ImageTextRecord':
-            return <ImageTextBlock key={block.id} block={block} />;
+            return <ImageTextBlock key={block.id} block={block as ImageTextBlockFragment} />;
           case 'CustomRecord':
             return <CustomBlock key={block.id} block={block} />;
           case 'ImageGridRecord':
@@ -77,7 +82,7 @@ export const ContentBlocks: FC<Props> = ({ blocks }) => {
           case 'NewsletterRecord':
             return <NewsletterBlock key={block.id} block={block} />;
           case 'BlogOverviewRecord':
-            return <BlogOverviewBlock key={block.id} block={block} />;
+            return <BlogOverviewBlock key={block.id} block={block as BlogOverviewBlockFragment} />;
           case 'GalleryRecord':
             return <GalleryBlock key={block.id} block={block as unknown as GalleryBlockFragment} />; // Type assertion needed because we use aliases in the fragment
           default:

@@ -25,9 +25,9 @@ export async function generateMetadata({ params: { slug } }: Params) {
 }
 
 export async function generateStaticParams() {
-  const { pages } = await getAllDatoRoutes();
+  const routes = await getAllDatoRoutes({ pagesOnly: true });
 
-  return pages
+  return routes
     .filter(({ path }) => path !== '/') // We filter out the homepage
     .map(({ path }) => ({
       slug: path.split('/').filter(Boolean),

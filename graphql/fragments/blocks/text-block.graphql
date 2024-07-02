@@ -5,7 +5,29 @@ fragment textBlock on TextRecord {
     blocks {
       ... on LinkRecord {
         _modelApiKey
-        ...links
+        ...linkNode
+      }
+    }
+    links {
+      __typename
+      ... on BlogpostRecord {
+        id
+        slug
+      }
+      ... on OfferRecord {
+        id
+        slug
+      }
+      ... on TopicRecord {
+        id
+        slug
+      }
+      ... on ProjectRecord {
+        id
+        slug
+      }
+      ... on PageRecord {
+        ...pageRecordLink
       }
     }
   }

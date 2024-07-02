@@ -14,20 +14,25 @@ fragment teaserCard on TeaserCardRecord {
   }
   isExternalUrl
   link {
-    ... on PageRecord {
-      slug
-    }
-    ... on ProjectRecord {
+    __typename
+    ... on BlogpostRecord {
+      id
       slug
     }
     ... on OfferRecord {
-      slug
-    }
-    ... on BlogpostRecord {
+      id
       slug
     }
     ... on TopicRecord {
+      id
       slug
+    }
+    ... on ProjectRecord {
+      id
+      slug
+    }
+    ... on PageRecord {
+      ...pageRecordLink
     }
   }
 }

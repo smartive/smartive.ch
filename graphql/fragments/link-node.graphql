@@ -1,4 +1,4 @@
-fragment links on LinkRecord {
+fragment linkNode on LinkRecord {
   id
   label
   newTab

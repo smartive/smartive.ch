@@ -1,22 +1,6 @@
-import { AllRoutesDocument, AllRoutesQuery } from '@/graphql/generated';
+import { AllRoutesDocument } from '@/graphql/generated';
+import { generatePathForRecord } from './pathnames';
 import { queryDatoCMS } from './query-dato-cms';
-
-type PagePath = {
-  slug: string;
-  lastModified: string;
-  seometatags?: {
-    noIndex: boolean;
-  };
-  children: PagePath[];
-};
-
-type AllRoutes = {
-  pages: Route[];
-  blogposts: Route[];
-  offers: Route[];
-  projects: Route[];
-  topics: Route[];
-};
 
 type Route = {
   path: string;
@@ -24,68 +8,61 @@ type Route = {
   noIndex?: boolean;
 };
 
-const generatePagePathnames = (pages: PagePath[]): Route[] => {
-  const pathnames: Route[] = [];
-
-  const generatePathname = (
-    { slug, lastModified, seometatags, children }: PagePath,
-    currentPath: string,
-    currentPathname: string,
-  ) => {
-    const newPath = currentPath === '' ? `/${slug}` : `${currentPath}/${slug}`;
-    const newCurrentPathname = currentPathname === '' ? slug : `${currentPathname}/${slug}`;
-
-    pathnames.push({ path: newPath, lastModified, noIndex: seometatags?.noIndex });
-
-    if (children && children.length > 0) {
-      children.map((child) => generatePathname(child, newPath, newCurrentPathname));
-    }
-  };
-
-  pages.map((page) => generatePathname(page, '', ''));
-
-  // We replace /home with / because we redirect /home to / in next.config.js
-  const homeIndex = pathnames.findIndex(({ path }) => path === '/home');
-  if (homeIndex > -1) {
-    pathnames[homeIndex].path = '/';
-  }
-
-  return pathnames;
+type Options = {
+  includeDrafts?: boolean;
+  pagesOnly?: boolean;
 };
 
-const generatePathnames = (data: AllRoutesQuery): Omit<AllRoutes, 'pages'> => {
-  const { allBlogposts, allOffers, allProjects, allTopics } = data;
-
-  return {
-    blogposts: allBlogposts.map(({ slug, lastModified }) => ({ path: `/blog/${slug}`, lastModified })) || [],
-    offers: allOffers.map(({ slug, lastModified }) => ({ path: `/angebot/${slug}`, lastModified })) || [],
-    projects: allProjects.map(({ slug, lastModified }) => ({ path: `/projekte/${slug}`, lastModified })) || [],
-    topics: allTopics.map(({ slug, lastModified }) => ({ path: `/t/${slug}`, lastModified })) || [],
-  };
-};
-
-export const getAllDatoRoutes = async (includeDrafts = true): Promise<AllRoutes> => {
+export const getAllDatoRoutes = async ({ includeDrafts = true, pagesOnly = false }: Options = {}): Promise<Route[]> => {
   const data = await queryDatoCMS({
     document: AllRoutesDocument,
     includeDrafts,
   });
 
-  const { blogposts, offers, projects, topics } = generatePathnames(data);
+  const pages =
+    data.allPages.map(({ slug, lastModified, seometatags, parent }) => ({
+      path: generatePathForRecord({ slug, type: 'PageRecord', parent }),
+      lastModified,
+      noIndex: seometatags?.noIndex ?? undefined,
+    })) || [];
 
-  return {
-    pages: generatePagePathnames(data.allPages as PagePath[]),
-    blogposts,
-    offers,
-    projects,
-    topics,
-  };
-};
+  // We replace the /home path with / because the homepage is redirected in next.config.js
+  const homeIndex = pages.findIndex(({ path }) => path === '/home');
+  if (homeIndex > -1) {
+    pages[homeIndex].path = '/';
+  }
 
-export const getPathnameForSlug = async (slug: string): Promise<string | null> => {
-  const allRoutes = await getAllDatoRoutes(false);
-  const route = Object.values(allRoutes)
-    .flat()
-    .find((route) => route.path.split('/').pop() === slug);
+  const blogposts =
+    data.allBlogposts.map(({ slug, lastModified, seometatags }) => ({
+      path: generatePathForRecord({ slug, type: 'BlogpostRecord' }),
+      lastModified,
+      noIndex: seometatags?.noIndex ?? undefined,
+    })) || [];
 
-  return route?.path ?? null;
+  const offers =
+    data.allOffers.map(({ slug, lastModified, seometatags }) => ({
+      path: generatePathForRecord({ slug, type: 'OfferRecord' }),
+      lastModified,
+      noIndex: seometatags?.noIndex ?? undefined,
+    })) || [];
+
+  const projects =
+    data.allProjects.map(({ slug, lastModified, seometatags }) => ({
+      path: generatePathForRecord({ slug, type: 'ProjectRecord' }),
+      lastModified,
+      noIndex: seometatags?.noIndex ?? undefined,
+    })) || [];
+
+  const topics =
+    data.allTopics.map(({ slug, lastModified, seometatags }) => ({
+      path: generatePathForRecord({ slug, type: 'TopicRecord' }),
+      lastModified,
+      noIndex: seometatags?.noIndex ?? undefined,
+    })) || [];
+
+  if (pagesOnly) {
+    return pages;
+  }
+
+  return [...pages, ...blogposts, ...offers, ...projects, ...topics];
 };

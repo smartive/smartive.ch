@@ -1,0 +1,20 @@
+fragment pageRecordLink on PageRecord {
+  id
+  slug
+  parent {
+    id
+    slug
+    parent {
+      id
+      slug
+      parent {
+        id
+        slug
+        parent {
+          id
+          slug
+        }
+      }
+    }
+  }
+}

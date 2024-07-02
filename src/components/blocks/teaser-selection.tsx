@@ -5,7 +5,7 @@ import {
   TeaserCardFragment,
   TeaserSelectionRecord,
 } from '@/graphql/generated';
-import { getPathnameForSlug } from '@/utils/get-dato-routes';
+import { LinkableRecords, generatePathForRecord } from '@/utils/pathnames';
 import { FC } from 'react';
 import { Card, CardColors } from '../card';
 import { BlockWrapper } from '../layouts/block-wrapper';
@@ -15,14 +15,18 @@ type Props = {
   block: TeaserSelectionRecord;
 };
 
-const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragment | BlogpostCardFragment }> = async ({
+const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragment | BlogpostCardFragment }> = ({
   teaser,
 }) => {
   let internalLink: string | null = null;
 
   if (teaser.__typename === 'TeaserCardRecord') {
     if (!teaser.isExternalUrl && teaser.link?.slug) {
-      internalLink = await getPathnameForSlug(teaser.link?.slug);
+      internalLink = generatePathForRecord({
+        slug: teaser.link?.slug,
+        type: teaser.link.__typename as LinkableRecords,
+        parent: teaser.link.__typename === 'PageRecord' ? teaser.link.parent : undefined,
+      });
     }
   }
 
@@ -31,7 +35,7 @@ const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragmen
       return (
         <Card
           key={teaser.id}
-          link={`/projekte/${teaser.slug}`}
+          link={generatePathForRecord({ slug: teaser.slug, type: teaser.__typename })}
           linkTitle={`Projekt '${teaser.title}' ansehen`}
           linkLabel="Projekt anschauen"
           eyebrow={teaser.title}
@@ -43,7 +47,7 @@ const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragmen
       return (
         <Card
           key={teaser.id}
-          link={`/angebot/${teaser.slug}`}
+          link={generatePathForRecord({ slug: teaser.slug, type: teaser.__typename })}
           linkTitle={`Angebot '${teaser.title}' ansehen`}
           linkLabel={teaser.linkLabel}
           title={teaser.title}
@@ -71,7 +75,7 @@ const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragmen
       return (
         <Card
           key={teaser.id}
-          link={`/blog/${teaser.slug}`}
+          link={generatePathForRecord({ slug: teaser.slug, type: teaser.__typename })}
           linkTitle={`Beitrag '${teaser.title}' lesen`}
           linkLabel="Beitrag lesen"
           title={teaser.title}
@@ -90,6 +94,8 @@ const Teaser: FC<{ teaser: ProjectsFragment | OffersFragment | TeaserCardFragmen
 
 export const TeaserSelectionBlock: FC<Props> = ({ block: { teasers, disableMarginTop, disableMarginBottom } }) => (
   <BlockWrapper marginTop={disableMarginTop ? 'none' : 'large'} marginBottom={disableMarginBottom ? 'none' : 'large'}>
-    <Grid cols={teasers?.length ?? 3}>{teasers?.map((teaser) => <Teaser key={teaser.id} teaser={teaser} />)}</Grid>
+    <Grid cols={teasers?.length ?? 3}>
+      {teasers?.map((teaser) => <Teaser key={teaser.id} teaser={teaser as TeaserCardFragment} />)}
+    </Grid>
   </BlockWrapper>
 );

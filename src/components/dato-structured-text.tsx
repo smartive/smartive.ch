@@ -1,5 +1,6 @@
 import { ImageBlockFragment } from '@/graphql/generated';
 import { SmartiveColorsType } from '@/utils/color';
+import { LinkableRecords, PageRecord, generatePathForRecord } from '@/utils/pathnames';
 import { Copy, Decoration, Heading1, Heading2, Heading3, TextLink } from '@smartive/guetzli';
 import {
   StructuredText as StructuredTextType,
@@ -100,6 +101,21 @@ export const StructuredTextRenderer: FC<Props> = ({ data }) => (
             return null;
         }
       }}
+      renderLinkToRecord={({ record, children, transformedMeta }) => (
+        <TextLink
+          key={record.id}
+          href={
+            generatePathForRecord({
+              slug: record.slug as string,
+              type: record.__typename as LinkableRecords,
+              parent: record.parent as PageRecord,
+            }) ?? '#'
+          }
+          {...transformedMeta}
+        >
+          {children}
+        </TextLink>
+      )}
     />
   </div>
 );

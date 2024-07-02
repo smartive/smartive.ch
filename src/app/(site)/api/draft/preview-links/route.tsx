@@ -1,4 +1,5 @@
 import { getAllDatoRoutes } from '@/utils/get-dato-routes';
+import { generatePathForRecord } from '@/utils/pathnames';
 import { NextRequest, NextResponse } from 'next/server';
 
 type generatePreviewUrlParams = {
@@ -11,21 +12,21 @@ const generatePreviewUrl = async ({ item, itemType }: generatePreviewUrlParams) 
     case 'page':
       if (item.attributes.parent_id) {
         // page is a child of another page, so let's find the full slug (e.g. /agentur/lohnrechner)
-        const { pages } = await getAllDatoRoutes();
-        const page = pages.find(({ path }) => path.includes(item.attributes.slug));
+        const routes = await getAllDatoRoutes();
+        const route = routes.find(({ path }) => path.endsWith(`/${item.attributes.slug}`));
 
-        return page?.path ?? null;
+        return route?.path ?? null;
       }
 
       return `/${item.attributes.slug}`;
     case 'project':
-      return `/projekte/${item.attributes.slug}`;
+      return generatePathForRecord({ slug: item.attributes.slug, type: 'ProjectRecord' });
     case 'topic':
-      return `/t/${item.attributes.slug}`;
+      return generatePathForRecord({ slug: item.attributes.slug, type: 'TopicRecord' });
     case 'offer':
-      return `/angebot/${item.attributes.slug}`;
+      return generatePathForRecord({ slug: item.attributes.slug, type: 'OfferRecord' });
     case 'blogpost':
-      return `/blog/${item.attributes.slug}`;
+      return generatePathForRecord({ slug: item.attributes.slug, type: 'BlogpostRecord' });
     default:
       return null;
   }

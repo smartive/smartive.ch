@@ -1,13 +1,13 @@
 query AllRoutes {
-  allPages(filter: { parent: { exists: "false" } }, first: 100) {
+  allPages(first: 100) {
     ...pageDetails
-    children {
+    parent {
       ...pageDetails
-      children {
+      parent {
         ...pageDetails
-        children {
+        parent {
           ...pageDetails
-          children {
+          parent {
             ...pageDetails
           }
         }
@@ -17,26 +17,42 @@ query AllRoutes {
   allEmployees(first: 100) {
     slug
     lastModified: _updatedAt
+    seometatags {
+      noIndex
+    }
   }
   allBlogposts(first: 100) {
     slug
     lastModified: _updatedAt
+    seometatags {
+      noIndex
+    }
   }
   allOffers(first: 100) {
     slug
     lastModified: _updatedAt
+    seometatags {
+      noIndex
+    }
   }
   allProjects(first: 100) {
     slug
     lastModified: _updatedAt
+    seometatags {
+      noIndex
+    }
   }
   allTopics(first: 100) {
     slug
     lastModified: _updatedAt
+    seometatags {
+      noIndex
+    }
   }
 }
 
 fragment pageDetails on PageRecord {
+  id
   slug
   lastModified: _updatedAt
   seometatags {

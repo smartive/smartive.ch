@@ -5,7 +5,7 @@ fragment newsletterBlock on NewsletterRecord {
     blocks {
       ... on LinkRecord {
         _modelApiKey
-        ...links
+        ...linkNode
       }
     }
   }

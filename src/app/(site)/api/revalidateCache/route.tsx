@@ -23,9 +23,11 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       if (entity_slug === 'home') {
         revalidatePath('/');
       } else {
-        const allRoutes = await getAllDatoRoutes();
-        const route = allRoutes.pages.filter((route) => route.path.includes(entity_slug));
-        revalidatePath(route[0].path);
+        const routes = await getAllDatoRoutes();
+        const route = routes.find(({ path }) => path.endsWith(`/${entity_slug}`));
+        if (route?.path) {
+          revalidatePath(route.path);
+        }
       }
     }
 
