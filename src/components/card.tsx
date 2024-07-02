@@ -92,9 +92,9 @@ export const Card: FC<Props> = ({
         )}
         <div>
           <Heading3>{title}</Heading3>
-          {description && <p>{description}</p>}
+          {description && <p className="mb-2 lg:mb-4">{description}</p>}
         </div>
-        <div className="lg:mt-4">
+        <div>
           <span className="border-b-2">{linkLabel ? linkLabel : 'Anschauen'}</span>
         </div>
       </div>
