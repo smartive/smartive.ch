@@ -61,6 +61,9 @@
     { "source": "/sommerfest", "destination": "/events" },
     { "source": "/sommerfest/2023", "destination": "/events/sommerfest-2023" },
     { "source": "/sommerfest/2024", "destination": "/events/sommerfest-2024" },
-    { "source": "/sg/fotos", "destination": "/events/eroeffnung-sg" }
+    { "source": "/sg/fotos", "destination": "/events/eroeffnung-sg" },
+    { "source": "/sg", "destination": "/events/eroeffnung-sg" },
+    { "source": "/angebot/app", "destination": "/angebot/app-entwicklung" },
+    { "source": "/chur", "destination": "/events/eroeffnung-chur" }
   ]
 }
